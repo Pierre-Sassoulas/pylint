@@ -36,6 +36,14 @@ expected_result = [
 ]
 
 
+def test_simple_json_output_with_score():
+    report = get_linter_result(score=True)
+    assert len(report) == 2
+    report_result = [sorted(report[0].items(), key=lambda item: item[0])]
+    assert report_result == expected_result
+    assert report[1] == {"score": expected_score_message}
+
+
 def test_simple_json_output_no_score():
     report = get_linter_result(score=False)
     assert len(report) == 1
