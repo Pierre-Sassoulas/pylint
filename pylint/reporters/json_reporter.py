@@ -54,8 +54,9 @@ class JSONReporter(BaseReporter):
     def display_reports(self, layout):
         output = io.StringIO()
         TextWriter().format(layout, output)
-        score = output.getvalue().split("\n")[1]
-        self.messages.append({"score": score})
+        score = output.getvalue().split("Your")[1]
+        score = score.split(r"/10")[0]
+        self.messages.append({"score": "Your{}/10".format(score)})
 
     def _display(self, layout):
         """Do nothing."""
