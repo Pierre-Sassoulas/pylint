@@ -41,7 +41,7 @@ import sys
 import textwrap
 import warnings
 from io import StringIO
-from os.path import abspath, dirname, join
+from pathlib import Path
 from unittest import mock
 
 import pytest
@@ -52,8 +52,8 @@ from pylint.reporters import JSONReporter
 from pylint.reporters.text import BaseReporter, ColorizedTextReporter, TextReporter
 from pylint.utils import utils
 
-HERE = abspath(dirname(__file__))
-CLEAN_PATH = re.escape(dirname(dirname(__file__)) + "/")
+HERE = Path(__file__).parent
+CLEAN_PATH = re.escape("{}/".format(HERE.parent))
 
 
 @contextlib.contextmanager
@@ -132,7 +132,7 @@ class TestRunTC:
 
     @staticmethod
     def _run_pylint(args, out, reporter=None):
-        args = args + ["--persistent=no"]
+        args = [str(a) for a in args] + ["--persistent=no"]
         with _patch_streams(out):
             with pytest.raises(SystemExit) as cm:
                 with warnings.catch_warnings():
@@ -164,20 +164,20 @@ class TestRunTC:
             JSONReporter(StringIO()),
         ]
         self._runtest(
-            [join(HERE, "functional", "a", "arguments.py")],
+            [HERE / "functional/a/arguments.py"],
             reporter=MultiReporter(reporters),
             code=2,
         )
 
     def test_no_ext_file(self):
-        self._runtest([join(HERE, "input", "noext")], code=0)
+        self._runtest([HERE / "input" / "noext"], code=0)
 
     def test_w0704_ignored(self):
-        self._runtest([join(HERE, "input", "ignore_except_pass_by_default.py")], code=0)
+        self._runtest([HERE / "input" / "ignore_except_pass_by_default.py"], code=0)
 
     def test_exit_zero(self):
         self._runtest(
-            ["--exit-zero", join(HERE, "regrtest_data", "syntax_error.py")], code=0
+            ["--exit-zero", HERE / "regrtest_data" / "syntax_error.py"], code=0
         )
 
     def test_generate_config_option(self):
@@ -193,12 +193,9 @@ class TestRunTC:
         assert output1 == output2
 
     def test_generate_config_disable_symbolic_names(self):
-        # Test that --generate-rcfile puts symbolic names in the --disable
-        # option.
-
+        """Test that --generate-rcfile puts symbolic names in the --disable option."""
         out = StringIO()
         self._run_pylint(["--generate-rcfile", "--rcfile="], out=out)
-
         output = out.getvalue()
         # Get rid of the pesky messages that pylint emits if the
         # configuration file is not found.
@@ -237,22 +234,16 @@ class TestRunTC:
         strio = StringIO()
         assert strio.encoding is None
         self._runtest(
-            [join(HERE, "regrtest_data", "no_stdout_encoding.py"), "--enable=all"],
+            [HERE / "regrtest_data/no_stdout_encoding.py", "--enable=all"],
             out=strio,
             code=28,
         )
 
     def test_parallel_execution(self):
+        """We expect similarities to fail and an error"""
         out = StringIO()
-        self._runtest(
-            [
-                "-j 2",
-                join(HERE, "functional", "a", "arguments.py"),
-            ],
-            out=out,
-            # We expect similarities to fail and an error
-            code=MSG_TYPES_STATUS["E"],
-        )
+        options = ["-j 2", HERE / "functional/a/arguments.py"]
+        self._runtest(options, out=out, code=MSG_TYPES_STATUS["E"])
         assert (
             "Unexpected keyword argument 'fourth' in function call"
             in out.getvalue().strip()
@@ -265,14 +256,14 @@ class TestRunTC:
         # Test that --py3k flag works.
         rc_code = 0
         self._runtest(
-            [join(HERE, "functional", "u", "unnecessary_lambda.py"), "--py3k"],
+            [HERE / "functional/u/unnecessary_lambda.py", "--py3k"],
             code=rc_code,
         )
 
     def test_py3k_jobs_option(self):
         rc_code = 0
         self._runtest(
-            [join(HERE, "functional", "u", "unnecessary_lambda.py"), "--py3k", "-j 2"],
+            [HERE / "functional/u/unnecessary_lambda.py", "--py3k", "-j 2"],
             code=rc_code,
         )
 
@@ -281,7 +272,7 @@ class TestRunTC:
         self._test_output([".", "--load-plugin"], expected_output=expected)
 
     def test_enable_all_works(self):
-        module = join(HERE, "data", "clientmodule_test.py")
+        module = HERE / "data/clientmodule_test.py"
         expected = textwrap.dedent(
             """
         ************* Module data.clientmodule_test
@@ -297,8 +288,8 @@ class TestRunTC:
         )
 
     def test_wrong_import_position_when_others_disabled(self):
-        module1 = join(HERE, "regrtest_data", "import_something.py")
-        module2 = join(HERE, "regrtest_data", "wrong_import_position.py")
+        module1 = HERE / "regrtest_data/import_something.py"
+        module2 = HERE / "regrtest_data/wrong_import_position.py"
         expected_output = textwrap.dedent(
             """
         ************* Module wrong_import_position
@@ -330,19 +321,19 @@ class TestRunTC:
 
     def test_import_itself_not_accounted_for_relative_imports(self):
         expected = "Your code has been rated at 10.00/10"
-        package = join(HERE, "regrtest_data", "dummy")
+        package = HERE / "regrtest_data/dummy"
         self._test_output(
             [package, "--disable=locally-disabled", "-rn"], expected_output=expected
         )
 
     def test_reject_empty_indent_strings(self):
         expected = "indent string can't be empty"
-        module = join(HERE, "data", "clientmodule_test.py")
+        module = HERE / "data/clientmodule_test.py"
         self._test_output([module, "--indent-string="], expected_output=expected)
 
     def test_json_report_when_file_has_syntax_error(self):
         out = StringIO()
-        module = join(HERE, "regrtest_data", "syntax_error.py")
+        module = HERE / "regrtest_data/syntax_error.py"
         self._runtest([module], code=2, reporter=JSONReporter(out))
         output = json.loads(out.getvalue())
         assert isinstance(output, list)
@@ -372,7 +363,7 @@ class TestRunTC:
 
     def test_json_report_when_file_is_missing(self):
         out = StringIO()
-        module = join(HERE, "regrtest_data", "totally_missing.py")
+        module = HERE / "regrtest_data/totally_missing.py"
         self._runtest([module], code=1, reporter=JSONReporter(out))
         output = json.loads(out.getvalue())
         assert isinstance(output, list)
@@ -394,7 +385,7 @@ class TestRunTC:
 
     def test_json_report_does_not_escape_quotes(self):
         out = StringIO()
-        module = join(HERE, "regrtest_data", "unused_variable.py")
+        module = HERE / "regrtest_data/unused_variable.py"
         self._runtest([module], code=4, reporter=JSONReporter(out))
         output = json.loads(out.getvalue())
         assert isinstance(output, list)
@@ -416,11 +407,11 @@ class TestRunTC:
 
     def test_information_category_disabled_by_default(self):
         expected = "Your code has been rated at 10.00/10"
-        path = join(HERE, "regrtest_data", "meta.py")
+        path = HERE / "regrtest_data/meta.py"
         self._test_output([path], expected_output=expected)
 
     def test_error_mode_shows_no_score(self):
-        module = join(HERE, "regrtest_data", "application_crash.py")
+        module = HERE / "regrtest_data/application_crash.py"
         expected_output = textwrap.dedent(
             """
         ************* Module application_crash
@@ -433,29 +424,29 @@ class TestRunTC:
 
     def test_evaluation_score_shown_by_default(self):
         expected_output = "Your code has been rated at "
-        module = join(HERE, "regrtest_data", "application_crash.py")
+        module = HERE / "regrtest_data/application_crash.py"
         self._test_output([module], expected_output=expected_output)
 
     def test_confidence_levels(self):
         expected = "Your code has been rated at"
-        path = join(HERE, "regrtest_data", "meta.py")
+        path = HERE / "regrtest_data/meta.py"
         self._test_output(
             [path, "--confidence=HIGH,INFERENCE"], expected_output=expected
         )
 
     def test_bom_marker(self):
-        path = join(HERE, "regrtest_data", "meta.py")
-        config_path = join(HERE, "regrtest_data", ".pylintrc")
+        path = HERE / "regrtest_data/meta.py"
+        config_path = HERE / "regrtest_data/.pylintrc"
         expected = "Your code has been rated at 10.00/10"
         self._test_output(
             [path, "--rcfile=%s" % config_path, "-rn"], expected_output=expected
         )
 
     def test_pylintrc_plugin_duplicate_options(self):
-        dummy_plugin_path = join(HERE, "regrtest_data", "dummy_plugin")
+        dummy_plugin_path = HERE / "regrtest_data/dummy_plugin"
         # Enable --load-plugins=dummy_plugin
         sys.path.append(dummy_plugin_path)
-        config_path = join(HERE, "regrtest_data", "dummy_plugin.rc")
+        config_path = HERE / "regrtest_data/dummy_plugin.rc"
         expected = (
             ":dummy-message-01 (I9061): *Dummy short desc 01*\n"
             "  Dummy long desc This message belongs to the dummy_plugin checker.\n\n"
@@ -479,8 +470,8 @@ class TestRunTC:
         sys.path.remove(dummy_plugin_path)
 
     def test_pylintrc_comments_in_values(self):
-        path = join(HERE, "regrtest_data", "test_pylintrc_comments.py")
-        config_path = join(HERE, "regrtest_data", "comments_pylintrc")
+        path = HERE / "regrtest_data/test_pylintrc_comments.py"
+        config_path = HERE / "regrtest_data/comments_pylintrc"
         expected = textwrap.dedent(
             """
         ************* Module test_pylintrc_comments
@@ -501,7 +492,7 @@ class TestRunTC:
         )
 
     def test_getdefaultencoding_crashes_with_lc_ctype_utf8(self):
-        module = join(HERE, "regrtest_data", "application_crash.py")
+        module = HERE / "regrtest_data/application_crash.py"
         expected_output = textwrap.dedent(
             """
         {}:1:6: E0602: Undefined variable 'something_undefined' (undefined-variable)
@@ -515,16 +506,14 @@ class TestRunTC:
     @pytest.mark.skipif(sys.platform == "win32", reason="only occurs on *nix")
     def test_parseable_file_path(self):
         file_name = "test_target.py"
-        fake_path = HERE + os.getcwd()
-        module = join(fake_path, file_name)
-
+        fake_path = HERE / os.getcwd()
+        module = fake_path / file_name
         try:
             # create module under directories which have the same name as reporter.path_strip_prefix
             # e.g. /src/some/path/src/test_target.py when reporter.path_strip_prefix = /src/
             os.makedirs(fake_path)
             with open(module, "w") as test_target:
                 test_target.write("a,b = object()")
-
             self._test_output(
                 [module, "--output-format=parseable"], expected_output=file_name
             )
@@ -535,7 +524,9 @@ class TestRunTC:
     @pytest.mark.parametrize(
         "input_path,module,expected_path",
         [
-            (join(HERE, "mymodule.py"), "mymodule", join(HERE, "mymodule.py")),
+            HERE / "mymodule.py",
+            "mymodule",
+            HERE / "mymodule.py",
             ("mymodule.py", "mymodule", "mymodule.py"),
         ],
     )
@@ -604,7 +595,7 @@ class TestRunTC:
                 self._test_output(
                     [
                         "--from-stdin",
-                        join("a", "b.py"),
+                        Path("a") / "b.py",
                         "--disable=all",
                         "--enable=import-error",
                     ],
@@ -646,7 +637,7 @@ class TestRunTC:
                 "--fail-under",
                 "5",
                 "--enable=all",
-                join(HERE, "regrtest_data", "fail_under_plus6.py"),
+                HERE / "regrtest_data/fail_under_plus6.py",
             ],
             code=0,
         )
@@ -655,7 +646,7 @@ class TestRunTC:
                 "--fail-under",
                 "6",
                 "--enable=all",
-                join(HERE, "regrtest_data", "fail_under_plus6.py"),
+                HERE / "regrtest_data/fail_under_plus6.py",
             ],
             code=0,
         )
@@ -664,7 +655,7 @@ class TestRunTC:
                 "--fail-under",
                 "5.5",
                 "--enable=all",
-                join(HERE, "regrtest_data", "fail_under_plus6.py"),
+                HERE / "regrtest_data/fail_under_plus6.py",
             ],
             code=0,
         )
@@ -673,7 +664,7 @@ class TestRunTC:
                 "--fail-under",
                 "7",
                 "--enable=all",
-                join(HERE, "regrtest_data", "fail_under_plus6.py"),
+                HERE / "regrtest_data/fail_under_plus6.py",
             ],
             code=16,
         )
@@ -682,7 +673,7 @@ class TestRunTC:
                 "--fail-under",
                 "6.7",
                 "--enable=all",
-                join(HERE, "regrtest_data", "fail_under_plus6.py"),
+                HERE / "regrtest_data/fail_under_plus6.py",
             ],
             code=16,
         )
@@ -692,7 +683,7 @@ class TestRunTC:
                 "--fail-under",
                 "0",
                 "--enable=all",
-                join(HERE, "regrtest_data", "fail_under_minus6.py"),
+                HERE / "regrtest_data/fail_under_minus6.py",
             ],
             code=22,
         )
@@ -701,7 +692,7 @@ class TestRunTC:
                 "--fail-under",
                 "-10",
                 "--enable=all",
-                join(HERE, "regrtest_data", "fail_under_plus6.py"),
+                HERE / "regrtest_data/fail_under_plus6.py",
             ],
             code=0,
         )
@@ -801,12 +792,12 @@ class TestRunTC:
             )
 
     def test_jobs_score(self):
-        path = join(HERE, "regrtest_data", "unused_variable.py")
+        path = HERE / "regrtest_data/unused_variable.py"
         expected = "Your code has been rated at 7.50/10"
         self._test_output([path, "--jobs=2", "-ry"], expected_output=expected)
 
     def test_duplicate_code_raw_strings(self):
-        path = join(HERE, "regrtest_data", "duplicate_data_raw_strings")
+        path = HERE / "regrtest_data/duplicate_data_raw_strings"
         expected_output = "Similar lines in 2 files"
         self._test_output(
             [path, "--disable=all", "--enable=duplicate-code"],
@@ -816,7 +807,5 @@ class TestRunTC:
     def test_regression_parallel_mode_without_filepath(self):
         # Test that parallel mode properly passes filepath
         # https://github.com/PyCQA/pylint/issues/3564
-        path = join(
-            HERE, "regrtest_data", "regression_missing_init_3564", "subdirectory/"
-        )
+        path = HERE / "regrtest_data/regression_missing_init_3564/subdirectory/"
         self._test_output([path, "-j2"], expected_output="No such file or directory")
