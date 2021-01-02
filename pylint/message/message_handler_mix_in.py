@@ -21,9 +21,7 @@ from pylint.utils import get_module_and_frameid, get_rst_section, get_rst_title
 
 
 class MessagesHandlerMixIn:
-    """a mix-in class containing all the messages related methods for the main
-    lint class
-    """
+    """A mix-in class containing all the messages related methods for the main lint class."""
 
     __by_id_managed_msgs = []  # type: ignore
 
@@ -63,7 +61,7 @@ class MessagesHandlerMixIn:
             pass
 
     def disable(self, msgid, scope="package", line=None, ignore_unknown=False):
-        """don't output message of the given id"""
+        """Don't output message of the given id"""
         self._set_msg_status(
             msgid, enable=False, scope=scope, line=line, ignore_unknown=ignore_unknown
         )
