@@ -47,18 +47,15 @@ class ByIdManagedMessagesChecker(BaseChecker):
     }
     options = ()
 
-    def process_module(self, module):
+    def process_module(self, _):
         """Inspect the source file to find messages activated or deactivated by id."""
         managed_msgs = MessagesHandlerMixIn.get_by_id_managed_msgs()
-        for (mod_name, msg_id, msg_symbol, lineno, is_disabled) in managed_msgs:
-            if mod_name == module.name:
-                verb = "disable" if is_disabled else "enable"
-                txt = (
-                    "Id '{ident}' is used to {verb} '{symbol}' message emission".format(
-                        ident=msg_id, symbol=msg_symbol, verb=verb
-                    )
-                )
-                self.add_message("use-symbolic-message-instead", line=lineno, args=txt)
+        for msg_definition, lineno, is_disabled in managed_msgs:
+            action = "disable=" if is_disabled else "enable="
+            txt = "Consider replacing pylint's '{verb}{msgid}' by '{verb}{symbol}' for clarity".format(
+                msgid=msg_definition.msgid, symbol=msg_definition.symbol, verb=action
+            )
+            self.add_message("use-symbolic-message-instead", line=lineno, args=txt)
         MessagesHandlerMixIn.clear_by_id_managed_msgs()
 
 
