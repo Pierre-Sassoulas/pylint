@@ -9,13 +9,13 @@ I: 12: Locally disabling invalid-name (C0103)
 I: 12: Pragma "disable-msg" is deprecated, use "disable" instead
 I: 13: Suppressed 'invalid-name' (from line 12)
 I: 14: Pragma "enable-msg" is deprecated, use "enable" instead
-I: 16: Id 'C0103' is used to disable 'invalid-name' message emission
+I: 16: Consider replacing pylint's 'disable=C0103' by 'disable=invalid-name' for clarity
 I: 16: Locally disabling invalid-name (C0103)
 I: 16: Pragma "disable-msg" is deprecated, use "disable" instead
 I: 17: Suppressed 'invalid-name' (from line 16)
-I: 18: Id 'C0103' is used to enable 'invalid-name' message emission
+I: 18: Consider replacing pylint's 'enable=C0103' by 'enable=invalid-name' for clarity
 I: 18: Pragma "enable-msg" is deprecated, use "enable" instead
-I: 20: Id 'C0103' is used to disable 'invalid-name' message emission
+I: 20: Consider replacing pylint's 'disable=C0103' by 'disable=invalid-name' for clarity
 I: 20: Locally disabling invalid-name (C0103)
 I: 21: Suppressed 'invalid-name' (from line 20)
-I: 22: Id 'C0103' is used to enable 'invalid-name' message emission
+I: 22: Consider replacing pylint's 'enable=C0103' by 'enable=invalid-name' for clarity

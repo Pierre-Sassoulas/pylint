@@ -41,11 +41,12 @@ class MessagesHandlerMixIn:
     def get_by_id_managed_msgs(cls):
         return cls.__by_id_managed_msgs
 
-    @classmethod
-    def __add_managed_by_id(cls, message_definition, line, is_disabled):
+    def __add_managed_by_id(self, message_definition, line, is_disabled):
         if line is None:
             line = 0
-        cls.__by_id_managed_msgs.append((message_definition, line, is_disabled))
+        MessagesHandlerMixIn.__by_id_managed_msgs.append(
+            (self.current_name, message_definition, line, is_disabled)
+        )
 
     def _register_by_id_managed_msg(self, msgid, line, is_disabled=True):
         """If the msgid is a numeric one, then register it to inform the user
@@ -55,7 +56,7 @@ class MessagesHandlerMixIn:
         except UnknownMessageError:
             return
         for message_definition in message_definitions:
-            if msgid != message_definition.symbol:
+            if msgid == message_definition.msgid:
                 self.__add_managed_by_id(message_definition, line, is_disabled)
 
     def disable(self, msgid, scope="package", line=None, ignore_unknown=False):

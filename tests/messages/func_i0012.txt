@@ -1,1 +1,1 @@
-I:  1: Id 'W0404' is used to enable 'reimported' message emission
+I:  1: Consider replacing pylint's 'enable=W0404' by 'enable=reimported' for clarity
