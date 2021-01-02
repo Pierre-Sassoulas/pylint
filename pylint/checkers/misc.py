@@ -34,11 +34,9 @@ from pylint.utils.pragma_parser import OPTION_PO, PragmaParserError, parse_pragm
 
 class ByIdManagedMessagesChecker(BaseChecker):
 
-    """checks for messages that are enabled or disabled by id instead of symbol."""
+    """Checks for messages that are enabled or disabled by id instead of symbol."""
 
     __implements__ = IRawChecker
-
-    # configuration section name
     name = "miscellaneous"
     msgs = {
         "I0023": (
@@ -47,11 +45,10 @@ class ByIdManagedMessagesChecker(BaseChecker):
             "Used when a message is enabled or disabled by id.",
         )
     }
-
     options = ()
 
     def process_module(self, module):
-        """inspect the source file to find messages activated or deactivated by id."""
+        """Inspect the source file to find messages activated or deactivated by id."""
         managed_msgs = MessagesHandlerMixIn.get_by_id_managed_msgs()
         for (mod_name, msg_id, msg_symbol, lineno, is_disabled) in managed_msgs:
             if mod_name == module.name:
