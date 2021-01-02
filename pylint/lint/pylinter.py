@@ -811,7 +811,7 @@ class PyLinter(
 
         :param str modname: The name of the module to be checked.
         :param str path: The full path to the source code of the module.
-        :param bool is_argument: Whetter the file is an argument to pylint or not.
+        :param bool is_argument: Whether the file is an argument to pylint or not.
                                  Files which respect this property are always
                                  checked, since the user requested it explicitly.
         :returns: True if the module should be checked.
@@ -839,18 +839,14 @@ class PyLinter(
 
         files_or_modules is either a string or list of strings presenting modules to check.
         """
-
         self.initialize()
-
         if not isinstance(files_or_modules, (list, tuple)):
             files_or_modules = (files_or_modules,)
-
         if self.config.from_stdin:
             if len(files_or_modules) != 1:
                 raise exceptions.InvalidArgsError(
                     "Missing filename required for --from-stdin"
                 )
-
             filepath = files_or_modules[0]
             with fix_import_path(files_or_modules):
                 self._check_files(
