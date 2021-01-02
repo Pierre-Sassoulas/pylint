@@ -46,19 +46,19 @@ class MessagesHandlerMixIn:
         it could furnish instead a symbolic msgid."""
         try:
             message_definitions = self.msgs_store.get_message_definitions(msgid)
-            for message_definition in message_definitions:
-                if msgid == message_definition.msgid:
-                    MessagesHandlerMixIn.__by_id_managed_msgs.append(
-                        (
-                            self.current_name,
-                            message_definition.msgid,
-                            message_definition.symbol,
-                            line,
-                            is_disabled,
-                        )
-                    )
         except UnknownMessageError:
-            pass
+            return
+        for message_definition in message_definitions:
+            if msgid == message_definition.msgid:
+                MessagesHandlerMixIn.__by_id_managed_msgs.append(
+                    (
+                        self.current_name,
+                        message_definition.msgid,
+                        message_definition.symbol,
+                        line,
+                        is_disabled,
+                    )
+                )
 
     def disable(self, msgid, scope="package", line=None, ignore_unknown=False):
         self._set_msg_status(
