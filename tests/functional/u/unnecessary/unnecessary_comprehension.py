@@ -4,6 +4,7 @@
 # List comprehensions
 [x for x in iterable]  # [unnecessary-comprehension]
 [y for x in iterable]  # expression != target_list
+
 [x for x, y, z in iterable]  # expression != target_list
 [(x, y, z) for x, y, z in iterable]  # [unnecessary-comprehension]
 [(x, y, z) for (x, y, z) in iterable]  # [unnecessary-comprehension]
@@ -15,6 +16,14 @@
 # Test case for issue #4499
 a_dict = {}
 item = [(k, v) for k, v in a_dict.items()]  # [unnecessary-comprehension]
+any([True for x in iterable if x])  # [use-a-generator]
+any(  # [use-a-generator]
+    [True for b in iterable if isinstance(b, str) and b == "type"]
+)
+any(True for x in iterable if x)  # [unnecessary-comprehension]
+any(
+    True for b in iterable if isinstance(b, str) and b == "type"  # [unnecessary-comprehension]
+)
 
 # Set comprehensions
 {x for x in iterable}  # [unnecessary-comprehension]
