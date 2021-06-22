@@ -7,7 +7,7 @@ import typing
 from enum import Enum
 from typing import ClassVar
 
-GOOD_CONST_NAME = ''
+GOOD_CONST_NAME = ""
 bad_const_name = 0  # [invalid-name]
 
 
@@ -41,8 +41,8 @@ class CorrectClassName:
         self._Bad_AtTR_name = None  # [invalid-name]
         self.Bad_PUBLIC_name = None  # [invalid-name]
 
-    zz = 'Why Was It Bad Class Attribute?'
-    GOOD_CLASS_ATTR = 'Good Class Attribute'
+    zz = "Why Was It Bad Class Attribute?"
+    GOOD_CLASS_ATTR = "Good Class Attribute"
 
     def BadMethodName(self):  # [invalid-name]
         """A Method with a bad name."""
@@ -59,7 +59,8 @@ class DerivedFromCorrect(CorrectClassName):
 
     Derived attributes and methods with invalid names do not trigger warnings.
     """
-    zz = 'Now a good class attribute'
+
+    zz = "Now a good class attribute"
 
     def __init__(self):
         super().__init__()
@@ -69,7 +70,10 @@ class DerivedFromCorrect(CorrectClassName):
         """Ignored since the method is in the interface."""
 
 
-V = [WHAT_Ever_inListComp for WHAT_Ever_inListComp in GOOD_CONST_NAME]
+proper_snake_case_var = [
+    WHAT_Ever_inListComp for WHAT_Ever_inListComp in GOOD_CONST_NAME
+]
+
 
 def class_builder():
     """Function returning a class object."""
@@ -79,11 +83,12 @@ def class_builder():
 
     return EmbeddedClass
 
+
 # +1:[invalid-name]
-BAD_NAME_FOR_CLASS = collections.namedtuple('Named', ['tuple'])
+BAD_NAME_FOR_CLASS = collections.namedtuple("Named", ["tuple"])
 NEXT_BAD_NAME_FOR_CLASS = class_builder()  # [invalid-name]
 
-GoodName = collections.namedtuple('Named', ['tuple'])
+GoodName = collections.namedtuple("Named", ["tuple"])
 ToplevelClass = class_builder()
 
 # Aliases for classes have the same name constraints.
@@ -106,6 +111,7 @@ class FooClass:
     for method names, we check the warning messages to contain the
     string 'attribute'.
     """
+
     @property
     def PROPERTY_NAME(self):  # [invalid-name]
         """Ignored."""
@@ -137,22 +143,34 @@ def _private_scope_function_with_long_descriptive_name():
     """Private scope function are cool with long descriptive names"""
     return 12
 
+
 LONG_CONSTANT_NAME_IN_PUBLIC_SCOPE_ARE_OKAY = True
 # We don't emit for non-const nodes
 good_name_for_funcs = lambda: None
 good_name_for_lists = [1, 2, 3]
+# We should still emit for really wrong name see
+# https://github.com/PyCQA/pylint/issues/3585
+helloWorld = True  # [invalid-name] should be HELLO_WORLD
+goodbyeWorld = {}  # [invalid-name] should be goodbye_world
+V = [WHAT_Ever_inListComp for WHAT_Ever_inListComp in GOOD_CONST_NAME]  # [invalid-name]
+
 
 class _AnExceptionalExceptionThatOccursVeryVeryRarely(Exception):
     """A very exceptional exception with a nice descriptive name"""
+
     pass
+
 
 class FooEnum(Enum):
     """A test case for enum names."""
+
     GOOD_ENUM_NAME = 1
     bad_enum_name = 2  # [invalid-name]
 
+
 class Bar:
     """Class with class variables annotated with ClassVar."""
+
     CLASS_CONST: ClassVar[int] = 42
     CLASS_CONST2: ClassVar = "const"
     variable: ClassVar[str] = "invalid name"
