@@ -1,0 +1,82 @@
+name: False negative
+description: Report a warning that should not be raised by pylint
+title: "False negative: "
+labels: [false-negative, need triage]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Hi there! Thank you for discovering and submitting an issue.
+        Before you submit this, make sure that the issue doesn't already exist or if it is not closed.
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What code is giving a false positive ?
+      description: Also tell us, what did you expect to happen?
+      placeholder: |
+        ### Steps to reproduce
+
+        Given a file `a.py`:
+        ```python
+        # (Disable message unrelated to the bug)
+        # pylint: disable=missing-docstring,...
+
+        ```
+
+        Given multiple files:
+        ```
+        __init__.py
+        a.py
+        module\
+            __init__.py
+            b.py
+            c.py
+
+        ### Current behavior
+
+        Result of `pylint a.py`:
+        ```
+
+        ```
+
+        ### Expected behavior
+    validations:
+      required: true
+  - type: dropdown
+    id: version
+    attributes:
+      label: Version
+      description: What version of our software are you running?
+      options:
+        - 1.0.2 (Default)
+        - 1.0.3 (Edge)
+    validations:
+      required: true
+  - type: dropdown
+    id: os
+    attributes:
+      label: What OS were you using when you encountered the problem ?
+      multiple: true
+      options:
+        - Mac
+        - Pc
+        - Linux
+        - Other
+  - type: textarea
+    id: version
+    attributes:
+      label: "``pylint --version`` output"
+      description: Please copy and paste the result
+      render: shell
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What code is giving a false positive ?
+      description: Also tell us, what did you expect to happen?
+      placeholder: |
+        Additional dependencies:
+        ```
+        pandas==0.23.2
+        marshmallow==3.10.0
+        ...
+        ```
