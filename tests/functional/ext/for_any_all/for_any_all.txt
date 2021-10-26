@@ -12,3 +12,4 @@ consider-using-any-or-all:83:4:85:24:is_from_decorator2:`for` loop could be `all
 consider-using-any-or-all:90:4:95:23:is_from_decorator3:`for` loop could be `not all(ancestor.name in ('Exception', 'BaseException') and ancestor.root().name == 'Exception' for ancestor in node)`:HIGH
 consider-using-any-or-all:152:4:155:17:optimized_any_with_break:`for` loop could be `not any(len(line) > max_chars for line in split_lines)`:HIGH
 consider-using-any-or-all:160:4:162:48:optimized_any_without_break:`for` loop could be `not any(len(line) > max_chars for line in split_lines)`:HIGH
+consider-using-any-or-all:244:4:249:24:double_not:`for` loop could be `not any(keyword not in call.args and keyword not in definition.kwonlyargs for keyword in call.kws)`:HIGH

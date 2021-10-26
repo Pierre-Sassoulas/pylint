@@ -236,3 +236,15 @@ def iterate_leaves(leaves, current_node):
         else:
             results.append(leaf)
     return results
+
+def double_not(call, definition):
+    """ Check that we're not suggesting 'not any(keyword not in ...)'
+    but 'all(keyword in ...)' instead.
+    """
+    for keyword in call.kws:  # [consider-using-any-or-all]
+        if keyword not in call.args and keyword not in definition.kwonlyargs:
+            # Maybe this argument goes into **kwargs, or it is an extraneous argument.
+            # In any case, the signature is different from the call site, which stops
+            # our search.
+            return False
+    return True
