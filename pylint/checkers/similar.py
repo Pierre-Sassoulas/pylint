@@ -740,7 +740,7 @@ class LineSet:
 
 MSGS: dict[str, MessageDefinitionTuple] = {
     "R0801": (
-        "Similar lines in %s files\n%s",
+        "%s similar lines in %s files\n%s",
         "duplicate-code",
         "Indicates that a set of similar lines has been detected "
         "among multiple file. This usually means that the code should "
@@ -875,8 +875,9 @@ class SimilarChecker(BaseRawFileChecker, Similar):
             if lineset:
                 for line in lineset.real_lines[start_line:end_line]:
                     msg.append(line.rstrip())
-
-            self.add_message("R0801", args=(len(couples), "\n".join(msg)))
+            self.add_message(
+                "duplicate-code", args=(len(msg) - 2, len(couples), "\n".join(msg))
+            )
             duplicated += num * (len(couples) - 1)
         stats.nb_duplicated_lines += int(duplicated)
         stats.percent_duplicated_lines += float(total and duplicated * 100.0 / total)

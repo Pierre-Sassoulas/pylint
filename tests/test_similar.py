@@ -69,7 +69,7 @@ class TestSimilarCodeChecker:
     def test_duplicate_code_raw_strings_all(self) -> None:
         """Test similar lines in 3 similar files."""
         path = join(DATA, "raw_strings_all")
-        expected_output = "Similar lines in 2 files"
+        expected_output = "4 similar lines in 2 files"
         self._test_output(
             [
                 path,
@@ -102,7 +102,7 @@ class TestSimilarCodeChecker:
     def test_duplicate_code_raw_strings_disable_file(self) -> None:
         """Tests disabling duplicate-code at the file level in a single file."""
         path = join(DATA, "raw_strings_disable_file")
-        expected_output = "Similar lines in 2 files"
+        expected_output = "6 similar lines in 2 files"
         self._test_output(
             [
                 path,
@@ -133,7 +133,7 @@ class TestSimilarCodeChecker:
     def test_duplicate_code_raw_strings_disable_line_two(self) -> None:
         """Tests disabling duplicate-code at a line at the begin of a piece of similar code."""
         path = join(DATA, "raw_strings_disable_line_begin")
-        expected_output = "Similar lines in 2 files"
+        expected_output = "6 similar lines in 2 files"
         self._test_output(
             [
                 path,
@@ -179,7 +179,7 @@ class TestSimilarCodeChecker:
     def test_duplicate_code_raw_strings_disable_line_end(self) -> None:
         """Tests disabling duplicate-code at a line at the end of a piece of similar code."""
         path = join(DATA, "raw_strings_disable_line_end")
-        expected_output = "Similar lines in 2 files"
+        expected_output = "6 similar lines in 2 files"
         self._test_output(
             [
                 path,
@@ -195,7 +195,7 @@ class TestSimilarCodeChecker:
     def test_duplicate_code_raw_strings_disable_scope(self) -> None:
         """Tests disabling duplicate-code at an inner scope level."""
         path = join(DATA, "raw_strings_disable_scope")
-        expected_output = "Similar lines in 2 files"
+        expected_output = "6 similar lines in 2 files"
         self._test_output(
             [
                 path,
@@ -227,7 +227,7 @@ class TestSimilarCodeChecker:
         """Tests disabling duplicate-code at an inner scope level with another scope with
         similarity."""
         path = join(DATA, "raw_strings_disable_scope_second_function")
-        expected_output = "Similar lines in 2 files"
+        expected_output = "6 similar lines in 2 files"
         self._test_output(
             [
                 path,

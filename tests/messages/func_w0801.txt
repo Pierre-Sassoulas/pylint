@@ -1,4 +1,4 @@
-R:  1: Similar lines in 2 files
+R:  1: 7 similar lines in 2 files
 ==input.func_w0801:[3:10]
 ==input.w0801_same:[3:10]
 __revision__ = 'id'

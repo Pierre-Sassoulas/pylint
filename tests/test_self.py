@@ -155,7 +155,7 @@ class TestRunTC:
         self._run_pylint(args, out=out)
         actual_output = self._clean_paths(out.getvalue())
         expected_output = self._clean_paths(expected_output)
-        assert expected_output.strip() in actual_output.strip()
+        assert expected_output in actual_output.strip()
 
         if unexpected_output:
             assert unexpected_output.strip() not in actual_output.strip()
@@ -175,7 +175,7 @@ class TestRunTC:
         assert (
             cmdline_output == ""
         ), "Unexpected output to stdout/stderr while output option was set"
-        assert expected_output.strip() in file_output.strip()
+        assert expected_output in file_output.strip()
 
     def test_pkginfo(self) -> None:
         """Make pylint check 'pylint.__pkginfo__.py'."""
@@ -298,7 +298,7 @@ class TestRunTC:
             # If ~/.pylintrc is present remove the
             # Using config file...  line
             actual_output = actual_output[actual_output.find("\n") :]
-        assert self._clean_paths(expected_output.strip()) == actual_output.strip()
+        assert self._clean_paths(expected_output) == actual_output.strip()
 
     def test_type_annotation_names(self) -> None:
         """Test resetting the `_type_annotation_names` list to `[]` when leaving a module.
