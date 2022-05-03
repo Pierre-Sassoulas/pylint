@@ -19,8 +19,8 @@ class UnittestLinter(PyLinter):
     """A fake linter class to capture checker messages."""
 
     def __init__(self) -> None:
-        self._messages: list[MessageTest] = []
         super().__init__()
+        self._messages: list[MessageTest] = []
 
     def release_messages(self) -> list[MessageTest]:
         try:

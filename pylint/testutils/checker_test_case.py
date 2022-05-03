@@ -26,9 +26,9 @@ class CheckerTestCase:
 
     def setup_method(self) -> None:
         self.linter = UnittestLinter()
-        self.checker = self.CHECKER_CLASS(self.linter)
         for key, value in self.CONFIG.items():
             setattr(self.checker.linter.config, key, value)
+        self.checker = self.CHECKER_CLASS(self.linter)
         self.checker.open()
 
     @contextlib.contextmanager

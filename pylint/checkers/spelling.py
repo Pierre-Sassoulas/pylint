@@ -290,6 +290,51 @@ class SpellingChecker(BaseTokenChecker):
             },
         ),
     )
+    SPELLING_FILTERS = [
+        EmailFilter,
+        URLFilter,
+        WikiWordFilter,
+        WordsWithDigitsFilter,
+        WordsWithUnderscores,
+        CamelCasedWord,
+        SphinxDirectives,
+    ]
+
+    KNOWN_INTERNAL_PYLINT_WORDS = frozenset(
+        {
+            "param",  # appears in docstring in param description
+            "pylint",  # appears in comments in pylint pragmas.
+        }
+    )
+
+    def __init__(self, linter: PyLinter):
+        """Enchant need to be installed, the 'spelling_dict' must be setup."""
+        super().__init__(linter)
+        self.cannot_work = enchant is None or not self.linter.config.spelling_dict
+        if self.cannot_work:
+            return
+        # Will be used if 'self.linter.config.spelling_store_unknown_words' is set
+        self.unknown_words: set[str] = set()
+        self.ignore_list = [
+            w.strip() for w in self.linter.config.spelling_ignore_words.split(",")
+        ]
+        self.ignore_list.extend(self.KNOWN_INTERNAL_PYLINT_WORDS)
+        self.ignore_comment_directive_list = [
+            w.strip()
+            for w in self.linter.config.spelling_ignore_comment_directives.split(",")
+        ]
+        if self.linter.config.spelling_private_dict_file:
+            self.spelling_dict = enchant.DictWithPWL(
+                self.linter.config.spelling_dict,
+                self.linter.config.spelling_private_dict_file,
+            )
+        else:
+            self.spelling_dict = enchant.Dict(self.linter.config.spelling_dict)
+        self.tokenizer = get_tokenizer(
+            self.linter.config.spelling_dict,
+            chunkers=[ForwardSlashChunker],
+            filters=self.SPELLING_FILTERS,
+        )
 
     def open(self) -> None:
         self.initialized = False
@@ -298,43 +343,6 @@ class SpellingChecker(BaseTokenChecker):
         dict_name = self.linter.config.spelling_dict
         if not dict_name:
             return
-
-        self.ignore_list = [
-            w.strip() for w in self.linter.config.spelling_ignore_words.split(",")
-        ]
-        # "param" appears in docstring in param description and
-        # "pylint" appears in comments in pylint pragmas.
-        self.ignore_list.extend(["param", "pylint"])
-
-        self.ignore_comment_directive_list = [
-            w.strip()
-            for w in self.linter.config.spelling_ignore_comment_directives.split(",")
-        ]
-
-        if self.linter.config.spelling_private_dict_file:
-            self.spelling_dict = enchant.DictWithPWL(
-                dict_name, self.linter.config.spelling_private_dict_file
-            )
-        else:
-            self.spelling_dict = enchant.Dict(dict_name)
-
-        if self.linter.config.spelling_store_unknown_words:
-            self.unknown_words: set[str] = set()
-
-        self.tokenizer = get_tokenizer(
-            dict_name,
-            chunkers=[ForwardSlashChunker],
-            filters=[
-                EmailFilter,
-                URLFilter,
-                WikiWordFilter,
-                WordsWithDigitsFilter,
-                WordsWithUnderscores,
-                CamelCasedWord,
-                SphinxDirectives,
-            ],
-        )
-        self.initialized = True
 
     # pylint: disable = too-many-statements
     def _check_spelling(self, msgid: str, line: str, line_num: int) -> None:
@@ -419,7 +427,7 @@ class SpellingChecker(BaseTokenChecker):
                 self.add_message(msgid, line=line_num, args=args)
 
     def process_tokens(self, tokens: list[tokenize.TokenInfo]) -> None:
-        if not self.initialized:
+        if self.cannot_work:
             return
 
         # Process tokens and look for comments.
@@ -439,16 +447,22 @@ class SpellingChecker(BaseTokenChecker):
 
     @only_required_for_messages("wrong-spelling-in-docstring")
     def visit_module(self, node: nodes.Module) -> None:
+        if self.cannot_work:
+            return
         self._check_docstring(node)
 
     @only_required_for_messages("wrong-spelling-in-docstring")
     def visit_classdef(self, node: nodes.ClassDef) -> None:
+        if self.cannot_work:
+            return
         self._check_docstring(node)
 
     @only_required_for_messages("wrong-spelling-in-docstring")
     def visit_functiondef(
         self, node: nodes.FunctionDef | nodes.AsyncFunctionDef
     ) -> None:
+        if self.cannot_work:
+            return
         self._check_docstring(node)
 
     visit_asyncfunctiondef = visit_functiondef
