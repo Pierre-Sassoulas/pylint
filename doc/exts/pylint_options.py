@@ -66,8 +66,7 @@ def _get_all_options(linter: PyLinter) -> OptionsDataDict:
 def _create_checker_section(
     checker: str, options: list[OptionsData], linter: PyLinter
 ) -> str:
-    checker_string = f".. _{checker}-options:\n\n"
-    checker_string += get_rst_title(f"``{checker.capitalize()}`` **Checker**", "-")
+    checker_string = get_rst_title(f"``{checker.capitalize()}`` **Checker**", "-")
 
     toml_doc = tomlkit.document()
     tool_table = tomlkit.table(is_super_table=True)
@@ -142,7 +141,7 @@ def _write_options_page(options: OptionsDataDict, linter: PyLinter) -> None:
         ".. This file is auto-generated. Make any changes to the associated\n"
         ".. docs extension in 'doc/exts/pylint_options.py'.\n\n"
         ".. _all-options:",
-        get_rst_title("Standard Checkers", "^"),
+        get_rst_title("Standard Checkers:", "^"),
     ]
     found_extensions = False
 

@@ -59,11 +59,9 @@ Pylint provides global options and switches.
 
 def _get_checkers_documentation(linter: PyLinter, show_options: bool = True) -> str:
     """Get documentation for individual checkers."""
+    result = ""
     if show_options:
-        result = _get_global_options_documentation(linter)
-    else:
-        result = ""
-
+        result += _get_global_options_documentation(linter)
     result += get_rst_title("Pylint checkers' options and switches", "-")
     result += """\
 

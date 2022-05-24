@@ -49,8 +49,6 @@ Basic checker
 
 Verbatim name of the checker is ``basic``.
 
-See also :ref:`basic checker's options' documentation <basic-options>`
-
 Basic checker Messages
 ^^^^^^^^^^^^^^^^^^^^^^
 :not-in-loop (E0103): *%r not properly in loop*
@@ -244,8 +242,6 @@ Classes checker
 
 Verbatim name of the checker is ``classes``.
 
-See also :ref:`classes checker's options' documentation <classes-options>`
-
 Classes checker Messages
 ^^^^^^^^^^^^^^^^^^^^^^^^
 :access-member-before-definition (E0203): *Access to member %r before its definition line %s*
@@ -410,8 +406,6 @@ Design checker
 
 Verbatim name of the checker is ``design``.
 
-See also :ref:`design checker's options' documentation <design-options>`
-
 Design checker Messages
 ^^^^^^^^^^^^^^^^^^^^^^^
 :too-few-public-methods (R0903): *Too few public methods (%s/%s)*
@@ -446,8 +440,6 @@ Exceptions checker
 ~~~~~~~~~~~~~~~~~~
 
 Verbatim name of the checker is ``exceptions``.
-
-See also :ref:`exceptions checker's options' documentation <exceptions-options>`
 
 Exceptions checker Messages
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -522,8 +514,6 @@ Format checker
 
 Verbatim name of the checker is ``format``.
 
-See also :ref:`format checker's options' documentation <format-options>`
-
 Format checker Messages
 ^^^^^^^^^^^^^^^^^^^^^^^
 :bad-indentation (W0311): *Bad indentation. Found %s %s, expected %s*
@@ -556,8 +546,6 @@ Imports checker
 ~~~~~~~~~~~~~~~
 
 Verbatim name of the checker is ``imports``.
-
-See also :ref:`imports checker's options' documentation <imports-options>`
 
 Imports checker Messages
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -629,8 +617,6 @@ Logging checker
 
 Verbatim name of the checker is ``logging``.
 
-See also :ref:`logging checker's options' documentation <logging-options>`
-
 Logging checker Messages
 ^^^^^^^^^^^^^^^^^^^^^^^^
 :logging-format-truncated (E1201): *Logging format string ends in middle of conversion specifier*
@@ -671,8 +657,6 @@ Method Args checker
 
 Verbatim name of the checker is ``method_args``.
 
-See also :ref:`method_args checker's options' documentation <method_args-options>`
-
 Method Args checker Messages
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 :positional-only-arguments-expected (E3102): *`%s()` got some positional-only arguments passed as keyword arguments: %s*
@@ -700,8 +684,6 @@ Miscellaneous checker
 ~~~~~~~~~~~~~~~~~~~~~
 
 Verbatim name of the checker is ``miscellaneous``.
-
-See also :ref:`miscellaneous checker's options' documentation <miscellaneous-options>`
 
 Miscellaneous checker Messages
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -782,8 +764,6 @@ Refactoring checker
 ~~~~~~~~~~~~~~~~~~~
 
 Verbatim name of the checker is ``refactoring``.
-
-See also :ref:`refactoring checker's options' documentation <refactoring-options>`
 
 Refactoring checker Messages
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -960,8 +940,6 @@ Similarities checker
 
 Verbatim name of the checker is ``similarities``.
 
-See also :ref:`similarities checker's options' documentation <similarities-options>`
-
 Similarities checker Messages
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 :duplicate-code (R0801): *Similar lines in %s files*
@@ -978,8 +956,6 @@ Spelling checker
 ~~~~~~~~~~~~~~~~
 
 Verbatim name of the checker is ``spelling``.
-
-See also :ref:`spelling checker's options' documentation <spelling-options>`
 
 Spelling checker Messages
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1068,8 +1044,6 @@ String checker
 ~~~~~~~~~~~~~~
 
 Verbatim name of the checker is ``string``.
-
-See also :ref:`string checker's options' documentation <string-options>`
 
 String checker Messages
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -1167,8 +1141,6 @@ Typecheck checker
 ~~~~~~~~~~~~~~~~~
 
 Verbatim name of the checker is ``typecheck``.
-
-See also :ref:`typecheck checker's options' documentation <typecheck-options>`
 
 Typecheck checker Messages
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1348,8 +1320,6 @@ Variables checker
 ~~~~~~~~~~~~~~~~~
 
 Verbatim name of the checker is ``variables``.
-
-See also :ref:`variables checker's options' documentation <variables-options>`
 
 Variables checker Messages
 ^^^^^^^^^^^^^^^^^^^^^^^^^^

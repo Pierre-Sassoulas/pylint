@@ -44,8 +44,6 @@ Broad Try Clause checker
 This checker is provided by ``pylint.extensions.broad_try_clause``.
 Verbatim name of the checker is ``broad_try_clause``.
 
-See also :ref:`broad_try_clause checker's options' documentation <broad_try_clause-options>`
-
 Broad Try Clause checker Messages
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 :too-many-try-statements (W0717):
@@ -65,8 +63,6 @@ Code Style checker Documentation
 Checkers that can improve code consistency.
 As such they don't necessarily provide a performance benefit and
 are often times opinionated.
-
-See also :ref:`code_style checker's options' documentation <code_style-options>`
 
 Code Style checker Messages
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -189,8 +185,6 @@ you can use the ``bad-functions`` option::
     $ pylint a.py --load-plugins=pylint.extensions.bad_builtin --bad-functions=apply,reduce
     ...
 
-See also :ref:`deprecated_builtins checker's options' documentation <deprecated_builtins-options>`
-
 Deprecated Builtins checker Messages
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 :bad-builtin (W0141): *Used builtin function %s*
@@ -247,8 +241,6 @@ higher than a preestablished value, which can be controlled through the
     $ pylint a.py --load-plugins=pylint.extensions.mccabe --max-complexity=50
     $
 
-See also :ref:`design checker's options' documentation <design-options>`
-
 Design checker Messages
 ^^^^^^^^^^^^^^^^^^^^^^^
 :too-complex (R1260): *%s is too complex. The McCabe rating is %d*
@@ -294,8 +286,6 @@ Dunder checker
 
 This checker is provided by ``pylint.extensions.dunder``.
 Verbatim name of the checker is ``dunder``.
-
-See also :ref:`dunder checker's options' documentation <dunder-options>`
 
 Dunder checker Messages
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -371,8 +361,6 @@ Magic-Value checker
 
 This checker is provided by ``pylint.extensions.magic_value``.
 Verbatim name of the checker is ``magic-value``.
-
-See also :ref:`magic-value checker's options' documentation <magic-value-options>`
 
 Magic-Value checker Messages
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -590,8 +578,6 @@ docstring defining the interface, e.g. a superclass method, after "see"::
 Naming inconsistencies in existing parameter and their type documentations are
 still detected.
 
-See also :ref:`parameter_documentation checker's options' documentation <parameter_documentation-options>`
-
 Parameter Documentation checker Messages
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 :differing-param-doc (W9017): *"%s" differing in parameter documentation*
@@ -666,8 +652,6 @@ Verbatim name of the checker is ``typing``.
 Typing checker Documentation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Find issue specifically related to type annotations.
-
-See also :ref:`typing checker's options' documentation <typing-options>`
 
 Typing checker Messages
 ^^^^^^^^^^^^^^^^^^^^^^^

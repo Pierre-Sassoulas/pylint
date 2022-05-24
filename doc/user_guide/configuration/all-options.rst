@@ -5,11 +5,9 @@
 
 .. _all-options:
 
-Standard Checkers
-^^^^^^^^^^^^^^^^^
+Standard Checkers:
+^^^^^^^^^^^^^^^^^^
 
-
-.. _main-options:
 
 ``Main`` **Checker**
 --------------------
@@ -171,7 +169,7 @@ Standard Checkers
 """"""""""""
 *Minimum Python version to use for version dependent checks. Will default to the version used to run pylint.*
 
-**Default:**  ``(3, 11)``
+**Default:**  ``(3, 10)``
 
 
 --recursive
@@ -233,7 +231,7 @@ Standard Checkers
 
    confidence = ["HIGH", "CONTROL_FLOW", "INFERENCE", "INFERENCE_FAILURE", "UNDEFINED"]
 
-   disable = ["raw-checker-failed", "bad-inline-option", "locally-disabled", "file-ignored", "suppressed-message", "useless-suppression", "deprecated-pragma", "use-implicit-booleaness-not-comparison-to-string", "use-implicit-booleaness-not-comparison-to-zero", "use-symbolic-message-instead", "consider-using-augmented-assign", "prefer-typing-namedtuple"]
+   disable = ["consider-using-augmented-assign"]
 
    enable = []
 
@@ -271,7 +269,7 @@ Standard Checkers
 
    persistent = true
 
-   py-version = [3, 11]
+   py-version = [3, 10]
 
    recursive = false
 
@@ -291,8 +289,6 @@ Standard Checkers
 
    </details>
 
-
-.. _basic-options:
 
 ``Basic`` **Checker**
 ---------------------
@@ -499,13 +495,6 @@ Standard Checkers
 **Default:**  ``('abc.abstractproperty',)``
 
 
---typealias-rgx
-"""""""""""""""
-*Regular expression matching correct type alias names. If left empty, type alias names will be checked with the set naming style.*
-
-**Default:**  ``None``
-
-
 --typevar-rgx
 """""""""""""
 *Regular expression matching correct type variable names. If left empty, type variable names will be checked with the set naming style.*
@@ -596,8 +585,6 @@ Standard Checkers
 
    property-classes = ["abc.abstractproperty"]
 
-   # typealias-rgx =
-
    # typevar-rgx =
 
    variable-naming-style = "snake_case"
@@ -610,8 +597,6 @@ Standard Checkers
 
    </details>
 
-
-.. _classes-options:
 
 ``Classes`` **Checker**
 -----------------------
@@ -626,14 +611,14 @@ Standard Checkers
 """""""""""""""""""""""
 *List of method names used to declare (i.e. assign) instance attributes.*
 
-**Default:**  ``('__init__', '__new__', 'setUp', 'asyncSetUp', '__post_init__')``
+**Default:**  ``('__init__', '__new__', 'setUp', '__post_init__')``
 
 
 --exclude-protected
 """""""""""""""""""
 *List of member names, which should be excluded from the protected access warning.*
 
-**Default:**  ``('_asdict', '_fields', '_replace', '_source', '_make', 'os._exit')``
+**Default:**  ``('_asdict', '_fields', '_replace', '_source', '_make')``
 
 
 --valid-classmethod-first-arg
@@ -663,9 +648,9 @@ Standard Checkers
    [tool.pylint.classes]
    check-protected-access-in-special-methods = false
 
-   defining-attr-methods = ["__init__", "__new__", "setUp", "asyncSetUp", "__post_init__"]
+   defining-attr-methods = ["__init__", "__new__", "setUp", "__post_init__"]
 
-   exclude-protected = ["_asdict", "_fields", "_replace", "_source", "_make", "os._exit"]
+   exclude-protected = ["_asdict", "_fields", "_replace", "_source", "_make"]
 
    valid-classmethod-first-arg = ["cls"]
 
@@ -677,8 +662,6 @@ Standard Checkers
 
    </details>
 
-
-.. _design-options:
 
 ``Design`` **Checker**
 ----------------------
@@ -817,8 +800,6 @@ Standard Checkers
    </details>
 
 
-.. _exceptions-options:
-
 ``Exceptions`` **Checker**
 --------------------------
 --overgeneral-exceptions
@@ -847,8 +828,6 @@ Standard Checkers
 
    </details>
 
-
-.. _format-options:
 
 ``Format`` **Checker**
 ----------------------
@@ -941,8 +920,6 @@ Standard Checkers
 
    </details>
 
-
-.. _imports-options:
 
 ``Imports`` **Checker**
 -----------------------
@@ -1054,8 +1031,6 @@ Standard Checkers
    </details>
 
 
-.. _logging-options:
-
 ``Logging`` **Checker**
 -----------------------
 --logging-format-style
@@ -1094,8 +1069,6 @@ Standard Checkers
    </details>
 
 
-.. _method_args-options:
-
 ``Method_args`` **Checker**
 ---------------------------
 --timeout-methods
@@ -1124,8 +1097,6 @@ Standard Checkers
 
    </details>
 
-
-.. _miscellaneous-options:
 
 ``Miscellaneous`` **Checker**
 -----------------------------
@@ -1165,8 +1136,6 @@ Standard Checkers
    </details>
 
 
-.. _refactoring-options:
-
 ``Refactoring`` **Checker**
 ---------------------------
 --max-nested-blocks
@@ -1204,8 +1173,6 @@ Standard Checkers
 
    </details>
 
-
-.. _similarities-options:
 
 ``Similarities`` **Checker**
 ----------------------------
@@ -1272,8 +1239,6 @@ Standard Checkers
    </details>
 
 
-.. _spelling-options:
-
 ``Spelling`` **Checker**
 ------------------------
 --max-spelling-suggestions
@@ -1285,7 +1250,7 @@ Standard Checkers
 
 --spelling-dict
 """""""""""""""
-*Spelling dictionary name. No available dictionaries : You need to install both the python package and the system dependency for enchant to work..*
+*Spelling dictionary name. Available dictionaries: none. To make it work, install the 'python-enchant' package.*
 
 **Default:** ``""``
 
@@ -1348,8 +1313,6 @@ Standard Checkers
    </details>
 
 
-.. _string-options:
-
 ``String`` **Checker**
 ----------------------
 --check-quote-consistency
@@ -1387,8 +1350,6 @@ Standard Checkers
 
    </details>
 
-
-.. _typecheck-options:
 
 ``Typecheck`` **Checker**
 -------------------------
@@ -1518,8 +1479,6 @@ Standard Checkers
    </details>
 
 
-.. _variables-options:
-
 ``Variables`` **Checker**
 -------------------------
 --additional-builtins
@@ -1616,8 +1575,6 @@ Extensions
 ^^^^^^^^^^
 
 
-.. _broad_try_clause-options:
-
 ``Broad_try_clause`` **Checker**
 --------------------------------
 --max-try-statements
@@ -1646,8 +1603,6 @@ Extensions
 
    </details>
 
-
-.. _code_style-options:
 
 ``Code_style`` **Checker**
 --------------------------
@@ -1678,8 +1633,6 @@ Extensions
    </details>
 
 
-.. _deprecated_builtins-options:
-
 ``Deprecated_builtins`` **Checker**
 -----------------------------------
 --bad-functions
@@ -1708,8 +1661,6 @@ Extensions
 
    </details>
 
-
-.. _dunder-options:
 
 ``Dunder`` **Checker**
 ----------------------
@@ -1740,8 +1691,6 @@ Extensions
    </details>
 
 
-.. _magic-value-options:
-
 ``Magic-value`` **Checker**
 ---------------------------
 --valid-magic-values
@@ -1770,8 +1719,6 @@ Extensions
 
    </details>
 
-
-.. _parameter_documentation-options:
 
 ``Parameter_documentation`` **Checker**
 ---------------------------------------
@@ -1837,8 +1784,6 @@ Extensions
 
    </details>
 
-
-.. _typing-options:
 
 ``Typing`` **Checker**
 ----------------------
