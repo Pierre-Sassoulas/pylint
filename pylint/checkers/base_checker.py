@@ -107,7 +107,9 @@ class BaseChecker(_ArgumentsProvider):
         result += f"{get_rst_title(checker_title, '~')}\n"
         if module:
             result += f"This checker is provided by ``{module}``.\n"
-        result += f"Verbatim name of the checker is ``{self.name}``.\n\n"
+        result += f"Verbatim name of the checker is ``{self.name}``.\n"
+        if not show_options:
+            result += f":ref:`See documentation on possible options <{self.name}_configuration>`.\n\n"
         if doc:
             # Provide anchor to link against
             result += get_rst_title(f"{checker_title} Documentation", "^")

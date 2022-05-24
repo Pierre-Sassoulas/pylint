@@ -63,11 +63,21 @@ def _get_all_options(linter: PyLinter) -> OptionsDataDict:
     return all_options
 
 
+def _get_checker_title(checker: str) -> str:
+    result = _get_checker_configuration_rst_anchor(checker)
+    result += get_rst_title(f"``{checker.capitalize()}`` **Checker**", "-")
+    result += f":ref:`See the description of the checker itself <pylint.extensions.{checker}>`.\n\n"
+    return result
+
+
+def _get_checker_configuration_rst_anchor(checker: str) -> str:
+    return f".. _{checker.capitalize()}_configuration:\n\n"
+
+
 def _create_checker_section(
     checker: str, options: list[OptionsData], linter: PyLinter
 ) -> str:
-    checker_string = get_rst_title(f"``{checker.capitalize()}`` **Checker**", "-")
-
+    checker_string = _get_checker_title(checker)
     toml_doc = tomlkit.document()
     tool_table = tomlkit.table(is_super_table=True)
     toml_doc.add(tomlkit.key("tool"), tool_table)

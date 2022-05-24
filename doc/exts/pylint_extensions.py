@@ -34,6 +34,10 @@ class _CheckerInfo(TypedDict):
     module: str
 
 
+def _get_checker_extension_rst_anchor(checker: str) -> str:
+    return f".. _{checker.capitalize()}:\n\n"
+
+
 # pylint: disable-next=unused-argument
 def builder_inited(app: Sphinx | None) -> None:
     """Output full documentation in ReST format for all extension modules."""
@@ -74,7 +78,7 @@ def builder_inited(app: Sphinx | None) -> None:
         )
         stream.write("Pylint provides the following optional plugins:\n\n")
         for module in modules:
-            stream.write(f"- :ref:`{module}`\n")
+            stream.write(f"- {_get_module_reference(module)}\n")
         stream.write("\n")
         stream.write(
             "You can activate any or all of these extensions "
@@ -107,6 +111,10 @@ def builder_inited(app: Sphinx | None) -> None:
                 )[:j],
                 file=stream,
             )
+
+
+def _get_module_reference(module: str) -> str:
+    return f":ref:`{module}`"
 
 
 def get_plugins_info(

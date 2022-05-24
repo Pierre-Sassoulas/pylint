@@ -19,6 +19,7 @@ Async checker
 ~~~~~~~~~~~~~
 
 Verbatim name of the checker is ``async``.
+:ref:`See documentation on possible options <async_configuration>`.
 
 Async checker Messages
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -48,6 +49,7 @@ Basic checker
 ~~~~~~~~~~~~~
 
 Verbatim name of the checker is ``basic``.
+:ref:`See documentation on possible options <basic_configuration>`.
 
 Basic checker Messages
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -241,6 +243,7 @@ Classes checker
 ~~~~~~~~~~~~~~~
 
 Verbatim name of the checker is ``classes``.
+:ref:`See documentation on possible options <classes_configuration>`.
 
 Classes checker Messages
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -405,6 +408,7 @@ Design checker
 ~~~~~~~~~~~~~~
 
 Verbatim name of the checker is ``design``.
+:ref:`See documentation on possible options <design_configuration>`.
 
 Design checker Messages
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -440,6 +444,7 @@ Exceptions checker
 ~~~~~~~~~~~~~~~~~~
 
 Verbatim name of the checker is ``exceptions``.
+:ref:`See documentation on possible options <exceptions_configuration>`.
 
 Exceptions checker Messages
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -513,6 +518,7 @@ Format checker
 ~~~~~~~~~~~~~~
 
 Verbatim name of the checker is ``format``.
+:ref:`See documentation on possible options <format_configuration>`.
 
 Format checker Messages
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -546,6 +552,7 @@ Imports checker
 ~~~~~~~~~~~~~~~
 
 Verbatim name of the checker is ``imports``.
+:ref:`See documentation on possible options <imports_configuration>`.
 
 Imports checker Messages
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -601,6 +608,7 @@ Lambda-Expressions checker
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Verbatim name of the checker is ``lambda-expressions``.
+:ref:`See documentation on possible options <lambda-expressions_configuration>`.
 
 Lambda-Expressions checker Messages
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -616,6 +624,7 @@ Logging checker
 ~~~~~~~~~~~~~~~
 
 Verbatim name of the checker is ``logging``.
+:ref:`See documentation on possible options <logging_configuration>`.
 
 Logging checker Messages
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -656,6 +665,7 @@ Method Args checker
 ~~~~~~~~~~~~~~~~~~~
 
 Verbatim name of the checker is ``method_args``.
+:ref:`See documentation on possible options <method_args_configuration>`.
 
 Method Args checker Messages
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -674,6 +684,7 @@ Metrics checker
 ~~~~~~~~~~~~~~~
 
 Verbatim name of the checker is ``metrics``.
+:ref:`See documentation on possible options <metrics_configuration>`.
 
 Metrics checker Reports
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -684,6 +695,7 @@ Miscellaneous checker
 ~~~~~~~~~~~~~~~~~~~~~
 
 Verbatim name of the checker is ``miscellaneous``.
+:ref:`See documentation on possible options <miscellaneous_configuration>`.
 
 Miscellaneous checker Messages
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -697,6 +709,7 @@ Modified Iteration checker
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Verbatim name of the checker is ``modified_iteration``.
+:ref:`See documentation on possible options <modified_iteration_configuration>`.
 
 Modified Iteration checker Messages
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -727,6 +740,7 @@ Newstyle checker
 ~~~~~~~~~~~~~~~~
 
 Verbatim name of the checker is ``newstyle``.
+:ref:`See documentation on possible options <newstyle_configuration>`.
 
 Newstyle checker Messages
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -739,6 +753,7 @@ Nonascii-Checker checker
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 Verbatim name of the checker is ``nonascii-checker``.
+:ref:`See documentation on possible options <nonascii-checker_configuration>`.
 
 Nonascii-Checker checker Messages
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -764,6 +779,7 @@ Refactoring checker
 ~~~~~~~~~~~~~~~~~~~
 
 Verbatim name of the checker is ``refactoring``.
+:ref:`See documentation on possible options <refactoring_configuration>`.
 
 Refactoring checker Messages
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -939,6 +955,7 @@ Similarities checker
 ~~~~~~~~~~~~~~~~~~~~
 
 Verbatim name of the checker is ``similarities``.
+:ref:`See documentation on possible options <similarities_configuration>`.
 
 Similarities checker Messages
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -956,6 +973,7 @@ Spelling checker
 ~~~~~~~~~~~~~~~~
 
 Verbatim name of the checker is ``spelling``.
+:ref:`See documentation on possible options <spelling_configuration>`.
 
 Spelling checker Messages
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -971,6 +989,7 @@ Stdlib checker
 ~~~~~~~~~~~~~~
 
 Verbatim name of the checker is ``stdlib``.
+:ref:`See documentation on possible options <stdlib_configuration>`.
 
 Stdlib checker Messages
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -1044,6 +1063,7 @@ String checker
 ~~~~~~~~~~~~~~
 
 Verbatim name of the checker is ``string``.
+:ref:`See documentation on possible options <string_configuration>`.
 
 String checker Messages
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -1129,6 +1149,7 @@ Threading checker
 ~~~~~~~~~~~~~~~~~
 
 Verbatim name of the checker is ``threading``.
+:ref:`See documentation on possible options <threading_configuration>`.
 
 Threading checker Messages
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1141,6 +1162,7 @@ Typecheck checker
 ~~~~~~~~~~~~~~~~~
 
 Verbatim name of the checker is ``typecheck``.
+:ref:`See documentation on possible options <typecheck_configuration>`.
 
 Typecheck checker Messages
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1238,6 +1260,7 @@ Unicode Checker checker
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 Verbatim name of the checker is ``unicode_checker``.
+:ref:`See documentation on possible options <unicode_checker_configuration>`.
 
 Unicode Checker checker Messages
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1280,6 +1303,7 @@ Unnecessary-Dunder-Call checker
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Verbatim name of the checker is ``unnecessary-dunder-call``.
+:ref:`See documentation on possible options <unnecessary-dunder-call_configuration>`.
 
 Unnecessary-Dunder-Call checker Messages
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1292,6 +1316,7 @@ Unnecessary Ellipsis checker
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Verbatim name of the checker is ``unnecessary_ellipsis``.
+:ref:`See documentation on possible options <unnecessary_ellipsis_configuration>`.
 
 Unnecessary Ellipsis checker Messages
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1305,6 +1330,7 @@ Unsupported Version checker
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Verbatim name of the checker is ``unsupported_version``.
+:ref:`See documentation on possible options <unsupported_version_configuration>`.
 
 Unsupported Version checker Messages
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1320,6 +1346,7 @@ Variables checker
 ~~~~~~~~~~~~~~~~~
 
 Verbatim name of the checker is ``variables``.
+:ref:`See documentation on possible options <variables_configuration>`.
 
 Variables checker Messages
 ^^^^^^^^^^^^^^^^^^^^^^^^^^

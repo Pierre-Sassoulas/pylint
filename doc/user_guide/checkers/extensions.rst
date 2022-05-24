@@ -10,6 +10,7 @@ Pylint provides the following optional plugins:
 - :ref:`pylint.extensions.broad_try_clause`
 - :ref:`pylint.extensions.check_elif`
 - :ref:`pylint.extensions.code_style`
+- :ref:`pylint.extensions.comparetozero`
 - :ref:`pylint.extensions.comparison_placement`
 - :ref:`pylint.extensions.confusing_elif`
 - :ref:`pylint.extensions.consider_refactoring_into_while_condition`
@@ -19,6 +20,7 @@ Pylint provides the following optional plugins:
 - :ref:`pylint.extensions.docstyle`
 - :ref:`pylint.extensions.dunder`
 - :ref:`pylint.extensions.empty_comment`
+- :ref:`pylint.extensions.emptystring`
 - :ref:`pylint.extensions.eq_without_hash`
 - :ref:`pylint.extensions.for_any_all`
 - :ref:`pylint.extensions.magic_value`
@@ -43,6 +45,7 @@ Broad Try Clause checker
 
 This checker is provided by ``pylint.extensions.broad_try_clause``.
 Verbatim name of the checker is ``broad_try_clause``.
+:ref:`See documentation on possible options <broad_try_clause_configuration>`.
 
 Broad Try Clause checker Messages
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -57,6 +60,7 @@ Code Style checker
 
 This checker is provided by ``pylint.extensions.code_style``.
 Verbatim name of the checker is ``code_style``.
+:ref:`See documentation on possible options <code_style_configuration>`.
 
 Code Style checker Documentation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -73,10 +77,6 @@ Code Style checker Messages
 :consider-using-namedtuple-or-dataclass (R6101): *Consider using namedtuple or dataclass for dictionary values*
   Emitted when dictionary values can be replaced by namedtuples or dataclass
   instances.
-:prefer-typing-namedtuple (R6105): *Prefer 'typing.NamedTuple' over 'collections.namedtuple'*
-  'typing.NamedTuple' uses the well-known 'class' keyword with type-hints for
-  readability (it's also faster as it avoids an internal exec call). Disabled
-  by default!
 :consider-using-assignment-expr (R6103): *Use '%s' instead*
   Emitted when an if assignment is directly followed by an if statement and
   both can be combined by using an assignment expression ``:=``. Requires
@@ -86,6 +86,36 @@ Code Style checker Messages
   to. This can be changed to be an augmented assign. Disabled by default!
 
 
+.. _pylint.extensions.emptystring:
+
+Compare-To-Empty-String checker
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This checker is provided by ``pylint.extensions.emptystring``.
+Verbatim name of the checker is ``compare-to-empty-string``.
+:ref:`See documentation on possible options <compare-to-empty-string_configuration>`.
+
+Compare-To-Empty-String checker Messages
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+:compare-to-empty-string (C1901): *"%s" can be simplified to "%s" as an empty string is falsey*
+  Used when Pylint detects comparison to an empty string constant.
+
+
+.. _pylint.extensions.comparetozero:
+
+Compare-To-Zero checker
+~~~~~~~~~~~~~~~~~~~~~~~
+
+This checker is provided by ``pylint.extensions.comparetozero``.
+Verbatim name of the checker is ``compare-to-zero``.
+:ref:`See documentation on possible options <compare-to-zero_configuration>`.
+
+Compare-To-Zero checker Messages
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+:compare-to-zero (C2001): *"%s" can be simplified to "%s" as 0 is falsey*
+  Used when Pylint detects comparison to a 0 constant.
+
+
 .. _pylint.extensions.comparison_placement:
 
 Comparison-Placement checker
@@ -93,6 +123,7 @@ Comparison-Placement checker
 
 This checker is provided by ``pylint.extensions.comparison_placement``.
 Verbatim name of the checker is ``comparison-placement``.
+:ref:`See documentation on possible options <comparison-placement_configuration>`.
 
 Comparison-Placement checker Messages
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -109,6 +140,7 @@ Confusing Elif checker
 
 This checker is provided by ``pylint.extensions.confusing_elif``.
 Verbatim name of the checker is ``confusing_elif``.
+:ref:`See documentation on possible options <confusing_elif_configuration>`.
 
 Confusing Elif checker Messages
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -126,6 +158,7 @@ Consider-Using-Any-Or-All checker
 
 This checker is provided by ``pylint.extensions.for_any_all``.
 Verbatim name of the checker is ``consider-using-any-or-all``.
+:ref:`See documentation on possible options <consider-using-any-or-all_configuration>`.
 
 Consider-Using-Any-Or-All checker Messages
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -157,6 +190,7 @@ Consider Ternary Expression checker
 
 This checker is provided by ``pylint.extensions.consider_ternary_expression``.
 Verbatim name of the checker is ``consider_ternary_expression``.
+:ref:`See documentation on possible options <consider_ternary_expression_configuration>`.
 
 Consider Ternary Expression checker Messages
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -172,6 +206,7 @@ Deprecated Builtins checker
 
 This checker is provided by ``pylint.extensions.bad_builtin``.
 Verbatim name of the checker is ``deprecated_builtins``.
+:ref:`See documentation on possible options <deprecated_builtins_configuration>`.
 
 Deprecated Builtins checker Documentation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -200,6 +235,7 @@ Design checker
 
 This checker is provided by ``pylint.extensions.mccabe``.
 Verbatim name of the checker is ``design``.
+:ref:`See documentation on possible options <design_configuration>`.
 
 Design checker Documentation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -270,6 +306,7 @@ Docstyle checker
 
 This checker is provided by ``pylint.extensions.docstyle``.
 Verbatim name of the checker is ``docstyle``.
+:ref:`See documentation on possible options <docstyle_configuration>`.
 
 Docstyle checker Messages
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -301,6 +338,7 @@ Else If Used checker
 
 This checker is provided by ``pylint.extensions.check_elif``.
 Verbatim name of the checker is ``else_if_used``.
+:ref:`See documentation on possible options <else_if_used_configuration>`.
 
 Else If Used checker Messages
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -316,6 +354,7 @@ Empty-Comment checker
 
 This checker is provided by ``pylint.extensions.empty_comment``.
 Verbatim name of the checker is ``empty-comment``.
+:ref:`See documentation on possible options <empty-comment_configuration>`.
 
 Empty-Comment checker Messages
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -330,6 +369,7 @@ Eq-Without-Hash checker
 
 This checker is provided by ``pylint.extensions.eq_without_hash``.
 Verbatim name of the checker is ``eq-without-hash``.
+:ref:`See documentation on possible options <eq-without-hash_configuration>`.
 
 Eq-Without-Hash checker Messages
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -345,6 +385,7 @@ Import-Private-Name checker
 
 This checker is provided by ``pylint.extensions.private_import``.
 Verbatim name of the checker is ``import-private-name``.
+:ref:`See documentation on possible options <import-private-name_configuration>`.
 
 Import-Private-Name checker Messages
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -376,6 +417,7 @@ Multiple Types checker
 
 This checker is provided by ``pylint.extensions.redefined_variable_type``.
 Verbatim name of the checker is ``multiple_types``.
+:ref:`See documentation on possible options <multiple_types_configuration>`.
 
 Multiple Types checker Messages
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -390,6 +432,7 @@ No Self Use checker
 
 This checker is provided by ``pylint.extensions.no_self_use``.
 Verbatim name of the checker is ``no_self_use``.
+:ref:`See documentation on possible options <no_self_use_configuration>`.
 
 No Self Use checker Messages
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -405,6 +448,7 @@ Overlap-Except checker
 
 This checker is provided by ``pylint.extensions.overlapping_exceptions``.
 Verbatim name of the checker is ``overlap-except``.
+:ref:`See documentation on possible options <overlap-except_configuration>`.
 
 Overlap-Except checker Messages
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -419,6 +463,7 @@ Parameter Documentation checker
 
 This checker is provided by ``pylint.extensions.docparams``.
 Verbatim name of the checker is ``parameter_documentation``.
+:ref:`See documentation on possible options <parameter_documentation_configuration>`.
 
 Parameter Documentation checker Documentation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -619,6 +664,7 @@ Redefined-Loop-Name checker
 
 This checker is provided by ``pylint.extensions.redefined_loop_name``.
 Verbatim name of the checker is ``redefined-loop-name``.
+:ref:`See documentation on possible options <redefined-loop-name_configuration>`.
 
 Redefined-Loop-Name checker Messages
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -633,6 +679,7 @@ Set Membership checker
 
 This checker is provided by ``pylint.extensions.set_membership``.
 Verbatim name of the checker is ``set_membership``.
+:ref:`See documentation on possible options <set_membership_configuration>`.
 
 Set Membership checker Messages
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -648,6 +695,7 @@ Typing checker
 
 This checker is provided by ``pylint.extensions.typing``.
 Verbatim name of the checker is ``typing``.
+:ref:`See documentation on possible options <typing_configuration>`.
 
 Typing checker Documentation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -684,6 +732,7 @@ While Used checker
 
 This checker is provided by ``pylint.extensions.while_used``.
 Verbatim name of the checker is ``while_used``.
+:ref:`See documentation on possible options <while_used_configuration>`.
 
 While Used checker Messages
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^

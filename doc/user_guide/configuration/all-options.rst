@@ -9,8 +9,12 @@ Standard Checkers:
 ^^^^^^^^^^^^^^^^^^
 
 
+.. _Main_configuration:
+
 ``Main`` **Checker**
 --------------------
+:ref:`See the description of the checker itself <pylint.extensions.main>`.
+
 --analyse-fallback-blocks
 """""""""""""""""""""""""
 *Analyse import fallback blocks. This can be used to support both Python 2 and 3 compatible code, which means that the block might have code that exists only in one or another interpreter, leading to false positives when analysed.*
@@ -290,8 +294,12 @@ Standard Checkers:
    </details>
 
 
+.. _Basic_configuration:
+
 ``Basic`` **Checker**
 ---------------------
+:ref:`See the description of the checker itself <pylint.extensions.basic>`.
+
 --argument-naming-style
 """""""""""""""""""""""
 *Naming style matching correct argument names.*
@@ -598,8 +606,12 @@ Standard Checkers:
    </details>
 
 
+.. _Classes_configuration:
+
 ``Classes`` **Checker**
 -----------------------
+:ref:`See the description of the checker itself <pylint.extensions.classes>`.
+
 --check-protected-access-in-special-methods
 """""""""""""""""""""""""""""""""""""""""""
 *Warn about protected attribute access inside special methods*
@@ -663,8 +675,12 @@ Standard Checkers:
    </details>
 
 
+.. _Design_configuration:
+
 ``Design`` **Checker**
 ----------------------
+:ref:`See the description of the checker itself <pylint.extensions.design>`.
+
 --exclude-too-few-public-methods
 """"""""""""""""""""""""""""""""
 *List of regular expressions of class ancestor names to ignore when counting public methods (see R0903)*
@@ -800,8 +816,12 @@ Standard Checkers:
    </details>
 
 
+.. _Exceptions_configuration:
+
 ``Exceptions`` **Checker**
 --------------------------
+:ref:`See the description of the checker itself <pylint.extensions.exceptions>`.
+
 --overgeneral-exceptions
 """"""""""""""""""""""""
 *Exceptions that will emit a warning when caught.*
@@ -829,8 +849,12 @@ Standard Checkers:
    </details>
 
 
+.. _Format_configuration:
+
 ``Format`` **Checker**
 ----------------------
+:ref:`See the description of the checker itself <pylint.extensions.format>`.
+
 --expected-line-ending-format
 """""""""""""""""""""""""""""
 *Expected format of line ending, e.g. empty (any line ending), LF or CRLF.*
@@ -921,8 +945,12 @@ Standard Checkers:
    </details>
 
 
+.. _Imports_configuration:
+
 ``Imports`` **Checker**
 -----------------------
+:ref:`See the description of the checker itself <pylint.extensions.imports>`.
+
 --allow-any-import-level
 """"""""""""""""""""""""
 *List of modules that can be imported at any level, not just the top level one.*
@@ -1031,8 +1059,12 @@ Standard Checkers:
    </details>
 
 
+.. _Logging_configuration:
+
 ``Logging`` **Checker**
 -----------------------
+:ref:`See the description of the checker itself <pylint.extensions.logging>`.
+
 --logging-format-style
 """"""""""""""""""""""
 *The type of string formatting that logging methods do. `old` means using % formatting, `new` is for `{}` formatting.*
@@ -1069,8 +1101,12 @@ Standard Checkers:
    </details>
 
 
+.. _Method_args_configuration:
+
 ``Method_args`` **Checker**
 ---------------------------
+:ref:`See the description of the checker itself <pylint.extensions.method_args>`.
+
 --timeout-methods
 """""""""""""""""
 *List of qualified names (i.e., library.method) which require a timeout parameter e.g. 'requests.api.get,requests.api.post'*
@@ -1098,8 +1134,12 @@ Standard Checkers:
    </details>
 
 
+.. _Miscellaneous_configuration:
+
 ``Miscellaneous`` **Checker**
 -----------------------------
+:ref:`See the description of the checker itself <pylint.extensions.miscellaneous>`.
+
 --notes
 """""""
 *List of note tags to take in consideration, separated by a comma.*
@@ -1136,8 +1176,12 @@ Standard Checkers:
    </details>
 
 
+.. _Refactoring_configuration:
+
 ``Refactoring`` **Checker**
 ---------------------------
+:ref:`See the description of the checker itself <pylint.extensions.refactoring>`.
+
 --max-nested-blocks
 """""""""""""""""""
 *Maximum number of nested blocks for function / method body*
@@ -1174,8 +1218,12 @@ Standard Checkers:
    </details>
 
 
+.. _Similarities_configuration:
+
 ``Similarities`` **Checker**
 ----------------------------
+:ref:`See the description of the checker itself <pylint.extensions.similarities>`.
+
 --ignore-comments
 """""""""""""""""
 *Comments are removed from the similarity computation*
@@ -1239,8 +1287,12 @@ Standard Checkers:
    </details>
 
 
+.. _Spelling_configuration:
+
 ``Spelling`` **Checker**
 ------------------------
+:ref:`See the description of the checker itself <pylint.extensions.spelling>`.
+
 --max-spelling-suggestions
 """"""""""""""""""""""""""
 *Limits count of emitted suggestions for spelling mistakes.*
@@ -1313,8 +1365,12 @@ Standard Checkers:
    </details>
 
 
+.. _String_configuration:
+
 ``String`` **Checker**
 ----------------------
+:ref:`See the description of the checker itself <pylint.extensions.string>`.
+
 --check-quote-consistency
 """""""""""""""""""""""""
 *This flag controls whether inconsistent-quotes generates a warning when the character used as a quote delimiter is used inconsistently within a module.*
@@ -1351,8 +1407,12 @@ Standard Checkers:
    </details>
 
 
+.. _Typecheck_configuration:
+
 ``Typecheck`` **Checker**
 -------------------------
+:ref:`See the description of the checker itself <pylint.extensions.typecheck>`.
+
 --contextmanager-decorators
 """""""""""""""""""""""""""
 *List of decorators that produce context managers, such as contextlib.contextmanager. Add to this list to register other decorators that produce valid context managers.*
@@ -1479,8 +1539,12 @@ Standard Checkers:
    </details>
 
 
+.. _Variables_configuration:
+
 ``Variables`` **Checker**
 -------------------------
+:ref:`See the description of the checker itself <pylint.extensions.variables>`.
+
 --additional-builtins
 """""""""""""""""""""
 *List of additional names supposed to be defined in builtins. Remember that you should avoid defining new builtins when possible.*
@@ -1575,8 +1639,12 @@ Extensions
 ^^^^^^^^^^
 
 
+.. _Broad_try_clause_configuration:
+
 ``Broad_try_clause`` **Checker**
 --------------------------------
+:ref:`See the description of the checker itself <pylint.extensions.broad_try_clause>`.
+
 --max-try-statements
 """"""""""""""""""""
 *Maximum number of statements allowed in a try clause*
@@ -1604,8 +1672,12 @@ Extensions
    </details>
 
 
+.. _Code_style_configuration:
+
 ``Code_style`` **Checker**
 --------------------------
+:ref:`See the description of the checker itself <pylint.extensions.code_style>`.
+
 --max-line-length-suggestions
 """""""""""""""""""""""""""""
 *Max line length for which to sill emit suggestions. Used to prevent optional suggestions which would get split by a code formatter (e.g., black). Will default to the setting for ``max-line-length``.*
@@ -1633,8 +1705,12 @@ Extensions
    </details>
 
 
+.. _Deprecated_builtins_configuration:
+
 ``Deprecated_builtins`` **Checker**
 -----------------------------------
+:ref:`See the description of the checker itself <pylint.extensions.deprecated_builtins>`.
+
 --bad-functions
 """""""""""""""
 *List of builtins function names that should not be used, separated by a comma*
@@ -1662,6 +1738,7 @@ Extensions
    </details>
 
 
+<<<<<<< HEAD
 ``Dunder`` **Checker**
 ----------------------
 --good-dunder-names
@@ -1719,9 +1796,14 @@ Extensions
 
    </details>
 
+=======
+.. _Parameter_documentation_configuration:
+>>>>>>> 7f9e0fe22 (Work in progress, cross link between checker and option section)
 
 ``Parameter_documentation`` **Checker**
 ---------------------------------------
+:ref:`See the description of the checker itself <pylint.extensions.parameter_documentation>`.
+
 --accept-no-param-doc
 """""""""""""""""""""
 *Whether to accept totally missing parameter documentation in the docstring of a function that has parameters.*
@@ -1785,8 +1867,12 @@ Extensions
    </details>
 
 
+.. _Typing_configuration:
+
 ``Typing`` **Checker**
 ----------------------
+:ref:`See the description of the checker itself <pylint.extensions.typing>`.
+
 --runtime-typing
 """"""""""""""""
 *Set to ``no`` if the app / library does **NOT** need to support runtime introspection of type annotations. If you use type annotations **exclusively** for type checking of an application, you're probably fine. For libraries, evaluate if some users want to access the type hints at runtime first, e.g., through ``typing.get_type_hints``. Applies to Python versions 3.7 - 3.9*
