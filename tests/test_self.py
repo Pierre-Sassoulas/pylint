@@ -519,6 +519,8 @@ class TestRunTC:
     @pytest.mark.parametrize("write_bpy_to_disk", [False, True])
     def test_relative_imports(self, write_bpy_to_disk, tmpdir):
         a = tmpdir.join("a")
+        a.mkdir()
+        a.join("__init__.py").write("")
 
         b_code = textwrap.dedent(
             """
@@ -529,6 +531,8 @@ class TestRunTC:
             bla()
             """
         )
+        if write_bpy_to_disk:
+            a.join("b.py").write(b_code)
 
         c_code = textwrap.dedent(
             """
@@ -536,11 +540,6 @@ class TestRunTC:
                 pass
             """
         )
-
-        a.mkdir()
-        a.join("__init__.py").write("")
-        if write_bpy_to_disk:
-            a.join("b.py").write(b_code)
         a.join("c.py").write(c_code)
 
         with tmpdir.as_cwd():
@@ -549,7 +548,6 @@ class TestRunTC:
                 "************* Module a.b\n"
                 "a/b.py:3:0: E0401: Unable to import 'a.d' (import-error)\n\n"
             )
-
             if write_bpy_to_disk:
                 # --from-stdin is not used here
                 self._test_output(
