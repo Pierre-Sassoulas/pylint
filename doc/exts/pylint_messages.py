@@ -20,7 +20,8 @@ from pylint.checkers import initialize as initialize_checkers
 from pylint.constants import MSG_TYPES
 from pylint.extensions import initialize as initialize_extensions
 from pylint.lint import PyLinter
-from pylint.message import MessageDefinition
+from pylint.message import MessageDefinition, message_id_store
+from pylint.message._deleted_message_ids import DELETED_MESSAGES_IDS
 from pylint.utils import get_rst_title
 
 PYLINT_BASE_PATH = Path(__file__).resolve().parent.parent.parent
@@ -57,6 +58,7 @@ OldMessagesDict = Dict[str, DefaultDict[Tuple[str, str], List[Tuple[str, str]]]]
 """DefaultDict is indexed by tuples of (old name symbol, old name id) and values are
 tuples of (new name symbol, new name category).
 """
+DeletedMessagesDict = Dict[str, Tuple[str, ...]]
 
 
 def _register_all_checkers_and_extensions(linter: PyLinter) -> None:
@@ -362,7 +364,9 @@ def _write_single_message_page(category_dir: Path, message: MessageData) -> None
 
 
 def _write_messages_list_page(
-    messages_dict: MessagesDict, old_messages_dict: OldMessagesDict
+    messages_dict: MessagesDict,
+    old_messages_dict: OldMessagesDict,
+    deleted_messages: OldMessagesDict,
 ) -> None:
     """Create or overwrite the page with the list of all messages."""
     messages_file = os.path.join(PYLINT_MESSAGES_PATH, "messages_overview.rst")
@@ -404,6 +408,9 @@ Pylint can emit the following messages:
             old_messages_string = "".join(
                 f"   {category}/{old_message[0]}\n" for old_message in old_messages
             )
+            deleted_messages_string = _get_deleted_messages_string(
+                category, deleted_messages.get(category, [])
+            )
             # Write list per category. We need the '-category' suffix in the reference
             # because 'fatal' is also a message's symbol
             stream.write(
@@ -424,8 +431,27 @@ All renamed messages in the {category} category:
    :maxdepth: 1
    :titlesonly:
 
-{old_messages_string}"""
+{old_messages_string}
+{deleted_messages_string}"""
             )
+
+
+def _get_deleted_messages_string(category, deleted_messages):
+    if not deleted_messages:
+        return ""
+    deleted_messages_string = f"""
+
+All permanently deleted messages in the {category} category and the reason why it was deleted:
+
+.. toctree::
+   :maxdepth: 1
+   :titlesonly:
+
+"""
+    for msg, explanation in deleted_messages.items():
+        print(msg, explanation)
+        deleted_messages_string += f"   {category}/{msg[0]}\n"
+    return deleted_messages_string
 
 
 def _write_redirect_pages(old_messages: OldMessagesDict) -> None:
@@ -435,7 +461,17 @@ def _write_redirect_pages(old_messages: OldMessagesDict) -> None:
         if not os.path.exists(category_dir):
             os.makedirs(category_dir)
         for old_name, new_names in old_names.items():
-            _write_redirect_old_page(category_dir, old_name, new_names)
+            if new_names[0] is None:
+                _write_deleted_old_page(category_dir, reason=new_names[1:])
+            else:
+                _write_redirect_old_page(category_dir, old_name, new_names)
+
+
+def _write_deleted_old_page(
+    category_dir: Path,
+    reason: str,
+) -> None:
+    print(f"Deleted: {category_dir} {reason}")
 
 
 def _write_redirect_old_page(
@@ -472,13 +508,29 @@ def build_messages_pages(app: Sphinx | None) -> None:
     linter = PyLinter()
     _register_all_checkers_and_extensions(linter)
     messages, old_messages = _get_all_messages(linter)
-
+    deleted_messages = _get_deleted_messages()
     # Write message and category pages
     _write_message_page(messages)
-    _write_messages_list_page(messages, old_messages)
+    _write_message_page(deleted_messages)
+    _write_messages_list_page(messages, old_messages, deleted_messages)
 
     # Write redirect pages
     _write_redirect_pages(old_messages)
+
+
+def _get_deleted_messages():
+    result = {}
+    for explanation, messages in DELETED_MESSAGES_IDS.items():
+        for message in messages:
+            category = MSG_TYPES_DOC[message.msgid[0]]
+            if category not in result:
+                result[category] = {}
+            result[category][(message.symbol, message.msgid)] = explanation
+            if message.old_names:
+                for msg, symbol in message.old_names:
+                    category = MSG_TYPES_DOC[msg[0]]
+                    result[category][(symbol, msg)] = f"(old name of {message.symbol}) {explanation}"
+    return result
 
 
 def setup(app: Sphinx) -> None:

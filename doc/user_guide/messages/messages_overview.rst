@@ -37,6 +37,7 @@ All renamed messages in the fatal category:
 
    fatal/old-import-error
 
+
 .. _error-category:
 
 Error
@@ -187,6 +188,21 @@ All renamed messages in the error category:
    error/old-non-iterator-returned-2
    error/old-unbalanced-tuple-unpacking
    error/unhashable-dict-key
+
+
+
+All permanently deleted messages in the error category and the reason why it was deleted:
+
+.. toctree::
+   :maxdepth: 1
+   :titlesonly:
+
+   error/print-statement
+   error/parameter-unpacking
+   error/unpacking-in-except
+   error/old-raise-syntax
+   error/backtick
+   error/import-star-module-level
 
 .. _warning-category:
 
@@ -374,6 +390,85 @@ All renamed messages in the warning category:
    warning/old-unpacking-non-sequence
    warning/useless-super-delegation
 
+
+
+All permanently deleted messages in the warning category and the reason why it was deleted:
+
+.. toctree::
+   :maxdepth: 1
+   :titlesonly:
+
+   warning/apply-builtin
+   warning/old-unpacking-in-except
+   warning/old-old-raise-syntax
+   warning/old-backtick
+   warning/basestring-builtin
+   warning/buffer-builtin
+   warning/cmp-builtin
+   warning/coerce-builtin
+   warning/execfile-builtin
+   warning/file-builtin
+   warning/long-builtin
+   warning/raw_input-builtin
+   warning/reduce-builtin
+   warning/standarderror-builtin
+   warning/unicode-builtin
+   warning/xrange-builtin
+   warning/coerce-method
+   warning/delslice-method
+   warning/getslice-method
+   warning/setslice-method
+   warning/no-absolute-import
+   warning/old-division
+   warning/dict-iter-method
+   warning/dict-view-method
+   warning/next-method-called
+   warning/metaclass-assignment
+   warning/indexing-exception
+   warning/old-indexing-exception
+   warning/raising-string
+   warning/old-raising-string
+   warning/reload-builtin
+   warning/oct-method
+   warning/hex-method
+   warning/nonzero-method
+   warning/cmp-method
+   warning/input-builtin
+   warning/round-builtin
+   warning/intern-builtin
+   warning/unichr-builtin
+   warning/map-builtin-not-iterating
+   warning/implicit-map-evaluation
+   warning/zip-builtin-not-iterating
+   warning/range-builtin-not-iterating
+   warning/filter-builtin-not-iterating
+   warning/using-cmp-argument
+   warning/div-method
+   warning/idiv-method
+   warning/rdiv-method
+   warning/exception-message-attribute
+   warning/invalid-str-codec
+   warning/sys-max-int
+   warning/bad-python3-import
+   warning/deprecated-string-function
+   warning/deprecated-str-translate-call
+   warning/deprecated-itertools-function
+   warning/deprecated-types-field
+   warning/next-method-defined
+   warning/dict-items-not-iterating
+   warning/dict-keys-not-iterating
+   warning/dict-values-not-iterating
+   warning/deprecated-operator-function
+   warning/deprecated-urllib-function
+   warning/xreadlines-attribute
+   warning/deprecated-sys-function
+   warning/exception-escape
+   warning/comprehension-escape
+   warning/mixed-indentation
+   warning/star-args
+   warning/no-init
+   warning/assign-to-new-keyword
+
 .. _convention-category:
 
 Convention
@@ -453,6 +548,20 @@ All renamed messages in the convention category:
    convention/missing-docstring
    convention/old-misplaced-comparison-constant
    convention/old-non-ascii-name
+
+
+
+All permanently deleted messages in the convention category and the reason why it was deleted:
+
+.. toctree::
+   :maxdepth: 1
+   :titlesonly:
+
+   convention/bad-whitespace
+   convention/no-space-after-operator
+   convention/no-space-after-comma
+   convention/no-space-before-operator
+   convention/bad-continuation
 
 .. _refactor-category:
 
@@ -549,6 +658,17 @@ All renamed messages in the refactor category:
    refactor/old-simplifiable-if-statement
    refactor/old-too-many-nested-blocks
 
+
+
+All permanently deleted messages in the refactor category and the reason why it was deleted:
+
+.. toctree::
+   :maxdepth: 1
+   :titlesonly:
+
+   refactor/abstract-class-not-used
+   refactor/abstract-class-little-used
+
 .. _information-category:
 
 Information
@@ -577,3 +697,4 @@ All renamed messages in the information category:
    :titlesonly:
 
    information/deprecated-disable-all
+
