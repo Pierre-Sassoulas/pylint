@@ -20,6 +20,7 @@ class NamingStyle:
     """
 
     ANY: Pattern[str] = re.compile(".*")
+
     CLASS_NAME_RGX: Pattern[str] = ANY
     MOD_NAME_RGX: Pattern[str] = ANY
     CONST_NAME_RGX: Pattern[str] = ANY
@@ -31,7 +32,7 @@ class NamingStyle:
     def get_regex(cls, name_type: str) -> Pattern[str]:
         return {
             "module": cls.MOD_NAME_RGX,
-            "const": cls.CONST_NAME_RGX,
+            "const": [cls.CONST_NAME_RGX, cls.DEFAULT_NAME_RGX],
             "class": cls.CLASS_NAME_RGX,
             "function": cls.DEFAULT_NAME_RGX,
             "method": cls.DEFAULT_NAME_RGX,

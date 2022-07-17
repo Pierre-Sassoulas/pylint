@@ -391,6 +391,12 @@ class NameChecker(_BasicChecker):
 
     visit_asyncfunctiondef = visit_functiondef
 
+    @utils.only_required_for_messages("disallowed-name", "invalid-name")
+    def visit_global(self, node: nodes.Global) -> None:
+        for name in node.names:
+            print(name)
+            self._check_name("const", name, node)
+
     @utils.only_required_for_messages(
         "disallowed-name",
         "invalid-name",
@@ -404,11 +410,9 @@ class NameChecker(_BasicChecker):
         """Check module level assigned names."""
         frame = node.frame()
         assign_type = node.assign_type()
-
         # Check names defined in comprehensions
         if isinstance(assign_type, nodes.Comprehension):
             self._check_name("inlinevar", node.name, node)
-
         # Check names defined in module scope
         elif isinstance(frame, nodes.Module):
             # Check names defined in Assign nodes
@@ -556,7 +560,7 @@ class NameChecker(_BasicChecker):
                 if isinstance(inferred, nodes.ClassDef):
                     return True
             return False
-
+        print(name, node_type, type(node))
         if self._name_allowed_by_regex(name=name):
             return
         if self._name_disallowed_by_regex(name=name):
@@ -566,7 +570,13 @@ class NameChecker(_BasicChecker):
             )
             return
         regexp = self._name_regexps[node_type]
-        match = regexp.match(name)
+        if isinstance(regexp, list):
+            print("In a list !")
+            match = None
+            for regex in regexp:
+                match = match or regex.match(name)
+        else:
+            match = regexp.match(name)
 
         if _is_multi_naming_match(match, node_type, confidence):
             name_group = self._find_name_group(node_type)

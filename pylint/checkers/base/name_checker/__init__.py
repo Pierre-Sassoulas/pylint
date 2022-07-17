@@ -13,7 +13,7 @@ __all__ = [
     "AnyStyle",
 ]
 
-from pylint.checkers.base.name_checker.checker import NameChecker
+from pylint.checkers.base.name_checker.name_checker import NameChecker
 from pylint.checkers.base.name_checker.naming_style import (
     KNOWN_NAME_TYPES_WITH_STYLE,
     AnyStyle,

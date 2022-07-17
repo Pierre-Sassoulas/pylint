@@ -32,7 +32,7 @@ from pylint.checkers.base.name_checker import (
     SnakeCaseStyle,
     UpperCaseStyle,
 )
-from pylint.checkers.base.name_checker.checker import NameChecker
+from pylint.checkers.base.name_checker.name_checker import NameChecker
 from pylint.checkers.base.pass_checker import PassChecker
 
 if TYPE_CHECKING:
