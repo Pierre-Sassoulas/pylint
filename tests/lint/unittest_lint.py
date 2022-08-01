@@ -918,9 +918,13 @@ def test_recursive_ignore(ignore_parameter, ignore_parameter_value) -> None:
 def test_relative_imports(initialized_linter: PyLinter) -> None:
     """Regression test for https://github.com/PyCQA/pylint/issues/3651"""
     linter = initialized_linter
+    print(f"Before manager clear cache : {sys.path}")
     MANAGER.clear_cache()  # Essential to reproduce the failure
+    print(f"After manager clear cache : {sys.path}")
     with tempdir() as tmpdir:
+        print(f"After as tmpdir : {sys.path}")
         create_files(["x/y/__init__.py", "x/y/one.py", "x/y/two.py"], tmpdir)
+        print(f"After create file : {sys.path}")
         with open("x/y/__init__.py", "w", encoding="utf-8") as f:
             f.write(
                 """
@@ -948,6 +952,7 @@ TWO = ONE + ONE
 """
             )
         linter.check(["x"])
+        print(f"After linter check: {sys.path}")
     assert not linter.stats.by_msg
 
 
