@@ -5,6 +5,8 @@
 # Copyright (c) https://github.com/PyCQA/pylint/blob/main/CONTRIBUTORS.txt
 
 import pylint
+from pylint.lint.utils import _temporary_sys_path
 
-pylint.modify_sys_path()
-pylint.run_pylint()
+with _temporary_sys_path():
+    pylint.modify_sys_path()
+    pylint.run_pylint()

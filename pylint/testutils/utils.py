@@ -8,7 +8,6 @@ import contextlib
 import os
 import sys
 from collections.abc import Generator, Iterator
-from copy import copy
 from pathlib import Path
 from typing import TextIO
 
@@ -22,19 +21,6 @@ def _patch_streams(out: TextIO) -> Iterator[None]:
     finally:
         sys.stderr = sys.__stderr__
         sys.stdout = sys.__stdout__
-
-
-@contextlib.contextmanager
-def _test_sys_path(
-    replacement_sys_path: list[str] | None = None,
-) -> Generator[None, None, None]:
-    original_path = sys.path
-    try:
-        if replacement_sys_path is not None:
-            sys.path = copy(replacement_sys_path)
-        yield
-    finally:
-        sys.path = original_path
 
 
 @contextlib.contextmanager

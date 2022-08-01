@@ -7,7 +7,8 @@ from __future__ import annotations
 import contextlib
 import sys
 import traceback
-from collections.abc import Iterator, Sequence
+from collections.abc import Generator, Iterator, Sequence
+from copy import copy
 from datetime import datetime
 from pathlib import Path
 
@@ -69,6 +70,19 @@ def get_fatal_error_message(filepath: str, issue_template_path: Path) -> str:
         f"Please open an issue in our bug tracker so we address this. "
         f"There is a pre-filled template that you can use in '{issue_template_path}'."
     )
+
+
+@contextlib.contextmanager
+def _temporary_sys_path(
+    replacement_sys_path: list[str] | None = None,
+) -> Generator[None, None, None]:
+    original_path = sys.path
+    try:
+        if replacement_sys_path is not None:
+            sys.path = copy(replacement_sys_path)
+        yield
+    finally:
+        sys.path = original_path
 
 
 def _patch_sys_path(args: Sequence[str]) -> list[str]:

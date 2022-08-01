@@ -3,31 +3,9 @@
 # Copyright (c) https://github.com/PyCQA/pylint/blob/main/CONTRIBUTORS.txt
 
 import os
-import sys
 from pathlib import Path
 
-from pylint.testutils.utils import _test_cwd, _test_environ_pythonpath, _test_sys_path
-
-
-def test__test_sys_path_no_arg() -> None:
-    sys_path = sys.path
-    with _test_sys_path():
-        assert sys.path == sys_path
-        new_sys_path = ["new_sys_path"]
-        sys.path = new_sys_path
-        assert sys.path == new_sys_path
-    assert sys.path == sys_path
-
-
-def test__test_sys_path() -> None:
-    sys_path = sys.path
-    new_sys_path = [".", "/home"]
-    with _test_sys_path(new_sys_path):
-        assert sys.path == new_sys_path
-        newer_sys_path = ["new_sys_path"]
-        sys.path = newer_sys_path
-        assert sys.path == newer_sys_path
-    assert sys.path == sys_path
+from pylint.testutils.utils import _test_cwd, _test_environ_pythonpath
 
 
 def test__test_cwd_no_arg(tmp_path: Path) -> None:

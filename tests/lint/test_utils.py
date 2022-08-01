@@ -1,13 +1,17 @@
 # Licensed under the GPL: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 # For details: https://github.com/PyCQA/pylint/blob/main/LICENSE
 # Copyright (c) https://github.com/PyCQA/pylint/blob/main/CONTRIBUTORS.txt
-
+import sys
 import unittest.mock
 from pathlib import Path, PosixPath
 
 import pytest
 
-from pylint.lint.utils import get_fatal_error_message, prepare_crash_report
+from pylint.lint.utils import (
+    _temporary_sys_path,
+    get_fatal_error_message,
+    prepare_crash_report,
+)
 from pylint.testutils._run import _Run as Run
 
 
@@ -52,3 +56,24 @@ def test_issue_template_on_fatal_errors(capsys: pytest.CaptureFixture) -> None:
     assert "Fatal error while checking" in captured.out
     assert "Please open an issue" in captured.out
     assert "Traceback" in captured.err
+
+
+def test_temporary_sys_path_no_arg() -> None:
+    sys_path = sys.path
+    with _temporary_sys_path():
+        assert sys.path == sys_path
+        new_sys_path = ["new_sys_path"]
+        sys.path = new_sys_path
+        assert sys.path == new_sys_path
+    assert sys.path == sys_path
+
+
+def test_temporary_sys_path() -> None:
+    sys_path = sys.path
+    new_sys_path = [".", "/home"]
+    with _temporary_sys_path(new_sys_path):
+        assert sys.path == new_sys_path
+        newer_sys_path = ["new_sys_path"]
+        sys.path = newer_sys_path
+        assert sys.path == newer_sys_path
+    assert sys.path == sys_path

@@ -32,17 +32,13 @@ from py._path.local import LocalPath  # type: ignore[import]
 from pylint import extensions, modify_sys_path
 from pylint.constants import MAIN_CHECKER_NAME, MSG_TYPES_STATUS
 from pylint.lint.pylinter import PyLinter
+from pylint.lint.utils import _temporary_sys_path
 from pylint.message import Message
 from pylint.reporters import JSONReporter
 from pylint.reporters.text import BaseReporter, ColorizedTextReporter, TextReporter
 from pylint.testutils._run import _add_rcfile_default_pylintrc
 from pylint.testutils._run import _Run as Run
-from pylint.testutils.utils import (
-    _patch_streams,
-    _test_cwd,
-    _test_environ_pythonpath,
-    _test_sys_path,
-)
+from pylint.testutils.utils import _patch_streams, _test_cwd, _test_environ_pythonpath
 from pylint.utils import utils
 
 if sys.version_info >= (3, 11):
@@ -749,7 +745,7 @@ a.py:1:4: E0001: Parsing failed: 'invalid syntax (<unknown>, line 1)' (syntax-er
             "/usr/local/lib/python3.9/lib-dynload",
             "/usr/local/lib/python3.9/site-packages",
         ]
-        with _test_sys_path(), patch("os.getcwd") as mock_getcwd:
+        with _temporary_sys_path(), patch("os.getcwd") as mock_getcwd:
             mock_getcwd.return_value = cwd
             paths = [cwd, *default_paths]
             sys.path = copy(paths)
@@ -1121,7 +1117,7 @@ a.py:1:4: E0001: Parsing failed: 'invalid syntax (<unknown>, line 1)' (syntax-er
         )
 
     def test_recursive_current_dir(self) -> None:
-        with _test_sys_path():
+        with _temporary_sys_path():
             # pytest is including directory HERE/regrtest_data to sys.path which causes
             # astroid to believe that directory is a package.
             sys.path = [
@@ -1138,7 +1134,7 @@ a.py:1:4: E0001: Parsing failed: 'invalid syntax (<unknown>, line 1)' (syntax-er
 
     def test_ignore_path_recursive_current_dir(self) -> None:
         """Tests that path is normalized before checked that is ignored. GitHub issue #6964"""
-        with _test_sys_path():
+        with _temporary_sys_path():
             # pytest is including directory HERE/regrtest_data to sys.path which causes
             # astroid to believe that directory is a package.
             sys.path = [
