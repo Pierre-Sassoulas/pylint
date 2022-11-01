@@ -1164,7 +1164,7 @@ class VariablesChecker(BaseChecker):
         (
             "dummy-variables-rgx",
             {
-                "default": "_+$|(_[a-zA-Z0-9_]*[a-zA-Z0-9]+?$)|dummy|^ignored_|^unused_",
+                "default": "^_.*$|(_[a-zA-Z0-9_]*[a-zA-Z0-9]+?$)|dummy|^ignored_|^unused_",
                 "type": "regexp",
                 "metavar": "<regexp>",
                 "help": "A regular expression matching the name of dummy "
