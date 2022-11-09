@@ -64,7 +64,7 @@ class ImplicitBooleanessChecker(checkers.BaseChecker):
     name = "refactoring"
     msgs = {
         "C1802": (
-            "Do not use `len(SEQUENCE)` without comparison to determine if a sequence is empty",
+            '"%s" can be simplified to "%s" as an empty %s is falsey',
             "use-implicit-booleaness-not-len",
             "Empty sequences are considered false in a boolean context. You can either"
             " remove the call to 'len' (``if not x``) or compare the length against a"
@@ -177,7 +177,10 @@ class ImplicitBooleanessChecker(checkers.BaseChecker):
             and utils.is_call_of_name(node.operand, "len")
         ):
             self.add_message(
-                "use-implicit-booleaness-not-len", node=node, confidence=HIGH
+                "use-implicit-booleaness-not-len",
+                node=node,
+                confidence=HIGH,
+                args=self._implicit_booleaness__not_len_message_args(node.operand),
             )
 
     @utils.only_required_for_messages(
@@ -311,6 +314,15 @@ class ImplicitBooleanessChecker(checkers.BaseChecker):
             nodes.Dict: "dict",
             nodes.Const: "str",
         }.get(type(node), "iterable")
+
+    def _implicit_booleaness__not_len_message_args(
+        self, literal_node: nodes.NodeNG
+    ) -> tuple[str, str]:
+        return (
+            f"len({literal_node.as_string()})",
+            literal_node.as_string(),
+            self._get_node_description(literal_node),
+        )
 
     def _implicit_booleaness_message_args(
         self, literal_node: nodes.NodeNG, operator: str, target_node: nodes.NodeNG
