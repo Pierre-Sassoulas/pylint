@@ -1,26 +1,411 @@
-use-implicit-booleaness-not-len:4:3:4:14::Do not use `len(SEQUENCE)` without comparison to determine if a sequence is empty:INFERENCE
-use-implicit-booleaness-not-len:7:3:7:18::Do not use `len(SEQUENCE)` without comparison to determine if a sequence is empty:HIGH
-use-implicit-booleaness-not-len:11:9:11:34::Do not use `len(SEQUENCE)` without comparison to determine if a sequence is empty:INFERENCE
-use-implicit-booleaness-not-len:14:11:14:22::Do not use `len(SEQUENCE)` without comparison to determine if a sequence is empty:INFERENCE
+use-implicit-booleaness-not-len:4:3:4:14::"""'TEST'"" can be simplified to ""TODO"" as an empty str is falsey":INFERENCE
+use-implicit-booleaness-not-len:7:3:7:18::"""not len('TEST')"" can be simplified to ""not 'TEST'"" as an empty iterable is falsey":HIGH
+use-implicit-booleaness-not-len:11:9:11:34::"""['T', 'E', 'S', 'T']"" can be simplified to ""TODO"" as an empty list is falsey":INFERENCE
+use-implicit-booleaness-not-len:14:11:14:22::"""'TEST'"" can be simplified to ""TODO"" as an empty str is falsey":INFERENCE
 comparison-of-constants:39:3:39:28::"Comparison between constants: '0 < 1' has a constant value":HIGH
-use-implicit-booleaness-not-len:56:5:56:16::Do not use `len(SEQUENCE)` without comparison to determine if a sequence is empty:INFERENCE
-use-implicit-booleaness-not-len:61:5:61:20::Do not use `len(SEQUENCE)` without comparison to determine if a sequence is empty:HIGH
-use-implicit-booleaness-not-len:64:6:64:17::Do not use `len(SEQUENCE)` without comparison to determine if a sequence is empty:INFERENCE
-use-implicit-booleaness-not-len:67:6:67:21::Do not use `len(SEQUENCE)` without comparison to determine if a sequence is empty:HIGH
-use-implicit-booleaness-not-len:70:12:70:23::Do not use `len(SEQUENCE)` without comparison to determine if a sequence is empty:INFERENCE
-use-implicit-booleaness-not-len:73:6:73:21::Do not use `len(SEQUENCE)` without comparison to determine if a sequence is empty:HIGH
-use-implicit-booleaness-not-len:96:11:96:20:github_issue_1331_v2:Do not use `len(SEQUENCE)` without comparison to determine if a sequence is empty:INFERENCE
-use-implicit-booleaness-not-len:99:11:99:20:github_issue_1331_v3:Do not use `len(SEQUENCE)` without comparison to determine if a sequence is empty:INFERENCE
-use-implicit-booleaness-not-len:102:17:102:26:github_issue_1331_v4:Do not use `len(SEQUENCE)` without comparison to determine if a sequence is empty:INFERENCE
-use-implicit-booleaness-not-len:104:9:104:15::Do not use `len(SEQUENCE)` without comparison to determine if a sequence is empty:INFERENCE
-use-implicit-booleaness-not-len:105:9:105:20::Do not use `len(SEQUENCE)` without comparison to determine if a sequence is empty:INFERENCE
-use-implicit-booleaness-not-len:124:11:124:34:github_issue_1879:Do not use `len(SEQUENCE)` without comparison to determine if a sequence is empty:INFERENCE
-use-implicit-booleaness-not-len:125:11:125:39:github_issue_1879:Do not use `len(SEQUENCE)` without comparison to determine if a sequence is empty:INFERENCE
-use-implicit-booleaness-not-len:126:11:126:24:github_issue_1879:Do not use `len(SEQUENCE)` without comparison to determine if a sequence is empty:INFERENCE
-use-implicit-booleaness-not-len:127:11:127:35:github_issue_1879:Do not use `len(SEQUENCE)` without comparison to determine if a sequence is empty:HIGH
-use-implicit-booleaness-not-len:128:11:128:33:github_issue_1879:Do not use `len(SEQUENCE)` without comparison to determine if a sequence is empty:HIGH
-use-implicit-booleaness-not-len:129:11:129:41:github_issue_1879:Do not use `len(SEQUENCE)` without comparison to determine if a sequence is empty:HIGH
-use-implicit-booleaness-not-len:130:11:130:43:github_issue_1879:Do not use `len(SEQUENCE)` without comparison to determine if a sequence is empty:INFERENCE
-use-implicit-booleaness-not-len:171:11:171:42:github_issue_1879:Do not use `len(SEQUENCE)` without comparison to determine if a sequence is empty:INFERENCE
+use-implicit-booleaness-not-len:56:5:56:16::"""'TEST'"" can be simplified to ""TODO"" as an empty str is falsey":INFERENCE
+use-implicit-booleaness-not-len:61:5:61:20::"""not len('TEST')"" can be simplified to ""not 'TEST'"" as an empty iterable is falsey":HIGH
+use-implicit-booleaness-not-len:64:6:64:17::"""'TEST'"" can be simplified to ""TODO"" as an empty str is falsey":INFERENCE
+use-implicit-booleaness-not-len:67:6:67:21::"""not len('TEST')"" can be simplified to ""not 'TEST'"" as an empty iterable is falsey":HIGH
+use-implicit-booleaness-not-len:70:12:70:23::"""'TEST'"" can be simplified to ""TODO"" as an empty str is falsey":INFERENCE
+use-implicit-booleaness-not-len:73:6:73:21::"""not len('TEST')"" can be simplified to ""not 'TEST'"" as an empty iterable is falsey":HIGH
+use-implicit-booleaness-not-len:96:11:96:20:github_issue_1331_v2:"""()"" can be simplified to ""TODO"" as an empty iterable is falsey":INFERENCE
+use-implicit-booleaness-not-len:99:11:99:20:github_issue_1331_v3:"""()"" can be simplified to ""TODO"" as an empty iterable is falsey":INFERENCE
+use-implicit-booleaness-not-len:102:17:102:26:github_issue_1331_v4:"""()"" can be simplified to ""TODO"" as an empty iterable is falsey":INFERENCE
+use-implicit-booleaness-not-len:104:9:104:15::"""[]"" can be simplified to ""TODO"" as an empty iterable is falsey":INFERENCE
+use-implicit-booleaness-not-len:105:9:105:20::"""'TEST'"" can be simplified to ""TODO"" as an empty str is falsey":INFERENCE
+use-implicit-booleaness-not-len:124:11:124:34:github_issue_1879:"""
+
+class ClassWithoutBool(list):
+    pass
+"" can be simplified to ""TODO"" as an empty iterable is falsey":INFERENCE
+use-implicit-booleaness-not-len:125:11:125:39:github_issue_1879:"""
+
+class ChildClassWithoutBool(ClassWithoutBool):
+    pass
+"" can be simplified to ""TODO"" as an empty iterable is falsey":INFERENCE
+use-implicit-booleaness-not-len:126:11:126:24:github_issue_1879:"""
+
+class range(object):
+    """"""range(stop) -> range object
+range(start, stop[, step]) -> range object
+
+Return an object that produces a sequence of integers from start (inclusive)
+to stop (exclusive) by step.  range(i, j) produces i, i+1, i+2, ..., j-1.
+start defaults to 0, and stop is omitted!  range(4) produces 0, 1, 2, 3.
+These are exactly the valid indices for a list of 4 elements.
+When step is given, it specifies the increment (or decrement).""""""
+
+    def __bool__():
+        """"""True if self else False""""""
+
+
+    def __contains__():
+        """"""Return key in self.""""""
+
+
+    def __delattr__():
+        """"""Implement delattr(self, name).""""""
+
+
+    def __dir__():
+        """"""Default dir() implementation.""""""
+
+
+    def __eq__():
+        """"""Return self==value.""""""
+
+
+    def __format__():
+        """"""Default object formatter.""""""
+
+
+    def __ge__():
+        """"""Return self>=value.""""""
+
+
+    def __getattribute__():
+        """"""Return getattr(self, name).""""""
+
+
+    def __getitem__():
+        """"""Return self[key].""""""
+
+
+    def __gt__():
+        """"""Return self>value.""""""
+
+
+    def __hash__():
+        """"""Return hash(self).""""""
+
+
+    def __init__():
+        """"""Initialize self.  See help(type(self)) for accurate signature.""""""
+
+
+    def __iter__():
+        """"""Implement iter(self).""""""
+
+
+    def __le__():
+        """"""Return self<=value.""""""
+
+
+    def __len__():
+        """"""Return len(self).""""""
+
+
+    def __lt__():
+        """"""Return self<value.""""""
+
+
+    def __ne__():
+        """"""Return self!=value.""""""
+
+
+    def __new__():
+        """"""Create and return a new object.  See help(type) for accurate signature.""""""
+
+
+    def __reduce__():
+
+
+    def __reduce_ex__():
+        """"""Helper for pickle.""""""
+
+
+    def __repr__():
+        """"""Return repr(self).""""""
+
+
+    def __reversed__():
+        """"""Return a reverse iterator.""""""
+
+
+    def __setattr__():
+        """"""Implement setattr(self, name, value).""""""
+
+
+    def __sizeof__():
+        """"""Size of object in memory, in bytes.""""""
+
+
+    def __str__():
+        """"""Return str(self).""""""
+
+
+    def __subclasshook__():
+        """"""Abstract classes can override this to customize issubclass().
+
+This is invoked early on by abc.ABCMeta.__subclasscheck__().
+It should return True, False or NotImplemented.  If it returns
+NotImplemented, the normal algorithm is used.  Otherwise, it
+overrides the normal algorithm (and the outcome is cached).
+""""""
+
+
+    def count():
+        """"""rangeobject.count(value) -> integer -- return number of occurrences of value""""""
+
+
+    def index():
+        """"""rangeobject.index(value) -> integer -- return index of value.
+Raise ValueError if the value is not present.""""""
+
+
+
+    class start:
+
+
+
+
+    class step:
+
+
+
+
+    class stop:
+
+
+"" can be simplified to ""TODO"" as an empty iterable is falsey":INFERENCE
+use-implicit-booleaness-not-len:127:11:127:35:github_issue_1879:"""[t + 1 for t in []]"" can be simplified to ""[t + 1 for t in []]"" as an empty iterable is falsey":HIGH
+use-implicit-booleaness-not-len:128:11:128:33:github_issue_1879:"""(u + 1 for u in [])"" can be simplified to ""(u + 1 for u in [])"" as an empty iterable is falsey":HIGH
+use-implicit-booleaness-not-len:129:11:129:41:github_issue_1879:"""{'1': v + 1 for v in {}}"" can be simplified to ""{'1': v + 1 for v in {}}"" as an empty iterable is falsey":HIGH
+use-implicit-booleaness-not-len:130:11:130:43:github_issue_1879:"""
+
+class set(object):
+    """"""set() -> new empty set object
+set(iterable) -> new set object
+
+Build an unordered collection of unique elements.""""""
+
+    def __and__():
+        """"""Return self&value.""""""
+
+
+    def __contains__():
+        """"""x.__contains__(y) <==> y in x.""""""
+
+
+    def __delattr__():
+        """"""Implement delattr(self, name).""""""
+
+
+    def __dir__():
+        """"""Default dir() implementation.""""""
+
+
+    def __eq__():
+        """"""Return self==value.""""""
+
+
+    def __format__():
+        """"""Default object formatter.""""""
+
+
+    def __ge__():
+        """"""Return self>=value.""""""
+
+
+    def __getattribute__():
+        """"""Return getattr(self, name).""""""
+
+
+    def __gt__():
+        """"""Return self>value.""""""
+
+    None
+
+    def __iand__():
+        """"""Return self&=value.""""""
+
+
+    def __init__():
+        """"""Initialize self.  See help(type(self)) for accurate signature.""""""
+
+
+    def __ior__():
+        """"""Return self|=value.""""""
+
+
+    def __isub__():
+        """"""Return self-=value.""""""
+
+
+    def __iter__():
+        """"""Implement iter(self).""""""
+
+
+    def __ixor__():
+        """"""Return self^=value.""""""
+
+
+    def __le__():
+        """"""Return self<=value.""""""
+
+
+    def __len__():
+        """"""Return len(self).""""""
+
+
+    def __lt__():
+        """"""Return self<value.""""""
+
+
+    def __ne__():
+        """"""Return self!=value.""""""
+
+
+    def __new__():
+        """"""Create and return a new object.  See help(type) for accurate signature.""""""
+
+
+    def __or__():
+        """"""Return self|value.""""""
+
+
+    def __rand__():
+        """"""Return value&self.""""""
+
+
+    def __reduce__():
+        """"""Return state information for pickling.""""""
+
+
+    def __reduce_ex__():
+        """"""Helper for pickle.""""""
+
+
+    def __repr__():
+        """"""Return repr(self).""""""
+
+
+    def __ror__():
+        """"""Return value|self.""""""
+
+
+    def __rsub__():
+        """"""Return value-self.""""""
+
+
+    def __rxor__():
+        """"""Return value^self.""""""
+
+
+    def __setattr__():
+        """"""Implement setattr(self, name, value).""""""
+
+
+    def __sizeof__():
+        """"""S.__sizeof__() -> size of S in memory, in bytes""""""
+
+
+    def __str__():
+        """"""Return str(self).""""""
+
+
+    def __sub__():
+        """"""Return self-value.""""""
+
+
+    def __subclasshook__():
+        """"""Abstract classes can override this to customize issubclass().
+
+This is invoked early on by abc.ABCMeta.__subclasscheck__().
+It should return True, False or NotImplemented.  If it returns
+NotImplemented, the normal algorithm is used.  Otherwise, it
+overrides the normal algorithm (and the outcome is cached).
+""""""
+
+
+    def __xor__():
+        """"""Return self^value.""""""
+
+
+    def add():
+        """"""Add an element to a set.
+
+This has no effect if the element is already present.""""""
+
+
+    def clear():
+        """"""Remove all elements from this set.""""""
+
+
+    def copy():
+        """"""Return a shallow copy of a set.""""""
+
+
+    def difference():
+        """"""Return the difference of two or more sets as a new set.
+
+(i.e. all elements that are in this set but not the others.)""""""
+
+
+    def difference_update():
+        """"""Remove all elements of another set from this set.""""""
+
+
+    def discard():
+        """"""Remove an element from a set if it is a member.
+
+If the element is not a member, do nothing.""""""
+
+
+    def intersection():
+        """"""Return the intersection of two sets as a new set.
+
+(i.e. all elements that are in both sets.)""""""
+
+
+    def intersection_update():
+        """"""Update a set with the intersection of itself and another.""""""
+
+
+    def isdisjoint():
+        """"""Return True if two sets have a null intersection.""""""
+
+
+    def issubset():
+        """"""Report whether another set contains this set.""""""
+
+
+    def issuperset():
+        """"""Report whether this set contains another set.""""""
+
+
+    def pop():
+        """"""Remove and return an arbitrary set element.
+Raises KeyError if the set is empty.""""""
+
+
+    def remove():
+        """"""Remove an element from a set; it must be a member.
+
+If the element is not a member, raise a KeyError.""""""
+
+
+    def symmetric_difference():
+        """"""Return the symmetric difference of two sets as a new set.
+
+(i.e. all elements that are in exactly one of the sets.)""""""
+
+
+    def symmetric_difference_update():
+        """"""Update a set with the symmetric difference of itself and another.""""""
+
+
+    def union():
+        """"""Return the union of sets as a new set.
+
+(i.e. all elements that are in either set.)""""""
+
+
+    def update():
+        """"""Update a set with the union of itself and others.""""""
+
+"" can be simplified to ""TODO"" as an empty iterable is falsey":INFERENCE
+use-implicit-booleaness-not-len:171:11:171:42:github_issue_1879:"""[1]"" can be simplified to ""TODO"" as an empty iterable is falsey":INFERENCE
 undefined-variable:183:11:183:24:github_issue_4215:Undefined variable 'undefined_var':UNDEFINED
 undefined-variable:185:11:185:25:github_issue_4215:Undefined variable 'undefined_var2':UNDEFINED

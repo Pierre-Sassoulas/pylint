@@ -64,7 +64,7 @@ class ImplicitBooleanessChecker(checkers.BaseChecker):
     name = "refactoring"
     msgs = {
         "C1802": (
-            "Do not use `len(SEQUENCE)` without comparison to determine if a sequence is empty",
+            '"%s" can be simplified to "%s" as an empty %s is falsey',
             "use-implicit-booleaness-not-len",
             "Empty sequences are considered false in a boolean context. You can either"
             " remove the call to 'len' (``if not x``) or compare the length against a"
@@ -135,6 +135,7 @@ class ImplicitBooleanessChecker(checkers.BaseChecker):
             # The node is a generator or comprehension as in len([x for x in ...])
             self.add_message(
                 "use-implicit-booleaness-not-len",
+                args=self._implicit_booleaness__not_len_message_args(len_arg),
                 node=node,
                 confidence=HIGH,
             )
@@ -151,8 +152,10 @@ class ImplicitBooleanessChecker(checkers.BaseChecker):
         if "range" in mother_classes or (
             affected_by_pep8 and not self.instance_has_bool(instance)
         ):
+            node_description = self._get_node_description(len_arg)
             self.add_message(
                 "use-implicit-booleaness-not-len",
+                args=(instance.as_string(), "TODO", node_description),
                 node=node,
                 confidence=INFERENCE,
             )
@@ -176,8 +179,16 @@ class ImplicitBooleanessChecker(checkers.BaseChecker):
             and node.op == "not"
             and utils.is_call_of_name(node.operand, "len")
         ):
+            print(node.operand.__dict__)
             self.add_message(
-                "use-implicit-booleaness-not-len", node=node, confidence=HIGH
+                "use-implicit-booleaness-not-len",
+                node=node,
+                confidence=HIGH,
+                args=(
+                    node.as_string(),
+                    f"not {node.operand.args[0].as_string()}",
+                    "iterable",
+                ),
             )
 
     @utils.only_required_for_messages(
@@ -306,6 +317,15 @@ class ImplicitBooleanessChecker(checkers.BaseChecker):
             nodes.Dict: "dict",
             nodes.Const: "str",
         }.get(type(node), "iterable")
+
+    def _implicit_booleaness__not_len_message_args(
+        self, literal_node: nodes.NodeNG
+    ) -> tuple[str, str]:
+        return (
+            literal_node.as_string(),
+            literal_node.as_string(),
+            self._get_node_description(literal_node),
+        )
 
     def _implicit_booleaness_message_args(
         self, literal_node: nodes.NodeNG, operator: str, target_node: nodes.NodeNG
