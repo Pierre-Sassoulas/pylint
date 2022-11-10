@@ -176,11 +176,16 @@ class ImplicitBooleanessChecker(checkers.BaseChecker):
             and node.op == "not"
             and utils.is_call_of_name(node.operand, "len")
         ):
+            print(node.operand.__dict__)
             self.add_message(
                 "use-implicit-booleaness-not-len",
                 node=node,
                 confidence=HIGH,
-                args=self._implicit_booleaness__not_len_message_args(node.operand),
+                args=(
+                    node.as_string(),
+                    f"not {node.operand.args[0].as_string()}",
+                    "iterable",
+                ),
             )
 
     @utils.only_required_for_messages(
@@ -319,7 +324,7 @@ class ImplicitBooleanessChecker(checkers.BaseChecker):
         self, literal_node: nodes.NodeNG
     ) -> tuple[str, str]:
         return (
-            f"len({literal_node.as_string()})",
+            literal_node.as_string(),
             literal_node.as_string(),
             self._get_node_description(literal_node),
         )
