@@ -135,6 +135,7 @@ class ImplicitBooleanessChecker(checkers.BaseChecker):
             # The node is a generator or comprehension as in len([x for x in ...])
             self.add_message(
                 "use-implicit-booleaness-not-len",
+                args=self._implicit_booleaness__not_len_message_args(len_arg),
                 node=node,
                 confidence=HIGH,
             )
@@ -151,8 +152,10 @@ class ImplicitBooleanessChecker(checkers.BaseChecker):
         if "range" in mother_classes or (
             affected_by_pep8 and not self.instance_has_bool(instance)
         ):
+            node_description = self._get_node_description(len_arg)
             self.add_message(
                 "use-implicit-booleaness-not-len",
+                args=(instance.as_string(), "TODO", node_description),
                 node=node,
                 confidence=INFERENCE,
             )
