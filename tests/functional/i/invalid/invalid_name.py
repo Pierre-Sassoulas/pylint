@@ -9,7 +9,13 @@ try:
 except ImportError:
     collections = None
 
-aaa = 42 # [invalid-name]
+aaa = 42  # [invalid-name]
+aab = tuple("42")
+aac = "42"  # [invalid-name]
+aad = [42]
+aae = {42}
+aaf = {"a": 42}
+
 try:
     import time
 except ValueError:
