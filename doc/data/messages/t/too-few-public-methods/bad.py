@@ -1,3 +1,10 @@
+from dataclasses import dataclass
+
+
+@dataclass
+class Fruit:
+    name:str
+
 class Worm:  # [too-few-public-methods]
     def __init__(self, name: str, fruit_of_residence: Fruit):
         self.name = name
