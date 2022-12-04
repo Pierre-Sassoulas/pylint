@@ -3,4 +3,4 @@ import sys
 
 import pylint
 
-from . import utils
+from . import utils  # pylint: disable=no-name-in-module
