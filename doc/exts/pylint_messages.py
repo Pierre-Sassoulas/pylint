@@ -7,12 +7,11 @@
 from __future__ import annotations
 
 import os
-from collections import defaultdict
 from enum import Enum
 from inspect import getmodule
 from itertools import chain, groupby
 from pathlib import Path
-from typing import DefaultDict, Dict, List, NamedTuple, Tuple
+from typing import List, NamedTuple, Tuple, Union
 
 from sphinx.application import Sphinx
 
@@ -20,7 +19,7 @@ from pylint.checkers import initialize as initialize_checkers
 from pylint.constants import MSG_TYPES
 from pylint.extensions import initialize as initialize_extensions
 from pylint.lint import PyLinter
-from pylint.message import MessageDefinition, message_id_store
+from pylint.message import MessageDefinition
 from pylint.message._deleted_message_ids import DELETED_MESSAGES_IDS
 from pylint.utils import get_rst_title
 
@@ -48,17 +47,45 @@ class MessageData(NamedTuple):
     default_enabled: bool = True
 
 
+class MessagesDict(NamedTuple):
+    fatal: list[MessageData] = []
+    error: list[MessageData] = []
+    warning: list[MessageData] = []
+    convention: list[MessageData] = []
+    refactor: list[MessageData] = []
+    information: list[MessageData] = []
+
+
+OldMessageData = Union[Tuple[str, str], List[Tuple[str, str]]]
+"""DefaultDict is indexed by tuples of (old name symbol, old name id) and values are
+tuples of (new name symbol, new name category).
+"""
+
+
+class OldMessagesDict(NamedTuple):
+    fatal: list[OldMessageData] = []
+    error: list[OldMessageData] = []
+    warning: list[OldMessageData] = []
+    convention: list[OldMessageData] = []
+    refactor: list[OldMessageData] = []
+    information: list[OldMessageData] = []
+
+
 class ExampleType(str, Enum):
     GOOD = "good"
     BAD = "bad"
 
 
-MessagesDict = Dict[str, List[MessageData]]
-OldMessagesDict = Dict[str, DefaultDict[Tuple[str, str], List[Tuple[str, str]]]]
-"""DefaultDict is indexed by tuples of (old name symbol, old name id) and values are
-tuples of (new name symbol, new name category).
-"""
-DeletedMessagesDict = Dict[str, Tuple[str, ...]]
+DeletedMessagesData = Tuple[str, ...]
+
+
+class DeletedMessagesDict(NamedTuple):
+    fatal: list[OldMessageData] = []
+    error: list[OldMessageData] = []
+    warning: list[OldMessageData] = []
+    convention: list[OldMessageData] = []
+    refactor: list[OldMessageData] = []
+    information: list[OldMessageData] = []
 
 
 def _register_all_checkers_and_extensions(linter: PyLinter) -> None:
@@ -197,22 +224,9 @@ def _get_all_messages(
 
     Also return a dictionary of old message and the new messages they can be mapped to.
     """
-    messages_dict: MessagesDict = {
-        "fatal": [],
-        "error": [],
-        "warning": [],
-        "convention": [],
-        "refactor": [],
-        "information": [],
-    }
-    old_messages: OldMessagesDict = {
-        "fatal": defaultdict(list),
-        "error": defaultdict(list),
-        "warning": defaultdict(list),
-        "convention": defaultdict(list),
-        "refactor": defaultdict(list),
-        "information": defaultdict(list),
-    }
+    messages_dict = MessagesDict()
+    old_messages: OldMessagesDict()
+    DeletedMessagesDict()
     checker_message_mapping = chain.from_iterable(
         ((checker, msg) for msg in checker.messages)
         for checker in linter.get_checkers()
@@ -243,7 +257,7 @@ def _get_all_messages(
         if message.old_names:
             for old_name in message.old_names:
                 category = MSG_TYPES_DOC[old_name[0][0]]
-                # We check if the message is already in old_messages so
+                # We check if the message is already in old_messages, so
                 # we don't duplicate shared messages.
                 if (message.symbol, msg_type) not in old_messages[category][
                     (old_name[1], old_name[0])
@@ -518,18 +532,28 @@ def build_messages_pages(app: Sphinx | None) -> None:
     _write_redirect_pages(old_messages)
 
 
-def _get_deleted_messages():
-    result = {}
+def _get_deleted_messages() -> MessagesDict:
+    result: MessagesDict = {}
     for explanation, messages in DELETED_MESSAGES_IDS.items():
         for message in messages:
             category = MSG_TYPES_DOC[message.msgid[0]]
             if category not in result:
-                result[category] = {}
-            result[category][(message.symbol, message.msgid)] = explanation
+                result[category] = []
+            result[category] = MessageData(
+                message.checker_name,
+                message.msgid,
+                message.symbol,
+                message,
+                "",
+                message.shared,
+                message.default_enabled,
+            )
             if message.old_names:
                 for msg, symbol in message.old_names:
                     category = MSG_TYPES_DOC[msg[0]]
-                    result[category][(symbol, msg)] = f"(old name of {message.symbol}) {explanation}"
+                    result[category][
+                        (symbol, msg)
+                    ] = f"(old name of {message.symbol}) {explanation}"
     return result
 
 
