@@ -43,7 +43,7 @@ def _worker_initialize(
     :param linter: A linter-class (PyLinter) instance pickled with dill
     :param extra_packages_paths: Extra entries to be added to `sys.path`
     """
-    global _worker_linter  # pylint: disable=global-statement
+    global _worker_linter  # pylint: disable=global-statement # noqa
     _worker_linter = dill.loads(linter)
     assert _worker_linter
 

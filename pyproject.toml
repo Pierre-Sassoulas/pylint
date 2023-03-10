@@ -144,10 +144,20 @@ select = [
     "B",  # bugbear
     "I",  # isort
     "RUF", # ruff
+    # "C90", # mccabe
+    "PLE", # Pylint Error
+    "PLW", # Pylint Warning
+    "PLR", # Pylint Refactor
 ]
 
 ignore = [
     "B905", # `zip()` without an explicit `strict=` parameter
+    "PLR2004",  # Magic value used in comparison
+    "PLR0911", # Too many return statements
+    "PLR0912",  # Too many branches
+    "PLR0913",  # Too many arguments to function call
+    "PLR0915",  # Too many statements
+    "PLW2901",  # `for` loop variable `arg` overwritten
 ]
 
 fixable = [
@@ -157,4 +167,7 @@ fixable = [
     "B",  # bugbear
     "I",  # isort
     "RUF", # ruff
+    "PLE", # Pylint Error
+    "PLW", # Pylint Warning
+    "PLR", # Pylint Refactor
 ]
