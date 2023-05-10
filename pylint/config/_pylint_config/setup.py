@@ -28,7 +28,8 @@ class _HelpAction(_AccessParserAction):
 
 def _register_generate_config_options(parser: argparse.ArgumentParser) -> None:
     """Registers the necessary arguments on the parser."""
-    parser.prog = "pylint-config"
+    command_name = "pylint-config"
+    parser.prog = command_name
     # Overwrite the help command
     parser.add_argument(
         "-h",
@@ -38,12 +39,20 @@ def _register_generate_config_options(parser: argparse.ArgumentParser) -> None:
         help="show this help message and exit",
         parser=parser,
     )
-
     # We use subparsers to create various subcommands under 'pylint-config'
-    subparsers = parser.add_subparsers(dest="config_subcommand", title="Subcommands")
-
-    # Add the generate command
+    subparsers = parser.add_subparsers(dest="config_subcommand", title=command_name)
     generate_parser = subparsers.add_parser(
-        "generate", help="Generate a pylint configuration"
+        "generate", help="Generate a pylint configuration."
     )
     generate_parser.add_argument("--interactive", action="store_true")
+    upgrade_parser = subparsers.add_parser(
+        "upgrade", help="Upgrade a pylint configuration."
+    )
+    upgrade_parser.add_argument("input", help="The configuration file input")
+    upgrade_parser.add_argument(
+        "-o",
+        "--output",
+        help="Where to output, will be written in place if not defined",
+        required=False,
+        default=None,
+    )

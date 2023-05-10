@@ -6,7 +6,6 @@ from __future__ import annotations
 
 import os
 import sys
-import warnings
 from collections.abc import Sequence
 from pathlib import Path
 from typing import ClassVar
@@ -165,11 +164,6 @@ group are mutually exclusive.",
 
         # Handle the 'pylint-config' command
         if self._is_pylint_config:
-            warnings.warn(
-                "NOTE: The 'pylint-config' command is experimental and usage can change",
-                UserWarning,
-                stacklevel=2,
-            )
             code = _handle_pylint_config_commands(linter)
             if exit:
                 sys.exit(code)
