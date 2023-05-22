@@ -158,3 +158,14 @@ class MessageIdStore:
         # Add to cache
         self.__active_msgids[msgid_or_symbol] = ids
         return ids
+
+class
+def generate_prepopulated_code(msgid_store:MessageIdStore) -> str:
+    return f"""
+class MessageIdStore:
+    def __init__(self) -> None:
+        self.__msgid_to_symbol: dict[str, str] = {msgid_store.}
+        self.__symbol_to_msgid: dict[str, str] = {}
+        self.__old_names: dict[str, list[str]] = {}
+        self.__active_msgids: dict[str, list[str]] = {}
+"""
