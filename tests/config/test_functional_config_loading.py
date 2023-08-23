@@ -95,15 +95,14 @@ def test_functional_config_loading(
     out, err = capsys.readouterr()
     # 'rstrip()' applied, so we can have a final newline in the expected test file
     assert expected_output.rstrip() == out.rstrip(), msg
+    actual_config = runner.linter.config.__dict__
     assert sorted(expected_loaded_configuration.keys()) == sorted(
-        runner.linter.config.__dict__.keys()
+        actual_config.keys()
     ), msg
     for key, expected_value in expected_loaded_configuration.items():
-        key_msg = f"{msg} for key '{key}':"
+        key_msg = f'{msg} for key "{key}" (expected "{key}": "{actual_config[key]}")'
         if isinstance(expected_value, list):
-            assert sorted(expected_value) == sorted(
-                runner.linter.config.__dict__[key]
-            ), key_msg
+            assert sorted(expected_value) == sorted(actual_config[key]), key_msg
         else:
-            assert expected_value == runner.linter.config.__dict__[key], key_msg
+            assert expected_value == actual_config[key], key_msg
     assert not err, msg
