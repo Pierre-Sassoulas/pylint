@@ -1,0 +1,5 @@
+************* Module file_to_lint
+tests/config/file_to_lint.py:1:0: C0401: Wrong spelling of a word 'GPL' in a comment:
+# Licensed under the GPL: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+                     ^^^
+Did you mean: ''GP' or 'PL' or 'CPL' or 'GPA''? (wrong-spelling-in-comment)
