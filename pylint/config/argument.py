@@ -21,6 +21,7 @@ from pylint import interfaces
 from pylint import utils as pylint_utils
 from pylint.config.callback_actions import _CallbackAction
 from pylint.config.deprecation_actions import _NewNamesAction, _OldNamesAction
+from pylint.constants import PYLINT_HOME
 
 _ArgumentTypes = Union[
     str,
@@ -78,7 +79,10 @@ def _non_empty_string_transformer(value: str) -> str:
 
 def _path_transformer(value: str) -> str:
     """Expand user and variables in a path."""
-    return os.path.expandvars(os.path.expanduser(value))
+    expanded_value = os.path.expandvars(os.path.expanduser(value))
+    if not value or os.path.isabs(expanded_value):
+        return expanded_value
+    return os.path.abspath(os.path.relpath(expanded_value, PYLINT_HOME))
 
 
 def _glob_paths_csv_transformer(value: str) -> Sequence[str]:
