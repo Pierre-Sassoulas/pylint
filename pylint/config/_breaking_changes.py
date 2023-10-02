@@ -77,7 +77,7 @@ CONFIGURATION_BREAKING_CHANGES: list[BreakingChangeWithSolution] = [
     (
         BreakingChange.MESSAGE_MOVED_TO_EXTENSION,
         NO_SELF_USE,
-        [Condition.MESSAGE_IS_NOT_DISABLED, Condition.EXTENSION_IS_NOT_LOADED],
+        [Condition.MESSAGE_IS_ENABLED, Condition.EXTENSION_IS_NOT_LOADED],
         [[Solution.ADD_EXTENSION], [Solution.DISABLE_MESSAGE_IMPLICITLY]],
     ),
     (
