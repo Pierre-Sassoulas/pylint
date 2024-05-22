@@ -39,7 +39,7 @@ _StatementNodes: TypeAlias = (
     | nodes.Await
 )
 
-_SubGraphNodes: TypeAlias = nodes.If | nodes.Try | nodes.For | nodes.While
+_SubGraphNodes: TypeAlias = nodes.If | nodes.Try | nodes.For | nodes.While | nodes.Match
 _AppendableNodeT = TypeVar(
     "_AppendableNodeT", bound=_StatementNodes | nodes.While | nodes.FunctionDef
 )
@@ -106,6 +106,9 @@ class PathGraphingAstVisitor(Mccabe_PathGraphingAstVisitor):  # type: ignore[mis
 
     visitAsyncWith = visitWith
 
+    def visitMatch(self, node: nodes.Match) -> None:
+        self._subgraph(node, f"match_{id(node)}", node.cases)
+
     def _append_node(self, node: _AppendableNodeT) -> _AppendableNodeT | None:
         if not self.tail or not self.graph:
             return None
@@ -138,19 +141,29 @@ class PathGraphingAstVisitor(Mccabe_PathGraphingAstVisitor):  # type: ignore[mis
     ) -> None:
         """Parse the body and any `else` block of `if` and `for` statements."""
         loose_ends = []
-        self.tail = node
-        self.dispatch_list(node.body)
-        loose_ends.append(self.tail)
-        for extra in extra_blocks:
-            self.tail = node
-            self.dispatch_list(extra.body)
-            loose_ends.append(self.tail)
-        if node.orelse:
-            self.tail = node
-            self.dispatch_list(node.orelse)
-            loose_ends.append(self.tail)
-        else:
+
+        if isinstance(node, nodes.Match):
+            for case in extra_blocks:
+                if isinstance(case, nodes.MatchCase):
+                    self.tail = node
+                    self.dispatch_list(case.body)
+                    loose_ends.append(self.tail)
             loose_ends.append(node)
+        else:
+            self.tail = node
+            self.dispatch_list(node.body)
+            loose_ends.append(self.tail)
+            for extra in extra_blocks:
+                self.tail = node
+                self.dispatch_list(extra.body)
+                loose_ends.append(self.tail)
+            if node.orelse:
+                self.tail = node
+                self.dispatch_list(node.orelse)
+                loose_ends.append(self.tail)
+            else:
+                loose_ends.append(node)
+
         if node and self.graph:
             bottom = f"{self._bottom_counter}"
             self._bottom_counter += 1
