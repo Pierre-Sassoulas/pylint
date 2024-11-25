@@ -83,3 +83,7 @@ def my_function(instance: MyClass):
     for i in range(len(instance.my_list)):  # [consider-using-enumerate]
         var = instance.my_list[i]
         print(var)
+
+def create_lines(self):
+    for self.idx in range(len(chords_list)):
+        current_chord = CHORDS[nb_of_notes_str][self.idx]

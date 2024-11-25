@@ -256,7 +256,14 @@ class RecommendationChecker(checkers.BaseChecker):
                     # loop, another scope was created, where the same
                     # name for the iterating object was used.
                     continue
-                if value.name == node.target.name and (
+                if isinstance(node.target, nodes.AssignAttr):
+                    print(node.target.__dict__, value.name)
+                name = (
+                    node.target.name
+                    if isinstance(node.target, nodes.AssignAttr)
+                    else node.target.name
+                )
+                if value.name == name and (
                     isinstance(subscript.value, nodes.Name)
                     and iterating_object.name == subscript.value.name
                     or isinstance(subscript.value, nodes.Attribute)
