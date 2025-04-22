@@ -607,10 +607,8 @@ class StdlibChecker(DeprecatedMixin, BaseChecker):
 
     def _check_bad_thread_instantiation(self, node: nodes.Call) -> None:
         func_kwargs = {key.arg for key in node.keywords}
-        if "target" in func_kwargs:
-            return
-
-        if len(node.args) < 2 and (not node.kwargs or "target" not in func_kwargs):
+        # Simplified conditional: Check if 'target' is missing from both args and kwargs
+        if "target" not in func_kwargs and len(node.args) < 2:
             self.add_message(
                 "bad-thread-instantiation", node=node, confidence=interfaces.HIGH
             )

@@ -256,7 +256,8 @@ class DocstringParameterChecker(BaseChecker):
     def check_functiondef_returns(
         self, node: nodes.FunctionDef, node_doc: Docstring
     ) -> None:
-        if (not node_doc.supports_yields and node.is_generator()) or node.is_abstract():
+        # Skip check for generators without yield documentation and abstract methods
+        if node.is_abstract() or (node.is_generator() and not node_doc.supports_yields):
             return
 
         return_nodes = node.nodes_of_class(astroid.Return)
@@ -488,7 +489,7 @@ class DocstringParameterChecker(BaseChecker):
         :param found_argument_names: argument names found in the docstring
         :param message_id: pylint message id
         :param ignored_argument_names: Expected argument names
-        :param warning_node: The node to be analyzed
+        :param warning_node: The node to analyze
         """
         existing_ignored_argument_names = ignored_argument_names & found_argument_names
 
