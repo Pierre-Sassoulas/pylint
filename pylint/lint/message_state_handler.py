@@ -24,6 +24,8 @@ from pylint.utils.pragma_parser import (
     InvalidPragmaError,
     UnRecognizedOptionError,
     parse_pragma,
+    FILE_NOQA_PO,
+    parse_file_level_noqa,
 )
 
 if TYPE_CHECKING:
@@ -365,6 +367,19 @@ class _MessageStateHandler:
 
             if tok_type != tokenize.COMMENT:
                 continue
+
+            # Check for file-level noqa comments (ruff: noqa, flake8: noqa)
+            file_noqa_match = FILE_NOQA_PO.search(content)
+            if file_noqa_match:
+                try:
+                    for pragma_repr in parse_file_level_noqa(content):
+                        self.linter.add_message("file-ignored", line=start[0])
+                        self._ignore_file: bool = True
+                        return
+                except Exception:
+                    # If there's an error parsing the file-level noqa, just continue
+                    pass
+
             match = OPTION_PO.search(content)
             if match is None:
                 continue
