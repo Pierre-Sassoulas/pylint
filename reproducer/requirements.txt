@@ -1,3 +1,2 @@
-numpy
 pylint==3.0.0-a5
 astroid==2.11.7

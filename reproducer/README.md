@@ -6,7 +6,7 @@ This is a reproducer for [Pylint issue #7585](https://github.com/pylint-dev/pyli
 
 1. Install the required dependencies:
    ```
-   pip install numpy pylint==3.0.0-a5 astroid==2.11.7
+   pip install pylint==3.0.0-a5 astroid==2.11.7
    ```
 
 2. Run the reproducer script:
@@ -31,7 +31,7 @@ Pylint enters an infinite loop and does not complete.
 ## Explanation
 
 The issue occurs when:
-1. A C extension module (like numpy) is used
+1. A C extension module (like `sys`) is used
 2. The `c-extension-no-member` checker is enabled
 3. The `--jobs 0` option is used (which enables parallel processing)
 

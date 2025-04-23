@@ -1,9 +1,8 @@
 # This file is a reproducer for pylint issue #7585
 # It demonstrates an infinite loop when c-extension-no-member is activated
 
-import numpy as np
+import sys  # sys is a built-in C extension module
 
 # This will trigger c-extension-no-member warning
-# because numpy is a C extension module
-array = np.array([1, 2, 3])
-result = array.non_existent_method()  # This should trigger the warning
+# because sys is a C extension module
+result = sys.non_existent_attribute  # This should trigger the warning
