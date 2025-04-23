@@ -176,7 +176,7 @@ jobs:
       - name: Run checks on documentation code examples
         run: |
           . venv/bin/activate
-          tox -e test_doc
+          tox -e documentation
       - name: Check documentation build and links
         run: |
           . venv/bin/activate
