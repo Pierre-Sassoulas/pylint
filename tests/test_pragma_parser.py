@@ -6,9 +6,11 @@ import pytest
 
 from pylint.utils.pragma_parser import (
     OPTION_PO,
+    FILE_NOQA_PO,
     InvalidPragmaError,
     UnRecognizedOptionError,
     parse_pragma,
+    parse_file_level_noqa,
 )
 
 
@@ -122,3 +124,94 @@ def test_parse_message_with_dash() -> None:
     res = list(parse_pragma(match.group(2)))
     assert res[0].action == "disable"
     assert res[0].messages == ["raw_input-builtin"]
+
+
+# Tests for noqa handling
+def test_simple_noqa() -> None:
+    comment = "# noqa"
+    match = OPTION_PO.search(comment)
+    assert match
+    res = list(parse_pragma("noqa"))
+    assert res[0].action == "disable"
+    assert res[0].messages == ["all"]
+
+
+def test_noqa_with_specific_code() -> None:
+    comment = "# noqa: E1101"
+    match = OPTION_PO.search(comment)
+    assert match
+    res = list(parse_pragma("noqa: E1101"))
+    assert res[0].action == "disable"
+    assert res[0].messages == ["E1101"]
+
+
+def test_noqa_with_multiple_codes() -> None:
+    comment = "# noqa: E1101, E1102"
+    match = OPTION_PO.search(comment)
+    assert match
+    res = list(parse_pragma("noqa: E1101, E1102"))
+    assert res[0].action == "disable"
+    assert res[0].messages == ["E1101", "E1102"]
+
+
+def test_noqa_with_empty_codes() -> None:
+    comment = "# noqa:"
+    match = OPTION_PO.search(comment)
+    assert match
+    with pytest.raises(InvalidPragmaError):
+        list(parse_pragma("noqa:"))
+
+
+def test_noqa_with_whitespace() -> None:
+    comment = "#    noqa"
+    match = OPTION_PO.search(comment)
+    assert match
+    res = list(parse_pragma("noqa"))
+    assert res[0].action == "disable"
+    assert res[0].messages == ["all"]
+
+
+# Tests for file-level noqa comments
+def test_ruff_noqa() -> None:
+    comment = "# ruff: noqa"
+    match = FILE_NOQA_PO.search(comment)
+    assert match
+    res = list(parse_file_level_noqa(comment))
+    assert res[0].action == "skip-file"
+    assert not res[0].messages
+
+
+def test_flake8_noqa() -> None:
+    comment = "# flake8: noqa"
+    match = FILE_NOQA_PO.search(comment)
+    assert match
+    res = list(parse_file_level_noqa(comment))
+    assert res[0].action == "skip-file"
+    assert not res[0].messages
+
+
+def test_ruff_noqa_with_codes() -> None:
+    comment = "# ruff: noqa: E1101, E1102"
+    match = FILE_NOQA_PO.search(comment)
+    assert match
+    res = list(parse_file_level_noqa(comment))
+    assert res[0].action == "skip-file"
+    assert res[0].messages == ["E1101", "E1102"]
+
+
+def test_flake8_noqa_with_codes() -> None:
+    comment = "# flake8: noqa: E1101, E1102"
+    match = FILE_NOQA_PO.search(comment)
+    assert match
+    res = list(parse_file_level_noqa(comment))
+    assert res[0].action == "skip-file"
+    assert res[0].messages == ["E1101", "E1102"]
+
+
+def test_ruff_noqa_with_empty_codes() -> None:
+    comment = "# ruff: noqa:"
+    match = FILE_NOQA_PO.search(comment)
+    assert match
+    res = list(parse_file_level_noqa(comment))
+    assert res[0].action == "skip-file"
+    assert not res[0].messages
