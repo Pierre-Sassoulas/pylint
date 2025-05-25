@@ -1456,16 +1456,56 @@ class RefactoringChecker(checkers.BaseTokenChecker):
             if isinstance(comparison_node, nodes.Compare):
                 _find_lower_upper_bounds(comparison_node, uses)
 
-        for bounds in uses.values():
+        for name, bounds in uses.items():
             num_shared = len(bounds["lower_bound"].intersection(bounds["upper_bound"]))
             num_lower_bounds = len(bounds["lower_bound"])
             num_upper_bounds = len(bounds["upper_bound"])
             if num_shared < num_lower_bounds and num_shared < num_upper_bounds:
+                # Assume there's only one lower and one upper bound, multiple bounds
+                # could be 'a < b < c and a < b and b < c' which is visibly idiotic
+                lower_bound = next(iter(bounds["lower_bound"]))
+                upper_bound = next(iter(bounds["upper_bound"]))
+                # print(lower_bound                    , upper_bound)  # Debugging line, can be removed later
+                lower_op = lower_bound.ops[0][0]
+                upper_op = upper_bound.ops[0][0]
+
+                # Determine left and right parts of the comparison
+                if (
+                    isinstance(lower_bound.left, nodes.Name)
+                    and lower_bound.left.name == name
+                ):
+                    left_var = lower_bound.ops[0][1].as_string()
+                    left_op = utils.get_inverse_comparator(lower_op)
+                else:
+                    left_var = lower_bound.left.as_string()
+                    left_op = lower_op
+
+                if (
+                    isinstance(upper_bound.ops[0][1], nodes.Name)
+                    and upper_bound.ops[0][1].name == name
+                ):
+                    right_var = upper_bound.left.as_string()
+                    right_op = utils.get_inverse_comparator(upper_op)
+                else:
+                    right_var = upper_bound.ops[0][1].as_string()
+                    right_op = upper_op
+
+                # Determine the natural order based on comparison operators
+                # If we have a "less than" type operator on the left, it should come first
+                # If we have a "greater than" type operator on the right, it should come first
+                if left_op in ("<", "<=") or right_op in (">", ">="):
+                    suggestion = f"{left_var} {left_op} {name} {right_op} {right_var}"
+                else:
+                    # Otherwise reverse the order
+                    suggestion = f"{right_var} {right_op} {name} {left_op} {left_var}"
                 self.add_message(
                     "chained-comparison",
                     node=node,
                     confidence=HIGH,
-                    args=f"{num_lower_bounds} < {num_shared}< {num_upper_bounds}",
+                    args=(
+                        name,
+                        f"for example: {suggestion}",
+                    ),
                 )
                 break
 
