@@ -3,24 +3,14 @@
 # pylint: disable=missing-docstring, invalid-name, no-else-return, too-many-branches
 
 
-def test_simplify_chained_comparison_1():
-    a = 1
-    b = 2
-    c = 3
-    return a < b and b < c # [chained-comparison]
-
-
-def test_simplify_chained_comparison_2():
-    a = 1
-    return a < 10 and a > 1 # [chained-comparison]
-
-
-def test_simplify_chained_comparison_3():
+def test_simplify_chained_comparison():
     a = 1
     b = 2
     c = 3
     d = 4
-    if a < 10 and a > 1: # [chained-comparison]
+    if  a < b and b < c: # [chained-comparison]
+        pass
+    elif a < 10 and a > 1: # [chained-comparison]
         pass
     elif a > 1 and a < 10: # [chained-comparison]
         pass
