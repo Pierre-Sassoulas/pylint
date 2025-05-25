@@ -370,7 +370,7 @@ class RefactoringChecker(checkers.BaseTokenChecker):
             "more idiomatic, although sometimes a bit slower",
         ),
         "R1716": (
-            "Simplify chained comparison as %s",
+            "Use %s in a chained comparison instead %s",
             "chained-comparison",
             "This message is emitted when pylint encounters boolean operation like "
             '"a < b and b < c", suggesting instead to refactor it to "a < b < c"',
