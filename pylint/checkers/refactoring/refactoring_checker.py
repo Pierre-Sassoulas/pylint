@@ -370,7 +370,7 @@ class RefactoringChecker(checkers.BaseTokenChecker):
             "more idiomatic, although sometimes a bit slower",
         ),
         "R1716": (
-            "Simplify chained comparison between the operands",
+            "Simplify chained comparison as %s",
             "chained-comparison",
             "This message is emitted when pylint encounters boolean operation like "
             '"a < b and b < c", suggesting instead to refactor it to "a < b < c"',
@@ -1461,7 +1461,12 @@ class RefactoringChecker(checkers.BaseTokenChecker):
             num_lower_bounds = len(bounds["lower_bound"])
             num_upper_bounds = len(bounds["upper_bound"])
             if num_shared < num_lower_bounds and num_shared < num_upper_bounds:
-                self.add_message("chained-comparison", node=node)
+                self.add_message(
+                    "chained-comparison",
+                    node=node,
+                    confidence=HIGH,
+                    args=f"{num_lower_bounds} < {num_shared}< {num_upper_bounds}",
+                )
                 break
 
     @staticmethod
