@@ -149,11 +149,10 @@ class DeprecatedMixin(BaseChecker):
     def visit_importfrom(self, node: nodes.ImportFrom) -> None:
         """Triggered when a from statement is seen."""
         basename = get_import_name(node, node.modname)
+        if basename is None:
+            return
         self.check_deprecated_module(node, basename)
         class_names = (name for name, _ in node.names)
-        assert (
-            basename is not None
-        ), "basename should not be None (checking the primer don't merge)"
         self.check_deprecated_class(node, basename, class_names)
 
     def deprecated_methods(self) -> Container[str]:
