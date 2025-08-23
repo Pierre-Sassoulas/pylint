@@ -95,6 +95,17 @@ def pytest_addoption(parser: pytest.Parser) -> None:
             "false positive of messages and thus does not declare which messages are expected."
         ),
     )
+    parser.addoption(
+        "--run-documentation-tests",
+        action="store_true",
+        default=False,
+        help="Run documentation tests",
+    )
+
+
+def pytest_configure(config: pytest.Config) -> None:
+    """Add markers to the pytest registry."""
+    config.addinivalue_line("markers", "documentation: mark test as a documentation test")
 
 
 def pytest_collection_modifyitems(
@@ -118,3 +129,12 @@ def pytest_collection_modifyitems(
         for item in items:
             if "needs_two_cores" in item.keywords:
                 item.add_marker(skip_cpu_cores)
+                
+    # Skip documentation tests unless explicitly requested
+    if not config.getoption("--run-documentation-tests"):
+        skip_documentation = pytest.mark.skip(
+            reason="need --run-documentation-tests option to run"
+        )
+        for item in items:
+            if "documentation" in item.keywords:
+                item.add_marker(skip_documentation)
