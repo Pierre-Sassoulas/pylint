@@ -13,18 +13,27 @@ from typing import NamedTuple
 # why it is active or disabled.
 OPTION_RGX = r"""
     (?:^\s*\#.*|\s*|               # Comment line, or whitespaces,
-       \s*\#.*(?=\#.*?\bpylint:))  # or a beginning of an inline comment
-                                   # followed by "pylint:" pragma
+       \s*\#.*(?=\#.*?(?:\bpylint:|noqa)))  # or a beginning of an inline comment
+                                   # followed by "pylint:" or "noqa" pragma
     (\#                            # Beginning of comment
     .*?                            # Anything (as little as possible)
-    \bpylint:                      # pylint word and column
+    (?:\bpylint:|(?<!\w)noqa)      # pylint or noqa word and column
     \s*                            # Any number of whitespaces
-    ([^;#\n]+))                    # Anything except semicolon or hash or
+    ([^;#\n]*))                    # Anything except semicolon or hash or
                                    # newline (it is the second matched group)
                                    # and end of the first matched group
     [;#]{0,1}                      # From 0 to 1 repetition of semicolon or hash
 """
 OPTION_PO = re.compile(OPTION_RGX, re.VERBOSE)
+
+# Regex for file-level noqa comments (ruff: noqa, flake8: noqa)
+FILE_NOQA_RGX = r"""
+    ^\s*\#\s*                      # Beginning of comment line with optional whitespace
+    ((?:ruff|flake8):\s*noqa)      # ruff: noqa or flake8: noqa
+    (?::\s*([^;#\n]*))?            # Optional specific codes after colon
+    [;#]{0,1}                      # From 0 to 1 repetition of semicolon or hash
+"""
+FILE_NOQA_PO = re.compile(FILE_NOQA_RGX, re.VERBOSE)
 
 
 class PragmaRepresenter(NamedTuple):
@@ -87,6 +96,46 @@ class InvalidPragmaError(PragmaParserError):
 
 
 def parse_pragma(pylint_pragma: str) -> Generator[PragmaRepresenter]:
+    # Handle noqa comments
+    if pylint_pragma.strip().startswith("noqa"):
+        noqa_part = pylint_pragma.strip()
+        if noqa_part == "noqa":
+            # Equivalent to "disable=all"
+            yield PragmaRepresenter("disable", ["all"])
+            return
+        elif noqa_part.startswith("noqa:"):
+            # Format: "noqa: E1101, E1102"
+            codes = noqa_part[5:].strip()
+            if codes:
+                # Split by comma and strip whitespace
+                message_ids = [code.strip() for code in codes.split(",")]
+                yield PragmaRepresenter("disable", message_ids)
+                return
+            else:
+                # Empty codes after "noqa:" is invalid
+                raise InvalidPragmaError("No message identifier after noqa:", "noqa:")
+
+    # Handle file-level noqa comments (ruff: noqa, flake8: noqa)
+    if pylint_pragma.strip().startswith(("ruff:", "flake8:")):
+        if pylint_pragma.strip().startswith(("ruff: noqa", "flake8: noqa")):
+            # Check if there are specific codes
+            if ":" in pylint_pragma.strip()[9:]:  # After "ruff: noqa" or "flake8: noqa"
+                codes_part = pylint_pragma.strip().split(":", 2)[2].strip()
+                if codes_part:
+                    # Split by comma and strip whitespace
+                    message_ids = [code.strip() for code in codes_part.split(",")]
+                    yield PragmaRepresenter("disable", message_ids)
+                    return
+                else:
+                    # Empty codes is equivalent to "disable=all"
+                    yield PragmaRepresenter("disable", ["all"])
+                    return
+            else:
+                # No specific codes is equivalent to "disable=all"
+                yield PragmaRepresenter("disable", ["all"])
+                return
+
+    # Handle regular pylint pragmas
     action: str | None = None
     messages: list[str] = []
     assignment_required = False
@@ -133,3 +182,20 @@ def parse_pragma(pylint_pragma: str) -> Generator[PragmaRepresenter]:
         yield emit_pragma_representer(action, messages)
     else:
         raise UnRecognizedOptionError("The keyword is unknown", previous_token)
+
+
+def parse_file_level_noqa(comment: str) -> Generator[PragmaRepresenter]:
+    """Parse file-level noqa comments like '# ruff: noqa' or '# flake8: noqa'."""
+    match = FILE_NOQA_PO.search(comment)
+    if match:
+        if match.group(2):  # Specific codes provided
+            codes = match.group(2).strip()
+            if codes:
+                message_ids = [code.strip() for code in codes.split(",")]
+                yield PragmaRepresenter("skip-file", message_ids)
+            else:
+                # Empty codes is equivalent to "skip-file"
+                yield PragmaRepresenter("skip-file", [])
+        else:
+            # No specific codes is equivalent to "skip-file"
+            yield PragmaRepresenter("skip-file", [])
