@@ -26,21 +26,16 @@ Clone and set up pylint development environment:
 - `cd pylint` -- enter directory
 - `python3 -m venv venv` -- create virtual environment
 - `source venv/bin/activate` -- activate virtual environment (Linux/Mac)
+-
 - `pip install -r requirements_test_min.txt` -- install test dependencies (~30 seconds)
 - `pip install -e .` -- install pylint in editable mode (~30-60 seconds)
 
-### Optional Setup Steps
+### Setup Steps
 
 - `pre-commit install` -- enable pre-commit hooks for autoformatting
 - `pip install pre-commit` -- install pre-commit separately if needed
-
-### Astroid Development (if needed)
-
-If working on astroid changes:
-
-- `git clone https://github.com/pylint-dev/astroid.git` -- clone astroid
-- `pip install -e astroid/` -- install astroid in editable mode
-- `cd astroid/ && git switch my-astroid-dev-branch` -- switch to development branch
+- **Network dependency:** pre-commit may fail in isolated environments due to hook
+  downloads
 
 ## Running Tests
 
@@ -63,20 +58,8 @@ If working on astroid changes:
   loading
 - **Primer tests:** `pytest -m primer_stdlib --primer-stdlib` -- test on stdlib for
   crashes
-
-### Test with Coverage
-
-- `pytest tests/message/ --cov=pylint.message` -- run with coverage
-- `coverage html` -- generate HTML coverage report
-
-### Tox Usage (Optional)
-
-- `python -m tox` -- run all tox environments
-- `python -m tox -epy313` -- run Python 3.13 suite only
-- `python -m tox -epylint` -- run pylint on pylint's codebase
-- `python -m tox -eformatting` -- run formatting checks
-- `python -m tox --recreate` -- recreate environments (recommended)
-- `python -m tox -e py310 -- -k test_functional` -- run specific tests in tox
+- `pre-commit run --all-files` -- run all formatting checks (requires network for
+  initial setup)
 
 ## Documentation
 
@@ -85,8 +68,6 @@ If working on astroid changes:
 - `make -C doc/ install-dependencies` -- install doc dependencies (~10 seconds)
 - `make -C doc/ html` -- build documentation (~3 minutes, NEVER CANCEL, set timeout to
   300+ seconds)
-- `make -C doc/ clean` -- clean build files when starting from scratch
-- `tox -e docs` -- alternative way to build docs
 
 **Network dependency:** Documentation build requires internet access to fetch external
 inventories.
@@ -95,19 +76,11 @@ inventories.
 
 ### Running Pylint on Code
 
-- `pylint --help` -- verify pylint installation works
 - `pylint --disable=all --enable=E,F pylint/` -- run pylint on itself for errors only
   (~20 seconds)
 - `pylint --rcfile=pylintrc --fail-on=I path/to/your/changes.py` -- standard pylint run
 - `pylint --disable=all --enable=E,F,W path/to/your/changes.py` -- focus on errors and
   warnings
-
-### Pre-commit and Formatting
-
-- `pre-commit run --all-files` -- run all formatting checks (requires network for
-  initial setup)
-- **Network dependency:** pre-commit may fail in isolated environments due to hook
-  downloads
 
 ### Validation Test Scenarios
 
@@ -225,10 +198,6 @@ script/                   # Development utility scripts
 - Document non-trivial changes
 - Generate docs with `tox -e docs`
 - Maintainers may label issues `skip-news` if no changelog needed
-
-### Contribution Credits
-
-- Add emails/names to `script/.contributors_aliases.json` if using multiple identities
 
 ## Critical Timing Information
 
