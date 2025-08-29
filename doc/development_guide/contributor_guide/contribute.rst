@@ -57,10 +57,6 @@ Creating a pull request
 Got a change for Pylint?  Below are a few steps you should take to make sure
 your patch gets accepted:
 
-- You must use at least Python 3.8 for development of Pylint as it gives
-  you access to the latest ``ast`` parser and some pre-commit hooks do not
-  support python 3.7.
-
 - Install the dev dependencies, see :ref:`contributor_install`.
 
 - Use our test suite and write new tests, see :ref:`contributor_testing`.
