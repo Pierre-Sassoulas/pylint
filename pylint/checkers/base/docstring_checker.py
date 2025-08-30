@@ -7,7 +7,6 @@
 from __future__ import annotations
 
 import re
-from typing import Literal
 
 import astroid
 from astroid import nodes
@@ -103,17 +102,16 @@ class DocStringChecker(_BasicChecker):
 
     @utils.only_required_for_messages("missing-module-docstring", "empty-docstring")
     def visit_module(self, node: nodes.Module) -> None:
-        self._check_docstring("module", node)
+        self._check_docstring(node)
 
     @utils.only_required_for_messages("missing-class-docstring", "empty-docstring")
     def visit_classdef(self, node: nodes.ClassDef) -> None:
         if self.linter.config.no_docstring_rgx.match(node.name) is None:
-            self._check_docstring("class", node)
+            self._check_docstring(node)
 
     @utils.only_required_for_messages("missing-function-docstring", "empty-docstring")
     def visit_functiondef(self, node: nodes.FunctionDef) -> None:
         if self.linter.config.no_docstring_rgx.match(node.name) is None:
-            ftype = "method" if node.is_method() else "function"
             if (
                 is_property_setter(node)
                 or is_property_deleter(node)
@@ -138,10 +136,10 @@ class DocStringChecker(_BasicChecker):
                         overridden = True
                         break
                 self._check_docstring(
-                    ftype, node, report_missing=not overridden, confidence=confidence  # type: ignore[arg-type]
+                    node, report_missing=not overridden, confidence=confidence  # type: ignore[arg-type]
                 )
             elif isinstance(node.parent.frame(), nodes.Module):
-                self._check_docstring(ftype, node)  # type: ignore[arg-type]
+                self._check_docstring(node)  # type: ignore[arg-type]
             else:
                 return
 
@@ -149,7 +147,6 @@ class DocStringChecker(_BasicChecker):
 
     def _check_docstring(
         self,
-        node_type: Literal["class", "function", "method", "module"],
         node: nodes.Module | nodes.ClassDef | nodes.FunctionDef,
         report_missing: bool = True,
         confidence: interfaces.Confidence = interfaces.HIGH,
