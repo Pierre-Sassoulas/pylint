@@ -15,6 +15,9 @@ class PrepareCommand(PrimerCommand):
     def run(self) -> None:
         commit_string = ""
         version_string = ".".join(str(x) for x in sys.version_info[:2])
+        commit_string_path = (
+            self.primer_directory / f"commit_string_{version_string}.txt"
+        )
         # Shorten the SHA to avoid exceeding GitHub's 512 char ceiling
         if self.config.clone:
             for package, data in self.packages.items():
@@ -34,15 +37,8 @@ class PrepareCommand(PrimerCommand):
                 print(f"'{package}' remote is at commit '{remote_sha1_commit}'.")
                 commit_string += remote_sha1_commit + "_"
         elif self.config.read_commit_string:
-            with open(
-                self.primer_directory / f"commit_string_{version_string}.txt",
-                encoding="utf-8",
-            ) as f:
+            with open(commit_string_path, encoding="utf-8") as f:
                 print(f.read())
         if commit_string:
-            with open(
-                self.primer_directory / f"commit_string_{version_string}.txt",
-                "w",
-                encoding="utf-8",
-            ) as f:
+            with open(commit_string_path, "w", encoding="utf-8") as f:
                 f.write(commit_string)

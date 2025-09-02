@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import json
 from pathlib import Path, PurePosixPath
+from typing import NamedTuple
 
 from pylint.reporters.json_reporter import OldJsonExport
 from pylint.testutils._primer.primer_command import (
@@ -16,26 +17,46 @@ from pylint.testutils._primer.primer_command import (
 MAX_GITHUB_COMMENT_LENGTH = 65536
 
 
+def _load_package_messages(file_path: Path | str) -> PackageMessages:
+    with open(file_path, encoding="utf-8") as f:
+        result: PackageMessages = json.load(f)
+    return result
+
+
+class DiffData(NamedTuple):
+    main_data: PackageMessages
+    pr_data: PackageMessages
+
+    @staticmethod
+    def from_path(base_file_path: str, new_file_path: str) -> DiffData:
+        return DiffData(
+            main_data=_load_package_messages(base_file_path),
+            pr_data=_load_package_messages(new_file_path),
+        )
+
+    @staticmethod
+    def from_batches(base_file_path: str, new_file_path: str, batches: int) -> DiffData:
+        main_data: PackageMessages = {}
+        pr_data: PackageMessages = {}
+        for batch_number in (f"batch{i}" for i in range(batches)):
+            main_data.update(
+                _load_package_messages(base_file_path.replace("BATCHIDX", batch_number))
+            )
+            pr_data.update(
+                _load_package_messages(new_file_path.replace("BATCHIDX", batch_number))
+            )
+        return DiffData(main_data=main_data, pr_data=pr_data)
+
+
 class CompareCommand(PrimerCommand):
     def run(self) -> None:
         if self.config.batches is None:
-            main_data = self._load_json(self.config.base_file)
-            pr_data = self._load_json(self.config.new_file)
+            diff_data = DiffData.from_path(self.config.base_file, self.config.new_file)
         else:
-            main_data = {}
-            pr_data = {}
-            for idx in range(self.config.batches):
-                main_data.update(
-                    self._load_json(
-                        self.config.base_file.replace("BATCHIDX", "batch" + str(idx))
-                    )
-                )
-                pr_data.update(
-                    self._load_json(
-                        self.config.new_file.replace("BATCHIDX", "batch" + str(idx))
-                    )
-                )
-
+            diff_data = DiffData.from_batches(
+                self.config.base_file, self.config.new_file, self.config.batches
+            )
+        main_data, pr_data = diff_data
         missing_messages_data, new_messages_data = self._cross_reference(
             main_data, pr_data
         )
@@ -59,12 +80,6 @@ class CompareCommand(PrimerCommand):
                 commit=pr_data[package]["commit"], messages=package_missing_messages
             )
         return missing_messages_data, pr_data
-
-    @staticmethod
-    def _load_json(file_path: Path | str) -> PackageMessages:
-        with open(file_path, encoding="utf-8") as f:
-            result: PackageMessages = json.load(f)
-        return result
 
     def _create_comment(
         self, all_missing_messages: PackageMessages, all_new_messages: PackageMessages
