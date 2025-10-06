@@ -11,6 +11,7 @@ from typing import TYPE_CHECKING
 
 from pylint.config._pylint_config.generate_command import handle_generate_command
 from pylint.config._pylint_config.help_message import get_help
+from pylint.config._pylint_config.upgrade_command import handle_upgrade_command
 
 if TYPE_CHECKING:
     from pylint.lint.pylinter import PyLinter
@@ -20,6 +21,8 @@ def _handle_pylint_config_commands(linter: PyLinter) -> int:
     """Handle whichever command is passed to 'pylint-config'."""
     if linter.config.config_subcommand == "generate":
         return handle_generate_command(linter)
+    if linter.config.config_subcommand == "upgrade":
+        return handle_upgrade_command(linter)
 
     print(get_help(linter._arg_parser))
     return 32
