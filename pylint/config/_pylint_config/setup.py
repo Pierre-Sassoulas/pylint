@@ -47,3 +47,13 @@ def _register_generate_config_options(parser: argparse.ArgumentParser) -> None:
         "generate", help="Generate a pylint configuration"
     )
     generate_parser.add_argument("--interactive", action="store_true")
+
+    upgrade_parser = subparsers.add_parser(
+        "upgrade", help="Upgrade a pylint configuration to the current version"
+    )
+    upgrade_parser.add_argument(
+        "--interactive",
+        action="store_true",
+        help="Interactively upgrade the configuration, "
+        "without this option only the automated fix will be implemented.",
+    )
