@@ -413,6 +413,21 @@ def _make_linter_options(linter: PyLinter) -> Options:
                 "messages.",
             },
         ),
+        (
+            "upgraded-to",
+            {
+                "default": None,
+                "type": "string",
+                "metavar": "<version>",
+                "help": (
+                    "The version of pylint that this configuration file was last "
+                    "upgraded to. This is automatically set by 'pylint-config upgrade' "
+                    "and is used to determine if configuration upgrades are needed. "
+                    "Use 'latest' if you want to always use pylint's default."
+                ),
+                "hide_from_config_file": False,
+            },
+        ),
     )
 
 
