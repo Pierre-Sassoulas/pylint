@@ -10,6 +10,7 @@ import sys
 from typing import TYPE_CHECKING
 
 from pylint.config import find_default_config_files
+from pylint.config._breaking_changes import BreakingChanges
 
 if TYPE_CHECKING:
     from pylint.lint import PyLinter
@@ -25,7 +26,11 @@ def handle_upgrade_command(_: PyLinter) -> int:
 
 
 def check_upgrade_needed(linter: PyLinter) -> list[str]:
-    return [f"{linter.is_message_enabled('C0111')} TODO"]
+    for breaking_change in BreakingChanges("0.0.0"):
+        if breaking_change.changes_are_required_in_config(linter.config):
+            print(f"Breaking change detected: {breaking_change}")
+        else:
+            print(f"No breaking change for: {breaking_change}")
 
 
 def emit_upgrade_warnings(linter: PyLinter) -> None:

@@ -202,3 +202,65 @@ CONFIGURATION_BREAKING_CHANGES: dict[str, list[BreakingChangeWithSolution]] = {
         ),
     ],
 }
+
+
+class BreakingChange:
+    def __init__(
+        self,
+        change: BreakingChange,
+        info: Information,
+        conditions: list[Condition],
+        solutions: Solutions,
+    ) -> None:
+        self.change = change
+        self.info = info
+        self.conditions = conditions
+        self.solutions = solutions
+
+    def __str__(self) -> str:
+        keyword_args = {}
+        if self.change in {
+            BreakingChange.MESSAGE_MADE_DISABLED_BY_DEFAULT,
+            BreakingChange.MESSAGE_MADE_ENABLED_BY_DEFAULT,
+            BreakingChange.MESSAGE_MOVED_TO_EXTENSION,
+        }:
+            assert isinstance(self.info, MessageInformation)
+            if self.info.extension:
+                keyword_args["extension"] = self.info.extension
+            if self.info.msgid_or_symbol.isdigit():
+                keyword_args["msgid"] = self.info.msgid_or_symbol
+            else:
+                keyword_args["symbol"] = self.info.msgid_or_symbol
+        return self.change.value.format(keyword_args)
+
+    def changes_are_required_in_config(self, config: dict) -> bool:
+        return any(
+            getattr(self, f"{condition.name.lower()}_in_config")(config)
+            for condition in self.conditions
+        )
+
+    def option_is_present_in_config(self, config: dict) -> bool:
+        return getattr(config, self.info.option, None) is not None
+
+    def message_is_enabled_in_config(self, config) -> bool:
+        return False
+
+    def message_is_not_disabled_in_config(self, config) -> bool:
+        return False
+
+    def extension_is_not_loaded_in_config(self, config) -> bool:
+        return False
+
+    def extension_is_loaded_in_config(self, config) -> bool:
+        return False
+
+
+class BreakingChanges:
+    def __init__(self, upgraded_to: str) -> None:
+        self.upgraded_to = upgraded_to.split(".")
+
+    def __iter__(self) -> iter[BreakingChange]:
+        for version, changes in CONFIGURATION_BREAKING_CHANGES.items():
+            if version.split(".") > self.upgraded_to:
+                for change in changes:
+                    yield BreakingChange(*change)
