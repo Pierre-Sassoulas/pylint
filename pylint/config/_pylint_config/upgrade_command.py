@@ -26,11 +26,12 @@ def handle_upgrade_command(_: PyLinter) -> int:
 
 
 def check_upgrade_needed(linter: PyLinter) -> list[str]:
-    for breaking_change in BreakingChanges("0.0.0"):
-        if breaking_change.changes_are_required_in_config(linter.config):
-            print(f"Breaking change detected: {breaking_change}")
-        else:
-            print(f"No breaking change for: {breaking_change}")
+    upgraded_to: str = (
+        "0.0.0" if linter.config.upgrade_to is None else linter.config.upgrade_to
+    )
+    for change in BreakingChanges(upgraded_to):
+        intention = change.ask_for_intention()
+        change.apply_solution(linter.config, intention)
 
 
 def emit_upgrade_warnings(linter: PyLinter) -> None:
