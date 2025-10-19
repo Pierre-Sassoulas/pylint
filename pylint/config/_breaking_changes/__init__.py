@@ -88,6 +88,32 @@ NO_SELF_USE = MessageInformation(
     msgid_or_symbol="no-self-use", extension="pylint.extensions.no_self_use"
 )
 CONFIGURATION_BREAKING_CHANGES: dict[str, list[BreakingChangeWithSolution]] = {
+    "1.7.0": [
+        (
+            BreakingChange.OPTION_REMOVED,
+            OptionInformation(
+                option="files-output",
+                description="This option is no longer used and should be removed",
+            ),
+            [Condition.OPTION_IS_PRESENT],
+            {
+                Intention.FIX_CONF: [Solution.REMOVE_OPTION],
+            },
+        ),
+    ],
+    "2.6.0": [
+        (
+            BreakingChange.OPTION_REMOVED,
+            OptionInformation(
+                option="no-space-check",
+                description="This option is no longer used and should be removed",
+            ),
+            [Condition.OPTION_IS_PRESENT],
+            {
+                Intention.FIX_CONF: [Solution.REMOVE_OPTION],
+            },
+        ),
+    ],
     "2.7.3": [
         (
             BreakingChange.OPTION_RENAMED,
