@@ -13,6 +13,7 @@ from pathlib import Path
 from typing import TYPE_CHECKING
 
 from pylint import reporters
+from pylint.config._pylint_config.upgrade_command import emit_upgrade_warnings
 from pylint.config.config_file_parser import _ConfigurationFileParser
 from pylint.config.exceptions import (
     ArgumentPreprocessingError,
@@ -131,6 +132,8 @@ def _config_initialization(  # pylint: disable=too-many-statements
             )
 
     linter._emit_stashed_messages()
+
+    emit_upgrade_warnings(linter)
 
     # Set the current module to configuration as we don't know where
     # the --load-plugins key is coming from
