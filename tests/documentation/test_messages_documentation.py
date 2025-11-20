@@ -70,7 +70,7 @@ def _add_code_example_to_suite(
 
 
 # Path is relative to the repository root
-TESTS_DIR = Path(__file__).parent.parent.resolve() / "doc" / "data" / "messages"
+TESTS_DIR = Path(__file__).parent.parent.parent.resolve() / "doc" / "data" / "messages"
 TESTS = get_functional_test_files_from_directory(TESTS_DIR)
 TESTS_NAMES = [f"{t[0]}-{t[1].stem}" for t in TESTS]
 
@@ -188,7 +188,7 @@ class LintModuleTest:
                     ]
             file_representations[message.path][
                 message.line - 1
-            ] += f"  # <-- /!\ unexpected '{message.symbol}' /!\"
+            ] += f"  # <-- /!\\ unexpected '{message.symbol}' /!\\"
         for path, representation in file_representations.items():
             file_representation = "\n".join(representation)
             msg += f"\n\n\nIn {path}:\n\n{file_representation}\n"
