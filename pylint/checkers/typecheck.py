@@ -659,6 +659,30 @@ def _determine_callable(
     raise ValueError
 
 
+def _is_variable_reassigned_in_loop(name_node: nodes.NodeNG) -> bool:
+    """Check if a Name node's variable is also assigned elsewhere in a loop.
+
+    When a variable is assigned in one branch of a loop and used in another,
+    the inference may be incomplete because astroid doesn't track cross-iteration
+    data flow. Return True if the variable could have been reassigned in a
+    previous iteration, making the inferred type unreliable.
+    """
+    if not isinstance(name_node, nodes.Name):
+        return False
+    var_name = name_node.name
+    # Walk up to find an enclosing loop
+    parent = name_node.parent
+    while parent is not None:
+        if isinstance(parent, (nodes.For, nodes.While)):
+            # Check if the variable is assigned somewhere in the loop body
+            for assign_node in parent.nodes_of_class(nodes.AssignName):
+                if assign_node.name == var_name and assign_node != name_node:
+                    return True
+            return False
+        parent = parent.parent
+    return False
+
+
 def _has_parent_of_type(
     node: nodes.Call,
     node_type: nodes.Keyword | nodes.Starred,
@@ -2197,6 +2221,7 @@ accessed. Python regular expressions are accepted.",
             supported_protocol
             and not supported_protocol(inferred, node)
             and not utils.in_type_checking_block(node)
+            and not _is_variable_reassigned_in_loop(node.value)
         ):
             self.add_message(msg, args=node.value.as_string(), node=node.value)
 
