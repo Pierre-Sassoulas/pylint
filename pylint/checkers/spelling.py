@@ -267,9 +267,8 @@ class SpellingChecker(BaseTokenChecker):
                 "type": "string",
                 "metavar": "<dict name>",
                 "help": "Spelling dictionary name. "
-                "No available dictionaries : You need to install "
-                "both the python package and "
-                "the system dependency for enchant to work.",
+                "Available dictionaries depend on your local "
+                "enchant installation.",
             },
         ),
         (

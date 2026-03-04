@@ -1,4 +1,8 @@
 Lazily import ``platformdirs`` and ``enchant`` so it's only loaded when actually needed.
-# benchmark to add
+# benchmark to add.
+
+As a side effect, the ``spelling-dict`` option type changed from ``choice``
+to ``string`` — it no longer validates against installed dictionaries at
+option-definition time.
 
 Closes #2866

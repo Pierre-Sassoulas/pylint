@@ -9,6 +9,5 @@ Lazily import ``isort``, ``dill``, ``multiprocessing``, ``concurrent.futures``,
 actually needed.
 This reduces startup time by ~24% for ``--version``, ~22% for ``--help``,
 and ~14% for single-file linting without multiprocessing.
->>>>>>> 90f6ae115 (Lazily import `enchant` in spelling checker)
 
 Closes #2866
