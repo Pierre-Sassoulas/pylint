@@ -1,6 +1,14 @@
+<<<<<<< HEAD
 Lazily import ``isort``, ``dill``, ``multiprocessing``/``concurrent.futures``,
 and ``tomlkit`` so they are only loaded when actually needed.
 This reduces startup time by ~25% (e.g. ``--version``: 91 => 67 ms,
 ``--help``: 176 => 133 ms, single-file lint: 272 => 226 ms).
+=======
+Lazily import ``isort``, ``dill``, ``multiprocessing``, ``concurrent.futures``,
+``tomlkit``, ``platformdirs``, and ``enchant`` so they are only loaded when
+actually needed.
+This reduces startup time by ~24% for ``--version``, ~22% for ``--help``,
+and ~14% for single-file linting without multiprocessing.
+>>>>>>> 90f6ae115 (Lazily import `enchant` in spelling checker)
 
 Closes #2866

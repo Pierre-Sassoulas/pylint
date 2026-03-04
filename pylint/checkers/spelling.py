@@ -19,58 +19,94 @@ from pylint.checkers.utils import only_required_for_messages
 if TYPE_CHECKING:
     from pylint.lint import PyLinter
 
-try:
-    import enchant
-    from enchant.tokenize import (
-        Chunker,
-        EmailFilter,
-        Filter,
-        URLFilter,
-        WikiWordFilter,
-        get_tokenizer,
-    )
 
-    PYENCHANT_AVAILABLE = True
-except ImportError:  # pragma: no cover
-    enchant = None
-    PYENCHANT_AVAILABLE = False
+class _Filter:
+    """Placeholder base class when enchant is not loaded."""
 
-    class EmailFilter:  # type: ignore[no-redef]
-        ...
-
-    class URLFilter:  # type: ignore[no-redef]
-        ...
-
-    class WikiWordFilter:  # type: ignore[no-redef]
-        ...
-
-    class Filter:  # type: ignore[no-redef]
-        def _skip(self, word: str) -> bool:
-            raise NotImplementedError
-
-    class Chunker:  # type: ignore[no-redef]
-        pass
-
-    def get_tokenizer(
-        tag: str | None = None,  # pylint: disable=unused-argument
-        chunkers: list[Chunker] | None = None,  # pylint: disable=unused-argument
-        filters: list[Filter] | None = None,  # pylint: disable=unused-argument
-    ) -> Filter:
-        return Filter()
+    def _skip(self, word: str) -> bool:
+        raise NotImplementedError
 
 
-def _get_enchant_dicts() -> list[tuple[Any, enchant.ProviderDesc]]:
-    return enchant.Broker().list_dicts() if PYENCHANT_AVAILABLE else []
+class _Chunker:
+    """Placeholder base class when enchant is not loaded."""
+
+
+def _load_enchant() -> tuple[bool, Any]:
+    """Lazily import enchant.
+
+    Returns (available, module_or_None).
+    """
+    try:
+        import enchant  # pylint: disable=import-outside-toplevel
+
+        return True, enchant
+    except ImportError:
+        return False, None
+
+
+_enchant_classes_cache: dict[str, list[type]] | None = None
+
+
+def _make_enchant_classes(filter_cls: type, chunker_cls: type) -> dict[str, list[type]]:
+    """Create filter/chunker classes inheriting from real enchant base classes.
+
+    The module-level placeholder classes (_Filter/_Chunker) can't inherit from
+    enchant at import time since enchant may not be installed.  This function
+    builds proper subclasses at runtime, reusing the logic from the placeholders.
+    """
+    global _enchant_classes_cache  # pylint: disable=global-statement
+    if _enchant_classes_cache is not None:
+        return _enchant_classes_cache
+
+    _RealRegExFilter = type("RegExFilter", (filter_cls,), {"_skip": RegExFilter._skip})
+
+    _enchant_classes_cache = {
+        "filters": [
+            type(
+                "WordsWithDigitsFilter",
+                (filter_cls,),
+                {"_skip": WordsWithDigitsFilter._skip},
+            ),
+            type(
+                "WordsWithUnderscores",
+                (filter_cls,),
+                {"_skip": WordsWithUnderscores._skip},
+            ),
+            type(
+                "CamelCasedWord",
+                (_RealRegExFilter,),
+                {"_pattern": CamelCasedWord._pattern},
+            ),
+            type(
+                "SphinxDirectives",
+                (_RealRegExFilter,),
+                {"_pattern": SphinxDirectives._pattern},
+            ),
+        ],
+        "chunkers": [
+            type(
+                "ForwardSlashChunker",
+                (chunker_cls,),
+                {"next": ForwardSlashChunker.next, "_next": ForwardSlashChunker._next},
+            ),
+        ],
+    }
+    return _enchant_classes_cache
+
+
+def _get_enchant_dicts() -> list[tuple[Any, Any]]:
+    available, enchant = _load_enchant()
+    return enchant.Broker().list_dicts() if available else []
 
 
 def _get_enchant_dict_choices(
-    inner_enchant_dicts: list[tuple[Any, enchant.ProviderDesc]],
+    inner_enchant_dicts: list[tuple[Any, Any]],
 ) -> list[str]:
     return [""] + [d[0] for d in inner_enchant_dicts]
 
 
 def _get_enchant_dict_help(
-    inner_enchant_dicts: list[tuple[Any, enchant.ProviderDesc]],
+    inner_enchant_dicts: list[tuple[Any, Any]],
     pyenchant_available: bool,
 ) -> str:
     if inner_enchant_dicts:
@@ -84,17 +120,14 @@ def _get_enchant_dict_help(
     return f"Spelling dictionary name. {enchant_help}."
 
 
-enchant_dicts = _get_enchant_dicts()
-
-
-class WordsWithDigitsFilter(Filter):  # type: ignore[misc]
+class WordsWithDigitsFilter(_Filter):
     """Skips words with digits."""
 
     def _skip(self, word: str) -> bool:
         return any(char.isdigit() for char in word)
 
 
-class WordsWithUnderscores(Filter):  # type: ignore[misc]
+class WordsWithUnderscores(_Filter):
     """Skips words with underscores.
 
     They are probably function parameter names.
@@ -104,7 +137,7 @@ class WordsWithUnderscores(Filter):  # type: ignore[misc]
         return "_" in word
 
 
-class RegExFilter(Filter):  # type: ignore[misc]
+class RegExFilter(_Filter):
     """Parent class for filters using regular expressions.
 
     This filter skips any words the match the expression
@@ -142,7 +175,7 @@ class SphinxDirectives(RegExFilter):
     _pattern = re.compile(r"^(:([a-z]+)){1,2}:`([^`]+)(`)?")
 
 
-class ForwardSlashChunker(Chunker):  # type: ignore[misc]
+class ForwardSlashChunker(_Chunker):
     """This chunker allows splitting words like 'before/after' into 'before' and
     'after'.
     """
@@ -231,10 +264,12 @@ class SpellingChecker(BaseTokenChecker):
             "spelling-dict",
             {
                 "default": "",
-                "type": "choice",
+                "type": "string",
                 "metavar": "<dict name>",
-                "choices": _get_enchant_dict_choices(enchant_dicts),
-                "help": _get_enchant_dict_help(enchant_dicts, PYENCHANT_AVAILABLE),
+                "help": "Spelling dictionary name. "
+                "No available dictionaries : You need to install "
+                "both the python package and "
+                "the system dependency for enchant to work.",
             },
         ),
         (
@@ -292,11 +327,24 @@ class SpellingChecker(BaseTokenChecker):
 
     def open(self) -> None:
         self.initialized = False
-        if not PYENCHANT_AVAILABLE:
-            return
         dict_name = self.linter.config.spelling_dict
         if not dict_name:
             return
+
+        available, self._enchant_mod = _load_enchant()
+        if not available:
+            return
+
+        from enchant.tokenize import (  # pylint: disable=import-outside-toplevel
+            Chunker,
+            EmailFilter,
+            Filter,
+            URLFilter,
+            WikiWordFilter,
+            get_tokenizer,
+        )
+
+        enchant_classes = _make_enchant_classes(Filter, Chunker)
 
         self.ignore_list = [
             w.strip() for w in self.linter.config.spelling_ignore_words.split(",")
@@ -311,26 +359,23 @@ class SpellingChecker(BaseTokenChecker):
         ]
 
         if self.linter.config.spelling_private_dict_file:
-            self.spelling_dict = enchant.DictWithPWL(
+            self.spelling_dict = self._enchant_mod.DictWithPWL(
                 dict_name, self.linter.config.spelling_private_dict_file
             )
         else:
-            self.spelling_dict = enchant.Dict(dict_name)
+            self.spelling_dict = self._enchant_mod.Dict(dict_name)
 
         if self.linter.config.spelling_store_unknown_words:
             self.unknown_words: set[str] = set()
 
         self.tokenizer = get_tokenizer(
             dict_name,
-            chunkers=[ForwardSlashChunker],
+            chunkers=enchant_classes["chunkers"],
             filters=[
                 EmailFilter,
                 URLFilter,
                 WikiWordFilter,
-                WordsWithDigitsFilter,
-                WordsWithUnderscores,
-                CamelCasedWord,
-                SphinxDirectives,
+                *enchant_classes["filters"],
             ],
         )
         self.initialized = True
@@ -382,7 +427,7 @@ class SpellingChecker(BaseTokenChecker):
                 # spelling mistake but 'Unicode' is not
                 if self.spelling_dict.check(word):
                     continue
-            except enchant.errors.Error:
+            except self._enchant_mod.errors.Error:
                 self.add_message(
                     "invalid-characters-in-docstring", line=line_num, args=(word,)
                 )

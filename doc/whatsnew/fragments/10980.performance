@@ -1,3 +1,4 @@
-Lazily import ``platformdirs`` so it's only loaded when actually needed.
+Lazily import ``platformdirs`` and ``enchant`` so it's only loaded when actually needed.
+# benchmark to add
 
 Closes #2866
