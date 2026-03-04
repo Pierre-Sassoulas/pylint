@@ -1,0 +1,4 @@
+Fix false positive ``import-error`` and ``relative-beyond-top-level`` when using
+``--jobs`` > 1 with implicit namespace packages and ``--source-roots``.
+
+Closes #10147

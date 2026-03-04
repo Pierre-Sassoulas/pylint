@@ -1195,6 +1195,40 @@ def test_recursive_implicit_namespace_wrapper() -> None:
     assert run.linter.reporter.messages == []
 
 
+@pytest.mark.needs_two_cores
+def test_parallel_implicit_namespace_with_relative_imports(tmp_path: Path) -> None:
+    """Test that parallel mode works with implicit namespace packages and relative
+    imports (https://github.com/pylint-dev/pylint/issues/10147).
+
+    In parallel mode, expand_modules() must run with augmented sys.path so that
+    module names are resolved correctly for namespace packages using source-roots.
+    """
+    # Create src-layout with implicit namespace (no __init__.py in ns/)
+    pkg = tmp_path / "src" / "ns" / "concurrent"
+    pkg.mkdir(parents=True)
+    (pkg / "__init__.py").write_text("from .relative_module import fun\n")
+    (pkg / "relative_module.py").write_text(
+        "from .another_relative_module import fun\n"
+    )
+    (pkg / "another_relative_module.py").write_text("def fun():\n    pass\n")
+
+    reporter = testutils.GenericTestReporter()
+    linter = PyLinter()
+    linter.config.jobs = 2
+    linter.config.persistent = 0
+    linter.config.source_roots = [str(tmp_path / "src")]
+    linter.open()
+    linter.set_reporter(reporter)
+
+    linter.check([str(pkg)])
+
+    # Must not crash and must not produce false import errors
+    import_errors = [m for m in reporter.messages if m.msg_id in {"E0401", "E0402"}]
+    assert (
+        import_errors == []
+    ), f"Unexpected import errors in parallel mode: {import_errors}"
+
+
 def test_globbing() -> None:
     run = Run(
         [
