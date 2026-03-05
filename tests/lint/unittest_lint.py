@@ -1229,6 +1229,56 @@ def test_parallel_implicit_namespace_with_relative_imports(tmp_path: Path) -> No
     ), f"Unexpected import errors in parallel mode: {import_errors}"
 
 
+def test_split_namespace_package_with_init_hook(tmp_path: Path) -> None:
+    """Test that pylint correctly resolves modules in implicit namespace packages
+    that span multiple directories (e.g. local src/ and site-packages).
+
+    Regression test for https://github.com/pylint-dev/pylint/issues/10147.
+
+    When using init-hook (instead of --source-roots) to add src/ to sys.path,
+    discover_package_path() must detect that the namespace package spans multiple
+    locations and return the parent directory as the package root.
+    """
+    # Create local source under src/
+    local_pkg = tmp_path / "src" / "ns_pkg" / "local_mod"
+    local_pkg.mkdir(parents=True)
+    (local_pkg / "__init__.py").write_text(
+        '"""Local module."""\nfrom ns_pkg.ext_mod.types import MyType\n'
+    )
+
+    # Create "installed" dependency in a separate directory (simulating site-packages)
+    ext_dir = tmp_path / "ext" / "ns_pkg" / "ext_mod"
+    ext_dir.mkdir(parents=True)
+    (ext_dir / "__init__.py").write_text('"""External module."""\n')
+    (ext_dir / "types.py").write_text('"""Types."""\nMyType = int\n')
+
+    # No __init__.py at ns_pkg/ level — implicit namespace package
+
+    # Add both locations to sys.path (simulating init-hook + pip install)
+    original_sys_path = sys.path[:]
+    sys.path[:0] = [str(tmp_path / "src"), str(tmp_path / "ext")]
+
+    try:
+        reporter = testutils.GenericTestReporter()
+        linter = PyLinter()
+        linter.config.jobs = 1
+        linter.config.persistent = 0
+        # No source_roots — relying on sys.path (like init-hook does)
+        linter.open()
+        linter.set_reporter(reporter)
+
+        linter.check([str(local_pkg / "__init__.py")])
+
+        import_errors = [
+            m for m in reporter.messages if m.msg_id in {"E0401", "E0611"}
+        ]
+        assert (
+            import_errors == []
+        ), f"Unexpected import errors with split namespace: {import_errors}"
+    finally:
+        sys.path[:] = original_sys_path
+
+
 def test_globbing() -> None:
     run = Run(
         [

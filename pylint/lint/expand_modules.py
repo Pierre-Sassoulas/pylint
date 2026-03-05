@@ -4,6 +4,7 @@
 
 from __future__ import annotations
 
+import importlib.util
 import os
 import sys
 from collections.abc import Sequence
@@ -40,6 +41,22 @@ def discover_package_path(modulepath: str, source_roots: Sequence[str]) -> str:
     # it's the only way given that source root was not found or was not provided
     while True:
         if not os.path.exists(os.path.join(dirname, "__init__.py")):
+            # Check if this directory is part of an implicit namespace package
+            # (PEP 420) that spans multiple locations on sys.path (e.g. local
+            # src/ and site-packages). In that case, the parent directory is
+            # the correct package root, not this one.
+            parent = os.path.dirname(dirname)
+            basename = os.path.basename(dirname)
+            if parent != dirname and basename:
+                spec = importlib.util.find_spec(basename)
+                if (
+                    spec is not None
+                    and spec.origin is None
+                    and spec.submodule_search_locations is not None
+                    and len(set(spec.submodule_search_locations)) > 1
+                ):
+                    # It's a namespace package spanning multiple directories
+                    return parent
             return dirname
         old_dirname = dirname
         dirname = os.path.dirname(dirname)
