@@ -927,56 +927,56 @@ scope_type : {self.scope_type}
 
     @staticmethod
     def _defines_name_raises_or_returns(name: str, node: nodes.NodeNG) -> bool:
-        if isinstance(node, (nodes.Raise, nodes.Assert, nodes.Return, nodes.Continue)):
-            return True
-        if isinstance(node, nodes.Expr) and isinstance(node.value, nodes.Call):
-            if utils.is_terminating_func(node.value):
+        match node:
+            case nodes.Raise() | nodes.Assert() | nodes.Return() | nodes.Continue():
                 return True
-            if (
-                isinstance(node.value.func, nodes.Name)
-                and node.value.func.name == "assert_never"
+            case nodes.Expr(value=nodes.Call() as call):
+                if utils.is_terminating_func(call):
+                    return True
+                if (
+                    isinstance(call.func, nodes.Name)
+                    and call.func.name == "assert_never"
+                ):
+                    return True
+            case nodes.AnnAssign(
+                value=value, target=nodes.AssignName(name=target_name)
+            ) if (value and target_name == name):
+                return True
+            case nodes.Assign():
+                for target in node.targets:
+                    for elt in utils.get_all_elements(target):
+                        if isinstance(elt, nodes.Starred):
+                            elt = elt.value
+                        if isinstance(elt, nodes.AssignName) and elt.name == name:
+                            return True
+            case nodes.If():
+                if any(
+                    child_named_expr.target.name == name
+                    for child_named_expr in node.nodes_of_class(nodes.NamedExpr)
+                ):
+                    return True
+            case nodes.Import() | nodes.ImportFrom() if any(
+                (node_name[1] and node_name[1] == name)
+                or (node_name[0] == name)
+                or (node_name[0].startswith(name + "."))
+                for node_name in node.names
             ):
                 return True
-        if (
-            isinstance(node, nodes.AnnAssign)
-            and node.value
-            and isinstance(node.target, nodes.AssignName)
-            and node.target.name == name
-        ):
-            return True
-        if isinstance(node, nodes.Assign):
-            for target in node.targets:
-                for elt in utils.get_all_elements(target):
-                    if isinstance(elt, nodes.Starred):
-                        elt = elt.value
-                    if isinstance(elt, nodes.AssignName) and elt.name == name:
-                        return True
-        if isinstance(node, nodes.If):
-            if any(
-                child_named_expr.target.name == name
-                for child_named_expr in node.nodes_of_class(nodes.NamedExpr)
+            case nodes.With() if any(
+                isinstance(item[1], nodes.AssignName) and item[1].name == name
+                for item in node.items
             ):
                 return True
-        if isinstance(node, (nodes.Import, nodes.ImportFrom)) and any(
-            (node_name[1] and node_name[1] == name)
-            or (node_name[0] == name)
-            or (node_name[0].startswith(name + "."))
-            for node_name in node.names
-        ):
-            return True
-        if isinstance(node, nodes.With) and any(
-            isinstance(item[1], nodes.AssignName) and item[1].name == name
-            for item in node.items
-        ):
-            return True
-        if isinstance(node, (nodes.ClassDef, nodes.FunctionDef)) and node.name == name:
-            return True
-        if (
-            isinstance(node, nodes.ExceptHandler)
-            and node.name
-            and node.name.name == name
-        ):
-            return True
+            case nodes.ClassDef(name=node_name) | nodes.FunctionDef(name=node_name) if (
+                node_name == name
+            ):
+                return True
+            case nodes.ExceptHandler(
+                name=nodes.AssignName(name=exc_name),
+            ) if (
+                exc_name == name
+            ):
+                return True
         return False
 
     @staticmethod
