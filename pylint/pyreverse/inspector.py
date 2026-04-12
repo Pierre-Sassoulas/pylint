@@ -183,12 +183,13 @@ class Linker(IdGeneratorMixIn, utils.LocalsVisitor):
             frame = node.root()
 
         # Get the info object for the frame
-        if isinstance(frame, nodes.ClassDef):
-            locals_type = self.class_info[frame].locals_type
-        elif isinstance(frame, nodes.FunctionDef):
-            locals_type = self.function_info[frame].locals_type
-        else:
-            locals_type = self.module_info[frame].locals_type
+        match frame:
+            case nodes.ClassDef():
+                locals_type = self.class_info[frame].locals_type
+            case nodes.FunctionDef():
+                locals_type = self.function_info[frame].locals_type
+            case _:
+                locals_type = self.module_info[frame].locals_type
 
         current = locals_type[node.name]
         locals_type[node.name] = list(set(current) | utils.infer_node(node))
