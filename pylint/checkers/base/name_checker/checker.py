@@ -412,157 +412,158 @@ class NameChecker(_BasicChecker):
         "typevar-double-variance",
         "typevar-name-mismatch",
     )
-    def visit_assignname(  # pylint: disable=too-many-branches,too-many-statements
-        self, node: nodes.AssignName
-    ) -> None:
+    def visit_assignname(self, node: nodes.AssignName) -> None:
         """Check module level assigned names."""
         frame = node.frame()
         assign_type = node.assign_type()
 
-        # Check names defined in comprehensions
-        if isinstance(assign_type, nodes.Comprehension):
-            self._check_name("inlinevar", node.name, node)
+        # Check names defined in comprehensions and type constructs
+        match assign_type:
+            case nodes.Comprehension():
+                self._check_name("inlinevar", node.name, node)
+                return
+            case nodes.TypeVar():
+                self._check_name("typevar", node.name, node)
+                return
+            case nodes.ParamSpec():
+                self._check_name("paramspec", node.name, node)
+                return
+            case nodes.TypeVarTuple():
+                self._check_name("typevartuple", node.name, node)
+                return
+            case nodes.TypeAlias():
+                self._check_name("typealias", node.name, node)
+                return
 
-        elif isinstance(assign_type, nodes.TypeVar):
-            self._check_name("typevar", node.name, node)
+        # Check names by scope
+        match frame:
+            case nodes.Module():
+                self._check_module_scope_name(node, assign_type)
+            # Check names defined in function scopes
+            case nodes.FunctionDef():
+                # global introduced variable aren't in the function locals
+                if node.name in frame and node.name not in frame.argnames():
+                    if not _redefines_import(node):
+                        if isinstance(
+                            assign_type, nodes.AnnAssign
+                        ) and self._assigns_typealias(assign_type.annotation):
+                            self._check_name("typealias", node.name, node)
+                        else:
+                            self._check_name("variable", node.name, node)
+            # Check names defined in class scopes
+            case nodes.ClassDef() if not any(frame.local_attr_ancestors(node.name)):
+                if utils.is_assign_name_annotated_with_class_var_typing_name(
+                    node, "Final"
+                ):
+                    self._check_name("class_const", node.name, node)
+                elif utils.is_assign_name_annotated_with(node, "Final"):
+                    if frame.is_dataclass:
+                        self._check_name("class_attribute", node.name, node)
+                    else:
+                        self._check_name("class_const", node.name, node)
+                elif utils.is_enum_member(node):
+                    self._check_name("class_const", node.name, node)
+                else:
+                    self._check_name("class_attribute", node.name, node)
 
-        elif isinstance(assign_type, nodes.ParamSpec):
-            self._check_name("paramspec", node.name, node)
-
-        elif isinstance(assign_type, nodes.TypeVarTuple):
-            self._check_name("typevartuple", node.name, node)
-
-        elif isinstance(assign_type, nodes.TypeAlias):
+    def _check_module_scope_name(
+        self, node: nodes.AssignName, assign_type: nodes.NodeNG
+    ) -> None:
+        """Check names defined in module scope."""
+        # Check names defined in AnnAssign nodes
+        if isinstance(assign_type, nodes.AnnAssign) and self._assigns_typealias(
+            assign_type.annotation
+        ):
             self._check_name("typealias", node.name, node)
 
-        # Check names defined in module scope
-        elif isinstance(frame, nodes.Module):
-            # Check names defined in AnnAssign nodes
-            if isinstance(assign_type, nodes.AnnAssign) and self._assigns_typealias(
-                assign_type.annotation
-            ):
-                self._check_name("typealias", node.name, node)
+        # Check names defined in Assign nodes
+        elif isinstance(assign_type, (nodes.Assign, nodes.AnnAssign)):
+            inferred_assign_type = (
+                utils.safe_infer(assign_type.value) if assign_type.value else None
+            )
 
-            # Check names defined in Assign nodes
-            elif isinstance(assign_type, (nodes.Assign, nodes.AnnAssign)):
-                inferred_assign_type = (
-                    utils.safe_infer(assign_type.value) if assign_type.value else None
-                )
-
-                # Check TypeVar's and TypeAliases assigned alone or in tuple assignment
-                if isinstance(node.parent, nodes.Assign):
-                    if typevar_node_type := self._assigns_typevar(assign_type.value):
-                        self._check_name(
-                            typevar_node_type, assign_type.targets[0].name, node
-                        )
-                        return
-                    if self._assigns_typealias(assign_type.value):
-                        self._check_name("typealias", assign_type.targets[0].name, node)
-                        return
-
-                if (
-                    isinstance(node.parent, nodes.Tuple)
-                    and isinstance(assign_type.value, nodes.Tuple)
-                    # protect against unbalanced tuple unpacking
-                    and node.parent.elts.index(node) < len(assign_type.value.elts)
-                ):
-                    assigner = assign_type.value.elts[node.parent.elts.index(node)]
-                    if typevar_node_type := self._assigns_typevar(assigner):
-                        self._check_name(
-                            typevar_node_type,
-                            assign_type.targets[0]
-                            .elts[node.parent.elts.index(node)]
-                            .name,
-                            node,
-                        )
-                        return
-                    if self._assigns_typealias(assigner):
-                        self._check_name(
-                            "typealias",
-                            assign_type.targets[0]
-                            .elts[node.parent.elts.index(node)]
-                            .name,
-                            node,
-                        )
-                        return
-
-                elif inferred_assign_type in (None, util.Uninferable):
+            # Check TypeVar's and TypeAliases assigned alone or in tuple assignment
+            if isinstance(node.parent, nodes.Assign):
+                if typevar_node_type := self._assigns_typevar(assign_type.value):
+                    self._check_name(
+                        typevar_node_type, assign_type.targets[0].name, node
+                    )
+                    return
+                if self._assigns_typealias(assign_type.value):
+                    self._check_name("typealias", assign_type.targets[0].name, node)
                     return
 
-                # Check classes (TypeVar's are classes so they need to be excluded first)
-                elif self._should_check_class_regex(inferred_assign_type):
-                    self._check_name("class", node.name, node)
+            if (
+                isinstance(node.parent, nodes.Tuple)
+                and isinstance(assign_type.value, nodes.Tuple)
+                # protect against unbalanced tuple unpacking
+                and node.parent.elts.index(node) < len(assign_type.value.elts)
+            ):
+                assigner = assign_type.value.elts[node.parent.elts.index(node)]
+                if typevar_node_type := self._assigns_typevar(assigner):
+                    self._check_name(
+                        typevar_node_type,
+                        assign_type.targets[0].elts[node.parent.elts.index(node)].name,
+                        node,
+                    )
+                    return
+                if self._assigns_typealias(assigner):
+                    self._check_name(
+                        "typealias",
+                        assign_type.targets[0].elts[node.parent.elts.index(node)].name,
+                        node,
+                    )
+                    return
 
-                # Don't emit if the name redefines an import in an ImportError except handler
-                # nor any other reassignment.
-                elif (
-                    not (redefines_import := _redefines_import(node))
-                    and not isinstance(
-                        inferred_assign_type, (nodes.FunctionDef, nodes.Lambda)
-                    )
-                    and not utils.is_reassigned_before_current(node, node.name)
-                    and not utils.is_reassigned_after_current(node, node.name)
-                    and not utils.get_node_first_ancestor_of_type(
-                        node, (nodes.For, nodes.While)
-                    )
+            elif inferred_assign_type in (None, util.Uninferable):
+                return
+
+            # Check classes (TypeVar's are classes so they need to be excluded first)
+            elif self._should_check_class_regex(inferred_assign_type):
+                self._check_name("class", node.name, node)
+
+            # Don't emit if the name redefines an import in an ImportError except handler
+            # nor any other reassignment.
+            elif (
+                not (redefines_import := _redefines_import(node))
+                and not isinstance(
+                    inferred_assign_type, (nodes.FunctionDef, nodes.Lambda)
+                )
+                and not utils.is_reassigned_before_current(node, node.name)
+                and not utils.is_reassigned_after_current(node, node.name)
+                and not utils.get_node_first_ancestor_of_type(
+                    node, (nodes.For, nodes.While)
+                )
+            ):
+                if not self._meets_exception_for_non_consts(
+                    inferred_assign_type, node.name
                 ):
-                    if not self._meets_exception_for_non_consts(
-                        inferred_assign_type, node.name
-                    ):
-                        self._check_name("const", node.name, node)
-                else:
-                    node_type = "variable"
-                    iattrs = tuple(node.frame().igetattr(node.name))
-                    if (
-                        util.Uninferable in iattrs
-                        and self._name_regexps["const"].match(node.name) is not None
-                    ):
-                        return
-                    # Do the exclusive assignment analysis on attrs, not iattrs.
-                    # iattrs locations could be anywhere (inference result).
-                    attrs = tuple(node.frame().getattr(node.name))
-                    if len(attrs) > 1 and all(
-                        astroid.are_exclusive(*combo)
-                        for combo in itertools.combinations(attrs, 2)
-                    ):
-                        node_type = "const"
-                    if not self._meets_exception_for_non_consts(
-                        inferred_assign_type, node.name
-                    ):
-                        self._check_name(
-                            node_type,
-                            node.name,
-                            node,
-                            disallowed_check_only=redefines_import,
-                        )
-
-        # Check names defined in function scopes
-        elif isinstance(frame, nodes.FunctionDef):
-            # global introduced variable aren't in the function locals
-            if node.name in frame and node.name not in frame.argnames():
-                if not _redefines_import(node):
-                    if isinstance(
-                        assign_type, nodes.AnnAssign
-                    ) and self._assigns_typealias(assign_type.annotation):
-                        self._check_name("typealias", node.name, node)
-                    else:
-                        self._check_name("variable", node.name, node)
-
-        # Check names defined in class scopes
-        elif isinstance(frame, nodes.ClassDef) and not any(
-            frame.local_attr_ancestors(node.name)
-        ):
-            if utils.is_assign_name_annotated_with_class_var_typing_name(node, "Final"):
-                self._check_name("class_const", node.name, node)
-            elif utils.is_assign_name_annotated_with(node, "Final"):
-                if frame.is_dataclass:
-                    self._check_name("class_attribute", node.name, node)
-                else:
-                    self._check_name("class_const", node.name, node)
-            elif utils.is_enum_member(node):
-                self._check_name("class_const", node.name, node)
+                    self._check_name("const", node.name, node)
             else:
-                self._check_name("class_attribute", node.name, node)
+                node_type = "variable"
+                iattrs = tuple(node.frame().igetattr(node.name))
+                if (
+                    util.Uninferable in iattrs
+                    and self._name_regexps["const"].match(node.name) is not None
+                ):
+                    return
+                # Do the exclusive assignment analysis on attrs, not iattrs.
+                # iattrs locations could be anywhere (inference result).
+                attrs = tuple(node.frame().getattr(node.name))
+                if len(attrs) > 1 and all(
+                    astroid.are_exclusive(*combo)
+                    for combo in itertools.combinations(attrs, 2)
+                ):
+                    node_type = "const"
+                if not self._meets_exception_for_non_consts(
+                    inferred_assign_type, node.name
+                ):
+                    self._check_name(
+                        node_type,
+                        node.name,
+                        node,
+                        disallowed_check_only=redefines_import,
+                    )
 
     def _meets_exception_for_non_consts(
         self, inferred_assign_type: InferenceResult | None, name: str
