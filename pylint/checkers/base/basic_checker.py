@@ -453,11 +453,11 @@ class BasicChecker(_BasicChecker):
 
         # Warn W0133 for exceptions that are used as statements
         if isinstance(expr, nodes.Call):
-            name = ""
-            if isinstance(expr.func, nodes.Name):
-                name = expr.func.name
-            elif isinstance(expr.func, nodes.Attribute):
-                name = expr.func.attrname
+            match expr.func:
+                case nodes.Name(name=func_name) | nodes.Attribute(attrname=func_name):
+                    name = func_name
+                case _:
+                    name = ""
 
             # Heuristic: only run inference for names that begin with an uppercase char
             # This reduces W0133's coverage, but retains acceptable runtime performance
