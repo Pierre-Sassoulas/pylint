@@ -919,15 +919,15 @@ def uninferable_final_decorators(
     for decorator in getattr(node, "nodes", []):
         import_nodes: tuple[nodes.Import | nodes.ImportFrom] | None = None
 
-        # Get the `Import` node. The decorator is of the form: @module.name
-        if isinstance(decorator, nodes.Attribute):
-            inferred = safe_infer(decorator.expr)
-            if isinstance(inferred, nodes.Module) and inferred.qname() == "typing":
-                _, import_nodes = decorator.expr.lookup(decorator.expr.name)
-
-        # Get the `ImportFrom` node. The decorator is of the form: @name
-        elif isinstance(decorator, nodes.Name):
-            _, import_nodes = decorator.lookup(decorator.name)
+        match decorator:
+            # Get the `Import` node. The decorator is of the form: @module.name
+            case nodes.Attribute():
+                inferred = safe_infer(decorator.expr)
+                if isinstance(inferred, nodes.Module) and inferred.qname() == "typing":
+                    _, import_nodes = decorator.expr.lookup(decorator.expr.name)
+            # Get the `ImportFrom` node. The decorator is of the form: @name
+            case nodes.Name():
+                _, import_nodes = decorator.lookup(decorator.name)
 
         # The `final` decorator is expected to be found in the
         # import_nodes. Continue if we don't find any `Import` or `ImportFrom`
