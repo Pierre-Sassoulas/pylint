@@ -1,0 +1,416 @@
+Using temp dir: /tmp/pylint_bisect_pp9f70mb
+
+=== Installing pylint 2.6.0 ===
+  #10670: clean
+  #10455: clean
+  #10442: clean
+  #10422: clean
+  #10374: clean
+  #10298: clean
+  #9722: clean
+  #9497: misses
+  #8805: clean
+  #8419: misses
+  #8250: clean
+  #8179: clean
+  #8068: clean
+  #8053: clean
+  #8050: clean
+  #7891: clean
+  #7647: clean
+  #7381: clean
+  #7350: clean
+  #7240: clean
+  #5823: clean
+  #4920: clean
+  #4608: clean
+  #4554: clean
+  #3925: clean
+  #3893: clean
+  #3603: clean
+  #3327: clean
+  #2981: clean
+  #2821: clean
+  #1934: clean
+  #1493: clean
+
+=== Installing pylint 2.10.0 ===
+  #10670: clean
+  #10455: clean
+  #10442: clean
+  #10422: clean
+  #10374: clean
+  #10298: clean
+  #9722: clean
+  #9497: misses
+  #8805: clean
+  #8419: misses
+  #8250: clean
+  #8179: clean
+  #8068: clean
+  #8053: clean
+  #8050: clean
+  #7891: clean
+  #7647: clean
+  #7381: clean
+  #7350: clean
+  #7240: clean
+  #5823: clean
+  #4920: clean
+  #4608: clean
+  #4554: clean
+  #3925: clean
+  #3893: clean
+  #3603: clean
+  #3327: clean
+  #2981: clean
+  #2821: clean
+  #1934: clean
+  #1493: clean
+
+=== Installing pylint 2.13.0 ===
+  #10670: clean
+  #10455: clean
+  #10442: clean
+  #10422: clean
+  #10374: clean
+  #10298: clean
+  #9722: FP-fires
+  #9497: misses
+  #8805: FP-fires
+  #8419: detects
+  #8250: clean
+  #8179: clean
+  #8068: FP-fires
+  #8053: clean
+  #8050: clean
+  #7891: clean
+  #7647: FP-fires
+  #7381: clean
+  #7350: FP-fires
+  #7240: FP-fires
+  #5823: clean
+  #4920: clean
+  #4608: FP-fires
+  #4554: clean
+  #3925: FP-fires
+  #3893: FP-fires
+  #3603: FP-fires
+  #3327: FP-fires
+  #2981: clean
+  #2821: clean
+  #1934: clean
+  #1493: clean
+
+=== Installing pylint 2.15.0 ===
+  #10670: clean
+  #10455: clean
+  #10442: clean
+  #10422: clean
+  #10374: clean
+  #10298: clean
+  #9722: FP-fires
+  #9497: misses
+  #8805: clean
+  #8419: detects
+  #8250: clean
+  #8179: clean
+  #8068: FP-fires
+  #8053: clean
+  #8050: clean
+  #7891: clean
+  #7647: FP-fires
+  #7381: clean
+  #7350: FP-fires
+  #7240: clean
+  #5823: clean
+  #4920: clean
+  #4608: FP-fires
+  #4554: FP-fires
+  #3925: FP-fires
+  #3893: FP-fires
+  #3603: FP-fires
+  #3327: clean
+  #2981: clean
+  #2821: clean
+  #1934: clean
+  #1493: clean
+
+=== Installing pylint 2.17.0 ===
+  #10670: clean
+  #10455: clean
+  #10442: clean
+  #10422: clean
+  #10374: clean
+  #10298: clean
+  #9722: FP-fires
+  #9497: misses
+  #8805: clean
+  #8419: detects
+  #8250: clean
+  #8179: clean
+  #8068: FP-fires
+  #8053: clean
+  #8050: clean
+  #7891: clean
+  #7647: FP-fires
+  #7381: clean
+  #7350: FP-fires
+  #7240: clean
+  #5823: clean
+  #4920: clean
+  #4608: FP-fires
+  #4554: FP-fires
+  #3925: FP-fires
+  #3893: FP-fires
+  #3603: FP-fires
+  #3327: clean
+  #2981: clean
+  #2821: clean
+  #1934: clean
+  #1493: clean
+
+=== Installing pylint 3.0.0 ===
+  #10670: clean
+  #10455: clean
+  #10442: clean
+  #10422: clean
+  #10374: clean
+  #10298: clean
+  #9722: FP-fires
+  #9497: detects
+  #8805: clean
+  #8419: detects
+  #8250: clean
+  #8179: clean
+  #8068: FP-fires
+  #8053: clean
+  #8050: clean
+  #7891: clean
+  #7647: FP-fires
+  #7381: clean
+  #7350: clean
+  #7240: clean
+  #5823: clean
+  #4920: clean
+  #4608: FP-fires
+  #4554: clean
+  #3925: FP-fires
+  #3893: FP-fires
+  #3603: FP-fires
+  #3327: clean
+  #2981: clean
+  #2821: clean
+  #1934: clean
+  #1493: clean
+
+=== Installing pylint 3.1.0 ===
+  #10670: clean
+  #10455: clean
+  #10442: clean
+  #10422: clean
+  #10374: clean
+  #10298: clean
+  #9722: FP-fires
+  #9497: detects
+  #8805: clean
+  #8419: detects
+  #8250: clean
+  #8179: clean
+  #8068: FP-fires
+  #8053: clean
+  #8050: clean
+  #7891: clean
+  #7647: clean
+  #7381: clean
+  #7350: clean
+  #7240: clean
+  #5823: clean
+  #4920: clean
+  #4608: FP-fires
+  #4554: clean
+  #3925: FP-fires
+  #3893: FP-fires
+  #3603: FP-fires
+  #3327: clean
+  #2981: clean
+  #2821: clean
+  #1934: clean
+  #1493: clean
+
+=== Installing pylint 3.2.0 ===
+  #10670: clean
+  #10455: clean
+  #10442: clean
+  #10422: clean
+  #10374: clean
+  #10298: clean
+  #9722: FP-fires
+  #9497: detects
+  #8805: clean
+  #8419: detects
+  #8250: clean
+  #8179: clean
+  #8068: FP-fires
+  #8053: clean
+  #8050: clean
+  #7891: clean
+  #7647: clean
+  #7381: clean
+  #7350: clean
+  #7240: clean
+  #5823: clean
+  #4920: clean
+  #4608: FP-fires
+  #4554: clean
+  #3925: FP-fires
+  #3893: FP-fires
+  #3603: FP-fires
+  #3327: clean
+  #2981: clean
+  #2821: clean
+  #1934: clean
+  #1493: clean
+
+=== Installing pylint 3.3.0 ===
+  #10670: clean
+  #10455: clean
+  #10442: clean
+  #10422: clean
+  #10374: clean
+  #10298: clean
+  #9722: clean
+  #9497: detects
+  #8805: clean
+  #8419: detects
+  #8250: clean
+  #8179: clean
+  #8068: FP-fires
+  #8053: clean
+  #8050: clean
+  #7891: clean
+  #7647: clean
+  #7381: clean
+  #7350: clean
+  #7240: clean
+  #5823: clean
+  #4920: clean
+  #4608: FP-fires
+  #4554: clean
+  #3925: FP-fires
+  #3893: clean
+  #3603: clean
+  #3327: clean
+  #2981: clean
+  #2821: clean
+  #1934: clean
+  #1493: clean
+
+=== Installing pylint 4.0.0 ===
+  #10670: clean
+  #10455: clean
+  #10442: clean
+  #10422: clean
+  #10374: clean
+  #10298: clean
+  #9722: clean
+  #9497: detects
+  #8805: clean
+  #8419: detects
+  #8250: clean
+  #8179: clean
+  #8068: clean
+  #8053: clean
+  #8050: clean
+  #7891: clean
+  #7647: clean
+  #7381: clean
+  #7350: clean
+  #7240: clean
+  #5823: clean
+  #4920: clean
+  #4608: clean
+  #4554: clean
+  #3925: clean
+  #3893: clean
+  #3603: clean
+  #3327: clean
+  #2981: clean
+  #2821: clean
+  #1934: clean
+  #1493: clean
+
+=== Installing pylint 4.0.5 ===
+  #10670: clean
+  #10455: clean
+  #10442: clean
+  #10422: clean
+  #10374: clean
+  #10298: clean
+  #9722: clean
+  #9497: detects
+  #8805: clean
+  #8419: detects
+  #8250: clean
+  #8179: clean
+  #8068: clean
+  #8053: clean
+  #8050: clean
+  #7891: clean
+  #7647: clean
+  #7381: clean
+  #7350: clean
+  #7240: clean
+  #5823: clean
+  #4920: clean
+  #4608: clean
+  #4554: clean
+  #3925: clean
+  #3893: clean
+  #3603: clean
+  #3327: clean
+  #2981: clean
+  #2821: clean
+  #1934: clean
+  #1493: clean
+
+Saved results to /home/pierre/pylint/.triage/bisect_results.json
+
+## Bisect summary
+
+Issue  | 2.6.0 | 2.10.0 | 2.13.0 | 2.15.0 | 2.17.0 | 3.0.0 | 3.1.0 | 3.2.0 | 3.3.0 | 4.0.0 | 4.0.5
+--------------------------------------------------------------------------------------------------
+#10670 | clean | clean | clean | clean | clean | clean | clean | clean | clean | clean | clean
+#10455 | clean | clean | clean | clean | clean | clean | clean | clean | clean | clean | clean
+#10442 | clean | clean | clean | clean | clean | clean | clean | clean | clean | clean | clean
+#10422 | clean | clean | clean | clean | clean | clean | clean | clean | clean | clean | clean
+#10374 | clean | clean | clean | clean | clean | clean | clean | clean | clean | clean | clean
+#10298 | clean | clean | clean | clean | clean | clean | clean | clean | clean | clean | clean
+# 9722 | clean | clean | FP-fires | FP-fires | FP-fires | FP-fires | FP-fires | FP-fires | clean | clean | clean
+# 9497 | misses | misses | misses | misses | misses | detects | detects | detects | detects | detects | detects
+# 8805 | clean | clean | FP-fires | clean | clean | clean | clean | clean | clean | clean | clean
+# 8419 | misses | misses | detects | detects | detects | detects | detects | detects | detects | detects | detects
+# 8250 | clean | clean | clean | clean | clean | clean | clean | clean | clean | clean | clean
+# 8179 | clean | clean | clean | clean | clean | clean | clean | clean | clean | clean | clean
+# 8068 | clean | clean | FP-fires | FP-fires | FP-fires | FP-fires | FP-fires | FP-fires | FP-fires | clean | clean
+# 8053 | clean | clean | clean | clean | clean | clean | clean | clean | clean | clean | clean
+# 8050 | clean | clean | clean | clean | clean | clean | clean | clean | clean | clean | clean
+# 7891 | clean | clean | clean | clean | clean | clean | clean | clean | clean | clean | clean
+# 7647 | clean | clean | FP-fires | FP-fires | FP-fires | FP-fires | clean | clean | clean | clean | clean
+# 7381 | clean | clean | clean | clean | clean | clean | clean | clean | clean | clean | clean
+# 7350 | clean | clean | FP-fires | FP-fires | FP-fires | clean | clean | clean | clean | clean | clean
+# 7240 | clean | clean | FP-fires | clean | clean | clean | clean | clean | clean | clean | clean
+# 5823 | clean | clean | clean | clean | clean | clean | clean | clean | clean | clean | clean
+# 4920 | clean | clean | clean | clean | clean | clean | clean | clean | clean | clean | clean
+# 4608 | clean | clean | FP-fires | FP-fires | FP-fires | FP-fires | FP-fires | FP-fires | FP-fires | clean | clean
+# 4554 | clean | clean | clean | FP-fires | FP-fires | clean | clean | clean | clean | clean | clean
+# 3925 | clean | clean | FP-fires | FP-fires | FP-fires | FP-fires | FP-fires | FP-fires | FP-fires | clean | clean
+# 3893 | clean | clean | FP-fires | FP-fires | FP-fires | FP-fires | FP-fires | FP-fires | clean | clean | clean
+# 3603 | clean | clean | FP-fires | FP-fires | FP-fires | FP-fires | FP-fires | FP-fires | clean | clean | clean
+# 3327 | clean | clean | FP-fires | clean | clean | clean | clean | clean | clean | clean | clean
+# 2981 | clean | clean | clean | clean | clean | clean | clean | clean | clean | clean | clean
+# 2821 | clean | clean | clean | clean | clean | clean | clean | clean | clean | clean | clean
+# 1934 | clean | clean | clean | clean | clean | clean | clean | clean | clean | clean | clean
+# 1493 | clean | clean | clean | clean | clean | clean | clean | clean | clean | clean | clean
+
+Kept temp dir at /tmp/pylint_bisect_pp9f70mb (delete manually with: rm -rf /tmp/pylint_bisect_pp9f70mb)
