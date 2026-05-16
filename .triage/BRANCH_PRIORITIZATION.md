@@ -85,6 +85,52 @@ Special case:
 
 - `fix-5083` — #5083 still **open** but 9 conflicts on a 2022 branch. Faster to start over than salvage.
 
+## Stacks, duplicates and supersets (resolve before opening PRs)
+
+Audited 2026-05-16 by comparing pairwise ancestry, commit subjects, and the actual files touched (`git diff $(merge-base)..branch`). These relationships aren't visible from branch listings alone.
+
+### True git stack
+
+| Below | On top of it | Note |
+|---|---|---|
+| `dataclass-in-package-to-lint` (1 commit `300ad97ff`) | `primer-refactor` (`b7e0d4185 wip` + `300ad97ff`) | `primer-refactor` is literally `dataclass-in-package-to-lint` plus one extra `wip` commit. Either drop `primer-refactor` and salvage the wip commit later, or treat `dataclass-in-package-to-lint` as the part to merge first. |
+
+### Pure duplicates — delete one
+
+| Branches | Verdict |
+|---|---|
+| `issue-2072` vs `regression-test-2072` | `git show` outputs are identical except for the SHA line; same 30-line addition to `tests/functional/u/unsubscriptable_value.py`. Delete one. |
+| `feature-print-filepaths-save` (2 commits, 2024-05) vs `feature-print-filepaths` (4 commits, 2024-09) | `-save` is the older snapshot — same first commit subject, the main branch has 2 more commits. Delete `-save`. |
+
+### Snapshot superset — delete the older one
+
+| Branch | Why delete |
+|---|---|
+| `save-old-pierre-main` | Touches the same `pylint/extensions/mccabe.py` + `pyproject.toml` + `10551.internal` fragment as `vendored-mccabe`, plus a stray older snapshot of conf-upgrade files (`_pylint_config/{main,setup,upgrade_command}.py`, `config_initialization.py`, `base_options.py`). All of it is older than the focused branches that succeeded it. Pure snapshot — delete. |
+
+### Logical dependency (not a git stack — needs manual rebase)
+
+| Depends on | Dependent | Note |
+|---|---|---|
+| `vendored-mccabe` (or whichever mccabe-vendoring branch you pick) | `match-case-too-complex` | `match-case-too-complex` modifies `pylint/extensions/mccabe.py` assuming the vendored version exists. Currently they're parallel — land vendoring first, then rebase. |
+
+### Parallel re-implementations (NOT stacks — pick canonical, archive rest)
+
+These four conf-upgrade branches all chase the same goal but each rewrote the data structure from scratch. The directory each one creates is the easiest way to tell them apart:
+
+| Branch | Module path | Era |
+|---|---|---|
+| `configuration-upgrader-script` | single file `_breaking_changes.py` | earliest prototype |
+| `upgrade-breaking-change-data-structure` | subpackage `_breaking_changes/` with `typing.py`, `condition.py`, `solution.py` | data-structure refactor |
+| `conf-upgrade-script` | subpackage `_breaking_changes/` with `intention.py`, `config_file.py` (no solution/typing) | next iteration |
+| `wip-upgrade` | **renamed module** `_pylint_upgrade_conf/` with `check_config_upgrade.py`, `upgrade.py` | most recent rename |
+
+The directory rename in `wip-upgrade` confirms it's the latest direction. Same story (no shared commits) for the mccabe branches `vendored-mccabe` (optimized) vs `vendoring-in-small-steps` (gradual) — pick one approach.
+
+### Independent — no consolidation needed
+
+`false-negative-chained-comparison` (touches `refactoring_checker.py` + test), `false-negative-consider-using-any-or-all` (test only), `false-negative-consider-using-enumerate` (test only) all touch disjoint files. Treat each as its own PR.
+
 ## Suggested next moves (in order)
 
 1. **Open small PRs** from TIER 1 (the copilot fix, confidence test, copilot-instructions cleanup, message-ref script). Low-risk wins.
