@@ -41,7 +41,7 @@ Substantial duplication — four branches attacking the conf-upgrade script.
 
 | Branch | Notes |
 |---|---|
-| `scientific-notation-formatting` / `save-scient` | 23 files +844 lines. `save-scient` is one commit ahead of the other — pick one. Big feature. |
+| `scientific-notation-formatting` | **Live PR #10425 (draft)**, 69 commits, last 2026-04-26. Local stale copy + `save-scient` deleted 2026-05-16 after verifying both were 6 months behind the remote; local branch now tracks `pierre/scientific-notation-formatting` from scratch. Resume work directly on this branch. |
 | `vendored-mccabe` + `vendoring-in-small-steps` + `save-old-pierre-main` + `match-case-too-complex` | mccabe vendoring family. Active in Sep 2025. Pick a canonical branch. |
 | `primer-refactor` + `dataclass-in-package-to-lint` + `refactor-primer_comparator` | primer infra cleanup. Smallest (`dataclass-in-package-to-lint`, 1 commit) may be the easiest path. |
 | `fix-element-of-a-list-inside-list` | small (34 lines), 1 conflict |
@@ -89,7 +89,7 @@ Special case:
 
 1. **Open small PRs** from TIER 1 (the copilot fix, confidence test, copilot-instructions cleanup, message-ref script). Low-risk wins.
 2. **Pick a canonical conf-upgrade branch** (recommend `wip-upgrade`), merge unique work from the other three, archive the rest. Unblocks #3512.
-3. **Decide the fate** of `scientific-notation-formatting` and the mccabe-vendoring family — big efforts, finish or explicitly archive.
+3. **Decide the fate** of the mccabe-vendoring family — big effort, finish or explicitly archive. (Scientific notation already settled: work continues on PR #10425.)
 4. **Delete TIER 5** in a single sweep once you confirm you don't need any of it as reference.
 
 ## Conflicting branches — prioritized by recovery effort vs value
@@ -104,8 +104,8 @@ Resolve the conflicts on these by hand; they map to ongoing work.
 |---|---|---|---|
 | `wip-upgrade` | 1 | 2025-10 | Canonical conf-upgrade branch candidate; unblocks #3512 via #5462 (open) |
 | `conf-upgrade-script` | 1 | 2025-12 | Same effort as `wip-upgrade`; salvage anything unique then drop |
-| `save-scient` | 2 | 2025-11 | Scientific-notation feature, 23 files +852 lines. Pick this over `scientific-notation-formatting` (1 commit newer) |
-| `scientific-notation-formatting` | 2 | 2025-11 | Earlier snapshot of `save-scient` — drop after merging |
+| ~~`save-scient`~~ | — | — | Deleted 2026-05-16: was 6 months stale; live work is in PR #10425 head branch `pierre/scientific-notation-formatting` (69 commits, last 2026-04-26). No salvageable unique work. |
+| ~~`scientific-notation-formatting`~~ (stale local) | — | — | Same story — deleted and re-created from `pierre/scientific-notation-formatting`. Now tracks the live PR branch. |
 | `vendoring-in-small-steps` | 1 | 2025-09 | mccabe vendoring (step-by-step variant); smallest conflict in the family |
 | `vendored-mccabe` | 2 | 2025-09 | mccabe vendoring main line |
 | `save-old-pierre-main` | 3 | 2025-10 | mccabe vendoring snapshot — likely supersede with `vendored-mccabe` |
@@ -179,9 +179,10 @@ Closed-issue branches:
 1. `dataclass-in-package-to-lint` (1 conflict, 1 commit, smallest)
 2. `vendoring-in-small-steps` (1 conflict)
 3. `wip-upgrade` (1 conflict) — most strategic value
-4. `save-scient` (2 conflicts) — biggest feature win
-5. `vendored-mccabe` (2 conflicts) — mccabe family
-6. Stop and re-evaluate after these five. Everything below is either redundant with the above, a TIER-D delete candidate, or a "start over" call.
+4. `vendored-mccabe` (2 conflicts) — mccabe family
+5. Stop and re-evaluate after these four. Everything below is either redundant with the above, a TIER-D delete candidate, or a "start over" call.
+
+For the scientific-notation feature, no local conflict-resolution is needed: work continues directly on `pierre/scientific-notation-formatting` (PR #10425).
 
 ## Rebase status reference
 
