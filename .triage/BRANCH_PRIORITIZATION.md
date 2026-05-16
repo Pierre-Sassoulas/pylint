@@ -11,14 +11,6 @@ Snapshot date: 2026-05-16. Audited from `pierre@pylint` local clone vs `origin/m
 
 Numbers below are post-rebase (commits ahead of `origin/main`).
 
-## Deleted (already in main)
-
-| Branch | Note |
-|---|---|
-| ~~`fix-changelog-9167`~~ | tip == origin/main after rebase; deleted |
-| ~~`disable-benchmark-in-ci`~~ | tip == origin/main after rebase; deleted |
-| ~~`backport-10929-to-maintenance/4.0.x`~~ | fully behind origin/main; deleted, stale worktree pruned |
-
 ## TIER 1 — High value, near-mergeable
 
 Clean rebase, focused diff, clear scope. Open PRs from these next.
@@ -99,6 +91,97 @@ Special case:
 2. **Pick a canonical conf-upgrade branch** (recommend `wip-upgrade`), merge unique work from the other three, archive the rest. Unblocks #3512.
 3. **Decide the fate** of `scientific-notation-formatting` and the mccabe-vendoring family — big efforts, finish or explicitly archive.
 4. **Delete TIER 5** in a single sweep once you confirm you don't need any of it as reference.
+
+## Conflicting branches — prioritized by recovery effort vs value
+
+45 branches don't rebase cleanly. Conflict count comes from `git merge-tree`; the actual rebase may surface more (intermediate commits) or fewer (auto-resolved renames) — treat it as an effort estimate, not gospel. `maintenance/4.0.x` and `backport-sys-fix` are upstream-maintenance branches and excluded from this ranking.
+
+### CONFLICT-TIER A — Worth resolving (recent + open issue / active plan)
+
+Resolve the conflicts on these by hand; they map to ongoing work.
+
+| Branch | Conflicts | Date | Reason |
+|---|---|---|---|
+| `wip-upgrade` | 1 | 2025-10 | Canonical conf-upgrade branch candidate; unblocks #3512 via #5462 (open) |
+| `conf-upgrade-script` | 1 | 2025-12 | Same effort as `wip-upgrade`; salvage anything unique then drop |
+| `save-scient` | 2 | 2025-11 | Scientific-notation feature, 23 files +852 lines. Pick this over `scientific-notation-formatting` (1 commit newer) |
+| `scientific-notation-formatting` | 2 | 2025-11 | Earlier snapshot of `save-scient` — drop after merging |
+| `vendoring-in-small-steps` | 1 | 2025-09 | mccabe vendoring (step-by-step variant); smallest conflict in the family |
+| `vendored-mccabe` | 2 | 2025-09 | mccabe vendoring main line |
+| `save-old-pierre-main` | 3 | 2025-10 | mccabe vendoring snapshot — likely supersede with `vendored-mccabe` |
+| `match-case-too-complex` | 3 | 2025-09 | mccabe too-complex with match-case edges (depends on vendored mccabe) |
+| `primer-refactor` | 2 | 2025-09 | Primer infra cleanup |
+| `refactor-primer_comparator` | 2 | 2025-09 | Has a merge commit — easier to redo on top of fresh main |
+| `dataclass-in-package-to-lint` | 1 | 2025-09 | Smallest of the primer trio (1 commit, +13/-25). Easiest path. |
+
+### CONFLICT-TIER B — Recent but lower stakes
+
+Worth a second look only if the topic is still on the roadmap.
+
+| Branch | Conflicts | Date | Reason |
+|---|---|---|---|
+| `fix-element-of-a-list-inside-list` | 1 | 2025-05 | 34 lines WIP; recent enough to be salvageable |
+| `codegen-bot/simplify-complex-conditionals` | 1 | 2025-05 | 7 lines codegen output; only finish if you trust the suggestions |
+| `files` | 2 | 2025-04 | "files" option, 157 lines — decide if you want this feature |
+
+### CONFLICT-TIER C — Stale but target issue still open → start over
+
+Branch is too old to salvage cheaply; faster to write a fresh patch.
+
+| Branch | Conflicts | Date | Issue |
+|---|---|---|---|
+| `fix-5083` | 9 | 2022-06 | #5083 open — 4-year-old 13-file diff, rewrite from scratch |
+| `make-invalid-name-oddity-explicit` | 1 | 2023-02 | no specific issue; pre-emptive cleanup, low priority |
+
+### CONFLICT-TIER D — Stale + closed issue / obsolete → delete
+
+Target issue is closed (verified via `.triage/issues_raw.json`), or the approach has been superseded. Recommend `git branch -D` once you've eyeballed the list.
+
+Closed-issue branches:
+
+- `issue-5288` (1 conflict, 2023-03, closed)
+- `issue-6538` (1 conflict, 2022-05, closed)
+- `issue-3651` (6 conflicts, 2022-08, closed)
+- `super-crash` (2 conflicts, 2023-05, #8554 closed)
+- `regression-tests-7710` (3 conflicts, 2023-09, #7710 closed)
+- `cgroupsv2-cpu-count` (1 conflict, 2024-12, #10103 closed)
+- `check-non-constant-module-level-variable` (2 conflicts, 2023-08, #3585 closed)
+
+2024 stale WIPs (no clear issue, dormant 1+ year):
+
+- `crash-consider-using-enumerate` (1)
+- `litteral-dict` (1)
+- `feature-print-filepaths` (2) and `feature-print-filepaths-save` (2)
+- `autofix-with-fixit` (4)
+- `better-message-for-use-implicit-booleaness-not-len` (1)
+- `document-deleted-messages` (1)
+
+2022-2023 abandoned experiments (3+ years dormant):
+
+- `more-useless-comprehension` (1)
+- `pylint-default-to-current-dir` (1)
+- `remove-ini-support` (2)
+- `all-options` (1)
+- `add-number-of-duplicated-line-in-msg` (1)
+- `remove-isort` (2)
+- `refactor-primer-stash` (2)
+- `uniformize-message-use-implicit-booleaness` (17) — biggest conflict count of all; clearly abandoned
+- `ruff-for-pylint` (2)
+- `remove-return-in-generator` (3)
+- `fix-implicit-abstract-class` (1, 2021)
+- `fix-panda-numpy-false-positive` (2) — superseded by [[numpy-2x-brain-plan]]
+- `decorator-spelling-checker` (1)
+- `change-primer-datastructure` (3, 2022)
+- `better-primer-diff` (2, 2022)
+
+### Conflict-resolution order (if you want to power through)
+
+1. `dataclass-in-package-to-lint` (1 conflict, 1 commit, smallest)
+2. `vendoring-in-small-steps` (1 conflict)
+3. `wip-upgrade` (1 conflict) — most strategic value
+4. `save-scient` (2 conflicts) — biggest feature win
+5. `vendored-mccabe` (2 conflicts) — mccabe family
+6. Stop and re-evaluate after these five. Everything below is either redundant with the above, a TIER-D delete candidate, or a "start over" call.
 
 ## Rebase status reference
 
