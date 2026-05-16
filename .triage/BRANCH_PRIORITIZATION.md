@@ -13,22 +13,60 @@ Numbers below are post-rebase (commits ahead of `origin/main`).
 
 ## TIER 0 — Live open PRs (active work)
 
-Branches that already have an open PR by Pierre on pylint-dev/pylint. Local copies track the live PR head; resume work there directly. Listed by PR last-update date.
+Branches that already have an open PR by Pierre on pylint-dev/pylint. Local copies track the live PR head; resume work there directly. Banded by ship-readiness.
 
-| PR | Title | Local branch | Head ref |
-|---|---|---|---|
-| #10914 | [primer] Show changed messages as diffs | _no local_ | `Pierre-Sassoulas:primer-message-smarter-diff` |
-| #10425 | Misleading scientific/engineering/underscore notations (draft) | `scientific-notation-formatting` | `Pierre-Sassoulas:scientific-notation-formatting` |
-| #10881 | Fix quadratic perf/memory in duplicate-code | _no local_ | `Pierre-Sassoulas:symilar-performance` |
-| #10551 | Re-implement mccabe (draft) | `vendored-mccabe` | `pylint-dev:vendored-mccabe` |
-| #9072 | `pylint` equivalent to `pylint .` (draft) | `pylint-default-to-current-dir` | `Pierre-Sassoulas:pylint-default-to-current-dir` |
-| #10893 | Benchmark CI comment workflow (draft) | _no local_ | `pylint-dev:benchmark-ci-comment` |
-| #10894 | Add `module`/`filepath` params to `add_message` | _no local_ | `pylint-dev:add-message-module-file` |
-| #10880 | Attribute duplicate-code messages correctly (draft) | _no local_ | `pylint-dev:fix-2368` |
-| #10568 | Add `:ref:` script for docs (draft, last touched 2025-10-12) | `check-message-reference` | `pylint-dev:check-message-reference` |
-| #10176 | New check: unguarded-typing-import | _no local_ | `Pierre-Sassoulas:used-only-for-typechecking` |
+### P0 — Ready (not draft, recent activity) → push for merge
 
-PRs lacking activity for 6+ months (#10568) may need a rebase nudge.
+These are out of draft and saw activity in the last ~2 months. Each blocks little new work but lands real user-visible value.
+
+| PR | Title | Updated | Local branch | Head ref |
+|---|---|---|---|---|
+| #10881 | Fix quadratic perf/memory in duplicate-code | 2026-04-24 | _no local_ | `Pierre-Sassoulas:symilar-performance` |
+| #10894 | Add `module`/`filepath` params to `add_message` | 2026-03-08 | _no local_ | `pylint-dev:add-message-module-file` |
+
+**Why P0:** non-draft = author thinks it's review-ready. #10881 is a user-facing performance fix; #10894 is an API extension that downstream checkers can consume. Closing these clears the most "ready" inventory.
+
+### P1 — Active feature drafts (recent, major scope) → finalize
+
+Drafts touched in the last ~2 months with substantial work behind them. Need a final polish pass and a "mark ready for review" flip.
+
+| PR | Title | Updated | Local branch | Head ref |
+|---|---|---|---|---|
+| #10425 | Misleading scientific/engineering/underscore notations | 2026-04-26 | `scientific-notation-formatting` | `Pierre-Sassoulas:scientific-notation-formatting` |
+| #10551 | Re-implement mccabe (supply-chain) | 2026-04-19 | `vendored-mccabe` | `pylint-dev:vendored-mccabe` |
+| #10880 | Attribute duplicate-code messages correctly | 2026-03-07 | _no local_ | `pylint-dev:fix-2368` |
+
+**Why P1:** these are the meatiest in-flight features. Landing #10551 unblocks `match-case-too-complex`. #10880 is a logical follow-up after #10881. #10425 has 69 commits and a coherent architecture — the long tail of edge cases is what's left.
+
+### P2 — Recent infra drafts → land when convenient
+
+Internal/dev infra. Lower stakes, less time-sensitive.
+
+| PR | Title | Updated | Local branch | Head ref |
+|---|---|---|---|---|
+| #10893 | Benchmark CI comment workflow | 2026-05-07 | _no local_ | `pylint-dev:benchmark-ci-comment` |
+| #10914 | [primer] Show changed messages as diffs | 2026-04-26 | _no local_ | `Pierre-Sassoulas:primer-message-smarter-diff` |
+
+### P3 — Stale, needs a decision (rebase + finish, or close)
+
+No activity in 6+ months (or, for #9072, a long-running draft despite recent rebase). Each one is sunk cost — the right move may be to close.
+
+| PR | Title | Updated | Local branch | Head ref |
+|---|---|---|---|---|
+| #10176 | New check: unguarded-typing-import (not draft, but stale) | 2025-10-11 | _no local_ | `Pierre-Sassoulas:used-only-for-typechecking` |
+| #10568 | Add `:ref:` script for docs | 2025-10-12 | `check-message-reference` | `pylint-dev:check-message-reference` |
+| #9072 | `pylint` equivalent to `pylint .` (long-running draft) | 2026-04-19 | `pylint-default-to-current-dir` | `Pierre-Sassoulas:pylint-default-to-current-dir` |
+
+**Why P3:** #10176 is the only non-draft here — it's apparently ready but stuck; either rebase and merge, or there's unaddressed review feedback you've lost track of. #10568 has been dormant for 7 months. #9072 has been a draft for *years* — at some point the "pylint as `pylint .`" decision needs an explicit yes/no, since the lingering draft signals indecision.
+
+### Recommended order
+
+1. **#10881** then **#10894** — clear the non-draft backlog first
+2. **#10551** — small enough to finish and unblocks `match-case-too-complex`
+3. **#10880** — pair this with #10881 if duplicate-code is on your mind anyway
+4. **#10425** — biggest feature; once polished, flip it ready
+5. **#10893**, **#10914** — opportunistic when context-switching
+6. **#10176**, **#10568**, **#9072** — block out an hour to triage these three: rebase + merge, or close with a comment
 
 ## TIER 1 — High value, no PR yet, near-mergeable
 
