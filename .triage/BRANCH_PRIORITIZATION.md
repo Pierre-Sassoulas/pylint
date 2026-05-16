@@ -11,7 +11,26 @@ Snapshot date: 2026-05-16. Audited from `pierre@pylint` local clone vs `origin/m
 
 Numbers below are post-rebase (commits ahead of `origin/main`).
 
-## TIER 1 — High value, near-mergeable
+## TIER 0 — Live open PRs (active work)
+
+Branches that already have an open PR by Pierre on pylint-dev/pylint. Local copies track the live PR head; resume work there directly. Listed by PR last-update date.
+
+| PR | Title | Local branch | Head ref |
+|---|---|---|---|
+| #10914 | [primer] Show changed messages as diffs | _no local_ | `Pierre-Sassoulas:primer-message-smarter-diff` |
+| #10425 | Misleading scientific/engineering/underscore notations (draft) | `scientific-notation-formatting` | `Pierre-Sassoulas:scientific-notation-formatting` |
+| #10881 | Fix quadratic perf/memory in duplicate-code | _no local_ | `Pierre-Sassoulas:symilar-performance` |
+| #10551 | Re-implement mccabe (draft) | `vendored-mccabe` | `pylint-dev:vendored-mccabe` |
+| #9072 | `pylint` equivalent to `pylint .` (draft) | `pylint-default-to-current-dir` | `Pierre-Sassoulas:pylint-default-to-current-dir` |
+| #10893 | Benchmark CI comment workflow (draft) | _no local_ | `pylint-dev:benchmark-ci-comment` |
+| #10894 | Add `module`/`filepath` params to `add_message` | _no local_ | `pylint-dev:add-message-module-file` |
+| #10880 | Attribute duplicate-code messages correctly (draft) | _no local_ | `pylint-dev:fix-2368` |
+| #10568 | Add `:ref:` script for docs (draft, last touched 2025-10-12) | `check-message-reference` | `pylint-dev:check-message-reference` |
+| #10176 | New check: unguarded-typing-import | _no local_ | `Pierre-Sassoulas:used-only-for-typechecking` |
+
+PRs lacking activity for 6+ months (#10568) may need a rebase nudge.
+
+## TIER 1 — High value, no PR yet, near-mergeable
 
 Clean rebase, focused diff, clear scope. Open PRs from these next.
 
@@ -20,7 +39,6 @@ Clean rebase, focused diff, clear scope. Open PRs from these next.
 | `copilot/fix-10519` | 40-line regression test for **open** #10519 | Polish commit msg, open PR |
 | `enforce-the-confidence-in-add-message` | tiny test enforcing confidence in `add_message` | Open PR |
 | `copilot-instruction` | trims outdated "python 3.8" copilot instructions (-41 lines) | Open PR |
-| `check-message-reference` | script + pre-commit hook to add msg-ref to docs (412 lines) | Open PR (dev infra) |
 | `add-tests-for-message-control` | 211 lines of new message-control tests | Polish (commit name `ruff noqaé` is messy) |
 | `false-negative-chained-comparison` | 2026-05 active, better chained-comparison message | Decide direction, push to pierre |
 
@@ -37,12 +55,12 @@ Substantial duplication — four branches attacking the conf-upgrade script.
 
 **Recommendation:** pick `wip-upgrade` as canonical (most complete + recent), salvage anything unique from the others, then archive the rest. This is the prerequisite for landing #3512 per `.triage/issue_3512_plan.md`.
 
-## TIER 3 — 2025 work worth keeping (conflicts but fixable)
+## TIER 3 — 2025 work, no PR yet (conflicts but fixable)
 
 | Branch | Notes |
 |---|---|
-| `scientific-notation-formatting` | Tracks **live PR #10425 (draft)**, 69 commits, last 2026-04-26. Resume work directly on this branch. |
-| `vendored-mccabe` + `vendoring-in-small-steps` + `match-case-too-complex` | mccabe vendoring family. Active in Sep 2025. Pick a canonical branch. |
+| `vendoring-in-small-steps` | Alternative approach to PR #10551 (mccabe vendoring done in smaller steps). Pierre's live PR uses the optimized approach — this is only worth resurrecting if you want to break that PR into smaller pieces. |
+| `match-case-too-complex` | Depends on PR #10551 landing; rebase on top once mccabe vendoring is merged. |
 | `fix-element-of-a-list-inside-list` | small (34 lines), 1 conflict |
 | `docstring-using-node`, `enable-error-checking-in-doc-tests`, `deprecated-module-partial` | small clean rebases, all WIP |
 | `codegen-bot/simplify-complex-conditionals` | 6/7 lines — codegen output, marginal value |
@@ -94,7 +112,7 @@ These four conf-upgrade branches all chase the same goal but each rewrote the da
 | `conf-upgrade-script` | subpackage `_breaking_changes/` with `intention.py`, `config_file.py` (no solution/typing) | next iteration |
 | `wip-upgrade` | **renamed module** `_pylint_upgrade_conf/` with `check_config_upgrade.py`, `upgrade.py` | most recent rename |
 
-The directory rename in `wip-upgrade` confirms it's the latest direction. Same story (no shared commits) for the mccabe branches `vendored-mccabe` (optimized) vs `vendoring-in-small-steps` (gradual) — pick one approach.
+The directory rename in `wip-upgrade` confirms it's the latest direction. The mccabe situation is now resolved by PR #10551 (head: `vendored-mccabe` on pylint-dev) — `vendoring-in-small-steps` is the gradual-approach alternative, unused unless you want to break the PR up.
 
 ### Independent — no consolidation needed
 
@@ -102,14 +120,14 @@ The directory rename in `wip-upgrade` confirms it's the latest direction. Same s
 
 ## Suggested next moves (in order)
 
-1. **Open small PRs** from TIER 1 (the copilot fix, confidence test, copilot-instructions cleanup, message-ref script). Low-risk wins.
-2. **Pick a canonical conf-upgrade branch** (recommend `wip-upgrade`), merge unique work from the other three, archive the rest. Unblocks #3512.
-3. **Decide the fate** of the mccabe-vendoring family — big effort, finish or explicitly archive. (Scientific notation already settled: work continues on PR #10425.)
+1. **Triage TIER 0**: PR #10568 (`check-message-reference`) has been dormant since Oct 2025 — rebase and ping reviewers, or close. Same question for #9072 (`pylint-default-to-current-dir`) which has been a draft for years.
+2. **Open small PRs** from TIER 1 (the copilot fix, confidence test, copilot-instructions cleanup, message-control tests). Low-risk wins.
+3. **Pick a canonical conf-upgrade branch** (recommend `wip-upgrade`), merge unique work from the other three, archive the rest. Unblocks #3512.
 4. **Delete TIER 5** in a single sweep once you confirm you don't need any of it as reference.
 
 ## Conflicting branches — prioritized by recovery effort vs value
 
-45 branches don't rebase cleanly. Conflict count comes from `git merge-tree`; the actual rebase may surface more (intermediate commits) or fewer (auto-resolved renames) — treat it as an effort estimate, not gospel. `maintenance/4.0.x` and `backport-sys-fix` are upstream-maintenance branches and excluded from this ranking.
+Conflict counts come from `git merge-tree`; the actual rebase may surface more (intermediate commits) or fewer (auto-resolved renames) — treat as an effort estimate. `maintenance/4.0.x` and `backport-sys-fix` are upstream-maintenance branches and excluded.
 
 ### CONFLICT-TIER A — Worth resolving (recent + open issue / active plan)
 
@@ -119,9 +137,8 @@ Resolve the conflicts on these by hand; they map to ongoing work.
 |---|---|---|---|
 | `wip-upgrade` | 1 | 2025-10 | Canonical conf-upgrade branch candidate; unblocks #3512 via #5462 (open) |
 | `conf-upgrade-script` | 1 | 2025-12 | Same effort as `wip-upgrade`; salvage anything unique then drop |
-| `vendoring-in-small-steps` | 1 | 2025-09 | mccabe vendoring (step-by-step variant); smallest conflict in the family |
-| `vendored-mccabe` | 2 | 2025-09 | mccabe vendoring main line |
-| `match-case-too-complex` | 3 | 2025-09 | mccabe too-complex with match-case edges (depends on vendored mccabe) |
+| `vendoring-in-small-steps` | 1 | 2025-09 | Alternative gradual approach to PR #10551; only useful if you want to split the PR |
+| `match-case-too-complex` | 3 | 2025-09 | Depends on PR #10551 landing first |
 
 ### CONFLICT-TIER B — Recent but lower stakes
 
@@ -175,12 +192,9 @@ Recommend `git branch -D` once you've eyeballed the list.
 
 ### Conflict-resolution order (if you want to power through)
 
-1. `vendoring-in-small-steps` (1 conflict)
-2. `wip-upgrade` (1 conflict) — most strategic value
-3. `vendored-mccabe` (2 conflicts) — mccabe family
-4. Stop and re-evaluate after these three. Everything below is either redundant with the above, a TIER-D delete candidate, or a "start over" call.
-
-For the scientific-notation feature, no local conflict-resolution is needed: work continues directly on `pierre/scientific-notation-formatting` (PR #10425).
+1. `wip-upgrade` (1 conflict) — most strategic value (#3512 prerequisite)
+2. `conf-upgrade-script` (1 conflict) — same family, salvage uniques
+3. Stop and re-evaluate. mccabe and scientific-notation work continues on the live PRs (#10551, #10425); no local rebase needed for those.
 
 ## Rebase status reference
 
