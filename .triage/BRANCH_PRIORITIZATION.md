@@ -61,24 +61,13 @@ For OPEN issues, these tiny test-only branches could be polished into PRs.
 
 Note: `issue-8419` is already covered by `regression-tests-fixed-issues` — delete it.
 
-## TIER 5 — Stale, target issue closed, recommend deletion
+## TIER 5 — Stale, recommend deletion
 
-Targets a closed issue or fundamentally outdated approach. Closed status verified against `.triage/issues_raw.json` (which only contains open issues — "not-in-snapshot" means closed).
+Old refactor experiments / WIPs (no specific issue or issue closed):
 
-Closed-issue branches:
-
-- `cgroupsv2-cpu-count` (#10103 closed)
-- `issue-6538` (closed)
-- `issue-5288` (closed)
-- `super-crash` (#8554 closed)
-- `regression-tests-7710` (#7710 closed)
-- `first-patch-2471` (#2471 closed)
-
-Old refactor experiments / WIPs:
-
-- `issue-3651`, `fix-implicit-abstract-class`, `decorator-spelling-checker`
+- `fix-implicit-abstract-class`, `decorator-spelling-checker`
 - 2024 WIPs: `crash-consider-using-enumerate`, `litteral-dict`, `feature-print-filepaths`, `autofix-with-fixit`, `better-message-for-use-implicit-booleaness-not-len`, `document-deleted-messages`, `spelling-checker-refactor-initialization`
-- 2022-2023 experiments: `change-primer-datastructure`, `better-primer-diff`, `refactor-primer-stash`, `remove-ini-support`, `remove-isort`, `all-options`, `uniformize-message-use-implicit-booleaness`, `move-pragma-to-message`, `optimized-message-store`, `use-x-literal`, `primer-equivalent-message`, `ruff-for-pylint`, `make-invalid-name-oddity-explicit`, `fix-ignored-unused-variable-configuration`, `fix-inconsistent-circular-import-with-multiple-jobs`, `more-useless-comprehension`, `pylint-default-to-current-dir`, `check-non-constant-module-level-variable`, `relative-path-for-spelling-dict`, `add-number-of-duplicated-line-in-msg`, `remove-return-in-generator`, `fix-panda-numpy-false-positive`
+- 2022-2023 experiments: `change-primer-datastructure`, `better-primer-diff`, `refactor-primer-stash`, `remove-ini-support`, `remove-isort`, `all-options`, `uniformize-message-use-implicit-booleaness`, `move-pragma-to-message`, `optimized-message-store`, `use-x-literal`, `primer-equivalent-message`, `ruff-for-pylint`, `make-invalid-name-oddity-explicit`, `fix-ignored-unused-variable-configuration`, `fix-inconsistent-circular-import-with-multiple-jobs`, `more-useless-comprehension`, `pylint-default-to-current-dir`, `relative-path-for-spelling-dict`, `add-number-of-duplicated-line-in-msg`, `remove-return-in-generator`, `fix-panda-numpy-false-positive`
 
 Special case:
 
@@ -153,19 +142,9 @@ Branch is too old to salvage cheaply; faster to write a fresh patch.
 | `fix-5083` | 9 | 2022-06 | #5083 open — 4-year-old 13-file diff, rewrite from scratch |
 | `make-invalid-name-oddity-explicit` | 1 | 2023-02 | no specific issue; pre-emptive cleanup, low priority |
 
-### CONFLICT-TIER D — Stale + closed issue / obsolete → delete
+### CONFLICT-TIER D — Stale, obsolete approach → delete
 
-Target issue is closed (verified via `.triage/issues_raw.json`), or the approach has been superseded. Recommend `git branch -D` once you've eyeballed the list.
-
-Closed-issue branches:
-
-- `issue-5288` (1 conflict, 2023-03, closed)
-- `issue-6538` (1 conflict, 2022-05, closed)
-- `issue-3651` (6 conflicts, 2022-08, closed)
-- `super-crash` (2 conflicts, 2023-05, #8554 closed)
-- `regression-tests-7710` (3 conflicts, 2023-09, #7710 closed)
-- `cgroupsv2-cpu-count` (1 conflict, 2024-12, #10103 closed)
-- `check-non-constant-module-level-variable` (2 conflicts, 2023-08, #3585 closed)
+Recommend `git branch -D` once you've eyeballed the list.
 
 2024 stale WIPs (no clear issue, dormant 1+ year):
 
@@ -207,4 +186,4 @@ For the scientific-notation feature, no local conflict-resolution is needed: wor
 
 Conflict-free rebases applied locally (none pushed):
 
-`add-tests-for-message-control`, `check-message-reference`, `configuration-upgrader-script`, `copilot/fix-10519`, `copilot-instruction`, `deprecated-module-partial`, `docstring-using-node`, `enable-error-checking-in-doc-tests`, `enforce-the-confidence-in-add-message`, `false-negative-chained-comparison`, `false-negative-consider-using-any-or-all`, `false-negative-consider-using-enumerate`, `first-patch-2471`, `fix-ignored-unused-variable-configuration`, `fix-inconsistent-circular-import-with-multiple-jobs`, `issue-2072`, `issue-3339`, `issue-8419`, `move-pragma-to-message`, `optimized-message-store`, `primer-equivalent-message`, `relative-path-for-spelling-dict`, `spelling-checker-refactor-initialization`, `upgrade-breaking-change-data-structure`, `use-x-literal`.
+`add-tests-for-message-control`, `check-message-reference`, `configuration-upgrader-script`, `copilot/fix-10519`, `copilot-instruction`, `deprecated-module-partial`, `docstring-using-node`, `enable-error-checking-in-doc-tests`, `enforce-the-confidence-in-add-message`, `false-negative-chained-comparison`, `false-negative-consider-using-any-or-all`, `false-negative-consider-using-enumerate`, `fix-ignored-unused-variable-configuration`, `fix-inconsistent-circular-import-with-multiple-jobs`, `issue-2072`, `issue-3339`, `issue-8419`, `move-pragma-to-message`, `optimized-message-store`, `primer-equivalent-message`, `relative-path-for-spelling-dict`, `spelling-checker-refactor-initialization`, `upgrade-breaking-change-data-structure`, `use-x-literal`.
