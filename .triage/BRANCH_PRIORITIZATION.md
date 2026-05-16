@@ -5,7 +5,7 @@ Snapshot date: 2026-05-16. Audited from `pierre@pylint` local clone vs `origin/m
 ## Method
 
 - For every non-system local branch, tested rebaseability with `git merge-tree --merge-base=$(git merge-base origin/main $b) origin/main $b`.
-- Rebased the 28 conflict-free branches locally (no pushes).
+- Rebased the conflict-free branches locally (no pushes).
 - Cross-referenced each branch's target issue against `.triage/issues_raw.json` to know which are still OPEN.
 - Categorized into tiers by recency, scope size, conflict count, and whether the target issue is still open.
 
@@ -41,8 +41,8 @@ Substantial duplication — four branches attacking the conf-upgrade script.
 
 | Branch | Notes |
 |---|---|
-| `scientific-notation-formatting` | **Live PR #10425 (draft)**, 69 commits, last 2026-04-26. Local stale copy + `save-scient` deleted 2026-05-16 after verifying both were 6 months behind the remote; local branch now tracks `pierre/scientific-notation-formatting` from scratch. Resume work directly on this branch. |
-| `vendored-mccabe` + `vendoring-in-small-steps` + `save-old-pierre-main` + `match-case-too-complex` | mccabe vendoring family. Active in Sep 2025. Pick a canonical branch. |
+| `scientific-notation-formatting` | Tracks **live PR #10425 (draft)**, 69 commits, last 2026-04-26. Resume work directly on this branch. |
+| `vendored-mccabe` + `vendoring-in-small-steps` + `match-case-too-complex` | mccabe vendoring family. Active in Sep 2025. Pick a canonical branch. |
 | `primer-refactor` + `dataclass-in-package-to-lint` + `refactor-primer_comparator` | primer infra cleanup. Smallest (`dataclass-in-package-to-lint`, 1 commit) may be the easiest path. |
 | `fix-element-of-a-list-inside-list` | small (34 lines), 1 conflict |
 | `docstring-using-node`, `enable-error-checking-in-doc-tests`, `deprecated-module-partial` | small clean rebases, all WIP |
@@ -56,7 +56,7 @@ For OPEN issues, these tiny test-only branches could be polished into PRs.
 | Branch | Issue | Diff |
 |---|---|---|
 | `issue-3339` | #3339 open | +20 functional test |
-| `issue-2072` / `regression-test-2072` | #2072 open | +30 functional test (duplicate of each other — keep one) |
+| `issue-2072` | #2072 open | +30 functional test |
 | `false-negative-consider-using-any-or-all` | open | 13 lines WIP |
 | `false-negative-consider-using-enumerate` | open | 21 lines WIP |
 
@@ -78,7 +78,7 @@ Closed-issue branches:
 Old refactor experiments / WIPs:
 
 - `issue-3651`, `fix-implicit-abstract-class`, `decorator-spelling-checker`
-- 2024 WIPs: `crash-consider-using-enumerate`, `litteral-dict`, `feature-print-filepaths`, `feature-print-filepaths-save`, `autofix-with-fixit`, `better-message-for-use-implicit-booleaness-not-len`, `document-deleted-messages`, `spelling-checker-refactor-initialization`
+- 2024 WIPs: `crash-consider-using-enumerate`, `litteral-dict`, `feature-print-filepaths`, `autofix-with-fixit`, `better-message-for-use-implicit-booleaness-not-len`, `document-deleted-messages`, `spelling-checker-refactor-initialization`
 - 2022-2023 experiments: `change-primer-datastructure`, `better-primer-diff`, `refactor-primer-stash`, `remove-ini-support`, `remove-isort`, `all-options`, `uniformize-message-use-implicit-booleaness`, `move-pragma-to-message`, `optimized-message-store`, `use-x-literal`, `primer-equivalent-message`, `ruff-for-pylint`, `make-invalid-name-oddity-explicit`, `fix-ignored-unused-variable-configuration`, `fix-inconsistent-circular-import-with-multiple-jobs`, `more-useless-comprehension`, `pylint-default-to-current-dir`, `check-non-constant-module-level-variable`, `relative-path-for-spelling-dict`, `add-number-of-duplicated-line-in-msg`, `remove-return-in-generator`, `fix-panda-numpy-false-positive`
 
 Special case:
@@ -94,19 +94,6 @@ Audited 2026-05-16 by comparing pairwise ancestry, commit subjects, and the actu
 | Below | On top of it | Note |
 |---|---|---|
 | `dataclass-in-package-to-lint` (1 commit `300ad97ff`) | `primer-refactor` (`b7e0d4185 wip` + `300ad97ff`) | `primer-refactor` is literally `dataclass-in-package-to-lint` plus one extra `wip` commit. Either drop `primer-refactor` and salvage the wip commit later, or treat `dataclass-in-package-to-lint` as the part to merge first. |
-
-### Pure duplicates — delete one
-
-| Branches | Verdict |
-|---|---|
-| `issue-2072` vs `regression-test-2072` | `git show` outputs are identical except for the SHA line; same 30-line addition to `tests/functional/u/unsubscriptable_value.py`. Delete one. |
-| `feature-print-filepaths-save` (2 commits, 2024-05) vs `feature-print-filepaths` (4 commits, 2024-09) | `-save` is the older snapshot — same first commit subject, the main branch has 2 more commits. Delete `-save`. |
-
-### Snapshot superset — delete the older one
-
-| Branch | Why delete |
-|---|---|
-| `save-old-pierre-main` | Touches the same `pylint/extensions/mccabe.py` + `pyproject.toml` + `10551.internal` fragment as `vendored-mccabe`, plus a stray older snapshot of conf-upgrade files (`_pylint_config/{main,setup,upgrade_command}.py`, `config_initialization.py`, `base_options.py`). All of it is older than the focused branches that succeeded it. Pure snapshot — delete. |
 
 ### Logical dependency (not a git stack — needs manual rebase)
 
@@ -150,11 +137,8 @@ Resolve the conflicts on these by hand; they map to ongoing work.
 |---|---|---|---|
 | `wip-upgrade` | 1 | 2025-10 | Canonical conf-upgrade branch candidate; unblocks #3512 via #5462 (open) |
 | `conf-upgrade-script` | 1 | 2025-12 | Same effort as `wip-upgrade`; salvage anything unique then drop |
-| ~~`save-scient`~~ | — | — | Deleted 2026-05-16: was 6 months stale; live work is in PR #10425 head branch `pierre/scientific-notation-formatting` (69 commits, last 2026-04-26). No salvageable unique work. |
-| ~~`scientific-notation-formatting`~~ (stale local) | — | — | Same story — deleted and re-created from `pierre/scientific-notation-formatting`. Now tracks the live PR branch. |
 | `vendoring-in-small-steps` | 1 | 2025-09 | mccabe vendoring (step-by-step variant); smallest conflict in the family |
 | `vendored-mccabe` | 2 | 2025-09 | mccabe vendoring main line |
-| `save-old-pierre-main` | 3 | 2025-10 | mccabe vendoring snapshot — likely supersede with `vendored-mccabe` |
 | `match-case-too-complex` | 3 | 2025-09 | mccabe too-complex with match-case edges (depends on vendored mccabe) |
 | `primer-refactor` | 2 | 2025-09 | Primer infra cleanup |
 | `refactor-primer_comparator` | 2 | 2025-09 | Has a merge commit — easier to redo on top of fresh main |
@@ -197,7 +181,7 @@ Closed-issue branches:
 
 - `crash-consider-using-enumerate` (1)
 - `litteral-dict` (1)
-- `feature-print-filepaths` (2) and `feature-print-filepaths-save` (2)
+- `feature-print-filepaths` (2)
 - `autofix-with-fixit` (4)
 - `better-message-for-use-implicit-booleaness-not-len` (1)
 - `document-deleted-messages` (1)
@@ -232,8 +216,6 @@ For the scientific-notation feature, no local conflict-resolution is needed: wor
 
 ## Rebase status reference
 
-Conflict-free rebases applied locally (28 branches; none pushed):
+Conflict-free rebases applied locally (none pushed):
 
-`add-tests-for-message-control`, `check-message-reference`, `configuration-upgrader-script`, `copilot/fix-10519`, `copilot-instruction`, `deprecated-module-partial`, `docstring-using-node`, `enable-error-checking-in-doc-tests`, `enforce-the-confidence-in-add-message`, `false-negative-chained-comparison`, `false-negative-consider-using-any-or-all`, `false-negative-consider-using-enumerate`, `first-patch-2471`, `fix-ignored-unused-variable-configuration`, `fix-inconsistent-circular-import-with-multiple-jobs`, `issue-2072`, `issue-3339`, `issue-8419`, `move-pragma-to-message`, `optimized-message-store`, `primer-equivalent-message`, `regression-test-2072`, `relative-path-for-spelling-dict`, `spelling-checker-refactor-initialization`, `upgrade-breaking-change-data-structure`, `use-x-literal`.
-
-(Two of the originally-clean set — `fix-changelog-9167`, `disable-benchmark-in-ci` — rebased to origin/main exactly and were deleted.)
+`add-tests-for-message-control`, `check-message-reference`, `configuration-upgrader-script`, `copilot/fix-10519`, `copilot-instruction`, `deprecated-module-partial`, `docstring-using-node`, `enable-error-checking-in-doc-tests`, `enforce-the-confidence-in-add-message`, `false-negative-chained-comparison`, `false-negative-consider-using-any-or-all`, `false-negative-consider-using-enumerate`, `first-patch-2471`, `fix-ignored-unused-variable-configuration`, `fix-inconsistent-circular-import-with-multiple-jobs`, `issue-2072`, `issue-3339`, `issue-8419`, `move-pragma-to-message`, `optimized-message-store`, `primer-equivalent-message`, `relative-path-for-spelling-dict`, `spelling-checker-refactor-initialization`, `upgrade-breaking-change-data-structure`, `use-x-literal`.
