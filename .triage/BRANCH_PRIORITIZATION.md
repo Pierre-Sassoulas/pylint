@@ -43,7 +43,6 @@ Substantial duplication — four branches attacking the conf-upgrade script.
 |---|---|
 | `scientific-notation-formatting` | Tracks **live PR #10425 (draft)**, 69 commits, last 2026-04-26. Resume work directly on this branch. |
 | `vendored-mccabe` + `vendoring-in-small-steps` + `match-case-too-complex` | mccabe vendoring family. Active in Sep 2025. Pick a canonical branch. |
-| `primer-refactor` + `dataclass-in-package-to-lint` + `refactor-primer_comparator` | primer infra cleanup. Smallest (`dataclass-in-package-to-lint`, 1 commit) may be the easiest path. |
 | `fix-element-of-a-list-inside-list` | small (34 lines), 1 conflict |
 | `docstring-using-node`, `enable-error-checking-in-doc-tests`, `deprecated-module-partial` | small clean rebases, all WIP |
 | `codegen-bot/simplify-complex-conditionals` | 6/7 lines — codegen output, marginal value |
@@ -85,15 +84,9 @@ Special case:
 
 - `fix-5083` — #5083 still **open** but 9 conflicts on a 2022 branch. Faster to start over than salvage.
 
-## Stacks, duplicates and supersets (resolve before opening PRs)
+## Branch relationships (ordering hints)
 
-Audited 2026-05-16 by comparing pairwise ancestry, commit subjects, and the actual files touched (`git diff $(merge-base)..branch`). These relationships aren't visible from branch listings alone.
-
-### True git stack
-
-| Below | On top of it | Note |
-|---|---|---|
-| `dataclass-in-package-to-lint` (1 commit `300ad97ff`) | `primer-refactor` (`b7e0d4185 wip` + `300ad97ff`) | `primer-refactor` is literally `dataclass-in-package-to-lint` plus one extra `wip` commit. Either drop `primer-refactor` and salvage the wip commit later, or treat `dataclass-in-package-to-lint` as the part to merge first. |
+Audited by comparing pairwise ancestry, commit subjects, and the actual files touched (`git diff $(merge-base)..branch`). These relationships aren't visible from branch listings alone.
 
 ### Logical dependency (not a git stack — needs manual rebase)
 
@@ -140,9 +133,6 @@ Resolve the conflicts on these by hand; they map to ongoing work.
 | `vendoring-in-small-steps` | 1 | 2025-09 | mccabe vendoring (step-by-step variant); smallest conflict in the family |
 | `vendored-mccabe` | 2 | 2025-09 | mccabe vendoring main line |
 | `match-case-too-complex` | 3 | 2025-09 | mccabe too-complex with match-case edges (depends on vendored mccabe) |
-| `primer-refactor` | 2 | 2025-09 | Primer infra cleanup |
-| `refactor-primer_comparator` | 2 | 2025-09 | Has a merge commit — easier to redo on top of fresh main |
-| `dataclass-in-package-to-lint` | 1 | 2025-09 | Smallest of the primer trio (1 commit, +13/-25). Easiest path. |
 
 ### CONFLICT-TIER B — Recent but lower stakes
 
@@ -206,11 +196,10 @@ Closed-issue branches:
 
 ### Conflict-resolution order (if you want to power through)
 
-1. `dataclass-in-package-to-lint` (1 conflict, 1 commit, smallest)
-2. `vendoring-in-small-steps` (1 conflict)
-3. `wip-upgrade` (1 conflict) — most strategic value
-4. `vendored-mccabe` (2 conflicts) — mccabe family
-5. Stop and re-evaluate after these four. Everything below is either redundant with the above, a TIER-D delete candidate, or a "start over" call.
+1. `vendoring-in-small-steps` (1 conflict)
+2. `wip-upgrade` (1 conflict) — most strategic value
+3. `vendored-mccabe` (2 conflicts) — mccabe family
+4. Stop and re-evaluate after these three. Everything below is either redundant with the above, a TIER-D delete candidate, or a "start over" call.
 
 For the scientific-notation feature, no local conflict-resolution is needed: work continues directly on `pierre/scientific-notation-formatting` (PR #10425).
 
