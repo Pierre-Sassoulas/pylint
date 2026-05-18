@@ -27,6 +27,22 @@ still REPRO**:
 
 These were moved back to REPRO in the triage state.
 
+## Closed by merges since the audit (2026-05-18 refresh)
+
+Three issues closed since the audit, all by PRs merged to `main`. No bisect needed —
+the fix commit is the PR itself.
+
+| Issue | Closed by | Notes |
+| ----- | --------- | ----- |
+| #7950 | PR #7955 (commit `9f08fc7bb`) | Takeover from sshane; `class_is_abstract` now flags concrete subclasses without explicit `abc.ABC` opt-in |
+| #6211 | PR #7360 (commit `c0aa7e58e`) | Takeover from adam-grant-hendry; NumPy `default ...` markers in the type field now accepted |
+| #3716 | PR #10989 (commit `3d7ac126f`) | `dangerous-default-value` now reports `typing.NamedTuple` default args |
+
+Verdict tally after refresh: DESIGN 596, EXTDEP 197, REPRO 180, **FIXED 32**, UNCLEAR
+9, DUP 2, STALE 1 (1017 open). FIXED count is unchanged because the three new closures
+replace the three that were never claimed as FIXED by the original audit — they were
+DESIGN/REPRO before being addressed by takeovers.
+
 ## Confirmed-fixed by version
 
 Bisect run on Python 3.12. pylint 2.10 and earlier don't run on Python 3.12 (wrapt

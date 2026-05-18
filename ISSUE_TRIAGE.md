@@ -5,6 +5,11 @@
 **1022** (range #5 → #11013). **Method:** All 9 sessions performed per-issue
 reproduction on pylint 4.0.5.
 
+**Refresh 2026-05-18:** 3 cached issues moved to FIXED after upstream merges
+(#7950 → PR #7955, #6211 → PR #7360, #3716 → PR #10989). Current open count is **1017**.
+See `.triage/FIXED_AUDIT.md` for per-issue notes; the per-section listings below still
+reflect the original triage and have not been re-flowed.
+
 Index for a full deep-dive of every open issue at
 https://github.com/pylint-dev/pylint/issues. Per-issue state lives under `.triage/`:
 

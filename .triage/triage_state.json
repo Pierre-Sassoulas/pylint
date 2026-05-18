@@ -3115,10 +3115,10 @@
       "ts": "2026-05-12T11:36:12.850977+00:00"
     },
     "7950": {
-      "verdict": "REPRO",
-      "note": "RE-VERIFIED: W0223 abstract-method FN persists \u2014 Sub(AbsSub) where AbsSub inherits abc.ABC indirectly does not warn. The class hierarchy makes pylint think Sub is still abstract.",
+      "verdict": "FIXED",
+      "note": "Closed 2026-05-18 by PR #7955 (takeover from sshane). Concrete subclass without abc.ABC opt-in now flagged via tightened class_is_abstract logic.",
       "session": 10,
-      "ts": "2026-05-12T13:29:16.744740+00:00"
+      "ts": "2026-05-18T21:41:41.601122+00:00"
     },
     "7935": {
       "verdict": "DESIGN",
@@ -3955,10 +3955,10 @@
       "ts": "2026-05-12T11:50:16.603521+00:00"
     },
     "6211": {
-      "verdict": "DESIGN",
-      "note": "False negative missing numpy param doc when 'default ...' in description. Spec/PR.",
-      "session": 5,
-      "ts": "2026-05-12T11:50:16.632656+00:00"
+      "verdict": "FIXED",
+      "note": "Closed 2026-05-18 by PR #7360 (takeover from adam-grant-hendry). NumPy default-param doc check now accepts \"default\" markers in the type field.",
+      "session": 10,
+      "ts": "2026-05-18T21:41:41.601122+00:00"
     },
     "6170": {
       "verdict": "DESIGN",
@@ -5119,10 +5119,10 @@
       "ts": "2026-05-12T12:32:54.590406+00:00"
     },
     "3716": {
-      "verdict": "DESIGN",
-      "note": "False negative dangerous-default-value with typing.NamedTuple. Spec/PR.",
-      "session": 8,
-      "ts": "2026-05-12T12:32:54.626687+00:00"
+      "verdict": "FIXED",
+      "note": "Closed 2026-05-18 by PR #10989. dangerous-default-value now reports typing.NamedTuple default args.",
+      "session": 10,
+      "ts": "2026-05-18T21:41:41.601122+00:00"
     },
     "3705": {
       "verdict": "DESIGN",
