@@ -1,6 +1,6 @@
 # Local branch prioritization
 
-Snapshot date: 2026-05-18. Audited from `pierre@pylint` local clone vs `origin/main` at `371933bfb` ("Fix pylint skipping similarly named project directory (#10970)").
+Snapshot date: 2026-05-18. Audited from `pierre@pylint` local clone vs `origin/main` at `628f3a759` ("Add `assertDoesNotAddMessages` to `CheckerTestCase` (#10930)" — sole merge since the 2026-05-16 audit; nothing in the tables below was affected).
 
 ## Method
 
