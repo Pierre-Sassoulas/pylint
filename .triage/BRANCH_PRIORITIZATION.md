@@ -1,6 +1,6 @@
 # Local branch prioritization
 
-Snapshot date: 2026-05-16. Audited from `pierre@pylint` local clone vs `origin/main` at `371933bfb` ("Fix pylint skipping similarly named project directory (#10970)").
+Snapshot date: 2026-05-18. Audited from `pierre@pylint` local clone vs `origin/main` at `371933bfb` ("Fix pylint skipping similarly named project directory (#10970)").
 
 ## Method
 
@@ -23,8 +23,9 @@ These are out of draft and saw activity in the last ~2 months. Each blocks littl
 |---|---|---|---|---|
 | #10881 | Fix quadratic perf/memory in duplicate-code | 2026-04-24 | _no local_ | `Pierre-Sassoulas:symilar-performance` |
 | #10894 | Add `module`/`filepath` params to `add_message` | 2026-03-08 | _no local_ | `pylint-dev:add-message-module-file` |
+| #7360 | Fix #6211 false negative for NumPy `default ...` params (taken over from adam-grant-hendry) | 2026-05-18 | `takeover-7360` | `adam-grant-hendry:fix/numpy-param-doc` |
 
-**Why P0:** non-draft = author thinks it's review-ready. #10881 is a user-facing performance fix; #10894 is an API extension that downstream checkers can consume. Closing these clears the most "ready" inventory.
+**Why P0:** non-draft = author thinks it's review-ready. #10881 is a user-facing performance fix; #10894 is an API extension that downstream checkers can consume. #7360 was a 2022 stalled contributor PR — rewritten today on the "accept-anything in the type field" approach Pierre proposed in 2023 and force-pushed via maintainer-edits. Closing these clears the most "ready" inventory.
 
 ### P1 — Active feature drafts (recent, major scope) → finalize
 
@@ -62,11 +63,12 @@ No activity in 6+ months (or, for #9072, a long-running draft despite recent reb
 ### Recommended order
 
 1. **#10881** then **#10894** — clear the non-draft backlog first
-2. **#10551** — small enough to finish and unblocks `match-case-too-complex`
-3. **#10880** — pair this with #10881 if duplicate-code is on your mind anyway
-4. **#10425** — biggest feature; once polished, flip it ready
-5. **#10893**, **#10914** — opportunistic when context-switching
-6. **#10176**, **#10568**, **#9072** — block out an hour to triage these three: rebase + merge, or close with a comment
+2. **#7360** — small, scoped, just-rewritten; waiting on CI green + reviewer sign-off
+3. **#10551** — small enough to finish and unblocks `match-case-too-complex`
+4. **#10880** — pair this with #10881 if duplicate-code is on your mind anyway
+5. **#10425** — biggest feature; once polished, flip it ready
+6. **#10893**, **#10914** — opportunistic when context-switching
+7. **#10176**, **#10568**, **#9072** — block out an hour to triage these three: rebase + merge, or close with a comment
 
 ## TIER 1 — High value, no PR yet, near-mergeable
 
