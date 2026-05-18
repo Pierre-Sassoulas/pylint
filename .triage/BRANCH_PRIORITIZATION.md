@@ -1,6 +1,22 @@
 # Local branch prioritization
 
-Snapshot date: 2026-05-18. Audited from `pierre@pylint` local clone vs `origin/main` at `628f3a759` ("Add `assertDoesNotAddMessages` to `CheckerTestCase` (#10930)" — sole merge since the 2026-05-16 audit; nothing in the tables below was affected).
+Snapshot date: 2026-05-18 (refresh). Audited from `pierre@pylint` local clone vs `origin/main` at `d523e3e89` ("Replace `MSG_STATE_*` int constants with `MessageDisableScope` enum"). Eight merges have landed since the 2026-05-18 morning snapshot at `628f3a759`; landed-since-snapshot work is called out per-tier.
+
+## Landed since last snapshot (origin/main `628f3a759` → `d523e3e89`)
+
+| Commit | PR | Closes | Local branch (now mergeable into main, archive/delete) |
+|---|---|---|---|
+| `d523e3e89` | — | refactor | `enum-for-scope-control` (MSG_STATE_* enum part) |
+| `7667457f5` | — | refactor | `tighten-confidence-nullable` |
+| `52efad31a` | #11015 | #11015 (FP E0203 bare type annotation) | _no local_ |
+| `9f08fc7bb` | #7955 | #7950 (abstract-method FN) | `takeover-7955` |
+| `c0aa7e58e` | #7360 | #6211 (NumPy default-param doc) | `takeover-7360` (head on adam-grant-hendry fork) |
+| `31095a23f` | — | col_offset=0 preserve | `add-message-falsey-value-fix` |
+| `166f071ed` | #11014 | #11014 (FP inconsistent-return-statements + NoReturn) | _no local_ |
+| `0e9a3fc57` | — | doc clarification | _no local_ (closes #10680 in docs) |
+| `3d7ac126f` | #10989 | #3716 (NamedTuple dangerous-default-value FN) | _no local_ |
+
+Triage-state impact: #7950, #6211, #3716 moved REPRO/DESIGN → FIXED. Verdict tally is now DESIGN 596 / EXTDEP 197 / REPRO 180 / FIXED 32 / UNCLEAR 9 / DUP 2 / STALE 1, over 1017 still-open issues.
 
 ## Method
 
@@ -23,9 +39,12 @@ These are out of draft and saw activity in the last ~2 months. Each blocks littl
 |---|---|---|---|---|
 | #10881 | Fix quadratic perf/memory in duplicate-code | 2026-04-24 | _no local_ | `Pierre-Sassoulas:symilar-performance` |
 | #10894 | Add `module`/`filepath` params to `add_message` | 2026-03-08 | _no local_ | `pylint-dev:add-message-module-file` |
-| #7360 | Fix #6211 false negative for NumPy `default ...` params (taken over from adam-grant-hendry) | 2026-05-18 | `takeover-7360` | `adam-grant-hendry:fix/numpy-param-doc` |
+| #7611 | Generalize `chained-comparison` (taken over from areveny) | 2026-05-18 | `takeover-7611` | `areveny:release-chained-comparison` |
+| _(py3.15)_ | Add preliminary support for Python 3.15 (takeover) | 2026-05-18 | `takeover-py315-support` | (no upstream PR yet — open one) |
 
-**Why P0:** non-draft = author thinks it's review-ready. #10881 is a user-facing performance fix; #10894 is an API extension that downstream checkers can consume. #7360 was a 2022 stalled contributor PR — rewritten today on the "accept-anything in the type field" approach Pierre proposed in 2023 and force-pushed via maintainer-edits. Closing these clears the most "ready" inventory.
+**Why P0:** non-draft = author thinks it's review-ready. #10881 is a user-facing performance fix; #10894 is an API extension that downstream checkers can consume. #7611 is a graph-based impossible-comparison / chained-comparison-all-equal rewrite on top of areveny's stalled PR — local branch has heavy recent activity (test coverage to 100%, codecov-flag cleanup, docs). The py3.15-support local branch is one commit (`c508e26e3`) ahead of main with the new-version scaffolding; needs a PR opened upstream.
+
+**Landed since previous snapshot:** #7360 (closed #6211 — `takeover-7360` is now archivable).
 
 ### P1 — Active feature drafts (recent, major scope) → finalize
 
@@ -63,12 +82,13 @@ No activity in 6+ months (or, for #9072, a long-running draft despite recent reb
 ### Recommended order
 
 1. **#10881** then **#10894** — clear the non-draft backlog first
-2. **#7360** — small, scoped, just-rewritten; waiting on CI green + reviewer sign-off
-3. **#10551** — small enough to finish and unblocks `match-case-too-complex`
-4. **#10880** — pair this with #10881 if duplicate-code is on your mind anyway
-5. **#10425** — biggest feature; once polished, flip it ready
-6. **#10893**, **#10914** — opportunistic when context-switching
-7. **#10176**, **#10568**, **#9072** — block out an hour to triage these three: rebase + merge, or close with a comment
+2. **#7611** — heavy local polish already done; finish review + ship
+3. **py3.15-support** — open the upstream PR while the diff is small (one commit)
+4. **#10551** — small enough to finish and unblocks `match-case-too-complex`
+5. **#10880** — pair this with #10881 if duplicate-code is on your mind anyway
+6. **#10425** — biggest feature; once polished, flip it ready
+7. **#10893**, **#10914** — opportunistic when context-switching
+8. **#10176**, **#10568**, **#9072** — block out an hour to triage these three: rebase + merge, or close with a comment
 
 ## TIER 1 — High value, no PR yet, near-mergeable
 
@@ -160,10 +180,12 @@ The directory rename in `wip-upgrade` confirms it's the latest direction. The mc
 
 ## Suggested next moves (in order)
 
-1. **Triage TIER 0**: PR #10568 (`check-message-reference`) has been dormant since Oct 2025 — rebase and ping reviewers, or close. Same question for #9072 (`pylint-default-to-current-dir`) which has been a draft for years.
-2. **Open small PRs** from TIER 1 (the copilot fix, confidence test, copilot-instructions cleanup, message-control tests). Low-risk wins.
-3. **Pick a canonical conf-upgrade branch** (recommend `wip-upgrade`), merge unique work from the other three, archive the rest. Unblocks #3512.
-4. **Delete TIER 5** in a single sweep once you confirm you don't need any of it as reference.
+1. **Archive landed-and-merged branches** in one sweep: `takeover-7955`, `takeover-7360`, `tighten-confidence-nullable`, `fix-numpy-default-param-doc`, `add-message-falsey-value-fix`, `add-assert-does-not-add-messages`, `enum-for-scope-control` (MSG_STATE_* int part — keep the branch only if the scope-string follow-up is still planned).
+2. **Open upstream PR for `takeover-py315-support`** while it's a single commit — easier to review and trigger CI now than after rebases pile up.
+3. **Triage TIER 0**: PR #10568 (`check-message-reference`) has been dormant since Oct 2025 — rebase and ping reviewers, or close. Same question for #9072 (`pylint-default-to-current-dir`) which has been a draft for years.
+4. **Open small PRs** from TIER 1 (the copilot fix, confidence test, copilot-instructions cleanup, message-control tests). Low-risk wins.
+5. **Pick a canonical conf-upgrade branch** (recommend `wip-upgrade`), merge unique work from the other three, archive the rest. Unblocks #3512.
+6. **Delete TIER 5** in a single sweep once you confirm you don't need any of it as reference.
 
 ## Conflicting branches — prioritized by recovery effort vs value
 
