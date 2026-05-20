@@ -1,0 +1,3 @@
+Fix a crash in the ``use-implicit-booleaness-not-len`` check when ``len()`` is called without arguments inside a boolean context.
+
+Closes #11028
