@@ -7,11 +7,11 @@ Snapshot date: 2026-05-18 (refresh). Audited from `pierre@pylint` local clone vs
 | Commit | PR | Closes | Local branch (now mergeable into main, archive/delete) |
 |---|---|---|---|
 | `d523e3e89` | — | refactor | `enum-for-scope-control` (MSG_STATE_* enum part) |
-| `7667457f5` | — | refactor | `tighten-confidence-nullable` |
+| `7667457f5` | — | refactor | _no local_ |
 | `52efad31a` | #11015 | #11015 (FP E0203 bare type annotation) | _no local_ |
-| `9f08fc7bb` | #7955 | #7950 (abstract-method FN) | `takeover-7955` |
-| `c0aa7e58e` | #7360 | #6211 (NumPy default-param doc) | `takeover-7360` (head on adam-grant-hendry fork) |
-| `31095a23f` | — | col_offset=0 preserve | `add-message-falsey-value-fix` |
+| `9f08fc7bb` | #7955 | #7950 (abstract-method FN) | _no local_ |
+| `c0aa7e58e` | #7360 | #6211 (NumPy default-param doc) | _no local_ |
+| `31095a23f` | — | col_offset=0 preserve | _no local_ |
 | `166f071ed` | #11014 | #11014 (FP inconsistent-return-statements + NoReturn) | _no local_ |
 | `0e9a3fc57` | — | doc clarification | _no local_ (closes #10680 in docs) |
 | `3d7ac126f` | #10989 | #3716 (NamedTuple dangerous-default-value FN) | _no local_ |
@@ -44,7 +44,7 @@ These are out of draft and saw activity in the last ~2 months. Each blocks littl
 
 **Why P0:** non-draft = author thinks it's review-ready. #10881 is a user-facing performance fix; #10894 is an API extension that downstream checkers can consume. #7611 is a graph-based impossible-comparison / chained-comparison-all-equal rewrite on top of areveny's stalled PR — local branch has heavy recent activity (test coverage to 100%, codecov-flag cleanup, docs). The py3.15-support local branch is one commit (`c508e26e3`) ahead of main with the new-version scaffolding; needs a PR opened upstream.
 
-**Landed since previous snapshot:** #7360 (closed #6211 — `takeover-7360` is now archivable).
+**Landed since previous snapshot:** #7360 (closed #6211).
 
 ### P1 — Active feature drafts (recent, major scope) → finalize
 
@@ -180,7 +180,7 @@ The directory rename in `wip-upgrade` confirms it's the latest direction. The mc
 
 ## Suggested next moves (in order)
 
-1. **Archive landed-and-merged branches** in one sweep: `takeover-7955`, `takeover-7360`, `tighten-confidence-nullable`, `fix-numpy-default-param-doc`, `add-message-falsey-value-fix`, `add-assert-does-not-add-messages`, `enum-for-scope-control` (MSG_STATE_* int part — keep the branch only if the scope-string follow-up is still planned).
+1. **Decide `enum-for-scope-control`.** Keep it only if the `MessageControlScope` scope-string follow-up (`01a4475a8`) is still planned; otherwise archive it.
 2. **Open upstream PR for `takeover-py315-support`** while it's a single commit — easier to review and trigger CI now than after rebases pile up.
 3. **Triage TIER 0**: PR #10568 (`check-message-reference`) has been dormant since Oct 2025 — rebase and ping reviewers, or close. Same question for #9072 (`pylint-default-to-current-dir`) which has been a draft for years.
 4. **Open small PRs** from TIER 1 (the copilot fix, confidence test, copilot-instructions cleanup, message-control tests). Low-risk wins.
