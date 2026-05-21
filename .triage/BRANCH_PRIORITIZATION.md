@@ -113,7 +113,13 @@ Substantial duplication — four branches attacking the conf-upgrade script.
 | `conf-upgrade-script` | 1 conflict | 12 files, +637/-170 (more advanced) |
 | `wip-upgrade` | 1 conflict | 15 files, +561 (newest, has whatsnew fragments) |
 
-**Recommendation:** pick `wip-upgrade` as canonical (most complete + recent), salvage anything unique from the others, then archive the rest. This is the prerequisite for landing #3512 per `.triage/issue_3512_plan.md`.
+**Recommendation (revised 2026-05-21):** the consolidation is now planned in
+`.triage/issue_5462_plan.md`. Build the OOP data model on
+`upgrade-breaking-change-data-structure` (the newest of the four at 2026-05-16,
+newer than `wip-upgrade`); salvage the runner logic from `wip-upgrade` and the
+`pylint-config upgrade` command wiring from `conf-upgrade-script`; reimplement
+on a fresh four-PR sequence off `origin/main`. Archive all four branches once
+their work is absorbed. This is the prerequisite for landing #3512.
 
 ## TIER 3 — 2025 work, no PR yet (conflicts but fixable)
 
@@ -172,7 +178,13 @@ These four conf-upgrade branches all chase the same goal but each rewrote the da
 | `conf-upgrade-script` | subpackage `_breaking_changes/` with `intention.py`, `config_file.py` (no solution/typing) | next iteration |
 | `wip-upgrade` | **renamed module** `_pylint_upgrade_conf/` with `check_config_upgrade.py`, `upgrade.py` | most recent rename |
 
-The directory rename in `wip-upgrade` confirms it's the latest direction. The mccabe situation is now resolved by PR #10551 (head: `vendored-mccabe` on pylint-dev) — `vendoring-in-small-steps` is the gradual-approach alternative, unused unless you want to break the PR up.
+Correction (2026-05-21): an earlier revision of this file called `wip-upgrade`
+the latest direction because of its module rename. By commit date the newest is
+`upgrade-breaking-change-data-structure` (2026-05-16), versus 2025-10 for
+`wip-upgrade`. `.triage/issue_5462_plan.md` adopts the former's OOP data model
+as the base. The mccabe situation is now resolved by PR #10551 (head:
+`vendored-mccabe` on pylint-dev); `vendoring-in-small-steps` is the
+gradual-approach alternative, unused unless you want to break the PR up.
 
 ### Independent — no consolidation needed
 
@@ -184,7 +196,7 @@ The directory rename in `wip-upgrade` confirms it's the latest direction. The mc
 2. **Open upstream PR for `takeover-py315-support`** while it's a single commit — easier to review and trigger CI now than after rebases pile up.
 3. **Triage TIER 0**: PR #10568 (`check-message-reference`) has been dormant since Oct 2025 — rebase and ping reviewers, or close. Same question for #9072 (`pylint-default-to-current-dir`) which has been a draft for years.
 4. **Open small PRs** from TIER 1 (the copilot fix, confidence test, copilot-instructions cleanup, message-control tests). Low-risk wins.
-5. **Pick a canonical conf-upgrade branch** (recommend `wip-upgrade`), merge unique work from the other three, archive the rest. Unblocks #3512.
+5. **Execute the conf-upgrade plan** in `.triage/issue_5462_plan.md`: PR 1 (data model, off `origin/main`) is on branch `config-upgrade-data-model`; PRs 2-4 follow. Archive the four prototype branches once absorbed. Unblocks #3512.
 6. **Delete TIER 5** in a single sweep once you confirm you don't need any of it as reference.
 
 ## Conflicting branches — prioritized by recovery effort vs value
@@ -197,8 +209,8 @@ Resolve the conflicts on these by hand; they map to ongoing work.
 
 | Branch | Conflicts | Date | Reason |
 |---|---|---|---|
-| `wip-upgrade` | 1 | 2025-10 | Canonical conf-upgrade branch candidate; unblocks #3512 via #5462 (open) |
-| `conf-upgrade-script` | 1 | 2025-12 | Same effort as `wip-upgrade`; salvage anything unique then drop |
+| `wip-upgrade` | 1 | 2025-10 | Salvage runner logic for #5462 PR 3 (see `issue_5462_plan.md`), then archive |
+| `conf-upgrade-script` | 1 | 2025-12 | Salvage `pylint-config upgrade` command wiring for #5462 PR 3, then archive |
 | `vendoring-in-small-steps` | 1 | 2025-09 | Alternative gradual approach to PR #10551; only useful if you want to split the PR |
 | `match-case-too-complex` | 3 | 2025-09 | Depends on PR #10551 landing first |
 
@@ -254,9 +266,8 @@ Recommend `git branch -D` once you've eyeballed the list.
 
 ### Conflict-resolution order (if you want to power through)
 
-1. `wip-upgrade` (1 conflict) — most strategic value (#3512 prerequisite)
-2. `conf-upgrade-script` (1 conflict) — same family, salvage uniques
-3. Stop and re-evaluate. mccabe and scientific-notation work continues on the live PRs (#10551, #10425); no local rebase needed for those.
+1. `wip-upgrade`, `conf-upgrade-script`: do not rebase. Per `issue_5462_plan.md` the conf-upgrade work is reimplemented fresh off `origin/main`; these two are salvage references only.
+2. mccabe and scientific-notation work continues on the live PRs (#10551, #10425); no local rebase needed for those.
 
 ## Rebase status reference
 
