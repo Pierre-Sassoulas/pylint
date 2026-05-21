@@ -1,2 +1,3 @@
 ************* Module {abspath}
+{relpath}:1:0: I0024: Your configuration is outdated, run 'pylint-config upgrade' to update it (configuration-outdated)
 {relpath}:1:0: W0012: Unknown option value for '--enable', expected a valid pylint message and got 'useless-supression' (unknown-option-value)

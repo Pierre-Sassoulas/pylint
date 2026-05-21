@@ -604,4 +604,18 @@ def _make_run_options(self: Run) -> Options:
                 "hide_from_config_file": True,
             },
         ),
+        (
+            "upgraded-to",
+            {
+                "default": None,
+                "type": "string",
+                "metavar": "<version>",
+                "help": (
+                    "Records the pylint version this configuration was last "
+                    "upgraded to with 'pylint-config upgrade'. Use 'latest' to "
+                    "always follow pylint's defaults without being reminded."
+                ),
+                "hide_from_config_file": False,
+            },
+        ),
     )

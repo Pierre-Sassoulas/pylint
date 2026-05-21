@@ -201,6 +201,14 @@ MSGS: dict[str, MessageDefinitionTuple] = {
             "default_enabled": False,
         },
     ),
+    "I0024": (
+        "Your configuration is outdated, run 'pylint-config upgrade' to update it",
+        "configuration-outdated",
+        "Emitted when the configuration file has not been upgraded to the "
+        "current pylint version. Run 'pylint-config upgrade' to review and "
+        "apply the changes, or set 'upgraded-to = latest' to silence it.",
+        {"scope": WarningScope.LINE},
+    ),
     "E0001": (
         "%s",
         "syntax-error",

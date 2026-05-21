@@ -4,6 +4,7 @@
 
 from __future__ import annotations
 
+import configparser
 import sys
 import warnings
 from copy import copy
@@ -13,6 +14,8 @@ from pathlib import Path
 from typing import TYPE_CHECKING
 
 from pylint import reporters
+from pylint.config._breaking_changes import BreakingChanges
+from pylint.config._pylint_config.config_file import ConfigFile
 from pylint.config.config_file_parser import _ConfigurationFileParser
 from pylint.config.exceptions import (
     ArgumentPreprocessingError,
@@ -116,6 +119,8 @@ def _config_initialization(  # pylint: disable=too-many-statements
             "unrecognized-option", args=unrecognized_options_message, line=0
         )
 
+    _emit_outdated_configuration(linter, config_file)
+
     # TODO: Change this to be checked only when upgrading the configuration
     for exc_name in linter.config.overgeneral_exceptions:
         if "." not in exc_name:
@@ -167,6 +172,22 @@ def _config_initialization(  # pylint: disable=too-many-statements
                 for arg in parsed_args_list
             )
         )
+
+
+def _emit_outdated_configuration(linter: PyLinter, config_file: Path | None) -> None:
+    """Hint that the configuration predates a pylint release with config changes."""
+    if config_file is None:
+        return
+    upgraded_to = linter.config.upgraded_to or "0.0.0"
+    try:
+        config = ConfigFile.from_path(config_file)
+    except (OSError, ValueError, configparser.Error):
+        # A malformed configuration already triggered 'config-parse-error'.
+        return
+    if not any(BreakingChanges(upgraded_to).applicable(config)):
+        return
+    linter.set_current_module(str(config_file))
+    linter.add_message("configuration-outdated", line=0)
 
 
 def _order_all_first(config_args: list[str], *, joined: bool) -> list[str]:
