@@ -46,3 +46,22 @@ def _register_generate_config_options(parser: argparse.ArgumentParser) -> None:
         "generate", help="Generate a pylint configuration"
     )
     generate_parser.add_argument("--interactive", action="store_true")
+
+    # Add the upgrade command
+    upgrade_parser = subparsers.add_parser(
+        "upgrade",
+        help="Upgrade a pylint configuration to the current pylint version",
+    )
+    upgrade_parser.add_argument(
+        "config_path",
+        nargs="?",
+        default=None,
+        help="path of the configuration file to upgrade; by default the "
+        "configuration that pylint would use is upgraded",
+    )
+    upgrade_parser.add_argument(
+        "--non-interactive",
+        action="store_true",
+        help="apply only the unambiguous fixes instead of prompting for the "
+        "ambiguous ones",
+    )

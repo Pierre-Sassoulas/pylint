@@ -12,7 +12,7 @@ from pathlib import Path
 from typing import Literal, ParamSpec, TypeVar
 
 _P = ParamSpec("_P")
-_ReturnValueT = TypeVar("_ReturnValueT", bool, str)
+_ReturnValueT = TypeVar("_ReturnValueT")
 
 SUPPORTED_FORMATS = {"t", "toml", "i", "ini"}
 YES_NO_ANSWERS = {"y", "yes", "n", "no"}
