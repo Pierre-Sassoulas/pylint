@@ -746,14 +746,21 @@ class BasicChecker(_BasicChecker):
     def _check_unreachable_due_to_raising_test(
         self, node: nodes.If | nodes.While | nodes.Assert
     ) -> None:
-        """Flag ``unreachable`` when the test of ``node`` always raises.
+        """Flag ``unreachable`` when the test of ``node`` never yields a value.
 
         Unlike the usual ``return``/``raise``/``break``/``continue`` case where
-        only the next sibling is unreachable, a raising test means the
+        only the next sibling is unreachable, a non-evaluating test means the
         statement itself never selects a branch: the body, the ``else`` (when
         applicable), and any sibling after the statement are all unreachable.
+
+        For terminating calls (``sys.exit()``, ``NoReturn``-annotated funcs)
+        the sibling is already flagged by ``visit_call``; we only add the
+        body/else flags here to avoid double-emitting on the same line.
         """
-        if not self._test_always_raises_in_bool_context(node.test):
+        test = node.test
+        raises_in_bool = self._test_always_raises_in_bool_context(test)
+        terminating_call = self._test_is_terminating_call(test)
+        if not (raises_in_bool or terminating_call):
             return
         if isinstance(node, (nodes.If, nodes.While)) and node.body:
             self.add_message(
@@ -763,11 +770,14 @@ class BasicChecker(_BasicChecker):
             self.add_message(
                 "unreachable", node=node.orelse[0], confidence=INFERENCE
             )
-        next_sibling = node.next_sibling()
-        if next_sibling is not None:
-            self.add_message(
-                "unreachable", node=next_sibling, confidence=INFERENCE
-            )
+        # visit_call already flags the sibling for terminating calls; only emit
+        # the sibling flag for the bool-coercion case so we don't double-message.
+        if raises_in_bool and not terminating_call:
+            next_sibling = node.next_sibling()
+            if next_sibling is not None:
+                self.add_message(
+                    "unreachable", node=next_sibling, confidence=INFERENCE
+                )
 
     def _test_always_raises_in_bool_context(self, test: nodes.NodeNG) -> bool:
         """Return True when every inferred value of ``test`` raises on ``bool()``.
@@ -775,8 +785,6 @@ class BasicChecker(_BasicChecker):
         ``NotImplemented`` is currently the only known trigger and only on
         Python 3.14+ (where ``bool(NotImplemented)`` raises ``TypeError``;
         on earlier versions it returns ``True`` with a ``DeprecationWarning``).
-        The helper is shaped to grow more triggers (e.g. literal ``1/0``,
-        calls to ``typing.NoReturn`` functions used in a bool context).
         """
         if not self._py314_plus:
             return False
@@ -789,6 +797,16 @@ class BasicChecker(_BasicChecker):
             if not (isinstance(value, nodes.Const) and value.value is NotImplemented):
                 return False
         return True
+
+    def _test_is_terminating_call(self, test: nodes.NodeNG) -> bool:
+        """Return True when ``test`` is a direct call to a non-returning func.
+
+        Covers ``sys.exit()``, ``exit()``, ``quit()``, ``os._exit()`` and
+        ``typing.NoReturn``-annotated functions (see ``utils.is_terminating_func``).
+        Only handles the case where the test *is* the call — not e.g.
+        ``sys.exit() and foo()`` where short-circuiting matters.
+        """
+        return isinstance(test, nodes.Call) and utils.is_terminating_func(test)
 
     @utils.only_required_for_messages("duplicate-key")
     def visit_dict(self, node: nodes.Dict) -> None:
