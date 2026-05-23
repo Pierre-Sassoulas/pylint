@@ -277,6 +277,7 @@ class BasicChecker(_BasicChecker):
         """Initialize visit variables and statistics."""
         py_version = self.linter.config.py_version
         self._py38_plus = py_version >= (3, 8)
+        self._py314_plus = py_version >= (3, 14)
         self._trys = []
         self.linter.stats.reset_node_count()
 
