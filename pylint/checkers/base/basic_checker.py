@@ -282,10 +282,11 @@ class BasicChecker(_BasicChecker):
         self.linter.stats.reset_node_count()
 
     @utils.only_required_for_messages(
-        "using-constant-test", "missing-parentheses-for-call-in-test"
+        "using-constant-test", "missing-parentheses-for-call-in-test", "unreachable"
     )
     def visit_if(self, node: nodes.If) -> None:
         self._check_using_constant_test(node, node.test)
+        self._check_unreachable_due_to_raising_test(node)
 
     @utils.only_required_for_messages(
         "using-constant-test", "missing-parentheses-for-call-in-test"
@@ -724,7 +725,9 @@ class BasicChecker(_BasicChecker):
                     case "eval":
                         self.add_message("eval-used", node=node)
 
-    @utils.only_required_for_messages("assert-on-tuple", "assert-on-string-literal")
+    @utils.only_required_for_messages(
+        "assert-on-tuple", "assert-on-string-literal", "unreachable"
+    )
     def visit_assert(self, node: nodes.Assert) -> None:
         """Check whether assert is used on a tuple or string literal."""
         match node.test:
@@ -733,6 +736,59 @@ class BasicChecker(_BasicChecker):
             case nodes.Const(value=str() as val):
                 when = "never" if val else "always"
                 self.add_message("assert-on-string-literal", node=node, args=(when,))
+        self._check_unreachable_due_to_raising_test(node)
+
+    @utils.only_required_for_messages("unreachable")
+    def visit_while(self, node: nodes.While) -> None:
+        """Flag body / sibling as unreachable when the test always raises."""
+        self._check_unreachable_due_to_raising_test(node)
+
+    def _check_unreachable_due_to_raising_test(
+        self, node: nodes.If | nodes.While | nodes.Assert
+    ) -> None:
+        """Flag ``unreachable`` when the test of ``node`` always raises.
+
+        Unlike the usual ``return``/``raise``/``break``/``continue`` case where
+        only the next sibling is unreachable, a raising test means the
+        statement itself never selects a branch: the body, the ``else`` (when
+        applicable), and any sibling after the statement are all unreachable.
+        """
+        if not self._test_always_raises_in_bool_context(node.test):
+            return
+        if isinstance(node, (nodes.If, nodes.While)) and node.body:
+            self.add_message(
+                "unreachable", node=node.body[0], confidence=INFERENCE
+            )
+        if isinstance(node, nodes.If) and node.orelse:
+            self.add_message(
+                "unreachable", node=node.orelse[0], confidence=INFERENCE
+            )
+        next_sibling = node.next_sibling()
+        if next_sibling is not None:
+            self.add_message(
+                "unreachable", node=next_sibling, confidence=INFERENCE
+            )
+
+    def _test_always_raises_in_bool_context(self, test: nodes.NodeNG) -> bool:
+        """Return True when every inferred value of ``test`` raises on ``bool()``.
+
+        ``NotImplemented`` is currently the only known trigger and only on
+        Python 3.14+ (where ``bool(NotImplemented)`` raises ``TypeError``;
+        on earlier versions it returns ``True`` with a ``DeprecationWarning``).
+        The helper is shaped to grow more triggers (e.g. literal ``1/0``,
+        calls to ``typing.NoReturn`` functions used in a bool context).
+        """
+        if not self._py314_plus:
+            return False
+        inferred = utils.infer_all(test)
+        if not inferred:
+            return False
+        for value in inferred:
+            if isinstance(value, util.UninferableBase):
+                return False
+            if not (isinstance(value, nodes.Const) and value.value is NotImplemented):
+                return False
+        return True
 
     @utils.only_required_for_messages("duplicate-key")
     def visit_dict(self, node: nodes.Dict) -> None:
