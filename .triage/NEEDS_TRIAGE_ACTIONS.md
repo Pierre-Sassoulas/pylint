@@ -1,84 +1,71 @@
-# Needs-triage actions — 110 open issues
+# Needs-triage actions — 88 open issues remaining
 
-Snapshot: 2026-05-25, pylint 4.1.0-dev0, astroid 4.2.0b3.
+Initial snapshot: 2026-05-25, pylint 4.1.0-dev0, astroid 4.2.0b3.
+Started from 110 needs-triage issues; 22 cleared so far. See
+[Progress log](#progress-log) at the bottom.
+
 Source: GitHub label `Needs triage :inbox_tray:` on pylint-dev/pylint + my prior
 `.triage/triage_state.json` verdicts (re-verified for the recent / interesting
 ones in this session).
 
 Quick navigation:
-- [Closable immediately](#1-closable-immediately-3) — close as fixed/dup, no extra work
-- [Has open PR](#2-has-open-pr-1) — link & remove triage label
-- [REPRO bugs ready to label](#3-repro--real-bugs-ready-to-label-19) — confirmed reproducible
-- [UNCLEAR — ping reporter](#4-unclear--needs-reporter-input-3) — can't reproduce w/o more info
+- [Still closable](#1-still-closable-2) — #9885 (dup) and #9159 (fixed in 4.1)
+- [Open PR remains tagged](#2-open-pr-remains-tagged-1) — #10670 (4.0.x fixed)
+- [REPRO needing follow-up](#3-repro--leftover-tricky-case-1) — only #10691 left from the REPRO bucket
+- [UNCLEAR — ping reporter](#4-unclear--needs-reporter-input-2) — #9983, #10012, #10278 (#11012 already labeled)
 - [EXTDEP — external library gap](#5-extdep--external-library-or-astroid-brain-gap-39)
 - [DESIGN — enhancement / spec discussion](#6-design--enhancement-or-specification-discussion-43)
-- [NEW — fresh issue](#7-new-issue-1)
 
-| Bucket | Count | Default labels |
-|---|---:|---|
-| Closable (FIXED) | 2 | close as completed, comment with fixing commit/PR |
-| Closable (DUP) | 1 | `Duplicate 🐫`, close as duplicate of canonical issue |
-| Has open PR | 1 | link PR, remove `Needs triage` |
-| REPRO | 19 | `Bug` or `False Positive`/`False Negative` + topic tag |
-| UNCLEAR | 3 | `Needs reproduction :mag:` + `Waiting on author` |
-| EXTDEP | 39 | `False Positive` + `Needs astroid Brain` (or `Upstream Bug`) |
-| DESIGN | 43 | `Enhancement` / `Discussion 🤔` / `Proposal 📨` + topic |
-| NEW | 1 | (triage in row) |
-| **Total** | **110** | |
+| Bucket | Initial | Done | Remaining | Default labels |
+|---|---:|---:|---:|---|
+| Closable (FIXED / DUP) | 3 | 1 | 2 | close as completed / `Duplicate 🐫` |
+| Has open PR | 1 | 1 | 0 | already labeled — see #11013 below |
+| Still has triage but already fixed in 4.0.x | — | — | 1 | #10670 |
+| REPRO | 19+1 NEW | 19 | 1 | the tricky #10691 — `Discussion 🤔` |
+| UNCLEAR | 5 | 2 | 3 | `Needs reproduction :mag:` + `Waiting on author` |
+| EXTDEP | 39 | 0 | 39 | `False Positive` + `Needs astroid Brain` (or `Upstream Bug`) |
+| DESIGN | 43 | 0 | 43 | `Enhancement` / `Discussion 🤔` / `Proposal 📨` + topic |
+| **Total remaining** | **110** | **22** | **88** | |
 
 ---
 
-## 1. Closable immediately (3)
+## 1. Still closable (2)
 
 | # | Title | Action |
 |---|---|---|
-| **#10670** | False Positive for too-many-function-args when subclassing `__new__` | **Close as fixed.** Re-verified 2026-05-25 on pylint 4.0.5+py3.12 with reporter's exact snippet: 10/10. Fixed between 4.0.1 and 4.0.5. |
-| **#9885** | False positive missing member `__value__` with type statement and Literal under python 3.12 | **Close as duplicate of #10091.** Jacob's comment on #10091 (https://github.com/pylint-dev/pylint/issues/10091) designated it as the canonical tracker. |
-| **#9159** | pylint does not support typing.Self when override | **Close as fixed.** Re-verified 2026-05-25: bug present on released 4.0.5+astroid 4.0.4; clean on current main (4.1.0-dev0+astroid 4.2.0b3). Likely fixed by an astroid Self-inference upgrade between 4.0.4 and 4.2.0b3. |
+| **#9885** | False positive missing member `__value__` with type statement and Literal under python 3.12 | **Close as duplicate of #10091.** Jacob's comment on #10091 (https://github.com/pylint-dev/pylint/issues/10091) designated it as the canonical tracker. Still open with `Needs triage` as of last check. |
+| **#9159** | pylint does not support typing.Self when override | **Close as fixed in 4.1.0.** Re-verified 2026-05-25: bug present on released 4.0.5+astroid 4.0.4; clean on current main (4.1.0-dev0+astroid 4.2.0b3). Likely fixed by an astroid Self-inference upgrade between 4.0.4 and 4.2.0b3. Still open with `Needs triage`. |
 
 ---
 
-## 2. Has open PR (1)
+## 2. Open PR remains tagged (1)
 
 | # | Title | Action |
 |---|---|---|
-| **#11013** | C0103: Constant name false positive when typing variables nested in `TYPE_CHECKING` | **PR #11047 open.** Add labels `Bug`, `False Positive 🦟`, `C: invalid-name`, `typing`. Remove `Needs triage`. |
+| **#10670** | False Positive for too-many-function-args when subclassing `__new__` | **Already triaged** — labeled `False Positive 🦟`, `Needs triage` removed. Reporter's exact snippet scores 10/10 on pylint 4.0.5+py3.12, so this is fixed in the 4.0.x line. Could be closed-as-fixed now, but leaving open while 4.0.x is in active maintenance is fine. |
+
+The PR I opened (**#11047** for #11013) is in review; #11013 was triaged with `Bug`, `False Positive 🦟`, `Needs astroid update`, `Needs PR`.
 
 ---
 
-## 3. REPRO — real bugs ready to label (19)
+## 3. REPRO — leftover tricky case (1)
 
-All re-verified to still reproduce on `origin/main` 2026-05-25 with the snippets in
-`.triage/snippets/iNNNN.py` (issue-triage-workspace branch).
+✅ **19 of the 20 REPRO bugs were labeled and stripped of `Needs triage`** on
+2026-05-25. See the [Progress log](#progress-log) for the per-issue label set
+and the bisect commits attached to each.
 
-Default labels: `Bug` + `False Positive 🦟` (or `False Negative 🦋`) + the
-topic/checker tag in the **Topic** column. Bonus tags in parens when applicable.
+The one left:
 
-| # | Title | Topic / suggested labels |
+| # | Title | Why deferred / suggested labels |
 |---|---|---|
-| **#8221** | cell-var-from-loop ignores generator expressions | `False Negative`, `Checkers`, `C: cell-var-from-loop` (if you want a new C: label) |
-| **#8367** | Incorrect type inferred when inner class definition closes over variable from outer class's method | `False Positive`, `inference`, `Astroid`, `Needs astroid Brain` |
-| **#9359** | useless-parent-delegation false positive when `__init__` signatures differ but parent is built-in type | `False Positive`, `Checkers` |
-| **#9389** | False-positive E1121 when using dataclass with init=False | `False Positive`, `dataclasses` |
-| **#9488** | Unexpected keyword argument for Generic dataclass with ABC bounded TypeVar | `False Positive`, `dataclasses`, `typing` |
-| **#9683** | False positive invalid-sequence-index using properties of range object as index | `False Positive`, `Needs astroid Brain` (range start/stop/step not exposed as int) |
-| **#9839** | E0238 false positive when defining `__slots__` in IntEnum class | `False Positive`, `Checkers` |
-| **#9850** | AddressFamily and SocketKind are not visible in module socket | `False Positive`, `Needs astroid Brain` (socket stub gap) |
-| **#9905** | False positive `invalid-overridden-method` when overridding `Enum.value` | `False Positive`, `Checkers` |
-| **#9950** | False positive `declare-non-slot` on classvar | `False Positive`, `Checkers` |
-| **#9972** | False positive `no-member` when wrapping dataclasses `field` | `False Positive`, `dataclasses` |
-| **#9986** | False positive `unbalanced-dict-unpacking` | `False Positive`, `Control flow` |
-| **#9994** | False positive: useless-parent-delegation on `__init__` method of class derived from `Exception` | `False Positive`, `Checkers` |
-| **#10186** | False positive with `arguments-differ` rule in overridden overloaded methods in subclass | `False Positive`, `C: arguments-differ`, `typing` |
-| **#10609** | False positive E1121: Too many positional arguments error for Subclassed Enums instanciated with functional API | `False Positive`, `Needs astroid Brain` (Enum functional API subclass) |
-| **#10691** | Conflicting warnings R2004 (`pylint.extensions.magic_value`) and R6103 (`pylint.extensions.code_style`) | `Bug`, `Optional Checkers` — circular suggestion: walrus-rewrite still trips magic-value |
-| **#10784** | Type narrowing fails due to unrelated instance assignment | `False Positive`, `Control flow`, `inference` |
-| **#10991** | Unexpected kwarg false-positive when using TypeVarTuple | `False Positive`, `typing`, `Needs astroid Brain` (PEP 646 TypeVarTuple) — related to #10972 |
-| **#10994** | False positives when 'type' builtin is overwritten | `False Positive`, `inference` |
+| **#10691** | Conflicting R2004 (`magic-value`) ↔ R6103 (`consider-using-assignment-expr`) | Neither warning is wrong in isolation; the bug is the circular suggestion when one is applied. Doesn't fit `False Positive 🦟`. Suggested: `Bug`, `Regression`, `Optional Checkers`, `Discussion 🤔`. **Spec call needed** — should R6103 skip walrus rewrite for literal-comparisons, or should R2004 look through walrus? |
 
 ---
 
 ## 4. UNCLEAR — needs reporter input (3)
+
+#11012 and #11013 (originally UNCLEAR) were bisected and triaged out of this
+bucket. The remaining three need a comment asking the reporter for more info.
 
 Default labels: `Needs reproduction :mag:` + `Waiting on author`. Suggested
 comments below.
@@ -245,21 +232,64 @@ need a design decision.
 
 ---
 
-## 7. NEW issue (1)
+## Progress log
 
-| # | Title | Triage |
-|---|---|---|
-| **#11032** | E1121 triggered incorrectly when metaclass `__call__` accepts more arguments than class `__init__` | **REPRO** — verified 2026-05-25 on pylint 4.0.5+main: `MyClass(1, 2)` flagged as too-many-function-args when `Meta.__call__` accepts 2 args but `MyClass.__init__` accepts 1. Pylint should consult `Meta.__call__` signature when one exists rather than always checking `__init__`. Labels: `Bug`, `False Positive 🦟`, `Checkers`, `inference`. |
+### 2026-05-25 — initial sweep
 
----
+Action by you / via this session, in order:
 
-## Process notes
+1. **PR opened: #11047** (fixes #11013, `typing_extensions.TypeAlias` ambiguous
+   inference falling into the `const` naming path). Branch
+   `fix-11013-typealias-typing-extensions` on the `pierre` fork.
+2. **Bisect run** on all 20 live REPRO snippets across pylint 2.13.9 → main on
+   Python 3.10/3.12. Findings written up at `.triage/REPRO_BISECT.md`. Four
+   pylint regressions identified with first-bad commit:
+   - #9950 declare-non-slot → pylint 3.3.0, commit `1c496e9b3`
+   - #9986 unbalanced-dict-unpacking → pylint 2.16.0, commit `f2e8ba369`
+   - #10691 magic-value ↔ R6103 conflict → pylint 2.16.0, commit `78770cdab`
+   - #10991 TypeVarTuple dataclass → pylint 4.0.0 (astroid 4.x exposed it)
+3. **19 REPRO bugs labeled** with `Bug :beetle:` + `False Positive 🦟`/
+   `False Negative 🦋` + topic tag. `Needs triage :inbox_tray:` stripped:
+
+   | # | Final labels |
+   |---|---|
+   | #8221  | `Bug`, `False Negative 🦋`, `Checkers` |
+   | #8367  | `Bug`, `False Positive 🦟`, `Astroid`, `inference` |
+   | #9359  | `Bug`, `False Positive 🦟`, `Checkers`, `Astroid` |
+   | #9389  | `Bug`, `False Positive 🦟`, `dataclasses` |
+   | #9488  | `Bug`, `False Positive 🦟`, `dataclasses`, `typing` |
+   | #9683  | `Bug`, `False Positive 🦟`, `Needs astroid Brain 🧠` |
+   | #9839  | `Bug`, `False Positive 🦟`, `Needs astroid Brain 🧠`, `py-version` |
+   | #9850  | `Bug`, `False Positive 🦟`, `Needs astroid Brain 🧠` |
+   | #9905  | `Bug`, `False Positive 🦟`, `Checkers`, `Decorators` |
+   | #9950  | `Bug`, `False Positive 🦟`, `Regression`, `Checkers` |
+   | #9972  | `Bug`, `False Positive 🦟`, `dataclasses` |
+   | #9986  | `Bug`, `False Positive 🦟`, `Regression`, `Control flow` |
+   | #9994  | `Bug`, `False Positive 🦟`, `Checkers` |
+   | #10186 | `Bug`, `False Positive 🦟`, `C: arguments-differ`, `typing` |
+   | #10609 | `Bug`, `False Positive 🦟`, `Needs astroid Brain 🧠` |
+   | #10784 | `Bug`, `False Positive 🦟`, `Control flow`, `inference` |
+   | #10991 | `Bug`, `False Positive 🦟`, `Regression`, `dataclasses`, `typing` |
+   | #10994 | `Bug`, `False Positive 🦟`, `inference` |
+   | #11032 | `Bug`, `False Positive 🦟`, `inference` |
+
+4. **Side actions by you (Pierre):**
+   - #10670 — `False Positive 🦟` applied, `Needs triage` removed (still open
+     because it's only fixed in 4.0.x, not closed-as-fixed).
+   - #11012 — `False Positive 🦟`, `Needs PR` applied.
+   - #11013 — `False Positive 🦟`, `Needs astroid update`, `Needs PR` applied.
+5. **#10691 left in the bucket** as the only REPRO needing a spec call (FP vs
+   Discussion).
+
+### Process notes (carried over)
 
 - The 109 prior verdicts come from `.triage/triage_state.json` on the
   `issue-triage-workspace` branch (commit 5f3dcffbb). They were last regenerated
   2026-05-12; spot-checks in this session re-verified ~20 of the REPRO ones and
   the closable ones.
-- Snippet files live at `.triage/snippets/iNNNN.py` on the same branch.
+- Snippet files live at `.triage/snippets/iNNNN.py` on the same branch. Bisect
+  artifacts (per-version JSON, `bisect.sh`, `run.py`, `spec.json`) under
+  `/tmp/bisect/` for this session.
 - `Needs astroid Brain 🧠` is the right label for "pylint can't infer attribute
   X because astroid doesn't model lib Y" — those issues become PRs against
   pylint-dev/astroid, not pylint.
