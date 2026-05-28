@@ -1118,6 +1118,12 @@ accessed. Python regular expressions are accepted.",
             ):
                 continue
 
+            if isinstance(owner, (nodes.TypeVar, nodes.TypeVarTuple, nodes.ParamSpec)):
+                # PEP 695 type parameters have no concrete type at
+                # static-analysis time, so we can't reason about their
+                # attributes.
+                continue
+
             qualname = f"{owner.pytype()}.{node.attrname}"
             if any(
                 pattern.match(qualname) for pattern in self._compiled_generated_members
