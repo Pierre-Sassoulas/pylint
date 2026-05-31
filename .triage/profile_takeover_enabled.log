@@ -1,0 +1,218 @@
+branch: takeover-10176
+target: pylint/checkers
+extra args: ['--enable=unguarded-typing-import']
+writing: /home/pierre/pylint/.triage/profile_takeover-10176.prof
+
+************* Module pylint.checkers.base_checker
+pylint/checkers/base_checker.py:9:0: R0615: `Iterable` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/base_checker.py:9:0: R0615: `Sequence` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/base_checker.py:11:0: R0615: `TokenInfo` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/base_checker.py:12:0: R0615: `Any` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/base_checker.py:14:0: R0615: `nodes` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/base_checker.py:19:0: R0615: `Confidence` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/base_checker.py:21:0: R0615: `Options` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/base_checker.py:21:0: R0615: `MessageDefinitionTuple` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/base_checker.py:21:0: R0615: `ReportsCallable` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/base_checker.py:21:0: R0615: `OptionDict` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+************* Module pylint.checkers.exceptions
+pylint/checkers/exceptions.py:11:0: R0615: `Generator` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/exceptions.py:12:0: R0615: `Any` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/exceptions.py:15:0: R0615: `objects` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/exceptions.py:16:0: R0615: `InferenceContext` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/exceptions.py:17:0: R0615: `SuccessfulInferenceResult` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/exceptions.py:17:0: R0615: `InferenceResult` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/exceptions.py:22:0: R0615: `MessageDefinitionTuple` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+************* Module pylint.checkers.design_analysis
+pylint/checkers/design_analysis.py:11:0: R0615: `Iterator` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/design_analysis.py:19:0: R0615: `MessageDefinitionTuple` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+************* Module pylint.checkers.imports
+pylint/checkers/imports.py:14:0: R0615: `Sequence` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/imports.py:14:0: R0615: `ItemsView` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/imports.py:24:0: R0615: `ImportNode` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/imports.py:39:0: R0615: `Section` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/imports.py:40:0: R0615: `MessageDefinitionTuple` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/imports.py:41:0: R0615: `LinterStats` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+************* Module pylint.checkers.non_ascii_names
+pylint/checkers/non_ascii_names.py:17:0: R0615: `lint` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+************* Module pylint.checkers.bad_chained_comparison
+pylint/checkers/bad_chained_comparison.py:9:0: R0615: `nodes` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+************* Module pylint.checkers.clear_lru_cache
+pylint/checkers/clear_lru_cache.py:7:0: R0615: `Any` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+************* Module pylint.checkers.raw_metrics
+pylint/checkers/raw_metrics.py:8:0: R0615: `Any` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/raw_metrics.py:8:0: R0615: `Literal` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/raw_metrics.py:11:0: R0615: `Section` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/raw_metrics.py:12:0: R0615: `LinterStats` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+************* Module pylint.checkers.stdlib
+pylint/checkers/stdlib.py:10:0: R0615: `Iterable` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/stdlib.py:11:0: R0615: `Any` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/stdlib.py:15:0: R0615: `InferenceResult` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/stdlib.py:20:0: R0615: `MessageDefinitionTuple` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+************* Module pylint.checkers.utils
+pylint/checkers/utils.py:16:0: R0615: `Iterable` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/utils.py:16:0: R0615: `Iterator` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/utils.py:18:0: R0615: `Match` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/utils.py:25:0: R0615: `InferenceContext` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/utils.py:27:0: R0615: `ImportNode` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/utils.py:27:0: R0615: `Statement` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/utils.py:28:0: R0615: `InferenceResult` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/utils.py:28:0: R0615: `SuccessfulInferenceResult` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+************* Module pylint.checkers.logging
+pylint/checkers/logging.py:10:0: R0615: `Literal` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/logging.py:13:0: R0615: `bases` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/logging.py:14:0: R0615: `InferenceResult` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/logging.py:20:0: R0615: `MessageDefinitionTuple` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+************* Module pylint.checkers.newstyle
+pylint/checkers/newstyle.py:16:0: R0615: `MessageDefinitionTuple` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+************* Module pylint.checkers.unicode
+pylint/checkers/unicode.py:18:0: R0615: `io` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/unicode.py:21:0: R0615: `Iterable` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/unicode.py:26:0: R0615: `nodes` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+************* Module pylint.checkers.symilar
+pylint/checkers/symilar.py:41:0: R0615: `Iterable` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/symilar.py:41:0: R0615: `Generator` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/symilar.py:41:0: R0615: `Callable` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/symilar.py:41:0: R0615: `Sequence` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/symilar.py:44:0: R0615: `TypeAlias` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/symilar.py:44:0: R0615: `NoReturn` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/symilar.py:50:0: R0615: `Section` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/symilar.py:51:0: R0615: `MessageDefinitionTuple` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/symilar.py:51:0: R0615: `Options` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/symilar.py:52:0: R0615: `LinterStats` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+************* Module pylint.checkers.spelling
+pylint/checkers/spelling.py:11:0: R0615: `Pattern` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/spelling.py:12:0: R0615: `Any` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/spelling.py:12:0: R0615: `Literal` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/spelling.py:14:0: R0615: `nodes` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+************* Module pylint.checkers.format
+pylint/checkers/format.py:18:0: R0615: `Match` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/format.py:19:0: R0615: `Literal` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/format.py:27:0: R0615: `MessageDefinitionTuple` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+************* Module pylint.checkers.misc
+pylint/checkers/misc.py:13:0: R0615: `nodes` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/misc.py:16:0: R0615: `ManagedMessage` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+************* Module pylint.checkers.deprecated
+pylint/checkers/deprecated.py:9:0: R0615: `Iterable` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/deprecated.py:9:0: R0615: `Container` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/deprecated.py:20:0: R0615: `MessageDefinitionTuple` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+************* Module pylint.checkers.typecheck
+pylint/checkers/typecheck.py:15:0: R0615: `Iterable` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/typecheck.py:15:0: R0615: `Callable` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/typecheck.py:17:0: R0615: `Pattern` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/typecheck.py:18:0: R0615: `TypeAlias` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/typecheck.py:18:0: R0615: `Literal` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/typecheck.py:18:0: R0615: `Any` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/typecheck.py:27:0: R0615: `_base_nodes` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/typecheck.py:28:0: R0615: `SuccessfulInferenceResult` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/typecheck.py:28:0: R0615: `InferenceResult` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/typecheck.py:56:0: R0615: `MessageDefinitionTuple` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+************* Module pylint.checkers.strings
+pylint/checkers/strings.py:13:0: R0615: `Counter` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/strings.py:14:0: R0615: `Sequence` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/strings.py:14:0: R0615: `Iterable` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/strings.py:15:0: R0615: `Literal` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/strings.py:18:0: R0615: `bases` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/strings.py:19:0: R0615: `SuccessfulInferenceResult` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/strings.py:24:0: R0615: `MessageDefinitionTuple` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+************* Module pylint.checkers.refactoring.implicit_booleaness_checker
+pylint/checkers/refactoring/implicit_booleaness_checker.py:10:0: R0615: `util` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+************* Module pylint.checkers.refactoring.refactoring_checker
+pylint/checkers/refactoring/refactoring_checker.py:11:0: R0615: `Iterator` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/refactoring/refactoring_checker.py:14:0: R0615: `Pattern` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/refactoring/refactoring_checker.py:15:0: R0615: `TypeAlias` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/refactoring/refactoring_checker.py:15:0: R0615: `Any` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/refactoring/refactoring_checker.py:25:0: R0615: `Confidence` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+************* Module pylint.checkers.classes.special_methods_checker
+pylint/checkers/classes/special_methods_checker.py:9:0: R0615: `Callable` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/classes/special_methods_checker.py:13:0: R0615: `InferenceContext` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/classes/special_methods_checker.py:14:0: R0615: `InferenceResult` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/classes/special_methods_checker.py:25:0: R0615: `PyLinter` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+************* Module pylint.checkers.classes.class_checker
+pylint/checkers/classes/class_checker.py:10:0: R0615: `Callable` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/classes/class_checker.py:10:0: R0615: `Sequence` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/classes/class_checker.py:13:0: R0615: `Pattern` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/classes/class_checker.py:14:0: R0615: `TypeAlias` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/classes/class_checker.py:14:0: R0615: `Any` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/classes/class_checker.py:18:0: R0615: `bases` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/classes/class_checker.py:19:0: R0615: `SuccessfulInferenceResult` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/classes/class_checker.py:43:0: R0615: `MessageDefinitionTuple` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+************* Module pylint.checkers.base.docstring_checker
+pylint/checkers/base/docstring_checker.py:10:0: R0615: `Literal` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+************* Module pylint.checkers.base.basic_error_checker
+pylint/checkers/base/basic_error_checker.py:13:0: R0615: `InferenceResult` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+************* Module pylint.checkers.base.basic_checker
+pylint/checkers/base/basic_checker.py:11:0: R0615: `Iterator` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/base/basic_checker.py:19:0: R0615: `Confidence` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/base/basic_checker.py:21:0: R0615: `LinterStats` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+************* Module pylint.checkers.base.name_checker.naming_style
+pylint/checkers/base/name_checker/naming_style.py:8:0: R0615: `Pattern` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/base/name_checker/naming_style.py:11:0: R0615: `Options` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/base/name_checker/naming_style.py:11:0: R0615: `OptionDict` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+************* Module pylint.checkers.base.name_checker.checker
+pylint/checkers/base/name_checker/checker.py:9:0: R0615: `argparse` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/base/name_checker/checker.py:14:0: R0615: `Iterable` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/base/name_checker/checker.py:16:0: R0615: `Pattern` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+pylint/checkers/base/name_checker/checker.py:33:0: R0615: `Options` used only for typechecking but imported outside of a typechecking block (unguarded-typing-import)
+
+-------------------------------------------------------------------
+Your code has been rated at 9.89/10 (previous run: 10.00/10, -0.11)
+
+Top 30 cumulative:
+         57232445 function calls (49714425 primitive calls) in 30.892 seconds
+
+   Ordered by: cumulative time
+   List reduced from 4403 to 30 due to restriction <30>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000   30.911   30.911 /home/pierre/pylint/.triage/profile_10176.py:26(run_pylint)
+        1    0.000    0.000   30.787   30.787 /home/pierre/pylint/pylint/lint/run.py:135(__init__)
+        1    0.000    0.000   30.655   30.655 /home/pierre/pylint/pylint/lint/pylinter.py:699(check)
+        1    0.000    0.000   22.807   22.807 /home/pierre/pylint/pylint/lint/pylinter.py:795(_lint_files)
+       51    0.001    0.000   22.807    0.447 /home/pierre/pylint/pylint/lint/pylinter.py:822(_lint_file)
+       51    0.022    0.000   22.797    0.447 /home/pierre/pylint/pylint/lint/pylinter.py:1067(check_astroid_module)
+       51    0.002    0.000   22.774    0.447 /home/pierre/pylint/pylint/lint/pylinter.py:1089(_check_astroid_module)
+ 75797/51    0.462    0.000   19.591    0.384 /home/pierre/pylint/pylint/utils/ast_walker.py:72(walk)
+278487/118493    0.115    0.000   14.250    0.000 {built-in method builtins.next}
+523933/229900    0.843    0.000    9.541    0.000 /home/pierre/pylint/.venv-takeover/lib/python3.12/site-packages/astroid/nodes/node_ng.py:123(infer)
+183028/54983    0.118    0.000    8.961    0.000 /home/pierre/pylint/.venv-takeover/lib/python3.12/site-packages/astroid/decorators.py:78(inner)
+152138/46323    0.235    0.000    8.927    0.000 /home/pierre/pylint/.venv-takeover/lib/python3.12/site-packages/astroid/decorators.py:32(wrapped)
+142376/80215    0.329    0.000    6.152    0.000 /home/pierre/pylint/.venv-takeover/lib/python3.12/site-packages/astroid/bases.py:154(_infer_stmts)
+  179/116    0.001    0.000    5.635    0.049 /home/pierre/pylint/.venv-takeover/lib/python3.12/site-packages/astroid/manager.py:131(ast_from_file)
+22927/18182    0.078    0.000    5.624    0.000 /home/pierre/pylint/.venv-takeover/lib/python3.12/site-packages/astroid/nodes/node_classes.py:1085(_infer_attribute)
+  154/107    0.035    0.000    5.422    0.051 /home/pierre/pylint/.venv-takeover/lib/python3.12/site-packages/astroid/builder.py:113(file_build)
+    67621    0.038    0.000    5.031    0.000 /usr/lib/python3.12/contextlib.py:141(__exit__)
+        2    0.000    0.000    4.958    2.479 /home/pierre/pylint/pylint/lint/pylinter.py:993(_astroid_module_checker)
+        1    0.000    0.000    4.946    4.946 /home/pierre/pylint/pylint/checkers/symilar.py:841(close)
+        1    0.000    0.000    4.945    4.945 /home/pierre/pylint/pylint/checkers/symilar.py:398(_compute_sims)
+        1    0.099    0.099    4.945    4.945 /home/pierre/pylint/pylint/checkers/symilar.py:542(_iter_sims)
+     1275    0.137    0.000    4.847    0.004 /home/pierre/pylint/pylint/checkers/symilar.py:467(_find_common)
+     2550    2.206    0.001    4.657    0.002 /home/pierre/pylint/pylint/checkers/symilar.py:207(hash_lineset)
+  942/736    0.004    0.000    4.576    0.006 /home/pierre/pylint/.venv-takeover/lib/python3.12/site-packages/astroid/builder.py:159(_post_build)
+10449/9048    0.014    0.000    4.407    0.000 /home/pierre/pylint/.venv-takeover/lib/python3.12/site-packages/astroid/nodes/scoped_nodes/scoped_nodes.py:439(import_module)
+10477/9071    0.009    0.000    4.384    0.000 /home/pierre/pylint/.venv-takeover/lib/python3.12/site-packages/astroid/manager.py:195(ast_from_module_name)
+8977/7825    0.022    0.000    4.296    0.001 /home/pierre/pylint/.venv-takeover/lib/python3.12/site-packages/astroid/nodes/_base_nodes.py:148(do_import_module)
+13988/9195    0.035    0.000    3.677    0.000 /home/pierre/pylint/.venv-takeover/lib/python3.12/site-packages/astroid/nodes/node_classes.py:1753(_infer)
+      942    0.004    0.000    3.637    0.004 /home/pierre/pylint/.venv-takeover/lib/python3.12/site-packages/astroid/builder.py:180(_data_build)
+3161804/218193    2.430    0.000    3.507    0.000 /home/pierre/pylint/.venv-takeover/lib/python3.12/site-packages/astroid/nodes/node_ng.py:502(nodes_of_class)
+
+
+
+Functions of interest:
+function                                            calls     tottime     cumtime
+-------------------------------------------------------------------------------------
+visit_name (variables.py:1724)                      21241      0.0461      2.9045
+_check_consumer (variables.py:1865)                 28046      0.0731      1.9721
+get_next_to_consume (variables.py:598)              16489      0.0813      1.2484
+visit_name (rebuilder.py:1424)                     117403      0.2110      0.9089
+is_node_in_type_annotation_context (utils.py:1619)       22335      0.0724      0.0893
+_check_imports_order (imports.py:795)                  51      0.0018      0.0614
+_check_imports (variables.py:3347)                     46      0.0004      0.0252
+_check_type_imports (variables.py:3444)                46      0.0002      0.0230
+visit_name (typing.py:212)                          21148      0.0173      0.0176
+mark_as_consumed (variables.py:571)                  6071      0.0099      0.0099
+visit_name (as_string.py:437)                       34372      0.0081      0.0081
+visit_name (exceptions.py:205)                         30      0.0001      0.0030
+visit_namedexpr (rebuilder.py:1352)                    83      0.0003      0.0027
+visit_namedexpr (as_string.py:441)                      5      0.0000      0.0001
+visit_namedexpr (lambda_expressions.py:72)             34      0.0000      0.0000
+visit_namedexpr (unsupported_version.py:88)            34      0.0000      0.0000

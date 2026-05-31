@@ -281,6 +281,37 @@ Action by you / via this session, in order:
 5. **#10691 left in the bucket** as the only REPRO needing a spec call (FP vs
    Discussion).
 
+### 2026-05-29 — `Good first issue` sweep across REPRO bucket
+
+Goal: find REPRO bugs that newcomers can pick up — small scope, no astroid /
+inference work, not in the variables checker, not control-flow.
+
+Method: filtered `.triage/triage_state.json` REPRO verdicts (180 open),
+excluded labels `Control flow`, `C: used-before-assignment`,
+`C: undefined-variable`, `Needs astroid Brain 🧠`, `Needs astroid update`,
+`Astroid`, `inference`, `infer-all`, `typing`, `High effort 🏋`, `pyreverse`,
+`Decorators`, `High priority`, `Lib specific 💅`; dropped notes mentioning
+inference keywords (narrow / inferred / metaclass / Protocol / Generic / …).
+67 candidates remained; verified the fix locations of the top 9 still apply
+on `main`.
+
+Two dropped after assignee/label cross-check:
+- **#10813** (logging bytes crash) — already self-assigned to Pierre.
+- **#9839** (IntEnum `__slots__` FP) — upstream label `Needs astroid Brain 🧠`
+  flags it as astroid work, not a checker tweak.
+
+7 labeled `Good first issue` (count now 19 → 26):
+
+| # | Why GFI | Fix locus |
+|---|---|---|
+| #8499  | TypeVar regex lacks `\d` | `pylint/checkers/base/name_checker/checker.py:42-46` `DEFAULT_PATTERNS["typevar"]` |
+| #5793  | `arguments-differ` wording when param counts match | `pylint/checkers/classes/class_checker.py:2338,2354` |
+| #8256  | `unnecessary-comprehension` suggests `dict(dict1)` when iterating dict-of-tuple-keys | refactoring checker; message-correction |
+| #6663  | `implicit-str-concat` FP on `r'…' '\n'` mix | format/string checker; skip when adjacent literals have different `r` prefix |
+| #10099 | Crash in `consider-using-enumerate` on `len(range(...))` | refactoring checker; already `Needs PR` |
+| #9878  | `superfluous-parens` FN when contents are a single string | format checker |
+| #10084 | `superfluous-parens` FN on `if (a and b):` | same area as #9878 |
+
 ### Process notes (carried over)
 
 - The 109 prior verdicts come from `.triage/triage_state.json` on the
