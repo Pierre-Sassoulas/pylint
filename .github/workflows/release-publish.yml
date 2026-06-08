@@ -1,0 +1,73 @@
+name: Publish release on tag
+
+# When a ``vX.Y.Z`` tag is pushed (after the release pull request has been
+# merged), build the changelog body from the ``What's New`` documents and
+# create the matching GitHub release. Creating the release fires the
+# ``release: published`` event, which triggers ``release.yml`` to build the
+# distributions, sign them and upload them to PyPI.
+#
+# The release is created with the backport GitHub App token (not the default
+# ``GITHUB_TOKEN``) on purpose: releases created with ``GITHUB_TOKEN`` do not
+# trigger further workflow runs, so PyPI publishing would never start.
+
+on:
+  push:
+    tags:
+      - "v*"
+
+env:
+  DEFAULT_PYTHON: "3.14"
+
+permissions:
+  contents: read
+
+jobs:
+  publish-github-release:
+    name: Create the GitHub release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code from GitHub
+        uses: actions/checkout@v6.0.3
+      - name: Set up Python ${{ env.DEFAULT_PYTHON }}
+        uses: actions/setup-python@v6.2.0
+        with:
+          python-version: ${{ env.DEFAULT_PYTHON }}
+          check-latest: true
+      - name: Compute the version from the tag
+        id: version
+        run: |
+          version="${GITHUB_REF_NAME#v}"
+          echo "version=${version}" >> "$GITHUB_OUTPUT"
+          # A version with a non-numeric suffix (e.g. 4.1.0-dev0, 4.1.0b1) is a
+          # pre-release and must not be published as the "latest" release.
+          if [[ "${version}" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo "prerelease=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "prerelease=true" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Build the release notes
+        run: |
+          python script/release_changelog.py "${{ steps.version.outputs.version }}" \
+            > release_notes.md
+          echo "::group::Release notes"
+          cat release_notes.md
+          echo "::endgroup::"
+      - name: Generate a token for the pylint bot
+        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
+        id: app-token
+        with:
+          client-id: ${{ vars.BACKPORT_CLIENT_ID }}
+          private-key: ${{ secrets.PRIVATE_KEY }}
+          permission-contents: write # create the release
+      - name: Create the GitHub release
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+        run: |
+          # Do not pass --latest: GitHub auto-detects the latest release, so a
+          # patch release on a maintenance branch is not wrongly promoted over
+          # a newer minor release.
+          gh release create "${GITHUB_REF_NAME}" \
+            --title "${{ steps.version.outputs.version }}" \
+            --notes-file release_notes.md \
+            --verify-tag \
+            ${{ steps.version.outputs.prerelease == 'true' && '--prerelease' || '' }}

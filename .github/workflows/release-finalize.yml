@@ -1,0 +1,49 @@
+name: Finalize a release
+
+# After a release is published (by release-publish.yml), perform the GitHub
+# house-keeping documented in the release guide: create the maintenance branch
+# for a new minor/major, rotate the backport label, mark backported issues and
+# rotate the milestones. See https://github.com/pylint-dev/pylint/issues/7362.
+#
+# Pre-releases are ignored. A few steps still need project-admin / Read the Docs
+# credentials and are only reported as reminders in the job log.
+
+on:
+  release:
+    types:
+      - published
+
+permissions:
+  contents: read
+
+jobs:
+  finalize-release:
+    name: Post-release house-keeping
+    runs-on: ubuntu-latest
+    if: github.event.release.prerelease == false
+    steps:
+      - name: Generate a token for the pylint bot
+        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
+        id: app-token
+        with:
+          client-id: ${{ vars.BACKPORT_CLIENT_ID }}
+          private-key: ${{ secrets.PRIVATE_KEY }}
+          permission-contents: write # create the maintenance branch
+          permission-issues: write # rotate labels / milestones, mark backported
+      - name: Check out code from GitHub
+        uses: actions/checkout@v6.0.3
+        with:
+          # Need the tag locally so the maintenance branch can be created from it.
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@v6.2.0
+        with:
+          python-version: "3.14"
+          check-latest: true
+      - name: Finalize the release
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+          TAG_NAME: ${{ github.event.release.tag_name }}
+        run: |
+          version="${TAG_NAME#v}"
+          python script/release_finalize.py "${version}" --apply

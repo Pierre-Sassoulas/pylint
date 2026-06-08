@@ -63,6 +63,7 @@ def main() -> None:
 
     new_newsfile = NEWSFILE_PATH.format(major=major, minor=minor)
     create_new_newsfile_if_necessary(new_newsfile, major, minor, args.dry_run)
+    add_newsfile_to_toctrees(major, minor, args.dry_run)
     patch_towncrier_toml(new_newsfile, new_version, args.dry_run)
     build_changelog(suffix, args.dry_run)
 
@@ -93,6 +94,68 @@ def create_new_newsfile_if_necessary(
     # tbump does not add and commit new files, so we add it ourselves
     print("Adding new newsfile to git")
     check_call(["git", "add", new_newsfile])
+
+
+def add_newsfile_to_toctrees(major: str, minor: str, dry_run: bool) -> None:
+    """Wire the new ``What's New`` file into the documentation toctrees.
+
+    ``tbump``/towncrier create the new ``doc/whatsnew/{major}/{minor}/index.rst``
+    file but do not reference it anywhere, so it would not be rendered. We add
+    ``{major}.{minor}/index`` (newest first) to ``doc/whatsnew/{major}/index.rst``
+    and, for a brand new major, ``{major}/index`` to ``doc/whatsnew/index.rst``.
+    See https://github.com/pylint-dev/pylint/issues/7362.
+    """
+    major_index = Path(f"doc/whatsnew/{major}/index.rst")
+    minor_entry = f"   {major}.{minor}/index"
+
+    if not major_index.exists():
+        if dry_run:
+            print(f"Dry run enabled - would create {major_index} for new major")
+            return
+        print("Creating new major newsindex:", major_index)
+        major_index.write_text(
+            f"{major}.x\n===\n\n"
+            f"This is the full list of change in pylint {major}.x minors, "
+            "by categories.\n\n"
+            ".. toctree::\n   :maxdepth: 2\n\n"
+            f"{minor_entry}\n",
+            encoding="utf8",
+        )
+        check_call(["git", "add", str(major_index)])
+        _add_major_to_top_index(major, dry_run)
+        return
+
+    _insert_entry(major_index, minor_entry, dry_run)
+
+
+def _insert_entry(index_file: Path, entry: str, dry_run: bool) -> None:
+    """Insert ``entry`` as the first item of ``index_file``'s toctree."""
+    content = index_file.read_text(encoding="utf-8")
+    if entry in content.splitlines():
+        return
+    lines = content.splitlines()
+    for position, line in enumerate(lines):
+        # The first indented, non-empty line after the toctree directive is the
+        # newest existing entry; insert just before it to keep newest-first order.
+        if line.startswith(".. toctree::"):
+            insert_at = position + 1
+            while insert_at < len(lines) and (
+                not lines[insert_at].strip() or lines[insert_at].startswith("   :")
+            ):
+                insert_at += 1
+            lines.insert(insert_at, entry)
+            break
+    else:
+        raise SystemExit(f"No toctree directive found in {index_file}")
+    if dry_run:
+        print(f"Dry run enabled - would add '{entry.strip()}' to {index_file}")
+        return
+    print(f"Adding '{entry.strip()}' to {index_file}")
+    index_file.write_text("\n".join(lines) + "\n", encoding="utf-8")
+
+
+def _add_major_to_top_index(major: str, dry_run: bool) -> None:
+    _insert_entry(Path("doc/whatsnew/index.rst"), f"   {major}/index", dry_run)
 
 
 def patch_towncrier_toml(new_newsfile: str, version: str, dry_run: bool) -> None:

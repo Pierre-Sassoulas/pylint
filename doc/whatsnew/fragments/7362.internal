@@ -1,0 +1,7 @@
+The release process is now automated through GitHub Actions workflows
+(``release-prepare``, ``release-publish`` and ``release-finalize``): the version
+bump and release pull request, the GitHub release and its markdown changelog,
+the PyPI upload, and the post-release house-keeping (maintenance branch, backport
+label and milestones) no longer have to be done by hand.
+
+Refs #7362
