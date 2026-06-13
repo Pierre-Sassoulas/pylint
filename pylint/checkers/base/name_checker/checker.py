@@ -144,7 +144,7 @@ def _determine_function_name_type(
             inferred = utils.safe_infer(decorator)
             if (
                 inferred
-                and hasattr(inferred, "qname")
+                and isinstance(inferred, (nodes.LocalsDictNodeNG, bases.Proxy))
                 and inferred.qname() in property_classes
             ):
                 return "attr"

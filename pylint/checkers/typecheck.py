@@ -128,7 +128,11 @@ def _is_owner_ignored(
 
     # Match against ignored classes.
     ignored_classes = set(ignored_classes)
-    qname = owner.qname() if hasattr(owner, "qname") else ""
+    qname = (
+        owner.qname()
+        if isinstance(owner, (nodes.LocalsDictNodeNG, bases.Proxy))
+        else ""
+    )
     return any(ignore in (attrname, qname) for ignore in ignored_classes)
 
 

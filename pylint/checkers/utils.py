@@ -2087,6 +2087,9 @@ def is_hashable(node: nodes.NodeNG) -> bool:
         for inferred in node.infer():
             if isinstance(inferred, (nodes.ClassDef, util.UninferableBase)):
                 return True
+            # `igetattr` is an attribute-lookup capability, not a grammar shape:
+            # it spans heterogeneous nodes (no common base) and is absent on e.g.
+            # `Name`/`Lambda`, so probe it rather than narrowing on node type.
             if not hasattr(inferred, "igetattr"):
                 return True
             hash_fn = next(inferred.igetattr("__hash__"))
@@ -2223,7 +2226,10 @@ def is_terminating_func(node: nodes.Call) -> bool:
         return False
 
     for inferred in inferred_funcs:
-        if hasattr(inferred, "qname") and inferred.qname() in TERMINATING_FUNCS_QNAMES:
+        if (
+            isinstance(inferred, (nodes.LocalsDictNodeNG, bases.Proxy))
+            and inferred.qname() in TERMINATING_FUNCS_QNAMES
+        ):
             return True
         match inferred:
             case astroid.BoundMethod(_proxied=astroid.UnboundMethod(_proxied=p)):
@@ -2239,7 +2245,7 @@ def is_terminating_func(node: nodes.Call) -> bool:
             )
             and isinstance(inferred.returns, nodes.Name)
             and (inferred_func := safe_infer(inferred.returns))
-            and hasattr(inferred_func, "qname")
+            and isinstance(inferred_func, (nodes.LocalsDictNodeNG, bases.Proxy))
             and inferred_func.qname()
             in (
                 *TYPING_NEVER,
