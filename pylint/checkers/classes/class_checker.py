@@ -1731,7 +1731,7 @@ a metaclass class method.",
         if isinstance(node.parent, nodes.Tuple):
             class_index = -1
             for i, elt in enumerate(node.parent.elts):
-                if hasattr(elt, "attrname") and elt.attrname == "__class__":
+                if isinstance(elt, nodes.AssignAttr) and elt.attrname == "__class__":
                     class_index = i
             if class_index == -1:
                 # This should not happen because we checked that the node name

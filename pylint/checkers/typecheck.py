@@ -134,7 +134,7 @@ def _is_owner_ignored(
 
 @singledispatch
 def _node_names(node: SuccessfulInferenceResult) -> Iterable[str]:
-    if not hasattr(node, "locals"):
+    if not isinstance(node, (nodes.LocalsDictNodeNG, bases.BaseInstance)):
         return []
     return node.locals.keys()  # type: ignore[no-any-return]
 
@@ -1544,6 +1544,8 @@ accessed. Python regular expressions are accepted.",
             return
 
         # Has the function signature changed in ways we cannot reliably detect?
+        # `called` may be a BoundMethod proxying a Lambda (no `.decorators`), so we
+        # cannot narrow on node type here — probe the proxied capability instead.
         if hasattr(called, "decorators") and decorated_with(
             called, self.linter.config.signature_mutators
         ):

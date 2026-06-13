@@ -817,7 +817,7 @@ class BasicChecker(_BasicChecker):
         _parent = node.parent
         _node = node
         while _parent and not isinstance(_parent, breaker_classes):
-            if hasattr(_parent, "finalbody") and _node in _parent.finalbody:
+            if isinstance(_parent, nodes.Try) and _node in _parent.finalbody:
                 self.add_message("lost-exception", node=node, args=node_name)
                 return
             _node = _parent

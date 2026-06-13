@@ -2832,7 +2832,9 @@ class VariablesChecker(BaseChecker):
                 is_init_def = False
                 # Look for the `__init__` method in all the methods of the same class.
                 for n in node.parent.get_children():
-                    is_init_def = hasattr(n, "name") and (n.name == "__init__")
+                    is_init_def = isinstance(n, nodes.FunctionDef) and (
+                        n.name == "__init__"
+                    )
                     if is_init_def:
                         break
                 # Ignore unused arguments check for `__new__` if `__init__` is defined.

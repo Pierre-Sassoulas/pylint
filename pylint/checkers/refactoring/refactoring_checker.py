@@ -1632,7 +1632,7 @@ class RefactoringChecker(checkers.BaseTokenChecker):
         if isinstance(node.targets[0], (nodes.Tuple, nodes.List, nodes.Set)):
             assignees = node.targets[0].elts
             value = utils.safe_infer(node.value)
-            if value is None or not hasattr(value, "elts"):
+            if not isinstance(value, (nodes.List, nodes.Tuple, nodes.Set)):
                 # We cannot deduce what values are assigned, so we have to skip this
                 return
             values = value.elts

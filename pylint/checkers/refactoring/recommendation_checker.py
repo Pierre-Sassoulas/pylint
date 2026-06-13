@@ -431,7 +431,7 @@ class RecommendationChecker(checkers.BaseChecker):
 
             # If % applied to another type than str, it's modulo and can't be replaced by formatting
             if not (
-                hasattr(node.parent.left, "value")
+                isinstance(node.parent.left, nodes.Const)
                 and isinstance(node.parent.left.value, str)
             ):
                 return

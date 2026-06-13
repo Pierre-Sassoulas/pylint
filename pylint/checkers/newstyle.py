@@ -101,7 +101,7 @@ class NewStyleConflictChecker(BaseChecker):
                 # for call.args[0].name
                 if supcls:
                     name = supcls.name
-                elif call.args and hasattr(call.args[0], "name"):
+                elif call.args and isinstance(call.args[0], nodes.Name):
                     name = call.args[0].name
                 if name:
                     self.add_message("bad-super-call", node=call, args=(name,))
