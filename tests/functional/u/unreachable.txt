@@ -10,3 +10,9 @@ unreachable:75:4:75:15:func11:Unreachable code:INFERENCE
 unreachable:81:4:81:15:func12:Unreachable code:INFERENCE
 unreachable:90:4:90:24:func13:Unreachable code:INFERENCE
 unreachable:98:4:98:24:func14:Unreachable code:INFERENCE
+unreachable:115:8:115:33:func16:Unreachable code:INFERENCE
+unreachable:117:8:117:33:func16:Unreachable code:INFERENCE
+unreachable:118:4:118:32:func16:Unreachable code:INFERENCE
+unreachable:122:8:122:33:func17:Unreachable code:INFERENCE
+unreachable:123:4:123:32:func17:Unreachable code:INFERENCE
+unreachable:127:4:127:32:func18:Unreachable code:INFERENCE

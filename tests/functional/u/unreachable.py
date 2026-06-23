@@ -105,3 +105,23 @@ async def func15():
     coro = inner()
     print("reachable")
     await coro
+
+
+# Terminating call directly in test position: visit_call already flags the
+# sibling, and the body/else are flagged by the if/while/assert visitors so
+# the whole structure is covered without double-emitting.
+def func16():
+    if sys.exit(1):
+        print("body unreachable")  # [unreachable]
+    else:
+        print("else unreachable")  # [unreachable]
+    print("sibling unreachable")  # [unreachable]
+
+def func17():
+    while sys.exit(1):
+        print("body unreachable")  # [unreachable]
+    print("sibling unreachable")  # [unreachable]
+
+def func18():
+    assert sys.exit(1)
+    print("sibling unreachable")  # [unreachable]
