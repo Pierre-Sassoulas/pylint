@@ -1,3 +1,6 @@
+[MAIN]
+py-version=3.11
+
 [EXCEPTIONS]
 overgeneral-exceptions=builtins.BaseException,
                        builtins.Exception,

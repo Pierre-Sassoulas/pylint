@@ -1,4 +1,5 @@
 [MAIN]
+py-version=3.11
 load-plugins=pylint.extensions.mccabe,
 
 max-complexity=0
