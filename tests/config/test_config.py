@@ -6,6 +6,7 @@ from __future__ import annotations
 
 import os
 import re
+import sys
 from pathlib import Path
 from tempfile import TemporaryDirectory
 from typing import Any
@@ -111,6 +112,39 @@ def test_unknown_py_version(capsys: CaptureFixture) -> None:
         Run([str(EMPTY_MODULE), "--py-version=the-newest"], exit=False)
     output = capsys.readouterr()
     assert "the-newest has an invalid format, should be a version string." in output.err
+
+
+def test_py_version_from_requires_python(tmp_path: Path) -> None:
+    """Check that 'py-version' defaults to the project's oldest supported version."""
+    (tmp_path / "pyproject.toml").write_text(
+        '[project]\nrequires-python = ">=3.8"\n', encoding="utf-8"
+    )
+    module = tmp_path / "empty.py"
+    module.write_text("", encoding="utf-8")
+    current_dir = os.getcwd()
+    os.chdir(tmp_path)
+    try:
+        run = Run([str(module)], exit=False)
+        assert run.linter.config.py_version == (3, 8)
+
+        # An explicit value always wins over the project metadata
+        run = Run([str(module), "--py-version=3.12"], exit=False)
+        assert run.linter.config.py_version == (3, 12)
+    finally:
+        os.chdir(current_dir)
+
+
+def test_py_version_without_requires_python(tmp_path: Path) -> None:
+    """Check that we fall back to the running interpreter."""
+    module = tmp_path / "empty.py"
+    module.write_text("", encoding="utf-8")
+    current_dir = os.getcwd()
+    os.chdir(tmp_path)
+    try:
+        run = Run([str(module)], exit=False)
+        assert run.linter.config.py_version == sys.version_info[:2]
+    finally:
+        os.chdir(current_dir)
 
 
 CSV_REGEX_COMMA_CASES = [

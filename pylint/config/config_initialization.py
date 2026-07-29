@@ -18,10 +18,20 @@ from pylint.config.exceptions import (
     ArgumentPreprocessingError,
     _UnrecognizedOptionError,
 )
+from pylint.config.find_default_config_files import find_default_py_version
 from pylint.utils import utils
 
 if TYPE_CHECKING:
     from pylint.lint import PyLinter
+
+
+def _py_version_is_explicit(config_data: dict[str, str], args_list: list[str]) -> bool:
+    """Return True if the user asked for a specific 'py-version' themselves."""
+    if "py-version" in config_data:
+        return True
+    return any(
+        arg == "--py-version" or arg.startswith("--py-version=") for arg in args_list
+    )
 
 
 def _config_initialization(  # pylint: disable=too-many-statements
@@ -115,6 +125,19 @@ def _config_initialization(  # pylint: disable=too-many-statements
         linter.add_message(
             "unrecognized-option", args=unrecognized_options_message, line=0
         )
+
+    # 'py-version' falls back to the interpreter running pylint, but the project
+    # being linted usually supports an older one and says so in its metadata.
+    if not _py_version_is_explicit(config_data, args_list):
+        requires_python = find_default_py_version()
+        if requires_python is not None:
+            linter.config.py_version = requires_python
+            if verbose_mode:
+                version = ".".join(str(part) for part in requires_python)
+                print(
+                    f"Using py-version {version} from 'requires-python'",
+                    file=sys.stderr,
+                )
 
     # TODO: Change this to be checked only when upgrading the configuration
     for exc_name in linter.config.overgeneral_exceptions:
