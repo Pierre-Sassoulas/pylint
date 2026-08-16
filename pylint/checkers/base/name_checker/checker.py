@@ -510,16 +510,12 @@ class NameChecker(_BasicChecker):
                         node, (nodes.For, nodes.While)
                     )
                 ):
-                    meets_exception = self._meets_exception_for_non_consts(
+                    if self._meets_exception_for_non_consts(
                         inferred_assign_type, node.name
-                    )
-                    self._check_name(
-                        "const",
-                        node.name,
-                        node,
-                        disallowed_check_only=meets_exception,
-                        skip_name_group_census=meets_exception,
-                    )
+                    ):
+                        self._check_disallowed_name("const", node.name, node)
+                    else:
+                        self._check_name("const", node.name, node)
                 else:
                     node_type = "variable"
                     iattrs = tuple(node.frame().igetattr(node.name))
@@ -536,16 +532,17 @@ class NameChecker(_BasicChecker):
                         for combo in itertools.combinations(attrs, 2)
                     ):
                         node_type = "const"
-                    meets_exception = self._meets_exception_for_non_consts(
+                    if self._meets_exception_for_non_consts(
                         inferred_assign_type, node.name
-                    )
-                    self._check_name(
-                        node_type,
-                        node.name,
-                        node,
-                        disallowed_check_only=redefines_import or meets_exception,
-                        skip_name_group_census=meets_exception,
-                    )
+                    ):
+                        self._check_disallowed_name(node_type, node.name, node)
+                    else:
+                        self._check_name(
+                            node_type,
+                            node.name,
+                            node,
+                            disallowed_check_only=redefines_import,
+                        )
 
         # Check names defined in function scopes
         elif isinstance(frame, nodes.FunctionDef):
@@ -650,6 +647,28 @@ class NameChecker(_BasicChecker):
             pattern.match(name) for pattern in self._bad_names_rgxs_compiled
         )
 
+    def _check_disallowed_name(
+        self, node_type: str, name: str, node: nodes.NodeNG
+    ) -> bool:
+        """Check a name against ``good-names`` and ``bad-names`` only.
+
+        Unlike the naming style, those two lists are literal user configuration:
+        they apply to every name, whatever the surrounding code makes of it.
+        Call this directly wherever a name is exempt from ``invalid-name``.
+
+        Returns whether the name was settled, either allowed outright or
+        reported, in which case no naming style check should follow.
+        """
+        if self._name_allowed_by_regex(name=name):
+            return True
+        if self._name_disallowed_by_regex(name=name):
+            self.linter.stats.increase_bad_name(node_type, 1)
+            self.add_message(
+                "disallowed-name", node=node, args=name, confidence=interfaces.HIGH
+            )
+            return True
+        return False
+
     def _check_name(
         self,
         node_type: str,
@@ -657,16 +676,14 @@ class NameChecker(_BasicChecker):
         node: nodes.NodeNG,
         confidence: interfaces.Confidence = interfaces.HIGH,
         disallowed_check_only: bool = False,
-        skip_name_group_census: bool = False,
     ) -> None:
         """Check for a name using the type's regexp.
 
         ``disallowed_check_only`` suppresses ``invalid-name`` for this node, but
         the name still counts towards its ``name-group``, so it can still make
-        another name in that group be reported as the minority style.
-        ``skip_name_group_census`` takes the name out of that group as well: use
-        it when the name is exempt from the naming style itself, not merely from
-        the message.
+        another name in that group be reported as the minority style. To keep a
+        name out of that group as well, call ``_check_disallowed_name`` instead
+        of this method.
         """
 
         def _should_exempt_from_invalid_name(node: nodes.NodeNG) -> bool:
@@ -676,20 +693,12 @@ class NameChecker(_BasicChecker):
                     return True
             return False
 
-        if self._name_allowed_by_regex(name=name):
-            return
-        if self._name_disallowed_by_regex(name=name):
-            self.linter.stats.increase_bad_name(node_type, 1)
-            self.add_message(
-                "disallowed-name", node=node, args=name, confidence=interfaces.HIGH
-            )
+        if self._check_disallowed_name(node_type, name, node):
             return
         regexp = self._name_regexps[node_type]
         match = regexp.match(name)
 
-        if not skip_name_group_census and _is_multi_naming_match(
-            match, node_type, confidence
-        ):
+        if _is_multi_naming_match(match, node_type, confidence):
             name_group = self._find_name_group(node_type)
             bad_name_group = self._bad_names.setdefault(name_group, {})
             # Ignored because this is checked by the if statement
