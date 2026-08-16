@@ -1,5 +1,8 @@
-Fix a false negative for ``disallowed-name`` on module-level names assigned a
-value that is not a constant. The control flow that suppresses ``invalid-name``
-for these names no longer skips the ``disallowed-name`` check as well.
+Fix several false negatives for ``disallowed-name``. A name on the ``bad-names``
+list is now reported everywhere it appears, including where its naming style is
+not checked: when the assigned value cannot be inferred, when the name redefines
+an import inside a function, when it is a ``Final`` attribute, and when it is a
+method, an instance attribute or a class attribute that a parent class already
+spells.
 
 Closes #10679

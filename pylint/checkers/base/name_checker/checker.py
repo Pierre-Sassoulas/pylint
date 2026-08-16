@@ -375,9 +375,15 @@ class NameChecker(_BasicChecker):
     def visit_classdef(self, node: nodes.ClassDef) -> None:
         self._check_name("class", node.name, node)
         for attr, anodes in node.instance_attrs.items():
-            if not any(
-                node.instance_attr_ancestors(attr)
-            ) and not utils.is_assign_name_annotated_with(anodes[0], "Final"):
+            if utils.is_assign_name_annotated_with(anodes[0], "Final"):
+                # A Final attribute is a constant, so the attribute style does
+                # not apply to it, but ``bad-names`` still does.
+                self._check_disallowed_name("attr", attr, anodes[0])
+            elif any(node.instance_attr_ancestors(attr)):
+                # The attribute comes from a parent class and cannot be renamed
+                # here, so only ``bad-names`` applies.
+                self._check_disallowed_name("attr", attr, anodes[0])
+            else:
                 self._check_name("attr", attr, anodes[0])
 
     @utils.only_required_for_messages("disallowed-name", "invalid-name")
@@ -387,6 +393,13 @@ class NameChecker(_BasicChecker):
         confidence = interfaces.HIGH
         if node.is_method():
             if utils.overrides_a_method(node.parent.frame(), node.name):
+                # The name is imposed by the base class and cannot be renamed
+                # here, so only ``bad-names`` applies.
+                self._check_disallowed_name(
+                    _determine_function_name_type(node, config=self.linter.config),
+                    node.name,
+                    node,
+                )
                 return
             confidence = (
                 interfaces.INFERENCE
@@ -491,6 +504,9 @@ class NameChecker(_BasicChecker):
                         return
 
                 elif inferred_assign_type in (None, util.Uninferable):
+                    # Without the value, the style to check the name against
+                    # cannot be picked, but ``bad-names`` does not need it.
+                    self._check_disallowed_name("const", node.name, node)
                     return
 
                 # Check classes (TypeVar's are classes so they need to be excluded first)
@@ -523,6 +539,7 @@ class NameChecker(_BasicChecker):
                         util.Uninferable in iattrs
                         and self._name_regexps["const"].match(node.name) is not None
                     ):
+                        self._check_disallowed_name(node_type, node.name, node)
                         return
                     # Do the exclusive assignment analysis on attrs, not iattrs.
                     # iattrs locations could be anywhere (inference result).
@@ -548,29 +565,38 @@ class NameChecker(_BasicChecker):
         elif isinstance(frame, nodes.FunctionDef):
             # global introduced variable aren't in the function locals
             if node.name in frame and node.name not in frame.argnames():
-                if not _redefines_import(node):
-                    if isinstance(
-                        assign_type, nodes.AnnAssign
-                    ) and self._assigns_typealias(assign_type.annotation):
-                        self._check_name("typealias", node.name, node)
-                    else:
-                        self._check_name("variable", node.name, node)
+                if isinstance(assign_type, nodes.AnnAssign) and self._assigns_typealias(
+                    assign_type.annotation
+                ):
+                    node_type = "typealias"
+                else:
+                    node_type = "variable"
+                # A name redefining an import is spelled by the import, so it is
+                # exempt from the naming style, the way it already is at module
+                # scope.
+                self._check_name(
+                    node_type,
+                    node.name,
+                    node,
+                    disallowed_check_only=_redefines_import(node),
+                )
 
         # Check names defined in class scopes
-        elif isinstance(frame, nodes.ClassDef) and not any(
-            frame.local_attr_ancestors(node.name)
-        ):
+        elif isinstance(frame, nodes.ClassDef):
             if utils.is_assign_name_annotated_with_class_var_typing_name(node, "Final"):
-                self._check_name("class_const", node.name, node)
+                node_type = "class_const"
             elif utils.is_assign_name_annotated_with(node, "Final"):
-                if frame.is_dataclass:
-                    self._check_name("class_attribute", node.name, node)
-                else:
-                    self._check_name("class_const", node.name, node)
+                node_type = "class_attribute" if frame.is_dataclass else "class_const"
             elif utils.is_enum_member(node):
-                self._check_name("class_const", node.name, node)
+                node_type = "class_const"
             else:
-                self._check_name("class_attribute", node.name, node)
+                node_type = "class_attribute"
+            if any(frame.local_attr_ancestors(node.name)):
+                # The name comes from a parent class and cannot be renamed here,
+                # so only ``bad-names`` applies.
+                self._check_disallowed_name(node_type, node.name, node)
+            else:
+                self._check_name(node_type, node.name, node)
 
     def _meets_exception_for_non_consts(
         self, inferred_assign_type: InferenceResult | None, name: str

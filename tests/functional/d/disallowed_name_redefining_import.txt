@@ -1,0 +1,2 @@
+disallowed-name:10:4:10:7::"Disallowed name ""foo""":HIGH
+disallowed-name:18:8:18:11:eat:"Disallowed name ""bar""":HIGH

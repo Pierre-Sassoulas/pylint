@@ -1,0 +1,6 @@
+disallowed-name:11:4:11:8:Fruit:"Disallowed name ""toto""":HIGH
+disallowed-name:14:8:14:16:Fruit.__init__:"Disallowed name ""bar""":HIGH
+disallowed-name:16:4:16:11:Fruit.foo:"Disallowed name ""foo""":HIGH
+disallowed-name:23:4:23:8:Apple:"Disallowed name ""toto""":HIGH
+disallowed-name:27:8:27:16:Apple.__init__:"Disallowed name ""bar""":HIGH
+disallowed-name:29:4:29:11:Apple.foo:"Disallowed name ""foo""":HIGH

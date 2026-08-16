@@ -1,0 +1,1 @@
+disallowed-name:14:8:14:16:Fruit.__init__:"Disallowed name ""foo""":HIGH
