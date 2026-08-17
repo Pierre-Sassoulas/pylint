@@ -9,15 +9,18 @@ import platform
 import sys
 import traceback
 from collections.abc import Iterator, Sequence
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 
 from pylint.constants import PYLINT_HOME, full_version
 
 
 def prepare_crash_report(ex: Exception, filepath: str, crash_file_path: str) -> Path:
+    # The crash file is named after the local time, but we ask for an aware
+    # datetime so the conversion does not depend on a naive system clock.
+    local_now = datetime.now(tz=timezone.utc).astimezone()
     issue_template_path = (
-        Path(PYLINT_HOME) / datetime.now().strftime(str(crash_file_path))
+        Path(PYLINT_HOME) / local_now.strftime(str(crash_file_path))
     ).resolve()
     with open(filepath, encoding="utf8") as f:
         file_content = f.read()
