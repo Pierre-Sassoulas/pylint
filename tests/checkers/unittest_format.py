@@ -160,8 +160,7 @@ def test_disable_global_option_end_of_line() -> None:
     """Test for issue with disabling tokenizer messages
     that extend beyond the scope of the ast tokens.
     """
-    file_ = tempfile.NamedTemporaryFile("w", delete=False)
-    with file_:
+    with tempfile.NamedTemporaryFile("w", delete=False) as file_:
         file_.write("""
 1
     """)
