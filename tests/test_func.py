@@ -147,7 +147,7 @@ def test_functionality(
 ) -> None:
     __test_functionality(module_file, messages_file, dependencies)
     if recwarn.list:
-        if module_file in TEST_WITH_EXPECTED_DEPRECATION and sys.version_info.minor > 5:
+        if module_file in TEST_WITH_EXPECTED_DEPRECATION:
             assert any(
                 "invalid escape sequence" in str(i.message)
                 for i in recwarn.list
