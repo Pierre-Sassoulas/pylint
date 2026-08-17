@@ -56,7 +56,9 @@ def _config_initialization(  # pylint: disable=too-many-statements
 
     # Run init hook, if present, before loading plugins
     if "init-hook" in config_data:
-        exec(utils._unquote(config_data["init-hook"]))  # pylint: disable=exec-used
+        # Running the user's own code is the whole point of 'init-hook'.
+        # pylint: disable-next=exec-used
+        exec(utils._unquote(config_data["init-hook"]))  # noqa: S102
 
     # Load plugins if specified in the config file
     default_checkers = copy(linter._registered_checkers)

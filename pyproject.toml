@@ -170,7 +170,6 @@ lint.ignore = [
   "PTH207", # Replace `glob` with `Path.glob` or `Path.rglob`
   "PTH208", # Use `pathlib.Path.iterdir()` instead"
   "RUF012", # mutable default values in class attributes
-  "S102",   # Use of `exec` detected
   "SIM102", # Use a single `if` statement instead of nested `if` statements
   "SIM103", # Return the condition directly
   "SIM114", # Combine `if` branches using logical `or` operator

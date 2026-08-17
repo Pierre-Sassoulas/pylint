@@ -149,7 +149,8 @@ def _init_hook(run: Run, value: str | None) -> None:
     This can be used to set the 'sys.path' for example.
     """
     assert value is not None
-    exec(value)  # pylint: disable=exec-used
+    # Running the user's own code is the whole point of 'init-hook'.
+    exec(value)  # pylint: disable=exec-used  # noqa: S102
 
 
 def _set_rcfile(run: Run, value: str | None) -> None:
