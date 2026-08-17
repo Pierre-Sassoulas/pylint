@@ -635,7 +635,10 @@ def _get_local_callable(
 
 def _check_is_function_def(obj: Any) -> None:
     if not isinstance(obj, nodes.FunctionDef):
-        raise ValueError
+        # ``ValueError`` is the sentinel ``_determine_callable`` raises for
+        # "this callable could not be determined", not a type validation
+        # error, and its caller only catches that exception.
+        raise ValueError  # noqa: TRY004
 
 
 def _determine_callable(
