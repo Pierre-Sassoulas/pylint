@@ -6,7 +6,7 @@ from __future__ import annotations
 
 import os
 import sys
-from datetime import datetime
+from datetime import datetime, timezone
 
 # Pylint documentation build configuration file, created by
 # sphinx-quickstart on Thu Apr  4 20:31:25 2013.
@@ -114,7 +114,7 @@ root_doc = "index"
 
 # General information about the project.
 project = "Pylint"
-current_year = datetime.utcnow().year
+current_year = datetime.now(tz=timezone.utc).year
 contributors = "Logilab and Pylint contributors"
 copyright = f"2003-{current_year}, {contributors}"  # pylint: disable=redefined-builtin
 
