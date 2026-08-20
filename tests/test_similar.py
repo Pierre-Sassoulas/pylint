@@ -44,10 +44,9 @@ class TestSymilarCodeChecker:
             "--ignore-signatures=y",
         ]
         with _patch_streams(out):
-            with pytest.raises(SystemExit) as cm:
-                with warnings.catch_warnings():
-                    warnings.simplefilter("ignore")
-                    Run(args)
+            with pytest.raises(SystemExit) as cm, warnings.catch_warnings():
+                warnings.simplefilter("ignore")
+                Run(args)
             return int(cm.value.code)
 
     @staticmethod

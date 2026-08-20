@@ -135,10 +135,9 @@ class TestRunTC:
     def _run_pylint(args: list[str], out: TextIO, reporter: Any = None) -> int:
         args = _add_rcfile_default_pylintrc([*args, "--persistent=no"])
         with _patch_streams(out):
-            with pytest.raises(SystemExit) as cm:
-                with warnings.catch_warnings():
-                    warnings.simplefilter("ignore")
-                    Run(args, reporter=reporter)
+            with pytest.raises(SystemExit) as cm, warnings.catch_warnings():
+                warnings.simplefilter("ignore")
+                Run(args, reporter=reporter)
             return int(cm.value.code)
 
     @staticmethod
@@ -1667,11 +1666,9 @@ class TestCallbackOptions:
     def test_generate_config_disable_symbolic_names() -> None:
         """Test that --generate-rcfile puts symbolic names in the --disable option."""
         out = StringIO()
-        with _patch_streams(out):
-            with pytest.raises(SystemExit):
-                with warnings.catch_warnings():
-                    warnings.simplefilter("ignore")
-                    Run(["--generate-rcfile", "--rcfile=", "--persistent=no"])
+        with _patch_streams(out), pytest.raises(SystemExit), warnings.catch_warnings():
+            warnings.simplefilter("ignore")
+            Run(["--generate-rcfile", "--rcfile=", "--persistent=no"])
         output = out.getvalue()
 
         # Get rid of the pesky messages that pylint emits if the
@@ -1734,11 +1731,13 @@ class TestCallbackOptions:
     def test_generate_toml_config_disable_symbolic_names() -> None:
         """Test that --generate-toml-config puts symbolic names in the --disable option."""
         output_stream = StringIO()
-        with _patch_streams(output_stream):
-            with pytest.raises(SystemExit):
-                with warnings.catch_warnings():
-                    warnings.simplefilter("ignore")
-                    Run(["--generate-toml-config"])
+        with (
+            _patch_streams(output_stream),
+            pytest.raises(SystemExit),
+            warnings.catch_warnings(),
+        ):
+            warnings.simplefilter("ignore")
+            Run(["--generate-toml-config"])
 
         out = output_stream.getvalue()
         bytes_out = BytesIO(out.encode("utf-8"))

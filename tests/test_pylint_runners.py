@@ -32,11 +32,10 @@ class _RunCallable(Protocol):  # pylint: disable=too-few-public-methods
 def test_runner(runner: _RunCallable, tmp_path: pathlib.Path) -> None:
     filepath = os.path.abspath(__file__)
     testargs = ["", filepath]
-    with _test_cwd(tmp_path):
-        with patch.object(sys, "argv", testargs):
-            with pytest.raises(SystemExit) as err:
-                runner()
-            assert err.value.code == 0
+    with _test_cwd(tmp_path), patch.object(sys, "argv", testargs):
+        with pytest.raises(SystemExit) as err:
+            runner()
+        assert err.value.code == 0
 
 
 @pytest.mark.parametrize("runner", [run_pylint, run_pyreverse, run_symilar])
@@ -97,13 +96,15 @@ def test_pylint_run_dont_crash_with_cgroupv1(
     testargs = [filepath, "--jobs=0"]
 
     with _test_cwd(tmp_path):
-        with pytest.raises(SystemExit) as err:
-            with patch(
+        with (
+            pytest.raises(SystemExit) as err,
+            patch(
                 "builtins.open",
                 mock_cgroup_fs(quota=quota, shares=shares, period=period),
-            ):
-                with patch("pylint.lint.run.Path", mock_cgroup_path(v2=False)):
-                    Run(testargs, reporter=Reporter())
+            ),
+            patch("pylint.lint.run.Path", mock_cgroup_path(v2=False)),
+        ):
+            Run(testargs, reporter=Reporter())
         assert err.value.code == 0
 
 
@@ -125,10 +126,12 @@ def test_pylint_run_dont_crash_with_cgroupv2(
     testargs = [filepath, "--jobs=0"]
 
     with _test_cwd(tmp_path):
-        with pytest.raises(SystemExit) as err:
-            with patch("builtins.open", mock_cgroup_fs(max_v2=contents)):
-                with patch("pylint.lint.run.Path", mock_cgroup_path(v2=True)):
-                    Run(testargs, reporter=Reporter())
+        with (
+            pytest.raises(SystemExit) as err,
+            patch("builtins.open", mock_cgroup_fs(max_v2=contents)),
+            patch("pylint.lint.run.Path", mock_cgroup_path(v2=True)),
+        ):
+            Run(testargs, reporter=Reporter())
         assert err.value.code == 0
 
 
@@ -152,11 +155,13 @@ def test_query_cpu_cgroupv2(
     """Check that `pylint.lint.run._query_cpu` generates realistic values in cgroupsv2
     systems.
     """
-    with _test_cwd(tmp_path):
-        with patch("builtins.open", mock_cgroup_fs(max_v2=contents)):
-            with patch("pylint.lint.run.Path", mock_cgroup_path(v2=True)):
-                cpus = _query_cpu()
-                assert cpus == expected
+    with (
+        _test_cwd(tmp_path),
+        patch("builtins.open", mock_cgroup_fs(max_v2=contents)),
+        patch("pylint.lint.run.Path", mock_cgroup_path(v2=True)),
+    ):
+        cpus = _query_cpu()
+        assert cpus == expected
 
 
 @pytest.mark.parametrize(
@@ -184,13 +189,15 @@ def test_query_cpu_cgroupv1(
     """Check that `pylint.lint.run._query_cpu` generates realistic values in cgroupsv1
     systems.
     """
-    with _test_cwd(tmp_path):
-        with patch(
+    with (
+        _test_cwd(tmp_path),
+        patch(
             "builtins.open", mock_cgroup_fs(quota=quota, shares=shares, period=period)
-        ):
-            with patch("pylint.lint.run.Path", mock_cgroup_path(v2=False)):
-                cpus = _query_cpu()
-                assert cpus == expected
+        ),
+        patch("pylint.lint.run.Path", mock_cgroup_path(v2=False)),
+    ):
+        cpus = _query_cpu()
+        assert cpus == expected
 
 
 def mock_cgroup_path(v2: bool) -> Any:

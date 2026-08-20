@@ -196,11 +196,13 @@ class TestCheckParallelFramework:
         linter.load_plugin_modules(["pylint.extensions.private_import"])
 
         pickled = dill.dumps(linter)
-        with patch(
-            "pylint.extensions.private_import.register", side_effect=AssertionError
+        with (
+            patch(
+                "pylint.extensions.private_import.register", side_effect=AssertionError
+            ),
+            pytest.raises(AssertionError),
         ):
-            with pytest.raises(AssertionError):
-                worker_initialize(linter=pickled)
+            worker_initialize(linter=pickled)
 
     @pytest.mark.needs_two_cores
     def test_worker_initialize_pickling(self) -> None:

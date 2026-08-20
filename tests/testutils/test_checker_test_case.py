@@ -37,26 +37,32 @@ class TestCheckerTestCase(CheckerTestCase):
 
     def test_assert_adds_messages_failure_not_raised(self) -> None:
         """Scenario 2: expected raised / actual not raised."""
-        with pytest.raises(AssertionError, match=r"Got:\s+No message\."):
-            with self.assertAddsMessages(_MSG_A):
-                pass  # nothing emitted
+        with (
+            pytest.raises(AssertionError, match=r"Got:\s+No message\."),
+            self.assertAddsMessages(_MSG_A),
+        ):
+            pass  # nothing emitted
 
     def test_assert_adds_messages_failure_wrong_message(self) -> None:
         """Scenario 3: expected raised / actual not raised but another one raised."""
-        with pytest.raises(
-            AssertionError, match="Expected messages did not match actual"
+        with (
+            pytest.raises(
+                AssertionError, match="Expected messages did not match actual"
+            ),
+            self.assertAddsMessages(_MSG_A),
         ):
-            with self.assertAddsMessages(_MSG_A):
-                self.linter.add_message("W9902", line=2)
+            self.linter.add_message("W9902", line=2)
 
     def test_assert_does_not_add_messages_failure(self) -> None:
         """Scenario 4: expected not raised / actual raised."""
-        with pytest.raises(
-            AssertionError,
-            match="Message 'W9901' was not expected to be emitted",
+        with (
+            pytest.raises(
+                AssertionError,
+                match="Message 'W9901' was not expected to be emitted",
+            ),
+            self.assertDoesNotAddMessages("W9901"),
         ):
-            with self.assertDoesNotAddMessages("W9901"):
-                self.linter.add_message("W9901", line=1)
+            self.linter.add_message("W9901", line=1)
 
     def test_assert_does_not_add_messages_success(self) -> None:
         """Scenario 5: expected not raised / actual not raised."""
@@ -70,27 +76,30 @@ class TestCheckerTestCase(CheckerTestCase):
 
     def test_assert_does_not_add_messages_no_args_raises(self) -> None:
         """Calling with no arguments must raise TypeError."""
-        with pytest.raises(TypeError, match="requires at least one"):
-            with self.assertDoesNotAddMessages():
-                pass
+        with (
+            pytest.raises(TypeError, match="requires at least one"),
+            self.assertDoesNotAddMessages(),
+        ):
+            pass
 
     def test_assert_does_not_add_messages_multiple_unwanted(self) -> None:
         """Fails when any of the several unwanted message IDs is found."""
-        with pytest.raises(
-            AssertionError,
-            match="Message 'W9902' was not expected to be emitted",
+        with (
+            pytest.raises(
+                AssertionError,
+                match="Message 'W9902' was not expected to be emitted",
+            ),
+            self.assertDoesNotAddMessages("W9901", "W9902"),
         ):
-            with self.assertDoesNotAddMessages("W9901", "W9902"):
-                self.linter.add_message("W9902", line=2)
+            self.linter.add_message("W9902", line=2)
 
     def test_assert_does_not_add_messages_exception_in_body_drains_messages(
         self,
     ) -> None:
         """An exception in the with-block must not leak messages to later tests."""
-        with pytest.raises(RuntimeError):
-            with self.assertDoesNotAddMessages("W9901"):
-                self.linter.add_message("W9901", line=1)
-                raise RuntimeError("something went wrong")
+        with pytest.raises(RuntimeError), self.assertDoesNotAddMessages("W9901"):
+            self.linter.add_message("W9901", line=1)
+            raise RuntimeError("something went wrong")
         # Messages must have been drained; a subsequent assertNoMessages should pass.
         with self.assertNoMessages():
             pass

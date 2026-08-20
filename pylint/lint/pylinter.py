@@ -742,13 +742,15 @@ class PyLinter(
         reporter = ProgressReporter(self.verbose)
 
         # The context manager also opens all checkers and sets up the PyLinter class.
-        with augmented_sys_path(extra_packages_paths):
-            with self._astroid_module_checker() as check_astroid_module:
-                # Get the AST for each FileItem.
-                ast_per_fileitem = self._get_asts(fileitems, data, reporter)
+        with (
+            augmented_sys_path(extra_packages_paths),
+            self._astroid_module_checker() as check_astroid_module,
+        ):
+            # Get the AST for each FileItem.
+            ast_per_fileitem = self._get_asts(fileitems, data, reporter)
 
-                # Lint each AST.
-                self._lint_files(ast_per_fileitem, check_astroid_module, reporter)
+            # Lint each AST.
+            self._lint_files(ast_per_fileitem, check_astroid_module, reporter)
 
     def _get_asts(
         self,

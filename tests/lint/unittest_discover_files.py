@@ -80,22 +80,24 @@ def test_does_not_ignore_similarly_named_package(
     Test to see if we return the expected package/file list even if a shorter named package is processed
     first and does not match an ignore config value.
     """
-    with mock.patch("os.walk") as mock_walk:
-        with mock.patch.multiple(
+    with (
+        mock.patch("os.walk") as mock_walk,
+        mock.patch.multiple(
             "os.path", isdir=mock.DEFAULT, isfile=mock.DEFAULT
-        ) as mock_path:
-            mock_walk.return_value = mock_tree
-            mock_path["isdir"].side_effect = mock_isdir
-            mock_path["isfile"].side_effect = mock_isfile
+        ) as mock_path,
+    ):
+        mock_walk.return_value = mock_tree
+        mock_path["isdir"].side_effect = mock_isdir
+        mock_path["isfile"].side_effect = mock_isfile
 
-            results = tuple(initialized_linter._discover_files(["."]))
+        results = tuple(initialized_linter._discover_files(["."]))
 
-            assert mock_path["isdir"].call_count == 1
-            assert mock_path["isdir"].call_args_list == [mock.call(".")]
-            assert mock_path["isfile"].call_count == 1
-            assert mock_path["isfile"].call_args_list == [
-                mock.call(f".{os.sep}__init__.py"),
-            ]
+        assert mock_path["isdir"].call_count == 1
+        assert mock_path["isdir"].call_args_list == [mock.call(".")]
+        assert mock_path["isfile"].call_count == 1
+        assert mock_path["isfile"].call_args_list == [
+            mock.call(f".{os.sep}__init__.py"),
+        ]
 
     assert len(results) == 3
     assert results == (
@@ -115,28 +117,30 @@ def test_does_not_ignore_similarly_named_package_even_if_first_ignored(
 
     NOTE: manage.py probably should be ignored.
     """
-    with mock.patch("os.walk") as mock_walk:
-        with mock.patch.multiple(
+    with (
+        mock.patch("os.walk") as mock_walk,
+        mock.patch.multiple(
             "os.path", isdir=mock.DEFAULT, isfile=mock.DEFAULT
-        ) as mock_path:
-            initialized_linter.config.ignore = [
-                ".venv",
-                "applications",
-                "node_modules",
-                "manage.py",
-            ]
-            mock_walk.return_value = mock_tree
-            mock_path["isdir"].side_effect = mock_isdir
-            mock_path["isfile"].side_effect = mock_isfile
+        ) as mock_path,
+    ):
+        initialized_linter.config.ignore = [
+            ".venv",
+            "applications",
+            "node_modules",
+            "manage.py",
+        ]
+        mock_walk.return_value = mock_tree
+        mock_path["isdir"].side_effect = mock_isdir
+        mock_path["isfile"].side_effect = mock_isfile
 
-            results = tuple(initialized_linter._discover_files(["."]))
+        results = tuple(initialized_linter._discover_files(["."]))
 
-            assert mock_path["isdir"].call_count == 1
-            assert mock_path["isdir"].call_args_list == [mock.call(".")]
-            assert mock_path["isfile"].call_count == 1
-            assert mock_path["isfile"].call_args_list == [
-                mock.call(f".{os.sep}__init__.py"),
-            ]
+        assert mock_path["isdir"].call_count == 1
+        assert mock_path["isdir"].call_args_list == [mock.call(".")]
+        assert mock_path["isfile"].call_count == 1
+        assert mock_path["isfile"].call_args_list == [
+            mock.call(f".{os.sep}__init__.py"),
+        ]
 
     assert len(results) == 2
     assert results == (f".{os.sep}manage.py", f".{os.sep}applications_api")
