@@ -152,6 +152,14 @@ def test_minimal_messages_config_enabled(pytest_config: MagicMock) -> None:
     assert not mod_test._linter.is_message_enabled("unused-import")
 
 
+def test_functional_test_file_module() -> None:
+    """The module name is the containing directory joined to the file's base name."""
+    test_file = FunctionalTestFile(
+        str(DATA_DIRECTORY / "m"), "minimal_messages_config.py"
+    )
+    assert test_file.module == "m.minimal_messages_config"
+
+
 def test_minimal_messages_config_excluded_file(pytest_config: MagicMock) -> None:
     """Test that functional test files can be excluded from the run with
     --minimal-messages-config if they set the exclude_from_minimal_messages_config
