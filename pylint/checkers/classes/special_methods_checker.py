@@ -324,9 +324,9 @@ class SpecialMethodsChecker(BaseChecker):
             self.add_message("non-iterator-returned", node=node)
 
     def _check_len(self, node: nodes.FunctionDef, inferred: InferenceResult) -> None:
-        if not self._is_int(inferred):
-            self.add_message("invalid-length-returned", node=node)
-        elif isinstance(inferred, nodes.Const) and inferred.value < 0:
+        if not self._is_int(inferred) or (
+            isinstance(inferred, nodes.Const) and inferred.value < 0
+        ):
             self.add_message("invalid-length-returned", node=node)
 
     def _check_bool(self, node: nodes.FunctionDef, inferred: InferenceResult) -> None:
@@ -356,9 +356,9 @@ class SpecialMethodsChecker(BaseChecker):
     def _check_length_hint(
         self, node: nodes.FunctionDef, inferred: InferenceResult
     ) -> None:
-        if not self._is_int(inferred):
-            self.add_message("invalid-length-hint-returned", node=node)
-        elif isinstance(inferred, nodes.Const) and inferred.value < 0:
+        if not self._is_int(inferred) or (
+            isinstance(inferred, nodes.Const) and inferred.value < 0
+        ):
             self.add_message("invalid-length-hint-returned", node=node)
 
     def _check_format(self, node: nodes.FunctionDef, inferred: InferenceResult) -> None:

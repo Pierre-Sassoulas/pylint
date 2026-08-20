@@ -914,18 +914,15 @@ scope_type : {self.scope_type}
                 continue
 
             if try_block_returns or else_block_returns or else_block_exits:
-                # Exception: if this node is in the final block of the other_node_statement,
-                # it will execute before returning. Assume the except statements are uncertain.
+                # Exception: if this node is in the final block, or in the else
+                # block, of the other_node_statement, it will execute before
+                # returning. Assume the except statements are uncertain.
                 if (
                     isinstance(node_statement.parent, nodes.Try)
-                    and node_statement in node_statement.parent.finalbody
-                    and closest_try_except.parent.parent_of(node_statement)
-                ):
-                    uncertain_nodes.append(other_node)
-                # Or the node_statement is in the else block of the relevant Try
-                elif (
-                    isinstance(node_statement.parent, nodes.Try)
-                    and node_statement in node_statement.parent.orelse
+                    and (
+                        node_statement in node_statement.parent.finalbody
+                        or node_statement in node_statement.parent.orelse
+                    )
                     and closest_try_except.parent.parent_of(node_statement)
                 ):
                     uncertain_nodes.append(other_node)
