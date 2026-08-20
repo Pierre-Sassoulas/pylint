@@ -12,6 +12,8 @@ from typing import Literal
 from git import GitCommandError
 from git.repo import Repo
 
+LOGGER = logging.getLogger(__name__)
+
 PRIMER_DIRECTORY_PATH = Path("tests") / ".pylint_primer_tests"
 
 
@@ -92,13 +94,13 @@ class PackageToLint:
         we'll probably notice because we'll have a fatal when launching the
         primer locally.
         """
-        logging.info("Lazy cloning %s", self.url)
+        LOGGER.info("Lazy cloning %s", self.url)
         if not self.clone_directory.exists():
             return self._clone_repository()
         return self._pull_repository()
 
     def _clone_repository(self) -> str:
-        logging.info(
+        LOGGER.info(
             "Directory does not exist, cloning %s at commit %s",
             self.url,
             self.commit,
@@ -114,10 +116,10 @@ class PackageToLint:
         local_sha1_commit: str = repo.head.object.hexsha
 
         if local_sha1_commit.startswith(self.commit):
-            logging.info("Repository already at pinned commit %s.", self.commit)
+            LOGGER.info("Repository already at pinned commit %s.", self.commit)
             return local_sha1_commit
 
-        logging.info(
+        LOGGER.info(
             "Pinned commit is '%s' while local is '%s': fetching",
             self.commit,
             local_sha1_commit,

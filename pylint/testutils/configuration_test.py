@@ -15,6 +15,8 @@ from typing import Any
 
 from pylint.lint import Run
 
+LOGGER = logging.getLogger(__name__)
+
 # We use Any in this typing because the configuration contains real objects and constants
 # that could be a lot of things.
 ConfigurationValue = Any
@@ -36,9 +38,9 @@ def get_expected_or_default(
         # logging is helpful to realize your file is not taken into
         # account after a misspelling of the file name. The output of the
         # program is checked during the test so printing messes with the result.
-        logging.info("%s exists.", expected_result_path)
+        LOGGER.info("%s exists.", expected_result_path)
     else:
-        logging.info("%s not found, using '%s'.", expected_result_path, default)
+        LOGGER.info("%s not found, using '%s'.", expected_result_path, default)
     return expected
 
 
@@ -94,7 +96,7 @@ def get_expected_output(
     )
     possible_out_files = get_related_files(configuration_path, suffix_filter="out")
     if len(possible_out_files) > 1:
-        logging.error(
+        LOGGER.error(
             "Too much .out files for %s %s.",
             configuration_path,
             msg,
@@ -104,13 +106,13 @@ def get_expected_output(
         # logging is helpful to see what the expected exit code is and why.
         # The output of the program is checked during the test so printing
         # messes with the result.
-        logging.info(".out file does not exists, so the expected exit code is 0")
+        LOGGER.info(".out file does not exists, so the expected exit code is 0")
         return 0, ""
     path = possible_out_files[0]
     try:
         exit_code = int(str(path.stem).rsplit(".", maxsplit=1)[-1])
     except Exception as e:  # pylint: disable=broad-except
-        logging.error(
+        LOGGER.error(
             "Wrong format for .out file name for %s %s: %s",
             configuration_path,
             msg,
@@ -121,7 +123,7 @@ def get_expected_output(
     output = get_expected_or_default(
         configuration_path, suffix=f"{exit_code}.out", default=""
     )
-    logging.info(
+    LOGGER.info(
         "Output exists for %s so the expected exit code is %s",
         configuration_path,
         exit_code,
