@@ -150,7 +150,6 @@ lint.ignore = [
   "D205",   # 1 blank line required between summary line and description
   "D400",   # First line should end with a period
   "D401",   # First line of docstring should be in imperative mood
-  "FLY002", # Consider f-string instead of string join
   "ISC004", # Implicitly concatenated string in a collection literal
   "LOG015", # `logging` call on the root logger
   "PTH100", # `os.path.abspath()` should be replaced by `Path.resolve()`

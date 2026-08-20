@@ -99,7 +99,7 @@ class FunctionalTestFile:
     @property
     def module(self) -> str:
         package = basename(self._directory)
-        return ".".join([package, self.base])
+        return f"{package}.{self.base}"
 
     @property
     def expected_output(self) -> str:

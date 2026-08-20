@@ -39,7 +39,7 @@ REVERSED_METHODS = (SEQUENCE_PROTOCOL_METHODS, (REVERSED_PROTOCOL_METHOD,))
 # about dangerous default values as arguments
 DEFAULT_ARGUMENT_SYMBOLS = dict(
     zip(
-        [".".join(["builtins", x]) for x in ("set", "dict", "list")],
+        [f"builtins.{x}" for x in ("set", "dict", "list")],
         ["set()", "{}", "[]"],
     ),
     **{

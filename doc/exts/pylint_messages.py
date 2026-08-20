@@ -301,7 +301,7 @@ def _get_example_code(data_path: Path) -> str:
     )
 
     _check_placeholders(data_path, bad_code, details, related)
-    return "\n".join((bad_code, good_code, pylintrc, details, related)) + "\n"
+    return f"{bad_code}\n{good_code}\n{pylintrc}\n{details}\n{related}\n"
 
 
 def _get_pylintrc_code(data_path: Path) -> str:
