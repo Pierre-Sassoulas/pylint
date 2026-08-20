@@ -76,9 +76,7 @@ class MessageDefinition:
         """May the message be emitted using the configured py_version?"""
         if self.minversion is not None and self.minversion > py_version:
             return False
-        if self.maxversion is not None and self.maxversion <= py_version:
-            return False
-        return True
+        return self.maxversion is None or self.maxversion > py_version
 
     def format_help(self, checkerref: bool = False) -> str:
         """Return the help string for the given message id."""

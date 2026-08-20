@@ -46,9 +46,7 @@ class ConfusingConsecutiveElifChecker(BaseChecker):
         orelse = node.orelse
         while orelse and isinstance(orelse[0], nodes.If):
             orelse = orelse[0].orelse
-        if not orelse or isinstance(orelse[0], nodes.If):
-            return True
-        return False
+        return not orelse or isinstance(orelse[0], nodes.If)
 
 
 def register(linter: PyLinter) -> None:

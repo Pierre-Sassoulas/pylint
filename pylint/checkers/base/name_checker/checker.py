@@ -649,12 +649,10 @@ class NameChecker(_BasicChecker):
             # name.
             if inferred_assign_type._proxied.name == "TypedDict":
                 return True
-        if (
+        return (
             isinstance(inferred_assign_type, nodes.FunctionDef)
             and inferred_assign_type.qname() == "typing.Annotated"
-        ):
-            return True
-        return False
+        )
 
     def _recursive_check_names(self, args: list[nodes.AssignName]) -> None:
         """Check names in a possibly recursive list <arg>."""

@@ -50,9 +50,7 @@ def tempdir() -> Iterator[str]:
 @pytest.fixture(name="pytest_config")
 def pytest_config_fixture() -> MagicMock:
     def _mock_getoption(option: str) -> bool:
-        if option == "minimal_messages_config":
-            return True
-        return False
+        return option == "minimal_messages_config"
 
     config = MagicMock()
     config.getoption.side_effect = _mock_getoption

@@ -539,19 +539,13 @@ class TypingChecker(BaseChecker):
             return False
 
         inferred_parent = safe_infer(parent_subscript.value)
-        if not (
-            (
-                isinstance(inferred_parent, (nodes.FunctionDef, nodes.ClassDef))
-                and inferred_parent.qname() in {"typing.Optional", "typing.Union"}
-            )
-            or (
-                isinstance(inferred_parent, bases.Instance)
-                and inferred_parent.qname() == "typing._SpecialForm"
-            )
-        ):
-            return False
-
-        return True
+        return (
+            isinstance(inferred_parent, (nodes.FunctionDef, nodes.ClassDef))
+            and inferred_parent.qname() in {"typing.Optional", "typing.Union"}
+        ) or (
+            isinstance(inferred_parent, bases.Instance)
+            and inferred_parent.qname() == "typing._SpecialForm"
+        )
 
 
 def register(linter: PyLinter) -> None:

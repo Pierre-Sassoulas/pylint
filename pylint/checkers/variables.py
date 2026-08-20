@@ -323,12 +323,11 @@ def _is_before(node: nodes.NodeNG, reference_node: nodes.NodeNG) -> bool:
     """Checks if node appears before reference_node."""
     if node.lineno < reference_node.lineno:
         return True
-    if (
+    # bool() because astroid types col_offset loosely, so the comparison is Any
+    return bool(
         node.lineno == reference_node.lineno
         and node.col_offset < reference_node.col_offset
-    ):
-        return True
-    return False
+    )
 
 
 def _is_nonlocal_name(node: nodes.Name, frame: nodes.LocalsDictNodeNG) -> bool:
@@ -995,13 +994,11 @@ scope_type : {self.scope_type}
             return True
         if isinstance(node, (nodes.ClassDef, nodes.FunctionDef)) and node.name == name:
             return True
-        if (
+        return bool(
             isinstance(node, nodes.ExceptHandler)
             and node.name
             and node.name.name == name
-        ):
-            return True
-        return False
+        )
 
     @staticmethod
     def _defines_name_raises_or_returns_recursive(
@@ -1801,12 +1798,9 @@ class VariablesChecker(BaseChecker):
             if utils.is_ancestor_name(consumer.node, node) or (
                 not is_start_index and self._ignore_class_scope(node)
             ):
-                if any(
+                return not any(
                     node.name == param.name.name for param in consumer.node.type_params
-                ):
-                    return False
-
-                return True
+                )
 
             match node.parent:
                 case nodes.Keyword(parent=nodes.ClassDef()):
@@ -1816,13 +1810,12 @@ class VariablesChecker(BaseChecker):
         elif consumer.scope_type == "function" and self._defined_in_function_definition(
             node, consumer.node
         ):
-            if any(node.name == param.name.name for param in consumer.node.type_params):
-                return False
-
             # If the name node is used as a function default argument's value or as
             # a decorator, then start from the parent frame of the function instead
             # of the function frame - and thus open an inner class scope
-            return True
+            return not any(
+                node.name == param.name.name for param in consumer.node.type_params
+            )
 
         elif consumer.scope_type == "lambda" and utils.is_default_argument(
             node, consumer.node

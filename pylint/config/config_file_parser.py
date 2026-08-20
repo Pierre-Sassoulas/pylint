@@ -55,9 +55,7 @@ class _RawConfParser:
         """Return whether the file uses sections."""
         if "setup.cfg" in file_path.parts:
             return True
-        if "tox.ini" in file_path.parts:
-            return True
-        return False
+        return "tox.ini" in file_path.parts
 
     @staticmethod
     def parse_toml_file(file_path: Path) -> PylintConfigFileData:

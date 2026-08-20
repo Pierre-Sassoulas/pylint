@@ -161,7 +161,7 @@ class NestedMinMaxChecker(BaseChecker):
         inferred = safe_infer(arg)
         if inferred and inferred.pytype() in {"builtins.list", "builtins.tuple"}:
             return True
-        if isinstance(
+        return isinstance(
             inferred or arg,
             (
                 nodes.List,
@@ -171,10 +171,7 @@ class NestedMinMaxChecker(BaseChecker):
                 nodes.DictComp,
                 *DICT_TYPES,
             ),
-        ):
-            return True
-
-        return False
+        )
 
 
 def register(linter: PyLinter) -> None:

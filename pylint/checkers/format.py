@@ -565,9 +565,7 @@ class FormatChecker(BaseTokenChecker, BaseRawFileChecker):
     ) -> bool:
         if parent.orelse and node == parent.orelse[0]:
             return True
-        if parent.finalbody and node == parent.finalbody[0]:
-            return True
-        return False
+        return bool(parent.finalbody and node == parent.finalbody[0])
 
     def _infer_else_finally_line_number(
         self, node: nodes.NodeNG, parent: nodes.Try

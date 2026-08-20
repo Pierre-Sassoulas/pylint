@@ -549,9 +549,7 @@ def _check_mode_str(mode: Any) -> bool:
     total = reading + writing + appending + creating
     if total > 1:
         return False
-    if not (reading or writing or appending or creating):
-        return False
-    return True
+    return reading or writing or appending or creating
 
 
 class StdlibChecker(DeprecatedMixin, BaseChecker):

@@ -141,9 +141,7 @@ class FunctionChecker(_BasicChecker):
         if all(try_node.finalbody for try_node in try_with_yield_nodes):
             return False
         # if the contextmanager catches GeneratorExit, then it is fine
-        if all(
+        return not all(
             check_handles_generator_exceptions(try_node)
             for try_node in try_with_yield_nodes
-        ):
-            return False
-        return True
+        )

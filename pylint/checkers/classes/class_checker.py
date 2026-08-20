@@ -185,14 +185,11 @@ def _is_trivial_super_delegation(function: nodes.FunctionDef) -> bool:
     # Should be a super call with the MRO pointer being the
     # current class and the type being the current instance.
     current_scope = function.parent.scope()
-    if not (
+    return (
         super_call.mro_pointer == current_scope
         and isinstance(super_call.type, astroid.Instance)
         and super_call.type.name == current_scope.name
-    ):
-        return False
-
-    return True
+    )
 
 
 # Deal with parameters overriding in two methods.
