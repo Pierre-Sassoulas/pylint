@@ -138,7 +138,15 @@ lint.extend-select = [
 ]
 lint.ignore = [
   "B905",   # `zip()` without an explicit `strict=` parameter
-  "BLE001", # Do not catch blind exception: `Exception`
+  # Do not catch blind exception: `Exception`. Kept off: this duplicates
+  # pylint's own broad-exception-caught, which `pylintrc` enables. All 8
+  # occurrences (4 in pylint/lint, 1 each in pylint/pyreverse and
+  # pylint/reporters, 2 in pylint/testutils) already carry a
+  # `# pylint: disable=broad-except` comment, and `useless-suppression`
+  # is enabled too, so we know those disables are live. Enabling BLE001
+  # would put a second suppression comment on all 8 lines and report
+  # nothing that is not already reported.
+  "BLE001",
   "D100",   # Missing docstring in public module
   "D101",   # Missing docstring in public class
   "D102",   # Missing docstring in public method
