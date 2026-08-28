@@ -277,14 +277,16 @@ class BasicChecker(_BasicChecker):
         """Initialize visit variables and statistics."""
         py_version = self.linter.config.py_version
         self._py38_plus = py_version >= (3, 8)
+        self._py314_plus = py_version >= (3, 14)
         self._trys = []
         self.linter.stats.reset_node_count()
 
     @utils.only_required_for_messages(
-        "using-constant-test", "missing-parentheses-for-call-in-test"
+        "using-constant-test", "missing-parentheses-for-call-in-test", "unreachable"
     )
     def visit_if(self, node: nodes.If) -> None:
         self._check_using_constant_test(node, node.test)
+        self._check_unreachable_due_to_raising_test(node)
 
     @utils.only_required_for_messages(
         "using-constant-test", "missing-parentheses-for-call-in-test"
@@ -723,7 +725,9 @@ class BasicChecker(_BasicChecker):
                     case "eval":
                         self.add_message("eval-used", node=node)
 
-    @utils.only_required_for_messages("assert-on-tuple", "assert-on-string-literal")
+    @utils.only_required_for_messages(
+        "assert-on-tuple", "assert-on-string-literal", "unreachable"
+    )
     def visit_assert(self, node: nodes.Assert) -> None:
         """Check whether assert is used on a tuple or string literal."""
         match node.test:
@@ -732,6 +736,77 @@ class BasicChecker(_BasicChecker):
             case nodes.Const(value=str() as val):
                 when = "never" if val else "always"
                 self.add_message("assert-on-string-literal", node=node, args=(when,))
+        self._check_unreachable_due_to_raising_test(node)
+
+    @utils.only_required_for_messages("unreachable")
+    def visit_while(self, node: nodes.While) -> None:
+        """Flag body / sibling as unreachable when the test always raises."""
+        self._check_unreachable_due_to_raising_test(node)
+
+    def _check_unreachable_due_to_raising_test(
+        self, node: nodes.If | nodes.While | nodes.Assert
+    ) -> None:
+        """Flag ``unreachable`` when the test of ``node`` never yields a value.
+
+        Unlike the usual ``return``/``raise``/``break``/``continue`` case where
+        only the next sibling is unreachable, a non-evaluating test means the
+        statement itself never selects a branch: the body, the ``else`` (when
+        applicable), and any sibling after the statement are all unreachable.
+
+        For terminating calls (``sys.exit()``, ``NoReturn``-annotated funcs)
+        the sibling is already flagged by ``visit_call``; we only add the
+        body/else flags here to avoid double-emitting on the same line.
+        """
+        test = node.test
+        raises_in_bool = self._test_always_raises_in_bool_context(test)
+        terminating_call = self._test_is_terminating_call(test)
+        if not (raises_in_bool or terminating_call):
+            return
+        if isinstance(node, (nodes.If, nodes.While)) and node.body:
+            self.add_message(
+                "unreachable", node=node.body[0], confidence=INFERENCE
+            )
+        if isinstance(node, nodes.If) and node.orelse:
+            self.add_message(
+                "unreachable", node=node.orelse[0], confidence=INFERENCE
+            )
+        # visit_call already flags the sibling for terminating calls; only emit
+        # the sibling flag for the bool-coercion case so we don't double-message.
+        if raises_in_bool and not terminating_call:
+            next_sibling = node.next_sibling()
+            if next_sibling is not None:
+                self.add_message(
+                    "unreachable", node=next_sibling, confidence=INFERENCE
+                )
+
+    def _test_always_raises_in_bool_context(self, test: nodes.NodeNG) -> bool:
+        """Return True when every inferred value of ``test`` raises on ``bool()``.
+
+        ``NotImplemented`` is currently the only known trigger and only on
+        Python 3.14+ (where ``bool(NotImplemented)`` raises ``TypeError``;
+        on earlier versions it returns ``True`` with a ``DeprecationWarning``).
+        """
+        if not self._py314_plus:
+            return False
+        inferred = utils.infer_all(test)
+        if not inferred:
+            return False
+        for value in inferred:
+            if isinstance(value, util.UninferableBase):
+                return False
+            if not (isinstance(value, nodes.Const) and value.value is NotImplemented):
+                return False
+        return True
+
+    def _test_is_terminating_call(self, test: nodes.NodeNG) -> bool:
+        """Return True when ``test`` is a direct call to a non-returning func.
+
+        Covers ``sys.exit()``, ``exit()``, ``quit()``, ``os._exit()`` and
+        ``typing.NoReturn``-annotated functions (see ``utils.is_terminating_func``).
+        Only handles the case where the test *is* the call — not e.g.
+        ``sys.exit() and foo()`` where short-circuiting matters.
+        """
+        return isinstance(test, nodes.Call) and utils.is_terminating_func(test)
 
     @utils.only_required_for_messages("duplicate-key")
     def visit_dict(self, node: nodes.Dict) -> None:
