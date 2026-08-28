@@ -55,6 +55,9 @@ class _DeprecatedChecker(DeprecatedMixin, BaseChecker):
     def deprecated_attributes(self) -> set[str]:
         return {".DeprecatedClass.deprecated_attribute"}
 
+    def deprecated_attributes_on_write(self) -> set[str]:
+        return {".WriteOnlyClass.write_only_attribute"}
+
 
 # pylint: disable-next = too-many-public-methods
 class TestDeprecatedChecker(CheckerTestCase):
@@ -82,6 +85,66 @@ class TestDeprecatedChecker(CheckerTestCase):
             )
         ):
             self.checker.visit_attribute(node)
+
+    def test_deprecated_attribute_on_write_allows_reading(self) -> None:
+        # Reading an attribute deprecated only on write is fine
+        node = astroid.extract_node("""
+        class WriteOnlyClass:
+            write_only_attribute = 42
+
+        obj = WriteOnlyClass()
+        obj.write_only_attribute
+        """)
+        with self.assertNoMessages():
+            self.checker.visit_attribute(node)
+
+    def test_deprecated_attribute_on_write_assignment(self) -> None:
+        # Assigning to an attribute deprecated on write is reported
+        assignment = astroid.extract_node("""
+        class WriteOnlyClass:
+            write_only_attribute = 42
+
+        obj = WriteOnlyClass()
+        obj.write_only_attribute = 1
+        """)
+        node = assignment.targets[0]
+        with self.assertAddsMessages(
+            MessageTest(
+                msg_id="deprecated-attribute",
+                args=(".WriteOnlyClass.write_only_attribute",),
+                node=node,
+                confidence=INFERENCE,
+                line=6,
+                col_offset=0,
+                end_line=6,
+                end_col_offset=24,
+            )
+        ):
+            self.checker.visit_assignattr(node)
+
+    def test_deprecated_attribute_on_write_deletion(self) -> None:
+        # Deleting an attribute deprecated on write is reported
+        deletion = astroid.extract_node("""
+        class WriteOnlyClass:
+            write_only_attribute = 42
+
+        obj = WriteOnlyClass()
+        del obj.write_only_attribute
+        """)
+        node = deletion.targets[0]
+        with self.assertAddsMessages(
+            MessageTest(
+                msg_id="deprecated-attribute",
+                args=(".WriteOnlyClass.write_only_attribute",),
+                node=node,
+                confidence=INFERENCE,
+                line=6,
+                col_offset=4,
+                end_line=6,
+                end_col_offset=28,
+            )
+        ):
+            self.checker.visit_delattr(node)
 
     def test_deprecated_function(self) -> None:
         # Tests detecting deprecated function

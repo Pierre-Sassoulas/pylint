@@ -93,6 +93,16 @@ class DeprecatedMixin(BaseChecker):
         """Called when an `Attribute` node is visited."""
         self.check_deprecated_attribute(node)
 
+    @utils.only_required_for_messages("deprecated-attribute")
+    def visit_assignattr(self, node: nodes.AssignAttr) -> None:
+        """Called when an `AssignAttr` node is visited."""
+        self._check_deprecated_attribute(node, self.deprecated_attributes_on_write())
+
+    @utils.only_required_for_messages("deprecated-attribute")
+    def visit_delattr(self, node: nodes.DelAttr) -> None:
+        """Called when a `DelAttr` node is visited."""
+        self._check_deprecated_attribute(node, self.deprecated_attributes_on_write())
+
     @utils.only_required_for_messages(
         "deprecated-method",
         "deprecated-argument",
@@ -222,13 +232,28 @@ class DeprecatedMixin(BaseChecker):
         """Callback returning the deprecated attributes."""
         return ()
 
+    def deprecated_attributes_on_write(self) -> Iterable[str]:
+        """Callback returning attributes deprecated only when set or deleted.
+
+        Reading these is not deprecated, so they are checked on assignment and
+        on deletion instead of on every access.
+        """
+        return ()
+
     def check_deprecated_attribute(self, node: nodes.Attribute) -> None:
         """Checks if the attribute is deprecated."""
+        self._check_deprecated_attribute(node, self.deprecated_attributes())
+
+    def _check_deprecated_attribute(
+        self,
+        node: nodes.Attribute | nodes.AssignAttr | nodes.DelAttr,
+        deprecated_names: Iterable[str],
+    ) -> None:
         inferred_expr = safe_infer(node.expr)
         if not isinstance(inferred_expr, (nodes.ClassDef, Instance, nodes.Module)):
             return
         attribute_qname = ".".join((inferred_expr.qname(), node.attrname))
-        for deprecated_name in self.deprecated_attributes():
+        for deprecated_name in deprecated_names:
             if attribute_qname == deprecated_name:
                 self.add_message(
                     "deprecated-attribute",
