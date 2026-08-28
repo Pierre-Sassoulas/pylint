@@ -329,9 +329,18 @@ DEPRECATED_METHODS: dict[int, DeprecationDict] = {
             "sys._clear_type_cache",
             "sysconfig.expand_makefile_vars",
         },
+        (3, 14, 0): {
+            "tkinter.Variable.trace",
+            "tkinter.Variable.trace_variable",
+            "tkinter.Variable.trace_vdelete",
+            "tkinter.Variable.trace_vinfo",
+        },
         (3, 15, 0): {
             "http.cookies.BaseCookie.js_output",
             "http.cookies.Morsel.js_output",
+        },
+        (3, 16, 0): {
+            "tkinter.filedialog.askopenfiles",
         },
     },
 }
@@ -474,6 +483,12 @@ DEPRECATED_CLASSES: dict[tuple[int, int, int], dict[str, set[str]]] = {
 }
 
 
+# Attributes that may still be read, but should no longer be set or deleted.
+DEPRECATED_ATTRIBUTES_ON_WRITE: DeprecationDict = {
+    (3, 15, 0): {"imaplib.IMAP4.file"},
+}
+
+
 DEPRECATED_ATTRIBUTES: DeprecationDict = {
     (3, 2, 0): {
         "configparser.ParsingError.filename",
@@ -494,7 +509,6 @@ DEPRECATED_ATTRIBUTES: DeprecationDict = {
         "typing.AnyStr",
     },
     (3, 15, 0): {
-        "imaplib.IMAP4.file",
         # The version attributes of the standard library, use 'sys.version_info'
         "argparse.__version__",
         "csv.__version__",
@@ -508,6 +522,7 @@ DEPRECATED_ATTRIBUTES: DeprecationDict = {
         "logging.__date__",
         "logging.__version__",
         "optparse.__version__",
+        "pickle.__version__",
         "platform.__version__",
         "re.__version__",
         "socketserver.__version__",
@@ -684,6 +699,7 @@ class StdlibChecker(DeprecatedMixin, BaseChecker):
         self._deprecated_classes: dict[str, set[str]] = {}
         self._deprecated_decorators: set[str] = set()
         self._deprecated_attributes: set[str] = set()
+        self._deprecated_attributes_on_write: set[str] = set()
 
         for since_vers, func_list in DEPRECATED_METHODS[sys.version_info[0]].items():
             if since_vers <= sys.version_info:
@@ -700,6 +716,9 @@ class StdlibChecker(DeprecatedMixin, BaseChecker):
         for since_vers, attribute_list in DEPRECATED_ATTRIBUTES.items():
             if since_vers <= sys.version_info:
                 self._deprecated_attributes.update(attribute_list)
+        for since_vers, attribute_list in DEPRECATED_ATTRIBUTES_ON_WRITE.items():
+            if since_vers <= sys.version_info:
+                self._deprecated_attributes_on_write.update(attribute_list)
         # Modules are checked by the ImportsChecker, because the list is
         # synced with the config argument deprecated-modules
 
@@ -1070,6 +1089,9 @@ class StdlibChecker(DeprecatedMixin, BaseChecker):
 
     def deprecated_attributes(self) -> Iterable[str]:
         return self._deprecated_attributes
+
+    def deprecated_attributes_on_write(self) -> Iterable[str]:
+        return self._deprecated_attributes_on_write
 
 
 def register(linter: PyLinter) -> None:
