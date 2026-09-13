@@ -13,7 +13,7 @@
 <div class="wrap">
   <nav class="site-nav"><a href="index.html" aria-current="page" class="home">Overview</a> <a href="needs-triage.html">Needs triage</a> <a href="needs-investigation.html">Needs investigation</a> <a href="bisect-fixed.html">Bisect report</a></nav>
   <header>
-    <div class="eyebrow">pylint-dev/pylint &nbsp;·&nbsp; branch <b>issue-triage-workspace</b> &nbsp;·&nbsp; 13 September 2026</div>
+    <div class="eyebrow">pylint-dev/pylint &nbsp;·&nbsp; branch <b>issue-triage-workspace</b> &nbsp;·&nbsp; verified against pylint 4.1.0-dev0 @ 3cc06885f, astroid 4.3.1</div>
     <h1>Triage workspace</h1>
     <p class="standfirst">Working notes for the issue queues on pylint-dev/pylint. Three reports are HTML; the earlier notes are still markdown. Everything is local to this branch — open this file in a browser.</p>
   </header>
@@ -48,6 +48,7 @@
 
   <div class="plain">
     <h2>How to read a verdict</h2>
+      <li style="list-style:none;margin-bottom:10px"><em>Every verdict below was re-run after <code>d03727c85</code> (Upgrade astroid to 4.3.1) landed; none of them moved.</em></li>
     <ul>
       <li><strong>reproduces</strong> — the reporter's own snippet was rebuilt and still emits the reported message on
       pylint <code>main</code>, with their library installed at a version that shows it.</li>
