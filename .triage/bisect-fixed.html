@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bisect report</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@500;600&display=swap">
+<link rel="stylesheet" href="assets/triage.css">
+</head>
+<body>
+<div class="wrap">
+  <nav class="site-nav"><a href="index.html" class="home">Overview</a> <a href="needs-triage.html">Needs triage</a> <a href="needs-investigation.html">Needs investigation</a> <a href="bisect-fixed.html" aria-current="page">Bisect report</a></nav>
+  <header>
+    <div class="eyebrow">pylint-dev/pylint &nbsp;·&nbsp; <b>what actually fixed them</b> &nbsp;·&nbsp; 13 September 2026</div>
+    <h1>Bisect report</h1>
+    <p class="standfirst">Every issue from both label sweeps whose snippet stopped reproducing, traced to the commit that fixed it — and, where that commit is only an astroid pin bump, to the astroid commit underneath.</p>
+  </header>
+
+  <div class="scroll" style="margin-top:28px">
+    <table>
+      <thead><tr><th style="width:90px">Issue</th><th>pylint commit</th><th>astroid commit underneath</th></tr></thead>
+      <tbody>
+<tr><td class="id"><a href="https://github.com/pylint-dev/pylint/issues/10016">#10016</a></td><td class="finding"><a href="https://github.com/pylint-dev/pylint/commit/4f6c2412097120587d6fc01fa0d344c49780f225">4f6c24120</a> Fix false positive related to overload decorator + NoReturn <span style="color:var(--ink-faint)">2026-01-02</span></td><td class="finding"><em>— fixed in pylint's own checkers</em></td></tr>
+<tr><td class="id"><a href="https://github.com/pylint-dev/pylint/issues/10317">#10317</a></td><td class="finding"><a href="https://github.com/pylint-dev/pylint/commit/a0e601d039c6ae0884ce3c52fff77d41d750cf46">a0e601d03</a> Bump astroid to 4.0.0rc0</td><td class="finding"><a href="https://github.com/pylint-dev/astroid/commit/3db2bd943fdc16439d94b8634007eaf78c075536">3db2bd943</a> Add brain module for statistics inference</td></tr>
+<tr><td class="id"><a href="https://github.com/pylint-dev/pylint/issues/7680">#7680</a></td><td class="finding"><a href="https://github.com/pylint-dev/pylint/commit/7521eb1dc6ac89fcf1763bee879d1207a87ddefa">7521eb1dc</a> Bump astroid to 3.2.0</td><td class="finding"><a href="https://github.com/pylint-dev/astroid/commit/a7f5d5ff430cded9b9247e7d54455d671f6d5c63">a7f5d5ff4</a> Prefer last same-named function in a class rather than first in <code>igetattr()</code></td></tr>
+<tr><td class="id"><a href="https://github.com/pylint-dev/pylint/issues/4577">#4577</a></td><td class="finding"><a href="https://github.com/pylint-dev/pylint/commit/11807f0ae07af4d11a2ac8f9edbaa79558741cba">11807f0ae</a> Update astroid requirement to 2.11.0</td><td class="finding"><a href="https://github.com/pylint-dev/astroid/commit/74710868d717b94898a72f148e16fa833c1e0593">74710868d</a> Fix crash on <code>Super.getattr</code> for previously uninferable attributes <b>— body snippet only</b></td></tr>
+<tr><td class="id"><a href="https://github.com/pylint-dev/pylint/issues/9077">#9077</a></td><td class="finding"><a href="https://github.com/pylint-dev/pylint/commit/f53283ea11b86765154310648009f34248d58c83">f53283ea1</a> Upgrade astroid to 3.0.0a4</td><td class="finding"><a href="https://github.com/pylint-dev/astroid/commit/12c3d1556be3bacaf4816898616b6124e0d44da9">12c3d1556</a> Recognize stub <code>pyi</code> Python files — which is what apsw ships</td></tr>
+<tr><td class="id"><a href="https://github.com/pylint-dev/pylint/issues/9973">#9973</a></td><td class="finding"><a href="https://github.com/pylint-dev/pylint/commit/44bb14ef8c846a61a333e2a86224add0b5ecfe3f">44bb14ef8</a> Bump astroid to 4.0.0-a0</td><td class="finding"><a href="https://github.com/pylint-dev/astroid/commit/7710b7b446e7d99fb0d6150707964d0e8d0d3c11">7710b7b44</a> Make constants have synthetic root as their parent</td></tr>
+<tr><td class="id"><a href="https://github.com/pylint-dev/pylint/issues/8026">#8026</a></td><td class="finding"><a href="https://github.com/pylint-dev/pylint/commit/98eb21b13082d30bf72fcddd5b740e9d621c7149">98eb21b13</a> Bump astroid to 4.0.0b0</td><td class="finding"><a href="https://github.com/pylint-dev/astroid/commit/fda78968fc9510253121e80f9c20e478efff75e2">fda78968f</a> Drop support for Python 3.9 — a 34-file cleanup, not a targeted fix</td></tr>
+<tr><td class="id"><a href="https://github.com/pylint-dev/pylint/issues/10433">#10433</a></td><td class="finding"><a href="https://github.com/pylint-dev/pylint/commit/40817ce1a1b62a41486d81eff5b2db3bd9c23755">40817ce1a</a> Bump astroid to 4.1.1</td><td class="finding"><a href="https://github.com/pylint-dev/astroid/commit/36e6134edfd649f32682df6b74dce8afa61a7e38">36e6134ed</a> Fix method classification for pygobject&gt;=3.51.0 — this issue verbatim</td></tr>
+<tr><td class="id"><a href="https://github.com/pylint-dev/pylint/issues/10181">#10181</a></td><td class="finding"><span style="color:var(--ink-faint)">none — see below</span></td><td class="finding"><a href="https://github.com/pylint-dev/astroid/commit/24027e6062254955be73e5701cacaa7f6e8d31a2">24027e606</a> Avoid enum transform crash for extension classes</td></tr>
+<tr><td class="id"><a href="https://github.com/pylint-dev/pylint/issues/8024">#8024</a></td><td class="finding"><span style="color:var(--ink-faint)">none</span></td><td class="finding"><a href="https://github.com/cython/cython/commit/6e31b41f6353bd623d98aa4de40d3645965e47ba">cython@6e31b41f6</a> Merge Shadow.pyi type annotation files — <code>int : TypeAlias = py_int</code> now sits in an <code>if TYPE_CHECKING:</code> block pylint reads</td></tr>
+<tr><td class="id"><a href="https://github.com/pylint-dev/pylint/issues/9311">#9311</a></td><td class="finding"><span style="color:var(--ink-faint)">none</span></td><td class="finding">torch <b>2.8.0</b> (release boundary; 2.7.0 still fails). Bisecting pytorch means source builds, hours per step</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="prose">
+    <p style="margin-top:22px">Nine of the eleven were fixed outside pylint. Exactly one — <a href="https://github.com/pylint-dev/pylint/issues/10016">#10016</a> —
+    landed in <code>pylint/checkers/</code>, and it closed a different report as a side effect, which is why nobody came
+    back to close this one.</p>
+
+    <h2>Two that need care</h2>
+    <p><strong><a href="https://github.com/pylint-dev/pylint/issues/10181">#10181</a> has no owning pylint commit.</strong> It needs astroid 4.3.0.
+    <code>main</code> permits that (<code>astroid&gt;=4.2.0b1,&lt;=4.3</code>) but <code>requirements_test_min.txt</code>
+    still pins 4.2.0b5, so the crash survives a CI run and disappears on a fresh install. An earlier pass credited the
+    pin-widening commit; re-testing with that commit's own pinned astroid shows both sides still crashing.</p>
+    <p><strong><a href="https://github.com/pylint-dev/pylint/issues/4577">#4577</a> is not fixed.</strong> The body snippet is, but the thread carries five more
+    and one of them still fires on <code>main</code>: <code>E1136 Value 'dataframe' is unsubscriptable</code> for
+    <code>DataFrame(...).fillna(0)</code> under pandas 1.5.3 and 2.0.3, silent on 2.2.3 and 3.0.5. The message tracks the
+    pandas version, not any pylint change. The root cause the reporters named is untouched — <code>pd.read_csv(...)</code>
+    still infers to <code>[NoneType ×4, TextFileReader, Uninferable]</code> on astroid 4.3.0, never <code>DataFrame</code>;
+    the message stops only because pylint declines to judge a candidate list containing <code>Uninferable</code>. The
+    <code>max_inferred</code> analysis in the thread still holds: lower it to 20 and even <code>TextFileReader</code>
+    drops out.</p>
+
+    <h2>Harness</h2>
+    <p>Per step: install pylint (or astroid) from a detached worktree into a venv holding the reporter's library, run the
+    snippet, grep for the reported message. <code>git bisect run</code> with
+    <code>--term-old=buggy --term-new=fixed</code>, so the reported "first fixed commit" is the one where the message
+    disappears.</p>
+    <p>Three traps, each of which produces a confident wrong answer rather than an error:</p>
+    <ol>
+      <li><strong>setuptools <code>build/lib</code> persists across checkouts.</strong> A file deleted in a later commit
+      keeps being packaged into every subsequent wheel. Symptom seen here: a pylint 3.3.5 install crashing inside
+      <code>pylint/checkers/python3.py</code>, a file removed after 2.5. Purge <code>build/</code> and
+      <code>*.egg-info</code> in the source tree <em>and</em> <code>pylint/</code> plus <code>pylint-*.dist-info</code> in
+      site-packages before each install.</li>
+      <li><strong><code>rc=$?</code> after a pipe captures the last stage.</strong>
+      <code>res=$(check.sh ... | head -1); rc=$?</code> always yields <code>head</code>'s 0, so every step reports
+      "buggy", the bisect walks forward and converges on the tip. Capture unpiped; trim only for display.</li>
+      <li><strong>The astroid pin is a range.</strong> An installer that leaves an already-satisfying astroid in place
+      makes each step depend on the previous one. Pin each commit's own CI-tested astroid from
+      <code>requirements_test_min.txt</code>.</li>
+    </ol>
+    <p>Old tags need old toolchains: pylint ≤ 2.6 <code>setup.py</code> carries a <code>python_requires</code> modern
+    setuptools rejects; pylint 2.8 wants <code>inspect.formatargspec</code>, gone in 3.11, so py3.10; pylint 2.x imports
+    <code>pkg_resources</code>, so <code>setuptools&lt;81</code>. pylint 1.6.5 and 2.5.0 will not build on any Python
+    available here at all.</p>
+    <p>Library issues need the reporter's <em>era</em>, not just their pylint: <a href="https://github.com/pylint-dev/pylint/issues/4577">#4577</a> only shows
+    itself with pandas pinned back, and <a href="https://github.com/pylint-dev/pylint/issues/9311">#9311</a> turned out to be fixed by torch with pylint
+    untouched. <a href="https://github.com/pylint-dev/pylint/issues/10433">#10433</a> needed a Fedora 43 container for CPython 3.14 plus the real NetworkManager
+    GI typelib; PyGObject has no wheels and cannot be built here.</p>
+  </div>
+
+  <footer>
+    Generated 2026-09-13 on branch <code>issue-triage-workspace</code>. Open <code>.triage/index.html</code> in a browser;
+    nothing here is served from anywhere.
+  </footer>
+</div>
+</body>
+</html>
