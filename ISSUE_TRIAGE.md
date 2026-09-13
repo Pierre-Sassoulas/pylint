@@ -18,6 +18,8 @@ https://github.com/pylint-dev/pylint/issues. Per-issue state lives under `.triag
 - `.triage/sessions/session-XX.md` — per-session deep-dive notes
 - `.triage/snippets/iNNNN.py` — minimal reproduction code I ran (200+ files)
 - `.triage/status.py` — re-run for a fresh roll-up
+- `.triage/pr-queue.html` — the open pull requests, sorted by what blocks each one
+- `.triage/pr_queue_fetch.sh` + `.triage/pr_queue.py` — refresh that report and re-render it
 
 ## Verdict legend
 
