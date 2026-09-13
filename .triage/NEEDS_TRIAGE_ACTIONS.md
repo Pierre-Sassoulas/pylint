@@ -1,4 +1,13 @@
-# Needs-triage actions — 88 open issues remaining
+# Needs-triage actions — label cleared
+
+> **2026-09-13: the queue is empty.** The 32 issues still carrying the label on that
+> date were worked through and the label removed from all of them — 15 confirmed and
+> moved to `Needs PR`, 5 closed as duplicates, 1 closed invalid, 7 closed as fixed
+> (each bisected to its commit, see `.triage/BISECT_FIXED.md`), 2 sent back for
+> reproduction, 2 relabelled as enhancements. The snapshot below is kept for the
+> per-issue reasoning it records.
+
+## Earlier snapshot — 88 open issues remaining
 
 Initial snapshot: 2026-05-25, pylint 4.1.0-dev0, astroid 4.2.0b3.
 Started from 110 needs-triage issues; 22 cleared so far. See
@@ -326,3 +335,31 @@ Two dropped after assignee/label cross-check:
   pylint-dev/astroid, not pylint.
 - For closables, the GitHub convention is to add the relevant `Duplicate`/
   `Cannot reproduce`/`Invalid` label *and* close — so the label survives.
+
+
+---
+
+## 2026-09-13 sweep — outcome
+
+The 32 issues then on the label, after rebuilding each reporter's snippet against
+`main` with their library installed:
+
+| Outcome | Count | Issues |
+|---|---:|---|
+| Confirmed, moved to `Needs PR` | 15 | 11412, 11361, 11353, 11202, 10916, 10831, 10602, 10440, 10082, 9956, 9874, 9762, 9218, 9090, 9013 |
+| Closed as duplicate | 5 | 11169, 10710, 9681, 9472, 9425 |
+| Closed as fixed (bisected) | 7 | 10433, 10181, 9973, 9311, 9077, 8026, 8024 |
+| Closed as invalid | 1 | 11211 — matches CPython's own NameError before PEP 649 |
+| Back to the reporter | 2 | 9426, 9757 — clean at the exact stack filed against |
+| Relabelled enhancement | 2 | 11338, 11118 |
+
+Three findings worth carrying forward:
+
+- **9013 got worse than filed.** Reported as a false `abstract-class-instantiated`
+  on the `attrs.field()` form only; today *both* `@attrs.define` subclasses raise
+  E0110, while the script still runs. Worth re-titling.
+- **11361 is probably the minimal reproducer for 8079** — same `StatementMissing`
+  on the same builtins module, open since 2023 without one.
+- **11353 is a contained fix**: `_get_first_import()` ignores `node.level`, so
+  `from . import json` is compared as bare `json` and collides with an earlier
+  absolute `import json`. Good first issue.
