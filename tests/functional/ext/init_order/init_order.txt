@@ -1,0 +1,9 @@
+access-member-before-initialization:7:8:7:22:CallBeforeAssignment.__init__:Call to 'compute' accesses member 'rate' before it is initialized on line 8:HIGH
+access-member-before-initialization:17:8:17:25:AugmentedRead.__init__:Call to 'accumulate' accesses member 'rate' before it is initialized on line 18:HIGH
+access-member-before-initialization:27:23:27:37:CallInAssignment.__init__:Call to 'compute' accesses member 'rate' before it is initialized on line 28:HIGH
+access-member-before-initialization:36:8:36:22:SeveralAttributes.__init__:Call to 'compute' accesses member 'count' before it is initialized on line 38:HIGH
+access-member-before-initialization:36:8:36:22:SeveralAttributes.__init__:Call to 'compute' accesses member 'rate' before it is initialized on line 37:HIGH
+access-member-before-initialization:92:8:92:22:AssignedElsewhere.__init__:Call to 'compute' accesses member 'rate' before it is initialized on line 93:HIGH
+no-member:156:15:156:24:ParentDefinesMethod.compute:Instance of 'ParentDefinesMethod' has no 'rate' member:INFERENCE
+access-member-before-initialization:161:8:161:22:InheritedMethod.__init__:Call to 'compute' accesses member 'rate' before it is initialized on line 162:HIGH
+no-member:170:15:170:24:NeverAssigned.compute:Instance of 'NeverAssigned' has no 'rate' member:INFERENCE

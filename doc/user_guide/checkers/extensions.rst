@@ -21,6 +21,7 @@ Pylint provides the following optional plugins:
 - :ref:`pylint.extensions.empty_comment`
 - :ref:`pylint.extensions.eq_without_hash`
 - :ref:`pylint.extensions.for_any_all`
+- :ref:`pylint.extensions.init_order`
 - :ref:`pylint.extensions.magic_value`
 - :ref:`pylint.extensions.mccabe`
 - :ref:`pylint.extensions.no_self_use`
@@ -366,6 +367,22 @@ Import-Private-Name checker Messages
   Used when a private module or object prefixed with _ is imported. PEP8
   guidance on Naming Conventions states that public attributes with leading
   underscores should be considered private.
+
+
+.. _pylint.extensions.init_order:
+
+Init-Order checker
+~~~~~~~~~~~~~~~~~~
+
+This checker is provided by ``pylint.extensions.init_order``.
+Verbatim name of the checker is ``init-order``.
+
+Init-Order checker Messages
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+:access-member-before-initialization (E3901): *Call to %r accesses member %r before it is initialized on line %s*
+  Used when the constructor calls a method reading an instance attribute that
+  the constructor only assigns later. The attribute does not exist yet when the
+  method runs, so building the object raises an AttributeError.
 
 
 .. _pylint.extensions.magic_value:
