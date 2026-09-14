@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Method</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@500;600&display=swap">
+<link rel="stylesheet" href="assets/triage.css">
+</head>
+<body>
+<div class="wrap">
+  <nav class="site-nav"><a href="index.html" class="home">Overview</a> <a href="pylint-issues.html">Pylint issues</a> <a href="astroid.html">Astroid queue</a> <a href="pr-queue.html">Pull request queue</a> <a href="method.html" aria-current="page">Method</a></nav>
+  <header>
+    <div class="eyebrow">pylint-dev/pylint &nbsp;·&nbsp; <b>how to redo any of this</b></div>
+    <h1>Method</h1>
+    <p class="standfirst">How a verdict on these boards was produced, and the three ways a bisect over this repository will hand you a confident wrong answer.</p>
+  </header>
+
+  <div class="prose">
+    <h2>Reading a verdict</h2>
+    <ul>
+      <li><strong>reproduces</strong> — the reporter's own snippet was rebuilt and still emits the reported message on
+      pylint <code>main</code>, with their library installed at a version that shows it.</li>
+      <li><strong>never repro'd</strong> — clean at the exact pylint, astroid and Python named in the report. Nothing was
+      fixed; something in the reporter's environment was doing the work.</li>
+      <li><strong>needs repro / not re-run</strong> — the issue points at code that was never public, or carries nothing
+      runnable. Not a judgement on whether the bug is real.</li>
+      <li><strong>fixed upstream</strong> — pylint is not the place to fix it, and the row names the version floor.</li>
+    </ul>
+
+    <h2>Pin the reporter's era, not just their pylint</h2>
+    <p><a href="https://github.com/pylint-dev/pylint/issues/4577">#4577</a> is clean on pandas 3.x and fires on 1.5.3 and 2.0.3 — the message tracks the library
+    version, not any pylint change. <a href="https://github.com/pylint-dev/pylint/issues/9311">#9311</a> turned out to be fixed by torch 2.8.0 with pylint
+    untouched, and <a href="https://github.com/pylint-dev/pylint/issues/8024">#8024</a> by Cython 3.3.0. A library issue that looks stale usually just needs its
+    era pinned back before you believe it.</p>
+    <p>And read the whole thread: #4577's body snippet is genuinely fixed, but a snippet from the comments still fires.
+    The tell was a comment postdating the fixing commit by three years.</p>
+
+    <h2>Bisecting</h2>
+    <p>Per step: install pylint (or astroid) from a detached worktree into a venv holding the reporter's library, run the
+    snippet, grep for the reported message. <code>git bisect run</code> with
+    <code>--term-old=buggy --term-new=fixed</code>, so the "first fixed commit" is where the message disappears.</p>
+    <p>Three traps, each of which produces a confident wrong answer rather than an error:</p>
+    <ol>
+      <li><strong>setuptools <code>build/lib</code> persists across checkouts.</strong> A file deleted in a later commit
+      keeps being packaged into every subsequent wheel — symptom: a pylint 3.3.5 install crashing inside
+      <code>pylint/checkers/python3.py</code>, a file removed after 2.5. Purge <code>build/</code> and
+      <code>*.egg-info</code> in the tree <em>and</em> <code>pylint/</code> plus <code>pylint-*.dist-info</code> in
+      site-packages before each install.</li>
+      <li><strong><code>rc=$?</code> after a pipe captures the last stage.</strong>
+      <code>res=$(check.sh ... | head -1); rc=$?</code> always yields <code>head</code>'s 0, so every step reports
+      "buggy", the bisect walks forward and converges on the tip.</li>
+      <li><strong>The astroid pin is a range.</strong> An installer that leaves an already-satisfying astroid in place
+      makes each step depend on the previous one. Pin each commit's own CI-tested astroid from
+      <code>requirements_test_min.txt</code>.</li>
+    </ol>
+    <p>Old tags need old toolchains: pylint ≤ 2.6 carries a <code>python_requires</code> modern setuptools rejects;
+    pylint 2.8 wants <code>inspect.formatargspec</code>, gone in 3.11, so py3.10; pylint 2.x imports
+    <code>pkg_resources</code>, so <code>setuptools&lt;81</code>. pylint 1.6.5 and 2.5.0 will not build on any Python
+    available here. <a href="https://github.com/pylint-dev/pylint/issues/10433">#10433</a> needed a Fedora 43 container for CPython 3.14 plus the real
+    NetworkManager GI typelib — PyGObject has no wheels.</p>
+
+    <h2>Refreshing the boards</h2>
+    <p>One GraphQL request covers every tracked issue — aliased <code>i&lt;number&gt;:issue(number:…)</code> nodes in a
+    single query — rather than one call per issue. Two <code>contents</code> calls give the astroid pin on
+    <code>main</code>, and one <code>commits</code> call says what landed.</p>
+  </div>
+
+  <footer>
+    Verified against pylint 4.1.0-dev0 @ 3cc06885f with astroid 4.3.1, on branch <code>issue-triage-workspace</code>.
+    Open <code>.triage/index.html</code> in a browser; nothing is served.
+  </footer>
+</div>
+</body>
+</html>

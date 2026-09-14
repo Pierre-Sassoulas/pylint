@@ -11,61 +11,57 @@
 </head>
 <body>
 <div class="wrap">
-  <nav class="site-nav"><a href="index.html" aria-current="page" class="home">Overview</a> <a href="needs-triage.html">Needs triage</a> <a href="needs-investigation.html">Needs investigation</a> <a href="astroid.html">Astroid queue</a> <a href="bisect-fixed.html">Bisect report</a> <a href="pr-queue.html">Pull request queue</a></nav>
+  <nav class="site-nav"><a href="index.html" aria-current="page" class="home">Overview</a> <a href="pylint-issues.html">Pylint issues</a> <a href="astroid.html">Astroid queue</a> <a href="pr-queue.html">Pull request queue</a> <a href="method.html">Method</a></nav>
   <header>
-    <div class="eyebrow">pylint-dev/pylint &nbsp;·&nbsp; branch <b>issue-triage-workspace</b> &nbsp;·&nbsp; verified against pylint 4.1.0-dev0 @ 3cc06885f, astroid 4.3.1</div>
+    <div class="eyebrow">pylint-dev &nbsp;·&nbsp; branch <b>issue-triage-workspace</b> &nbsp;·&nbsp; 14 September 2026</div>
     <h1>Triage workspace</h1>
-    <p class="standfirst">Working notes for the issue queues on pylint-dev/pylint. Three reports are HTML; the earlier notes are still markdown. Everything is local to this branch — open this file in a browser.</p>
+    <p class="standfirst">What is open on pylint and astroid right now, and what can be done with it. Every verdict comes from rebuilding the reporter's snippet and running it, not from reading the issue.</p>
   </header>
   <div class="cards">
-<a href="needs-triage.html" style="--stripe: var(--good)"><h2>Needs triage — cleared</h2><p>All 32 issues that carried the label on 13 September 2026: what each one does today, and what was done about it. The label is now empty.</p><span class="meta">32 issues · 15 → Needs PR · 7 closed as fixed</span></a>
-<a href="needs-investigation.html" style="--stripe: var(--warn)"><h2>Needs investigation</h2><p>91 issues, median age three years, sorted into what reproduces, what quietly fixed itself, what was never broken, and what is waiting on its reporter.</p><span class="meta">91 issues · 29 reproduce · 87 still on the label</span></a>
-<a href="pr-queue.html" style="--stripe: var(--warn)"><h2>Pull request queue</h2><p>The 66 open pull requests nobody on this branch wrote, sorted by what is blocking each one rather than by age. Twenty-two of them are waiting on a button, not on a review.</p><span class="meta">66 PRs · 22 blocked on CI, not review · 3 point at closed issues</span></a>
-<a href="bisect-fixed.html" style="--stripe: var(--accent)"><h2>Bisect report</h2><p>Every issue from both sweeps that stopped reproducing, traced to its commit — in astroid as well as pylint — plus the harness and the three traps that make a bisect over this repo lie.</p><span class="meta">11 issues traced · 9 fixed outside pylint</span></a>
-  <a href="pr-queue.html" style="--stripe: var(--info)"><h2>Pull request queue</h2><p>The pylint pull request queue, maintainer's own excluded.</p><span class="meta">pylint-dev/pylint · 66 open</span></a>
+<a href="pylint-issues.html" style="--stripe: var(--warn)"><h2>Pylint issues</h2><p>108 open issues, by what each one does against main today rather than by which label it happens to carry. 44 reproduce, 40 are blocked on their reporter.</p><span class="meta">44 reproduce · 21 enhancements</span></a>
+<a href="astroid.html" style="--stripe: var(--dup)"><h2>Astroid queue</h2><p>Most of what fixes a pylint false positive lands in astroid. 41 open pull requests bucketed by what is actually blocking them, and the astroid issues that back an open pylint issue.</p><span class="meta">41 PRs · 18 ready to review</span></a>
+<a href="pr-queue.html" style="--stripe: var(--info)"><h2>Pull request queue</h2><p>The pylint pull request queue, maintainer's own excluded.</p><span class="meta">pylint-dev/pylint · 66 open</span></a>
+<a href="method.html" style="--stripe: var(--accent)"><h2>Method</h2><p>How a verdict was produced, how to redo a bisect without being lied to, and the cheap way to refresh these pages.</p><span class="meta">reproduce it yourself</span></a>
   </div>
-
   <div class="plain">
     <h2>Earlier notes (markdown)</h2>
     <ul>
-<li><a href="BRANCH_PRIORITIZATION.md">BRANCH_PRIORITIZATION.md</a> — Local branch prioritization</li>
-<li><a href="DUP_AUDIT.md">DUP_AUDIT.md</a> — DUP-issue audit report</li>
-<li><a href="EXTERNAL_PLUGINS_AUDIT.md">EXTERNAL_PLUGINS_AUDIT.md</a> — External-plugin audit — 73 "big" Enhancement issues</li>
-<li><a href="FIXED_AUDIT.md">FIXED_AUDIT.md</a> — FIXED-issue audit report</li>
-<li><a href="NEEDS_TRIAGE_ACTIONS.md">NEEDS_TRIAGE_ACTIONS.md</a> — Needs-triage actions — label cleared</li>
-<li><a href="REPRO_AUDIT.md">REPRO_AUDIT.md</a> — REPRO cluster audit — 181 confirmed-reproducing bugs</li>
-<li><a href="REPRO_BISECT.md">REPRO_BISECT.md</a> — REPRO bisect report</li>
-<li><a href="ROOT_ISSUES_ANALYSIS.md">ROOT_ISSUES_ANALYSIS.md</a> — High-leverage root issues — what single fixes would unblock the most open issues</li>
-<li><a href="UNCLEAR_AUDIT.md">UNCLEAR_AUDIT.md</a> — UNCLEAR-issue audit</li>
-<li><a href="bench_10176_comment.md">bench_10176_comment.md</a> — </li>
-<li><a href="bench_10176_report.md">bench_10176_report.md</a> — PR #10176 (`unguarded-typing-import`) — performance benchmark</li>
-<li><a href="bench_floatium_comment.md">bench_floatium_comment.md</a> — </li>
-<li><a href="bench_floatium_report.md">bench_floatium_report.md</a> — Floatium 0.14.4 vs pylint on astropy</li>
-<li><a href="issue_3512_plan.md">issue_3512_plan.md</a> — Issue #3512 — "Disable certain messages by default" implementation plan</li>
-<li><a href="issue_5462_plan.md">issue_5462_plan.md</a> — Issue #5462 — Configuration auto-upgrade tool implementation plan</li>
-<li><a href="needs_repro_2026-05-25.md">needs_repro_2026-05-25.md</a> — "Needs reproduction" triage — 2026-05-25</li>
-<li><a href="numpy_2x_plan.md">numpy_2x_plan.md</a> — `astroid` numpy 2.x brain modernization — implementation plan</li>
+      <li><a href="BRANCH_PRIORITIZATION.md">BRANCH_PRIORITIZATION.md</a></li>
+      <li><a href="DUP_AUDIT.md">DUP_AUDIT.md</a></li>
+      <li><a href="EXTERNAL_PLUGINS_AUDIT.md">EXTERNAL_PLUGINS_AUDIT.md</a></li>
+      <li><a href="FIXED_AUDIT.md">FIXED_AUDIT.md</a></li>
+      <li><a href="NEEDS_TRIAGE_ACTIONS.md">NEEDS_TRIAGE_ACTIONS.md</a></li>
+      <li><a href="REPRO_AUDIT.md">REPRO_AUDIT.md</a></li>
+      <li><a href="REPRO_BISECT.md">REPRO_BISECT.md</a></li>
+      <li><a href="ROOT_ISSUES_ANALYSIS.md">ROOT_ISSUES_ANALYSIS.md</a></li>
+      <li><a href="UNCLEAR_AUDIT.md">UNCLEAR_AUDIT.md</a></li>
+      <li><a href="bench_10176_comment.md">bench_10176_comment.md</a></li>
+      <li><a href="bench_10176_report.md">bench_10176_report.md</a></li>
+      <li><a href="bench_floatium_comment.md">bench_floatium_comment.md</a></li>
+      <li><a href="bench_floatium_report.md">bench_floatium_report.md</a></li>
+      <li><a href="issue_3512_plan.md">issue_3512_plan.md</a></li>
+      <li><a href="issue_5462_plan.md">issue_5462_plan.md</a></li>
+      <li><a href="needs_repro_2026-05-25.md">needs_repro_2026-05-25.md</a></li>
+      <li><a href="numpy_2x_plan.md">numpy_2x_plan.md</a></li>
     </ul>
   </div>
 
   <div class="plain">
-    <h2>How to read a verdict</h2>
-      <li style="list-style:none;margin-bottom:10px"><em>Every verdict below was re-run after <code>d03727c85</code> (Upgrade astroid to 4.3.1) landed; none of them moved.</em></li>
+    <h2>Where to start</h2>
     <ul>
-      <li><strong>reproduces</strong> — the reporter's own snippet was rebuilt and still emits the reported message on
-      pylint <code>main</code>, with their library installed at a version that shows it.</li>
-      <li><strong>fixed</strong> — no longer reproduces, and the commit that fixed it is named and hand-checked against
-      its parent.</li>
-      <li><strong>never repro'd</strong> — clean at the exact pylint, astroid and Python in the report, so nothing was
-      fixed; something in the reporter's environment was doing the work.</li>
-      <li><strong>needs repro / not re-run</strong> — the issue points at code that was never public, or carries no
-      runnable case at all. Not a judgement on whether the bug is real.</li>
+      <li><a href="astroid.html">18 astroid pull requests</a> are green, unreviewed and not drafts — the cheapest
+      maintainer time on either repository.</li>
+      <li>Two gaps have <a href="astroid.html">no astroid issue at all</a>, and both block a pylint issue already marked
+      <code>Needs PR</code>: torch's <code>_add_docstr</code> inference, and whether a truncated candidate list should
+      raise <code>unsubscriptable-object</code>.</li>
+      <li>40 of the 108 pylint issues are <a href="pylint-issues.html">blocked on their reporter</a>. Closing or pinging
+      those is the fastest way to shrink the queue.</li>
     </ul>
   </div>
 
   <footer>
-    Generated 2026-09-13 on branch <code>issue-triage-workspace</code>. Open <code>.triage/index.html</code> in a browser;
-    nothing here is served from anywhere.
+    Verified against pylint 4.1.0-dev0 @ 3cc06885f with astroid 4.3.1, on branch <code>issue-triage-workspace</code>.
+    Open <code>.triage/index.html</code> in a browser; nothing is served.
   </footer>
 </div>
 </body>
