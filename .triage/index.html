@@ -11,7 +11,7 @@
 </head>
 <body>
 <div class="wrap">
-  <nav class="site-nav"><a href="index.html" aria-current="page" class="home">Overview</a> <a href="needs-triage.html">Needs triage</a> <a href="needs-investigation.html">Needs investigation</a> <a href="bisect-fixed.html">Bisect report</a> <a href="pr-queue.html">Pull request queue</a></nav>
+  <nav class="site-nav"><a href="index.html" aria-current="page" class="home">Overview</a> <a href="needs-triage.html">Needs triage</a> <a href="needs-investigation.html">Needs investigation</a> <a href="astroid.html">Astroid queue</a> <a href="bisect-fixed.html">Bisect report</a> <a href="pr-queue.html">Pull request queue</a></nav>
   <header>
     <div class="eyebrow">pylint-dev/pylint &nbsp;·&nbsp; branch <b>issue-triage-workspace</b> &nbsp;·&nbsp; verified against pylint 4.1.0-dev0 @ 3cc06885f, astroid 4.3.1</div>
     <h1>Triage workspace</h1>
@@ -22,6 +22,7 @@
 <a href="needs-investigation.html" style="--stripe: var(--warn)"><h2>Needs investigation</h2><p>91 issues, median age three years, sorted into what reproduces, what quietly fixed itself, what was never broken, and what is waiting on its reporter.</p><span class="meta">91 issues · 29 reproduce · 87 still on the label</span></a>
 <a href="pr-queue.html" style="--stripe: var(--warn)"><h2>Pull request queue</h2><p>The 66 open pull requests nobody on this branch wrote, sorted by what is blocking each one rather than by age. Twenty-two of them are waiting on a button, not on a review.</p><span class="meta">66 PRs · 22 blocked on CI, not review · 3 point at closed issues</span></a>
 <a href="bisect-fixed.html" style="--stripe: var(--accent)"><h2>Bisect report</h2><p>Every issue from both sweeps that stopped reproducing, traced to its commit — in astroid as well as pylint — plus the harness and the three traps that make a bisect over this repo lie.</p><span class="meta">11 issues traced · 9 fixed outside pylint</span></a>
+  <a href="pr-queue.html" style="--stripe: var(--info)"><h2>Pull request queue</h2><p>The pylint pull request queue, maintainer's own excluded.</p><span class="meta">pylint-dev/pylint · 66 open</span></a>
   </div>
 
   <div class="plain">
