@@ -1,5 +1,5 @@
 ci:
-  skip: [pylint]
+  skip: [pylint, mypy]
 
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
@@ -94,6 +94,15 @@ repos:
         # require_serial: true
         args: ["-rn", "-sn", "--rcfile=pylintrc", "--fail-on=I"]
         exclude: tests(/\w*)*/functional/|tests/input|tests(/\w*)*data/|doc/
+      # mypy runs in the project virtual environment, so it type-checks against
+      # the versions pinned in the dependency groups of pyproject.toml.
+      - id: mypy
+        name: mypy
+        entry: mypy
+        language: system
+        types_or: [python, pyi]
+        require_serial: true
+        exclude: tests(/\w*)*/functional/|tests/input|tests(/.*)+/conftest.py|doc/data/messages|tests(/\w*)*data/
       - id: pyright
         name: pyright
         description: "Python command line wrapper for pyright, a static type checker"
@@ -137,15 +146,6 @@ repos:
         args: ["--report-level=warning"]
         files: ^(doc/(.*/)*.*\.rst)
         additional_dependencies: ["Sphinx==7.4.3"]
-  - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v2.3.1
-    hooks:
-      - id: mypy
-        name: mypy
-        args: []
-        additional_dependencies:
-          ["isort>=5", "platformdirs==2.2.0", "py==1.11", "tomlkit>=0.10.1"]
-        exclude: tests(/\w*)*/functional/|tests/input|tests(/.*)+/conftest.py|doc/data/messages|tests(/\w*)*data/
   - repo: https://github.com/rbubley/mirrors-prettier
     rev: v3.9.8
     hooks:

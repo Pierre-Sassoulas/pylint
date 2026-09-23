@@ -71,6 +71,7 @@ scripts.symilar = "pylint:run_symilar"
 [dependency-groups]
 dev = [
   "contributors-txt>=1",
+  "mypy==2.3.1",
   "pre-commit",
   "tbump~=6.11.0",
 ]
@@ -236,8 +237,6 @@ skip = """\
 max_supported_python = "3.15"
 
 [tool.mypy]
-# TODO: Remove this once pytest has annotations
-disallow_untyped_decorators = false
 warn_unused_ignores = true
 enable_error_code = "ignore-without-code"
 strict = true
@@ -246,20 +245,14 @@ show_error_codes = true
 
 [[tool.mypy.overrides]]
 module = [
-  "_pytest.*",
   "_string",
   "astroid.*",
   # `colorama` ignore is needed for Windows environment
   "colorama",
-  "contributors_txt",
-  "coverage",
   "dill",
   "enchant.*",
-  "git.*",
   "mccabe",
-  "pytest",
-  "pytest_benchmark.*",
-  "pytest_remaster.*",
+  # Only installed with the docs group, still type-checked when it is
   "sphinx.*",
 ]
 ignore_missing_imports = true
