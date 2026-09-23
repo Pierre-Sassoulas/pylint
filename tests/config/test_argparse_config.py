@@ -57,8 +57,8 @@ class TestDeprecationOptions:
         with pytest.raises(SystemExit) as ex:
             with pytest.warns(DeprecationWarning) as records:
                 Run([EMPTY_MODULE, "--ignore-mixin-members=yes"])
-            assert len(records) == 1
-            assert "--ignore-mixin-members has been deprecated" in records[0]
+        assert len(records) == 1
+        assert "--ignore-mixin-members has been deprecated" in str(records[0].message)
         assert ex.value.code == 0
 
     @staticmethod
