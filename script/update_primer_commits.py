@@ -27,7 +27,9 @@ def main() -> None:
 
     for name, data in packages.items():
         old = data["commit"]
-        sha = Git().ls_remote(data["url"], data["branch"]).split("\t")[0]
+        output = Git().ls_remote(data["url"], data["branch"])
+        assert isinstance(output, str)
+        sha = output.split("\t")[0]
         if sha != old:
             print(f"  {name}: {old[:12]} -> {sha[:12]}")
             text = text.replace(old, sha)

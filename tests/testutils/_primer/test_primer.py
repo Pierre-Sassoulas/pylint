@@ -54,7 +54,7 @@ def _message(message: str, clone_directory: Path) -> JSONMessage:
 
 
 @pytest.mark.parametrize("args", [[], ["wrong_command"]])
-def test_primer_launch_bad_args(args: list[str], capsys: CaptureFixture) -> None:
+def test_primer_launch_bad_args(args: list[str], capsys: CaptureFixture[str]) -> None:
     with pytest.raises(SystemExit):
         with patch("sys.argv", ["python tests/primer/__main__.py", *args]):
             Primer(PRIMER_DIRECTORY, PACKAGES_TO_PRIME_PATH).run()

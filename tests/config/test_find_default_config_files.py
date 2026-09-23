@@ -229,7 +229,7 @@ def test_pylintrc_parentdir_no_package() -> None:
 
 
 @pytest.mark.usefixtures("pop_pylintrc")
-def test_verbose_output_no_config(capsys: CaptureFixture) -> None:
+def test_verbose_output_no_config(capsys: CaptureFixture[str]) -> None:
     """Test that we print a log message in verbose mode with no file."""
     with tempdir() as chroot:
         with fake_home():
@@ -243,7 +243,7 @@ def test_verbose_output_no_config(capsys: CaptureFixture) -> None:
 
 
 @pytest.mark.usefixtures("pop_pylintrc")
-def test_verbose_abbreviation(capsys: CaptureFixture) -> None:
+def test_verbose_abbreviation(capsys: CaptureFixture[str]) -> None:
     """Test that we correctly handle an abbreviated pre-processable option."""
     with tempdir() as chroot:
         with fake_home():

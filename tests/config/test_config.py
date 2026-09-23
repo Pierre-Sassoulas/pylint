@@ -58,14 +58,14 @@ reports = "yes"
     check_configuration_file_reader(runner)
 
 
-def test_unknown_message_id(capsys: CaptureFixture) -> None:
+def test_unknown_message_id(capsys: CaptureFixture[str]) -> None:
     """Check that we correctly raise a message on an unknown id."""
     Run([str(EMPTY_MODULE), "--disable=12345"], exit=False)
     output = capsys.readouterr()
     assert "Command line:1:0: W0012: Unknown option value for '--disable'" in output.out
 
 
-def test_unknown_option_name(capsys: CaptureFixture) -> None:
+def test_unknown_option_name(capsys: CaptureFixture[str]) -> None:
     """Check that we correctly raise a message on an unknown option."""
     with pytest.raises(SystemExit):
         Run([str(EMPTY_MODULE), "--unknown-option=yes"], exit=False)
@@ -74,7 +74,7 @@ def test_unknown_option_name(capsys: CaptureFixture) -> None:
     assert "Unrecognized option" in output.err
 
 
-def test_unknown_short_option_name(capsys: CaptureFixture) -> None:
+def test_unknown_short_option_name(capsys: CaptureFixture[str]) -> None:
     """Check that we correctly raise a message on an unknown short option."""
     with pytest.raises(SystemExit):
         Run([str(EMPTY_MODULE), "-Q"], exit=False)
@@ -83,7 +83,7 @@ def test_unknown_short_option_name(capsys: CaptureFixture) -> None:
     assert "Unrecognized option" in output.err
 
 
-def test_unknown_confidence(capsys: CaptureFixture) -> None:
+def test_unknown_confidence(capsys: CaptureFixture[str]) -> None:
     """Check that we correctly error an unknown confidence value."""
     with pytest.raises(SystemExit):
         Run([str(EMPTY_MODULE), "--confidence=UNKNOWN_CONFIG"], exit=False)
@@ -97,7 +97,7 @@ def test_empty_confidence() -> None:
     assert r.linter.config.confidence == CONFIDENCE_LEVEL_NAMES
 
 
-def test_unknown_yes_no(capsys: CaptureFixture) -> None:
+def test_unknown_yes_no(capsys: CaptureFixture[str]) -> None:
     """Check that we correctly error on an unknown yes/no value."""
     with pytest.raises(SystemExit):
         Run([str(EMPTY_MODULE), "--reports=maybe"], exit=False)
@@ -105,7 +105,7 @@ def test_unknown_yes_no(capsys: CaptureFixture) -> None:
     assert "Invalid yn value 'maybe', should be in " in output.err
 
 
-def test_unknown_py_version(capsys: CaptureFixture) -> None:
+def test_unknown_py_version(capsys: CaptureFixture[str]) -> None:
     """Check that we correctly error on an unknown python-version."""
     with pytest.raises(SystemExit):
         Run([str(EMPTY_MODULE), "--py-version=the-newest"], exit=False)
@@ -138,7 +138,7 @@ def test_csv_regex_comma_in_quantifier(in_string: str, expected: list[str]) -> N
     assert _template_run(in_string) == [re.compile(regex) for regex in expected]
 
 
-def test_regex_error(capsys: CaptureFixture) -> None:
+def test_regex_error(capsys: CaptureFixture[str]) -> None:
     """Check that we correctly error when an an option is passed whose value is an invalid regular expression."""
     with pytest.raises(SystemExit):
         Run(
@@ -154,7 +154,7 @@ def test_regex_error(capsys: CaptureFixture) -> None:
     assert assertString in output.err
 
 
-def test_csv_regex_error(capsys: CaptureFixture) -> None:
+def test_csv_regex_error(capsys: CaptureFixture[str]) -> None:
     """Check that we correctly error when an option is passed and one
     of its comma-separated regular expressions values is an invalid regular expression.
     """
@@ -170,7 +170,7 @@ def test_csv_regex_error(capsys: CaptureFixture) -> None:
     )
 
 
-def test_short_verbose(capsys: CaptureFixture) -> None:
+def test_short_verbose(capsys: CaptureFixture[str]) -> None:
     """Check that we correctly handle the -v flag."""
     Run([str(EMPTY_MODULE), "-v"], exit=False)
     output = capsys.readouterr()

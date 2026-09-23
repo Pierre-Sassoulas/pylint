@@ -10,11 +10,10 @@ from pylint.interfaces import INFERENCE, UNDEFINED
 from pylint.testutils import CheckerTestCase, MessageTest
 
 try:
-    from coverage import tracer as _
+    from coverage import tracer as _  # noqa: F401
 
     C_EXTENTIONS_AVAILABLE = True
 except ImportError:
-    _ = None
     C_EXTENTIONS_AVAILABLE = False
 
 needs_c_extension = pytest.mark.skipif(

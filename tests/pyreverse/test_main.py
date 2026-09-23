@@ -141,7 +141,9 @@ def test_graphviz_supported_image_format(
 @mock.patch("pylint.pyreverse.main.writer")
 @pytest.mark.usefixtures("mock_graphviz")
 def test_graphviz_cant_determine_supported_formats(
-    mock_writer: mock.MagicMock, mock_subprocess: mock.MagicMock, capsys: CaptureFixture
+    mock_writer: mock.MagicMock,
+    mock_subprocess: mock.MagicMock,
+    capsys: CaptureFixture[str],
 ) -> None:
     """Test that Graphviz is used if the image format is supported."""
     mock_subprocess.run.return_value.stderr = "..."
@@ -160,7 +162,7 @@ def test_graphviz_cant_determine_supported_formats(
 @mock.patch("pylint.pyreverse.main.DiadefsHandler", new=mock.MagicMock())
 @mock.patch("pylint.pyreverse.main.writer", new=mock.MagicMock())
 @pytest.mark.usefixtures("mock_graphviz")
-def test_graphviz_unsupported_image_format(capsys: CaptureFixture) -> None:
+def test_graphviz_unsupported_image_format(capsys: CaptureFixture[str]) -> None:
     """Test that Graphviz is used if the image format is supported."""
     with pytest.raises(SystemExit) as wrapped_sysexit:
         # we have to catch the SystemExit so the test execution does not stop
@@ -251,7 +253,7 @@ def test_class_command(
 
 
 def test_version_info(
-    monkeypatch: pytest.MonkeyPatch, capsys: pytest.CaptureFixture
+    monkeypatch: pytest.MonkeyPatch, capsys: pytest.CaptureFixture[str]
 ) -> None:
     """Test that it is possible to display the version information."""
     test_full_version = "1.2.3.4"

@@ -50,7 +50,7 @@ MODULES_NAMES = [m[1] for m in MODULES_TO_CHECK]
 )
 @pytest.mark.filterwarnings("ignore::pytest.PytestUnraisableExceptionWarning")
 def test_primer_stdlib_no_crash(
-    test_module_location: str, test_module_name: str, capsys: CaptureFixture
+    test_module_location: str, test_module_name: str, capsys: CaptureFixture[str]
 ) -> None:
     """Test that pylint does not produce any crashes or fatal errors on stdlib modules."""
     __tracebackhide__ = True  # pylint: disable=unused-variable

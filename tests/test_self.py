@@ -139,7 +139,8 @@ class TestRunTC:
                 with warnings.catch_warnings():
                     warnings.simplefilter("ignore")
                     Run(args, reporter=reporter)
-            return int(cm.value.code)
+            assert isinstance(cm.value.code, int)
+            return cm.value.code
 
     @staticmethod
     def _clean_paths(output: str) -> str:
@@ -1390,6 +1391,7 @@ a.py:1:4: E0001: Parsing failed: 'invalid syntax (a, line 1)' (syntax-error)"""
             )
             Run([path])
         # Error code should not include bit-value 1 for crash
+        assert isinstance(ex.value.code, int)
         assert not ex.value.code % 2
 
     def test_recursive(self) -> None:

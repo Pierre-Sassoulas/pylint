@@ -314,7 +314,7 @@ def test_help() -> None:
             pytest.fail("not system exit")
 
 
-def test_no_args(capsys: CaptureFixture) -> None:
+def test_no_args(capsys: CaptureFixture[str]) -> None:
     output = StringIO()
     with redirect_stdout(output):
         try:
@@ -465,7 +465,7 @@ def test_space_short_form_option() -> None:
     assert "similar lines in" in output.getvalue()
 
 
-def test_bad_short_form_option(capsys: CaptureFixture) -> None:
+def test_bad_short_form_option(capsys: CaptureFixture[str]) -> None:
     """Regression test for https://github.com/pylint-dev/pylint/issues/9343"""
     output = StringIO()
     with redirect_stdout(output), pytest.raises(SystemExit) as ex:

@@ -48,7 +48,8 @@ class TestSymilarCodeChecker:
                 with warnings.catch_warnings():
                     warnings.simplefilter("ignore")
                     Run(args)
-            return int(cm.value.code)
+            assert isinstance(cm.value.code, int)
+            return cm.value.code
 
     @staticmethod
     def _clean_paths(output: str) -> str:

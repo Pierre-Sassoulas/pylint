@@ -166,7 +166,9 @@ def test_register_error_new_id_duplicate_of_new(
     )
 
 
-def test_format_help(capsys: CaptureFixture, store: MessageDefinitionStore) -> None:
+def test_format_help(
+    capsys: CaptureFixture[str], store: MessageDefinitionStore
+) -> None:
     store.help_message([])
     captured = capsys.readouterr()
     assert captured.out == ""
