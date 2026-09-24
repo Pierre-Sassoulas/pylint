@@ -1,0 +1,381 @@
+{
+  "11013": [],
+  "11012": [],
+  "10991": [
+    {
+      "author": "MCharming98",
+      "created_at": "2026-05-01T13:34:14Z",
+      "body": "I think `dataclass_transform` fails to propagate inherited fields when a base class uses PEP 695 syntax (e.g., `Middle[T, *Shape]`). This happens because astroid cannot resolve the MRO when a `TypeVarTuple` is present in a base.\n\nCritical Signals:\n- In `astroid/nodes/node_classes.py`,`_infer_sequence_helper` fails when it hits a Starred node containing a `TypeVarTuple`. It expects an `.elts` attribute which is missing for this node type, triggering an `InferenceError`.\n- ClassDef.mro() silently drops any base class that fails to infer.\n- Because the MRO is incomplete, `brain_dataclasses.py` misses fields from parent classes during the transform.\n\nNext Steps:\n- Modify BaseContainer._infer_sequence_helper to explicitly handle TypeVarTuple within Starred nodes (either via placeholder or by yielding the node itself).\n- Add a fallback in BaseContainer._infer to yield self if the helper raises an error, preventing total MRO collapse.\n\n<details>\n\n<summary> Note on this analysis </summary>\nI\u2019m currently developing Repellent AI, a specialized Root Cause Analysis (RCA) agent designed to reduce maintainer triage time. It recently achieved 88% accuracy on the SWE-bench Verified dataset.\n\nI am testing on live issues like this one to validate the quality of the analysis. My goal is to provide helpful, actionable signals rather than automated noise. I'd love to hear if this level of detail is useful for you!\n\n</details>"
+    }
+  ],
+  "10941": [
+    {
+      "author": "zenlyj",
+      "created_at": "2026-03-26T01:35:48Z",
+      "body": "Would it be possible to provide more information on the code where pylint is run on? A minimum case reproducing the issue would be extremely helpful."
+    },
+    {
+      "author": "2107-Nisha",
+      "created_at": "2026-03-26T02:40:37Z",
+      "body": "I am running this in a cloud environment and have added the necessary details in the requirements folder:\n\npylint==3.2.2\nastroid==3.2.4\n\nI am installing the dependencies using the following command, and the installation completes successfully:\n\npip install -r requirements/dev.txt -r requirements/tests.txt --upgrade --upgrade-strategy eager\n\nHowever, during linting, pylint throws an error:\n```\n raise self._exception\nastroid.exceptions.AstroidError\n>>> Command: pylint -j 6 celery/app celery/tests flask/app flask/tests common/ tests_common/\nic4v_invoke pylint 2>&1 - return code = 1\n```\n\n"
+    },
+    {
+      "author": "Pierre-Sassoulas",
+      "created_at": "2026-03-26T05:54:49Z",
+      "body": "I'm not sure what you mean by requirements folder, but I assume you forgot to add it to your message ? There's a stacktrace when astroid crash, please provide that (we're not going to be able to retro-engineer your code only from the stacktrace, only what type of node is failing). Or provide a minimal reproducer. But we won't be able to reproduce with only the final error message and the command launched."
+    }
+  ],
+  "10352": [],
+  "10278": [],
+  "10012": [],
+  "9993": [],
+  "9983": [],
+  "9137": [
+    {
+      "author": "jacobtylerwalls",
+      "created_at": "2023-10-29T21:29:56Z",
+      "body": "Thanks for the report. Can you share `bson`? Unable to reproduce without it."
+    },
+    {
+      "author": "leetrout",
+      "created_at": "2023-10-30T14:16:28Z",
+      "body": "It comes from `pymongo==4.5.0` (included in the additional dependencies)\r\n\r\n```\r\n~ \u231a 10:13:10\r\n$ cd $(mktemp -d)\r\n\r\n/var/folders/qr/9r97mvhs4_df5d1sb7ydp5gw0000gn/T/tmp.KLVjtlA0 \u231a 10:13:16\r\n$ asdf local python 3.11.3\r\n\r\n/var/folders/qr/9r97mvhs4_df5d1sb7ydp5gw0000gn/T/tmp.KLVjtlA0 \u231a 10:13:45\r\n$ $(asdf which python) -m venv venv\r\n\r\n/var/folders/qr/9r97mvhs4_df5d1sb7ydp5gw0000gn/T/tmp.KLVjtlA0 \u231a 10:13:58\r\n$ . venv/bin/activate\r\n\r\n/var/folders/qr/9r97mvhs4_df5d1sb7ydp5gw0000gn/T/tmp.KLVjtlA0 \ud83d\udc0dvenv \u231a 10:14:04\r\n$ pip install pymongo==4.5.0\r\nCollecting pymongo==4.5.0\r\n  Using cached pymongo-4.5.0-cp311-cp311-macosx_10_9_universal2.whl (529 kB)\r\nCollecting dnspython<3.0.0,>=1.16.0\r\n  Downloading dnspython-2.4.2-py3-none-any.whl (300 kB)\r\n     \u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501 300.4/300.4 kB 4.9 MB/s eta 0:00:00\r\nInstalling collected packages: dnspython, pymongo\r\nSuccessfully installed dnspython-2.4.2 pymongo-4.5.0\r\n\r\n[notice] A new release of pip available: 22.3.1 -> 23.3.1\r\n[notice] To update, run: pip install --upgrade pip\r\n\r\n/var/folders/qr/9r97mvhs4_df5d1sb7ydp5gw0000gn/T/tmp.KLVjtlA0 \ud83d\udc0dvenv \u231a 10:14:11\r\n$ python -c 'from bson.json_util import loads; print(loads)'\r\n<function loads at 0x100c5d800>\r\n```"
+    }
+  ],
+  "8079": [
+    {
+      "author": "DanielNoord",
+      "created_at": "2023-01-18T20:19:57Z",
+      "body": "This is probably related to us thinking that every `builtin` is actually from `builtins`. This can cause all kind of weird behaviour. I would advise to use `license_` anyway as it's inadvisable to overwrite builtin functions anyway."
+    },
+    {
+      "author": "jooola",
+      "created_at": "2023-01-18T20:25:38Z",
+      "body": "> This is probably related to us thinking that every builtin is actually from builtins. This can cause all kind of weird behaviour. I would advise to use license_ anyway as it's inadvisable to overwrite builtin functions anyway.\r\n\r\nI agree that we shouldn't overwrite builtin functions, I was just hoping to prevent a crash.\r\n\r\nI am unsure if I can rename a field so easily without breaking some API. So the possibility to ignore the normally raised linting error until we provide a good fix would be very welcome.\r\n\r\n\r\nEDIT: I renamed the problematic function, so I have my work around. Feel free to close if you think this is an expected behavior."
+    },
+    {
+      "author": "DanielNoord",
+      "created_at": "2023-01-18T20:29:23Z",
+      "body": "Good to hear you fixed it! This is definitely something we should fix but will probably be low priority as it has minimal impact and can hopefully be averted by small refactors by users."
+    },
+    {
+      "author": "Pierre-Sassoulas",
+      "created_at": "2023-01-18T20:51:02Z",
+      "body": "I'm not sure we should fix, checking that a bultin is indeed a builtin is going to cost an enormous amount of computing power over all pylint users for this one use case. I think we should consider modified builtins an unsupported broken environment."
+    },
+    {
+      "author": "DanielNoord",
+      "created_at": "2023-01-18T21:21:04Z",
+      "body": "It feels though as if we are incorrectly populating the cache with `builtins`. I don't know, something to investigate I guess!"
+    },
+    {
+      "author": "jacobtylerwalls",
+      "created_at": "2023-01-18T22:27:21Z",
+      "body": "Is the problem only reproducible in when using `--jobs`? We may not be catching `AstroidError` as robustly as in the single-process code, in which case I'd flag this as `topic-multiprocessing`."
+    },
+    {
+      "author": "jooola",
+      "created_at": "2023-01-18T22:30:35Z",
+      "body": "Running without jobs allows pylint to finish and report some more expressive error message, it feels less like a crash:\r\n```\r\n$ poetry run pylint \\ \r\n    --output-format=colorized \\\r\n    --recursive=true \\\r\n    funkwhale_api/music/factories.py\r\n2023-01-18 23:29:03,224 funkwhale_api.config INFO     Running with the following plugins enabled: funkwhale_api.contrib.scrobbler, funkwhale_api.contrib.listenbrainz, funkwhale_api.contrib.maloja\r\n************* Module funkwhale_api.music.factories\r\nfunkwhale_api/music/factories.py:70:4: R0903: Too few public methods (0/2) (too-few-public-methods)\r\nfunkwhale_api/music/factories.py:95:4: R0903: Too few public methods (0/2) (too-few-public-methods)\r\nfunkwhale_api/music/factories.py:122:4: R0903: Too few public methods (0/2) (too-few-public-methods)\r\nfunkwhale_api/music/factories.py:135:4: E0202: An attribute defined in funkwhale_api.music.factories line 143 hides this method (method-hidden)\r\nException on node <FunctionDef.license l.155 at 0x7fe1f0e800a0> in file '/home/jo/git/dev.funkwhale.audio/funkwhale/funkwhale/api/funkwhale_api/music/factories.py'\r\nTraceback (most recent call last):\r\n  File \"/home/jo/git/dev.funkwhale.audio/funkwhale/funkwhale/api/.venv/lib/python3.9/site-packages/pylint/utils/ast_walker.py\", line 90, in walk\r\n    callback(astroid)\r\n  File \"/home/jo/git/dev.funkwhale.audio/funkwhale/funkwhale/api/.venv/lib/python3.9/site-packages/pylint_plugin_utils/__init__.py\", line 60, in __call__\r\n    self.augmentation_func(Chain(self.old_method, node), node)\r\n  File \"/home/jo/git/dev.funkwhale.audio/funkwhale/funkwhale/api/.venv/lib/python3.9/site-packages/pylint_plugin_utils/__init__.py\", line 119, in __call__\r\n    chain()\r\n  File \"/home/jo/git/dev.funkwhale.audio/funkwhale/funkwhale/api/.venv/lib/python3.9/site-packages/pylint_plugin_utils/__init__.py\", line 69, in __call__\r\n    self.old_method(self.node)\r\n  File \"/home/jo/git/dev.funkwhale.audio/funkwhale/funkwhale/api/.venv/lib/python3.9/site-packages/pylint/checke"
+    },
+    {
+      "author": "jacobtylerwalls",
+      "created_at": "2023-01-18T22:42:53Z",
+      "body": "Aha, so we have two problems! The underlying issue and then a `topic-multiprocessing` problem that `--jobs` prevents catching AstroidError. Can you open a second issue?"
+    },
+    {
+      "author": "sattlerc",
+      "created_at": "2024-12-29T08:16:09Z",
+      "body": "Simple test for the crash (from #10159):\n\n```python\ntuple = namedtuple(None, [])\n```"
+    }
+  ],
+  "8049": [
+    {
+      "author": "DanielNoord",
+      "created_at": "2023-01-11T20:10:59Z",
+      "body": "Could you test this with the latest version on the astroid `2.12.x` versions? So no `2.13.x`?"
+    },
+    {
+      "author": "q-wertz",
+      "created_at": "2023-01-11T21:13:52Z",
+      "body": "Using\r\n\r\n```\r\npylint 2.15.10\r\nastroid 2.12.13\r\nPython 3.10.8 (main, Nov  1 2022, 14:18:21) [GCC 12.2.0]\r\n```\r\n\r\nI get the same behavior\u2026"
+    },
+    {
+      "author": "clavedeluna",
+      "created_at": "2023-01-18T13:31:06Z",
+      "body": "I'm not able to reproduce this \ud83e\udd14 "
+    },
+    {
+      "author": "q-wertz",
+      "created_at": "2023-03-07T12:45:53Z",
+      "body": "Some other things that interfere with the default logging behavior (maybe it helps)\r\n\r\n1. warnings from the warnings module are also captured \r\n    ```python\r\n    # See https://docs.python.org/3/library/logging.html#logging.captureWarnings\r\n    logging.captureWarnings(capture=True)\r\n    ```\r\n2. A trace level is monkey patched to the logging levels using [haggis](https://github.com/madphysicist/haggis) library\r\n    ```python\r\n    haggis.logs.add_trace_level()\r\n    ```\r\n    \r\nBut all of these things happen at runtime and thus should not interfere with pylint, correct?"
+    },
+    {
+      "author": "jacobtylerwalls",
+      "created_at": "2023-03-08T12:21:35Z",
+      "body": "It depends on whether they happen at import time. `pylint` imports modules as part of its analysis."
+    },
+    {
+      "author": "jacobtylerwalls",
+      "created_at": "2023-03-08T12:23:23Z",
+      "body": "Notice the function referred to in the traceback comes from the haggis library: https://github.com/madphysicist/haggis/blob/ed2b3ff521c7e5629deaf8cb045cdd95b85920f9/src/haggis/logs.py#L464"
+    },
+    {
+      "author": "q-wertz",
+      "created_at": "2023-03-08T14:40:43Z",
+      "body": "> Notice the function referred to in the traceback comes from the haggis library: https://github.com/madphysicist/haggis/blob/ed2b3ff521c7e5629deaf8cb045cdd95b85920f9/src/haggis/logs.py#L464\r\n\r\nAh thanks. I thought as as in the stack trace there is never a reference to haggis it is something internal and not the one from there\u2026\r\nDo you think I have to open an issue there or does this have to be fixed in Astroid/pylint?"
+    },
+    {
+      "author": "jacobtylerwalls",
+      "created_at": "2023-03-08T15:26:06Z",
+      "body": "Still needs someone to do some investigation: either there is something we can fix in astroid, or there's not (because it's too hard to deal with how monkey-patched this situation is). In the latter case, we could consider catching the AstroidError in pylint, again, if it's easy enough to tell this scenario apart from the generic something-went-wrong-in-astroid in which we don't want to have a wide, lazy catch for everything."
+    },
+    {
+      "author": "Pierre-Sassoulas",
+      "created_at": "2023-03-08T15:51:54Z",
+      "body": "Not sure if it's reasonable to handle conditionally defined function in astroid. We have a hard time with control flow already, and this is one step above it. Also how would we differentiate between unexpected astroid error and unexpected plugin error ? Checking the traceback programmatically for \"pure astroidness\" ?"
+    },
+    {
+      "author": "q-wertz",
+      "created_at": "2023-03-08T16:34:31Z",
+      "body": "The problem currently is, that it completely crashes pylint (for that file) at that point and the result code quality of the whole project is set to 0.0\u2026"
+    },
+    {
+      "author": "jacobtylerwalls",
+      "created_at": "2023-03-08T16:35:55Z",
+      "body": "Right, for that reason I think we need to leave this open for a little investigation."
+    },
+    {
+      "author": "jacobtylerwalls",
+      "created_at": "2023-09-23T15:39:10Z",
+      "body": "Predates 3.0, suggesting we remove the blocker label."
+    }
+  ],
+  "7680": [
+    {
+      "author": "zzzeek",
+      "created_at": "2022-10-26T20:22:07Z",
+      "body": "definitely on pylint side, we run many code quality tools on sqlalchemy including flake8 with lots of extensions, mypy, pyright, pylance, black, and others.\r\n\r\npylint 2.15.5 reproduces the issue, while an older version I had installed, 2.11.1, does not:\r\n\r\n```\r\n$ pylint test3.py \r\n************* Module test3\r\ntest3.py:9:0: C0304: Final newline missing (missing-final-newline)\r\ntest3.py:5:0: R0903: Too few public methods (1/2) (too-few-public-methods)\r\n\r\n------------------------------------------------------------------\r\nYour code has been rated at 5.00/10 (previous run: 5.00/10, +0.00)\r\n\r\n```"
+    },
+    {
+      "author": "widal001",
+      "created_at": "2024-02-18T05:02:16Z",
+      "body": "I had a very similar issue in #9446 and simply removing the `@classmethod` worked for me:\r\n\r\n```python\r\nclass UUIDAuditBase(DeclarativeBase):\r\n    \"\"\"Base db model that includes id, created_at, and update_at.\"\"\"\r\n\r\n    id: Mapped[UUID] = mapped_column(primary_key=True)\r\n    created_at: Mapped[DateTime] = mapped_column(\r\n        DateTime(timezone=True),\r\n        default=functions.now(),\r\n    )\r\n    updated_at: Mapped[DateTime] = mapped_column(\r\n        DateTime(timezone=True),\r\n        default=functions.now(),\r\n        onupdate=functions.now(),\r\n    )\r\n\r\n    @declared_attr.directive\r\n    def __tablename__(cls) -> str:  # noqa: N805\r\n        \"\"\"Set default table name as the lowercase version of the class name.\"\"\"\r\n        return cls.__name__.lower()\r\n```"
+    },
+    {
+      "author": "Pierre-Sassoulas",
+      "created_at": "2025-08-03T14:46:08Z",
+      "body": "A similar crash was reported in #9479 then #10474 "
+    }
+  ],
+  "7389": [
+    {
+      "author": "abel-bzz",
+      "created_at": "2022-09-21T13:35:31Z",
+      "body": "I think I face the same error with `pylint 2.15.3` and `astroid 2.12.10`.:\r\nHere is a MRE using xarray library:\r\n```\r\nimport xarray as xr\r\n\r\nclass A(xr.DataArray):\r\n ...\r\n```\r\nIf this code is in a standalone file, say `mre.py`, pylint runs fine (with the command `pylint mre.py`).\r\nHowever, if it's within a `__init__.py` file or in a file imported in a `__init__.py`, it crashes with the recursion error of @AnasTaherGit  (with the command `pylint my_lib/__init__.py`)\r\n\r\n"
+    }
+  ],
+  "7268": [
+    {
+      "author": "jacobtylerwalls",
+      "created_at": "2022-08-06T14:10:18Z",
+      "body": "Hey @Blind4Basics thanks for the report. I'm having trouble reproducing the issue.\r\n\r\n```shell\r\n$ tail typing-named-tuple.py \r\nfrom typing import NamedTuple\r\n\r\nclass Color(NamedTuple):\r\n    RED,CYAN,BLUE,BLACK,GREEN,WHITE = 31,36,34,30,32,37\r\n\r\n$ pylint --version\r\npylint 2.14.5\r\nastroid 2.11.7\r\nPython 3.10.1 (v3.10.1:2cd268a3a9, Dec  6 2021, 14:28:59) [Clang 13.0.0 (clang-1300.0.29.3)]\r\n\r\n$ pylint typing-named-tuple.py \r\n\r\n************* Module typing-named-tuple\r\ntyping-named-tuple.py:5:0: C0305: Trailing newlines (trailing-newlines)\r\ntyping-named-tuple.py:1:0: C0114: Missing module docstring (missing-module-docstring)\r\ntyping-named-tuple.py:1:0: C0103: Module name \"typing-named-tuple\" doesn't conform to snake_case naming style (invalid-name)\r\ntyping-named-tuple.py:3:0: C0115: Missing class docstring (missing-class-docstring)\r\n\r\n------------------------------------------------------------------\r\nYour code has been rated at 0.00/10 (previous run: 0.00/10, +0.00)\r\n```\r\n\r\nCan you provide more steps to reproduce?\r\n\r\nI noticed you experienced this issue in VS Code. VS Code might be using a different python interpreter than the one you invoked when running `pylint --version`."
+    },
+    {
+      "author": "Blind4Basics",
+      "created_at": "2022-08-29T12:12:25Z",
+      "body": "Hello,\r\n\r\nSorry for the late answer, I didn't see the notification...\r\n\r\nYes, I'm using a venv in VSC and it often becomes a mess, for me. I'm not sure about how to make tails and heads of this. In my current environment, while the venv is activated, I still get the error. I tried the following in the console, if that may help:\r\n\r\n```\r\n(.venv) which pylint\r\n[...root project here...]/.venv/bin/pylint\r\n\r\n(.venv) pylint --version \r\npylint 2.14.5\r\nastroid 2.11.7\r\nPython 3.10.4 (main, Aug  9 2022, 14:20:23) [GCC 11.2.0]\r\n\r\n(.venv) which python\r\n[...root project here...]/.venv/bin/python\r\n```\r\n\r\nI still get the same error when running pylint from the command line, targetting the file directly with:\r\n```\r\n(.venv) pylint .../file.py \r\n```\r\nI tried from outside the venv as well, but since I didn't install pylint globally, I guess that's not relevant anyway since I had to target the pylint executable in the .venv/bin explicitely.\r\n\r\nNote: I tried those procedure both from VSC's console and directly from a terminal. I get the very same results.\r\n\r\n---\r\n\r\nNow, about providing more steps, I guess I'll need to give the complete process I used to setup my machine. I'm starting from  fresh Ubuntu 22.04 install, then I have several scripts installing a lot of stuff for me. The relevant parts are the following:\r\n\r\n```bash\r\ncd ~\r\nsudo apt-get -y update && sudo apt -y upgrade\r\nsudo apt install -y curl\r\nsource ~/.bashrc\r\n\r\n# python specific parts (those are actually done in a subscript):\r\n\r\nsudo ln -s /usr/bin/python3 /usr/bin/python\r\n\r\n# \"Install various libs needed for pyenv and python\"\r\nsudo apt install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev libxmlsec1-dev libxml2-dev python3-openssl\r\n\r\n# \"Install pyenv\"\r\ngit clone https://github.com/pyenv/pyenv.git ~/.pyenv\r\n\r\n# the below one is optionnal, to optimize pyenv executions. Don't care if it fails\r\ncd ~/."
+    }
+  ],
+  "3602": [
+    {
+      "author": "Pierre-Sassoulas",
+      "created_at": "2021-01-01T12:36:39Z",
+      "body": "Look like it's the first issue opened for this recursion bug and the following one are:\r\n#3986, #3985, #3982, #3977, #3952, #3913, #3836\r\n\r\nA possible temporary solution to the problem was proposed here: https://github.com/PyCQA/pylint/issues/3836#issuecomment-742512541\r\n\r\n> turns out this is a genuinely large recursion problem, and can be gotten around by putting the following in your pylintrc file:\r\n> `init-hook='import sys; sys.setrecursionlimit(3 * sys.getrecursionlimit())'`\r\n"
+    },
+    {
+      "author": "Pierre-Sassoulas",
+      "created_at": "2021-03-07T12:58:37Z",
+      "body": "I just checked with pylint 2.7 astroid 2.5, it's not crashing but it's taking really fucking long (more than 10mn and counting) for parsing 5 line of code.\r\n\r\nEdit: OOM killed 15mn in. ``[1]    3619 killed     pyreverse -o gv -A -my -S a.py``"
+    },
+    {
+      "author": "semajson",
+      "created_at": "2021-10-18T11:23:40Z",
+      "body": "I have created a `.pylintrc` file and added `init-hook='import sys; sys.setrecursionlimit(3 * sys.getrecursionlimit())'`, however my pyreverse  command still fails at the same point.\r\n\r\nIn fact, when I set it to  `init-hook='assert False'`, my pyreverse command still failed the same way. I suspect that the `.pylintrc` file isn't being used for pyreverse commands. Perhaps that could be a fix here, allowing pylintrc files to be to be used for pyreverse commands (perhaps by having adding a `--rcfile` argument to the pyreverse command)?"
+    },
+    {
+      "author": "DudeNr33",
+      "created_at": "2021-10-18T12:17:57Z",
+      "body": "Could you please share the versions of ``pylint`` and ``astroid`` you are using?\nIdeally with a minimum working example to reproduce the issue. Thank you!"
+    },
+    {
+      "author": "Pierre-Sassoulas",
+      "created_at": "2022-05-10T12:21:38Z",
+      "body": "On the latest main (2.14.0-b1) with the following ``a.py`` file:\r\n```python\r\nimport numpy as np\r\n\r\nclass ExempleClass :\r\n  typ = np.uint32\r\n  \r\n  def __init__(self,D):\r\n      self.X = np.zeros( D, dtype=self.typ)\r\n```\r\nrunning ``pyreverse -o gv -A -my -S a.py`` ends up in OOM kill."
+    },
+    {
+      "author": "DudeNr33",
+      "created_at": "2022-05-10T17:33:49Z",
+      "body": "The offending option in this case is `-S` (\"show recursively all associated off all associated classes\").\r\nThe problem is with `self.X = np.zeros(D, dtype=self.typ)`.\r\nIt is possible to limit the levels of association by using \"-s2\" (lower case `-s`, \"show <association_level> levels of associated classes not in <projects>\"). With this you end up with this diagram:\r\n\r\n```mermaid\r\nclassDiagram\r\n  class ExempleClass {\r\n    X\r\n    typ\r\n  }\r\n  class ndarray {\r\n    T\r\n    base : NoneType\r\n    ctypes : NoneType\r\n    data : NoneType\r\n    dtype : NoneType\r\n    flags : NoneType\r\n    flat\r\n    imag\r\n    itemsize : NoneType\r\n    nbytes : NoneType\r\n    ndim : NoneType\r\n    real\r\n    shape\r\n    size : NoneType\r\n    strides : NoneType\r\n    all(axis, out, keepdims)\r\n    any(axis, out, keepdims)\r\n    argmax(axis, out)\r\n    argmin(axis, out)\r\n    argpartition(kth, axis, kind, order)\r\n    argsort(axis, kind, order)\r\n    astype(dtype, order, casting, subok, copy)\r\n    byteswap(inplace)\r\n    choose(choices, out, mode)\r\n    clip(min, max, out)\r\n    compress(condition, axis, out)\r\n    conj()\r\n    conjugate()\r\n    copy(order)\r\n    cumprod(axis, dtype, out)\r\n    cumsum(axis, dtype, out)\r\n    diagonal(offset, axis1, axis2)\r\n    dot(b, out)\r\n    dump(file)\r\n    dumps()\r\n    fill(value)\r\n    flatten(order)\r\n    getfield(dtype, offset)\r\n    item()\r\n    itemset()\r\n    max(axis, out)\r\n    mean(axis, dtype, out, keepdims)\r\n    min(axis, out, keepdims)\r\n    newbyteorder(new_order)\r\n    nonzero()\r\n    partition(kth, axis, kind, order)\r\n    prod(axis, dtype, out, keepdims)\r\n    ptp(axis, out)\r\n    put(indices, values, mode)\r\n    ravel(order)\r\n    repeat(repeats, axis)\r\n    reshape(shape, order)\r\n    resize(new_shape, refcheck)\r\n    round(decimals, out)\r\n    searchsorted(v, side, sorter)\r\n    setfield(val, dtype, offset)\r\n    setflags(write, align, uic)\r\n    sort(axis, kind, order)\r\n    squeeze(axis)\r\n    std(axis, dtype, out, ddof, keepdims)\r\n    sum(axis, dtype, out, keepdims)\r\n    swapaxes(axis1, a"
+    },
+    {
+      "author": "Pierre-Sassoulas",
+      "created_at": "2022-05-10T17:56:54Z",
+      "body": "Sounds like the issue could be closed if we put a lower default value when nothing is set ? It's easy to shoot oneself in the foot right now."
+    },
+    {
+      "author": "DudeNr33",
+      "created_at": "2022-05-10T19:25:40Z",
+      "body": "Well, `-S` explicitly says *recursively all* associated classes.\r\nIt is not turned on by default (*), so I don't see a need to change this behaviour (the recursion error itself should be fixed of course).\r\n\r\n(*) this is not entirely true, as using the `--class` option to generate a diagram of a specific class sets `-ASmy` as default.\r\nBut for normal invocations, i.e. `pyreverse a.py`, no associated classes outside the own project will be shown."
+    }
+  ],
+  "2188": [
+    {
+      "author": "PCManticore",
+      "created_at": "2018-06-14T07:29:35Z",
+      "body": "Thanks for the report!"
+    },
+    {
+      "author": "idgserpro",
+      "created_at": "2018-06-14T15:33:53Z",
+      "body": "@PCManticore update description to use last version of pylint."
+    },
+    {
+      "author": "PCManticore",
+      "created_at": "2018-06-21T08:11:36Z",
+      "body": "I've spent some time trying to figure out what's the problem here. The culprit is `Folder` from `OFS.Folder`. Unfortunately the only tool capable of getting the MRO of this class is Python itself. I've tried with the standard MRO implementation, I've tried with MRO implementation from astroid and the one from `functools`, which is used for `singledispatch`, every single one of them is failing to get the MRO of `Folder`:\r\n\r\n```\r\ndef merge(seqs):\r\n    print '\\n\\nCPL[%s]=%s' % (seqs[0][0],seqs),\r\n    res = []; i=0\r\n    while 1:\r\n      nonemptyseqs=[seq for seq in seqs if seq]\r\n      if not nonemptyseqs: return res\r\n      i+=1; print '\\n',i,'round: candidates...',\r\n      for seq in nonemptyseqs: # find merge candidates among seq heads\r\n          cand = seq[0]; print ' ',cand,\r\n          nothead=[s for s in nonemptyseqs if cand in s[1:]]\r\n          if nothead: cand=None #reject candidate\r\n          else: break\r\n      if not cand: raise Exception(\"Inconsistent hierarchy\")\r\n      res.append(cand)\r\n      for seq in nonemptyseqs: # remove cand\r\n          if seq[0] == cand: del seq[0]\r\n\r\ndef mro(C):\r\n    \"Compute the class precedence list (mro) according to C3\"\r\n    return merge([[C]]+map(mro,C.__bases__)+[list(C.__bases__)])\r\n\r\ndef _c3_merge(sequences):\r\n    \"\"\"Merges MROs in *sequences* to a single MRO using the C3 algorithm.\r\n\r\n    Adapted from http://www.python.org/download/releases/2.3/mro/.\r\n\r\n    \"\"\"\r\n    result = []\r\n    while True:\r\n        sequences = [s for s in sequences if s]   # purge empty sequences\r\n        if not sequences:\r\n            return result\r\n        for s1 in sequences:   # find merge candidates among seq heads\r\n            candidate = s1[0]\r\n            for s2 in sequences:\r\n                if candidate in s2[1:]:\r\n                    candidate = None\r\n                    break      # reject the current head, it appears later\r\n            else:\r\n                break\r\n        if candidate is None:\r\n            raise RuntimeError(\"Inconsistent hiera"
+    },
+    {
+      "author": "idgserpro",
+      "created_at": "2018-06-21T12:18:06Z",
+      "body": "Uhm, maybe we can get some help from Zope guys? They may not be familiar with pylint but they may be with some Zope internals. @icemac @tseaver @hannosch"
+    },
+    {
+      "author": "tseaver",
+      "created_at": "2018-06-21T18:01:16Z",
+      "body": "I don't know anything about astroid, but I can suggest at least one case to consider:  a bunch of the classes in the `OFS.Folder.Folder` inheritance hierarchy derive from `ExtensionClass.Base`, which is a type defined in C:  it is possible that the `Base` type is missing some introspection feature which astroid relies on for builtin / extension types."
+    },
+    {
+      "author": "PCManticore",
+      "created_at": "2018-06-22T15:41:13Z",
+      "body": "Thanks for the insight @tseaver ! Sounds plausible, I'll try to see when I get some time if this is the cause of this error."
+    },
+    {
+      "author": "idgserpro",
+      "created_at": "2018-08-21T18:48:23Z",
+      "body": "@PCManticore  I don't know exactly what you need to do here but you couldn't use the python [\\_\\_mro\\_\\_](https://docs.python.org/2/library/stdtypes.html#class.__mro__) attribute?\r\n\r\n```python\r\nfrom OFS.Folder import Folder\r\nprint Folder.__mro__\r\n(<class 'OFS.Folder.Folder'>, <class 'OFS.ObjectManager.ObjectManager'>, <class 'OFS.CopySupport.CopyContainer'>, <class 'App.Management.Navigation'>, <class 'App.Management.Tabs'>, <type 'Acquirer'>, <type 'Persistence.Persistent'>, <type 'persistent.Persistent'>, <class 'webdav.Collection.Collection'>, <class 'webdav.Resource.Resource'>, <class webdav.Lockable.LockableItem at 0x7fb4bfbb00b8>, <class webdav.EtagSupport.EtagSupport at 0x7fb4bfe09f58>, <class OFS.Traversable.Traversable at 0x7fb4bf19f390>, <class 'OFS.PropertyManager.PropertyManager'>, <class OFS.ZDOM.ElementWithAttributes at 0x7fb4bf19f668>, <class OFS.ZDOM.Element at 0x7fb4bf19f600>, <class OFS.ZDOM.Node at 0x7fb4bf19f530>, <class 'OFS.role.RoleManager'>, <class 'AccessControl.rolemanager.RoleManager'>, <class AccessControl.PermissionMapping.RoleManager at 0x7fb4bf3062c0>, <class 'OFS.SimpleItem.Item'>, <class 'OFS.CopySupport.CopySource'>, <class 'OFS.owner.Owned'>, <class 'AccessControl.owner.Owned'>, <class 'App.Undo.UndoSupport'>, <class 'OFS.FindSupport.FindSupport'>, <type 'ExtensionClass.Base'>, <type 'object'>)\r\n```\r\nThis looks like the order used by python.\r\n\r\nMaybe you can convert this tuple to the format you need."
+    },
+    {
+      "author": "PCManticore",
+      "created_at": "2018-08-22T07:16:34Z",
+      "body": "@idgserpro We don't use the Python objects. Since pylint is a static analysis tool, we have to implement our own MRO computation, which is done statically against the class hierarchy we can infer."
+    },
+    {
+      "author": "idgserpro",
+      "created_at": "2018-08-22T12:23:05Z",
+      "body": "@PCManticore note that ```__mro__``` is a class attribute, not an object attribute. In your attempts to discover the MRO you also use the class attribute:\r\n\r\n```python\r\ndef mro(C):\r\n    \"Compute the class precedence list (mro) according to C3\"\r\n    return merge([[C]]+map(mro,C.__bases__)+[list(C.__bases__)])\r\n```\r\n\r\nSorry if I'm saying something nonsense."
+    },
+    {
+      "author": "PCManticore",
+      "created_at": "2018-08-22T12:31:39Z",
+      "body": "@idgserpro That's the thing, we don't have access to that `C` class, instead we use our own representation of `C` built from the source code."
+    },
+    {
+      "author": "idgserpro",
+      "created_at": "2018-09-21T12:43:26Z",
+      "body": "@PCManticore I updated the description to add the ```Products.CMFPlone``` dependency in buildout and upgrade the version of ```pylint``` to 1.9.3"
+    },
+    {
+      "author": "idgserpro",
+      "created_at": "2018-09-21T12:53:04Z",
+      "body": "@PCManticore the ```ExtensionClass.Base``` class referenced by @tseaver  isn't the problem here. The ```astroid``` simply remove it of the inheritance stack, since it isn't possible to infer its attributes.\r\n\r\nI tested another class with more simple inheritance but that inherited from it and it worked."
+    },
+    {
+      "author": "idgserpro",
+      "created_at": "2018-09-22T03:57:27Z",
+      "body": "@PCManticore contrary to what I said in the previous comment, it's just the ```ExtensionClass.Base``` class that's causing the problem.\r\n\r\nIt seems that python changes the order of mro when it encounters a class implemented in ```C``` in the inheritance hierarchy. First I made an example without having an ExtensionClass.Base class in the inheritance hierarchy and compares with the python mro:\r\n\r\n```python\r\nfrom astroid import extract_node, ClassDef\r\nfrom ExtensionClass import Base\r\n\r\nprint 'Example with class D inheriting from object:\\n'\r\n\r\nn = next(extract_node(\"\"\"\r\nfrom ExtensionClass import Base\r\n\r\nclass F(object):\r\n    pass\r\n\r\nclass E(object):\r\n    pass\r\n\r\nclass D(object):\r\n    pass\r\n\r\nclass C(F, E):\r\n    pass\r\n\r\nclass B(D, E):\r\n    pass\r\n\r\nclass A(B, C):\r\n    pass\r\nA\r\n\"\"\").infer())\r\nassert isinstance(n, ClassDef)\r\n\r\nprint 'astroid and python mro:'\r\n\r\nprint n.mro()\r\n\r\nclass F(object):\r\n    pass\r\n\r\nclass E(object):\r\n    pass\r\n\r\nclass D(object):\r\n    pass\r\n\r\nclass C(F, E):\r\n    pass\r\n\r\nclass B(D, E):\r\n    pass\r\n\r\nclass A(B, C):\r\n    pass\r\n\r\nprint A.__mro__\r\n```\r\n\r\nThe result:\r\n\r\n```\r\nExample with class D inheriting from object:\r\n\r\nastroid and python mro:\r\n[<ClassDef.A l.19 at 0x7ff64d3ca210>, <ClassDef.B l.16 at 0x7ff64d3ca150>, <ClassDef.D l.10 at 0x7ff64d3b8f90>, <ClassDef.C l.13 at 0x7ff64d3ca050>, <ClassDef.F l.4 at 0x7ff64d3b8e10>, <ClassDef.E l.7 at 0x7ff64d3b8e50>, <ClassDef.object l.0 at 0x7ff64d881590>]\r\n(<class '__main__.A'>, <class '__main__.B'>, <class '__main__.D'>, <class '__main__.C'>, <class '__main__.F'>, <class '__main__.E'>, <type 'object'>)\r\n```\r\nNote that the order is the same.\r\n\r\nSo I've changed the inheritance of class ```D``` from ```object``` to ```Base```, both in the astroid part and in the python part. The result was:\r\n\r\n```\r\nExample with class D inheriting from ExtensionClass.Base:\r\n\r\nastroid and python mro:\r\n[<ClassDef.A l.19 at 0x7f7f2edec210>, <ClassDef.B l.16 at 0x7f7f2edec150>, <ClassDef.D l.10 at 0x7f7f2ed86f90>, <ClassDef.C l.13"
+    },
+    {
+      "author": "idgserpro",
+      "created_at": "2018-10-24T01:48:47Z",
+      "body": "In the case of python in previous comment, when class \"D\" inherits from Base, mro changed because python considered class \"A\" as old style. See [here](https://docs.python.org/2/tutorial/classes.html#multiple-inheritance) and [here](https://wiki.python.org/moin/NewClassVsClassicClass). For a class to be considered as new style, it must inherit from a basic type of python. But when a C type is found in the inheritance, it seems that python considers the class to be old style and applies the old style algorithm to define mro. That is why the order changes.\r\n\r\n```astroid``` doesn't try to determine mro when it detects that the class is old style. [See](https://github.com/PyCQA/astroid/blob/astroid-1.6.5/astroid/scoped_nodes.py#L2667-L2669).\r\n\r\n\r\nWhen the C3 algorithm, which is used in new style classes, is applied in classes that python considers old style, two things can occur:\r\n\r\n1) In classes with simpler inheritance, like the one of the previous comment, the order stays directing of the one of the python.\r\n\r\n2) In class with more complex inheritance, like the ```plone.dexterity.content.Container``` class of the description, an ```InconsistentMroError``` occurs.\r\n\r\nSo the problem in description of the issue is that the ```astroid``` could't detect that the class ```plone.dexterity.content.Container``` is old style, since it inherits of ```ExtensionClass.Base```.\r\n\r\nTo fix the problem, we must detect if the class inherits from a type in C, and consider it as old style, so as not to apply the C3 algorithm on it.\r\n\r\n@PCManticore do you agree?"
+    },
+    {
+      "author": "idgserpro",
+      "created_at": "2018-11-08T01:15:36Z",
+      "body": "I run the code of https://github.com/PyCQA/pylint/issues/2188#issuecomment-423714441 with the class ```D``` inheriting from [greenlet.greenlet](https://github.com/python-greenlet/greenlet), which is a type implemented in C, and the order of mro hasn't changed. The result was:\r\n\r\n```\r\nExample with class D inheriting from greenlet.greenlet:\r\n[<ClassDef.A l.19 at 0x7f4a26cdb310>, <ClassDef.B l.16 at 0x7f4a26cdb290>, <ClassDef.D l.10 at 0x7f4a26cdb050>, <ClassDef.C l.13 at 0x7f4a26cdb150>, <ClassDef.F l.4 at 0x7f4a26cc9f50>, <ClassDef.E l.7 at 0x7f4a26cc9f90>, <ClassDef.object l.0 at 0x7f4a27191590>]\r\n(<class '__main__.A'>, <class '__main__.B'>, <class '__main__.D'>, <type 'greenlet.greenlet'>, <class '__main__.C'>, <class '__main__.F'>, <class '__main__.E'>, <type 'object'>)\r\n```\r\n\r\nSo, the fact that a class inherits from a type in C doesn't change the mro. In the case of ```ExtensionClass.Base```, it is something specific to your implementation that changes the order. This cannot be detected by ```astroid```.\r\n\r\nWhat I think can be done is create a setting to not check the mro of a specific class. It is better that an error be raised. @PCManticore , what is the consequence of a class not having the mro checked?"
+    }
+  ],
+  "22": [
+    {
+      "author": "pylint-bot",
+      "created_at": "2014-03-20T11:52:23Z",
+      "body": "_Original comment by_ **Emile Anclin (BitBucket: [anclin](http://bitbucket.org/anclin), GitHub: @anclin?)**:\n\n---\n\nIt seems, it is a command line parsing errror of the \"-c\" option and comes in many variations:\n\n```\n\n#!python\n  pyreverse  dynamics/* -c -p stroumpf\n\nTraceback (most recent call last):\n  File \"/home/e1000/bin/pyreverse\", line 3, in <module>\n    run_pyreverse()\n  ...\n  File \"/home/e1000/src/logilab/common/modutils.py\", line 577, in _search_zip\n    raise ImportError('No module named %s' % '.'.join(modpath))\nImportError: No module named stroumpf\n```\n\nAfter the '-c', we can also use a non existing '-E' option, and I get:\n\n```\n#!python\n\npyreverse dynamics/controler.py -c -E\n...\n    raise InferenceError(str(stmt))\nastroid.exceptions.InferenceError: None\n```\n\nParsing the whole directory with the non sens option '-E' yields yet another error:\n\n```\n\n#!python\n\npyreverse dynamics/* -o png -c -E\n  File \"/home/e1000/src/pylint/pyreverse/diadefslib.py\", line 196, in class_diagram\n    module, klass = klass.rsplit('.', 1)\nValueError: need more than 1 value to unpack\n\n```\n\nThe problems with the '-E' are triggered the same way with the valid '-p' option...\n"
+    },
+    {
+      "author": "pylint-bot",
+      "created_at": "2014-04-09T18:21:11Z",
+      "body": "_Original comment by_ **Emile Anclin (BitBucket: [anclin](http://bitbucket.org/anclin), GitHub: @anclin?)**:\n\n---\n\nI tried to understand the problem: let's take the example \n\n```\n#!python\n\n\npyreverse dynamics/ -A 1 -c -p name\n```\n\nAt _logilab.common.configuration_ line 685, in the **load_command_line_configuration** of **OptionsManagerMixIn** we have:\n\n```\n#!python\n\n\n            (options, args) = self.cmdline_parser.parse_args(args=args)\n\n```\n\nbefore line 685 we have:\n\n```\n#!python\n\n   args = ['dynamics/', '-A', '1', '-c', '-p', 'name']\n```\n\nafter  line 685:\n\n```\n#!python\n\n    options = {'show_associated': None, 'module_names': None, 'output_format': None, 'only_classnames': None, 'project': None, 'show_ancestors': None, 'classes': ['-p'], 'mode': None, 'show_builtin': None, 'black_list': None}\n\n    args = ['dynamics/', '1', 'name']\n```\n\nInstead we should have a option error message.\nThe called _parse_args_ method is from optparse import **OptionParser**;\nPyreverse depends on the **OptionsManagerMixIn** through the     **ConfigurationMixIn(OptionsManagerMixIn, OptionsProviderMixIn)** and **pylint.pyreverse.main.Run(ConfigurationMixIn)** . However ihmo, this complicated inheritage does not seem to be needed; the other OptionsProviderMixIn used for Pyreverse is **AstroidManager(OptionsProviderMixIn)**, providing only the _--filter_ and _--projects_ options, and they are only needed for _Pyreverse_.\n\nSo, I think, we can remove these dependencies and just rewrite the pyreverse options with a simple Optparse usage. Is this ok for you?\n"
+    },
+    {
+      "author": "pylint-bot",
+      "created_at": "2014-04-10T07:53:04Z",
+      "body": "_Original comment by_ **Sylvain Th\u00e9nault (BitBucket: [sthenault](http://bitbucket.org/sthenault), GitHub: @sthenault?)**:\n\n---\n\nHi Emile,\n\nI'm not sure your analysis is related to the original poster's problem. You're right there seem to have a problem with unknown option which are not reported as error though.\n\nI don't think going back to optparse is the solution. Pylint use logilab.common.configuration and doesn't suffer from this problem. Also, we should benefit from it to rewrite the very dumb (broken?) pyreverse.rc support.\n"
+    },
+    {
+      "author": "pylint-bot",
+      "created_at": "2014-04-10T12:48:08Z",
+      "body": "_Original comment by_ **Emile Anclin (BitBucket: [anclin](http://bitbucket.org/anclin), GitHub: @anclin?)**:\n\n---\n\nYes, I was wrong, the original problem does not has a malformed command line in the first place, except that there is no class \"cocos2d\" in the file proposed in the link of the original problem ... I'll open another ticket adressing the command line problem.\n"
+    },
+    {
+      "author": "pylint-bot",
+      "created_at": "2014-04-10T14:22:35Z",
+      "body": "_Original comment by_ **Emile Anclin (BitBucket: [anclin](http://bitbucket.org/anclin), GitHub: @anclin?)**:\n\n---\n\nOk, I think the problem is the definition of the \"-c\" option: right now, it expects (de facto):\n- to be used with only one _module_, not even a package (here is first crash of the original \n  problem )\n- after '-c', there should be the name of **one** class defined in the _module_\n  (second crash of the original problem; it will also crash if the class is just imported in that _module_)\n\nBad enough, but the value of the  '-c' option is put in a list ... (I know I coded that option, so I'm supposed know what it should do :-/ )... I suggest the following solution:\n1. An explaining message if the above conditions are not true and stop the program\n2. make '-c' accept a CSV list of classes to generate several diagrams\n3. Possibly add a '-C' option to generate class diagrams for all classes in the project\n"
+    },
+    {
+      "author": "pylint-bot",
+      "created_at": "2014-04-10T14:55:05Z",
+      "body": "_Original comment by_ **Sylvain Th\u00e9nault (BitBucket: [sthenault](http://bitbucket.org/sthenault), GitHub: @sthenault?)**:\n\n---\n\nI would go for 2.\n1. sounds like the default behaviour, eg without option\n"
+    },
+    {
+      "author": "pylint-bot",
+      "created_at": "2014-04-14T10:30:32Z",
+      "body": "_Original comment by_ **Emile Anclin (BitBucket: [anclin](http://bitbucket.org/anclin), GitHub: @anclin?)**:\n\n---\n\nSorry, maybe I was not clear enough:\n- the **-c** option will generate a diagram of _one_ Class called '_Class.dot_'\n- whereas '**ASmy** (without **-c**) will generate a diagram of all classes of the project's modules called '_classes_<project_Name>.dot_' .\n\nWith **-ASmy** (without **-c**), the diagram might become too big, like :\n\n```\n#!python\n\n\npyreverse astroid.node_classes -ASmy\n```\n\nso my intention of the **-c** was having an option representing only _one_ class.. \n\nThe original post points out two bugs which are independent of his code:\n\nA. pyreverse _always_ crashes when used with **-c** option and more than one module, like :\n\n```\n#!python\n\n pyreverse -c Instance  astroid.builder astroid.bases  # two modules\n pyreverse -c Instance  astroid  # a package with several modules modules\n```\n\nB. pyreverse _always_ crashes when used with **-c** option, one module which does not define the mentionned class, like :\n\n```\n#!python\n\npyreverse -c SomeClass  astroid.builder\n```\n\nB1. pyreverse always crashes when used with **-c** and two comma separated classes, like:\n\n```\n#!python\n\npyreverse -c Instance,Statement astroid.bases\n```\n1. was meant to fix those bugs A. and B.\n2. should fix B1. (it is more or less a bug and/or an obvious improvement)\n3. would just be a possible other improvement\n"
+    },
+    {
+      "author": "pylint-bot",
+      "created_at": "2014-04-15T06:35:05Z",
+      "body": "_Original comment by_ **Sylvain Th\u00e9nault (BitBucket: [sthenault](http://bitbucket.org/sthenault), GitHub: @sthenault?)**:\n\n---\n\nok, then at least A and B should be fixed, probably by outputing proper\nerror messages\n"
+    },
+    {
+      "author": "simsong",
+      "created_at": "2019-01-15T19:04:09Z",
+      "body": "I had exactly this same problem. It was because I was saying `-c classname` instead of `-c top_level_module.module1.module2.module3.classname`"
+    },
+    {
+      "author": "shackra",
+      "created_at": "2019-01-16T23:17:42Z",
+      "body": "yup, I reported this originally"
+    },
+    {
+      "author": "lovasoa",
+      "created_at": "2020-01-17T10:49:06Z",
+      "body": "I have the same issue. Has there been any progress on this ?"
+    },
+    {
+      "author": "Pierre-Sassoulas",
+      "created_at": "2021-06-14T11:31:32Z",
+      "body": "@lovasoa apparentely no one worked on it yet, I'd be glad to review a merge request that fix this."
+    },
+    {
+      "author": "clavedeluna",
+      "created_at": "2022-12-09T17:44:20Z",
+      "body": "Is anyone able to provide accessible code (link in original issue isn't) to reproduce this?"
+    },
+    {
+      "author": "DudeNr33",
+      "created_at": "2023-01-08T08:36:09Z",
+      "body": "@clavedeluna theoretically this should work as a minimal example with our own codebase:\r\n\r\n```shell\r\npyreverse -c FileItem pylint\r\n```\r\n\r\nAs simsong rightly pointed out, the error here is that one needs to provide the fully qualified classname instead, so this should work:\r\n```shell\r\npyreverse -c pylint.typing.FileItem pylint\r\n```\r\n\r\nHowever another bug is currently hiding it if you try to run this example on our current `main` branch:\r\n```shell\r\nparsing D:\\Programming\\git-forks\\pylint\\pylint\\utils\\utils.py...\r\n    sys.exit(load_entry_point('pylint', 'console_scripts', 'pyreverse')())\r\n  File \"d:\\programming\\git-forks\\pylint\\pylint\\__init__.py\", line 74, in run_pyreverse\r\n    PyreverseRun(argv or sys.argv[1:])\r\n  File \"d:\\programming\\git-forks\\pylint\\pylint\\pyreverse\\main.py\", line 228, in __init__\r\n    sys.exit(self.run(args))\r\n  File \"d:\\programming\\git-forks\\pylint\\pylint\\pyreverse\\main.py\", line 243, in run\r\n    diadefs = handler.get_diadefs(project, linker)\r\n  File \"d:\\programming\\git-forks\\pylint\\pylint\\pyreverse\\diadefslib.py\", line 225, in get_diadefs\r\n    diagrams.append(generator.class_diagram(project, klass))\r\n  File \"d:\\programming\\git-forks\\pylint\\pylint\\pyreverse\\diadefslib.py\", line 196, in class_diagram\r\n    self.extract_classes(klass, anc_level, association_level)\r\n  File \"d:\\programming\\git-forks\\pylint\\pylint\\pyreverse\\diadefslib.py\", line 113, in extract_classes\r\n    self.add_class(klass_node)\r\n  File \"d:\\programming\\git-forks\\pylint\\pylint\\pyreverse\\diadefslib.py\", line 77, in add_class\r\n    self.linker.visit(node)\r\n  File \"d:\\programming\\git-forks\\pylint\\pylint\\pyreverse\\utils.py\", line 162, in visit\r\n    methods[0](node)\r\n  File \"d:\\programming\\git-forks\\pylint\\pylint\\pyreverse\\inspector.py\", line 195, in visit_classdef\r\n    self.associations_handler.handle(assignattr, node)\r\n  File \"d:\\programming\\git-forks\\pylint\\pylint\\pyreverse\\inspector.py\", line 371, in handle\r\n    if isinstance(node.parent.value, astroid.node_classes.Name):\r\nAttributeEr"
+    }
+  ]
+}

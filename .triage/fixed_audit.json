@@ -1,0 +1,257 @@
+[
+  {
+    "num": 10768,
+    "title": "Started getting \"invalid name\" errors on a module-level global variable after up",
+    "tests": [],
+    "commits": []
+  },
+  {
+    "num": 10766,
+    "title": "False positive for constant naming style inside __main__ block",
+    "tests": [],
+    "commits": []
+  },
+  {
+    "num": 10670,
+    "title": "False Positive for too-many-function-args when subclassing __new__",
+    "tests": [],
+    "commits": []
+  },
+  {
+    "num": 10455,
+    "title": "False positive E1136 \u2013 unsubscriptable-object",
+    "tests": [],
+    "commits": []
+  },
+  {
+    "num": 10442,
+    "title": "Treat `__main__.py` as a special module name under camelCase module-naming-style",
+    "tests": [],
+    "commits": [
+      "4e6fa0d70 integrate patch from Peter Hammond to check protocol completness and avoid false R0903. Closes #104420"
+    ]
+  },
+  {
+    "num": 10422,
+    "title": "not-callable: Different behavior using f-string vs bin-op string",
+    "tests": [],
+    "commits": []
+  },
+  {
+    "num": 10374,
+    "title": "False positive ``redefined-variable-type`` on ignored variables like ``_``",
+    "tests": [],
+    "commits": []
+  },
+  {
+    "num": 10298,
+    "title": "False positive E1133 (not-an-iterable) when returning (type hinted) class variab",
+    "tests": [],
+    "commits": []
+  },
+  {
+    "num": 9722,
+    "title": "False Positive W0143-comparison-with-callable when using derived property descri",
+    "tests": [],
+    "commits": []
+  },
+  {
+    "num": 9497,
+    "title": "Non existent member not detected on datetime.datetime",
+    "tests": [],
+    "commits": []
+  },
+  {
+    "num": 8805,
+    "title": "`no-member` emitted for all `zipimport` names",
+    "tests": [],
+    "commits": []
+  },
+  {
+    "num": 8600,
+    "title": "protected-access false positive with Generic classes",
+    "tests": [],
+    "commits": []
+  },
+  {
+    "num": 8499,
+    "title": "invalid-name check for TypeVar should allow for digits in names",
+    "tests": [],
+    "commits": []
+  },
+  {
+    "num": 8419,
+    "title": "False negative: `unspecified-encoding` (`W1514`) not raised for `Path.read_text`",
+    "tests": [],
+    "commits": ["7e3c50f4d Work in progress add tests"]
+  },
+  {
+    "num": 8250,
+    "title": "Missing-return-doc returns multiple errors when there are multiple returns in th",
+    "tests": [],
+    "commits": []
+  },
+  {
+    "num": 8201,
+    "title": "False negative `trailing-comma-tuple`",
+    "tests": [],
+    "commits": []
+  },
+  {
+    "num": 8179,
+    "title": "consider-using-augmented-assign false positive on string formatting",
+    "tests": [],
+    "commits": []
+  },
+  {
+    "num": 8068,
+    "title": "False-positive unsupported-delete-operation",
+    "tests": [],
+    "commits": []
+  },
+  {
+    "num": 8053,
+    "title": "False positive `assigning-non-slot` error for inherited descriptor when slots ar",
+    "tests": [],
+    "commits": []
+  },
+  {
+    "num": 8050,
+    "title": "Pylint doesn't check file if it's named exactly like the directory where the fil",
+    "tests": [],
+    "commits": []
+  },
+  {
+    "num": 7950,
+    "title": "Subclasses of abstract class that do not inherit abc.ABC are considered abstract",
+    "tests": [],
+    "commits": []
+  },
+  {
+    "num": 7934,
+    "title": "Missing Class Docstring false positive when inheriting from a generic class of a",
+    "tests": [],
+    "commits": []
+  },
+  {
+    "num": 7891,
+    "title": "False positive `no-member` when attempting to access `_asdict`, which is a valid",
+    "tests": [],
+    "commits": []
+  },
+  {
+    "num": 7647,
+    "title": "False positive `unnecessary-lambda` (wrong type inference in if-else-expression)",
+    "tests": [],
+    "commits": []
+  },
+  {
+    "num": 7381,
+    "title": "Multiple binary | operation in a single statement failed with \"E1131: unsupporte",
+    "tests": ["/home/pierre/pylint/tests/functional/e/enum_subclasses.py"],
+    "commits": [
+      "1918a4d21 Add a functional test for combinations of ``enum.Flag`` constants with bitwise operators. (#7385)"
+    ]
+  },
+  {
+    "num": 7350,
+    "title": "E0601 false positive when nested try block exhaustively defines name, raises, or",
+    "tests": [],
+    "commits": []
+  },
+  {
+    "num": 7240,
+    "title": "False-positive `no-member` in comprehension in unreachable code from platform ch",
+    "tests": [],
+    "commits": []
+  },
+  {
+    "num": 5823,
+    "title": "super-with-arguments should not be shown for dataclasses with slots",
+    "tests": [],
+    "commits": []
+  },
+  {
+    "num": 4920,
+    "title": "No type narrowing takes place in `or` statements following negated `isinstance`",
+    "tests": [],
+    "commits": []
+  },
+  {
+    "num": 4608,
+    "title": "False positive: Pylint doesn't deduce non-None-ness from ternary condition",
+    "tests": [],
+    "commits": []
+  },
+  {
+    "num": 4554,
+    "title": "False positive no-value-for-parameter when unpacking a modified list",
+    "tests": [],
+    "commits": []
+  },
+  {
+    "num": 3925,
+    "title": "False positive not-callable after destructuring",
+    "tests": [],
+    "commits": []
+  },
+  {
+    "num": 3893,
+    "title": "False positive for E1123 (unexpected-keyword-arg)",
+    "tests": [],
+    "commits": []
+  },
+  {
+    "num": 3603,
+    "title": "False unexpected-keyword-arg for classes defined differently in branches.",
+    "tests": [],
+    "commits": []
+  },
+  {
+    "num": 3327,
+    "title": " Spurious `no-member` errors with modules named `builtins` on py3",
+    "tests": [],
+    "commits": []
+  },
+  {
+    "num": 3325,
+    "title": "False positive ``attribute-defined-outside-init`` when using properties ",
+    "tests": [],
+    "commits": []
+  },
+  {
+    "num": 2981,
+    "title": "False positive `attribute-defined-outside-init` error in Python 3.6 when attribu",
+    "tests": [],
+    "commits": []
+  },
+  {
+    "num": 2821,
+    "title": "no-member checks seems to not be aware about scope",
+    "tests": [],
+    "commits": []
+  },
+  {
+    "num": 1934,
+    "title": "False positive ``cell-var-from-loop`` when there is only one element in an itera",
+    "tests": [],
+    "commits": []
+  },
+  {
+    "num": 1493,
+    "title": "False-positive E1102 (not-callable) with list of functions",
+    "tests": [],
+    "commits": []
+  },
+  {
+    "num": 241,
+    "title": "Incorrect W0611 : Unused import when preceded by import as",
+    "tests": [],
+    "commits": [
+      "eeca79419 `function-redefined`` exempts function redefined on a condition.",
+      "03b4d0352 Take into account `__class_getitem__`",
+      "7295c95cf Extend the TYPE_CHECKING guard to TYPE_CHECKING name as well, not just the attribute",
+      "8f06035da Merged in raduciorba/pylint/confusing-with-statement (pull request #241)"
+    ]
+  }
+]

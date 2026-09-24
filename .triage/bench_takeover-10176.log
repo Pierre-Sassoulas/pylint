@@ -1,0 +1,17 @@
+branch: takeover-10176
+target: pylint/checkers
+iterations: 5 (plus 1 warmup)
+extra args: []
+
+warmup ...
+  run 1: 14.508s
+  run 2: 16.103s
+  run 3: 15.921s
+  run 4: 15.015s
+  run 5: 14.702s
+
+min:    14.508s
+median: 15.015s
+mean:   15.250s
+stdev:  0.722s
+max:    16.103s
