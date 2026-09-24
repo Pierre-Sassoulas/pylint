@@ -1,0 +1,67 @@
+branch: main
+target: pylint/checkers
+extra args: []
+writing: /home/pierre/pylint/.triage/profile_main.prof
+
+
+--------------------------------------------------------------------
+Your code has been rated at 10.00/10 (previous run: 10.00/10, +0.00)
+
+Top 30 cumulative:
+         55464257 function calls (48179417 primitive calls) in 30.178 seconds
+
+   Ordered by: cumulative time
+   List reduced from 4390 to 30 due to restriction <30>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000   30.198   30.198 /home/pierre/pylint/.triage/profile_10176.py:26(run_pylint)
+        1    0.000    0.000   30.079   30.079 /home/pierre/pylint/pylint/lint/run.py:135(__init__)
+        1    0.000    0.000   29.927   29.927 /home/pierre/pylint/pylint/lint/pylinter.py:699(check)
+        1    0.000    0.000   21.723   21.723 /home/pierre/pylint/pylint/lint/pylinter.py:795(_lint_files)
+       51    0.001    0.000   21.722    0.426 /home/pierre/pylint/pylint/lint/pylinter.py:822(_lint_file)
+       51    0.023    0.000   21.713    0.426 /home/pierre/pylint/pylint/lint/pylinter.py:1067(check_astroid_module)
+       51    0.002    0.000   21.690    0.425 /home/pierre/pylint/pylint/lint/pylinter.py:1089(_check_astroid_module)
+ 75659/51    0.545    0.000   18.407    0.361 /home/pierre/pylint/pylint/utils/ast_walker.py:72(walk)
+278077/118286    0.113    0.000   13.646    0.000 {built-in method builtins.next}
+523116/229491    0.862    0.000    8.822    0.000 /home/pierre/pylint/.venv-takeover/lib/python3.12/site-packages/astroid/nodes/node_ng.py:123(infer)
+182698/54860    0.122    0.000    8.191    0.000 /home/pierre/pylint/.venv-takeover/lib/python3.12/site-packages/astroid/decorators.py:78(inner)
+151861/46215    0.268    0.000    8.168    0.000 /home/pierre/pylint/.venv-takeover/lib/python3.12/site-packages/astroid/decorators.py:32(wrapped)
+142105/80042    0.371    0.000    5.456    0.000 /home/pierre/pylint/.venv-takeover/lib/python3.12/site-packages/astroid/bases.py:154(_infer_stmts)
+    67512    0.037    0.000    5.143    0.000 /usr/lib/python3.12/contextlib.py:141(__exit__)
+  179/116    0.001    0.000    5.135    0.044 /home/pierre/pylint/.venv-takeover/lib/python3.12/site-packages/astroid/manager.py:131(ast_from_file)
+        2    0.000    0.000    5.076    2.538 /home/pierre/pylint/pylint/lint/pylinter.py:993(_astroid_module_checker)
+        1    0.000    0.000    5.060    5.060 /home/pierre/pylint/pylint/checkers/symilar.py:841(close)
+        1    0.000    0.000    5.060    5.060 /home/pierre/pylint/pylint/checkers/symilar.py:398(_compute_sims)
+        1    0.096    0.096    5.060    5.060 /home/pierre/pylint/pylint/checkers/symilar.py:542(_iter_sims)
+     1275    0.136    0.000    4.964    0.004 /home/pierre/pylint/pylint/checkers/symilar.py:467(_find_common)
+  154/107    0.033    0.000    4.893    0.046 /home/pierre/pylint/.venv-takeover/lib/python3.12/site-packages/astroid/builder.py:113(file_build)
+22877/18132    0.078    0.000    4.810    0.000 /home/pierre/pylint/.venv-takeover/lib/python3.12/site-packages/astroid/nodes/node_classes.py:1085(_infer_attribute)
+     2550    2.190    0.001    4.776    0.002 /home/pierre/pylint/pylint/checkers/symilar.py:207(hash_lineset)
+  930/728    0.004    0.000    4.220    0.006 /home/pierre/pylint/.venv-takeover/lib/python3.12/site-packages/astroid/builder.py:159(_post_build)
+10437/9038    0.015    0.000    3.728    0.000 /home/pierre/pylint/.venv-takeover/lib/python3.12/site-packages/astroid/nodes/scoped_nodes/scoped_nodes.py:439(import_module)
+10465/9061    0.008    0.000    3.704    0.000 /home/pierre/pylint/.venv-takeover/lib/python3.12/site-packages/astroid/manager.py:195(ast_from_module_name)
+8965/7815    0.019    0.000    3.592    0.000 /home/pierre/pylint/.venv-takeover/lib/python3.12/site-packages/astroid/nodes/_base_nodes.py:148(do_import_module)
+      930    0.005    0.000    3.561    0.004 /home/pierre/pylint/.venv-takeover/lib/python3.12/site-packages/astroid/builder.py:180(_data_build)
+13971/9179    0.075    0.000    3.435    0.000 /home/pierre/pylint/.venv-takeover/lib/python3.12/site-packages/astroid/nodes/node_classes.py:1753(_infer)
+ 1008/774    0.001    0.000    3.196    0.004 /home/pierre/pylint/.venv-takeover/lib/python3.12/site-packages/astroid/manager.py:127(visit_transforms)
+
+
+
+Functions of interest:
+function                                            calls     tottime     cumtime
+-------------------------------------------------------------------------------------
+visit_name (variables.py:1690)                      21200      0.0394      2.6061
+_check_consumer (variables.py:1827)                 28000      0.0739      1.6283
+get_next_to_consume (variables.py:571)              16156      0.0755      0.8540
+visit_name (rebuilder.py:1424)                     117239      0.1733      0.7185
+_check_imports_order (imports.py:795)                  51      0.0019      0.1074
+is_node_in_type_annotation_context (utils.py:1619)       16234      0.0480      0.0604
+visit_name (typing.py:212)                          21107      0.0196      0.0199
+mark_as_consumed (variables.py:557)                  5747      0.0079      0.0079
+visit_namedexpr (rebuilder.py:1352)                    83      0.0027      0.0050
+visit_name (as_string.py:437)                       27763      0.0039      0.0039
+visit_name (exceptions.py:205)                         30      0.0001      0.0025
+_check_imports (variables.py:3309)                     46      0.0004      0.0022
+visit_namedexpr (as_string.py:441)                      5      0.0000      0.0001
+visit_namedexpr (lambda_expressions.py:72)             34      0.0000      0.0000
+visit_namedexpr (unsupported_version.py:88)            34      0.0000      0.0000

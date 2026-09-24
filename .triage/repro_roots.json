@@ -1,0 +1,28 @@
+{
+  "Builtin overwritten (`type`, `list`, \u2026) inside function/class": [7348, 10994],
+  "PEP 695 type aliases (TypeAliasType / `type X = ...` / statement-scoped TypeVar)": [
+    9884, 10091, 10972, 10991
+  ],
+  "Dataclass inheritance / kw_only / @dataclass-decorator handling": [
+    5091, 5810, 7296, 9183, 9389, 9488, 9972, 10030, 10056, 10472, 10519, 10991
+  ],
+  "TypeVarTuple / PEP 646 Unpack[*Ts]": [10972, 10991],
+  "arguments-differ on @overload / @abstractmethod": [
+    5793, 8687, 9979, 10186, 10471, 10972
+  ],
+  "Generic class / Generic[T] subscripting": [
+    5637, 7379, 7934, 8022, 8600, 9488, 10042, 10360, 10972
+  ],
+  "StrEnum / IntEnum value-member resolution": [9839, 9905, 10840, 10951],
+  "Control-flow rewrite (#4795 / NamesConsumer)": [
+    2633, 4066, 5955, 7538, 7545, 8486, 8495, 8686, 9689, 10195, 10847
+  ],
+  "typing.Self (`Self` as return type / class method)": [9159, 10807],
+  "Walrus / assignment expression scope (PEP 572)": [5735, 7538, 8486, 10691],
+  "Descriptor protocol / @property-like wrappers (#7820)": [8265, 10348],
+  "@overload signature resolution": [10186],
+  "Match-case PEP 634 binding": [7470, 7978, 9319, 9505],
+  "Site-builtins shadowed by class method/attr (#8079)": [8079],
+  "typing.cast not honored (#4534)": [7548],
+  "Inference fallback to type annotation (#4813 / #8230)": [6478]
+}

@@ -1,0 +1,3 @@
+DEMO = True
+
+print("demo"),
