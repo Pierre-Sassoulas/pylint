@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Crash queue</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@500;600&display=swap">
+<link rel="stylesheet" href="assets/triage.css">
+<style>
+  .lane {{ margin-top: 40px; }}
+  .lane h2 {{
+    font-family: "IBM Plex Serif", Georgia, serif; font-size: 20px; font-weight: 600;
+    margin: 0 0 4px; padding-left: 12px; border-left: 4px solid var(--stripe, var(--line));
+  }}
+  .lane h2 .count {{
+    font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 13px;
+    color: var(--ink-faint); font-weight: 400; margin-left: 6px;
+  }}
+  .lane .rubric {{ margin: 0 0 14px 16px; font-size: 13.5px; color: var(--ink-soft); max-width: 82ch; }}
+  td.what {{ width: 24%; }}
+  td.what .t {{ font-weight: 500; }}
+  td.verdict {{ width: 160px; }}
+  td.finding {{ width: 34%; }}
+  .trace {{
+    display: block; margin-top: 9px; padding-top: 8px; border-top: 1px dashed var(--line);
+    font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 11.5px; color: var(--ink);
+  }}
+  .trace .lbl {{ color: var(--ink-faint); letter-spacing: 0.05em; text-transform: uppercase; font-size: 10px; }}
+  td.what .lab, td.verdict .lab {{
+    display: inline-block; font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 10.5px;
+    color: var(--ink-soft); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 0 5px; margin: 5px 3px 0 0; white-space: nowrap;
+  }}
+  table {{ min-width: 1060px; }}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav class="site-nav"><a href="index.html" class="home">Overview</a> <a href="crash-queue.html" aria-current="page">Crash label</a></nav>
+  <header>
+    <div class="eyebrow">pylint-dev/pylint &nbsp;·&nbsp; label <b>Crash</b> &nbsp;·&nbsp; every open issue re-run</div>
+    <h1>Crash queue</h1>
+    <p class="standfirst">All {total} issues carrying the crash label, each one re-run against current
+    <code>main</code> with the reporting library actually installed. {repro} still crash, {gone} do not, and
+    {blocked} cannot be reached from this machine at all.</p>
+    <div class="env">
+      <span>pylint <b>{pylint} @ {pylint_commit}</b></span>
+      <span>astroid <b>{astroid}</b></span>
+      <span><b>{python}</b> on {platform}</span>
+      <span>run <b>{date}</b></span>
+    </div>
+  </header>
+
+  <div class="tally">
+    <div style="--stripe: var(--crit)"><div class="n">{repro}</div><div class="k">still crash</div></div>
+    <div style="--stripe: var(--warn)"><div class="n">{hang}</div><div class="k">now a hang</div></div>
+    <div style="--stripe: var(--good)"><div class="n">{gone}</div><div class="k">no longer reproduce</div></div>
+    <div style="--stripe: var(--ink-faint)"><div class="n">{blocked}</div><div class="k">out of reach here</div></div>
+  </div>
+
+  {body}
+
+  <div class="notes">
+    <section>
+      <h2>The flag that hides half of them</h2>
+      <p>Reaching for <code>--disable=all --enable=F</code> to cut the noise while hunting a crash <strong>hides three
+      of the six</strong>. pylint skips a checker whose messages are all disabled, so the checker that was going to
+      crash never runs and the file reads clean. Every verdict here comes from a default-configuration run:</p>
+      <p><code>{invocation}</code></p>
+    </section>
+    <section>
+      <h2>"Does not reproduce" is not "fixed"</h2>
+      <p>Most of these were never pylint-only bugs: they needed a particular release of xarray, panda3d, scipy,
+      pymongo, black. Those libraries moved too, so a clean run says the pair is fine today, not that anything was
+      repaired on purpose. Each row names the version it was tested against, so the next sweep can tell a real fix
+      from a library that simply stopped provoking one.</p>
+      <p>Two of them swapped a crash for a false positive — the scipy and black imports now draw
+      <code>no-name-in-module</code> on a C extension. That deserves its own issue rather than a quiet close.</p>
+    </section>
+    <section>
+      <h2>What one machine cannot settle</h2>
+      <p>Three reports need hardware or an interpreter this run does not have: a Windows console for the charmap
+      encoding failure, Windows again for win32more, and Windows PyPy for the getset_descriptor one. The PyPy report
+      was re-run on Linux PyPy and came back clean, which narrows it to Windows or to the astroid bump — but it does
+      not close it.</p>
+      <p>A fourth, the pyreverse <code>EmptyNode</code> report, has no runnable trigger at all: the classes astroid
+      rebuilds through a brain all walk cleanly, and the open fix constructs the node by hand to have something to
+      test.</p>
+    </section>
+    <section>
+      <h2>Reading a row</h2>
+      <ul>
+        <li><strong>still crashes</strong> — pylint exits with <code>F0002 astroid-error</code>; the exception and the
+        last frame are quoted.</li>
+        <li><strong>hangs</strong> — no exception, no output, no completion inside the time given.</li>
+        <li><strong>no longer reproduces</strong> — the reporter's own snippet, with their library installed, produces
+        messages but no fatal.</li>
+        <li><strong>out of reach</strong> — the snippet cannot be run faithfully here at all.</li>
+      </ul>
+      <p>Snippets live beside this file in <code>snippets/i&lt;issue&gt;.py</code>, one per row that has one,
+      each with a docstring saying what about it matters.</p>
+    </section>
+  </div>
+
+  <footer>
+    Generated {date} on branch <code>issue-triage-workspace</code> by <code>crash_queue.py</code> from
+    <code>crash_queue_data.json</code>. Open <code>.triage/crash-queue.html</code> in a browser; nothing here is
+    served from anywhere.
+  </footer>
+</div>
+</body>
+</html>

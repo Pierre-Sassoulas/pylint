@@ -1,0 +1,17 @@
+branch: main
+target: pylint/checkers
+iterations: 5 (plus 1 warmup)
+extra args: []
+
+warmup ...
+  run 1: 15.339s
+  run 2: 16.207s
+  run 3: 15.619s
+  run 4: 15.808s
+  run 5: 15.114s
+
+min:    15.114s
+median: 15.619s
+mean:   15.617s
+stdev:  0.423s
+max:    16.207s

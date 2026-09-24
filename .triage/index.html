@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Triage workspace</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@500;600&display=swap">
+<link rel="stylesheet" href="assets/triage.css">
+</head>
+<body>
+<div class="wrap">
+  <nav class="site-nav"><a href="index.html" aria-current="page" class="home">Overview</a> <a href="pylint-issues.html">Pylint issues</a> <a href="astroid.html">Astroid queue</a> <a href="pr-queue.html">Pull request queue</a> <a href="method.html">Method</a></nav>
+  <header>
+    <div class="eyebrow">pylint-dev &nbsp;·&nbsp; branch <b>issue-triage-workspace</b> &nbsp;·&nbsp; 14 September 2026</div>
+    <h1>Triage workspace</h1>
+    <p class="standfirst">What is open on pylint and astroid right now, and what can be done with it. Every verdict comes from rebuilding the reporter's snippet and running it, not from reading the issue.</p>
+  </header>
+  <div class="cards">
+<a href="pylint-issues.html" style="--stripe: var(--warn)"><h2>Pylint issues</h2><p>108 open issues, by what each one does against main today rather than by which label it happens to carry. 44 reproduce, 40 are blocked on their reporter.</p><span class="meta">44 reproduce · 21 enhancements</span></a>
+<a href="astroid.html" style="--stripe: var(--dup)"><h2>Astroid queue</h2><p>Most of what fixes a pylint false positive lands in astroid. 41 open pull requests bucketed by what is actually blocking them, and the astroid issues that back an open pylint issue.</p><span class="meta">41 PRs · 18 ready to review</span></a>
+<a href="pr-queue.html" style="--stripe: var(--info)"><h2>Pull request queue</h2><p>The pylint pull request queue, maintainer's own excluded.</p><span class="meta">pylint-dev/pylint · 66 open</span></a>
+<a href="method.html" style="--stripe: var(--accent)"><h2>Method</h2><p>How a verdict was produced, how to redo a bisect without being lied to, and the cheap way to refresh these pages.</p><span class="meta">reproduce it yourself</span></a>
+  </div>
+  <div class="plain">
+    <h2>Earlier notes (markdown)</h2>
+    <ul>
+      <li><a href="BRANCH_PRIORITIZATION.md">BRANCH_PRIORITIZATION.md</a></li>
+      <li><a href="DUP_AUDIT.md">DUP_AUDIT.md</a></li>
+      <li><a href="EXTERNAL_PLUGINS_AUDIT.md">EXTERNAL_PLUGINS_AUDIT.md</a></li>
+      <li><a href="FIXED_AUDIT.md">FIXED_AUDIT.md</a></li>
+      <li><a href="NEEDS_TRIAGE_ACTIONS.md">NEEDS_TRIAGE_ACTIONS.md</a></li>
+      <li><a href="REPRO_AUDIT.md">REPRO_AUDIT.md</a></li>
+      <li><a href="REPRO_BISECT.md">REPRO_BISECT.md</a></li>
+      <li><a href="ROOT_ISSUES_ANALYSIS.md">ROOT_ISSUES_ANALYSIS.md</a></li>
+      <li><a href="UNCLEAR_AUDIT.md">UNCLEAR_AUDIT.md</a></li>
+      <li><a href="bench_10176_comment.md">bench_10176_comment.md</a></li>
+      <li><a href="bench_10176_report.md">bench_10176_report.md</a></li>
+      <li><a href="bench_floatium_comment.md">bench_floatium_comment.md</a></li>
+      <li><a href="bench_floatium_report.md">bench_floatium_report.md</a></li>
+      <li><a href="issue_3512_plan.md">issue_3512_plan.md</a></li>
+      <li><a href="issue_5462_plan.md">issue_5462_plan.md</a></li>
+      <li><a href="needs_repro_2026-05-25.md">needs_repro_2026-05-25.md</a></li>
+      <li><a href="numpy_2x_plan.md">numpy_2x_plan.md</a></li>
+    </ul>
+  </div>
+
+  <div class="plain">
+    <h2>Where to start</h2>
+    <ul>
+      <li><a href="astroid.html">18 astroid pull requests</a> are green, unreviewed and not drafts — the cheapest
+      maintainer time on either repository.</li>
+      <li>Two gaps have <a href="astroid.html">no astroid issue at all</a>, and both block a pylint issue already marked
+      <code>Needs PR</code>: torch's <code>_add_docstr</code> inference, and whether a truncated candidate list should
+      raise <code>unsubscriptable-object</code>.</li>
+      <li>40 of the 108 pylint issues are <a href="pylint-issues.html">blocked on their reporter</a>. Closing or pinging
+      those is the fastest way to shrink the queue.</li>
+    </ul>
+  </div>
+
+  <footer>
+    Verified against pylint 4.1.0-dev0 @ 3cc06885f with astroid 4.3.1, on branch <code>issue-triage-workspace</code>.
+    Open <code>.triage/index.html</code> in a browser; nothing is served.
+  </footer>
+</div>
+</body>
+</html>
