@@ -1,0 +1,52 @@
+target: pylint/checkers/variables.py
+cycles: 8
+scenarios: ['main', 'takeover-disabled', 'takeover-enabled']
+
+warmups:
+  main: 3.875s
+  takeover-disabled: 4.044s
+  takeover-enabled: 3.470s
+
+cycle 1/8:
+  main: 3.359s
+  takeover-disabled: 5.421s
+  takeover-enabled: 3.331s
+cycle 2/8:
+  main: 3.939s
+  takeover-disabled: 3.822s
+  takeover-enabled: 4.833s
+cycle 3/8:
+  main: 3.789s
+  takeover-disabled: 3.710s
+  takeover-enabled: 3.644s
+cycle 4/8:
+  main: 5.467s
+  takeover-disabled: 3.549s
+  takeover-enabled: 3.364s
+cycle 5/8:
+  main: 4.473s
+  takeover-disabled: 4.287s
+  takeover-enabled: 3.318s
+cycle 6/8:
+  main: 3.875s
+  takeover-disabled: 5.139s
+  takeover-enabled: 4.705s
+cycle 7/8:
+  main: 4.126s
+  takeover-disabled: 3.361s
+  takeover-enabled: 3.917s
+cycle 8/8:
+  main: 3.941s
+  takeover-disabled: 3.863s
+  takeover-enabled: 4.016s
+
+scenario                   min    median      mean     stdev
+------------------------------------------------------------
+main                    3.359s    3.940s    4.121s    0.627s
+takeover-disabled       3.361s    3.842s    4.144s    0.754s
+takeover-enabled        3.318s    3.781s    3.891s    0.603s
+
+deltas vs main (median):
+  main                : +0.000s (+0.00%)
+  takeover-disabled   : -0.098s (-2.48%)
+  takeover-enabled    : -0.159s (-4.05%)

@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pull request queue</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@500;600&display=swap">
+<link rel="stylesheet" href="assets/triage.css">
+<style>
+  .lane {{ margin-top: 40px; }}
+  .lane h2 {{
+    font-family: "IBM Plex Serif", Georgia, serif; font-size: 20px; font-weight: 600;
+    margin: 0 0 4px; padding-left: 12px; border-left: 4px solid var(--stripe, var(--line));
+  }}
+  .lane h2 .count {{
+    font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 13px;
+    color: var(--ink-faint); font-weight: 400; margin-left: 6px;
+  }}
+  .lane .rubric {{ margin: 0 0 14px 16px; font-size: 13.5px; color: var(--ink-soft); max-width: 80ch; }}
+  .lane .rubric code {{ font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 12px; color: var(--ink); }}
+  td.what .lab, td.verdict .lab {{
+    display: inline-block; font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 10.5px;
+    color: var(--ink-soft); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 0 5px; margin: 5px 3px 0 0; white-space: nowrap;
+  }}
+  td.verdict {{ width: 200px; }}
+  td.verdict .repro {{ margin-top: 5px; }}
+  td.what {{ width: 20%; }}
+  td.finding {{ width: 27%; }}
+  td.finding em, td.action em {{ font-style: normal; color: var(--ink); }}
+  table {{ min-width: 1120px; }}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav class="site-nav"><a href="index.html" class="home">Overview</a> <a href="pylint-issues.html">Pylint issues</a> <a href="astroid.html">Astroid queue</a> <a href="pr-queue.html" aria-current="page">Pull request queue</a> <a href="method.html">Method</a></nav>
+  <header>
+    <div class="eyebrow">pylint-dev/pylint &nbsp;·&nbsp; {total} open pull requests &nbsp;·&nbsp; <b>maintainer's own excluded</b></div>
+    <h1>Pull request queue</h1>
+    <p class="standfirst">Every open pull request on the repository except the ones the maintainer wrote, sorted by
+    what is actually blocking it rather than by age. The finding is what the repository says; the next move is what it
+    costs to unblock. {held} of {total} are waiting on a button, not on a review.</p>
+    <div class="env">
+      <span>snapshot <b>13 September 2026</b></span>
+      <span>open PRs total <b>{n_open}</b></span>
+      <span>excluded, maintainer's own <b>{n_own}</b></span>
+      <span>excluded, bot backports <b>{n_bot}</b></span>
+      <span>in this table <b>{total}</b></span>
+    </div>
+  </header>
+
+  <div class="tally">
+    <div style="--stripe: var(--good)"><div class="n">{counts[merge]}</div><div class="k">merge lane</div></div>
+    <div style="--stripe: var(--accent)"><div class="n">{counts[review]}</div><div class="k">review now</div></div>
+    <div style="--stripe: var(--warn)"><div class="n">{counts[approve]}</div><div class="k">approve the run</div></div>
+    <div style="--stripe: var(--warn)"><div class="n">{counts[retrigger]}</div><div class="k">retrigger CI</div></div>
+    <div style="--stripe: var(--ink-faint)"><div class="n">{counts[author]}</div><div class="k">author's move</div></div>
+    <div style="--stripe: var(--dup)"><div class="n">{counts[decide]}</div><div class="k">decide first</div></div>
+    <div style="--stripe: var(--ink-faint)"><div class="n">{counts[stale]}</div><div class="k">stale / take over</div></div>
+  </div>
+
+  {body}
+
+  <div class="notes">
+    <section>
+      <h2>Three ways CI is absent</h2>
+      <p>Half this queue has no test result, for three different reasons, and only one of them is the contributor's
+      fault.</p>
+      <ul>
+        <li><strong>Held for approval</strong> — a run exists in <code>action_required</code> and a maintainer has to
+        release it. One click, and the whole matrix reports.</li>
+        <li><strong>Never ran</strong> — the queued run expired before anyone approved it. No click will help; the head
+        has to move, or the PR has to be closed and reopened.</li>
+        <li><strong>Red</strong> — the matrix ran and failed. This is the only one that is genuinely the author's move.</li>
+      </ul>
+      <p>A pull request reading <em>never ran</em> is invisible to everyone: no red cross to chase, no green tick to
+      merge. Across the whole table {n_silent} pull requests carry no comment at all — not a bot's, not a
+      maintainer's.</p>
+      <p>A second, quieter tax: {n_conflict} of {total} conflict with main. Several are waiting on a review that
+      could not be acted on anyway until they rebase — worth saying so before reading them.</p>
+    </section>
+    <section>
+      <h2>Pull requests pointing at closed issues</h2>
+      <p>Three PRs close an issue that is no longer open. Each one needs an answer before it is worth reviewing.</p>
+      <ul>
+        <li><strong>#11380</strong> — its issue was closed by hand on 10 September, after the PR was opened, with no
+        commit attached. Either the fix landed elsewhere or the bug was rejected; the PR was never told which.</li>
+        <li><strong>#11376</strong> — its issue was closed as completed in June 2024, and the two titles describe
+        different checks.</li>
+        <li><strong>#11277</strong> — its issue was closed as a duplicate during today's label sweep.</li>
+      </ul>
+    </section>
+    <section>
+      <h2>Two decisions block five pull requests</h2>
+      <p>Reviewing is not the bottleneck for these. Deciding is.</p>
+      <ul>
+        <li>Whether <code>len()</code> compared against zero should be flagged blocks <strong>#10658</strong> and
+        <strong>#10962</strong>, two contributors on the same issue.</li>
+        <li>Whether per-directory configuration is happening at all blocks <strong>#9395</strong> and
+        <strong>#9550</strong>, both abandoned, on an issue still marked <em>High priority</em>.</li>
+        <li><strong>#11384</strong> needs a ruling on two optional checkers contradicting each other before its patch
+        means anything.</li>
+      </ul>
+    </section>
+    <section>
+      <h2>What was deliberately left out</h2>
+      <p>The maintainer's own 25 open pull requests are not in this table — they are tracked in
+      <a href="BRANCH_PRIORITIZATION.md">BRANCH_PRIORITIZATION.md</a> alongside the local branches that back them.
+      Two entries here are marked <em>yours in flight</em> because the work has already been taken over on the
+      contributor's branch; they are listed so the queue reconciles, not because they need a review.</p>
+      <p>One bot backport is excluded. Draft pull requests are included and labelled, because three of them are further
+      along than several non-drafts.</p>
+    </section>
+  </div>
+
+  <footer>
+    Generated {snapshot} on branch <code>issue-triage-workspace</code> from the GitHub API. Open
+    <code>.triage/pr-queue.html</code> in a browser; nothing here is served from anywhere.
+  </footer>
+</div>
+</body>
+</html>

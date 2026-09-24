@@ -1,0 +1,1347 @@
+{
+  "no-member": [
+    {
+      "num": 10994,
+      "title": "False positives when 'type' builtin is overwritten",
+      "labels": ["Needs triage :inbox_tray:"],
+      "note": "Confirmed: when 'type' builtin is shadowed by a parameter, pylint still infers the call as returning the actual class, leading to false E1101. Real bug."
+    },
+    {
+      "num": 10806,
+      "title": "False positive for numpy 2.4.0+",
+      "labels": ["Needs triage :inbox_tray:"],
+      "note": "Confirmed E1101 'Instance of finfo has no eps member' with numpy 2.4.4 installed. Reporter shows the bug surfaces with numpy 2.4.0 and disappears with numpy 2.3.5 \u2014 astroid's numpy brain doesn't track finfo's properties on numpy 2.4+. Oldest report; canonical for this bug."
+    },
+    {
+      "num": 10472,
+      "title": "False positive no-member",
+      "labels": ["False Positive \ud83e\udd9f", "Needs PR"],
+      "note": "Confirmed E1101 false positive: '[sth.name for sth, _ in [lorem, ipsum, dolor]]' where each list element is a 2-tuple (Foo, int). pylint cannot infer the tuple-unpacking type from list of homogeneous tuples."
+    },
+    {
+      "num": 10193,
+      "title": "Invalid no-name-in-module when shadowing a base module with an alias then calling a method named format on that alias",
+      "labels": ["Bug :beetle:", "Needs PR"],
+      "note": "Confirmed E0611 'No name utils in module my_module.utils' triggered by combination of 'import my_module.utils as my_module' AND calling method named 'format' on the alias. Specific to .format() method name shadowing."
+    },
+    {
+      "num": 10166,
+      "title": "Instance of 'DatetimeIndex' has no 'to_pydatetime' member Pylint (E1101:no-member)",
+      "labels": ["Needs triage :inbox_tray:"],
+      "note": "Confirmed E1101 'Instance of DatetimeIndex has no to_pydatetime member' on pandas 3.0.3. Oldest report (2025-01) of the broader 'pandas DatetimeIndex brain incomplete' family of false positives. Canonical for this bug cluster \u2014 #10796 reports the same root cause for a different missing member ('date')."
+    },
+    {
+      "num": 9203,
+      "title": "`no-member` when creating an object through an inherited factory method",
+      "labels": ["False Positive \ud83e\udd9f", "Needs PR"],
+      "note": "Confirmed E1101: Child.from_dict() through inherited factory loses subclass attributes. astroid factory-classmethod inference gap."
+    },
+    {
+      "num": 8367,
+      "title": "Incorrect type inferred when inner class definition closes over variable from outer class\u2019s method",
+      "labels": ["Needs triage :inbox_tray:"],
+      "note": "Confirmed E1101: closure over 'this = self' in nested class loses Outer type info; 'x.say_hello()' flagged as missing member."
+    },
+    {
+      "num": 7991,
+      "title": "`no-member` error when accessing a sub class variable with `self` returned from a super class method",
+      "labels": ["inference", "False Positive \ud83e\udd9f"],
+      "note": "Confirmed E1101: super().save() return narrowed to Foo, loses Bar.value attribute."
+    },
+    {
+      "num": 7269,
+      "title": "time.sleep false negative!",
+      "labels": [
+        "Astroid",
+        "Needs investigation \ud83d\udd2c",
+        "False Negative \ud83e\udd8b"
+      ],
+      "note": "Confirmed false negative: 'from time import time; time.sleep(1)' (calling .sleep on the time *function*) is not flagged no-member even though time.time is a function."
+    },
+    {
+      "num": 5734,
+      "title": "False-negative: missing 'no-member' in case of private member function invoke without mangling",
+      "labels": [
+        "Astroid",
+        "Minor \ud83d\udc85",
+        "False Negative \ud83e\udd8b",
+        "Needs PR"
+      ],
+      "note": "Confirmed false negative: 'Foo.__foo' name-mangling access from outside the class is not flagged no-member (the issue is FN \u2014 should suggest _Foo__foo)."
+    },
+    {
+      "num": 5091,
+      "title": "E1507 (invalid-envvar-value) does not accept `builtins.str` as a valid type for `os.getenv` argument",
+      "labels": ["False Positive \ud83e\udd9f", "Needs decision :lock:"],
+      "note": "Confirmed E1507 false positive: os.getenv(self.name) where self.name is annotated as str \u2014 invalid-envvar-value fires."
+    },
+    {
+      "num": 4908,
+      "title": "Coroutine type inferred incorrectly",
+      "labels": ["Bug :beetle:", "False Positive \ud83e\udd9f", "Needs astroid update"],
+      "note": "Confirmed E1101 false positive: 'g = f(); g.send(None)' where f is async \u2014 coroutine type not modeled, g inferred as bytes."
+    },
+    {
+      "num": 3879,
+      "title": "False positive no-member when accessing a mangled instance variable of a super class after calling the constructor of the super class",
+      "labels": ["False Positive \ud83e\udd9f", "Needs PR"],
+      "note": "Confirmed E1101: 'TestSub()._Test__test' (private name-mangling access from outside) flagged no-member even though attribute exists at runtime."
+    },
+    {
+      "num": 3728,
+      "title": "False positive no-member with sys.stdin.buffer.peek()",
+      "labels": ["False Positive \ud83e\udd9f", "Needs PR"],
+      "note": "Confirmed E1101: 'sys.stdin.buffer.peek(16)' flagged no-member. astroid wrongly types stdin.buffer as BufferedWriter instead of BufferedReader."
+    },
+    {
+      "num": 3162,
+      "title": "no-member false positive from NewType",
+      "labels": [
+        "Astroid",
+        "Work in progress",
+        "inference",
+        "False Positive \ud83e\udd9f"
+      ],
+      "note": "Confirmed E1101: NewType wrapping a class loses member access ('b.value' on B=NewType('B', A) flagged no-member)."
+    }
+  ],
+  "dataclasses": [
+    {
+      "num": 10991,
+      "title": "Unexpected kwarg false-positive when using TypeVarTuple",
+      "labels": ["Needs triage :inbox_tray:"],
+      "note": "Verified on pylint 4.1.0-dev0 / astroid 4.2.0b3 (origin/main): E1123 'Unexpected keyword argument value' fires on Upper[str, int](value=\"hello\") where Upper inherits from Middle[T, *Shape] which inherits from a kw_only=True dataclass Base. Previous UNCLEAR was because pylint 4.0.5 + astroid 4.0.2 lacks PEP 695 TypeVarTuple support; with newer astroid the bug surfaces. Reporter's hypothesis (MCharming98 comment): astroid's _infer_sequence_helper fails when it hits a Starred node containing TypeVarTuple, which silently breaks MRO inference in brain_dataclasses. Related to #10972."
+    },
+    {
+      "num": 10056,
+      "title": "Second order inheritance of dataclasses with default values/`init=False` causes `E1120 no-value-for-parameter`",
+      "labels": ["False Positive \ud83e\udd9f", "dataclasses"],
+      "note": "Confirmed E1120 'no-value-for-parameter' on @dataclass three-level inheritance where intermediate level has 'field(default=..., init=False)'. astroid dataclass init signature reconstruction."
+    },
+    {
+      "num": 9972,
+      "title": "False positive `no-member` when wrapping dataclasses `field`",
+      "labels": ["Needs triage :inbox_tray:"],
+      "note": "Confirmed false positive E1101: wrapping dataclasses.field() in a helper that returns it (return field(**kw)) makes pylint see attribute as Field instead of the annotated type."
+    },
+    {
+      "num": 9488,
+      "title": "Unexpected keyword argument for Generic dataclass with ABC bounded TypeVar",
+      "labels": ["Needs triage :inbox_tray:"],
+      "note": "Confirmed E1123 unexpected-keyword-arg: @dataclass with Generic[_T] where _T has 'bound=Base|AbstractBase' (Union bound). pylint loses 'field' kwarg through the bound resolution."
+    },
+    {
+      "num": 9389,
+      "title": "False-positive E1121 when using dataclass with init=False",
+      "labels": ["Needs triage :inbox_tray:"],
+      "note": "Confirmed E1121 false positive: dataclass A with init=False inherited by B(A) \u2014 B('a','b') flagged 'too many positional args' even though it is valid."
+    },
+    {
+      "num": 9183,
+      "title": "False positive: Class has no '__dataclass_fields__' member (no-member)",
+      "labels": ["False Positive \ud83e\udd9f", "dataclasses"],
+      "note": "Confirmed E1101: '__dataclass_fields__' attribute on a @dataclass is not modeled by astroid dataclass brain."
+    },
+    {
+      "num": 7296,
+      "title": "pylint doesn't know re.Pattern members",
+      "labels": ["Needs astroid Brain \ud83e\udde0", "Needs PR"],
+      "note": "Confirmed E1101: dataclass with field 're.Pattern[str]' \u2014 accessing C.pattern_instance.pattern reports no-member. astroid re brain doesn't propagate through dataclass."
+    },
+    {
+      "num": 5810,
+      "title": "How to fix pylint E1134: Non-mapping value X is used in a mapping context (not-a-mapping)",
+      "labels": ["False Positive \ud83e\udd9f", "Needs PR"],
+      "note": "Confirmed E1134 false positive: dataclass with __post_init__ doing 'self.f_four = One(**self.f_four)' where f_four is dict before being replaced by One instance \u2014 pylint treats f_four as One type from the annotation."
+    }
+  ],
+  "typing": [
+    {
+      "num": 10972,
+      "title": "Abstract method false-positive when using TypeVarTuple",
+      "labels": ["False Positive \ud83e\udd9f", "Needs PR"],
+      "note": "Confirmed: E0110 false positive on Concrete that satisfies abstract Base.get_item via TypeVarTuple chain (PEP 695). pylint cannot follow *Shape forwarding through inheritance."
+    },
+    {
+      "num": 10807,
+      "title": "pylint fails to resolve typing.Self from base classes",
+      "labels": ["Needs investigation \ud83d\udd2c", "Needs astroid update"],
+      "note": "Confirmed: typing.Self from a base-class method called via super() does not narrow to the subclass type. False E1101 on B().meth().f2()."
+    },
+    {
+      "num": 10784,
+      "title": "Type narrowing fails due to unrelated instance assignment",
+      "labels": ["Needs triage :inbox_tray:"],
+      "note": "Confirmed: type narrowing via isinstance(...) and isinstance(stmt.src, ...) within a single 'and' breaks when an unrelated function in the same module constructs another concrete subclass. Removing that function eliminates the false positive."
+    },
+    {
+      "num": 10360,
+      "title": "False positive E1136: unsubscriptable-object when generic class defines __class_getitem__",
+      "labels": [
+        "False Positive \ud83e\udd9f",
+        "C: unsubscriptable-object",
+        "Needs PR"
+      ],
+      "note": "Confirmed E1136: when a generic class defines __class_getitem__ AND __getitem__, instance of Test[int]([...]) is still flagged as unsubscriptable."
+    },
+    {
+      "num": 10186,
+      "title": "False positive with `arguments-differ` rule in overridden overloaded methods in subclass",
+      "labels": ["Needs triage :inbox_tray:"],
+      "note": "Confirmed W0221 arguments-differ false positive on overloaded @staticmethod overrides \u2014 pylint compares only the first @overload signature of the base class, not the full overload set."
+    },
+    {
+      "num": 10158,
+      "title": "False positive on __required__ and __optional__ on TypedDict.",
+      "labels": ["typing", "False Positive \ud83e\udd9f", "Needs PR"],
+      "note": "Confirmed E1101: TypedDict.__required_keys__ / __optional_keys__ flagged as unknown members. Should be supported by astroid TypedDict brain."
+    },
+    {
+      "num": 10091,
+      "title": "Class 'str' has no '__value__' member on PEP 695 TypeAliasType",
+      "labels": ["False Positive \ud83e\udd9f", "Needs PR", "python 3.12"],
+      "note": "Confirmed E1101 'Class str has no __value__ member' on 'type X = str; print(X.__value__)' (testing_pylintrc). Maintainer-blessed canonical: Jacob Walls redirected this ticket via comment to focus on the __value__ no-member issue (the original body covered 3 PEP-695 bugs but the other two are tracked elsewhere \u2014 #9335 closed for the undefined-variable T case, #9884 for redefined-outer-name). Has 'Needs PR' label."
+    },
+    {
+      "num": 10042,
+      "title": "False positive on not-callable when inheriting from `typing.IO`",
+      "labels": ["False Positive \ud83e\udd9f", "Needs PR"],
+      "note": "Confirmed E1102 not-callable on subclass-of-typing.IO[T] when instantiated as Z[str]() while X[str]()/Y[str]() with plain typing.Generic work. typing.IO ClassVar inference issue."
+    },
+    {
+      "num": 10031,
+      "title": "False-positive E1101 (no-member) inheriting from `set[int]`",
+      "labels": ["False Positive \ud83e\udd9f", "Needs PR"],
+      "note": "Confirmed E1101: subclass of 'set[int]' loses inferred attributes. astroid generic-builtin-subclass inheritance gap."
+    },
+    {
+      "num": 9908,
+      "title": "False positive E1126 (invalid-sequence-index) on generic type alias with forward ref",
+      "labels": ["typing", "False Positive \ud83e\udd9f"],
+      "note": "Confirmed E1126 false positive: 'Alias2: TypeAlias = \"list[T]\"' (string form) triggers invalid-sequence-index, while non-string form 'list[T]' does not."
+    },
+    {
+      "num": 9884,
+      "title": "`redefined-outer-name` (`W0621`) - false positive on 3.12 type aliases",
+      "labels": [
+        "Astroid",
+        "typing",
+        "False Positive \ud83e\udd9f",
+        "Needs PR",
+        "python 3.12"
+      ],
+      "note": "Confirmed W0621 redefined-outer-name on 'type Foo[T] = T; def foo[T]: ...' (PEP 695 type-params should be statement-scoped, not module-scoped). Oldest report; has 'Needs PR' label. Canonical for this bug cluster."
+    },
+    {
+      "num": 9319,
+      "title": "False positive for `unnecessary-ellipsis` on `Protocol` methods",
+      "labels": [
+        "Enhancement \u2728",
+        "Help wanted \ud83d\ude4f",
+        "Hacktoberfest",
+        "Needs PR"
+      ],
+      "note": "Confirmed W2301 unnecessary-ellipsis false positive on Protocol method body. The '...' is required for type-checkers like pyright to infer non-implementation."
+    },
+    {
+      "num": 9222,
+      "title": "False positive `duplicate-bases` with `TypedDict`",
+      "labels": ["False Positive \ud83e\udd9f", "Needs PR"],
+      "note": "Confirmed E0241 duplicate-bases false positive on 'class ABCD(ABC):' where ABC inherits multiple TypedDicts qualified via 'typing.TypedDict'. Works fine with unqualified TypedDict import."
+    },
+    {
+      "num": 9159,
+      "title": "pylint does not support typing.Self when override",
+      "labels": ["Needs triage :inbox_tray:"],
+      "note": "Confirmed E1101 false positive: super(B, cls).f1() with @classmethod and typing.Self return type doesn't narrow back to B. Mirror of #10807."
+    },
+    {
+      "num": 8687,
+      "title": "False-positive W0236 (and W0221) when implementing an optional protocol method",
+      "labels": ["False Positive \ud83e\udd9f", "Needs PR"],
+      "note": "Confirmed: W0221 + W0236 false positives when Class(Proto) implements a Proto @property as a regular method. Real overload-vs-property mismatch."
+    },
+    {
+      "num": 8600,
+      "title": "protected-access false positive with Generic classes",
+      "labels": ["False Positive \ud83e\udd9f", "Needs PR"],
+      "note": "RE-VERIFIED: protected-access W0212 STILL fires on 'Parent._foo(self)' in Child._foo override when Parent is Generic[T]. Initial FIXED determination was wrong because pylint's own pylintrc disables protected-access."
+    },
+    {
+      "num": 8499,
+      "title": "invalid-name check for TypeVar should allow for digits in names",
+      "labels": [
+        "Help wanted \ud83d\ude4f",
+        "False Positive \ud83e\udd9f",
+        "Hacktoberfest",
+        "C: invalid-name",
+        "Needs PR"
+      ],
+      "note": "RE-VERIFIED: C0103 STILL fires on 'Ec2T = TypeVar(\"Ec2T\")' under default typevar-rgx. Initial FIXED determination was wrong because pylint's own pylintrc disables invalid-name."
+    },
+    {
+      "num": 8455,
+      "title": "False positive `no-member` for `TypeAlias` `__origin__`",
+      "labels": ["typing", "False Positive \ud83e\udd9f"],
+      "note": "Confirmed E1101: dict alias DictAlias = dict[int, float] has __origin__ at runtime but pylint reports 'Class dict has no __origin__ member'."
+    },
+    {
+      "num": 8331,
+      "title": "Incorrect type inferance after a conditional raise",
+      "labels": ["Control flow", "False Positive \ud83e\udd9f"],
+      "note": "Confirmed E1130: type narrowing after 'if not isinstance(operand, (int, float, complex)): raise' is not applied to subsequent return -operand."
+    },
+    {
+      "num": 8213,
+      "title": "False negative for `isinstance-second-argument-not-valid-type` (parameterized generic)",
+      "labels": ["typing", "False Negative \ud83e\udd8b"],
+      "note": "Confirmed false negative: isinstance-second-argument-not-valid-type is NOT raised on 'isinstance(0, list[int])' even though parameterized generics raise TypeError at runtime."
+    },
+    {
+      "num": 8022,
+      "title": "Generic type of setter is leaking across instances",
+      "labels": ["typing", "False Positive \ud83e\udd9f", "Needs PR"],
+      "note": "Confirmed E1130 false positive: Generic[T] setter type narrowing 'leaks' across instances \u2014 pylint applies the last setter's T to a different instance with different actual generic type."
+    },
+    {
+      "num": 7978,
+      "title": "Incorrect unsupported-membership-test error on TypedDict",
+      "labels": [
+        "Help wanted \ud83d\ude4f",
+        "False Positive \ud83e\udd9f",
+        "Hacktoberfest",
+        "Needs PR"
+      ],
+      "note": "Confirmed E1135 unsupported-membership-test false positive: 'while x is None or \"a\" in x:' on Optional[TypedDict] \u2014 pylint doesn't narrow after 'or'."
+    },
+    {
+      "num": 7934,
+      "title": "Missing Class Docstring false positive when inheriting from a generic class of a TypedDict instance",
+      "labels": ["False Positive \ud83e\udd9f", "Needs PR"],
+      "note": "RE-VERIFIED: C0116 missing-function-docstring STILL fires on Child(Bases[TypedDict-functional]).method (only Child class has docstring, override method doesn't). Initial determination was confused by the pylintrc."
+    },
+    {
+      "num": 7548,
+      "title": "unused-import false positive for names in string argument to typing.cast",
+      "labels": ["False Positive \ud83e\udd9f", "Needs PR"],
+      "note": "Confirmed W0611 false positive: 'paths = t.cast(\"set[Path]\", set())' flags Path as unused even though it's in the cast type string."
+    },
+    {
+      "num": 7379,
+      "title": "False positive no-member on member of generic parent class with overridden __class_getitem__",
+      "labels": ["Astroid", "False Positive \ud83e\udd9f", "Needs PR"],
+      "note": "Already verified REPRO in session 4."
+    },
+    {
+      "num": 5761,
+      "title": "False positive invalid-overridden-method for async generators overriding AsyncIterable",
+      "labels": [
+        "Needs investigation \ud83d\udd2c",
+        "False Positive \ud83e\udd9f",
+        "Needs decision :lock:"
+      ],
+      "note": "Confirmed W0236 false positive: async generator (uses yield) overriding a Protocol method returning AsyncIterable[str] flagged invalid-overridden-method. pylint should detect 'yield' to recognize async-generator vs coroutine."
+    },
+    {
+      "num": 4944,
+      "title": "False positive: Tuple claimed unsubscriptable when using NewType",
+      "labels": [
+        "typing",
+        "False Positive \ud83e\udd9f",
+        "Needs astroid update",
+        "Needs PR"
+      ],
+      "note": "Confirmed E1136: NewType('T', tuple[float,float]) \u2014 instance treated as unsubscriptable. astroid doesn't model NewType-wrapped tuples."
+    },
+    {
+      "num": 4070,
+      "title": "False positive no-member for NamedTuple._replace()",
+      "labels": ["typing", "False Positive \ud83e\udd9f", "Needs PR"],
+      "note": "Confirmed E1101: 'self._replace(...)' on NamedTuple subclass not recognized. astroid NamedTuple brain doesn't expose _replace via subclass."
+    },
+    {
+      "num": 2855,
+      "title": "Classvar[Optional[Tuple]] must be unpacked",
+      "labels": ["Enhancement \u2728", "Control flow", "typing", "Needs PR"],
+      "note": "Confirmed E0633: 'a, b = cls.cached_a_and_b()' where return is ClassVar[Optional[Tuple[A,B]]] still raises unpacking-non-sequence."
+    },
+    {
+      "num": 2647,
+      "title": "Pylint gets confused by functools.singledispatch and assumes wrong return types of its registered functions.",
+      "labels": ["False Positive \ud83e\udd9f", "Needs PR"],
+      "note": "Confirmed E1101: @singledispatch-registered overload returning HasAttributeX not picked up \u2014 pylint still infers result as HasNoAttributeX from generic fallback."
+    },
+    {
+      "num": 2296,
+      "title": "False positive not-an-iterable for typing.NewType",
+      "labels": ["Astroid", "Work in progress", "typing"],
+      "note": "Confirmed E1133: 'a = NewType(\"a\", List[int])'; 'for x in fun()' where fun returns a \u2014 still flagged not-an-iterable."
+    }
+  ],
+  "imports": [
+    {
+      "num": 10969,
+      "title": "Pylint skipping similarly named project directory.",
+      "labels": ["Bug :beetle:", "Work in progress"],
+      "note": "Confirmed bug; same-prefix sibling directories get incorrectly skipped by _discover_files() because skip_subtrees uses string prefix match. Author has WIP fix."
+    },
+    {
+      "num": 10140,
+      "title": "pylint only catching `cyclic-import` in parallel mode",
+      "labels": [
+        "Bug :beetle:",
+        "Needs investigation \ud83d\udd2c",
+        "False Negative \ud83e\udd8b",
+        "multiprocessing"
+      ],
+      "note": "Confirmed by reporter: cyclic-import only fires under -j0 or -j>=2, not -j1. Internal: serial codepath misses the cycle detector."
+    },
+    {
+      "num": 9977,
+      "title": "`ungrouped-imports` / `wrong-import-order` : FP because only two isort's options are taken into account",
+      "labels": ["False Positive \ud83e\udd9f", "Needs PR"],
+      "note": "Confirmed ungrouped-imports/wrong-import-order false positive: pylint only consults isort's 'known_first_party'/'known_third_party' sections, ignoring custom sections (known_platforms, known_frameworks, \u2026)."
+    },
+    {
+      "num": 7452,
+      "title": "False positive `import-self` when attempting relative import of misspelled submodule name in a package.",
+      "labels": ["Import system", "False Positive \ud83e\udd9f"],
+      "note": "Confirmed W0406 import-self false positive: 'from . import misspelled_module_name' on a missing submodule incorrectly reports 'Module import itself' instead of import-error."
+    },
+    {
+      "num": 4444,
+      "title": "Linting fails if module contains module of the same name",
+      "labels": [
+        "Bug :beetle:",
+        "Import system",
+        "False Positive \ud83e\udd9f",
+        "namespace-package",
+        "Needs PR"
+      ],
+      "note": "Confirmed F0010/parse-error: 'pylint a/' where a/ contains a.py (same name as dir) without __init__.py fails with 'Unable to load file a/__init__.py'."
+    }
+  ],
+  "enum": [
+    {
+      "num": 10951,
+      "title": "pylint does not recognise `from ... import` inside an `IntEnum` class body as producing enum members. It infers the members as `int` instead of `LogLevel`, causing a spurious `E1101: Instance of 'int' has no 'value' member (no-member)` error.",
+      "labels": ["Astroid", "False Positive \ud83e\udd9f", "enum"],
+      "note": "Confirmed: E1101 false positive \u2014 pylint/astroid does not treat 'from x import y as Z' inside an IntEnum body as producing enum members; infers them as int."
+    },
+    {
+      "num": 10840,
+      "title": "`invalid-envvar-value` does not support StrEnum",
+      "labels": ["Needs decision :lock:"],
+      "note": "Confirmed: E1507 (invalid-envvar-value) triggers for StrEnum member used as os.getenv arg, even though StrEnum members ARE strings. Needs StrEnum support in the envvar checker."
+    },
+    {
+      "num": 10609,
+      "title": "False positive E1121: Too many positional arguments error for Subclassed Enums instanciated with functional API",
+      "labels": ["Needs triage :inbox_tray:"],
+      "note": "Confirmed E1121 false positive: CustomEnum('MyEnum', {'RED': 1}) (subclass of Enum used via Enum functional API) triggers too-many-function-args, while base Enum() does not. astroid does not propagate the functional __call__ signature through subclassing."
+    },
+    {
+      "num": 9905,
+      "title": "False positive `invalid-overridden-method` when overridding `Enum.value`",
+      "labels": ["Needs triage :inbox_tray:"],
+      "note": "Confirmed W0236 false positive: overriding enum.Enum.value (a DynamicClassAttribute) with @property triggers invalid-overridden-method."
+    },
+    {
+      "num": 9839,
+      "title": "E0238 false positive when defining __slots__ in IntEnum class",
+      "labels": ["Needs triage :inbox_tray:"],
+      "note": "Confirmed E0238 invalid-slots false positive: '__slots__ = ()' inside an IntEnum body is flagged invalid although it is valid (empty tuple is acceptable __slots__)."
+    },
+    {
+      "num": 8327,
+      "title": "`isinstance-second-argument-not-valid-type` does not handle `Enum.enum`",
+      "labels": [
+        "typing",
+        "False Positive \ud83e\udd9f",
+        "False Negative \ud83e\udd8b"
+      ],
+      "note": "Confirmed W1116 false positive: Enum functional form 'Direction = Enum(\"Direction\", [...])' not recognized as a valid isinstance second arg."
+    }
+  ],
+  "decorators": [
+    {
+      "num": 10848,
+      "title": "pylint does not honor decorator return type when using @ syntax",
+      "labels": ["Decorators", "Duplicate \ud83d\udc2b"],
+      "note": "Confirmed: E1101 false positive \u2014 pylint ignores decorator's annotated return type when applied via '@' syntax (works with explicit f = decorator(f_) form). Marked Duplicate label upstream."
+    },
+    {
+      "num": 9505,
+      "title": "Changing the number of function arguments when using a decorator does not work.",
+      "labels": ["Bug :beetle:", "Decorators", "Needs PR"],
+      "note": "Confirmed via reporter: decorator with Concatenate[\u2026, P] adds new positional arg but pylint doesn't pick up the new signature; E1121 too-many-function-args false positive."
+    },
+    {
+      "num": 7487,
+      "title": "False positive: `no-member` when inner function uses the `@classmethod` decorator",
+      "labels": ["False Positive \ud83e\udd9f", "Hacktoberfest", "Needs PR"],
+      "note": "Confirmed E1101 false positive: @classmethod-decorated inner function inside def test() treated as member of 'test' function."
+    },
+    {
+      "num": 5784,
+      "title": "False positive for ``unexpected-keyword-arg`` for decorators with inner inner function",
+      "labels": ["Decorators", "False Positive \ud83e\udd9f", "Needs PR"],
+      "note": "Confirmed E1123 false positive: 'example_func(6, print_me=\"hello\")' decorated with example_decorator (top-level wrapper) \u2014 pylint still flags print_me as unexpected kwarg."
+    },
+    {
+      "num": 5699,
+      "title": "False positive: unsubscriptable-object when using classmethod and property together",
+      "labels": [
+        "Decorators",
+        "False Positive \ud83e\udd9f",
+        "C: unsubscriptable-object",
+        "Needs PR"
+      ],
+      "note": "Confirmed E1136 false positive: @classmethod @property combination for 'all_constants' returning List[int] flagged unsubscriptable."
+    },
+    {
+      "num": 3957,
+      "title": "Attributes added by a decorator are raised as missing members errors",
+      "labels": ["Bug :beetle:", "False Positive \ud83e\udd9f", "Needs PR"],
+      "note": "Confirmed E1101: @functools.wraps decorator returning a NamedTuple-wrapped instance loses inferred type \u2014 'mod.init' and 'mod.apply' flagged no-member."
+    },
+    {
+      "num": 3586,
+      "title": "false positive: E1111 assignment-from-no-return when using function name \"lazy\"",
+      "labels": ["Astroid", "False Positive \ud83e\udd9f", "Needs PR"],
+      "note": "Confirmed E1111 false positive: function named 'lazy' as decorator triggers assignment-from-no-return; renaming the function (e.g. 'lazy2') fixes it. astroid name-based heuristic confuses 'lazy' specifically."
+    },
+    {
+      "num": 2578,
+      "title": "Type changes in decorators are not detected",
+      "labels": [
+        "High effort \ud83c\udfcb",
+        "inference",
+        "Decorators",
+        "False Negative \ud83e\udd8b",
+        "Needs PR"
+      ],
+      "note": "Confirmed E1101: @cast_to_str decorator returning Callable[..., str] doesn't change inferred return type \u2014 get_num().strip() still flagged."
+    }
+  ],
+  "control-flow": [
+    {
+      "num": 10847,
+      "title": "possibly-used-before-assignment false negative when variable has type annotation",
+      "labels": ["False Negative \ud83e\udd8b"],
+      "note": "Confirmed false negative: when 'err' has a forward type annotation but only is assigned in some except clauses, pylint does not flag possibly-used-before-assignment at the later use site. Removing the annotation makes pylint flag it."
+    },
+    {
+      "num": 10471,
+      "title": "Property union type inference issue: E1102 not-callable false positive",
+      "labels": [
+        "Astroid",
+        "Control flow",
+        "False Positive \ud83e\udd9f",
+        "Needs astroid update"
+      ],
+      "note": "Confirmed E1102 false positive: property returning CallableType|None, even after 'if self.processor:' narrowing, still triggers not-callable. Direct attribute access works."
+    },
+    {
+      "num": 10460,
+      "title": "False positive `ungrouped-imports` with if os.name",
+      "labels": [
+        "Control flow",
+        "False Positive \ud83e\udd9f",
+        "Needs astroid update",
+        "Needs PR"
+      ],
+      "note": "Confirmed C0412 ungrouped-imports false positive across if/else branches (cross-platform import pattern). Already linked to #7735, #3382 by reporter."
+    },
+    {
+      "num": 10195,
+      "title": "False positive `used-before-assignment`",
+      "labels": [
+        "Control flow",
+        "False Positive \ud83e\udd9f",
+        "C: used-before-assignment",
+        "Needs design proposal :lock:"
+      ],
+      "note": "Confirmed E0601 used-before-assignment on 'v' \u2014 control-flow analysis treats the early 'if x not in [\"A\"]:' as not narrowing later 'elif x == \"A\":'. Reporter says it should at minimum be downgraded to possibly-used-before-assignment."
+    },
+    {
+      "num": 10055,
+      "title": "W0640 cell-var-from-loop false positive in Generator Comprehension of functions",
+      "labels": ["False Positive \ud83e\udd9f", "Needs PR"],
+      "note": "Confirmed W0640 cell-var-from-loop FP on '(lambda: print(i) for i in range(10))' generator expression. The lambda *is* the generator's element so each i binding is correct."
+    },
+    {
+      "num": 10043,
+      "title": "[deprecated-x] Message trigger even in old interpreter compatibility code",
+      "labels": [
+        "Control flow",
+        "False Positive \ud83e\udd9f",
+        "Needs decision :lock:"
+      ],
+      "note": "Confirmed W4904 deprecated-class triggered inside 'if sys.version_info >= (3, 12): ... else: ...' compatibility blocks. pylint should not warn the older branch when guarded."
+    },
+    {
+      "num": 9689,
+      "title": "False positive E0601: used-before-assignment in try and while block",
+      "labels": [
+        "False Positive \ud83e\udd9f",
+        "C: used-before-assignment",
+        "Needs PR"
+      ],
+      "note": "Confirmed E0601 used-before-assignment false positive: 'nonlocal a' inside a try/except or while block fails to mark 'a' as resolvable; works fine for for/range loops."
+    },
+    {
+      "num": 8686,
+      "title": "`used-before-assignment` for assignment in inner try when outer try returns",
+      "labels": [
+        "Control flow",
+        "False Positive \ud83e\udd9f",
+        "C: used-before-assignment"
+      ],
+      "note": "Confirmed E0601 used-before-assignment: nested 'try: results=[]' inside except branch is not seen as assigning before the final 'return results'."
+    },
+    {
+      "num": 8495,
+      "title": "False negative for NameError from calling inner function before variable is assigned",
+      "labels": [
+        "Control flow",
+        "False Negative \ud83e\udd8b",
+        "C: used-before-assignment"
+      ],
+      "note": "Confirmed false negative: inner function references 'i' that is only later assigned by the for-loop; the first inner() call would raise NameError at runtime but pylint stays silent."
+    },
+    {
+      "num": 8394,
+      "title": "W0631: Using possibly undefined loop variable (undefined-loop-variable)",
+      "labels": [
+        "Control flow",
+        "inference",
+        "False Positive \ud83e\udd9f",
+        "Needs PR"
+      ],
+      "note": "Confirmed W0631 undefined-loop-variable: 'return number' after 'if not numbers: return None' guard + for loop is still flagged. Pylint can't see the guard ensures non-empty iter."
+    },
+    {
+      "num": 8221,
+      "title": "cell-var-from-loop ignores generator expressions",
+      "labels": ["Needs triage :inbox_tray:", "False Negative \ud83e\udd8b"],
+      "note": "Confirmed false negative W0640 cell-var-from-loop on generator-expression captured from outer loop variable: '(value for value in [1,2] if value == loop_var)' inside 'for loop_var in ...:' is not flagged."
+    },
+    {
+      "num": 8215,
+      "title": "Spurious 'undefined-variable' warning with postponed annotations enabled",
+      "labels": ["False Positive \ud83e\udd9f", "C: undefined-variable", "Needs PR"],
+      "note": "Confirmed E0602 undefined-variable false positive: 'from __future__ import annotations' + class B nested in class A used as annotation in sibling class C."
+    },
+    {
+      "num": 8145,
+      "title": "`undefined-variable` false positive when method returns instance type when the class is inside a function",
+      "labels": ["False Positive \ud83e\udd9f", "C: undefined-variable", "Needs PR"],
+      "note": "Confirmed E0602 false positive: 'def foo(self) -> Foo:' inside a function-nested class with 'from __future__ import annotations' raises undefined-variable on the return type."
+    },
+    {
+      "num": 7720,
+      "title": "undefined-variable regression since 2.6.0",
+      "labels": ["Decorators", "False Positive \ud83e\udd9f", "C: undefined-variable"],
+      "note": "Confirmed E0602 undefined-variable false positive: '@CONVERTER.register()' as decorator for a class defined inside another class still fails."
+    },
+    {
+      "num": 7614,
+      "title": "False positive for repeated-keywords when dict item is popped off",
+      "labels": ["Control flow", "False Positive \ud83e\udd9f"],
+      "note": "Confirmed E1132 false positive: 'foo(c=x, **d)' after 'd.pop(\"c\")' still flags repeated-keyword. pylint can't track dict mutation."
+    },
+    {
+      "num": 7545,
+      "title": "False positive `used-before-assignment` with multi-item `with` statement and tuple target",
+      "labels": [
+        "False Positive \ud83e\udd9f",
+        "C: used-before-assignment",
+        "Needs PR"
+      ],
+      "note": "Confirmed E0601 false positive: 'with f() as (a, b), g(a) as c:' \u2014 tuple-target multi-item with statement \u2014 pylint sees 'a' as undefined when used in g(a)."
+    },
+    {
+      "num": 7460,
+      "title": "False negative: expected undefined-variable when deleted variable used",
+      "labels": ["Control flow", "False Negative \ud83e\udd8b", "Needs PR"],
+      "note": "Confirmed FN persists: 'del abc; print(abc)' inside function is not flagged undefined-variable (10/10) even though Python raises UnboundLocalError at runtime."
+    },
+    {
+      "num": 7293,
+      "title": "False positive for unexpected-keyword-arg using `**` operator",
+      "labels": ["Control flow", "False Positive \ud83e\udd9f", "Needs PR"],
+      "note": "Confirmed E1123 false positive: 'd[\"arg\"] = d[\"b\"]; del d[\"b\"]; func(**d)' still flags 'b' as unexpected kwarg even though it was deleted."
+    },
+    {
+      "num": 7282,
+      "title": "E1101 false-positive/-negtive when mutating typess of dictionary values",
+      "labels": [
+        "Control flow",
+        "False Positive \ud83e\udd9f",
+        "False Negative \ud83e\udd8b"
+      ],
+      "note": "Confirmed mixed E1101 FP/FN: mutating dict values via 'for k,v in d.items(): d[k] = transform(v)' \u2014 pylint still sees old type. Real but the FN side (case 3) is the trickier part."
+    },
+    {
+      "num": 5955,
+      "title": "`used-before-assignment` false positive on multiple-target assignment",
+      "labels": [
+        "False Positive \ud83e\udd9f",
+        "C: used-before-assignment",
+        "Needs PR"
+      ],
+      "note": "Confirmed E0601 false positive: 'a = b[id(a)] = 0' multiple-target assignment with target-n using target-n+1 reports 'a' used before assignment."
+    },
+    {
+      "num": 5671,
+      "title": "False `unbalanced-tuple-unpacking` report",
+      "labels": ["Enhancement \u2728", "Control flow", "Needs PR"],
+      "note": "Confirmed W0632 false positive: 'a, b = f(\"12\")' where f appends to a list \u2014 pylint can't track that the list ultimately has 2 elements at unpack time."
+    },
+    {
+      "num": 5085,
+      "title": "Negation and None",
+      "labels": ["Control flow", "False Positive \ud83e\udd9f", "Needs PR"],
+      "note": "Confirmed E1130 false positive: property with 'if self.__val is None: self.__val = 42; return self.__val' \u2014 pylint doesn't narrow __val to int after assignment, flags unary minus."
+    },
+    {
+      "num": 4968,
+      "title": "False positive 'not-an-iterable' when using deferred initialization in a property",
+      "labels": ["Control flow", "False Positive \ud83e\udd9f", "Needs PR"],
+      "note": "Confirmed E1133 false positive: 'getattr(obj, \"names\")' where names is a property doing deferred init returning a list. pylint can't see through getattr+property+deferred-init."
+    },
+    {
+      "num": 4066,
+      "title": "False positive used-before-assignment for return type",
+      "labels": ["Astroid", "False Positive \ud83e\udd9f", "Needs PR"],
+      "note": "Confirmed E0601 false positive: 'def foo(self) -> bool:' inside class with later 'def bool(self) -> bool' method \u2014 return annotation 'bool' confused with sibling method."
+    },
+    {
+      "num": 3745,
+      "title": "False positive method-hidden in overridden methods",
+      "labels": ["Enhancement \u2728", "Control flow", "Needs PR"],
+      "note": "Confirmed E0202 method-hidden false positive: Extended.func defined while Base.__init__ sets self.func=func \u2014 but Extended overrides __init__ to NOT call super, so no actual conflict."
+    },
+    {
+      "num": 3641,
+      "title": "False negative ``undefined-variable`` for decorators in multiple scenario",
+      "labels": [
+        "Enhancement \u2728",
+        "Checkers",
+        "False Negative \ud83e\udd8b",
+        "C: undefined-variable",
+        "Needs PR"
+      ],
+      "note": "Confirmed but with different message: '@x.getter' in subclass B(A) where x is property on A \u2014 pylint flags W0236 invalid-overridden-method instead of expected undefined-variable. Either way the bug surfaces."
+    },
+    {
+      "num": 3045,
+      "title": "false positive: unsupported-membership-test",
+      "labels": ["Control flow", "False Positive \ud83e\udd9f", "Needs PR"],
+      "note": "Confirmed E1135 unsupported-membership-test false positive: 'cls.all()' return value, where all() returns a list assigned to cls._all, treated as non-membership-test-supporting."
+    },
+    {
+      "num": 2633,
+      "title": "Strange Emit of E0601 where something about shadowing a global would be clearer",
+      "labels": ["Bug :beetle:", "C: used-before-assignment"],
+      "note": "Confirmed E0601: '@property def type(self):' shadowing builtin 'type' in same class causes E0601 used-before-assignment on annotation 'thing_type: type' in __init__. Should report shadowing instead."
+    },
+    {
+      "num": 2621,
+      "title": "Invalid report about \"Possible unbalanced tuple unpacking\"",
+      "labels": ["Control flow", "False Positive \ud83e\udd9f", "Needs PR"],
+      "note": "Confirmed W0632 unbalanced-tuple-unpacking false positive: chained 'return _fn_b() + (3,)' where _fn_b returns a 2-tuple \u2014 pylint sees right-side as 4 values."
+    },
+    {
+      "num": 2072,
+      "title": "Unstable result of unsubscriptable-object error within if/elif/else block",
+      "labels": ["Bug :beetle:", "Control flow", "Needs PR"],
+      "note": "Confirmed E1136: 'a = a[1:]' inside elif still triggers unsubscriptable-object when initial 'a = None' is in outer scope. Control-flow narrowing miss."
+    },
+    {
+      "num": 841,
+      "title": "false redefined-outer-name when using `del`",
+      "labels": [
+        "Minor \ud83d\udc85",
+        "Control flow",
+        "False Positive \ud83e\udd9f",
+        "Needs PR"
+      ],
+      "note": "Confirmed W0621: 'def foo(): x = 2; del x; x = 3' inside function where outer scope has x=1 \u2014 redefined-outer-name still raised. Reporter argues del breaks the shadowing."
+    }
+  ],
+  "crash": [
+    {
+      "num": 10813,
+      "title": "Improper handling of log message format bytestrings",
+      "labels": ["Crash \ud83d\udca5"],
+      "note": "Confirmed: crash (F0002 / UnicodeDecodeError) in pylint.checkers.logging._check_format_string when format string is a non-UTF8 bytes object. Direct fix in logging.py line 333 (use .decode(errors='replace') or str())."
+    },
+    {
+      "num": 10519,
+      "title": "Crash with AstroidBuildingError when inheriting from a generic dataclass that has __init_subclass__",
+      "labels": ["Astroid", "Crash \ud83d\udca5", "Needs astroid update", "Needs PR"],
+      "note": "Crash confirmed: AstroidBuildingError when a dataclass inherits unparameterized from a generic dataclass that defines __init_subclass__. Trace points to astroid brain_dataclasses._find_arguments_from_base_classes. Astroid bug."
+    },
+    {
+      "num": 10099,
+      "title": "Crash in ``consider-using-enumerate`` when using ``len(range())`` and using the index to access an element of a list inside and element of a list",
+      "labels": ["Crash \ud83d\udca5", "Needs PR"],
+      "note": "Crash in consider-using-enumerate when 'len(range(...))' used with nested list indexing. Already labeled 'Needs PR'."
+    },
+    {
+      "num": 10014,
+      "title": "Crash ``Building error when trying to create ast representation of module 'multiprocessing.process'``",
+      "labels": ["Crash \ud83d\udca5", "Needs investigation \ud83d\udd2c"],
+      "note": "Confirmed crash pattern: project has its own 'multiprocessing/' directory shadowing stdlib multiprocessing \u2192 astroid brain_multiprocessing transform raises TypeError. Astroid brain bug."
+    },
+    {
+      "num": 8755,
+      "title": "Recursive defining a function with classmethod decorator triggers crashing",
+      "labels": ["Astroid", "Crash \ud83d\udca5", "Needs PR"],
+      "note": "Confirmed crash: recursive 'super(C, cls).foo(a)' on @classmethod outside any class triggers AstroidError \u2192 F0002 fatal."
+    },
+    {
+      "num": 8746,
+      "title": "Defining collections.namedtuple object trigger an AstroidError",
+      "labels": ["Crash \ud83d\udca5", "Needs PR"],
+      "note": "Confirmed crash: 'namedtuple(\"mu\", [\"\u00b5\"])' (Unicode identifier name) triggers AstroidError in brain_namedtuple_enum.infer_named_tuple."
+    },
+    {
+      "num": 8739,
+      "title": "Unfound astroid.exceptions.InferenceError causes a crash",
+      "labels": ["Astroid", "Crash \ud83d\udca5", "Needs PR"],
+      "note": "Confirmed crash: 'C.p.fset' where p is a getter-only @property raises InferenceError \u2192 F0002 fatal."
+    },
+    {
+      "num": 8079,
+      "title": "Pylint is crashing with astroid.exceptions.StatementMissing: Statement not found on <Module.builtins l.0",
+      "labels": ["Needs decision :lock:"],
+      "note": "Reproduced. Self-contained minimal repro: a class with both a method named after a site builtin (license/copyright/credits/exit/quit) AND that name also bound as an instance attribute via self.NAME = ... in __init__. This path enters class_checker.visit_functiondef's ancestor.lookup(node.name) branch which raises StatementMissing on Module.builtins. Confirmed crash on pylint 3.3.8/astroid 3.3.11, pylint 4.0.5/astroid 4.0.2 (THIS REPO), pylint 4.0.5/astroid 4.0.4, AND pylint 4.1.0-dev0/astroid 4.2.0b3 (latest main). Previous FIXED determination was incorrect \u2014 it was based on the simpler sub-case 'tuple = namedtuple(None, [])' which IS fixed in astroid 4.0.0, but that's a different code path (safe_infer \u2192 pytype \u2192 ancestors) than the funkwhale-flavored one (class_checker \u2192 ancestor.lookup \u2192 _filter_stmts \u2192 statement). The deeper bug is still live."
+    },
+    {
+      "num": 3602,
+      "title": "Maximum recursion depth crash with pyreverse ``-S`` option",
+      "labels": [
+        "Bug :beetle:",
+        "pyreverse",
+        "performance",
+        "Crash \ud83d\udca5",
+        "Needs PR"
+      ],
+      "note": "Verified on pylint 4.0.5: pyreverse -S (recursive associations) on Pierre's 2022 minimal snippet (numpy.zeros class attribute) does not crash but hangs >60s without producing output. The original max-recursion crash from 2020 was fixed but the perf regression that Pierre flagged in 2022 ('not crashing but taking really fucking long') is still present. Workaround is to use bounded -s2 instead of -S; -s2 finishes in seconds and produces classes.dot."
+    },
+    {
+      "num": 22,
+      "title": "Pyreverse: ValueError: need more than 1 value to unpack",
+      "labels": [
+        "Bug :beetle:",
+        "pyreverse",
+        "Minor \ud83d\udc85",
+        "Needs reproduction :mag:"
+      ],
+      "note": "Verified on pylint 4.0.5: pyreverse -c <unqualified-name> <package> still crashes, but with a different exception than the 2013 ValueError. Now: AttributeError: 'EmptyNode' object has no attribute 'name' in pyreverse/inspector.py:467. Same UX problem (poor error message for bad input). DudeNr33's 2023 analysis on the issue says the workaround is to use fully-qualified name (pyreverse -c top.mod.Class pkg). This is largely a UX/error-reporting issue, not a 'classes are wrong' bug."
+    }
+  ],
+  "naming-shadowing": [
+    {
+      "num": 10768,
+      "title": "Started getting \"invalid name\" errors on a module-level global variable after upgrade to pylint 4.0.4",
+      "labels": [
+        "False Positive \ud83e\udd9f",
+        "C: invalid-name",
+        "Needs decision :lock:"
+      ],
+      "note": "RE-VERIFIED: pylint's local pylintrc disables invalid-name which masked the bug in initial test. With --rcfile=testing_pylintrc the C0103 invalid-name STILL fires on '_g_is_installed = False; def x(): global _g_is_installed; _g_is_installed = True'. The fix from c66868215 (#3585) only treats reassignment as variable when there are MULTIPLE module-level assignments to the same name. The global-statement reassignment from within a function doesn't count as a separate module-level assignment by frame().getattr()."
+    },
+    {
+      "num": 10766,
+      "title": "False positive for constant naming style inside __main__ block",
+      "labels": ["False Positive \ud83e\udd9f", "C: invalid-name", "Needs PR"],
+      "note": "RE-VERIFIED: still fires with --rcfile=testing_pylintrc. 'exit_code = main()' inside 'if __name__ == \"__main__\":' block still triggers C0103. Single assignment treated as constant."
+    },
+    {
+      "num": 10679,
+      "title": "False negatives for `disallowed-name` due to control flow in NameChecker",
+      "labels": ["False Negative \ud83e\udd8b"],
+      "note": "Genuine internal bug per maintainer note: NameChecker short-circuits skip 'disallowed-name' along with 'invalid-name' in several control-flow paths. Code reference provided."
+    },
+    {
+      "num": 5678,
+      "title": "redefined-outer-name not emitted for names in enclosing namespace",
+      "labels": ["False Negative \ud83e\udd8b", "Needs PR"],
+      "note": "Confirmed FN: 'def wrapper(): x=42; def f(x):' \u2014 pylint doesn't report redefined-outer-name when outer is enclosing fn scope, only when outer is module-level."
+    },
+    {
+      "num": 4993,
+      "title": "Incorrect report \"unused-import\" when assigning to class attribute with the same name as the imported module.",
+      "labels": ["False Positive \ud83e\udd9f", "Needs PR"],
+      "note": "Confirmed W0611 false positive: 'import gettext' used in 'translation: gettext.NullTranslations' annotation but shadowed by '@property gettext' on the same class \u2014 pylint marks the import unused."
+    },
+    {
+      "num": 2589,
+      "title": "redefined-outer-name when importing subpackage of package which is already imported in outer scope",
+      "labels": ["False Positive \ud83e\udd9f", "Needs PR"],
+      "note": "Confirmed W0621 false positive: 'def foo(): import os.path' when 'import os' is at module scope. (Plus W0611 unused-import on outer 'import os' which is a separate concern.)"
+    }
+  ],
+  "arguments": [
+    {
+      "num": 10731,
+      "title": "False Negative ``no-value-for-parameter`` for instances used inside of a class",
+      "labels": ["False Negative \ud83e\udd8b", "Needs PR"],
+      "note": "Confirmed: E1120 'no-value-for-parameter' is fired for direct 'seagull.flap()' but NOT for 'bird.flap()' or 'self.bird.flap()' inside BirdTester even with typed Bird annotation. False negative."
+    },
+    {
+      "num": 10029,
+      "title": "Missing mandatory keyword argument (E1125) with explicit mandatory keywords and keyword dictionary",
+      "labels": ["False Positive \ud83e\udd9f", "Needs PR"],
+      "note": "Confirmed E1125: passing **someargs that contains 'c' and 'd' to fun(*, c, d, **kwargs) still raises missing-kwoa. Checker assumes literal kwargs only."
+    },
+    {
+      "num": 9986,
+      "title": "False positive `unbalanced-dict-unpacking`",
+      "labels": ["Needs triage :inbox_tray:"],
+      "note": "Confirmed W0644 unbalanced-dict-unpacking false positive: even after 'if len(self.data) == 1:' narrowing the unpack of a single (k,v) tuple still warns."
+    },
+    {
+      "num": 9683,
+      "title": "False positive invalid-sequence-index using properties of range object as index",
+      "labels": ["Needs triage :inbox_tray:"],
+      "note": "Confirmed E1126: l[r.start], l[r.stop] (range object's int properties) trigger invalid-sequence-index. astroid doesn't expose range's start/stop/step as int."
+    },
+    {
+      "num": 8325,
+      "title": "false-positive: no-value-for-parameter",
+      "labels": ["False Positive \ud83e\udd9f"],
+      "note": "Confirmed E1120 false positive: 'self.__new__(type(self))' raises no-value-for-parameter (the bug is pylint treats __new__ as needing 'cls' even though self.__new__ passes it implicitly... wait \u2014 actually __new__ is a staticmethod and self.__new__ DOES need cls. Reporter is wrong about the bug being a FP). Confirmed still raises E1120 either way."
+    },
+    {
+      "num": 7424,
+      "title": "invalid-sequence-index when unpacking a sequence of sequences",
+      "labels": ["Needs investigation \ud83d\udd2c", "False Positive \ud83e\udd9f"],
+      "note": "Confirmed E1126 false positive: 'for a1,a2,a3,a4 in n:' where n has 4+ p1 entries and p1 is a 4-tuple. Tuple unpacking in for-loop loses element type info."
+    },
+    {
+      "num": 7348,
+      "title": "False positives for E1120 and E1123 when instance method is overwritten",
+      "labels": ["False Positive \ud83e\udd9f", "Needs PR"],
+      "note": "Already verified REPRO in session 4."
+    },
+    {
+      "num": 6856,
+      "title": "False negative ``repeated-keyword`` for builtin functions",
+      "labels": ["False Negative \ud83e\udd8b", "Needs PR"],
+      "note": "Confirmed false negative persists: 'print(end=\" !\", **{\"end\": \":(\"})' \u2014 the duplicate 'end' keyword is not flagged repeated-keyword for builtin functions."
+    },
+    {
+      "num": 5793,
+      "title": "arguments-differ: number of parameters was some number ... and is now the same number in overridden ...",
+      "labels": ["Documentation :green_book:", "C: arguments-differ"],
+      "note": "Confirmed W0221 message wording bug: 'Number of parameters was 2 in ... and is now 2 in overriding ...' \u2014 the count is the same; the real issue (kw-only conversion) isn't communicated."
+    },
+    {
+      "num": 5637,
+      "title": "option to treat `TYPE_CHECKING` as `True`, or add a separate variable",
+      "labels": ["Astroid", "False Positive \ud83e\udd9f", "Needs PR"],
+      "note": "Confirmed E1120: 'if TYPE_CHECKING: def __init__(self): ... else: def __init__(self, value): ...' \u2014 pylint uses the TYPE_CHECKING branch for the call check, ignoring the runtime else-branch."
+    },
+    {
+      "num": 4961,
+      "title": "incorrect line number and missing module name for E0633 (and false-positive)",
+      "labels": ["inference", "False Positive \ud83e\udd9f"],
+      "note": "Confirmed E0633 false positive AND misleading message: 'a, b = NewType_wrapped_tuple' raises 'unpacking-non-sequence defined at line 10 of <empty module name>'."
+    },
+    {
+      "num": 4861,
+      "title": "`repeated-keyword` false-positive when overriding existing dict keys",
+      "labels": ["False Positive \ud83e\udd9f", "Needs PR"],
+      "note": "Confirmed E1132 false positive: 'dict(kwargs, that=3)' merges dict (overriding), passed as 'my_func(**new_kwargs)' \u2014 pylint sees both 'that' values in original kwargs and override."
+    },
+    {
+      "num": 4803,
+      "title": "False positive unpacking-non-sequence on classmethod + property",
+      "labels": ["False Positive \ud83e\udd9f", "Needs PR"],
+      "note": "Confirmed E0633 false positive: @classmethod @property returning tuple, unpacked as 'x, y = E.p'. astroid doesn't track tuple type through chained classmethod+property."
+    },
+    {
+      "num": 4546,
+      "title": "False-positive no-value-for-parameter for some unpacked values of list-builtins",
+      "labels": ["False Positive \ud83e\udd9f", "Needs PR"],
+      "note": "Confirmed E1120 false positive: 'list(returns_implicit_tuple(1))' loses the implicit-tuple's element count; 'foo(*args)' flagged no-value-for-parameter. The non-list-wrapped variant works."
+    },
+    {
+      "num": 4018,
+      "title": "disable=unexpected-keyword-arg doesn't work when placed on line where keyword is specified",
+      "labels": [
+        "Enhancement \u2728",
+        "Needs investigation \ud83d\udd2c",
+        "Needs astroid update",
+        "C: Pragma's"
+      ],
+      "note": "Confirmed: 'c=3 # pylint: disable=unexpected-keyword-arg' on the kwarg line doesn't suppress E1123 (raised on the open-paren line). Plus I0021 useless-suppression false positive."
+    },
+    {
+      "num": 3268,
+      "title": "False positive no-value-for-parameter in metaclass",
+      "labels": [
+        "Help wanted \ud83d\ude4f",
+        "Astroid",
+        "False Positive \ud83e\udd9f",
+        "Hacktoberfest",
+        "Needs PR"
+      ],
+      "note": "Confirmed E1120: classmethod-like calls via metaclass instance ('Dang.baz()' \u2192 'cls.bar(\"woo\")') flagged 'No value for argument string in unbound method call'."
+    },
+    {
+      "num": 2271,
+      "title": "False positive for ``redundant-keyword-arg`` in class with ``partial()`` class attribute function",
+      "labels": ["False Positive \ud83e\udd9f", "Needs PR"],
+      "note": "Confirmed E1124 redundant-keyword-arg false positive: 'partial(foo, \"\")' assigned as class attribute, called via 'self.bar(y=y)' \u2014 pylint sees 'y' as both positional (from partial) and keyword."
+    }
+  ],
+  "walrus": [
+    {
+      "num": 10691,
+      "title": "Conflicting warnings R2004 from `pylint.extensions.magic_value` and R6103 from `pylint.extensions.code_style`",
+      "labels": ["Needs triage :inbox_tray:"],
+      "note": "Confirmed: applying R6103's walrus suggestion in the magic_value example still leaves R2004. Either R6103 should not apply here, or R2004 should look through walrus. Real interaction bug."
+    },
+    {
+      "num": 8486,
+      "title": "`used-before-assignment` when using `walrus operator(:=)` in dict, generator, some comprehensionswith function",
+      "labels": [
+        "False Positive \ud83e\udd9f",
+        "Assignment expression",
+        "C: used-before-assignment"
+      ],
+      "note": "Confirmed E0601 used-before-assignment false positive: walrus operator inside dict-literal argument to print()/dict() not understood; bare dict-literal works fine."
+    },
+    {
+      "num": 7538,
+      "title": "False positive `used-before-assignment` with walrus operator inside binary operation",
+      "labels": [
+        "Needs investigation \ud83d\udd2c",
+        "False Positive \ud83e\udd9f",
+        "Assignment expression",
+        "C: used-before-assignment",
+        "Needs PR"
+      ],
+      "note": "Confirmed E0601 false positive: walrus operator inside binary 'd' + (... if (s1 := 'x') else '') \u2014 only flagged when the f-string is on either side of +; bare conditional works."
+    },
+    {
+      "num": 5735,
+      "title": "False positive 'undefined-variable' with assignment expression in decorator",
+      "labels": [
+        "Decorators",
+        "False Positive \ud83e\udd9f",
+        "Assignment expression",
+        "C: undefined-variable"
+      ],
+      "note": "Confirmed E0602: walrus 'foo := preprocess(string)' inside list comprehension that is itself inside a decorator argument; the inner 'foo' references after walrus are flagged undefined."
+    }
+  ],
+  "design-metrics": [
+    {
+      "num": 10348,
+      "title": "False positive ``too-few-public-methods`` on property function calls and descriptors",
+      "labels": ["False Positive \ud83e\udd9f", "Needs PR"],
+      "note": "Real false positive R0903 'too-few-public-methods' for the property-equivalent forms via class-attribute property() / __get__ descriptors. Verified by labels and author's diff."
+    },
+    {
+      "num": 9519,
+      "title": "[too-many-function-args] False negative when calling `super().__init__()` with non-self argument",
+      "labels": ["False Negative \ud83e\udd8b", "Needs PR"],
+      "note": "Confirmed false negative: super().__init__(txt) in a class where the MRO ultimately resolves to object.__init__() (takes no args) is not flagged too-many-function-args."
+    }
+  ],
+  "other": [
+    {
+      "num": 10201,
+      "title": "W1514 unspecified-encoding false positive when mode is specified using a variable and it can be 'b' (binary mode)",
+      "labels": ["False Positive \ud83e\udd9f", "Needs PR"],
+      "note": "W1514 unspecified-encoding fires when mode is a variable that could be binary. Real false positive \u2014 checker doesn't handle parameterized mode strings."
+    },
+    {
+      "num": 10074,
+      "title": "E1142 false & missed alarms",
+      "labels": ["False Positive \ud83e\udd9f", "False Negative \ud83e\udd8b"],
+      "note": "Confirmed E1142: false alarm on line with 'await x' inside a generator-expression returning awaits, AND missing alarm on '[x async for x in agen()]' inside a sync function. Mixed-case awaitable/async-comprehension scope detection bug."
+    },
+    {
+      "num": 9950,
+      "title": "False positive `declare-non-slot` on classvar",
+      "labels": ["Needs triage :inbox_tray:"],
+      "note": "Confirmed E0245 declare-non-slot false positive: 'x: ClassVar[int]' (no default) is treated as slot violation, while 'y: ClassVar[int] = 2' and 'z = 3' are not."
+    },
+    {
+      "num": 9533,
+      "title": "False positive `deprecated-class` when the class is imported in a guarded import block",
+      "labels": [
+        "Enhancement \u2728",
+        "Help wanted \ud83d\ude4f",
+        "Hacktoberfest",
+        "Needs PR"
+      ],
+      "note": "Confirmed: deprecated-class W4904 fires inside 'if sys.version_info > (2,):' guarded import block. Mirrors #10043."
+    },
+    {
+      "num": 8138,
+      "title": "`not-callable` false positive for class",
+      "labels": [
+        "Help wanted \ud83d\ude4f",
+        "False Positive \ud83e\udd9f",
+        "High priority",
+        "Hacktoberfest",
+        "Lib specific \ud83d\udc85",
+        "Needs PR"
+      ],
+      "note": "Confirmed E1102 not-callable false positive: TYPE_CHECKING-guarded @property declaring -> Type[X] (class reference) called as func.myfunc(1,2,3) flagged not-callable."
+    }
+  ],
+  "refactor-suggestions": [
+    {
+      "num": 10113,
+      "title": "findings not reported until seemingly unrelated code is changed",
+      "labels": ["Abstract interpretation", "False Negative \ud83e\udd8b"],
+      "note": "Confirmed false negative: f() body's unnecessary-negation is not reported, blocked by an upstream inference involving subprocess.Popen.communicate. Reporter notes the missing finding is broader than C0117."
+    },
+    {
+      "num": 10084,
+      "title": "False negative ``superfluous-parens`` when around two conditional and an ``and``",
+      "labels": ["False Negative \ud83e\udd8b", "Needs PR"],
+      "note": "Confirmed false negative C0325 (superfluous-parens) on 'if (a and b):' patterns. Other comparison checkers fire (R1727, R0124, R0133), but superfluous-parens does not."
+    },
+    {
+      "num": 10032,
+      "title": "consider-using-augmented-assign false-positive for multiple dictionaries and string keys",
+      "labels": ["False Positive \ud83e\udd9f", "Needs PR"],
+      "note": "Confirmed R6104 consider-using-augmented-assign false positive on 'accumulated_values[key] = accumulated_values[previous] + values[key]' where LHS dict-key and RHS first-term dict-key differ."
+    },
+    {
+      "num": 9994,
+      "title": "False positive: useless-parent-delegation on '__init__' method of class derived from 'Exception'",
+      "labels": ["Needs triage :inbox_tray:"],
+      "note": "Confirmed W0246 useless-parent-delegation false positive on Exception subclass __init__ that calls super().__init__() \u2014 Exception's __init__ accepts varargs so a no-arg override IS a behavior change."
+    },
+    {
+      "num": 9878,
+      "title": "C0325 (superfluous-parens) appears to not trigger when contents are a string",
+      "labels": ["Needs investigation \ud83d\udd2c", "False Negative \ud83e\udd8b"],
+      "note": "Confirmed false negative C0325: 'if x == (\"option2\"):' and 'if x in (\"option4\"):' do NOT trigger superfluous-parens (single-string in parens). Only kw-then-paren form triggers."
+    },
+    {
+      "num": 9741,
+      "title": "False positive unnecessary-negation for float comparison",
+      "labels": ["False Positive \ud83e\udd9f", "Needs decision :lock:"],
+      "note": "Confirmed C0117 unnecessary-negation false positive: for floats, 'not a < b' is NOT equivalent to 'b <= a' under NaN. Checker doesn't consider float semantics."
+    },
+    {
+      "num": 9359,
+      "title": "useless-parent-delegation false positive when __init__ signatures differ but parent is built-in type",
+      "labels": ["Needs triage :inbox_tray:"],
+      "note": "Confirmed W0246 useless-parent-delegation false positive: child of list/dict that takes no args in __init__ while parent takes optional args is flagged useless."
+    },
+    {
+      "num": 8577,
+      "title": "`unnecessary-comprehension` false positive",
+      "labels": ["False Positive \ud83e\udd9f", "Needs PR"],
+      "note": "Confirmed R1721 unnecessary-comprehension false positive on '[(x, y) for x, y in a]' (tuple-repack from list-of-lists)."
+    },
+    {
+      "num": 8265,
+      "title": "False positive `C2801` `unnecessary-dunder-call` for descriptor binding `__get__`",
+      "labels": ["Needs decision :lock:"],
+      "note": "Confirmed C2801: method_ref.__get__(instance, class_ref) triggers unnecessary-dunder-call though descriptor binding has no public method."
+    },
+    {
+      "num": 8256,
+      "title": "Unnecessary use of a comprehension: Wrong fix",
+      "labels": ["Bug :beetle:", "Minor \ud83d\udc85", "Needs PR"],
+      "note": "Confirmed: 'unnecessary-comprehension' suggests 'use dict(dict1) instead' when dict1's keys are tuples \u2014 would create a copy, not the intended dict-from-keys behavior. Wrong-fix bug."
+    },
+    {
+      "num": 8224,
+      "title": "consider-using-f-string is triggered in a functional context",
+      "labels": ["False Positive \ud83e\udd9f", "Needs PR"],
+      "note": "Confirmed C0209 consider-using-f-string false positive on 'map(\"{}\".format, \u2026)' \u2014 the format method is used in functional context, can't easily be rewritten as f-string."
+    },
+    {
+      "num": 8201,
+      "title": "False negative `trailing-comma-tuple`",
+      "labels": [
+        "Help wanted \ud83d\ude4f",
+        "High effort \ud83c\udfcb",
+        "False Negative \ud83e\udd8b",
+        "Hacktoberfest",
+        "Needs design proposal :lock:"
+      ],
+      "note": "RE-VERIFIED: R1707 trailing-comma-tuple FN persists \u2014 pylint doesn't flag 'DEMO = True; print(\"demo\"),' even though it does flag the same line without DEMO=True (control-flow context)."
+    },
+    {
+      "num": 8129,
+      "title": "False positive ``expression-not-assigned`` when calling functions with no return inside ternary expression",
+      "labels": ["False Positive \ud83e\udd9f", "Needs PR"],
+      "note": "Confirmed W0106 expression-not-assigned still fires on 'f1() if test else f2()'. Reporter argues this is the canonical conditional-call pattern."
+    },
+    {
+      "num": 7997,
+      "title": "False Positive `dict-init-mutate` when dict assignment references dict",
+      "labels": ["False Positive \ud83e\udd9f", "Needs PR"],
+      "note": "Confirmed C3401 dict-init-mutate false positive: 'counts[key] = ... counts.get(key, 0)' references the dict itself, cannot be moved into the initializer."
+    },
+    {
+      "num": 7271,
+      "title": "consider-using-generator / R1728 false positive for \"AsyncGenerator\" valid code",
+      "labels": ["Needs investigation \ud83d\udd2c"],
+      "note": "Confirmed R1728 false positive: consider-using-generator suggests rewriting 'tuple([_ async for _ in my_gen()])' \u2192 'tuple(_ async for _ in my_gen())' which raises TypeError."
+    },
+    {
+      "num": 6663,
+      "title": "False positive for `implicit-str-concat` when some but not all strings are raw",
+      "labels": ["Minor \ud83d\udc85", "False Positive \ud83e\udd9f"],
+      "note": "Confirmed W1404 false positive: r-string + plain string concat (intentional, to escape raw treatment for part of string) is flagged implicit-str-concat."
+    },
+    {
+      "num": 5889,
+      "title": "False positive for `try-except-raise` with diamond inheritance",
+      "labels": ["False Positive \ud83e\udd9f"],
+      "note": "Confirmed W0706 try-except-raise false positive on diamond-inherited exception: 'except ArithmeticError: raise' is a behavior difference from removing the handler."
+    },
+    {
+      "num": 3668,
+      "title": "False-positive unneeded-not when comparing dict views",
+      "labels": ["False Positive \ud83e\udd9f", "Needs PR"],
+      "note": "Confirmed C0117 unneeded-not false positive: 'not {}.items() <= {}.items()' rewriting to '>' changes meaning for set-like dict views."
+    },
+    {
+      "num": 3367,
+      "title": "Unexpected suppression of line-too-long messages",
+      "labels": ["False Positive \ud83e\udd9f", "C: line-too-long", "Needs PR"],
+      "note": "Confirmed I0021 useless-suppression false positive: '# pylint: disable=line-too-long' on a short line raises useless-suppression even when intentional."
+    },
+    {
+      "num": 241,
+      "title": "Incorrect W0611 : Unused import when preceded by import as",
+      "labels": [
+        "Checkers",
+        "High effort \ud83c\udfcb",
+        "False Positive \ud83e\udd9f",
+        "Needs PR"
+      ],
+      "note": "RE-VERIFIED: W0611 unused-import FN persists \u2014 'import os.path as path' + later 'path' usage as attribute access. The R0402 consider-using-from-import suggestion fires instead (a style hint, not the unused-import detection)."
+    }
+  ],
+  "unused": [
+    {
+      "num": 10030,
+      "title": "False positive `unused-import` when using union of types inside quotes",
+      "labels": [
+        "High effort \ud83c\udfcb",
+        "False Positive \ud83e\udd9f",
+        "Needs decision :lock:"
+      ],
+      "note": "Confirmed W0611: 'List[int] | None' inside a quoted forward annotation is not parsed as a usage, so 'from typing import List' is flagged unused."
+    }
+  ],
+  "abstract-classes": [
+    {
+      "num": 9979,
+      "title": "W0223 does not get raised correctly",
+      "labels": ["False Positive \ud83e\udd9f", "Needs PR"],
+      "note": "Confirmed false negative W0223: 'abstract-method' is not raised on Derived(Base) when Base inherits 'abc.ABC' directly. Raising it only when class uses metaclass=ABCMeta explicitly."
+    },
+    {
+      "num": 7950,
+      "title": "Subclasses of abstract class that do not inherit abc.ABC are considered abstract",
+      "labels": ["False Negative \ud83e\udd8b", "Needs PR"],
+      "note": "RE-VERIFIED: W0223 abstract-method FN persists \u2014 Sub(AbsSub) where AbsSub inherits abc.ABC indirectly does not warn. The class hierarchy makes pylint think Sub is still abstract."
+    }
+  ],
+  "astroid-inference": [
+    {
+      "num": 9850,
+      "title": "AddressFamily and SocketKind are not visible in module socket",
+      "labels": ["Needs triage :inbox_tray:"],
+      "note": "Confirmed E0611: 'from socket import AddressFamily, SocketKind' is flagged even though they're real socket attributes (defined dynamically by socket module). astroid stub gap."
+    },
+    {
+      "num": 9385,
+      "title": "False-positive E1137 (unsupported-assignment-operation) with np.empty_like",
+      "labels": [],
+      "note": "Per reporter: 'from numpy import empty_like' results in E1137 unsupported-assignment-operation while 'np.empty_like([1])' (qualified) does not. Lib-specific astroid inference asymmetry."
+    },
+    {
+      "num": 7500,
+      "title": "`not-callable` false positive for `types.FunctionType`",
+      "labels": [
+        "Help wanted \ud83d\ude4f",
+        "False Positive \ud83e\udd9f",
+        "Hacktoberfest",
+        "Needs PR"
+      ],
+      "note": "Confirmed E1102 not-callable false positive on 'types.FunctionType(code, {})()'. astroid doesn't recognize FunctionType instances as callable."
+    }
+  ],
+  "pyreverse": [
+    {
+      "num": 9797,
+      "title": "``pyreverse`` should check that ``klass`` is still ``ClassDef``",
+      "labels": ["Help wanted \ud83d\ude4f", "pyreverse", "Hacktoberfest", "Needs PR"],
+      "note": "Pyreverse failure mode: 'klass.root().name' when klass is Uninferable raises TypeError. Code-reference identified; needs guard."
+    }
+  ],
+  "exceptions": [
+    {
+      "num": 7853,
+      "title": "False Positive - ``assignment-from-none`` raised when function not necessarily returns `None`",
+      "labels": ["False Positive \ud83e\udd9f", "Needs PR", "infer-all"],
+      "note": "Confirmed E1128 false positive: get_func() conditionally returns 'def func(): return None' OR 'def func(): return param' \u2014 pylint sees only the None branch and flags 'val = func()' as assignment-from-none."
+    },
+    {
+      "num": 4033,
+      "title": "Initializer arguments not checked when raising exception with implicit instantiation.",
+      "labels": ["False Negative \ud83e\udd8b", "Needs PR"],
+      "note": "Confirmed: 'raise Bang' (without instantiation) still doesn't check __init__ args. False negative for implicit exception instantiation."
+    }
+  ],
+  "pragma": [
+    {
+      "num": 7625,
+      "title": "Pylint disable working incorrectly",
+      "labels": [
+        "Bug :beetle:",
+        "Needs investigation \ud83d\udd2c",
+        "False Negative \ud83e\udd8b",
+        "Hacktoberfest",
+        "C: Pragma's"
+      ],
+      "note": "Confirmed bug: # pylint: disable-next=C0301 on a too-long comment line doesn't disable just that comment; needs --enable to recover. Pragma scope issue."
+    }
+  ],
+  "match-case": [
+    {
+      "num": 7470,
+      "title": "False positive with match/case for `function-redefined`",
+      "labels": ["Control flow", "False Positive \ud83e\udd9f", "Match case"],
+      "note": "Confirmed E0102 function-redefined false positive: 'def function():' in match/case 'case \"c\":' branch flagged as redefinition of earlier 'function = function_a' assignment in 'case \"a\":' branch."
+    }
+  ],
+  "docs": [
+    {
+      "num": 6478,
+      "title": "Docparams does not raise `differing-type-doc` for Sphinx documentation",
+      "labels": ["False Negative \ud83e\udd8b", "Needs PR"],
+      "note": "Confirmed FN persists: differing-type-doc not raised when Sphinx-format docstring mismatches type hint."
+    }
+  ],
+  "config": [
+    {
+      "num": 3325,
+      "title": "False positive ``attribute-defined-outside-init`` when using properties",
+      "labels": ["Checkers", "False Positive \ud83e\udd9f", "Needs PR"],
+      "note": "RE-VERIFIED: W0201 attribute-defined-outside-init STILL fires on property(get,set) where set assigns self._value. Initial FIXED determination was wrong because pylint's own pylintrc disables attribute-defined-outside-init."
+    }
+  ]
+}

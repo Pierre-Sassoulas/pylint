@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Crash queue</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@500;600&display=swap">
+<link rel="stylesheet" href="assets/triage.css">
+<style>
+  .lane { margin-top: 40px; }
+  .lane h2 {
+    font-family: "IBM Plex Serif", Georgia, serif; font-size: 20px; font-weight: 600;
+    margin: 0 0 4px; padding-left: 12px; border-left: 4px solid var(--stripe, var(--line));
+  }
+  .lane h2 .count {
+    font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 13px;
+    color: var(--ink-faint); font-weight: 400; margin-left: 6px;
+  }
+  .lane .rubric { margin: 0 0 14px 16px; font-size: 13.5px; color: var(--ink-soft); max-width: 82ch; }
+  td.what { width: 24%; }
+  td.what .t { font-weight: 500; }
+  td.verdict { width: 160px; }
+  td.finding { width: 34%; }
+  .trace {
+    display: block; margin-top: 9px; padding-top: 8px; border-top: 1px dashed var(--line);
+    font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 11.5px; color: var(--ink);
+  }
+  .trace .lbl { color: var(--ink-faint); letter-spacing: 0.05em; text-transform: uppercase; font-size: 10px; }
+  td.what .lab, td.verdict .lab {
+    display: inline-block; font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 10.5px;
+    color: var(--ink-soft); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 0 5px; margin: 5px 3px 0 0; white-space: nowrap;
+  }
+  table { min-width: 1060px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav class="site-nav"><a href="index.html" class="home">Overview</a> <a href="crash-queue.html" aria-current="page">Crash label</a></nav>
+  <header>
+    <div class="eyebrow">pylint-dev/pylint &nbsp;·&nbsp; label <b>Crash</b> &nbsp;·&nbsp; every open issue re-run</div>
+    <h1>Crash queue</h1>
+    <p class="standfirst">All 23 issues carrying the crash label, each one re-run against current
+    <code>main</code> with the reporting library actually installed. 6 still crash, 13 do not, and
+    3 cannot be reached from this machine at all.</p>
+    <div class="env">
+      <span>pylint <b>4.1.0-dev0 @ ba5c0c79b</b></span>
+      <span>astroid <b>4.3.1</b></span>
+      <span><b>CPython 3.14.5</b> on Linux</span>
+      <span>run <b>2026-09-16</b></span>
+    </div>
+  </header>
+
+  <div class="tally">
+    <div style="--stripe: var(--crit)"><div class="n">6</div><div class="k">still crash</div></div>
+    <div style="--stripe: var(--warn)"><div class="n">1</div><div class="k">now a hang</div></div>
+    <div style="--stripe: var(--good)"><div class="n">13</div><div class="k">no longer reproduce</div></div>
+    <div style="--stripe: var(--ink-faint)"><div class="n">3</div><div class="k">out of reach here</div></div>
+  </div>
+
+  <section class="lane" data-lane="repro"><h2 style="--stripe: var(--crit)">Still crashes <span class="count">6</span></h2><p class="rubric">A fatal on current <code>main</code>. Four of the six already have a pull request; the other two are unclaimed and both are small.</p><div class="scroll"><table><thead><tr><th>Issue</th><th>What it is</th><th>Verdict</th><th>What the re-run showed</th></tr></thead><tbody><tr><td class="id"><a href="https://github.com/pylint-dev/pylint/issues/8079">#8079</a><span class="date">self-contained</span></td><td class="what"><span class="t">StatementMissing: Statement not found on <Module.builtins</span><span class="lab">snippets/i8079.py</span></td><td class="verdict"><span class="chip crash">crashes</span><span class="repro na">fix open: <a href="https://github.com/pylint-dev/pylint/pull/11379">#11379</a></span></td><td class="finding">A class with a method named after a site builtin (<code>license</code>, <code>copyright</code>, <code>credits</code>, <code>exit</code>, <code>quit</code>) that is also bound as an instance attribute. <code>ancestor.lookup()</code> walks out into <code>Module.builtins</code>, which has no statement.<span class="trace"><span class="lbl">raises</span> astroid.exceptions.StatementMissing: Statement not found on &lt;Module.builtins l.0&gt;<br><span class="lbl">last frame</span> astroid/nodes/scoped_nodes/scoped_nodes.py:410 statement</span></td></tr><tr><td class="id"><a href="https://github.com/pylint-dev/pylint/issues/8739">#8739</a><span class="date">self-contained</span></td><td class="what"><span class="t">Unfound astroid.exceptions.InferenceError causes a crash</span><span class="lab">snippets/i8739.py</span></td><td class="verdict"><span class="chip crash">crashes</span></td><td class="finding">Reading <code>.fset</code> off a getter-only <code>@property</code> raises out of the property object model instead of inferring Uninferable.<span class="trace"><span class="lbl">raises</span> astroid.exceptions.InferenceError: Unable to find the setter of property p<br><span class="lbl">last frame</span> astroid/interpreter/objectmodel.py:1035 attr_fset</span></td></tr><tr><td class="id"><a href="https://github.com/pylint-dev/pylint/issues/10326">#10326</a><span class="date">library</span></td><td class="what"><span class="t">Building error creating ast of 'sympy.polys.numberfields.resolvent_lookup'</span><span class="lab">snippets/i10326.py</span></td><td class="verdict"><span class="chip crash">crashes</span><span class="lab">sympy 1.14.0</span></td><td class="finding">Importing that one sympy module still blows the stack while astroid builds it. The reporter's own snippet used minio; the module named in their traceback is the actual trigger and reproduces on its own.<span class="trace"><span class="lbl">raises</span> RecursionError: maximum recursion depth exceeded &rarr; astroid.exceptions.AstroidError<br><span class="lbl">last frame</span> pylint/checkers/imports.py:1086 _get_imported_module</span></td></tr><tr><td class="id"><a href="https://github.com/pylint-dev/pylint/issues/10813">#10813</a><span class="date">self-contained</span></td><td class="what"><span class="t">Improper handling of log message format bytestrings</span><span class="lab">snippets/i10813.py</span></td><td class="verdict"><span class="chip crash">crashes</span><span class="repro na">fix open: <a href="https://github.com/pylint-dev/pylint/pull/11111">#11111</a></span></td><td class="finding">A non-UTF-8 <code>bytes</code> format string passed to a logging call is decoded without an error handler.<span class="trace"><span class="lbl">raises</span> UnicodeDecodeError: 'utf-8' codec can't decode byte 0xc0 in position 0<br><span class="lbl">last frame</span> pylint/checkers/logging.py:333 _check_format_string</span></td></tr><tr><td class="id"><a href="https://github.com/pylint-dev/pylint/issues/11356">#11356</a><span class="date">self-contained</span></td><td class="what"><span class="t">InferenceError: Inference failed for all members of AssignAttr</span><span class="lab">snippets/i11356.py</span></td><td class="verdict"><span class="chip crash">crashes</span><span class="repro na">fix open: <a href="https://github.com/pylint-dev/pylint/pull/11372">#11372</a></span></td><td class="finding">A <code>for</code> loop whose target is an attribute on a class that carries a metaclass lookup. <code>typecheck.visit_attribute</code> calls <code>owner.getattr</code> without guarding the metaclass path.<span class="trace"><span class="lbl">raises</span> astroid.exceptions.InferenceError: Inference failed for all members of [AssignAttr]<br><span class="lbl">last frame</span> astroid/bases.py:203 _infer_stmts</span></td></tr><tr><td class="id"><a href="https://github.com/pylint-dev/pylint/issues/11361">#11361</a><span class="date">self-contained</span></td><td class="what"><span class="t">Uncaught StatementMissing exception in class checker</span><span class="lab">snippets/i11361.py</span></td><td class="verdict"><span class="chip crash">crashes</span><span class="repro na">fix open: <a href="https://github.com/pylint-dev/pylint/pull/11379">#11379</a></span></td><td class="finding">The same defect as the entry above it, found by fuzzing: a subclass method named <code>help</code> shadowing an instance attribute of the parent. Shorter than the original report and the better regression test.<span class="trace"><span class="lbl">raises</span> astroid.exceptions.StatementMissing: Statement not found on &lt;Module.builtins l.0&gt;<br><span class="lbl">last frame</span> astroid/nodes/scoped_nodes/scoped_nodes.py:410 statement</span></td></tr></tbody></table></div></section><section class="lane" data-lane="hang"><h2 style="--stripe: var(--warn)">Crashes no longer, hangs instead <span class="count">1</span></h2><p class="rubric">The exception is gone and nothing replaced it: no output, no completion. Worse for a user than the original crash, which at least ended.</p><div class="scroll"><table><thead><tr><th>Issue</th><th>What it is</th><th>Verdict</th><th>What the re-run showed</th></tr></thead><tbody><tr><td class="id"><a href="https://github.com/pylint-dev/pylint/issues/3602">#3602</a><span class="date">pyreverse</span></td><td class="what"><span class="t">Maximum recursion depth crash with pyreverse -S</span><span class="lab">snippets/i3602.py</span></td><td class="verdict"><span class="chip confirmed">hangs</span><span class="lab">numpy 2.5.3</span></td><td class="finding"><code>pyreverse -S</code> on a class whose attribute is a numpy array runs past 120 s without producing a diagram; <code>-s2</code> finishes at once and writes the dot file. The 2020 RecursionError is gone — what is left is the unbounded association walk.</td></tr></tbody></table></div></section><section class="lane" data-lane="gone"><h2 style="--stripe: var(--good)">No longer reproduces <span class="count">13</span></h2><p class="rubric">The reporter's own snippet, run with their library installed at a current version, produces messages but no fatal. Worth a comment asking the reporter to confirm before closing -- most of these are library pairings, not pylint fixes.</p><div class="scroll"><table><thead><tr><th>Issue</th><th>What it is</th><th>Verdict</th><th>What the re-run showed</th></tr></thead><tbody><tr><td class="id"><a href="https://github.com/pylint-dev/pylint/issues/7389">#7389</a><span class="date">library</span></td><td class="what"><span class="t">pyreverse -c option causes stack overflow</span><span class="lab">snippets/i7389/mylib/__init__.py</span></td><td class="verdict"><span class="chip stale">clean</span><span class="lab">xarray 2026.7.0</span></td><td class="finding">The reporter's MRE — an <code>xr.DataArray</code> subclass inside a package <code>__init__.py</code>, which is what made it recurse — lints clean, no fatal.</td></tr><tr><td class="id"><a href="https://github.com/pylint-dev/pylint/issues/7894">#7894</a><span class="date">library</span></td><td class="what"><span class="t">Maximum recursion depth exceeded importing from panda3d</span><span class="lab">snippets/i7894.py</span></td><td class="verdict"><span class="chip stale">clean</span><span class="lab">panda3d 1.10.16</span></td><td class="finding"><code>from panda3d import core</code> resolves with no recursion and no fatal.</td></tr><tr><td class="id"><a href="https://github.com/pylint-dev/pylint/issues/8049">#8049</a><span class="date">library</span></td><td class="what"><span class="t">AstroidError 'Could not find <FunctionDef.warning_logger'</span><span class="lab">snippets/i8049.py</span></td><td class="verdict"><span class="chip stale">clean</span><span class="lab">haggis 0.14.1</span></td><td class="finding">The trigger was haggis monkey-patching <code>logging</code> at import time. With <code>add_trace_level()</code> called before the logger is used, no fatal.</td></tr><tr><td class="id"><a href="https://github.com/pylint-dev/pylint/issues/8210">#8210</a><span class="date">library</span></td><td class="what"><span class="t">Crash when using mcculw lib</span><span class="lab">snippets/i8210.py</span></td><td class="verdict"><span class="chip stale">clean</span><span class="lab">mcculw (current PyPI)</span></td><td class="finding"><code>from mcculw import ul</code> and <code>from mcculw.enums import ULRange</code> both resolve; no recursion, no fatal.</td></tr><tr><td class="id"><a href="https://github.com/pylint-dev/pylint/issues/8975">#8975</a><span class="date">library</span></td><td class="what"><span class="t">'Deprecated' object has no attribute '__dict__' with unsafe-load-any-extension</span><span class="lab">snippets/i8975.py</span></td><td class="verdict"><span class="chip stale">clean</span><span class="lab">black 26.5.1, Deprecated 1.3.1</span></td><td class="finding">Clean both with default options and with <code>--unsafe-load-any-extension=y</code>, which is the flag the report named.</td></tr><tr><td class="id"><a href="https://github.com/pylint-dev/pylint/issues/9137">#9137</a><span class="date">library</span></td><td class="what"><span class="t">'UninferableBase' object is not iterable</span><span class="lab">snippets/i9137.py</span></td><td class="verdict"><span class="chip stale">clean</span><span class="lab">pymongo 4.18.1</span></td><td class="finding">The reporter's reduced case — <code>LEGACY_JSON_OPTIONS.with_options(...)</code> from bson — lints clean.</td></tr><tr><td class="id"><a href="https://github.com/pylint-dev/pylint/issues/9170">#9170</a><span class="date">library</span></td><td class="what"><span class="t">Colorama >=0.4.5 not only required in Windows environment</span><span class="lab">ok1.py + ok2.py, -j2</span></td><td class="verdict"><span class="chip stale">clean</span><span class="lab">colorama 0.4.6, -j2</span></td><td class="finding">The crash was dill failing to pickle the linter through colorama's stream wrapper in a worker. A two-file <code>-j2</code> run completes with no colorama or dill frame anywhere.</td></tr><tr><td class="id"><a href="https://github.com/pylint-dev/pylint/issues/9190">#9190</a><span class="date">library</span></td><td class="what"><span class="t">RecursionError escapes when calculating MRO</span><span class="lab">snippets/i9190/mod.py</span></td><td class="verdict"><span class="chip stale">clean</span><span class="lab">django 6.1.1, methodtools 0.4.7</span></td><td class="finding">The Django <code>TYPE_CHECKING</code> conditional-base pattern with a <code>methodtools.lru_cache</code> method builds its MRO without recursing.</td></tr><tr><td class="id"><a href="https://github.com/pylint-dev/pylint/issues/9277">#9277</a><span class="date">platform</span></td><td class="what"><span class="t">UnicodeEncodeError: 'charmap' codec can't encode characters</span><span class="lab">snippets/i9277.py</span></td><td class="verdict"><span class="chip stale">clean</span><span class="lab">PYTHONIOENCODING=cp1252</span></td><td class="finding">Emulated by forcing a cp1252 stdout on Linux: the reporter's shape — a non-ASCII <code>fixme</code> message reaching the text reporter — writes replacement characters instead of raising. <b>Not a Windows run</b>; only Windows can close this.</td></tr><tr><td class="id"><a href="https://github.com/pylint-dev/pylint/issues/9479">#9479</a><span class="date">library</span></td><td class="what"><span class="t">Crashed while using pylint as a static test for a docker</span><span class="lab">snippets/i9479/a.py</span></td><td class="verdict"><span class="chip stale">clean</span><span class="lab">sqlalchemy (current PyPI)</span></td><td class="finding">Rebuilt the reporter's SQLAlchemy declarative model with the two local modules it imports. Messages, no fatal.</td></tr><tr><td class="id"><a href="https://github.com/pylint-dev/pylint/issues/10090">#10090</a><span class="date">library</span></td><td class="what"><span class="t">py313: 'black.parsing.ASTSafetyError' object has no attribute '__dict__'</span><span class="lab">snippets/i10090.py</span></td><td class="verdict"><span class="chip stale">clean</span><span class="lab">black 26.5.1</span></td><td class="finding">No fatal. The import now yields <code>E0611 no-name-in-module</code> for <code>black.parsing.InvalidInput</code> — a separate false positive worth its own issue. Reported on macOS + 3.13; this run is Linux + 3.14.</td></tr><tr><td class="id"><a href="https://github.com/pylint-dev/pylint/issues/10459">#10459</a><span class="date">library</span></td><td class="what"><span class="t">Infinite recursion error with scipy 1.16</span><span class="lab">snippets/i10459.py</span></td><td class="verdict"><span class="chip stale">clean</span><span class="lab">scipy 1.18.1</span></td><td class="finding"><code>from scipy.special import erf</code> no longer recurses. It now emits <code>E0611 no-name-in-module</code> instead — a separate false positive on a C extension.</td></tr><tr><td class="id"><a href="https://github.com/pylint-dev/pylint/issues/11092">#11092</a><span class="date">platform</span></td><td class="what"><span class="t">Astroid crashes on PyPy 3.11: expected str, got getset_descriptor</span><span class="lab">snippets/i11092.py</span></td><td class="verdict"><span class="chip stale">clean</span><span class="lab">PyPy 3.11.15, astroid 4.3.1</span></td><td class="finding">Ran the reporter's file under PyPy 3.11.15 with astroid 4.3.1: clean. They were on Windows with astroid 4.0.4 / 4.2.0b3, so either the astroid bump fixed it or it is Windows-specific.</td></tr></tbody></table></div></section><section class="lane" data-lane="blocked"><h2 style="--stripe: var(--ink-faint)">Out of reach from this machine <span class="count">3</span></h2><p class="rubric">Needs an operating system, an interpreter, or a private package this run does not have. Not a judgement on whether the bug is real.</p><div class="scroll"><table><thead><tr><th>Issue</th><th>What it is</th><th>Verdict</th><th>What the re-run showed</th></tr></thead><tbody><tr><td class="id"><a href="https://github.com/pylint-dev/pylint/issues/10345">#10345</a><span class="date">private</span></td><td class="what"><span class="t">TypeError: 'UninferableBase' object is not iterable</span></td><td class="verdict"><span class="chip unrepro">not run</span></td><td class="finding">The file imports the reporter's private <code>ft_core</code> package. Nothing runnable was shared.</td></tr><tr><td class="id"><a href="https://github.com/pylint-dev/pylint/issues/10474">#10474</a><span class="date">platform</span></td><td class="what"><span class="t">Building error, possibly caused by win32more</span></td><td class="verdict"><span class="chip unrepro">not run</span></td><td class="finding">win32more installs on Linux but will not import, so astroid takes a different path than the reporter's. Needs Windows.</td></tr><tr><td class="id"><a href="https://github.com/pylint-dev/pylint/issues/10767">#10767</a><span class="date">pyreverse</span></td><td class="what"><span class="t">'EmptyNode' object has no attribute 'name' in pyreverse</span><span class="lab">snippets/i10767.py</span></td><td class="verdict"><span class="chip unrepro">not run</span><span class="repro na">fix open: <a href="https://github.com/pylint-dev/pylint/pull/11278">#11278</a></span></td><td class="finding">No natural trigger found: pyreverse walks namedtuple subclasses and <code>argparse.Namespace</code> subclasses and writes its dot file. The open PR constructs the <code>EmptyNode</code> by hand in its test, which suggests nobody has one either.</td></tr></tbody></table></div></section>
+
+  <div class="notes">
+    <section>
+      <h2>The flag that hides half of them</h2>
+      <p>Reaching for <code>--disable=all --enable=F</code> to cut the noise while hunting a crash <strong>hides three
+      of the six</strong>. pylint skips a checker whose messages are all disabled, so the checker that was going to
+      crash never runs and the file reads clean. Every verdict here comes from a default-configuration run:</p>
+      <p><code>python -m pylint --rcfile=/dev/null <snippet></code></p>
+    </section>
+    <section>
+      <h2>"Does not reproduce" is not "fixed"</h2>
+      <p>Most of these were never pylint-only bugs: they needed a particular release of xarray, panda3d, scipy,
+      pymongo, black. Those libraries moved too, so a clean run says the pair is fine today, not that anything was
+      repaired on purpose. Each row names the version it was tested against, so the next sweep can tell a real fix
+      from a library that simply stopped provoking one.</p>
+      <p>Two of them swapped a crash for a false positive — the scipy and black imports now draw
+      <code>no-name-in-module</code> on a C extension. That deserves its own issue rather than a quiet close.</p>
+    </section>
+    <section>
+      <h2>What one machine cannot settle</h2>
+      <p>Three reports need hardware or an interpreter this run does not have: a Windows console for the charmap
+      encoding failure, Windows again for win32more, and Windows PyPy for the getset_descriptor one. The PyPy report
+      was re-run on Linux PyPy and came back clean, which narrows it to Windows or to the astroid bump — but it does
+      not close it.</p>
+      <p>A fourth, the pyreverse <code>EmptyNode</code> report, has no runnable trigger at all: the classes astroid
+      rebuilds through a brain all walk cleanly, and the open fix constructs the node by hand to have something to
+      test.</p>
+    </section>
+    <section>
+      <h2>Reading a row</h2>
+      <ul>
+        <li><strong>still crashes</strong> — pylint exits with <code>F0002 astroid-error</code>; the exception and the
+        last frame are quoted.</li>
+        <li><strong>hangs</strong> — no exception, no output, no completion inside the time given.</li>
+        <li><strong>no longer reproduces</strong> — the reporter's own snippet, with their library installed, produces
+        messages but no fatal.</li>
+        <li><strong>out of reach</strong> — the snippet cannot be run faithfully here at all.</li>
+      </ul>
+      <p>Snippets live beside this file in <code>snippets/i&lt;issue&gt;.py</code>, one per row that has one,
+      each with a docstring saying what about it matters.</p>
+    </section>
+  </div>
+
+  <footer>
+    Generated 2026-09-16 on branch <code>issue-triage-workspace</code> by <code>crash_queue.py</code> from
+    <code>crash_queue_data.json</code>. Open <code>.triage/crash-queue.html</code> in a browser; nothing here is
+    served from anywhere.
+  </footer>
+</div>
+</body>
+</html>
