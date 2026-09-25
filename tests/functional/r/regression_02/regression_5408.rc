@@ -1,0 +1,7 @@
+[testoptions]
+# This test hits the recursion limit on purpose. On PyPy the stack can run out
+# again while recording __context__ on the RecursionError, and PyPy raises
+# "TypeError: couldn't record exception context" instead. astroid only catches
+# RecursionError, so it surfaces as astroid-error. Flaky on PyPy 3.10 and 3.11
+# in pylint's CI and in astroid's "Test pylint" CI (pylint-dev/astroid#3302).
+except_implementations=PyPy
