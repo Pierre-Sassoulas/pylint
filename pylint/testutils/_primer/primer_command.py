@@ -34,6 +34,13 @@ class PrimerCommand:
         self.packages = packages
         self.config = config
 
+    def packages_in_batch(self) -> list[tuple[str, PackageToLint]]:
+        """The packages of the batch given by ``--batches`` and ``--batchIdx``."""
+        packages = list(self.packages.items())
+        if self.config.batches is None:
+            return packages
+        return packages[self.config.batchIdx :: self.config.batches]
+
     @abc.abstractmethod
     def run(self) -> None:
         pass

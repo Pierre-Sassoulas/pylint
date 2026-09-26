@@ -10,8 +10,13 @@ from pylint.testutils._primer.primer import Primer
 
 PRIMER_DIRECTORY = Path(__file__).parent.parent / ".pylint_primer_tests/"
 PACKAGES_TO_PRIME_PATH = Path(__file__).parent / "packages_to_prime.json"
+EXTENDED_PACKAGES_TO_PRIME_PATH = (
+    Path(__file__).parent / "packages_to_prime_extended.json"
+)
 
 
 if __name__ == "__main__":
-    primer = Primer(PRIMER_DIRECTORY, PACKAGES_TO_PRIME_PATH)
+    primer = Primer(
+        PRIMER_DIRECTORY, PACKAGES_TO_PRIME_PATH, EXTENDED_PACKAGES_TO_PRIME_PATH
+    )
     primer.run()

@@ -1,0 +1,191 @@
+# This is the primer job for the extended list of packages, which is too big to
+# run on every pull request. It only runs when a maintainer launches it, from
+# the Actions tab or with:
+#   gh workflow run primer_run_extended.yaml -R pylint-dev/pylint -f pr=<number>
+# With a pull request number the diff is posted on the pull request by
+# 'Primer / Comment', without one the branch the workflow runs on is linted.
+# Only the run summary reports it then.
+# Each batch lints its packages twice, once with the pylint of the merge-base
+# with 'main' and once with the pylint to check, so it does not depend on any
+# artifact from 'main'.
+
+name: Primer / Extended
+
+on:
+  workflow_dispatch:
+    inputs:
+      pr:
+        description: Number of the pull request to check (default is the branch)
+        required: false
+        type: number
+
+concurrency:
+  group: ${{ github.workflow }}-${{ inputs.pr || github.ref }}
+  cancel-in-progress: true
+
+env:
+  # This needs to be the SAME as in the Main, PR and comment job
+  CACHE_VERSION: 4
+  KEY_PREFIX: venv-primer
+  # This needs to be the SAME as DEFAULT_PYTHON in the comment job
+  PYTHON_VERSION: "3.15"
+  BATCHES: 12
+
+permissions:
+  contents: read
+
+jobs:
+  run-primer:
+    name: Run / ${{ matrix.type }} / batch index ${{ matrix.batchIdx }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    strategy:
+      fail-fast: false
+      matrix:
+        type: [main, pr]
+        # Keep in sync with BATCHES
+        batchIdx: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+    steps:
+      - name: Check out code from GitHub
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ inputs.pr && format('refs/pull/{0}/merge', inputs.pr) || '' }}
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Set up Python ${{ env.PYTHON_VERSION }}
+        id: python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          allow-prereleases: true
+          check-latest: true
+
+      # Reuse the virtual environment of the other primer jobs, without saving it
+      - name: Restore Python virtual environment
+        id: cache-venv
+        uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: venv
+          key:
+            ${{ runner.os }}-${{ steps.python.outputs.python-version }}-${{
+            env.KEY_PREFIX }}-${{ env.CACHE_VERSION }}-${{ hashFiles('pyproject.toml',
+            'requirements_test.txt', 'requirements_test_min.txt',
+            'requirements_test_pre_commit.txt') }}
+      - name: Create Python virtual environment
+        if: steps.cache-venv.outputs.cache-hit != 'true'
+        run: |
+          python -m venv venv
+          . venv/bin/activate
+          python -m pip install --upgrade pip
+          pip install --upgrade --requirement requirements_test.txt
+
+      # The packages to lint and the primer code itself always come from the
+      # checkout, only the linting code is swapped for the one of 'main'.
+      # 'git restore' also deletes the files 'main' does not have, so a new
+      # checker cannot sneak into the 'main' run.
+      - name: Check out the pylint of 'main'
+        if: matrix.type == 'main'
+        run: |
+          base=$(git merge-base HEAD origin/main)
+          echo "Linting with the pylint of $base"
+          git restore --source="$base" --worktree -- pylint pyproject.toml \
+            requirements_test_min.txt ':!pylint/testutils/_primer'
+      - name: Install pylint
+        run: |
+          . venv/bin/activate
+          pip install --requirement requirements_test_min.txt
+
+      # The extended packages would not fit in the cache: each batch only
+      # clones its own packages, shallowly and at their pinned commit.
+      - name: Clone the packages of the batch
+        run: |
+          . venv/bin/activate
+          python tests/primer/__main__.py --extended prepare --clone \
+            --batches=${BATCHES} --batchIdx=${{ matrix.batchIdx }}
+      - name: Run pylint primer
+        run: |
+          . venv/bin/activate
+          python tests/primer/__main__.py --extended run --type=${{ matrix.type }} \
+            --batches=${BATCHES} --batchIdx=${{ matrix.batchIdx }} 2>warnings.txt
+      - name: Echo warnings
+        if: success() || failure()
+        run: |
+          WARNINGS=$(head -c 65000 < warnings.txt)
+          if [[ $WARNINGS ]]
+          then echo "::warning ::$WARNINGS"
+          fi
+      - name: Upload output
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name:
+            primer_output_${{ matrix.type }}_${{ env.PYTHON_VERSION }}_batch${{
+            matrix.batchIdx }}
+          path: >-
+            tests/.pylint_primer_tests/extended_primer/output_${{ env.PYTHON_VERSION
+            }}_${{ matrix.type }}_batch${{ matrix.batchIdx }}.txt
+
+      # Save the PR number and the head of the PR (the checkout is the merge
+      # commit) so 'Primer / Comment' knows where to comment
+      - name: Save PR number
+        if: inputs.pr && matrix.type == 'pr' && matrix.batchIdx == 0
+        run: |
+          echo "${PR_NUMBER}" | tee pr_number.txt
+          git rev-parse HEAD^2 | tee pr_head.txt
+        env:
+          PR_NUMBER: ${{ inputs.pr }}
+      - name: Upload PR number
+        if: inputs.pr && matrix.type == 'pr' && matrix.batchIdx == 0
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: pr_number
+          path: |
+            pr_number.txt
+            pr_head.txt
+
+  # The comment is posted by 'Primer / Comment', which has the permission to do
+  # so. This summary is the only report of a run without a pull request.
+  summary:
+    needs: run-primer
+    name: Summary
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code from GitHub
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ inputs.pr && format('refs/pull/{0}/merge', inputs.pr) || '' }}
+          # The parents of the merge commit give the head of the PR
+          fetch-depth: 2
+          persist-credentials: false
+      - name: Set up Python ${{ env.PYTHON_VERSION }}
+        id: python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          allow-prereleases: true
+          check-latest: true
+      - name: Install pylint
+        run: |
+          python -m venv venv
+          . venv/bin/activate
+          pip install --requirement requirements_test_min.txt
+      - name: Download outputs
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        with:
+          pattern: primer_output_*
+          merge-multiple: true
+      - name: Compare outputs
+        run: |
+          . venv/bin/activate
+          if [[ -n "${PR_NUMBER}" ]]; then
+            commit=$(git rev-parse HEAD^2)
+          else
+            commit=$(git rev-parse HEAD)
+          fi
+          python tests/primer/__main__.py --extended compare \
+            --commit="$commit" \
+            --base-file=output_${PYTHON_VERSION}_main_BATCHIDX.txt \
+            --new-file=output_${PYTHON_VERSION}_pr_BATCHIDX.txt \
+            --batches=${BATCHES}
+          cat tests/.pylint_primer_tests/extended_primer/comment.txt >> "$GITHUB_STEP_SUMMARY"
+        env:
+          PR_NUMBER: ${{ inputs.pr }}

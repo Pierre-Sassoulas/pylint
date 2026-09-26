@@ -82,6 +82,82 @@ def test_primer_selects_command(args: list[str], command_path: str) -> None:
     command.return_value.run.assert_called_once()
 
 
+def test_primer_extended_uses_extended_packages(tmp_path: Path) -> None:
+    extended_json = tmp_path / "extended.json"
+    extended_json.write_text(
+        '{"extended-only": {"url": "https://github.com/example/extended-only",'
+        ' "branch": "main", "commit": "main", "directories": ["."]}}',
+        encoding="utf-8",
+    )
+    argv = ["python tests/primer/__main__.py", "--extended", "run", "--type=main"]
+    with patch("sys.argv", argv):
+        primer = Primer(tmp_path, PACKAGES_TO_PRIME_PATH, extended_json)
+
+    assert list(primer.packages) == ["extended-only"]
+    assert primer.command.primer_directory == tmp_path / "extended_primer"
+    assert primer.command.primer_directory.is_dir()
+
+
+def test_primer_extended_needs_extended_packages(capsys: CaptureFixture) -> None:
+    argv = ["python tests/primer/__main__.py", "--extended", "run", "--type=main"]
+    with pytest.raises(SystemExit), patch("sys.argv", argv):
+        Primer(PRIMER_DIRECTORY, PACKAGES_TO_PRIME_PATH)
+    assert "no extended list of packages to prime" in capsys.readouterr().err
+
+
+@pytest.mark.parametrize(
+    ("batches", "batch_idx", "expected"),
+    [
+        (None, None, ["a", "b", "c", "d", "e"]),
+        (2, 0, ["a", "c", "e"]),
+        (2, 1, ["b", "d"]),
+    ],
+)
+def test_packages_in_batch(
+    batches: int | None, batch_idx: int | None, expected: list[str]
+) -> None:
+    packages = {
+        name: PackageToLint(
+            url=f"https://github.com/example/{name}",
+            branch="main",
+            directories=["."],
+            commit="main",
+        )
+        for name in "abcde"
+    }
+    config = argparse.Namespace(batches=batches, batchIdx=batch_idx)
+    command = CompareCommand(PRIMER_DIRECTORY, packages, config)
+    assert [name for name, _ in command.packages_in_batch()] == expected
+
+
+@pytest.mark.parametrize(
+    ("extended", "expected"),
+    [
+        (False, "**no effect** on the checked open source code."),
+        (True, "**no effect** on the extended primer's open source code."),
+    ],
+)
+def test_compare_no_effect_names_the_primer(extended: bool, expected: str) -> None:
+    config = argparse.Namespace(commit="deadbeef", extended=extended, pr=None)
+    command = CompareCommand(PRIMER_DIRECTORY, {}, config)
+    assert expected in command._create_comment([])  # type: ignore[arg-type]
+
+
+@pytest.mark.parametrize(
+    ("extended", "pr", "has_hint"),
+    [(False, 1234, True), (False, None, False), (True, 1234, False)],
+)
+def test_compare_tells_how_to_launch_the_extended_primer(
+    extended: bool, pr: int | None, has_hint: bool
+) -> None:
+    config = argparse.Namespace(commit="deadbeef", extended=extended, pr=pr)
+    command = CompareCommand(PRIMER_DIRECTORY, {}, config)
+    comment = command._create_comment([])  # type: ignore[arg-type]
+    hint = "`gh workflow run primer_run_extended.yaml -R pylint-dev/pylint -f pr=1234`"
+    assert (hint in comment) is has_hint
+    assert comment.endswith("*This comment was generated for commit deadbeef*")
+
+
 def test_truncated_compare_stops_iterating_packages() -> None:
     max_comment_length = 500
     packages = {
@@ -116,7 +192,9 @@ def test_truncated_compare_stops_iterating_packages() -> None:
         ),
     ]
     command = CompareCommand(
-        PRIMER_DIRECTORY, packages, argparse.Namespace(commit="deadbeef")
+        PRIMER_DIRECTORY,
+        packages,
+        argparse.Namespace(commit="deadbeef", extended=False, pr=None),
     )
 
     with patch(
@@ -211,7 +289,7 @@ class TestPrimer:
     def test_truncate_falls_back_when_no_line_break(self) -> None:
         """When the pre-limit prefix has no line break, cut inside the line."""
         max_comment_length = 200
-        config = argparse.Namespace(commit="v2.14.2")
+        config = argparse.Namespace(commit="v2.14.2", extended=False, pr=None)
         command = CompareCommand(PRIMER_DIRECTORY, {}, config)
         spaceless = "x" * 500
         with patch(

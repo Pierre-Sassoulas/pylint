@@ -1,0 +1,404 @@
+{
+  "aiohttp": {
+    "branch": "master",
+    "commit": "1133ceb762e67f27d6b64f0c541e01c53a60760b",
+    "directories": ["aiohttp"],
+    "url": "https://github.com/aio-libs/aiohttp"
+  },
+  "airflow": {
+    "branch": "main",
+    "commit": "c4a0a88a8b3a0cd4d299454327da0d24e0c4eaed",
+    "directories": ["airflow-core/src/airflow"],
+    "url": "https://github.com/apache/airflow"
+  },
+  "anyio": {
+    "branch": "master",
+    "commit": "f7df6827cb7814b47b7cafa704f6a09792e4f388",
+    "directories": ["src/anyio"],
+    "url": "https://github.com/agronholm/anyio"
+  },
+  "attrs": {
+    "branch": "main",
+    "commit": "8f767776326faaed11e6c2974798787f6e19b343",
+    "directories": ["src/attr", "src/attrs"],
+    "url": "https://github.com/python-attrs/attrs"
+  },
+  "beets": {
+    "branch": "master",
+    "commit": "c2a75a4ec570727c143c0063d14b1914e05e48c8",
+    "directories": ["beets", "beetsplug"],
+    "url": "https://github.com/beetbox/beets"
+  },
+  "botocore": {
+    "branch": "develop",
+    "commit": "86201a3e9c58a61369b8bcf4b658bfd4463fc41f",
+    "directories": ["botocore"],
+    "url": "https://github.com/boto/botocore"
+  },
+  "celery": {
+    "branch": "main",
+    "commit": "e76495f5d923805bd2234b02356170642c85abe4",
+    "directories": ["celery"],
+    "url": "https://github.com/celery/celery"
+  },
+  "certbot": {
+    "branch": "main",
+    "commit": "485649333422392901e7ef891630f0129985df8e",
+    "directories": ["certbot/src/certbot"],
+    "url": "https://github.com/certbot/certbot"
+  },
+  "click": {
+    "branch": "main",
+    "commit": "06b2a678741131fd577ce170e23e5ca0aeba0309",
+    "directories": ["src/click"],
+    "url": "https://github.com/pallets/click"
+  },
+  "conda": {
+    "branch": "main",
+    "commit": "68c4a55bc9b689d0ed4d82b50f24e6d9ede39ffd",
+    "directories": ["conda"],
+    "url": "https://github.com/conda/conda"
+  },
+  "cryptography": {
+    "branch": "main",
+    "commit": "8519e321a615d1fe7b2518feedbfd08fc0b9b031",
+    "directories": ["src/cryptography"],
+    "url": "https://github.com/pyca/cryptography"
+  },
+  "dask": {
+    "branch": "main",
+    "commit": "9dc535daa30d7d36d63d4a003b54342fbc7032db",
+    "directories": ["dask"],
+    "url": "https://github.com/dask/dask"
+  },
+  "dateutil": {
+    "branch": "master",
+    "commit": "48bd1af97e71baf8e96fce5b663d589caac8f147",
+    "directories": ["src/dateutil"],
+    "url": "https://github.com/dateutil/dateutil"
+  },
+  "django-rest-framework": {
+    "branch": "main",
+    "commit": "b578eab1cad040414b758131af1e17aa000b51e2",
+    "directories": ["rest_framework"],
+    "url": "https://github.com/encode/django-rest-framework"
+  },
+  "docutils": {
+    "branch": "master",
+    "commit": "a92e95cbd77d097e1426904a28104cfdda861e83",
+    "directories": ["docutils/docutils"],
+    "url": "https://github.com/docutils/docutils"
+  },
+  "fastapi": {
+    "branch": "master",
+    "commit": "192b12197eb04c2b4a691cce7d87261b21716714",
+    "directories": ["fastapi"],
+    "url": "https://github.com/fastapi/fastapi"
+  },
+  "flake8": {
+    "branch": "main",
+    "commit": "7eccf20b526fe4f2230bf9afeeef2fc9f97faf8d",
+    "directories": ["src/flake8"],
+    "url": "https://github.com/PyCQA/flake8"
+  },
+  "hikari": {
+    "branch": "master",
+    "commit": "4e835490e62629c703c08771b92557a96c02caa7",
+    "directories": ["hikari"],
+    "url": "https://github.com/hikari-py/hikari"
+  },
+  "httpx": {
+    "branch": "master",
+    "commit": "b5addb64f0161ff6bfe94c124ef76f6a1fba5254",
+    "directories": ["httpx"],
+    "url": "https://github.com/encode/httpx"
+  },
+  "hypothesis": {
+    "branch": "master",
+    "commit": "9c55f97e507eae21677457e84737b386fd06e271",
+    "directories": ["hypothesis/src/hypothesis"],
+    "url": "https://github.com/HypothesisWorks/hypothesis"
+  },
+  "isort": {
+    "branch": "main",
+    "commit": "c85a44fd9f27881ce16b7fa10a833afdf8d919ec",
+    "directories": ["isort"],
+    "url": "https://github.com/PyCQA/isort"
+  },
+  "jedi": {
+    "branch": "master",
+    "commit": "5c37b736a35f5b71afa83227ae932c2848a76833",
+    "directories": ["jedi"],
+    "url": "https://github.com/davidhalter/jedi"
+  },
+  "jinja": {
+    "branch": "main",
+    "commit": "5ef70112a1ff19c05324ff889dd30405b1002044",
+    "directories": ["src/jinja2"],
+    "url": "https://github.com/pallets/jinja"
+  },
+  "keras": {
+    "branch": "master",
+    "commit": "3d2b2755058c757c09220dd7e8b403166b6c9362",
+    "directories": ["keras"],
+    "url": "https://github.com/keras-team/keras"
+  },
+  "marshmallow": {
+    "branch": "dev",
+    "commit": "7f0792bd7a06f72e393ec866ac1e89e1502ccfe1",
+    "directories": ["src/marshmallow"],
+    "url": "https://github.com/marshmallow-code/marshmallow"
+  },
+  "matplotlib": {
+    "branch": "main",
+    "commit": "2d0352ae25bd3be72b1585f70e36b5e4cd07bc9c",
+    "directories": ["lib/matplotlib"],
+    "url": "https://github.com/matplotlib/matplotlib"
+  },
+  "mitmproxy": {
+    "branch": "main",
+    "commit": "b506c68108e287104045333ade476d92c39c275e",
+    "directories": ["mitmproxy"],
+    "url": "https://github.com/mitmproxy/mitmproxy"
+  },
+  "more-itertools": {
+    "branch": "master",
+    "commit": "fbb9a98d8c7b914fcc952afd4976c1bc8deebe87",
+    "directories": ["more_itertools"],
+    "url": "https://github.com/more-itertools/more-itertools"
+  },
+  "mypy": {
+    "branch": "master",
+    "commit": "0861bb6450d6d3658e44dbca9cd2ba478faf3c1d",
+    "directories": ["mypy"],
+    "url": "https://github.com/python/mypy"
+  },
+  "networkx": {
+    "branch": "main",
+    "commit": "9f6079c0120416599ea5d4018bbaba229ea2e456",
+    "directories": ["networkx"],
+    "url": "https://github.com/networkx/networkx"
+  },
+  "numpy": {
+    "branch": "main",
+    "commit": "a98529dfd92d73fd4d40ebaaf285cf2463bb92b1",
+    "directories": ["numpy"],
+    "url": "https://github.com/numpy/numpy"
+  },
+  "packaging": {
+    "branch": "main",
+    "commit": "7b898d9f0b343ca06993157fc328d7caad51d5c2",
+    "directories": ["src/packaging"],
+    "url": "https://github.com/pypa/packaging"
+  },
+  "paramiko": {
+    "branch": "main",
+    "commit": "142f593e40ad767c5e3556cbace66dc84589620c",
+    "directories": ["paramiko"],
+    "url": "https://github.com/paramiko/paramiko"
+  },
+  "parso": {
+    "branch": "master",
+    "commit": "b26da16316da46e4770d589ed5f8d404531a22af",
+    "directories": ["parso"],
+    "url": "https://github.com/davidhalter/parso"
+  },
+  "pillow": {
+    "branch": "main",
+    "commit": "fa01d353f03e86728dfebeb61d544924e749d411",
+    "directories": ["src/PIL"],
+    "url": "https://github.com/python-pillow/Pillow"
+  },
+  "pip": {
+    "branch": "main",
+    "commit": "a7002c9771a6c3f0317a4e6b9fbdcd22e643f7b6",
+    "directories": ["src/pip"],
+    "url": "https://github.com/pypa/pip"
+  },
+  "plasmapy": {
+    "branch": "main",
+    "commit": "391579b61d153bfe4b92f59f39ab6e563a44f29d",
+    "directories": ["src/plasmapy"],
+    "url": "https://github.com/PlasmaPy/PlasmaPy"
+  },
+  "poetry": {
+    "branch": "main",
+    "commit": "94b6e35b9091991887aa54feeb3771a86d3bd692",
+    "directories": ["src/poetry"],
+    "url": "https://github.com/python-poetry/poetry"
+  },
+  "pre-commit": {
+    "branch": "main",
+    "commit": "a9bba55a3f74068b53f4bd4d831d7e05e34eae6c",
+    "directories": ["pre_commit"],
+    "url": "https://github.com/pre-commit/pre-commit"
+  },
+  "prefect": {
+    "branch": "main",
+    "commit": "c24d832726a2347dd4df2b82b38226a7a994823d",
+    "directories": ["src/prefect"],
+    "url": "https://github.com/PrefectHQ/prefect"
+  },
+  "pydantic": {
+    "branch": "main",
+    "commit": "bb6da4cfbb1f559885ea2fa207ec93853bfeac64",
+    "directories": ["pydantic"],
+    "url": "https://github.com/pydantic/pydantic"
+  },
+  "pyyaml": {
+    "branch": "main",
+    "commit": "34a9bf82357f4952d8f194a5a31f1c39743652d0",
+    "directories": ["lib/yaml"],
+    "url": "https://github.com/yaml/pyyaml"
+  },
+  "requests": {
+    "branch": "main",
+    "commit": "611c6162cbc4ac2020a2f91c7cfa4f3abf9bbb60",
+    "directories": ["src/requests"],
+    "url": "https://github.com/psf/requests"
+  },
+  "rich": {
+    "branch": "main",
+    "commit": "9d8f9a372cc5916fd4781fec207ced7ddac2f08f",
+    "directories": ["rich"],
+    "url": "https://github.com/Textualize/rich"
+  },
+  "saleor": {
+    "branch": "main",
+    "commit": "5ff56489737c78a9a5631d528f699303c953696a",
+    "directories": ["saleor"],
+    "url": "https://github.com/saleor/saleor"
+  },
+  "salt": {
+    "branch": "master",
+    "commit": "f37cdcd1c93f778a84f83b3cc9933cac92d0456b",
+    "directories": ["salt"],
+    "url": "https://github.com/saltstack/salt"
+  },
+  "scikit-learn": {
+    "branch": "main",
+    "commit": "857849927da6e988d7d026b17aef214d43e5f26e",
+    "directories": ["sklearn"],
+    "url": "https://github.com/scikit-learn/scikit-learn"
+  },
+  "scipy": {
+    "branch": "main",
+    "commit": "0aed21639223d28e32bc0320a2b70767b14b432d",
+    "directories": ["scipy"],
+    "url": "https://github.com/scipy/scipy"
+  },
+  "scrapy": {
+    "branch": "master",
+    "commit": "e4eda778f99dd13e3e91f67b12ec2bf30c44f7cb",
+    "directories": ["scrapy"],
+    "url": "https://github.com/scrapy/scrapy"
+  },
+  "securedrop": {
+    "branch": "develop",
+    "commit": "0b4b67ffe17de7632ba91fa7f3d2ce8b67e0f258",
+    "directories": ["securedrop"],
+    "url": "https://github.com/freedomofpress/securedrop"
+  },
+  "setuptools": {
+    "branch": "main",
+    "commit": "4e612f9e44ecfad130d0b2a27a2dce0740599b4b",
+    "directories": ["setuptools"],
+    "url": "https://github.com/pypa/setuptools"
+  },
+  "spack": {
+    "branch": "develop",
+    "commit": "2f5beaaa1936e4ae8b2399322bd7aada196deb7a",
+    "directories": ["lib/spack/spack"],
+    "url": "https://github.com/spack/spack"
+  },
+  "sphinx": {
+    "branch": "master",
+    "commit": "b04a2101295ac3fb725b16111eda0284b6da4cca",
+    "directories": ["sphinx"],
+    "url": "https://github.com/sphinx-doc/sphinx"
+  },
+  "sqlalchemy": {
+    "branch": "main",
+    "commit": "65ea6bee82149495a57ea821e0934a9a5d0ded51",
+    "directories": ["lib/sqlalchemy"],
+    "url": "https://github.com/sqlalchemy/sqlalchemy"
+  },
+  "sympy": {
+    "branch": "master",
+    "commit": "0d7546fd17e5438fbe74830357e09dc93794bddf",
+    "directories": ["sympy"],
+    "url": "https://github.com/sympy/sympy"
+  },
+  "textual": {
+    "branch": "main",
+    "commit": "06dbeef4bb70fb718236aa418ed658ef4667a126",
+    "directories": ["src/textual"],
+    "url": "https://github.com/Textualize/textual"
+  },
+  "tornado": {
+    "branch": "master",
+    "commit": "d2bd3a854e16c47d4a16b68ab92207ec2cd9b51b",
+    "directories": ["tornado"],
+    "url": "https://github.com/tornadoweb/tornado"
+  },
+  "tox": {
+    "branch": "main",
+    "commit": "f46060e29701fc5595eaece61ffbf405787c7d59",
+    "directories": ["src/tox"],
+    "url": "https://github.com/tox-dev/tox"
+  },
+  "trio": {
+    "branch": "main",
+    "commit": "0480602b48eda20f10283e7ac04ed01848d7acff",
+    "directories": ["src/trio"],
+    "url": "https://github.com/python-trio/trio"
+  },
+  "twisted": {
+    "branch": "trunk",
+    "commit": "86f26338335cf21383a45241dbb6df5b3050afbd",
+    "directories": ["src/twisted"],
+    "url": "https://github.com/twisted/twisted"
+  },
+  "urllib3": {
+    "branch": "main",
+    "commit": "ed0ed075c6b93f7c515ebd3abe9a7248507ef8c5",
+    "directories": ["src/urllib3"],
+    "url": "https://github.com/urllib3/urllib3"
+  },
+  "virtualenv": {
+    "branch": "main",
+    "commit": "e7afb7b041c3ef61fc8a72ed110cac0272642e86",
+    "directories": ["src/virtualenv"],
+    "url": "https://github.com/pypa/virtualenv"
+  },
+  "wagtail": {
+    "branch": "main",
+    "commit": "e57ccdbc07a0f124e3b88ad69612bafd4131b4cf",
+    "directories": ["wagtail"],
+    "url": "https://github.com/wagtail/wagtail"
+  },
+  "werkzeug": {
+    "branch": "main",
+    "commit": "671537e0e5c7dcec4ac61ffc755dbd8936cefcfb",
+    "directories": ["src/werkzeug"],
+    "url": "https://github.com/pallets/werkzeug"
+  },
+  "xarray": {
+    "branch": "main",
+    "commit": "a2dc5dcd5df630014ea095a64412e036fee6f2d9",
+    "directories": ["xarray"],
+    "url": "https://github.com/pydata/xarray"
+  },
+  "yt-dlp": {
+    "branch": "master",
+    "commit": "c7fb478d21e9e59524befbe23f7801bb267fb880",
+    "directories": ["yt_dlp"],
+    "url": "https://github.com/yt-dlp/yt-dlp"
+  },
+  "zulip": {
+    "branch": "main",
+    "commit": "e9ffac376e68c54850138b7aff4a3f73a79fa7fe",
+    "directories": ["zerver"],
+    "url": "https://github.com/zulip/zulip"
+  }
+}

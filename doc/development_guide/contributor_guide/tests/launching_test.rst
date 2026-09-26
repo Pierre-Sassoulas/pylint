@@ -92,6 +92,28 @@ The list of repositories is created on the basis of three criteria: 1) projects 
 range of language features, 2) projects need to be well maintained and 3) projects should not have a codebase
 that is too repetitive. This guarantees a good balance between speed of our CI and finding potential bugs.
 
+Extended primer
+~~~~~~~~~~~~~~~
+
+Many more repositories, too big or too many to lint on every pull request, are listed in
+``tests/primer/packages_to_prime_extended.json``. The extended primer only runs when a
+maintainer launches the ``Primer / Extended`` workflow, from the Actions tab or with::
+
+    gh workflow run primer_run_extended.yaml -R pylint-dev/pylint -f pr=<number>
+
+The diff is then posted on the pull request, and the comment of the regular primer
+gives this command. Without a pull request number, the branch the workflow runs on is
+linted and the diff is in the run summary. It is worth it for a new check or for a change
+to inference.
+
+To run it locally, add ``--extended`` before the command::
+
+    python tests/primer/__main__.py --extended prepare --clone
+    python tests/primer/__main__.py --extended run --type=pr
+
+The clones are shared with the regular primer, and the outputs go to
+``tests/.pylint_primer_tests/extended_primer``.
+
 Pyreverse primer
 ~~~~~~~~~~~~~~~~
 

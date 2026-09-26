@@ -7,10 +7,13 @@ MAX_GITHUB_COMMENT_LENGTH = 65536
 
 
 def truncate_comment(
-    comment: str, commit: str, max_length: int = MAX_GITHUB_COMMENT_LENGTH
+    comment: str,
+    commit: str,
+    max_length: int = MAX_GITHUB_COMMENT_LENGTH,
+    footer: str = "",
 ) -> str:
-    """Truncate a GitHub comment and append the generating commit."""
-    hash_information = f"*This comment was generated for commit {commit}*"
+    """Truncate a GitHub comment and append the footer and the generating commit."""
+    hash_information = f"{footer}*This comment was generated for commit {commit}*"
     if len(comment) + len(hash_information) >= max_length:
         truncation_information = (
             f"*This comment was truncated because GitHub allows only"
