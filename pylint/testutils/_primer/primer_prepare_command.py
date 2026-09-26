@@ -16,7 +16,7 @@ class PrepareCommand(PrimerCommand):
         version_string = ".".join(str(x) for x in sys.version_info[:2])
         # Shorten the SHA to avoid exceeding GitHub's 512 char ceiling
         if self.config.clone:
-            for package, data in self.packages.items():
+            for package, data in self.packages_in_batch():
                 local_commit = data.lazy_clone()
                 print(f"Cloned '{package}' at commit '{local_commit}'.")
                 commit_string += local_commit[:8] + "_"

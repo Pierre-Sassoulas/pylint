@@ -41,8 +41,10 @@ class RunCommand(PrimerCommand):
         print(f"Writing result in {path}")
         with open(path, "w", encoding="utf-8") as f:
             json.dump(packages, f)
-        # Assert that a PR run does not introduce new fatal errors
-        if self.config.type == "pr":
+        # Assert that a PR run does not introduce new fatal errors. The extended
+        # packages are not curated to be crash free on 'main': their fatal
+        # errors are reported by the comparison instead.
+        if self.config.type == "pr" and not self.config.extended:
             plural = "s" if len(fatal_msgs) > 1 else ""
             assert (
                 not fatal_msgs

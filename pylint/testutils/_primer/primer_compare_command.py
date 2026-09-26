@@ -18,6 +18,10 @@ from pylint.testutils._primer.primer_comment import (
     truncate_comment,
 )
 
+EXTENDED_PRIMER_WORKFLOW_URL = (
+    "https://github.com/pylint-dev/pylint/actions/workflows/primer_run_extended.yaml"
+)
+
 
 def _format_messages(
     messages: list[JSONMessage],
@@ -82,12 +86,17 @@ class CompareCommand(PrimerCommand):
             comment += self._format_diff_messages(
                 diff.new["messages"], diff.missing["messages"], source_link
             )
+        if self.config.extended:
+            target = no_effect_target = "the extended primer's open source code"
+        else:
+            target = "checked open source code"
+            no_effect_target = "the checked open source code"
         comment = (
-            f"🤖 **Effect of this PR on checked open source code:** 🤖\n\n{comment}"
+            f"🤖 **Effect of this PR on {target}:** 🤖\n\n{comment}"
             if comment
             else (
-                "🤖 According to the primer, this change has **no effect** on the"
-                " checked open source code. 🤖🎉\n\n"
+                "🤖 According to the primer, this change has **no effect** on"
+                f" {no_effect_target}. 🤖🎉\n\n"
             )
         )
         return self._truncate_comment(comment)
@@ -188,4 +197,20 @@ class CompareCommand(PrimerCommand):
 
     def _truncate_comment(self, comment: str) -> str:
         """GitHub allows only a set number of characters in a comment."""
-        return truncate_comment(comment, self.config.commit, MAX_GITHUB_COMMENT_LENGTH)
+        return truncate_comment(
+            comment,
+            self.config.commit,
+            MAX_GITHUB_COMMENT_LENGTH,
+            footer=self._extended_primer_hint(),
+        )
+
+    def _extended_primer_hint(self) -> str:
+        """Tell maintainers how to lint the packages this primer skipped."""
+        if self.config.extended or self.config.pr is None:
+            return ""
+        return (
+            "*The extended primer lints many more packages. A maintainer can"
+            " launch it with* `gh workflow run"
+            f" primer_run_extended.yaml -R pylint-dev/pylint -f pr={self.config.pr}`"
+            f" *or from the [Actions tab]({EXTENDED_PRIMER_WORKFLOW_URL}).*\n\n"
+        )

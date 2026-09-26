@@ -12,6 +12,21 @@ from pathlib import Path
 from pylint.testutils._primer import PackageToLint
 
 
+def _add_batch_arguments(parser: argparse.ArgumentParser, batch_idx_help: str) -> None:
+    parser.add_argument(
+        "--batches",
+        required=False,
+        type=int,
+        help="Number of batches",
+    )
+    parser.add_argument(
+        "--batchIdx",
+        required=False,
+        type=int,
+        help=batch_idx_help,
+    )
+
+
 def get_argument_parser(prog: str, *, with_batches: bool) -> argparse.ArgumentParser:
     argument_parser = argparse.ArgumentParser(prog=prog)
     subparsers = argument_parser.add_subparsers(dest="command", required=True)
@@ -39,23 +54,15 @@ def get_argument_parser(prog: str, *, with_batches: bool) -> argparse.ArgumentPa
         default=False,
     )
 
+    if with_batches:
+        _add_batch_arguments(prepare_parser, "Portion of primer packages to clone.")
+
     run_parser = subparsers.add_parser("run")
     run_parser.add_argument(
         "--type", choices=["main", "pr"], required=True, help="Type of primer run."
     )
     if with_batches:
-        run_parser.add_argument(
-            "--batches",
-            required=False,
-            type=int,
-            help="Number of batches",
-        )
-        run_parser.add_argument(
-            "--batchIdx",
-            required=False,
-            type=int,
-            help="Portion of primer packages to run.",
-        )
+        _add_batch_arguments(run_parser, "Portion of primer packages to run.")
 
     compare_parser = subparsers.add_parser("compare")
     compare_parser.add_argument(
@@ -72,6 +79,12 @@ def get_argument_parser(prog: str, *, with_batches: bool) -> argparse.ArgumentPa
         "--commit",
         required=True,
         help="Commit hash of the PR commit being checked.",
+    )
+    compare_parser.add_argument(
+        "--pr",
+        required=False,
+        type=int,
+        help="Number of the PR being checked.",
     )
     if with_batches:
         compare_parser.add_argument(

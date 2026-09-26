@@ -8,7 +8,7 @@ name: Primer / Comment
 
 on:
   workflow_run:
-    workflows: [Primer / Run]
+    workflows: [Primer / Run, Primer / Extended]
     types:
       - completed
 
@@ -101,33 +101,60 @@ jobs:
             }
 
       - name: Unzip outputs
+        id: unzip
         run: |
-          unzip primer_output_main_${{ env.DEFAULT_PYTHON }}_batch0.zip
-          unzip primer_output_main_${{ env.DEFAULT_PYTHON }}_batch1.zip
-          unzip primer_output_main_${{ env.DEFAULT_PYTHON }}_batch2.zip
-          unzip primer_output_main_${{ env.DEFAULT_PYTHON }}_batch3.zip
-          unzip primer_output_pr_${{ env.DEFAULT_PYTHON }}_batch0.zip
-          unzip primer_output_pr_${{ env.DEFAULT_PYTHON }}_batch1.zip
-          unzip primer_output_pr_${{ env.DEFAULT_PYTHON }}_batch2.zip
-          unzip primer_output_pr_${{ env.DEFAULT_PYTHON }}_batch3.zip
-          unzip pr_number.zip
+          for artifact in *.zip; do
+            unzip "$artifact"
+          done
+          # 'Primer / Extended' launched without a pull request number has no
+          # pull request to comment on
+          if [[ -f pr_number.txt ]]; then
+            echo "has-pr=true" >> "$GITHUB_OUTPUT"
+          fi
+      # 'Primer / Run' and 'Primer / Extended' do not use the same number of
+      # batches: count the outputs of the PR run.
       - name: Compare outputs
+        id: compare
+        if: steps.unzip.outputs.has-pr == 'true'
         run: |
           . venv/bin/activate
-          python tests/primer/__main__.py compare \
-          --commit=${GITHUB_EVENT_WORKFLOW_RUN_HEAD_SHA} \
+          # 'Primer / Extended' runs on the merge commit of the PR, and saves
+          # the head of the PR
+          commit=${GITHUB_EVENT_WORKFLOW_RUN_HEAD_SHA}
+          if [[ -f pr_head.txt ]]; then
+            commit=$(cat pr_head.txt)
+          fi
+          if [[ ! "$commit" =~ ^[0-9a-f]{40}$ ]]; then
+            echo "Unexpected commit '$commit'"
+            exit 1
+          fi
+          batches=$(ls output_${{ env.DEFAULT_PYTHON }}_pr_batch*.txt | wc -l)
+          extended=()
+          primer_directory=tests/.pylint_primer_tests
+          if [[ "${WORKFLOW_NAME}" == "Primer / Extended" ]]; then
+            extended=(--extended)
+            primer_directory=$primer_directory/extended_primer
+          fi
+          python tests/primer/__main__.py "${extended[@]}" compare \
+          --commit="$commit" \
+          --pr="$(cat pr_number.txt)" \
           --base-file=output_${{ env.DEFAULT_PYTHON }}_main_BATCHIDX.txt \
           --new-file=output_${{ env.DEFAULT_PYTHON }}_pr_BATCHIDX.txt \
-          --batches=4
+          --batches="$batches"
+          echo "comment-file=$primer_directory/comment.txt" >> "$GITHUB_OUTPUT"
         env:
           GITHUB_EVENT_WORKFLOW_RUN_HEAD_SHA: ${{ github.event.workflow_run.head_sha }}
+          WORKFLOW_NAME: ${{ github.event.workflow_run.name }}
       - name: Post comment
         id: post-comment
+        if: steps.unzip.outputs.has-pr == 'true'
         uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
+        env:
+          COMMENT_FILE: ${{ steps.compare.outputs.comment-file }}
         with:
           script: |
             const fs = require('fs')
-            const comment = fs.readFileSync('tests/.pylint_primer_tests/comment.txt', { encoding: 'utf8' })
+            const comment = fs.readFileSync(process.env.COMMENT_FILE, { encoding: 'utf8' })
             console.log("Comment to post:")
             console.log(comment)
             const prNumber = parseInt(fs.readFileSync("pr_number.txt", { encoding: "utf8" }))
@@ -139,6 +166,7 @@ jobs:
             })
             return prNumber
       - name: Hide old comments
+        if: steps.unzip.outputs.has-pr == 'true'
         # Taken from mypy primer
         uses: kanga333/comment-hider@c12bb20b48aeb8fc098e35967de8d4f8018fffdf # v0.4.0
         with:
