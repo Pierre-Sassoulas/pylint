@@ -17,12 +17,6 @@
     "directories": ["src/anyio"],
     "url": "https://github.com/agronholm/anyio"
   },
-  "attrs": {
-    "branch": "main",
-    "commit": "8f767776326faaed11e6c2974798787f6e19b343",
-    "directories": ["src/attr", "src/attrs"],
-    "url": "https://github.com/python-attrs/attrs"
-  },
   "beets": {
     "branch": "master",
     "commit": "c2a75a4ec570727c143c0063d14b1914e05e48c8",
@@ -47,35 +41,17 @@
     "directories": ["certbot/src/certbot"],
     "url": "https://github.com/certbot/certbot"
   },
-  "click": {
-    "branch": "main",
-    "commit": "06b2a678741131fd577ce170e23e5ca0aeba0309",
-    "directories": ["src/click"],
-    "url": "https://github.com/pallets/click"
-  },
   "conda": {
     "branch": "main",
     "commit": "68c4a55bc9b689d0ed4d82b50f24e6d9ede39ffd",
     "directories": ["conda"],
     "url": "https://github.com/conda/conda"
   },
-  "cryptography": {
-    "branch": "main",
-    "commit": "8519e321a615d1fe7b2518feedbfd08fc0b9b031",
-    "directories": ["src/cryptography"],
-    "url": "https://github.com/pyca/cryptography"
-  },
   "dask": {
     "branch": "main",
     "commit": "9dc535daa30d7d36d63d4a003b54342fbc7032db",
     "directories": ["dask"],
     "url": "https://github.com/dask/dask"
-  },
-  "dateutil": {
-    "branch": "master",
-    "commit": "48bd1af97e71baf8e96fce5b663d589caac8f147",
-    "directories": ["src/dateutil"],
-    "url": "https://github.com/dateutil/dateutil"
   },
   "django-rest-framework": {
     "branch": "main",
@@ -95,12 +71,6 @@
     "directories": ["fastapi"],
     "url": "https://github.com/fastapi/fastapi"
   },
-  "flake8": {
-    "branch": "main",
-    "commit": "7eccf20b526fe4f2230bf9afeeef2fc9f97faf8d",
-    "directories": ["src/flake8"],
-    "url": "https://github.com/PyCQA/flake8"
-  },
   "hikari": {
     "branch": "master",
     "commit": "4e835490e62629c703c08771b92557a96c02caa7",
@@ -113,23 +83,11 @@
     "directories": ["homeassistant"],
     "url": "https://github.com/home-assistant/core"
   },
-  "httpx": {
-    "branch": "master",
-    "commit": "b5addb64f0161ff6bfe94c124ef76f6a1fba5254",
-    "directories": ["httpx"],
-    "url": "https://github.com/encode/httpx"
-  },
   "hypothesis": {
     "branch": "master",
     "commit": "9c55f97e507eae21677457e84737b386fd06e271",
     "directories": ["hypothesis/src/hypothesis"],
     "url": "https://github.com/HypothesisWorks/hypothesis"
-  },
-  "isort": {
-    "branch": "main",
-    "commit": "c85a44fd9f27881ce16b7fa10a833afdf8d919ec",
-    "directories": ["isort"],
-    "url": "https://github.com/PyCQA/isort"
   },
   "jedi": {
     "branch": "master",
@@ -137,23 +95,11 @@
     "directories": ["jedi"],
     "url": "https://github.com/davidhalter/jedi"
   },
-  "jinja": {
-    "branch": "main",
-    "commit": "5ef70112a1ff19c05324ff889dd30405b1002044",
-    "directories": ["src/jinja2"],
-    "url": "https://github.com/pallets/jinja"
-  },
   "keras": {
     "branch": "master",
     "commit": "3d2b2755058c757c09220dd7e8b403166b6c9362",
     "directories": ["keras"],
     "url": "https://github.com/keras-team/keras"
-  },
-  "marshmallow": {
-    "branch": "dev",
-    "commit": "7f0792bd7a06f72e393ec866ac1e89e1502ccfe1",
-    "directories": ["src/marshmallow"],
-    "url": "https://github.com/marshmallow-code/marshmallow"
   },
   "matplotlib": {
     "branch": "main",
@@ -166,12 +112,6 @@
     "commit": "b506c68108e287104045333ade476d92c39c275e",
     "directories": ["mitmproxy"],
     "url": "https://github.com/mitmproxy/mitmproxy"
-  },
-  "more-itertools": {
-    "branch": "master",
-    "commit": "fbb9a98d8c7b914fcc952afd4976c1bc8deebe87",
-    "directories": ["more_itertools"],
-    "url": "https://github.com/more-itertools/more-itertools"
   },
   "mypy": {
     "branch": "master",
@@ -191,12 +131,6 @@
     "directories": ["numpy"],
     "url": "https://github.com/numpy/numpy"
   },
-  "packaging": {
-    "branch": "main",
-    "commit": "7b898d9f0b343ca06993157fc328d7caad51d5c2",
-    "directories": ["src/packaging"],
-    "url": "https://github.com/pypa/packaging"
-  },
   "pandas": {
     "branch": "main",
     "commit": "b77f5fc2227d91b09f90bebd905cc6ff3ae3c1f4",
@@ -209,12 +143,6 @@
     "commit": "142f593e40ad767c5e3556cbace66dc84589620c",
     "directories": ["paramiko"],
     "url": "https://github.com/paramiko/paramiko"
-  },
-  "parso": {
-    "branch": "master",
-    "commit": "b26da16316da46e4770d589ed5f8d404531a22af",
-    "directories": ["parso"],
-    "url": "https://github.com/davidhalter/parso"
   },
   "pillow": {
     "branch": "main",
@@ -240,12 +168,6 @@
     "directories": ["src/poetry"],
     "url": "https://github.com/python-poetry/poetry"
   },
-  "pre-commit": {
-    "branch": "main",
-    "commit": "a9bba55a3f74068b53f4bd4d831d7e05e34eae6c",
-    "directories": ["pre_commit"],
-    "url": "https://github.com/pre-commit/pre-commit"
-  },
   "prefect": {
     "branch": "main",
     "commit": "c24d832726a2347dd4df2b82b38226a7a994823d",
@@ -257,18 +179,6 @@
     "commit": "bb6da4cfbb1f559885ea2fa207ec93853bfeac64",
     "directories": ["pydantic"],
     "url": "https://github.com/pydantic/pydantic"
-  },
-  "pyyaml": {
-    "branch": "main",
-    "commit": "34a9bf82357f4952d8f194a5a31f1c39743652d0",
-    "directories": ["lib/yaml"],
-    "url": "https://github.com/yaml/pyyaml"
-  },
-  "requests": {
-    "branch": "main",
-    "commit": "611c6162cbc4ac2020a2f91c7cfa4f3abf9bbb60",
-    "directories": ["src/requests"],
-    "url": "https://github.com/psf/requests"
   },
   "rich": {
     "branch": "main",
@@ -377,18 +287,6 @@
     "commit": "86f26338335cf21383a45241dbb6df5b3050afbd",
     "directories": ["src/twisted"],
     "url": "https://github.com/twisted/twisted"
-  },
-  "urllib3": {
-    "branch": "main",
-    "commit": "ed0ed075c6b93f7c515ebd3abe9a7248507ef8c5",
-    "directories": ["src/urllib3"],
-    "url": "https://github.com/urllib3/urllib3"
-  },
-  "virtualenv": {
-    "branch": "main",
-    "commit": "e7afb7b041c3ef61fc8a72ed110cac0272642e86",
-    "directories": ["src/virtualenv"],
-    "url": "https://github.com/pypa/virtualenv"
   },
   "wagtail": {
     "branch": "main",
