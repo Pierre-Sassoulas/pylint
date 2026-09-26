@@ -59,25 +59,12 @@
     "directories": ["src/flask"],
     "url": "https://github.com/pallets/flask"
   },
-  "home-assistant": {
-    "branch": "dev",
-    "commit": "9ad1356e4b3ee8c837c28dfde850fab8b6927aea",
-    "directories": ["homeassistant"],
-    "url": "https://github.com/home-assistant/core"
-  },
   "music21": {
     "branch": "master",
     "commit": "65fe74f6584bdeed8421dc57b0452b4d364e4159",
     "directories": ["music21"],
     "pylintrc_relpath": ".pylintrc",
     "url": "https://github.com/cuthbertLab/music21"
-  },
-  "pandas": {
-    "branch": "main",
-    "commit": "b77f5fc2227d91b09f90bebd905cc6ff3ae3c1f4",
-    "directories": ["pandas/core"],
-    "pylint_additional_args": ["--ignore-patterns=\"test_"],
-    "url": "https://github.com/pandas-dev/pandas"
   },
   "poetry-core": {
     "branch": "main",
@@ -103,11 +90,5 @@
     "commit": "77dceaa1fd1598293a7a39a837f859620a07002f",
     "directories": ["src/_pytest"],
     "url": "https://github.com/pytest-dev/pytest"
-  },
-  "sentry": {
-    "branch": "master",
-    "commit": "7a701584e61d8a093132eb37c45fd0359c1652ee",
-    "directories": ["src/sentry"],
-    "url": "https://github.com/getsentry/sentry"
   }
 }

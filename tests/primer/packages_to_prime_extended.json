@@ -107,6 +107,12 @@
     "directories": ["hikari"],
     "url": "https://github.com/hikari-py/hikari"
   },
+  "home-assistant": {
+    "branch": "dev",
+    "commit": "9ad1356e4b3ee8c837c28dfde850fab8b6927aea",
+    "directories": ["homeassistant"],
+    "url": "https://github.com/home-assistant/core"
+  },
   "httpx": {
     "branch": "master",
     "commit": "b5addb64f0161ff6bfe94c124ef76f6a1fba5254",
@@ -190,6 +196,13 @@
     "commit": "7b898d9f0b343ca06993157fc328d7caad51d5c2",
     "directories": ["src/packaging"],
     "url": "https://github.com/pypa/packaging"
+  },
+  "pandas": {
+    "branch": "main",
+    "commit": "b77f5fc2227d91b09f90bebd905cc6ff3ae3c1f4",
+    "directories": ["pandas/core"],
+    "pylint_additional_args": ["--ignore-patterns=\"test_"],
+    "url": "https://github.com/pandas-dev/pandas"
   },
   "paramiko": {
     "branch": "main",
@@ -298,6 +311,12 @@
     "commit": "0b4b67ffe17de7632ba91fa7f3d2ce8b67e0f258",
     "directories": ["securedrop"],
     "url": "https://github.com/freedomofpress/securedrop"
+  },
+  "sentry": {
+    "branch": "master",
+    "commit": "7a701584e61d8a093132eb37c45fd0359c1652ee",
+    "directories": ["src/sentry"],
+    "url": "https://github.com/getsentry/sentry"
   },
   "setuptools": {
     "branch": "main",
