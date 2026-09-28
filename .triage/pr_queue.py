@@ -73,15 +73,15 @@ V = {
         "contributor whose other one is already in the round-trip.",
         "Cheapest merge left in the queue. Read it and land it.",
     ),
-    # ---- review now -------------------------------------------------------
-    11002: (
-        "review",
+    11447: (
+        "merge",
         "ready",
-        "stale",
-        "44/44 green, zero reviews since May. Fixes a false negative filed as a good-first-issue; 181 lines is "
-        "mostly tests.",
-        "Review. Four months of silence on a green PR is how contributors are lost.",
+        "confirmed",
+        "53/53 green and <b>approved by you on 25 September</b>. 56 lines; the primer drops one astropy "
+        "<code>useless-suppression</code> false positive.",
+        "Merge it.",
     ),
+    # ---- review now -------------------------------------------------------
     10507: (
         "review",
         "ready",
@@ -99,29 +99,55 @@ V = {
         "Review. The author already rewrote a corrupted <code>typecheck.py</code> once, so check the diff is "
         "really 45 lines.",
     ),
-    # ---- approve the workflow run ----------------------------------------
+    11205: (
+        "review",
+        "re-review",
+        "feature",
+        "Green now (48/48). The author answered the second round from DudeNr33 on 9 September and says "
+        "the PlantUML and Mermaid output render correctly; still labelled <em>Work in progress</em>.",
+        "Ask DudeNr33 for the re-review they paused, then drop the label.",
+    ),
     11396: (
-        "approve",
-        "held",
+        "review",
+        "primer check",
         "confirmed",
-        "50 lines. Stops <code>too-many-try-statements</code> counting a <code>pass</code> that Python's grammar "
-        "requires.",
-        "Approve the run. Small, and the issue has a clear accepted shape.",
+        "Released and green (49/49), 50 lines. The primer reports about 190 changed or new lines on "
+        "ansible, django and astropy, far more than a <code>pass</code> exemption should move.",
+        "Read the primer comment before the diff: check the new messages are base drift, not the change.",
     ),
-    11398: (
-        "approve",
-        "held",
+    11424: (
+        "review",
+        "ready",
         "confirmed",
-        "23 lines — the smallest held PR. False positive open since 2023.",
-        "Approve the run, review the same day.",
+        "51/51 green, 52 lines, backport label set, no review yet. The primer drops one home-assistant "
+        "<code>no-member</code> on <code>__value__</code>.",
+        "Review. Small, verified issue, clean primer.",
     ),
-    11411: (
-        "approve",
-        "held",
-        "crash",
-        "89 lines, and <b>the only held pull request that also conflicts with main</b>.",
-        "Ask for a rebase first; approving a run on a conflicting head wastes the runners.",
+    11428: (
+        "review",
+        "primer check",
+        "confirmed",
+        "48/48 green, 114 lines, no review. The primer changes 12 astropy messages and adds 3 on astropy "
+        "and music21.",
+        "Review with the primer comment open; the 3 new messages decide it.",
     ),
+    11476: (
+        "review",
+        "ready",
+        "feature",
+        "53/53 green, 42 lines, backport label set. The issue was classed as needing reassignment "
+        "tracking; check the PR does not claim more than it tracks.",
+        "Review the reassignment and <code>del</code> handling; primer shows only home-assistant.",
+    ),
+    11480: (
+        "review",
+        "ready",
+        "confirmed",
+        "48/48 green, 113 lines. The primer drops 4 django <code>method-hidden</code> false positives, "
+        "the exact case of the issue.",
+        "Review. Clean primer, confirmed issue.",
+    ),
+    # ---- approve the workflow run ----------------------------------------
     11416: (
         "approve",
         "held",
@@ -133,10 +159,57 @@ V = {
         "approve",
         "held",
         "feature",
-        "36 lines, but it runs the For and With checkers over their async forms — every async body in "
-        "the world becomes newly checkable.",
-        "Approve the run <b>and</b> require a primer run. This is the one held PR that can move "
-        "real-world message counts.",
+        "36 lines running the For and With checkers over their async forms. DanielNoord asked whether it "
+        "should become the default; the last primer adds 4 home-assistant messages.",
+        "Answer the design question from DanielNoord, then approve the run.",
+    ),
+    11432: (
+        "approve",
+        "held",
+        "confirmed",
+        "107 lines fixing an <code>unused-import</code> false negative. The previous run's primer <b>adds "
+        "about 120 messages across ansible, astropy, home-assistant and sentry</b>; patch coverage 91%.",
+        "Sample the 120 new messages before approving another run.",
+    ),
+    11435: (
+        "approve",
+        "held",
+        "confirmed",
+        "76 lines. Stops <code>attribute-defined-outside-init</code> on a classic <code>property(fget, "
+        "fset)</code> setter; the issue is re-verified.",
+        "Approve the run.",
+    ),
+    11457: (
+        "approve",
+        "held",
+        "confirmed",
+        "25 lines, the smallest held PR. Keeps <code>useless-parent-delegation</code> quiet when a "
+        "keyword-only argument is changed before the call.",
+        "Approve the run.",
+    ),
+    11460: (
+        "approve",
+        "held",
+        "confirmed",
+        "42 lines, filed 3 days after the issue. The fix targets the verified root cause: the Protocol "
+        "check looks at the <code>if TYPE_CHECKING</code> block instead of the class.",
+        "Approve the run; fast win on a fresh report.",
+    ),
+    11461: (
+        "approve",
+        "held",
+        "confirmed",
+        "136 lines. Treats <code>Enum.value</code> as overridable by a property in "
+        "<code>invalid-overridden-method</code>; the issue is confirmed.",
+        "Approve the run.",
+    ),
+    11483: (
+        "approve",
+        "held",
+        "confirmed",
+        "54 lines, opened today. <code>used-before-assignment</code> false positive for a walrus in a "
+        "comprehension condition.",
+        "Approve the run.",
     ),
     # ---- retrigger --------------------------------------------------------
     11377: (
@@ -160,14 +233,6 @@ V = {
         "confirmed",
         "31 lines, stdin line endings on Windows. Open since 19 August with no run and no comment.",
         "Retrigger, then review. Nobody has said a word to this contributor.",
-    ),
-    11230: (
-        "retrigger",
-        "no ci",
-        "confirmed",
-        "36 lines, deterministic recursive discovery. Touches the same nondeterminism you chased in the primer "
-        "file-order work.",
-        "Retrigger, then read it against the known ordering issue.",
     ),
     11233: (
         "retrigger",
@@ -215,6 +280,38 @@ V = {
         "162 lines adding pytest-remaster to the functional suite. No review, no CI, no comment since April.",
         "Decide whether a new test dependency is wanted at all before retriggering.",
     ),
+    11421: (
+        "retrigger",
+        "no ci",
+        "confirmed",
+        "141 lines, <code>no-member</code> on a contextmanager's generator return type. No test workflow "
+        "ever ran.",
+        "Retrigger. Same author as the next row: one close/reopen each.",
+    ),
+    11422: (
+        "retrigger",
+        "no ci",
+        "confirmed",
+        "233 lines on the confirmed isinstance-narrowing false positive in chained <code>and</code>. No "
+        "test workflow ever ran.",
+        "Retrigger. The size needs a primer run before review.",
+    ),
+    11425: (
+        "retrigger",
+        "no ci",
+        "confirmed",
+        "85 lines. <code>arguments-differ</code> should compare the whole overload set, not the first "
+        "stub; links two issues.",
+        "Retrigger.",
+    ),
+    11430: (
+        "retrigger",
+        "no ci",
+        "feature",
+        "57 lines teaching <code>abstract-class-instantiated</code> about attrs fields. The issue was "
+        "classed as library-specific.",
+        "Decide whether attrs support belongs in core before retriggering.",
+    ),
     # ---- author's move ----------------------------------------------------
     11410: (
         "author",
@@ -224,41 +321,12 @@ V = {
         "mostly <code>no-member</code>, and patch coverage is 75%.",
         "Point the author at the primer comment. Stub-driven inference is leaking into code that has no stub.",
     ),
-    10570: (
-        "author",
-        "yours in flight",
-        "stale",
-        "The exhausted-iterator checker you took over. Lives on the contributor's fork; 13 reviews deep.",
-        "Yours to land, not a queue item.",
-    ),
-    11223: (
-        "author",
-        "waiting",
-        "confirmed",
-        "50/50 green and <em>High priority</em>, but three review rounds deep and the author's last word was a "
-        "month ago.",
-        "Ping once. If it stays quiet, take the branch over — the bug is worth it.",
-    ),
-    11393: (
-        "author",
-        "waiting",
-        "confirmed",
-        "12 lines of test coverage; one check red; author replied today.",
-        "Short round-trip, keep it moving.",
-    ),
     11370: (
         "author",
         "waiting",
         "confirmed",
         "One red check. Reviewed once by a maintainer, no follow-up from the author since August.",
         "Ping.",
-    ),
-    11215: (
-        "author",
-        "waiting",
-        "confirmed",
-        "One red check, changes requested, backport label already set.",
-        "Waiting on the author.",
     ),
     11217: (
         "author",
@@ -273,14 +341,6 @@ V = {
         "confirmed",
         "49/49 green but changes requested and untouched since mid-July.",
         "Ping — green CI with an open request is easy to forget.",
-    ),
-    11205: (
-        "author",
-        "wip",
-        "feature",
-        "609 lines over 41 files, marked <em>Work in progress</em> by the author, conflicting, and holding a "
-        "queued run.",
-        "Leave it. Do not approve the run while it conflicts.",
     ),
     11278: (
         "author",
@@ -309,13 +369,6 @@ V = {
         "confirmed",
         "<em>Waiting on author</em> since July, backport label set, no CI.",
         "Waiting on the author.",
-    ),
-    11011: (
-        "author",
-        "waiting",
-        "confirmed",
-        "Eight red checks and 27 recorded reviews. A real performance idea buried in a stalled review.",
-        "Either take the idea over on your own branch or close it — 27 reviews is past the useful point.",
     ),
     11087: (
         "author",
@@ -359,6 +412,62 @@ V = {
         "confirmed",
         "One red check, no reviews, author's last word in April.",
         "Pairs with 10950 and 10961 from the same contributor — handle the three together.",
+    ),
+    11398: (
+        "author",
+        "waiting",
+        "confirmed",
+        "Released: one check red out of 49. 23 lines on the confirmed "
+        "<code>consider-using-f-string</code> false positive.",
+        "Point the author at the red check.",
+    ),
+    11411: (
+        "author",
+        "waiting",
+        "confirmed",
+        "Released: 2 checks red out of 48, patch coverage 85%, and no changelog fragment.",
+        "Waiting on the author.",
+    ),
+    11450: (
+        "author",
+        "waiting",
+        "feature",
+        "You asked on 25 September whether the regex approach extends to other names, like pylint's own "
+        "message names.",
+        "Waiting on the author's answer.",
+    ),
+    11469: (
+        "author",
+        "waiting",
+        "confirmed",
+        "You asked for a changelog, reuse of YES_VALUES / NO_VALUES, ini and toml functional tests, and "
+        "an <code>errors-only = false</code> case. Changes the behaviour of existing configs, so it "
+        "targets the next minor.",
+        "Waiting on the author.",
+    ),
+    11475: (
+        "author",
+        "waiting",
+        "feature",
+        "Green, but you asked on 26 September to cover two related issues too: 123 lines for a message "
+        "that only fires next to an import error.",
+        "Waiting on the author.",
+    ),
+    11481: (
+        "author",
+        "waiting",
+        "crash",
+        "9 checks red out of 46. It raced #11482 for the same crash, and that one is closed. Crash "
+        "reproduces on main and 4.0.9.",
+        "Waiting on the author. If it stalls, the fix is small enough to take over.",
+    ),
+    11223: (
+        "author",
+        "rebase",
+        "confirmed",
+        "Conflicts with main since #11011 landed the ignore-paths pruning and the sorted walk on 27 "
+        "September. The package-root discovery part is still its own.",
+        "Ask for a rebase onto #11011, keeping only the package-root fix.",
     ),
     # ---- decide first -----------------------------------------------------
     10600: (
@@ -409,6 +518,21 @@ V = {
         "feature",
         "Source-roots fallback, conflicting, no CI, no reviews; the issue carries <em>Needs decision</em>.",
         "Decide the fallback semantics, then ask for a rebase — not the other way round.",
+    ),
+    11393: (
+        "decide",
+        "close?",
+        "feature",
+        "Rebased and released again, but it is 12 lines of test that <b>pins the current false positive "
+        "as expected output</b>. The author confirmed it fixes nothing.",
+        "Decide whether a reproducer that expects the bug is worth merging; otherwise close it.",
+    ),
+    11439: (
+        "decide",
+        "needs decision",
+        "feature",
+        "97 lines on generic Protocol subscription. The issue was classed as needing a spec first.",
+        "Agree on the expected behaviour in the issue before approving a run.",
     ),
     # ---- stale ------------------------------------------------------------
     11277: (
@@ -481,6 +605,14 @@ V = {
         "feature",
         "The pylintd daemon, opened in 2021, conflicting, no CI.",
         "Close it. Four years is an answer.",
+    ),
+    11230: (
+        "stale",
+        "close?",
+        "duplicate",
+        "Superseded: #11011 sorts dirnames and files in the recursive walk since 27 September, and this "
+        "PR now conflicts. The astroid-side order it claims to fix is a separate problem.",
+        "Close with a pointer to #11011.",
     ),
 }
 
@@ -594,6 +726,7 @@ page = (
         n_silent=n_silent,
         n_conflict=n_conflict,
         snapshot=DATA["snapshot"],
+        snapshot_long=__import__("datetime").date.fromisoformat(DATA["snapshot"]).strftime("%-d %B %Y"),
         body="".join(body),
     )
 )

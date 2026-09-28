@@ -24,7 +24,16 @@ retry() {
 
 retry base.json number,author,title,createdAt,updatedAt,isDraft,labels,additions,deletions,changedFiles,reviewDecision,mergeable,headRefName,url
 retry revs.json number,reviews
-retry ci.json number,statusCheckRollup
+# statusCheckRollup for 100 pull requests at once times out (HTTP 504), so the
+# check runs are fetched one pull request at a time.
+: >"$TMP/ci.ndjson"
+for n in $(jq -r '.[].number' "$TMP/base.json"); do
+  for i in 1 2 3 4; do
+    gh pr view "$n" --repo "$REPO" --json number,statusCheckRollup >>"$TMP/ci.ndjson" && break
+    sleep 5
+  done
+done
+jq -s '.' "$TMP/ci.ndjson" >"$TMP/ci.json"
 retry meta.json number,closingIssuesReferences,comments
 
 gh api "repos/$REPO/actions/runs?status=action_required&per_page=100" \
