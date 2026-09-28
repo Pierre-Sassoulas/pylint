@@ -13,10 +13,10 @@
       "ts": "2026-05-13T07:36:44.023515+00:00"
     },
     "11005": {
-      "verdict": "DESIGN",
-      "note": "Performance enhancement for _discover_files() to use os.walk topdown pruning. Author already has a PR planned. Pertinent.",
-      "session": 1,
-      "ts": "2026-05-12T10:30:13.879470Z"
+      "verdict": "FIXED",
+      "note": "Closed by PR 11011, merged on main as 39e9fd45c. On main only: ships in 4.1.0. os.walk now prunes ignored directories and walks in sorted order. Previous verdict: DESIGN.",
+      "session": 17,
+      "ts": "2026-09-28T14:22:27.584583+00:00"
     },
     "10995": {
       "verdict": "DUP",
@@ -847,10 +847,10 @@
       "ts": "2026-05-12T10:57:53.193613+00:00"
     },
     "10029": {
-      "verdict": "REPRO",
-      "note": "Confirmed E1125: passing **someargs that contains 'c' and 'd' to fun(*, c, d, **kwargs) still raises missing-kwoa. Checker assumes literal kwargs only.",
-      "session": 2,
-      "ts": "2026-05-12T10:57:53.218853+00:00"
+      "verdict": "FIXED",
+      "note": "Closed by PR 11215, merged on main as 209ec5500. Backported to maintenance/4.0.x as e52833a91 (PR 11463): ships in 4.0.10. Previous verdict: REPRO.",
+      "session": 17,
+      "ts": "2026-09-28T14:22:27.584583+00:00"
     },
     "10025": {
       "verdict": "EXTDEP",
@@ -1106,9 +1106,9 @@
     },
     "9843": {
       "verdict": "FIXED",
-      "note": "Closed by PR 11400, merged on main as ea90985ac. On main only: ships in 4.1.0. Milestone 4.0.10: backport still to do. Previous verdict: EXTDEP.",
-      "session": 16,
-      "ts": "2026-09-24T09:42:56.808165+00:00"
+      "note": "Closed by PR 11400, merged on main as ea90985ac. Backported to maintenance/4.0.x as 231eaa161 (PR 11462): ships in 4.0.10.",
+      "session": 17,
+      "ts": "2026-09-28T14:22:27.584583+00:00"
     },
     "9839": {
       "verdict": "REPRO",
@@ -1609,10 +1609,10 @@
       "ts": "2026-05-12T11:12:26.471846+00:00"
     },
     "9385": {
-      "verdict": "REPRO",
-      "note": "Per reporter: 'from numpy import empty_like' results in E1137 unsupported-assignment-operation while 'np.empty_like([1])' (qualified) does not. Lib-specific astroid inference asymmetry.",
-      "session": 3,
-      "ts": "2026-05-12T11:12:26.510447+00:00"
+      "verdict": "DUP",
+      "note": "Duplicate of #5543 (numpy item assignment false positive), closed as such by the maintainer on 2026-09-26 together with 11473. Previous verdict: REPRO.",
+      "session": 17,
+      "ts": "2026-09-28T14:22:27.584583+00:00"
     },
     "9379": {
       "verdict": "DESIGN",
@@ -2359,10 +2359,10 @@
       "ts": "2026-05-12T11:14:58.924301+00:00"
     },
     "8785": {
-      "verdict": "DESIGN",
-      "note": "Enhancement: inference for **kwargs missing named params. Good first issue.",
-      "session": 4,
-      "ts": "2026-05-12T11:14:58.948534+00:00"
+      "verdict": "FIXED",
+      "note": "Closed by PR 11002, merged on main as 0e3af28cc. On main only: ships in 4.1.0. Previous verdict: DESIGN.",
+      "session": 17,
+      "ts": "2026-09-28T14:22:27.584583+00:00"
     },
     "8781": {
       "verdict": "DESIGN",
@@ -5863,10 +5863,10 @@
       "ts": "2026-05-12T13:01:05.418112+00:00"
     },
     "2621": {
-      "verdict": "REPRO",
-      "note": "Confirmed W0632 unbalanced-tuple-unpacking false positive: chained 'return _fn_b() + (3,)' where _fn_b returns a 2-tuple \u2014 pylint sees right-side as 4 values.",
-      "session": 9,
-      "ts": "2026-05-12T13:01:05.355102+00:00"
+      "verdict": "FIXED",
+      "note": "Closed on 2026-09-26, but still reproduces on main 4f263c11c with astroid 4.3.2: W0632 says the right side has 4 values (snippets/i2621.py). The fix is astroid PR 3221 (merged 2026-09-26, milestone 4.3.3, backport PR 3309 to maintenance/4.3.x), not released yet. Needs the astroid 4.3.3 bump on main to take effect. Previous verdict: REPRO.",
+      "session": 17,
+      "ts": "2026-09-28T14:22:27.584583+00:00"
     },
     "2625": {
       "verdict": "EXTDEP",
@@ -6013,10 +6013,10 @@
       "ts": "2026-05-12T13:01:09.669927+00:00"
     },
     "2996": {
-      "verdict": "DESIGN",
-      "note": "Pre-2020 issue: re-classified by labels/title. Most are well-documented spec/decision-pending items or older lib-specific reports. Snippet inspection would require deeper context per issue.",
-      "session": 9,
-      "ts": "2026-05-12T13:01:06.258964+00:00"
+      "verdict": "FIXED",
+      "note": "Closed by hand on 2026-09-25 as done by PR 10570, the new looping-through-iterator checker (W4801), merged on main as 6b0ea6683. On main only: ships in 4.1.0. Follow-up false positive (outer loop walking the same iterator) fixed by PR 11465 before release. Previous verdict: DESIGN.",
+      "session": 17,
+      "ts": "2026-09-28T14:22:27.584583+00:00"
     },
     "3045": {
       "verdict": "REPRO",
@@ -6191,6 +6191,60 @@
       "note": "Closed by PR 11360, merged on main as fd4d32fe8. On main only: ships in 4.1.0. Test-suite only (Windows symlink skip).",
       "session": 16,
       "ts": "2026-09-24T09:42:56.808165+00:00"
+    },
+    "11472": {
+      "verdict": "FIXED",
+      "note": "Closed by PR 11474, merged on main as 71c4a0e70. Backported to maintenance/4.0.x as c1e039ce9 (PR 11477): ships in 4.0.10. TypeError in the variables checker on non-numeric slice bounds in a for-loop value length check.",
+      "session": 17,
+      "ts": "2026-09-28T14:22:27.584583+00:00"
+    },
+    "11466": {
+      "verdict": "FIXED",
+      "note": "Closed by PR 11467, merged on main as 3fe8a8eea. On main only: ships in 4.1.0. Type annotations are now collected per module, so the import-private-name exemption no longer depends on file order.",
+      "session": 17,
+      "ts": "2026-09-28T14:22:27.584583+00:00"
+    },
+    "11338": {
+      "verdict": "FIXED",
+      "note": "Closed by PR 11456, merged on main as 4f263c11c. On main only: ships in 4.1.0. access-member-before-definition now follows self.method() calls made in __init__ before the assignment (one hop). The opt-in E3901 branch issue-11338-init-order is superseded for that case.",
+      "session": 17,
+      "ts": "2026-09-28T14:22:27.584583+00:00"
+    },
+    "11312": {
+      "verdict": "FIXED",
+      "note": "Closed by PR 11468 (astroid 4.3.2 upgrade), merged on main as e0c78dab8. On main only: ships in 4.1.0. Fixed in astroid PR 3241: an exception's args infer as a tuple of unknown contents.",
+      "session": 17,
+      "ts": "2026-09-28T14:22:27.584583+00:00"
+    },
+    "11473": {
+      "verdict": "DUP",
+      "note": "Duplicate of #5543 (numpy item assignment false positive), closed as such by the maintainer on 2026-09-26. The E1130 only shows when the package is imported from another module.",
+      "session": 17,
+      "ts": "2026-09-28T14:22:27.584583+00:00"
+    },
+    "11470": {
+      "verdict": "DUP",
+      "note": "Duplicate of #8900, closed as such by the maintainer on 2026-09-26: astroid does not narrow on isinstance, so the variable infers to both classes and the assignment counts as attribute-defined-outside-init on the other one.",
+      "session": 17,
+      "ts": "2026-09-28T14:22:27.584583+00:00"
+    },
+    "11484": {
+      "verdict": "FIXED",
+      "note": "Crashes on pylint 4.0.9 with astroid 4.0.4 (TypeError in brain_namedtuple_enum.infer_func_form, then astroid-error) and is clean on main 4f263c11c with astroid 4.3.2 (snippets/i11484.py). Fixed by astroid PR 3072 (astroid 4.3.0): a non-string functional Enum member falls back to default inference. Ships in pylint 4.1.0 through the astroid pin; 4.0.x stays on astroid 4.0.x, which has no backport. Reporter runs the distribution package.",
+      "session": 17,
+      "ts": "2026-09-28T14:22:27.584583+00:00"
+    },
+    "11479": {
+      "verdict": "REPRO",
+      "note": "Confirmed on main 4f263c11c (astroid 4.3.2, CPython 3.13.1) and on 4.0.9 (astroid 4.0.4): AttributeError 'ClassDef' object has no attribute 'expr' in private_import._assignments_call_private_name. Loading only pylint.extensions.private_import is enough (snippets/i11479.py). PR 11481 open with red CI; the competing PR 11482 is closed.",
+      "session": 17,
+      "ts": "2026-09-28T14:22:27.584583+00:00"
+    },
+    "11459": {
+      "verdict": "REPRO",
+      "note": "Confirmed on main 4f263c11c (astroid 4.3.2, CPython 3.13.1) and on 4.0.9: W2301 on the Protocol method inside if TYPE_CHECKING only (snippets/i11459.py). Root cause: ellipsis_checker passes the function's parent, the If node, to is_protocol_class instead of the enclosing class. PR 11460 open, run held for approval.",
+      "session": 17,
+      "ts": "2026-09-28T14:22:27.584583+00:00"
     }
   },
   "session_count": 10
