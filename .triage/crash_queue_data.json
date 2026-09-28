@@ -51,18 +51,6 @@
    "pr": ""
   },
   {
-   "n": 8079,
-   "verdict": "repro",
-   "family": "self-contained",
-   "snippet": "i8079.py",
-   "title": "StatementMissing: Statement not found on <Module.builtins",
-   "detail": "A class with a method named after a site builtin (<code>license</code>, <code>copyright</code>, <code>credits</code>, <code>exit</code>, <code>quit</code>) that is also bound as an instance attribute. <code>ancestor.lookup()</code> walks out into <code>Module.builtins</code>, which has no statement.",
-   "exc": "astroid.exceptions.StatementMissing: Statement not found on &lt;Module.builtins l.0&gt;",
-   "frame": "astroid/nodes/scoped_nodes/scoped_nodes.py:410 statement",
-   "tested": "",
-   "pr": "11379"
-  },
-  {
    "n": 8210,
    "verdict": "gone",
    "family": "library",
@@ -229,28 +217,16 @@
    "pr": ""
   },
   {
-   "n": 11356,
+   "n": 11479,
    "verdict": "repro",
    "family": "self-contained",
-   "snippet": "i11356.py",
-   "title": "InferenceError: Inference failed for all members of AssignAttr",
-   "detail": "A <code>for</code> loop whose target is an attribute on a class that carries a metaclass lookup. <code>typecheck.visit_attribute</code> calls <code>owner.getattr</code> without guarding the metaclass path.",
-   "exc": "astroid.exceptions.InferenceError: Inference failed for all members of [AssignAttr]",
-   "frame": "astroid/bases.py:203 _infer_stmts",
+   "snippet": "i11479.py",
+   "title": "AttributeError: 'ClassDef' object has no attribute 'expr' in private-import checker",
+   "detail": "An annotated assignment whose value calls the result of a call (<code>''().a</code>). The private-import plugin walks the callee assuming it is a <code>Name</code> or an <code>Attribute</code>. Added on 2026-09-28, run on <code>main</code> 4f263c11c with astroid 4.3.2 and CPython 3.13.1, and on 4.0.9.",
+   "exc": "AttributeError: 'ClassDef' object has no attribute 'expr'",
+   "frame": "pylint/extensions/private_import.py:249 _assignments_call_private_name",
    "tested": "",
-   "pr": "11372"
-  },
-  {
-   "n": 11361,
-   "verdict": "repro",
-   "family": "self-contained",
-   "snippet": "i11361.py",
-   "title": "Uncaught StatementMissing exception in class checker",
-   "detail": "The same defect as the entry above it, found by fuzzing: a subclass method named <code>help</code> shadowing an instance attribute of the parent. Shorter than the original report and the better regression test.",
-   "exc": "astroid.exceptions.StatementMissing: Statement not found on &lt;Module.builtins l.0&gt;",
-   "frame": "astroid/nodes/scoped_nodes/scoped_nodes.py:410 statement",
-   "tested": "",
-   "pr": "11379"
+   "pr": "11481"
   }
  ]
 }
