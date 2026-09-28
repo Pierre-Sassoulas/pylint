@@ -26,7 +26,7 @@ LANES = [
         "repro",
         "Still crashes",
         "var(--crit)",
-        "A fatal on current <code>main</code>. Four of the six already have a pull request; the other two are "
+        "A fatal on current <code>main</code>. Two of the four have a pull request; the other two are "
         "unclaimed and both are small.",
     ),
     (
