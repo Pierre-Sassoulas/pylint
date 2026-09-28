@@ -1,8 +1,8 @@
 {
- "snapshot": "2026-09-13",
+ "snapshot": "2026-09-28",
  "owner": "Pierre-Sassoulas",
- "open_total": 87,
- "open_own": 20,
+ "open_total": 94,
+ "open_own": 22,
  "prs": [
   {
    "n": 5401,
@@ -60,8 +60,8 @@
    "links": [
     [
      618,
-     "open",
-     "Enhancement ✨,Help wanted 🙏,Configuration,Per directory conf"
+     "",
+     ""
     ]
    ],
    "lastcom": [
@@ -125,8 +125,8 @@
    "links": [
     [
      9688,
-     "open",
-     "Maintenance,Needs PR"
+     "",
+     ""
     ]
    ],
    "lastcom": [
@@ -217,8 +217,8 @@
    "links": [
     [
      9805,
-     "open",
-     "Documentation :green_book:,Work in progress"
+     "",
+     ""
     ]
    ],
    "lastcom": [
@@ -234,7 +234,7 @@
    "size": 120,
    "files": 15,
    "created": "2024-09-25",
-   "updated": "2026-04-03",
+   "updated": "2026-09-24",
    "labels": [
     "Needs review 🔍",
     "Import system",
@@ -250,8 +250,8 @@
    "links": [
     [
      9955,
-     "open",
-     "Import system,Needs decision :lock:"
+     "",
+     ""
     ]
    ],
    "lastcom": [
@@ -267,7 +267,7 @@
    "size": 68,
    "files": 3,
    "created": "2025-01-17",
-   "updated": "2025-10-11",
+   "updated": "2026-09-24",
    "labels": [
     "Work in progress",
     "False Negative 🦋"
@@ -282,8 +282,8 @@
    "links": [
     [
      9519,
-     "open",
-     "False Negative 🦋,Needs PR"
+     "",
+     ""
     ]
    ],
    "lastcom": [
@@ -318,13 +318,13 @@
    "links": [
     [
      8046,
-     "open",
-     "Enhancement ✨,pyreverse"
+     "",
+     ""
     ],
     [
      9267,
-     "CLOSED",
-     "Bug :beetle:,pyreverse,Good first issue"
+     "",
+     ""
     ]
    ],
    "lastcom": [
@@ -352,41 +352,13 @@
    "links": [
     [
      10092,
-     "open",
-     "Help wanted 🙏,Good first issue,False Negative 🦋,Hacktoberfes"
+     "",
+     ""
     ]
    ],
    "lastcom": [
     "github-actions",
     "2025-09-11"
-   ]
-  },
-  {
-   "n": 10570,
-   "a": "ranadheerg",
-   "t": "New Checker for exhausted iterator in nested loops",
-   "draft": false,
-   "size": 804,
-   "files": 8,
-   "created": "2025-09-18",
-   "updated": "2026-08-07",
-   "labels": [
-    "Enhancement ✨"
-   ],
-   "rd": "CHANGES_REQUESTED",
-   "merge": "CONFLICTING",
-   "ci": "failing",
-   "citot": 44,
-   "cifail": 1,
-   "nrev": 13,
-   "mrev": [
-    "Pierre-Sassoulas",
-    "jacobtylerwalls"
-   ],
-   "links": [],
-   "lastcom": [
-    "github-actions",
-    "2026-06-09"
    ]
   },
   {
@@ -397,7 +369,7 @@
    "size": 180,
    "files": 12,
    "created": "2025-09-29",
-   "updated": "2026-08-29",
+   "updated": "2026-09-24",
    "labels": [
     "Enhancement ✨",
     "Optional Checkers",
@@ -445,8 +417,8 @@
    "links": [
     [
      3512,
-     "open",
-     "Maintenance,Needs specification :closed_lock_with_key:"
+     "",
+     ""
     ]
    ],
    "lastcom": [
@@ -462,7 +434,7 @@
    "size": 244,
    "files": 6,
    "created": "2025-10-13",
-   "updated": "2026-08-05",
+   "updated": "2026-09-24",
    "labels": [
     "Blocked 🚧",
     "False Negative 🦋",
@@ -480,8 +452,8 @@
    "links": [
     [
      10281,
-     "open",
-     "Good first issue,False Negative 🦋,Hacktoberfest,Needs decisi"
+     "",
+     ""
     ]
    ],
    "lastcom": [
@@ -497,7 +469,7 @@
    "size": 891,
    "files": 17,
    "created": "2025-11-16",
-   "updated": "2026-06-26",
+   "updated": "2026-09-24",
    "labels": [
     "Enhancement ✨"
    ],
@@ -514,8 +486,8 @@
    "links": [
     [
      3853,
-     "open",
-     "Enhancement ✨,Checkers,typing,High priority,Needs PR"
+     "",
+     ""
     ]
    ],
    "lastcom": [
@@ -549,8 +521,8 @@
    "links": [
     [
      5493,
-     "open",
-     "Enhancement ✨,Help wanted 🙏,Good first issue,Hacktoberfest,N"
+     "",
+     ""
     ]
    ],
    "lastcom": [
@@ -566,7 +538,7 @@
    "size": 253,
    "files": 9,
    "created": "2025-12-29",
-   "updated": "2026-05-24",
+   "updated": "2026-09-24",
    "labels": [
     "Enhancement ✨",
     "Blocked 🚧",
@@ -582,8 +554,8 @@
    "links": [
     [
      10792,
-     "open",
-     "Enhancement ✨,Needs decision :lock:"
+     "",
+     ""
     ]
    ],
    "lastcom": [
@@ -617,8 +589,8 @@
    "links": [
     [
      8460,
-     "open",
-     "Configuration,Good first issue,Hacktoberfest,Needs PR"
+     "",
+     ""
     ]
    ],
    "lastcom": [
@@ -648,8 +620,8 @@
    "links": [
     [
      10563,
-     "open",
-     "Enhancement ✨,Help wanted 🙏,Documentation :green_book:,Hackt"
+     "",
+     ""
     ]
    ],
    "lastcom": [
@@ -679,8 +651,8 @@
    "links": [
     [
      10844,
-     "open",
-     "tests"
+     "",
+     ""
     ]
    ],
    "lastcom": [
@@ -761,78 +733,13 @@
    "links": [
     [
      10281,
-     "open",
-     "Good first issue,False Negative 🦋,Hacktoberfest,Needs decisi"
+     "",
+     ""
     ]
    ],
    "lastcom": [
     "mvanhorn",
     "2026-04-10"
-   ]
-  },
-  {
-   "n": 11002,
-   "a": "kimjune01",
-   "t": "Fix no-value-for-parameter false negative when kwargs is inferable",
-   "draft": false,
-   "size": 181,
-   "files": 8,
-   "created": "2026-05-09",
-   "updated": "2026-05-31",
-   "labels": [
-    "False Negative 🦋"
-   ],
-   "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
-   "ci": "green",
-   "citot": 44,
-   "cifail": 0,
-   "nrev": 0,
-   "mrev": [],
-   "links": [
-    [
-     8785,
-     "open",
-     "Good first issue,False Negative 🦋,Hacktoberfest,Needs PR"
-    ]
-   ],
-   "lastcom": [
-    "github-actions",
-    "2026-05-31"
-   ]
-  },
-  {
-   "n": 11011,
-   "a": "cinnion",
-   "t": "Perf: PyLinter._discover_files() skip traversal into ignored directories.",
-   "draft": false,
-   "size": 564,
-   "files": 4,
-   "created": "2026-05-12",
-   "updated": "2026-07-27",
-   "labels": [
-    "Enhancement ✨",
-    "performance"
-   ],
-   "rd": "CHANGES_REQUESTED",
-   "merge": "MERGEABLE",
-   "ci": "failing",
-   "citot": 38,
-   "cifail": 8,
-   "nrev": 27,
-   "mrev": [
-    "Pierre-Sassoulas"
-   ],
-   "links": [
-    [
-     11005,
-     "open",
-     "performance,Needs PR"
-    ]
-   ],
-   "lastcom": [
-    "cinnion",
-    "2026-06-25"
    ]
   },
   {
@@ -843,7 +750,7 @@
    "size": 16,
    "files": 3,
    "created": "2026-06-08",
-   "updated": "2026-06-14",
+   "updated": "2026-09-24",
    "labels": [
     "Enhancement ✨"
    ],
@@ -859,8 +766,8 @@
    "links": [
     [
      8503,
-     "open",
-     "Enhancement ✨,Configuration,Good first issue,Usability,Hackt"
+     "",
+     ""
     ]
    ],
    "lastcom": [
@@ -891,8 +798,8 @@
    "links": [
     [
      10813,
-     "open",
-     "Crash 💥"
+     "",
+     ""
     ]
    ],
    "lastcom": [
@@ -908,7 +815,7 @@
    "size": 127,
    "files": 6,
    "created": "2026-07-04",
-   "updated": "2026-08-09",
+   "updated": "2026-09-24",
    "labels": [
     "Bug :beetle:",
     "Waiting on author",
@@ -926,8 +833,8 @@
    "links": [
     [
      5793,
-     "open",
-     "Documentation :green_book:,C: arguments-differ"
+     "",
+     ""
     ]
    ],
    "lastcom": [
@@ -943,7 +850,7 @@
    "size": 50,
    "files": 4,
    "created": "2026-07-16",
-   "updated": "2026-09-06",
+   "updated": "2026-09-23",
    "labels": [
     "False Positive 🦟",
     "backport maintenance/4.0.x"
@@ -960,8 +867,8 @@
    "links": [
     [
      4070,
-     "open",
-     "typing,False Positive 🦟,Needs PR"
+     "",
+     ""
     ]
    ],
    "lastcom": [
@@ -977,20 +884,23 @@
    "size": 20,
    "files": 3,
    "created": "2026-07-16",
-   "updated": "2026-09-06",
-   "labels": [],
+   "updated": "2026-09-15",
+   "labels": [
+    "False Positive 🦟",
+    "backport maintenance/4.0.x"
+   ],
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
    "ci": "green",
-   "citot": 48,
+   "citot": 52,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
    "links": [
     [
      11012,
-     "open",
-     "Needs triage :inbox_tray:"
+     "",
+     ""
     ]
    ],
    "lastcom": [
@@ -1020,8 +930,8 @@
    "links": [
     [
      9063,
-     "open",
-     "Good first issue,Hacktoberfest,tests,Needs PR"
+     "",
+     ""
     ]
    ],
    "lastcom": [
@@ -1049,8 +959,8 @@
    "links": [
     [
      10084,
-     "open",
-     "False Negative 🦋,Needs PR"
+     "",
+     ""
     ]
    ],
    "lastcom": [
@@ -1080,8 +990,8 @@
    "links": [
     [
      10237,
-     "open",
-     "False Negative 🦋,Needs PR"
+     "",
+     ""
     ]
    ],
    "lastcom": [
@@ -1097,14 +1007,14 @@
    "size": 609,
    "files": 41,
    "created": "2026-07-28",
-   "updated": "2026-09-09",
+   "updated": "2026-09-14",
    "labels": [
     "pyreverse",
     "Work in progress"
    ],
    "rd": "CHANGES_REQUESTED",
    "merge": "CONFLICTING",
-   "ci": "awaiting-approval",
+   "ci": "green",
    "citot": 48,
    "cifail": 0,
    "nrev": 7,
@@ -1115,47 +1025,13 @@
    "links": [
     [
      7572,
-     "open",
-     "Enhancement ✨,Help wanted 🙏,pyreverse,Good first issue,Hackt"
+     "",
+     ""
     ]
    ],
    "lastcom": [
     "github-actions",
     "2026-09-09"
-   ]
-  },
-  {
-   "n": 11215,
-   "a": "TheGreatApollyon",
-   "t": "Fix false positive for missing-kwoa when **kwargs dict keys are inferable",
-   "draft": false,
-   "size": 107,
-   "files": 7,
-   "created": "2026-07-31",
-   "updated": "2026-09-12",
-   "labels": [
-    "False Positive 🦟",
-    "backport maintenance/4.0.x"
-   ],
-   "rd": "CHANGES_REQUESTED",
-   "merge": "CONFLICTING",
-   "ci": "failing",
-   "citot": 52,
-   "cifail": 1,
-   "nrev": 1,
-   "mrev": [
-    "Pierre-Sassoulas"
-   ],
-   "links": [
-    [
-     10029,
-     "open",
-     "False Positive 🦟,Needs PR"
-    ]
-   ],
-   "lastcom": [
-    "codecov",
-    "2026-07-31"
    ]
   },
   {
@@ -1166,7 +1042,7 @@
    "size": 95,
    "files": 6,
    "created": "2026-07-31",
-   "updated": "2026-09-08",
+   "updated": "2026-09-24",
    "labels": [
     "False Positive 🦟",
     "Waiting on author",
@@ -1184,8 +1060,8 @@
    "links": [
     [
      10460,
-     "open",
-     "Control flow,False Positive 🦟,Needs astroid update,Needs PR"
+     "",
+     ""
     ]
    ],
    "lastcom": [
@@ -1201,13 +1077,13 @@
    "size": 229,
    "files": 3,
    "created": "2026-08-03",
-   "updated": "2026-09-12",
+   "updated": "2026-09-24",
    "labels": [
     "Bug :beetle:",
     "High priority"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "MERGEABLE",
+   "merge": "CONFLICTING",
    "ci": "green",
    "citot": 50,
    "cifail": 0,
@@ -1218,8 +1094,8 @@
    "links": [
     [
      9187,
-     "open",
-     "Bug :beetle:,Help wanted 🙏,Hacktoberfest,Needs PR"
+     "",
+     ""
     ]
    ],
    "lastcom": [
@@ -1238,7 +1114,7 @@
    "updated": "2026-08-04",
    "labels": [],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "CONFLICTING",
    "ci": "not-run",
    "citot": 3,
    "cifail": 0,
@@ -1247,8 +1123,8 @@
    "links": [
     [
      9943,
-     "open",
-     "Enhancement ✨,multiprocessing,Needs PR"
+     "",
+     ""
     ]
    ],
    "lastcom": [
@@ -1281,8 +1157,8 @@
    "links": [
     [
      7213,
-     "open",
-     "Bug :beetle:,duplicate-code,Needs PR"
+     "",
+     ""
     ]
    ],
    "lastcom": [
@@ -1298,7 +1174,7 @@
    "size": 112,
    "files": 12,
    "created": "2026-08-09",
-   "updated": "2026-08-30",
+   "updated": "2026-09-24",
    "labels": [
     "False Negative 🦋"
    ],
@@ -1341,8 +1217,8 @@
    "links": [
     [
      10050,
-     "open",
-     "False Positive 🦟,Needs PR"
+     "",
+     ""
     ]
    ],
    "lastcom": [
@@ -1361,7 +1237,7 @@
    "updated": "2026-08-15",
    "labels": [],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "not-run",
    "citot": 3,
    "cifail": 0,
@@ -1370,8 +1246,8 @@
    "links": [
     [
      11169,
-     "CLOSED",
-     "Needs triage :inbox_tray:"
+     "",
+     ""
     ]
    ],
    "lastcom": [
@@ -1387,10 +1263,10 @@
    "size": 77,
    "files": 14,
    "created": "2026-08-15",
-   "updated": "2026-09-05",
+   "updated": "2026-09-20",
    "labels": [],
    "rd": "CHANGES_REQUESTED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "green",
    "citot": 48,
    "cifail": 0,
@@ -1401,8 +1277,8 @@
    "links": [
     [
      10767,
-     "open",
-     "pyreverse,Crash 💥"
+     "",
+     ""
     ]
    ],
    "lastcom": [
@@ -1430,8 +1306,8 @@
    "links": [
     [
      9054,
-     "open",
-     "False Positive 🦟,Needs PR"
+     "",
+     ""
     ]
    ],
    "lastcom": [
@@ -1447,10 +1323,10 @@
    "size": 42,
    "files": 3,
    "created": "2026-08-30",
-   "updated": "2026-08-31",
+   "updated": "2026-09-20",
    "labels": [],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "failing",
    "citot": 49,
    "cifail": 1,
@@ -1461,8 +1337,8 @@
    "links": [
     [
      10080,
-     "open",
-     "False Positive 🦟,Needs PR"
+     "",
+     ""
     ]
    ],
    "lastcom": [
@@ -1481,7 +1357,7 @@
    "updated": "2026-09-04",
    "labels": [],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "not-run",
    "citot": 2,
    "cifail": 0,
@@ -1490,8 +1366,8 @@
    "links": [
     [
      9669,
-     "CLOSED",
-     "False Negative 🦋"
+     "",
+     ""
     ]
    ],
    "lastcom": [
@@ -1510,7 +1386,7 @@
    "updated": "2026-09-03",
    "labels": [],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "not-run",
    "citot": 3,
    "cifail": 0,
@@ -1519,8 +1395,8 @@
    "links": [
     [
      11353,
-     "OPEN",
-     "False Positive 🦟,Needs PR"
+     "",
+     ""
     ]
    ],
    "lastcom": [
@@ -1536,29 +1412,23 @@
    "size": 12,
    "files": 2,
    "created": "2026-09-06",
-   "updated": "2026-09-13",
+   "updated": "2026-09-22",
    "labels": [
     "Skip news :mute:"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
-   "ci": "failing",
-   "citot": 31,
-   "cifail": 1,
+   "merge": "UNKNOWN",
+   "ci": "awaiting-approval",
+   "citot": 2,
+   "cifail": 0,
    "nrev": 2,
    "mrev": [
     "Pierre-Sassoulas"
    ],
-   "links": [
-    [
-     10951,
-     "open",
-     "Astroid,False Positive 🦟,enum"
-    ]
-   ],
+   "links": [],
    "lastcom": [
     "GruffElixir",
-    "2026-09-13"
+    "2026-09-22"
    ]
   },
   {
@@ -1569,25 +1439,25 @@
    "size": 50,
    "files": 4,
    "created": "2026-09-07",
-   "updated": "2026-09-07",
+   "updated": "2026-09-23",
    "labels": [],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
-   "ci": "awaiting-approval",
-   "citot": 3,
+   "merge": "UNKNOWN",
+   "ci": "green",
+   "citot": 49,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
    "links": [
     [
      9418,
-     "open",
-     "Enhancement ✨,Needs PR"
+     "",
+     ""
     ]
    ],
    "lastcom": [
-    "-",
-    "-"
+    "github-actions",
+    "2026-09-23"
    ]
   },
   {
@@ -1598,25 +1468,25 @@
    "size": 23,
    "files": 4,
    "created": "2026-09-08",
-   "updated": "2026-09-08",
+   "updated": "2026-09-23",
    "labels": [],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
-   "ci": "awaiting-approval",
-   "citot": 3,
-   "cifail": 0,
+   "merge": "UNKNOWN",
+   "ci": "failing",
+   "citot": 49,
+   "cifail": 1,
    "nrev": 0,
    "mrev": [],
    "links": [
     [
      8224,
-     "open",
-     "False Positive 🦟,Needs PR"
+     "",
+     ""
     ]
    ],
    "lastcom": [
-    "-",
-    "-"
+    "codecov",
+    "2026-09-23"
    ]
   },
   {
@@ -1639,8 +1509,8 @@
    "links": [
     [
      10042,
-     "open",
-     "False Positive 🦟,Needs PR"
+     "",
+     ""
     ]
    ],
    "lastcom": [
@@ -1653,23 +1523,23 @@
    "a": "ump45nose",
    "t": "Fix a false positive for `unpacking-non-sequence` with stubs",
    "draft": false,
-   "size": 69,
+   "size": 130,
    "files": 5,
    "created": "2026-09-10",
-   "updated": "2026-09-23",
+   "updated": "2026-09-28",
    "labels": [],
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "failing",
-   "citot": 49,
-   "cifail": 1,
+   "ci": "awaiting-approval",
+   "citot": 2,
+   "cifail": 0,
    "nrev": 0,
    "mrev": [],
    "links": [
     [
      9354,
-     "open",
-     "Enhancement ✨,Needs PR,pyi"
+     "",
+     ""
     ]
    ],
    "lastcom": [
@@ -1682,28 +1552,28 @@
    "a": "LouisDeconinck",
    "t": "Fix unspecified-encoding for joined pathlib paths",
    "draft": false,
-   "size": 89,
+   "size": 95,
    "files": 3,
    "created": "2026-09-10",
-   "updated": "2026-09-10",
+   "updated": "2026-09-23",
    "labels": [],
    "rd": "REVIEW_REQUIRED",
-   "merge": "CONFLICTING",
-   "ci": "awaiting-approval",
-   "citot": 3,
-   "cifail": 0,
+   "merge": "UNKNOWN",
+   "ci": "failing",
+   "citot": 48,
+   "cifail": 2,
    "nrev": 0,
    "mrev": [],
    "links": [
     [
      11202,
-     "OPEN",
-     "False Negative 🦋,Needs PR"
+     "",
+     ""
     ]
    ],
    "lastcom": [
-    "-",
-    "-"
+    "github-actions",
+    "2026-09-23"
    ]
   },
   {
@@ -1711,13 +1581,13 @@
    "a": "GruffElixir",
    "t": "Fix no-member for annotated enum values",
    "draft": false,
-   "size": 51,
+   "size": 67,
    "files": 4,
    "created": "2026-09-12",
-   "updated": "2026-09-12",
+   "updated": "2026-09-23",
    "labels": [],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "awaiting-approval",
    "citot": 2,
    "cifail": 0,
@@ -1726,13 +1596,13 @@
    "links": [
     [
      11413,
-     "OPEN",
+     "",
      ""
     ]
    ],
    "lastcom": [
-    "-",
-    "-"
+    "GruffElixir",
+    "2026-09-23"
    ]
   },
   {
@@ -1743,16 +1613,644 @@
    "size": 36,
    "files": 8,
    "created": "2026-09-13",
-   "updated": "2026-09-13",
+   "updated": "2026-09-27",
+   "labels": [
+    "Bug :beetle:",
+    "backport maintenance/4.0.x"
+   ],
+   "rd": "REVIEW_REQUIRED",
+   "merge": "UNKNOWN",
+   "ci": "awaiting-approval",
+   "citot": 50,
+   "cifail": 0,
+   "nrev": 1,
+   "mrev": [
+    "DanielNoord"
+   ],
+   "links": [],
+   "lastcom": [
+    "github-actions",
+    "2026-09-23"
+   ]
+  },
+  {
+   "n": 11421,
+   "a": "GTUTETTY",
+   "t": "Fix false positive no-member for contextmanager generator return types (#11412)",
+   "draft": false,
+   "size": 141,
+   "files": 3,
+   "created": "2026-09-14",
+   "updated": "2026-09-14",
    "labels": [],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
-   "ci": "awaiting-approval",
+   "merge": "UNKNOWN",
+   "ci": "not-run",
    "citot": 2,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
-   "links": [],
+   "links": [
+    [
+     11412,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "-",
+    "-"
+   ]
+  },
+  {
+   "n": 11422,
+   "a": "GTUTETTY",
+   "t": "Fix false positive no-member for type narrowing in chained and conditions (#10784)",
+   "draft": false,
+   "size": 233,
+   "files": 3,
+   "created": "2026-09-14",
+   "updated": "2026-09-14",
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "merge": "UNKNOWN",
+   "ci": "not-run",
+   "citot": 2,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [
+    [
+     10784,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "-",
+    "-"
+   ]
+  },
+  {
+   "n": 11424,
+   "a": "RizgarOzan",
+   "t": "Fix false positive no-member for TypeAliasType attributes on type statement aliases",
+   "draft": false,
+   "size": 52,
+   "files": 5,
+   "created": "2026-09-14",
+   "updated": "2026-09-14",
+   "labels": [
+    "False Positive 🦟",
+    "backport maintenance/4.0.x"
+   ],
+   "rd": "REVIEW_REQUIRED",
+   "merge": "UNKNOWN",
+   "ci": "green",
+   "citot": 51,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [
+    [
+     10091,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "github-actions",
+    "2026-09-14"
+   ]
+  },
+  {
+   "n": 11425,
+   "a": "RizgarOzan",
+   "t": "Fix arguments-differ false positive for overload stubs in subclasses",
+   "draft": false,
+   "size": 85,
+   "files": 4,
+   "created": "2026-09-14",
+   "updated": "2026-09-14",
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "merge": "UNKNOWN",
+   "ci": "not-run",
+   "citot": 3,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [
+    [
+     5264,
+     "",
+     ""
+    ],
+    [
+     10186,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "-",
+    "-"
+   ]
+  },
+  {
+   "n": 11428,
+   "a": "udsy19",
+   "t": "Fix false positive no-member on functools.singledispatch calls",
+   "draft": false,
+   "size": 114,
+   "files": 6,
+   "created": "2026-09-16",
+   "updated": "2026-09-23",
+   "labels": [
+    "False Positive 🦟"
+   ],
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "green",
+   "citot": 48,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [
+    [
+     2647,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "github-actions",
+    "2026-09-23"
+   ]
+  },
+  {
+   "n": 11430,
+   "a": "Rayan-and-beyond",
+   "t": "fix abstract-class-instantiated false positive for attrs fields",
+   "draft": false,
+   "size": 57,
+   "files": 3,
+   "created": "2026-09-17",
+   "updated": "2026-09-17",
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "not-run",
+   "citot": 3,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [
+    [
+     9013,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "-",
+    "-"
+   ]
+  },
+  {
+   "n": 11432,
+   "a": "udsy19",
+   "t": "Fix false negative for unused-import on sibling dotted submodule imports",
+   "draft": false,
+   "size": 107,
+   "files": 4,
+   "created": "2026-09-17",
+   "updated": "2026-09-19",
+   "labels": [
+    "False Negative 🦋"
+   ],
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "awaiting-approval",
+   "citot": 50,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [
+    [
+     2583,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "github-actions",
+    "2026-09-19"
+   ]
+  },
+  {
+   "n": 11435,
+   "a": "udsy19",
+   "t": "Fix false positive attribute-defined-outside-init for classic property(fget, fset) setters",
+   "draft": false,
+   "size": 76,
+   "files": 4,
+   "created": "2026-09-21",
+   "updated": "2026-09-21",
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "awaiting-approval",
+   "citot": 3,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [
+    [
+     409,
+     "",
+     ""
+    ],
+    [
+     3325,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "-",
+    "-"
+   ]
+  },
+  {
+   "n": 11439,
+   "a": "GruffElixir",
+   "t": "Fix generic protocol subscription checks",
+   "draft": false,
+   "size": 97,
+   "files": 4,
+   "created": "2026-09-22",
+   "updated": "2026-09-22",
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "merge": "UNKNOWN",
+   "ci": "awaiting-approval",
+   "citot": 3,
+   "cifail": 0,
+   "nrev": 1,
+   "mrev": [],
+   "links": [
+    [
+     9863,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "-",
+    "-"
+   ]
+  },
+  {
+   "n": 11447,
+   "a": "dchaudhari7177",
+   "t": "Fix useless-suppression false positive for line-too-long with a # in a string",
+   "draft": false,
+   "size": 56,
+   "files": 5,
+   "created": "2026-09-23",
+   "updated": "2026-09-25",
+   "labels": [
+    "Needs review 🔍",
+    "False Positive 🦟"
+   ],
+   "rd": "APPROVED",
+   "merge": "UNKNOWN",
+   "ci": "green",
+   "citot": 53,
+   "cifail": 0,
+   "nrev": 1,
+   "mrev": [
+    "Pierre-Sassoulas"
+   ],
+   "links": [
+    [
+     11440,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "github-actions",
+    "2026-09-23"
+   ]
+  },
+  {
+   "n": 11450,
+   "a": "dchaudhari7177",
+   "t": "Don't spellcheck the marker of a reST field in a docstring",
+   "draft": false,
+   "size": 85,
+   "files": 3,
+   "created": "2026-09-23",
+   "updated": "2026-09-25",
+   "labels": [
+    "Enhancement ✨"
+   ],
+   "rd": "CHANGES_REQUESTED",
+   "merge": "UNKNOWN",
+   "ci": "awaiting-approval",
+   "citot": 4,
+   "cifail": 0,
+   "nrev": 1,
+   "mrev": [
+    "Pierre-Sassoulas"
+   ],
+   "links": [
+    [
+     10187,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "-",
+    "-"
+   ]
+  },
+  {
+   "n": 11457,
+   "a": "tanmayBeginsJourney",
+   "t": "Fix false positive ``useless-parent-delegation`` for modified keyword-only arguments",
+   "draft": false,
+   "size": 25,
+   "files": 4,
+   "created": "2026-09-24",
+   "updated": "2026-09-24",
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "awaiting-approval",
+   "citot": 3,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [
+    [
+     9226,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "-",
+    "-"
+   ]
+  },
+  {
+   "n": 11460,
+   "a": "agustin18",
+   "t": "Fix unnecessary-ellipsis false positive for Protocol methods in conditional blocks",
+   "draft": false,
+   "size": 42,
+   "files": 4,
+   "created": "2026-09-25",
+   "updated": "2026-09-25",
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "merge": "UNKNOWN",
+   "ci": "awaiting-approval",
+   "citot": 3,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [
+    [
+     11459,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "-",
+    "-"
+   ]
+  },
+  {
+   "n": 11461,
+   "a": "agustin18",
+   "t": "Fix false positive 'invalid-overridden-method' when overriding Enum.value",
+   "draft": false,
+   "size": 136,
+   "files": 5,
+   "created": "2026-09-25",
+   "updated": "2026-09-25",
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "awaiting-approval",
+   "citot": 3,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [
+    [
+     9905,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "-",
+    "-"
+   ]
+  },
+  {
+   "n": 11469,
+   "a": "wufangyong973",
+   "t": "fix(config): honor false value for valueless options in config files",
+   "draft": false,
+   "size": 71,
+   "files": 2,
+   "created": "2026-09-26",
+   "updated": "2026-09-26",
+   "labels": [
+    "Bug :beetle:",
+    "Configuration"
+   ],
+   "rd": "CHANGES_REQUESTED",
+   "merge": "MERGEABLE",
+   "ci": "awaiting-approval",
+   "citot": 55,
+   "cifail": 0,
+   "nrev": 1,
+   "mrev": [
+    "Pierre-Sassoulas"
+   ],
+   "links": [
+    [
+     8460,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "github-actions",
+    "2026-09-26"
+   ]
+  },
+  {
+   "n": 11475,
+   "a": "udsy19",
+   "t": "Fix import-self false positive for a name missing from the current package",
+   "draft": false,
+   "size": 123,
+   "files": 6,
+   "created": "2026-09-26",
+   "updated": "2026-09-27",
+   "labels": [
+    "False Positive 🦟"
+   ],
+   "rd": "CHANGES_REQUESTED",
+   "merge": "MERGEABLE",
+   "ci": "green",
+   "citot": 48,
+   "cifail": 0,
+   "nrev": 1,
+   "mrev": [
+    "Pierre-Sassoulas"
+   ],
+   "links": [
+    [
+     3748,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "github-actions",
+    "2026-09-26"
+   ]
+  },
+  {
+   "n": 11476,
+   "a": "DYNOSuprovo",
+   "t": "Fix false positive for `unnecessary-lambda` when variable is reassigned or deleted",
+   "draft": false,
+   "size": 42,
+   "files": 5,
+   "created": "2026-09-27",
+   "updated": "2026-09-27",
+   "labels": [
+    "False Positive 🦟",
+    "backport maintenance/4.0.x"
+   ],
+   "rd": "REVIEW_REQUIRED",
+   "merge": "UNKNOWN",
+   "ci": "green",
+   "citot": 53,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [
+    [
+     8192,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "github-actions",
+    "2026-09-27"
+   ]
+  },
+  {
+   "n": 11480,
+   "a": "udsy19",
+   "t": "Fix false positive method-hidden when overriding __init__ without calling super",
+   "draft": false,
+   "size": 113,
+   "files": 4,
+   "created": "2026-09-27",
+   "updated": "2026-09-27",
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "green",
+   "citot": 48,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [
+    [
+     3745,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "github-actions",
+    "2026-09-27"
+   ]
+  },
+  {
+   "n": 11481,
+   "a": "Vinayak19112003",
+   "t": "Fix a crash in import-private-name on attribute access rooted at a non-Name node",
+   "draft": false,
+   "size": 13,
+   "files": 3,
+   "created": "2026-09-27",
+   "updated": "2026-09-27",
+   "labels": [
+    "Crash 💥",
+    "backport maintenance/4.0.x"
+   ],
+   "rd": "CHANGES_REQUESTED",
+   "merge": "MERGEABLE",
+   "ci": "failing",
+   "citot": 46,
+   "cifail": 9,
+   "nrev": 1,
+   "mrev": [
+    "Pierre-Sassoulas"
+   ],
+   "links": [
+    [
+     11479,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "github-actions",
+    "2026-09-27"
+   ]
+  },
+  {
+   "n": 11483,
+   "a": "tk1475",
+   "t": "Fix used-before-assignment false positive for walrus in comprehension condition",
+   "draft": false,
+   "size": 54,
+   "files": 4,
+   "created": "2026-09-28",
+   "updated": "2026-09-28",
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "awaiting-approval",
+   "citot": 3,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [
+    [
+     9460,
+     "",
+     ""
+    ]
+   ],
    "lastcom": [
     "-",
     "-"
@@ -1760,6 +2258,16 @@
   }
  ],
  "issues": [
+  {
+   "comments": 2,
+   "labels": [
+    "Bug :beetle:"
+   ],
+   "number": 409,
+   "state": "closed",
+   "state_reason": "completed",
+   "title": "attribute-defined-outside-init warning wrongly triggered when using properties"
+  },
   {
    "comments": 45,
    "labels": [
@@ -1776,12 +2284,51 @@
    "title": "Add different configuration for different sub directories"
   },
   {
-   "comments": 1,
-   "labels": [],
-   "number": 1234,
-   "state": "closed",
-   "state_reason": "completed",
-   "title": "incorrect analysing of etree"
+   "comments": 11,
+   "labels": [
+    "Bug :beetle:",
+    "Help wanted 🙏",
+    "duplicate-code",
+    "Hacktoberfest"
+   ],
+   "number": 2368,
+   "state": "open",
+   "state_reason": null,
+   "title": "``duplicate-code`` are always counted on the last module checked"
+  },
+  {
+   "comments": 2,
+   "labels": [
+    "False Negative 🦋",
+    "Needs PR"
+   ],
+   "number": 2583,
+   "state": "open",
+   "state_reason": null,
+   "title": "No warning for unused import"
+  },
+  {
+   "comments": 0,
+   "labels": [
+    "False Positive 🦟",
+    "Needs PR"
+   ],
+   "number": 2647,
+   "state": "open",
+   "state_reason": null,
+   "title": "Pylint gets confused by functools.singledispatch and assumes wrong return types of its registered functions."
+  },
+  {
+   "comments": 5,
+   "labels": [
+    "Checkers",
+    "False Positive 🦟",
+    "Needs PR"
+   ],
+   "number": 3325,
+   "state": "open",
+   "state_reason": null,
+   "title": "False positive ``attribute-defined-outside-init`` when using properties "
   },
   {
    "comments": 69,
@@ -1793,6 +2340,30 @@
    "state": "open",
    "state_reason": null,
    "title": "Disable certain messages by default"
+  },
+  {
+   "comments": 0,
+   "labels": [
+    "Enhancement ✨",
+    "Control flow",
+    "Needs PR"
+   ],
+   "number": 3745,
+   "state": "open",
+   "state_reason": null,
+   "title": "False positive method-hidden in overridden methods"
+  },
+  {
+   "comments": 1,
+   "labels": [
+    "Import system",
+    "False Positive 🦟",
+    "Needs PR"
+   ],
+   "number": 3748,
+   "state": "open",
+   "state_reason": null,
+   "title": "`import-self` false positive when importing non-existing module from current package"
   },
   {
    "comments": 10,
@@ -1809,17 +2380,6 @@
    "title": "Have a way to require type annotations"
   },
   {
-   "comments": 16,
-   "labels": [
-    "Enhancement ✨",
-    "Needs PR"
-   ],
-   "number": 3995,
-   "state": "open",
-   "state_reason": null,
-   "title": "Take the ``FORCE_COLOR`` and ``NO_COLOR`` environnement variables into account"
-  },
-  {
    "comments": 1,
    "labels": [
     "typing",
@@ -1830,6 +2390,18 @@
    "state": "open",
    "state_reason": null,
    "title": "False positive no-member for NamedTuple._replace()"
+  },
+  {
+   "comments": 2,
+   "labels": [
+    "False Positive 🦟",
+    "C: arguments-differ",
+    "Needs PR"
+   ],
+   "number": 5264,
+   "state": "open",
+   "state_reason": null,
+   "title": "False-positive `signature-differs` / `arguments-differ` with `typing.overload`"
   },
   {
    "comments": 6,
@@ -1846,6 +2418,18 @@
    "title": "SARIF output format for pylint ?"
   },
   {
+   "comments": 13,
+   "labels": [
+    "Enhancement ✨",
+    "High priority",
+    "Needs PR"
+   ],
+   "number": 5701,
+   "state": "open",
+   "state_reason": null,
+   "title": "Should  ``pylint`` be equivalent to ``pylint .`` ?"
+  },
+  {
    "comments": 5,
    "labels": [
     "Good first issue",
@@ -1858,6 +2442,32 @@
    "title": "arguments-differ: number of parameters was some number ... and is now the same number in overridden ..."
   },
   {
+   "comments": 1,
+   "labels": [
+    "False Negative 🦋",
+    "Needs PR"
+   ],
+   "number": 6085,
+   "state": "open",
+   "state_reason": null,
+   "title": "``bad-format-character`` false negative on ``.format()`` and f-strings"
+  },
+  {
+   "comments": 3,
+   "labels": [
+    "Bug :beetle:",
+    "Help wanted 🙏",
+    "Good first issue",
+    "False Negative 🦋",
+    "Hacktoberfest",
+    "Needs PR"
+   ],
+   "number": 6163,
+   "state": "open",
+   "state_reason": null,
+   "title": "``bad-string-format-type``: only works on old-style string formatting and can't infer values"
+  },
+  {
    "comments": 6,
    "labels": [
     "Bug :beetle:",
@@ -1868,19 +2478,6 @@
    "state": "open",
    "state_reason": null,
    "title": "[R0801] Similarities false positive on abstract classes"
-  },
-  {
-   "comments": 0,
-   "labels": [
-    "Help wanted 🙏",
-    "False Positive 🦟",
-    "Hacktoberfest",
-    "Needs PR"
-   ],
-   "number": 7500,
-   "state": "open",
-   "state_reason": null,
-   "title": "`not-callable` false positive for `types.FunctionType`"
   },
   {
    "comments": 6,
@@ -1907,6 +2504,17 @@
    "state": "open",
    "state_reason": null,
    "title": "Pyreverse: Duplicated class variables"
+  },
+  {
+   "comments": 2,
+   "labels": [
+    "False Positive 🦟",
+    "Needs PR"
+   ],
+   "number": 8192,
+   "state": "open",
+   "state_reason": null,
+   "title": "unnecessary-lambda false positive (expression variable reassigned)"
   },
   {
    "comments": 4,
@@ -1948,17 +2556,16 @@
    "title": "--fail-under has no visual impact on terminal output"
   },
   {
-   "comments": 4,
+   "comments": 0,
    "labels": [
-    "Good first issue",
-    "False Negative 🦋",
-    "Hacktoberfest",
+    "False Positive 🦟",
+    "Lib specific 💅",
     "Needs PR"
    ],
-   "number": 8785,
+   "number": 9013,
    "state": "open",
    "state_reason": null,
-   "title": "Use inference to determine if **kwargs is missing a named parameter"
+   "title": "E0110 False positive when using attrs.field"
   },
   {
    "comments": 4,
@@ -1985,29 +2592,18 @@
    "title": "Add randomization to test suite to find test isolation problems"
   },
   {
-   "comments": 2,
+   "comments": 1,
    "labels": [
-    "Enhancement ✨",
+    "Bug :beetle:",
     "Help wanted 🙏",
-    "Good first issue",
-    "Hacktoberfest",
-    "Needs PR"
+    "Import system",
+    "Needs investigation 🔬",
+    "macOS"
    ],
-   "number": 9143,
-   "state": "open",
-   "state_reason": "reopened",
-   "title": "Add pylint-junit reporter class"
-  },
-  {
-   "comments": 0,
-   "labels": [
-    "Documentation :green_book:",
-    "Needs PR"
-   ],
-   "number": 9174,
+   "number": 9168,
    "state": "open",
    "state_reason": null,
-   "title": "Better docs required for 2 'design' checkers"
+   "title": "Inconsistent behavior with circular import on MacOS"
   },
   {
    "comments": 4,
@@ -2021,6 +2617,17 @@
    "state": "open",
    "state_reason": null,
    "title": "--recursive option does not find .py files in sub-directories of packages"
+  },
+  {
+   "comments": 0,
+   "labels": [
+    "False Positive 🦟",
+    "Needs PR"
+   ],
+   "number": 9226,
+   "state": "open",
+   "state_reason": null,
+   "title": "False positive `useless-super-delegation` when only passing different arguments"
   },
   {
    "comments": 2,
@@ -2056,6 +2663,18 @@
    "state": "open",
    "state_reason": null,
    "title": "too-many-try-statements should exclude `pass` statements if required by Python"
+  },
+  {
+   "comments": 0,
+   "labels": [
+    "False Positive 🦟",
+    "C: used-before-assignment",
+    "Needs PR"
+   ],
+   "number": 9460,
+   "state": "open",
+   "state_reason": null,
+   "title": "False positive for E0601 when variable first assigned in assignment expression in `if` clause of a comprehension"
   },
   {
    "comments": 2,
@@ -2101,30 +2720,43 @@
    "title": "[pyreverse] Dunder methods in diagrams"
   },
   {
-   "comments": 0,
+   "comments": 2,
    "labels": [
-    "Bug :beetle:",
+    "typing",
     "False Positive 🦟",
-    "C: unused-argument",
-    "dataclasses"
+    "Needs PR"
    ],
-   "number": 9843,
+   "number": 9863,
    "state": "open",
    "state_reason": null,
-   "title": "False positive `unused-argument` in `dataclass` `__new__`"
+   "title": "Unexpected behavior when dealing with Protocol generics"
+  },
+  {
+   "comments": 2,
+   "labels": [
+    "Astroid",
+    "typing",
+    "False Positive 🦟",
+    "Needs PR",
+    "python 3.12"
+   ],
+   "number": 9884,
+   "state": "open",
+   "state_reason": null,
+   "title": "`redefined-outer-name` (`W0621`) - false positive on 3.12 type aliases"
   },
   {
    "comments": 0,
    "labels": [
     "Bug :beetle:",
-    "Needs astroid Brain 🧠",
-    "typing",
+    "Checkers",
+    "Decorators",
     "False Positive 🦟"
    ],
-   "number": 9885,
+   "number": 9905,
    "state": "open",
    "state_reason": null,
-   "title": "False positive missing member __value__ with type statement and Literal under python 3.12"
+   "title": "False positive `invalid-overridden-method` when overridding `Enum.value`"
   },
   {
    "comments": 8,
@@ -2148,17 +2780,6 @@
    "state": "open",
    "state_reason": null,
    "title": "Alter fallback when `source-root` based package path discovery when a source root containing the module directory is not found"
-  },
-  {
-   "comments": 1,
-   "labels": [
-    "False Positive 🦟",
-    "Needs PR"
-   ],
-   "number": 10029,
-   "state": "open",
-   "state_reason": null,
-   "title": "Missing mandatory keyword argument (E1125) with explicit mandatory keywords and keyword dictionary"
   },
   {
    "comments": 0,
@@ -2232,6 +2853,30 @@
    "title": "Question: Is there a reason that `invalid-envvar-default` only checks `os.getenv`, not `os.environ.get`"
   },
   {
+   "comments": 0,
+   "labels": [
+    "Bug :beetle:",
+    "typing",
+    "False Positive 🦟",
+    "C: arguments-differ"
+   ],
+   "number": 10186,
+   "state": "open",
+   "state_reason": null,
+   "title": "False positive with `arguments-differ` rule in overridden overloaded methods in subclass"
+  },
+  {
+   "comments": 0,
+   "labels": [
+    "Enhancement ✨",
+    "Needs PR"
+   ],
+   "number": 10187,
+   "state": "open",
+   "state_reason": null,
+   "title": "Spellchecker doesn't ignore labels and types in autodoc docstrings"
+  },
+  {
    "comments": 10,
    "labels": [
     "False Negative 🦋",
@@ -2283,19 +2928,6 @@
   {
    "comments": 0,
    "labels": [
-    "Bug :beetle:",
-    "Discussion 🤔",
-    "Regression",
-    "Optional Checkers"
-   ],
-   "number": 10691,
-   "state": "open",
-   "state_reason": null,
-   "title": "Conflicting warnings R2004 from `pylint.extensions.magic_value` and R6103 from `pylint.extensions.code_style`"
-  },
-  {
-   "comments": 0,
-   "labels": [
     "pyreverse",
     "Crash 💥"
    ],
@@ -2303,6 +2935,19 @@
    "state": "open",
    "state_reason": null,
    "title": "Pylint/pyreverse bug"
+  },
+  {
+   "comments": 0,
+   "labels": [
+    "Bug :beetle:",
+    "Control flow",
+    "inference",
+    "False Positive 🦟"
+   ],
+   "number": 10784,
+   "state": "open",
+   "state_reason": null,
+   "title": "Type narrowing fails due to unrelated instance assignment"
   },
   {
    "comments": 3,
@@ -2336,29 +2981,6 @@
    "title": "test_functional.py --update-functional-output deletes files for other Python versions"
   },
   {
-   "comments": 0,
-   "labels": [
-    "Astroid",
-    "False Positive 🦟",
-    "enum"
-   ],
-   "number": 10951,
-   "state": "open",
-   "state_reason": null,
-   "title": "pylint does not recognise `from ... import` inside an `IntEnum` class body as producing enum members. It infers the members as `int` instead of `LogLevel`, causing a spurious `E1101: Instance of 'int' has no 'value' member (no-member)` error."
-  },
-  {
-   "comments": 0,
-   "labels": [
-    "performance",
-    "Needs PR"
-   ],
-   "number": 11005,
-   "state": "open",
-   "state_reason": null,
-   "title": "Improve the performance of PyLinter._discover_files()'s use of the os.walk() method."
-  },
-  {
    "comments": 2,
    "labels": [
     "False Positive 🦟",
@@ -2368,6 +2990,28 @@
    "state": "open",
    "state_reason": null,
    "title": "C0103: Variable name false positive for single word all caps at module level"
+  },
+  {
+   "comments": 1,
+   "labels": [
+    "Crash 💥",
+    "Needs PR"
+   ],
+   "number": 11053,
+   "state": "closed",
+   "state_reason": "completed",
+   "title": "AttributeError: 'TypeVar' object has no attribute 'pytype'"
+  },
+  {
+   "comments": 1,
+   "labels": [
+    "False Positive 🦟",
+    "Needs astroid update"
+   ],
+   "number": 11115,
+   "state": "open",
+   "state_reason": null,
+   "title": "False positive used-before-assignment (E0601) for PEP 695 type-parameter bound forward-referencing a later-defined class"
   },
   {
    "comments": 2,
@@ -2392,14 +3036,6 @@
   },
   {
    "comments": 0,
-   "labels": [],
-   "number": 11312,
-   "state": "closed",
-   "state_reason": "completed",
-   "title": "False positive `unbalanced-tuple-unpacking` when unpacking an exception's `args`"
-  },
-  {
-   "comments": 0,
    "labels": [
     "False Positive 🦟",
     "Needs PR"
@@ -2410,26 +3046,15 @@
    "title": "False positive `reimported` related to import alias to avoid name clash"
   },
   {
-   "comments": 1,
+   "comments": 0,
    "labels": [
-    "Work in progress",
-    "Crash 💥"
-   ],
-   "number": 11356,
-   "state": "open",
-   "state_reason": null,
-   "title": "Uncaught `InferenceError: Inference failed for all members of AssignAttr` in types checker"
-  },
-  {
-   "comments": 5,
-   "labels": [
-    "Crash 💥",
+    "False Positive 🦟",
     "Needs PR"
    ],
-   "number": 11361,
+   "number": 11412,
    "state": "open",
    "state_reason": null,
-   "title": "Uncaught StatementMissing exception in class checker"
+   "title": "Wrong inference for generators"
   },
   {
    "comments": 0,
@@ -2438,6 +3063,36 @@
    "state": "open",
    "state_reason": null,
    "title": "False positive no-member for annotated Enum _value_"
+  },
+  {
+   "comments": 0,
+   "labels": [
+    "False Positive 🦟",
+    "Needs PR"
+   ],
+   "number": 11440,
+   "state": "open",
+   "state_reason": null,
+   "title": "useless-suppression false positive for line-too-long when a # appears inside a string literal before the actual pragma comment"
+  },
+  {
+   "comments": 0,
+   "labels": [],
+   "number": 11459,
+   "state": "open",
+   "state_reason": null,
+   "title": "False positive unnecessary-ellipsis for Protocol method inside TYPE_CHECKING"
+  },
+  {
+   "comments": 0,
+   "labels": [
+    "Crash 💥",
+    "Needs PR"
+   ],
+   "number": 11479,
+   "state": "open",
+   "state_reason": null,
+   "title": "`AttributeError: 'ClassDef' object has no attribute 'expr'` in private-import checker"
   }
  ]
 }
