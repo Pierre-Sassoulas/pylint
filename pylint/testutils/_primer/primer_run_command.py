@@ -29,14 +29,7 @@ class RunCommand(PrimerCommand):
     def run(self) -> None:
         packages: PackageMessages = {}
         fatal_msgs: list[Message] = []
-        package_data_iter = (
-            self.packages.items()
-            if self.config.batches is None
-            else list(self.packages.items())[
-                self.config.batchIdx :: self.config.batches
-            ]
-        )
-        for package, data in package_data_iter:
+        for package, data in self.packages_in_batch():
             messages, p_fatal_msgs = self._lint_package(package, data)
             fatal_msgs += p_fatal_msgs
             local_commit = Repo(data.clone_directory).head.object.hexsha

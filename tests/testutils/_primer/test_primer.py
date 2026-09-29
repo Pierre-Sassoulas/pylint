@@ -82,6 +82,54 @@ def test_primer_selects_command(args: list[str], command_path: str) -> None:
     command.return_value.run.assert_called_once()
 
 
+def _batched_names(
+    lint_times: dict[str, int], batches: int | None, batch_idx: int | None
+) -> list[str]:
+    packages = {
+        name: PackageToLint(
+            url=f"https://github.com/example/{name}",
+            branch="main",
+            directories=["."],
+            commit="main",
+            lint_time=lint_time,
+        )
+        for name, lint_time in lint_times.items()
+    }
+    config = argparse.Namespace(batches=batches, batchIdx=batch_idx)
+    command = CompareCommand(PRIMER_DIRECTORY, packages, config)
+    return [name for name, _ in command.packages_in_batch()]
+
+
+@pytest.mark.parametrize(
+    ("lint_times", "batches", "batch_idx", "expected"),
+    [
+        ({"a": 10, "b": 1, "c": 1, "d": 8}, None, None, ["a", "b", "c", "d"]),
+        # The two longest go to separate batches, the short ones even them out
+        ({"a": 10, "b": 1, "c": 1, "d": 8}, 2, 0, ["a"]),
+        ({"a": 10, "b": 1, "c": 1, "d": 8}, 2, 1, ["b", "c", "d"]),
+        # Without a lint_time, packages are spread by count
+        ({"a": 0, "b": 0, "c": 0, "d": 0, "e": 0}, 2, 0, ["a", "c", "e"]),
+        ({"a": 0, "b": 0, "c": 0, "d": 0, "e": 0}, 2, 1, ["b", "d"]),
+    ],
+)
+def test_packages_in_batch(
+    lint_times: dict[str, int],
+    batches: int | None,
+    batch_idx: int | None,
+    expected: list[str],
+) -> None:
+    assert _batched_names(lint_times, batches, batch_idx) == expected
+
+
+def test_primed_packages_are_each_in_one_batch() -> None:
+    with patch("sys.argv", ["python tests/primer/__main__.py", "run", "--type=pr"]):
+        primer = Primer(PRIMER_DIRECTORY, PACKAGES_TO_PRIME_PATH)
+    lint_times = {name: data.lint_time for name, data in primer.packages.items()}
+    batched = [_batched_names(lint_times, 4, idx) for idx in range(4)]
+    assert sorted(name for batch in batched for name in batch) == sorted(lint_times)
+    assert all(batched)
+
+
 def test_truncated_compare_stops_iterating_packages() -> None:
     max_comment_length = 500
     packages = {

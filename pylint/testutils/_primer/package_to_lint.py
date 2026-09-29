@@ -57,6 +57,12 @@ class PackageToLint:
     minimum_python: str | None = None
     """Minimum python version supported by the package."""
 
+    lint_time: int = 0
+    """Approximate number of seconds it takes to lint the package.
+
+    Only used to balance the batches, so only the ratios between packages matter.
+    """
+
     @property
     def pylintrc(self) -> Path | Literal[""]:
         if self.pylintrc_relpath is None:

@@ -92,6 +92,9 @@ The list of repositories is created on the basis of three criteria: 1) projects 
 range of language features, 2) projects need to be well maintained and 3) projects should not have a codebase
 that is too repetitive. This guarantees a good balance between speed of our CI and finding potential bugs.
 
+Each repository has a ``lint_time``, the approximate number of seconds it takes to lint it.
+The batches are balanced with it, so give a new repository the time its ``run`` took.
+
 Pyreverse primer
 ~~~~~~~~~~~~~~~~
 
