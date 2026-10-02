@@ -397,10 +397,10 @@
       "ts": "2026-05-12T10:40:59.402300+00:00"
     },
     "10460": {
-      "verdict": "REPRO",
-      "note": "Confirmed C0412 ungrouped-imports false positive across if/else branches (cross-platform import pattern). Already linked to #7735, #3382 by reporter.",
-      "session": 1,
-      "ts": "2026-05-12T10:40:59.423190+00:00"
+      "verdict": "FIXED",
+      "note": "Closed by PR 11217 (platform guards in ungrouped-imports), backported as PR 11486. Shipped in 4.0.10 and 4.1.0.",
+      "session": 18,
+      "ts": "2026-10-02T22:36:01.601456+00:00"
     },
     "10459": {
       "verdict": "FIXED",
@@ -463,10 +463,10 @@
       "ts": "2026-05-12T10:44:04.002769+00:00"
     },
     "10360": {
-      "verdict": "REPRO",
-      "note": "Confirmed E1136: when a generic class defines __class_getitem__ AND __getitem__, instance of Test[int]([...]) is still flagged as unsubscriptable.",
-      "session": 1,
-      "ts": "2026-05-12T10:44:04.037482+00:00"
+      "verdict": "FIXED",
+      "note": "Already fixed upstream; PR 11487 adds the regression test. Closed by the 4.1.0 release.",
+      "session": 18,
+      "ts": "2026-10-02T22:36:01.601456+00:00"
     },
     "10348": {
       "verdict": "REPRO",
@@ -2383,10 +2383,10 @@
       "ts": "2026-05-12T11:14:59.040034+00:00"
     },
     "8766": {
-      "verdict": "DESIGN",
-      "note": "Docs: run_pylint signature documentation. Docs/PR.",
-      "session": 4,
-      "ts": "2026-05-12T11:14:59.066440+00:00"
+      "verdict": "FIXED",
+      "note": "Closed by PR 11503 (run_pylint API example). On main only: ships in 4.2.0 (docs).",
+      "session": 18,
+      "ts": "2026-10-02T22:36:01.601456+00:00"
     },
     "8759": {
       "verdict": "EXTDEP",
@@ -2863,10 +2863,10 @@
       "ts": "2026-05-12T11:36:11.808692+00:00"
     },
     "8192": {
-      "verdict": "DESIGN",
-      "note": "False positive unnecessary-lambda when lambda body uses a reassigned outer variable. Requires aliasing/reassignment tracking. Spec.",
-      "session": 4,
-      "ts": "2026-05-12T11:32:39.166191+00:00"
+      "verdict": "FIXED",
+      "note": "Closed by PR 11476, backported to 4.0.x as PR 11489. Shipped in 4.0.10 and 4.1.0.",
+      "session": 18,
+      "ts": "2026-10-02T22:36:01.601456+00:00"
     },
     "8183": {
       "verdict": "DESIGN",
@@ -4153,10 +4153,10 @@
       "ts": "2026-05-12T11:52:18.586005+00:00"
     },
     "5701": {
-      "verdict": "DESIGN",
-      "note": "Decision: should 'pylint' (no args) be equivalent to 'pylint .'? Maintainer discussion.",
-      "session": 6,
-      "ts": "2026-05-12T11:57:59.403206+00:00"
+      "verdict": "FIXED",
+      "note": "Closed by the 4.1.0 release: the files option can now be set in configuration, so a bare pylint lints the configured files. PR 9072 (making pylint equal to pylint .) is still open.",
+      "session": 18,
+      "ts": "2026-10-02T22:36:01.601456+00:00"
     },
     "5699": {
       "verdict": "REPRO",
@@ -5864,9 +5864,9 @@
     },
     "2621": {
       "verdict": "FIXED",
-      "note": "Closed on 2026-09-26, but still reproduces on main 4f263c11c with astroid 4.3.2: W0632 says the right side has 4 values (snippets/i2621.py). The fix is astroid PR 3221 (merged 2026-09-26, milestone 4.3.3, backport PR 3309 to maintenance/4.3.x), not released yet. Needs the astroid 4.3.3 bump on main to take effect. Previous verdict: REPRO.",
-      "session": 17,
-      "ts": "2026-09-28T14:22:27.584583+00:00"
+      "note": "Closed by astroid PR 3221 through the astroid 4.3.3 bump (PR 11508). Shipped in 4.1.2.",
+      "session": 18,
+      "ts": "2026-10-02T22:36:01.601456+00:00"
     },
     "2625": {
       "verdict": "EXTDEP",
@@ -6235,16 +6235,70 @@
       "ts": "2026-09-28T14:22:27.584583+00:00"
     },
     "11479": {
-      "verdict": "REPRO",
-      "note": "Confirmed on main 4f263c11c (astroid 4.3.2, CPython 3.13.1) and on 4.0.9 (astroid 4.0.4): AttributeError 'ClassDef' object has no attribute 'expr' in private_import._assignments_call_private_name. Loading only pylint.extensions.private_import is enough (snippets/i11479.py). PR 11481 open with red CI; the competing PR 11482 is closed.",
-      "session": 17,
-      "ts": "2026-09-28T14:22:27.584583+00:00"
+      "verdict": "FIXED",
+      "note": "Closed by PR 11481 (merged before the 4.1.0 bump) and backported to 4.0.x as PR 11490. Shipped in 4.0.10 and 4.1.0.",
+      "session": 18,
+      "ts": "2026-10-02T22:36:01.601456+00:00"
     },
     "11459": {
       "verdict": "REPRO",
       "note": "Confirmed on main 4f263c11c (astroid 4.3.2, CPython 3.13.1) and on 4.0.9: W2301 on the Protocol method inside if TYPE_CHECKING only (snippets/i11459.py). Root cause: ellipsis_checker passes the function's parent, the If node, to is_protocol_class instead of the enclosing class. PR 11460 open, run held for approval.",
       "session": 17,
       "ts": "2026-09-28T14:22:27.584583+00:00"
+    },
+    "11491": {
+      "verdict": "FIXED",
+      "note": "Closed by astroid PR 3319 through the astroid 4.3.3 bump (PR 11508). Shipped in 4.1.2. The defensive pylint PR 11501 was closed.",
+      "session": 18,
+      "ts": "2026-10-02T22:36:01.601456+00:00"
+    },
+    "11492": {
+      "verdict": "FIXED",
+      "note": "Closed by PR 11504, backported as PR 11509. Shipped in 4.1.2.",
+      "session": 18,
+      "ts": "2026-10-02T22:36:01.601456+00:00"
+    },
+    "11510": {
+      "verdict": "FIXED",
+      "note": "Fuzzer crash (TypeVar used as a context manager in typecheck.visit_with). Closed by PR 11515, backported as PR 11534. Shipped in 4.1.2.",
+      "session": 18,
+      "ts": "2026-10-02T22:36:01.601456+00:00"
+    },
+    "11511": {
+      "verdict": "FIXED",
+      "note": "Fuzzer crash (metaclass name binding without lineno in variables._check_classdef_metaclasses). Closed by PR 11512, backported as PR 11531. Shipped in 4.1.2.",
+      "session": 18,
+      "ts": "2026-10-02T22:36:01.601456+00:00"
+    },
+    "11521": {
+      "verdict": "FIXED",
+      "note": "Closed by PR 11526 (maintainer): uninferable_final_decorators now asks is_typing_member, so a plain import named final no longer reaches .modname. Backported as PR 11533, shipped in 4.1.2. Competing PR 11522 closed.",
+      "session": 18,
+      "ts": "2026-10-02T22:36:01.601456+00:00"
+    },
+    "11530": {
+      "verdict": "FIXED",
+      "note": "Regression in 4.1.0 from commit 7667457f5 (confidence made non-nullable): pylint-pytest passes confidence=None, which crashed _get_message_state_scope on a disabled message. Closed by PR 11532 (revert plus DeprecationWarning for None), backported as PR 11535, shipped in 4.1.2. pylint-pytest should still forward UNDEFINED before 5.0.",
+      "session": 18,
+      "ts": "2026-10-02T22:36:01.601456+00:00"
+    },
+    "11520": {
+      "verdict": "REPRO",
+      "note": "Confirmed on main 2bc862cb2 (astroid 4.3.3): table_lines_from_stats returns the old integer count as the diff cell, e.g. ['convention', '5', '2', 2]. Report output only. PR 11523 open.",
+      "session": 18,
+      "ts": "2026-10-02T22:36:01.601456+00:00"
+    },
+    "11524": {
+      "verdict": "DESIGN",
+      "note": "Annotation-only report from a type-error research tool: about 15 helper signatures disagree with what they accept or return. No runtime defect claimed. Fold into a typing cleanup; split per helper if taken.",
+      "session": 18,
+      "ts": "2026-10-02T22:36:01.601456+00:00"
+    },
+    "11528": {
+      "verdict": "EXTDEP",
+      "note": "Python 3.15 with -j: dill.dumps(linter) uses code.co_lnotab, removed in 3.15. Needs a dill release (dill issue 753); pylint only pins the unreleased dill for its own tests.",
+      "session": 18,
+      "ts": "2026-10-02T22:36:01.601456+00:00"
     }
   },
   "session_count": 10
