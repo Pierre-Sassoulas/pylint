@@ -1,8 +1,8 @@
 {
- "snapshot": "2026-09-28",
+ "snapshot": "2026-10-03",
  "owner": "Pierre-Sassoulas",
- "open_total": 94,
- "open_own": 22,
+ "open_total": 110,
+ "open_own": 23,
  "prs": [
   {
    "n": 5401,
@@ -20,7 +20,7 @@
     "Needs take over 🛎️"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "CONFLICTING",
+   "merge": "UNKNOWN",
    "ci": "not-run",
    "citot": 0,
    "cifail": 0,
@@ -49,7 +49,7 @@
     "Needs take over 🛎️"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "CONFLICTING",
+   "merge": "UNKNOWN",
    "ci": "not-run",
    "citot": 2,
    "cifail": 0,
@@ -82,7 +82,7 @@
     "Needs take over 🛎️"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "CONFLICTING",
+   "merge": "UNKNOWN",
    "ci": "not-run",
    "citot": 2,
    "cifail": 0,
@@ -114,7 +114,7 @@
     "Needs take over 🛎️"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "CONFLICTING",
+   "merge": "UNKNOWN",
    "ci": "not-run",
    "citot": 0,
    "cifail": 0,
@@ -148,7 +148,7 @@
     "Needs take over 🛎️"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "not-run",
    "citot": 0,
    "cifail": 0,
@@ -178,7 +178,7 @@
     "Needs take over 🛎️"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "CONFLICTING",
+   "merge": "UNKNOWN",
    "ci": "not-run",
    "citot": 0,
    "cifail": 0,
@@ -205,7 +205,7 @@
     "Needs decision :lock:"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "CONFLICTING",
+   "merge": "UNKNOWN",
    "ci": "not-run",
    "citot": 2,
    "cifail": 0,
@@ -299,11 +299,11 @@
    "size": 121,
    "files": 3,
    "created": "2025-04-09",
-   "updated": "2026-05-24",
+   "updated": "2026-10-02",
    "labels": [
     "Bug :beetle:",
     "pyreverse",
-    "backport maintenance/4.0.x"
+    "backport maintenance/4.1.x"
    ],
    "rd": "CHANGES_REQUESTED",
    "merge": "MERGEABLE",
@@ -783,7 +783,7 @@
    "size": 23,
    "files": 4,
    "created": "2026-06-17",
-   "updated": "2026-07-04",
+   "updated": "2026-10-02",
    "labels": [
     "Blocked 🚧",
     "Crash 💥"
@@ -819,7 +819,7 @@
    "labels": [
     "Bug :beetle:",
     "Waiting on author",
-    "backport maintenance/4.0.x"
+    "backport maintenance/4.1.x"
    ],
    "rd": "CHANGES_REQUESTED",
    "merge": "MERGEABLE",
@@ -853,7 +853,7 @@
    "updated": "2026-09-23",
    "labels": [
     "False Positive 🦟",
-    "backport maintenance/4.0.x"
+    "backport maintenance/4.1.x"
    ],
    "rd": "CHANGES_REQUESTED",
    "merge": "MERGEABLE",
@@ -887,7 +887,7 @@
    "updated": "2026-09-15",
    "labels": [
     "False Positive 🦟",
-    "backport maintenance/4.0.x"
+    "backport maintenance/4.1.x"
    ],
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
@@ -1032,41 +1032,6 @@
    "lastcom": [
     "github-actions",
     "2026-09-09"
-   ]
-  },
-  {
-   "n": 11217,
-   "a": "TheGreatApollyon",
-   "t": "Do not flag ungrouped imports inside OS platform guards",
-   "draft": false,
-   "size": 95,
-   "files": 6,
-   "created": "2026-07-31",
-   "updated": "2026-09-24",
-   "labels": [
-    "False Positive 🦟",
-    "Waiting on author",
-    "backport maintenance/4.0.x"
-   ],
-   "rd": "CHANGES_REQUESTED",
-   "merge": "MERGEABLE",
-   "ci": "failing",
-   "citot": 54,
-   "cifail": 1,
-   "nrev": 2,
-   "mrev": [
-    "Pierre-Sassoulas"
-   ],
-   "links": [
-    [
-     10460,
-     "",
-     ""
-    ]
-   ],
-   "lastcom": [
-    "github-actions",
-    "2026-07-31"
    ]
   },
   {
@@ -1237,7 +1202,7 @@
    "updated": "2026-08-15",
    "labels": [],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "not-run",
    "citot": 3,
    "cifail": 0,
@@ -1266,7 +1231,7 @@
    "updated": "2026-09-20",
    "labels": [],
    "rd": "CHANGES_REQUESTED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "green",
    "citot": 48,
    "cifail": 0,
@@ -1326,7 +1291,7 @@
    "updated": "2026-09-20",
    "labels": [],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "failing",
    "citot": 49,
    "cifail": 1,
@@ -1357,7 +1322,7 @@
    "updated": "2026-09-04",
    "labels": [],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "not-run",
    "citot": 2,
    "cifail": 0,
@@ -1386,7 +1351,7 @@
    "updated": "2026-09-03",
    "labels": [],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "not-run",
    "citot": 3,
    "cifail": 0,
@@ -1417,8 +1382,8 @@
     "Skip news :mute:"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
-   "ci": "awaiting-approval",
+   "merge": "MERGEABLE",
+   "ci": "not-run",
    "citot": 2,
    "cifail": 0,
    "nrev": 2,
@@ -1442,7 +1407,7 @@
    "updated": "2026-09-23",
    "labels": [],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "green",
    "citot": 49,
    "cifail": 0,
@@ -1471,7 +1436,7 @@
    "updated": "2026-09-23",
    "labels": [],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "failing",
    "citot": 49,
    "cifail": 1,
@@ -1530,7 +1495,7 @@
    "labels": [],
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "awaiting-approval",
+   "ci": "not-run",
    "citot": 2,
    "cifail": 0,
    "nrev": 0,
@@ -1558,7 +1523,7 @@
    "updated": "2026-09-23",
    "labels": [],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "failing",
    "citot": 48,
    "cifail": 2,
@@ -1587,8 +1552,8 @@
    "updated": "2026-09-23",
    "labels": [],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
-   "ci": "awaiting-approval",
+   "merge": "MERGEABLE",
+   "ci": "not-run",
    "citot": 2,
    "cifail": 0,
    "nrev": 1,
@@ -1613,24 +1578,25 @@
    "size": 36,
    "files": 8,
    "created": "2026-09-13",
-   "updated": "2026-09-27",
+   "updated": "2026-10-02",
    "labels": [
     "Bug :beetle:",
-    "backport maintenance/4.0.x"
+    "backport maintenance/4.1.x"
    ],
-   "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
-   "ci": "awaiting-approval",
-   "citot": 50,
+   "rd": "CHANGES_REQUESTED",
+   "merge": "MERGEABLE",
+   "ci": "green",
+   "citot": 52,
    "cifail": 0,
-   "nrev": 1,
+   "nrev": 2,
    "mrev": [
-    "DanielNoord"
+    "DanielNoord",
+    "Pierre-Sassoulas"
    ],
    "links": [],
    "lastcom": [
-    "github-actions",
-    "2026-09-23"
+    "arpitjain099",
+    "2026-09-29"
    ]
   },
   {
@@ -1644,7 +1610,7 @@
    "updated": "2026-09-14",
    "labels": [],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "not-run",
    "citot": 2,
    "cifail": 0,
@@ -1673,7 +1639,7 @@
    "updated": "2026-09-14",
    "labels": [],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "not-run",
    "citot": 2,
    "cifail": 0,
@@ -1699,13 +1665,13 @@
    "size": 52,
    "files": 5,
    "created": "2026-09-14",
-   "updated": "2026-09-14",
+   "updated": "2026-09-30",
    "labels": [
     "False Positive 🦟",
-    "backport maintenance/4.0.x"
+    "backport maintenance/4.1.x"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "green",
    "citot": 51,
    "cifail": 0,
@@ -1719,8 +1685,8 @@
     ]
    ],
    "lastcom": [
-    "github-actions",
-    "2026-09-14"
+    "RizgarOzan",
+    "2026-09-30"
    ]
   },
   {
@@ -1731,10 +1697,10 @@
    "size": 85,
    "files": 4,
    "created": "2026-09-14",
-   "updated": "2026-09-14",
+   "updated": "2026-09-30",
    "labels": [],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "not-run",
    "citot": 3,
    "cifail": 0,
@@ -1753,8 +1719,8 @@
     ]
    ],
    "lastcom": [
-    "-",
-    "-"
+    "RizgarOzan",
+    "2026-09-30"
    ]
   },
   {
@@ -1799,7 +1765,7 @@
    "updated": "2026-09-17",
    "labels": [],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "CONFLICTING",
    "ci": "not-run",
    "citot": 3,
    "cifail": 0,
@@ -1822,17 +1788,17 @@
    "a": "udsy19",
    "t": "Fix false negative for unused-import on sibling dotted submodule imports",
    "draft": false,
-   "size": 107,
-   "files": 4,
+   "size": 142,
+   "files": 5,
    "created": "2026-09-17",
-   "updated": "2026-09-19",
+   "updated": "2026-10-02",
    "labels": [
     "False Negative 🦋"
    ],
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "awaiting-approval",
-   "citot": 50,
+   "ci": "green",
+   "citot": 48,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -1845,7 +1811,7 @@
    ],
    "lastcom": [
     "github-actions",
-    "2026-09-19"
+    "2026-10-02"
    ]
   },
   {
@@ -1860,7 +1826,7 @@
    "labels": [],
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "awaiting-approval",
+   "ci": "not-run",
    "citot": 3,
    "cifail": 0,
    "nrev": 0,
@@ -1893,8 +1859,8 @@
    "updated": "2026-09-22",
    "labels": [],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
-   "ci": "awaiting-approval",
+   "merge": "MERGEABLE",
+   "ci": "not-run",
    "citot": 3,
    "cifail": 0,
    "nrev": 1,
@@ -1919,15 +1885,16 @@
    "size": 56,
    "files": 5,
    "created": "2026-09-23",
-   "updated": "2026-09-25",
+   "updated": "2026-10-02",
    "labels": [
     "Needs review 🔍",
-    "False Positive 🦟"
+    "False Positive 🦟",
+    "backport maintenance/4.1.x"
    ],
    "rd": "APPROVED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "green",
-   "citot": 53,
+   "citot": 55,
    "cifail": 0,
    "nrev": 1,
    "mrev": [
@@ -1953,16 +1920,16 @@
    "size": 85,
    "files": 3,
    "created": "2026-09-23",
-   "updated": "2026-09-25",
+   "updated": "2026-09-30",
    "labels": [
     "Enhancement ✨"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "UNKNOWN",
-   "ci": "awaiting-approval",
+   "merge": "MERGEABLE",
+   "ci": "not-run",
    "citot": 4,
    "cifail": 0,
-   "nrev": 1,
+   "nrev": 2,
    "mrev": [
     "Pierre-Sassoulas"
    ],
@@ -1974,8 +1941,8 @@
     ]
    ],
    "lastcom": [
-    "-",
-    "-"
+    "dchaudhari7177",
+    "2026-09-30"
    ]
   },
   {
@@ -1990,7 +1957,7 @@
    "labels": [],
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "awaiting-approval",
+   "ci": "not-run",
    "citot": 3,
    "cifail": 0,
    "nrev": 0,
@@ -2018,8 +1985,8 @@
    "updated": "2026-09-25",
    "labels": [],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
-   "ci": "awaiting-approval",
+   "merge": "MERGEABLE",
+   "ci": "not-run",
    "citot": 3,
    "cifail": 0,
    "nrev": 0,
@@ -2048,7 +2015,7 @@
    "labels": [],
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "awaiting-approval",
+   "ci": "not-run",
    "citot": 3,
    "cifail": 0,
    "nrev": 0,
@@ -2070,10 +2037,10 @@
    "a": "wufangyong973",
    "t": "fix(config): honor false value for valueless options in config files",
    "draft": false,
-   "size": 71,
-   "files": 2,
+   "size": 80,
+   "files": 3,
    "created": "2026-09-26",
-   "updated": "2026-09-26",
+   "updated": "2026-10-01",
    "labels": [
     "Bug :beetle:",
     "Configuration"
@@ -2081,7 +2048,7 @@
    "rd": "CHANGES_REQUESTED",
    "merge": "MERGEABLE",
    "ci": "awaiting-approval",
-   "citot": 55,
+   "citot": 2,
    "cifail": 0,
    "nrev": 1,
    "mrev": [
@@ -2104,18 +2071,18 @@
    "a": "udsy19",
    "t": "Fix import-self false positive for a name missing from the current package",
    "draft": false,
-   "size": 123,
-   "files": 6,
+   "size": 1751,
+   "files": 7,
    "created": "2026-09-26",
-   "updated": "2026-09-27",
+   "updated": "2026-10-01",
    "labels": [
     "False Positive 🦟"
    ],
    "rd": "CHANGES_REQUESTED",
    "merge": "MERGEABLE",
-   "ci": "green",
+   "ci": "failing",
    "citot": 48,
-   "cifail": 0,
+   "cifail": 1,
    "nrev": 1,
    "mrev": [
     "Pierre-Sassoulas"
@@ -2129,39 +2096,7 @@
    ],
    "lastcom": [
     "github-actions",
-    "2026-09-26"
-   ]
-  },
-  {
-   "n": 11476,
-   "a": "DYNOSuprovo",
-   "t": "Fix false positive for `unnecessary-lambda` when variable is reassigned or deleted",
-   "draft": false,
-   "size": 42,
-   "files": 5,
-   "created": "2026-09-27",
-   "updated": "2026-09-27",
-   "labels": [
-    "False Positive 🦟",
-    "backport maintenance/4.0.x"
-   ],
-   "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
-   "ci": "green",
-   "citot": 53,
-   "cifail": 0,
-   "nrev": 0,
-   "mrev": [],
-   "links": [
-    [
-     8192,
-     "",
-     ""
-    ]
-   ],
-   "lastcom": [
-    "github-actions",
-    "2026-09-27"
+    "2026-10-01"
    ]
   },
   {
@@ -2194,40 +2129,6 @@
    ]
   },
   {
-   "n": 11481,
-   "a": "Vinayak19112003",
-   "t": "Fix a crash in import-private-name on attribute access rooted at a non-Name node",
-   "draft": false,
-   "size": 13,
-   "files": 3,
-   "created": "2026-09-27",
-   "updated": "2026-09-27",
-   "labels": [
-    "Crash 💥",
-    "backport maintenance/4.0.x"
-   ],
-   "rd": "CHANGES_REQUESTED",
-   "merge": "MERGEABLE",
-   "ci": "failing",
-   "citot": 46,
-   "cifail": 9,
-   "nrev": 1,
-   "mrev": [
-    "Pierre-Sassoulas"
-   ],
-   "links": [
-    [
-     11479,
-     "",
-     ""
-    ]
-   ],
-   "lastcom": [
-    "github-actions",
-    "2026-09-27"
-   ]
-  },
-  {
    "n": 11483,
    "a": "tk1475",
    "t": "Fix used-before-assignment false positive for walrus in comprehension condition",
@@ -2239,7 +2140,7 @@
    "labels": [],
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "awaiting-approval",
+   "ci": "not-run",
    "citot": 3,
    "cifail": 0,
    "nrev": 0,
@@ -2247,6 +2148,542 @@
    "links": [
     [
      9460,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "-",
+    "-"
+   ]
+  },
+  {
+   "n": 11493,
+   "a": "jadhavgaurav",
+   "t": "Fix used-before-assignment false positive for names shadowed by a later method",
+   "draft": false,
+   "size": 94,
+   "files": 4,
+   "created": "2026-09-29",
+   "updated": "2026-09-29",
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "awaiting-approval",
+   "citot": 3,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [
+    [
+     9134,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "-",
+    "-"
+   ]
+  },
+  {
+   "n": 11502,
+   "a": "nightcityblade",
+   "t": "Show actual defaults for message-control options",
+   "draft": false,
+   "size": 45,
+   "files": 3,
+   "created": "2026-09-30",
+   "updated": "2026-09-30",
+   "labels": [
+    "Bug :beetle:",
+    "Documentation :green_book:"
+   ],
+   "rd": "CHANGES_REQUESTED",
+   "merge": "MERGEABLE",
+   "ci": "awaiting-approval",
+   "citot": 28,
+   "cifail": 0,
+   "nrev": 5,
+   "mrev": [
+    "Pierre-Sassoulas"
+   ],
+   "links": [
+    [
+     8912,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "nightcityblade",
+    "2026-09-30"
+   ]
+  },
+  {
+   "n": 11505,
+   "a": "ace2016",
+   "t": "Avoid redefined-builtin for inherited parameter names",
+   "draft": false,
+   "size": 47,
+   "files": 7,
+   "created": "2026-09-30",
+   "updated": "2026-09-30",
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "green",
+   "citot": 48,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [
+    [
+     1234,
+     "",
+     ""
+    ],
+    [
+     11438,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "ace2016",
+    "2026-09-30"
+   ]
+  },
+  {
+   "n": 11506,
+   "a": "dchaudhari7177",
+   "t": "Honour --module-names in pyreverse's MermaidJS output",
+   "draft": false,
+   "size": 40,
+   "files": 6,
+   "created": "2026-09-30",
+   "updated": "2026-09-30",
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "green",
+   "citot": 50,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [
+    [
+     10164,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "github-actions",
+    "2026-09-30"
+   ]
+  },
+  {
+   "n": 11507,
+   "a": "dchaudhari7177",
+   "t": "Add regression tests for #10609 and #10032",
+   "draft": false,
+   "size": 17,
+   "files": 2,
+   "created": "2026-09-30",
+   "updated": "2026-10-02",
+   "labels": [
+    "Maintenance",
+    "Skip news :mute:"
+   ],
+   "rd": "CHANGES_REQUESTED",
+   "merge": "MERGEABLE",
+   "ci": "green",
+   "citot": 28,
+   "cifail": 0,
+   "nrev": 1,
+   "mrev": [
+    "Pierre-Sassoulas"
+   ],
+   "links": [
+    [
+     10032,
+     "",
+     ""
+    ],
+    [
+     10609,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "codecov",
+    "2026-09-30"
+   ]
+  },
+  {
+   "n": 11513,
+   "a": "kdelay",
+   "t": "Fix unnecessary-negation false positive for set subclasses",
+   "draft": false,
+   "size": 25,
+   "files": 3,
+   "created": "2026-09-30",
+   "updated": "2026-09-30",
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "green",
+   "citot": 48,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [],
+   "lastcom": [
+    "github-actions",
+    "2026-09-30"
+   ]
+  },
+  {
+   "n": 11517,
+   "a": "wolfgang-aura",
+   "t": "Fix unexpected-keyword-arg false positive for pass-through decorators above a **kwargs decorator",
+   "draft": false,
+   "size": 50,
+   "files": 4,
+   "created": "2026-10-01",
+   "updated": "2026-10-01",
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "awaiting-approval",
+   "citot": 3,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [
+    [
+     10831,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "-",
+    "-"
+   ]
+  },
+  {
+   "n": 11518,
+   "a": "nightcityblade",
+   "t": "Fix unexpected-keyword-arg for opaque decorators",
+   "draft": false,
+   "size": 22,
+   "files": 3,
+   "created": "2026-10-01",
+   "updated": "2026-10-01",
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "green",
+   "citot": 49,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [
+    [
+     10831,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "github-actions",
+    "2026-10-01"
+   ]
+  },
+  {
+   "n": 11519,
+   "a": "nightcityblade",
+   "t": "Document TOML escaping for regular expressions",
+   "draft": false,
+   "size": 18,
+   "files": 2,
+   "created": "2026-10-01",
+   "updated": "2026-10-01",
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "green",
+   "citot": 29,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [
+    [
+     6963,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "codecov",
+    "2026-10-01"
+   ]
+  },
+  {
+   "n": 11523,
+   "a": "adarshsm",
+   "t": "Diff integer counts in report tables",
+   "draft": true,
+   "size": 20,
+   "files": 3,
+   "created": "2026-10-01",
+   "updated": "2026-10-01",
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "awaiting-approval",
+   "citot": 3,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [
+    [
+     11520,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "-",
+    "-"
+   ]
+  },
+  {
+   "n": 11525,
+   "a": "cyphercodes",
+   "t": "Fix variant attribute narrowing false positive",
+   "draft": false,
+   "size": 364,
+   "files": 4,
+   "created": "2026-10-01",
+   "updated": "2026-10-01",
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "awaiting-approval",
+   "citot": 3,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [
+    [
+     8900,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "-",
+    "-"
+   ]
+  },
+  {
+   "n": 11527,
+   "a": "SAY-5",
+   "t": "Fix bare annotations hiding unbound names in exception paths",
+   "draft": false,
+   "size": 148,
+   "files": 4,
+   "created": "2026-10-02",
+   "updated": "2026-10-02",
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "green",
+   "citot": 49,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [
+    [
+     10847,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "github-actions",
+    "2026-10-02"
+   ]
+  },
+  {
+   "n": 11529,
+   "a": "shan3520",
+   "t": "Fix `used-before-assignment` false positive for tuple targets in multi-item `with`",
+   "draft": false,
+   "size": 68,
+   "files": 4,
+   "created": "2026-10-02",
+   "updated": "2026-10-02",
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "awaiting-approval",
+   "citot": 3,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [
+    [
+     7545,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "-",
+    "-"
+   ]
+  },
+  {
+   "n": 11538,
+   "a": "yuefdev",
+   "t": "Allow __main__ in module naming presets",
+   "draft": false,
+   "size": 25,
+   "files": 3,
+   "created": "2026-10-03",
+   "updated": "2026-10-03",
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "awaiting-approval",
+   "citot": 3,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [
+    [
+     10442,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "-",
+    "-"
+   ]
+  },
+  {
+   "n": 11539,
+   "a": "aipd506",
+   "t": "Align helper type annotations with handled AST values",
+   "draft": false,
+   "size": 227,
+   "files": 9,
+   "created": "2026-10-03",
+   "updated": "2026-10-03",
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "awaiting-approval",
+   "citot": 2,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [
+    [
+     11524,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "-",
+    "-"
+   ]
+  },
+  {
+   "n": 11540,
+   "a": "aipd506",
+   "t": "Respect boolean values for flags in configuration files",
+   "draft": false,
+   "size": 161,
+   "files": 4,
+   "created": "2026-10-03",
+   "updated": "2026-10-03",
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "awaiting-approval",
+   "citot": 3,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [
+    [
+     8460,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "-",
+    "-"
+   ]
+  },
+  {
+   "n": 11541,
+   "a": "aipd506",
+   "t": "Format integer statistics with diff_string in table_lines_from_stats",
+   "draft": false,
+   "size": 121,
+   "files": 3,
+   "created": "2026-10-03",
+   "updated": "2026-10-03",
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "awaiting-approval",
+   "citot": 3,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [
+    [
+     11520,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "-",
+    "-"
+   ]
+  },
+  {
+   "n": 11542,
+   "a": "aipd506",
+   "t": "Fix false positive unnecessary-ellipsis for Protocol method inside TYPE_CHECKING",
+   "draft": false,
+   "size": 25,
+   "files": 4,
+   "created": "2026-10-03",
+   "updated": "2026-10-03",
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "awaiting-approval",
+   "citot": 3,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [
+    [
+     11459,
      "",
      ""
     ]
@@ -2282,6 +2719,14 @@
    "state": "open",
    "state_reason": null,
    "title": "Add different configuration for different sub directories"
+  },
+  {
+   "comments": 1,
+   "labels": [],
+   "number": 1234,
+   "state": "closed",
+   "state_reason": "completed",
+   "title": "incorrect analysing of etree"
   },
   {
    "comments": 11,
@@ -2425,8 +2870,8 @@
     "Needs PR"
    ],
    "number": 5701,
-   "state": "open",
-   "state_reason": null,
+   "state": "closed",
+   "state_reason": "completed",
    "title": "Should  ``pylint`` be equivalent to ``pylint .`` ?"
   },
   {
@@ -2468,6 +2913,18 @@
    "title": "``bad-string-format-type``: only works on old-style string formatting and can't infer values"
   },
   {
+   "comments": 3,
+   "labels": [
+    "Documentation :green_book:",
+    "pylint-config",
+    "Needs PR"
+   ],
+   "number": 6963,
+   "state": "open",
+   "state_reason": null,
+   "title": "`ignore-paths` Can't use escape sequence in toml config"
+  },
+  {
    "comments": 6,
    "labels": [
     "Bug :beetle:",
@@ -2478,6 +2935,18 @@
    "state": "open",
    "state_reason": null,
    "title": "[R0801] Similarities false positive on abstract classes"
+  },
+  {
+   "comments": 4,
+   "labels": [
+    "False Positive 🦟",
+    "C: used-before-assignment",
+    "Needs PR"
+   ],
+   "number": 7545,
+   "state": "open",
+   "state_reason": null,
+   "title": "False positive `used-before-assignment` with multi-item `with` statement and tuple target"
   },
   {
    "comments": 6,
@@ -2506,17 +2975,6 @@
    "title": "Pyreverse: Duplicated class variables"
   },
   {
-   "comments": 2,
-   "labels": [
-    "False Positive 🦟",
-    "Needs PR"
-   ],
-   "number": 8192,
-   "state": "open",
-   "state_reason": null,
-   "title": "unnecessary-lambda false positive (expression variable reassigned)"
-  },
-  {
    "comments": 4,
    "labels": [
     "False Positive 🦟",
@@ -2528,7 +2986,7 @@
    "title": "consider-using-f-string is triggered in a functional context"
   },
   {
-   "comments": 6,
+   "comments": 7,
    "labels": [
     "Configuration",
     "Good first issue",
@@ -2554,6 +3012,28 @@
    "state": "open",
    "state_reason": null,
    "title": "--fail-under has no visual impact on terminal output"
+  },
+  {
+   "comments": 2,
+   "labels": [
+    "False Positive 🦟",
+    "Needs PR"
+   ],
+   "number": 8900,
+   "state": "open",
+   "state_reason": null,
+   "title": "False positive attribute-defined-outside-init when setting variant field"
+  },
+  {
+   "comments": 1,
+   "labels": [
+    "Documentation :green_book:",
+    "Needs PR"
+   ],
+   "number": 8912,
+   "state": "open",
+   "state_reason": null,
+   "title": "Fix all_options.rst"
   },
   {
    "comments": 0,
@@ -2590,6 +3070,18 @@
    "state": "open",
    "state_reason": null,
    "title": "Add randomization to test suite to find test isolation problems"
+  },
+  {
+   "comments": 2,
+   "labels": [
+    "False Positive 🦟",
+    "C: used-before-assignment",
+    "Needs PR"
+   ],
+   "number": 9134,
+   "state": "open",
+   "state_reason": null,
+   "title": "Pylint false report for used-before-assignment"
   },
   {
    "comments": 1,
@@ -2782,6 +3274,17 @@
    "title": "Alter fallback when `source-root` based package path discovery when a source root containing the module directory is not found"
   },
   {
+   "comments": 2,
+   "labels": [
+    "False Positive 🦟",
+    "Needs PR"
+   ],
+   "number": 10032,
+   "state": "open",
+   "state_reason": null,
+   "title": "consider-using-augmented-assign false-positive for multiple dictionaries and string keys"
+  },
+  {
    "comments": 0,
    "labels": [
     "False Positive 🦟",
@@ -2853,6 +3356,17 @@
    "title": "Question: Is there a reason that `invalid-envvar-default` only checks `os.getenv`, not `os.environ.get`"
   },
   {
+   "comments": 1,
+   "labels": [
+    "Enhancement ✨",
+    "pyreverse"
+   ],
+   "number": 10164,
+   "state": "open",
+   "state_reason": null,
+   "title": "Generated mermaid files do not implement the --module-names option of pyreverse."
+  },
+  {
    "comments": 0,
    "labels": [
     "Bug :beetle:",
@@ -2900,17 +3414,15 @@
    "title": "Expand to ``use-implicit-booleaness-not-len`` to catch `len(iterable) == 0` and `>0`"
   },
   {
-   "comments": 3,
+   "comments": 5,
    "labels": [
-    "Control flow",
     "False Positive 🦟",
-    "Needs astroid update",
-    "Needs PR"
+    "Needs specification :closed_lock_with_key:"
    ],
-   "number": 10460,
+   "number": 10442,
    "state": "open",
    "state_reason": null,
-   "title": "False positive `ungrouped-imports` with if os.name"
+   "title": "Treat `__main__.py` as a special module name under camelCase module-naming-style"
   },
   {
    "comments": 2,
@@ -2924,6 +3436,18 @@
    "state": "open",
    "state_reason": null,
    "title": "Add sphinx references to pylint messages"
+  },
+  {
+   "comments": 0,
+   "labels": [
+    "Bug :beetle:",
+    "Needs astroid Brain 🧠",
+    "False Positive 🦟"
+   ],
+   "number": 10609,
+   "state": "open",
+   "state_reason": null,
+   "title": "False positive E1121: Too many positional arguments error for Subclassed Enums instanciated with functional API"
   },
   {
    "comments": 0,
@@ -2971,6 +3495,18 @@
    "title": "Improper handling of log message format bytestrings"
   },
   {
+   "comments": 1,
+   "labels": [
+    "False Positive 🦟",
+    "Lib specific 💅",
+    "Needs PR"
+   ],
+   "number": 10831,
+   "state": "open",
+   "state_reason": null,
+   "title": "False positive unexpected-keyword-arg with scipy.stats 1.17"
+  },
+  {
    "comments": 0,
    "labels": [
     "tests"
@@ -2979,6 +3515,16 @@
    "state": "open",
    "state_reason": null,
    "title": "test_functional.py --update-functional-output deletes files for other Python versions"
+  },
+  {
+   "comments": 0,
+   "labels": [
+    "False Negative 🦋"
+   ],
+   "number": 10847,
+   "state": "open",
+   "state_reason": null,
+   "title": "possibly-used-before-assignment false negative when variable has type annotation"
   },
   {
    "comments": 2,
@@ -3067,6 +3613,17 @@
   {
    "comments": 0,
    "labels": [
+    "Enhancement ✨",
+    "Needs PR"
+   ],
+   "number": 11438,
+   "state": "open",
+   "state_reason": null,
+   "title": "Auto-supress `redefined-builtin` when there is no choice?"
+  },
+  {
+   "comments": 0,
+   "labels": [
     "False Positive 🦟",
     "Needs PR"
    ],
@@ -3076,7 +3633,7 @@
    "title": "useless-suppression false positive for line-too-long when a # appears inside a string literal before the actual pragma comment"
   },
   {
-   "comments": 0,
+   "comments": 1,
    "labels": [],
    "number": 11459,
    "state": "open",
@@ -3084,15 +3641,22 @@
    "title": "False positive unnecessary-ellipsis for Protocol method inside TYPE_CHECKING"
   },
   {
-   "comments": 0,
+   "comments": 1,
    "labels": [
-    "Crash 💥",
-    "Needs PR"
+    "Maintenance"
    ],
-   "number": 11479,
+   "number": 11520,
    "state": "open",
    "state_reason": null,
-   "title": "`AttributeError: 'ClassDef' object has no attribute 'expr'` in private-import checker"
+   "title": "Integer statistics produce non-string cells in table_lines_from_stats"
+  },
+  {
+   "comments": 1,
+   "labels": [],
+   "number": 11524,
+   "state": "open",
+   "state_reason": null,
+   "title": "Align helper type annotations with their actual AST values"
   }
  ]
 }

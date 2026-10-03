@@ -16,7 +16,7 @@ trap 'rm -rf "$TMP"' EXIT
 retry() {
   local out=$1 fields=$2 i
   for i in 1 2 3 4; do
-    gh pr list --repo "$REPO" --limit 100 --json "$fields" >"$TMP/$out" && return 0
+    gh pr list --repo "$REPO" --limit 500 --json "$fields" >"$TMP/$out" && return 0
     sleep 5
   done
   return 1
@@ -24,7 +24,7 @@ retry() {
 
 retry base.json number,author,title,createdAt,updatedAt,isDraft,labels,additions,deletions,changedFiles,reviewDecision,mergeable,headRefName,url
 retry revs.json number,reviews
-# statusCheckRollup for 100 pull requests at once times out (HTTP 504), so the
+# statusCheckRollup for all open pull requests at once times out (HTTP 504), so the
 # check runs are fetched one pull request at a time.
 : >"$TMP/ci.ndjson"
 for n in $(jq -r '.[].number' "$TMP/base.json"); do
