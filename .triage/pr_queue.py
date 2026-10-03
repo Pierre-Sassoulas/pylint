@@ -82,6 +82,59 @@ V = {
         "Merge it.",
     ),
     # ---- review now -------------------------------------------------------
+    11432: (
+        "review",
+        "primer check",
+        "confirmed",
+        "48/48 green, 142 lines, <code>unused-import</code> false negative on sibling dotted submodule "
+        "imports. The 2 October primer is down to 5 new messages (astropy 2, home-assistant 2, pandas 1), "
+        "from about 120 on the previous run.",
+        "Check the 5 primer hits, then review.",
+    ),
+    11505: (
+        "review",
+        "ready",
+        "feature",
+        "48/48 green, 47 lines, no review. Skips <code>redefined-builtin</code> when the parameter name "
+        "is inherited from a parent signature (issue 11438). The primer removes 9 ansible and 17 "
+        "astropy messages, all of that kind. The body says <b>Closes #1234</b>, a closed 2017 etree "
+        "issue: a typo that would link the wrong issue.",
+        "Review, and ask for <code>Closes #11438</code> before merging.",
+    ),
+    11513: (
+        "review",
+        "ready",
+        "confirmed",
+        "48/48 green, 25 lines, the primer reports no effect. <code>unnecessary-negation</code> "
+        "compared the inferred qname exactly, so a <code>set</code> subclass was still reported. No "
+        "linked issue.",
+        "Quick review and merge.",
+    ),
+    11506: (
+        "review",
+        "ready",
+        "feature",
+        "50/50 green, 40 lines, issue 10164. The MermaidJS printer now uses the label the diagram "
+        "builder already computes, like dot and PlantUML. The astropy <code>no-else-*</code> lines in "
+        "the primer are base drift: pyreverse never reaches the linter.",
+        "Review. Ignore the primer comment.",
+    ),
+    11519: (
+        "review",
+        "ready",
+        "confirmed",
+        "29/29 green, 18 lines of docs for issue 6963: how to escape a regular expression in TOML for "
+        "<code>ignore-paths</code>.",
+        "Read and merge.",
+    ),
+    11527: (
+        "review",
+        "primer check",
+        "confirmed",
+        "49/49 green, 148 lines, issue 10847 (reproduced). The primer adds one home-assistant "
+        "<code>used-before-assignment</code> on <code>dump</code>; pandas is drift.",
+        "Open the home-assistant hit first: it decides whether the fix is right.",
+    ),
     10507: (
         "review",
         "ready",
@@ -131,14 +184,6 @@ V = {
         "and music21.",
         "Review with the primer comment open; the 3 new messages decide it.",
     ),
-    11476: (
-        "review",
-        "ready",
-        "feature",
-        "53/53 green, 42 lines, backport label set. The issue was classed as needing reassignment "
-        "tracking; check the PR does not claim more than it tracks.",
-        "Review the reassignment and <code>del</code> handling; primer shows only home-assistant.",
-    ),
     11480: (
         "review",
         "ready",
@@ -148,28 +193,53 @@ V = {
         "Review. Clean primer, confirmed issue.",
     ),
     # ---- approve the workflow run ----------------------------------------
+    11517: (
+        "approve",
+        "held",
+        "confirmed",
+        "50 lines for issue 10831 (scipy 1.17). It skips only decorators whose every "
+        "<code>return</code> is their own first parameter, and keeps the message for a pass-through "
+        "decorator used alone. More precise than the competing #11518.",
+        "Approve the run; prefer it over #11518 if green.",
+    ),
+    11529: (
+        "approve",
+        "held",
+        "confirmed",
+        "68 lines for issue 7545 (reproduced): a tuple target of one <code>with</code> item, used by a "
+        "later item of the same statement.",
+        "Approve the run.",
+    ),
+    11493: (
+        "approve",
+        "held",
+        "confirmed",
+        "94 lines for issue 9134: a class body name looked up before a later method shadows it in the "
+        "class namespace.",
+        "Approve the run, then check the class-scope rule is not too wide.",
+    ),
+    11523: (
+        "approve",
+        "held",
+        "confirmed",
+        "20 lines for issue 11520 (reproduced on main): the diff cell of the report table shows the old "
+        "count. Filed two days before the duplicate #11541.",
+        "Approve the run; this one wins over #11541.",
+    ),
+    11525: (
+        "approve",
+        "held",
+        "feature",
+        "364 lines for issue 8900, an issue never specified: an <code>isinstance</code> guard narrows a "
+        "variant so <code>attribute-defined-outside-init</code> stays quiet.",
+        "Approve the run, but read the narrowing rules before the tests; big for a false positive.",
+    ),
     11416: (
         "approve",
         "held",
         "confirmed",
         "51 lines, <code>no-member</code> on an annotated enum value. Second PR from this contributor this month.",
         "Approve the run.",
-    ),
-    11417: (
-        "approve",
-        "held",
-        "feature",
-        "36 lines running the For and With checkers over their async forms. DanielNoord asked whether it "
-        "should become the default; the last primer adds 4 home-assistant messages.",
-        "Answer the design question from DanielNoord, then approve the run.",
-    ),
-    11432: (
-        "approve",
-        "held",
-        "confirmed",
-        "107 lines fixing an <code>unused-import</code> false negative. The previous run's primer <b>adds "
-        "about 120 messages across ansible, astropy, home-assistant and sentry</b>; patch coverage 91%.",
-        "Sample the 120 new messages before approving another run.",
     ),
     11435: (
         "approve",
@@ -313,6 +383,23 @@ V = {
         "Decide whether attrs support belongs in core before retriggering.",
     ),
     # ---- author's move ----------------------------------------------------
+    11417: (
+        "author",
+        "waiting",
+        "feature",
+        "52/52 green now. You requested changes on 2 October: the refactoring and variables checkers need "
+        "the async forms too, with async cases for <code>redeclared-assigned-name</code>, "
+        "<code>redefined-argument-from-local</code> and <code>too-many-nested-blocks</code>.",
+        "Waiting on the author.",
+    ),
+    11507: (
+        "author",
+        "waiting",
+        "confirmed",
+        "Regression tests for issues 10609 and 10032, which no longer reproduce. You asked to drop the "
+        "changelog fragment on 30 September.",
+        "Waiting on the author.",
+    ),
     11410: (
         "author",
         "primer red",
@@ -327,13 +414,6 @@ V = {
         "confirmed",
         "One red check. Reviewed once by a maintainer, no follow-up from the author since August.",
         "Ping.",
-    ),
-    11217: (
-        "author",
-        "waiting",
-        "confirmed",
-        "One red check, <em>Waiting on author</em>, and the issue needs an astroid update as well.",
-        "Waiting on two things; say which one blocks first.",
     ),
     11171: (
         "author",
@@ -453,14 +533,6 @@ V = {
         "that only fires next to an import error.",
         "Waiting on the author.",
     ),
-    11481: (
-        "author",
-        "waiting",
-        "crash",
-        "9 checks red out of 46. It raced #11482 for the same crash, and that one is closed. Crash "
-        "reproduces on main and 4.0.9.",
-        "Waiting on the author. If it stalls, the fix is small enough to take over.",
-    ),
     11223: (
         "author",
         "rebase",
@@ -470,6 +542,40 @@ V = {
         "Ask for a rebase onto #11011, keeping only the package-root fix.",
     ),
     # ---- decide first -----------------------------------------------------
+    11518: (
+        "decide",
+        "pick one",
+        "duplicate",
+        "49/49 green, 22 lines, also for issue 10831. It treats any decorator whose return cannot be "
+        "inferred as signature-changing, which silences <code>unexpected-keyword-arg</code> behind "
+        "every opaque decorator.",
+        "Pick #11517 or this one; the broader rule risks false negatives.",
+    ),
+    11502: (
+        "decide",
+        "design",
+        "feature",
+        "Issue 8912: render the real <code>--enable</code>/<code>--disable</code> defaults in "
+        "all-options. You objected to the long list; the author answered on 30 September (ruff and "
+        "eslint use rule prefixes and presets) and reworked it. The CI run is held.",
+        "Settle what the page should list, then approve the run.",
+    ),
+    11538: (
+        "decide",
+        "spec",
+        "feature",
+        "25 lines for issue 10442, labelled <em>Needs specification</em>: allow <code>__main__</code> "
+        "under the camelCase, PascalCase and UPPER_CASE module presets.",
+        "Agree that <code>__main__</code> is special first, then approve the run.",
+    ),
+    11539: (
+        "decide",
+        "close?",
+        "feature",
+        "227 lines of annotation changes across 8 files for issue 11524 (no runtime defect). Part of a "
+        "burst of 4 PRs from the same new account in one day.",
+        "Decide whether issue 11524 is wanted at all before reviewing 227 lines.",
+    ),
     10600: (
         "decide",
         "needs decision",
@@ -535,6 +641,27 @@ V = {
         "Agree on the expected behaviour in the issue before approving a run.",
     ),
     # ---- stale ------------------------------------------------------------
+    11541: (
+        "stale",
+        "close?",
+        "duplicate",
+        "Duplicate of #11523 for issue 11520, opened two days later, with a 118-line unit test file.",
+        "Close with a pointer to #11523.",
+    ),
+    11542: (
+        "stale",
+        "close?",
+        "duplicate",
+        "Duplicate of #11460 for issue 11459, opened eight days later, same fix.",
+        "Close with a pointer to #11460.",
+    ),
+    11540: (
+        "stale",
+        "close?",
+        "duplicate",
+        "Duplicate of #11469 for issue 8460, which already has your requested changes pending.",
+        "Close with a pointer to #11469.",
+    ),
     11277: (
         "stale",
         "close?",
