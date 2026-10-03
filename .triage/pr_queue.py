@@ -82,31 +82,32 @@ V = {
         "Merge it.",
     ),
     # ---- review now -------------------------------------------------------
-    11529: (
-        "review",
-        "coverage",
-        "confirmed",
-        "49 checks green; only <code>codecov/patch</code> is red, one uncovered line in "
-        "<code>checkers/utils.py</code>. 68 lines for issue 7545 (reproduced). Primer comment not "
-        "posted yet.",
-        "Review; ask for a test that reaches the uncovered line, or accept it.",
-    ),
     11517: (
         "review",
         "ready",
         "confirmed",
-        "42 checks green, the primer reports <b>no effect</b>. 50 lines for issue 10831 (scipy 1.17); "
-        "skips only decorators whose every <code>return</code> is their first parameter. More precise "
-        "than #11518.",
+        "53/53 green, the primer reports <b>no effect</b>. 50 lines for issue 10831 (scipy 1.17); skips "
+        "only decorators whose every <code>return</code> is their first parameter. More precise than "
+        "#11518.",
         "Review and merge; then close #11518.",
+    ),
+    11529: (
+        "review",
+        "coverage",
+        "confirmed",
+        "52 of 53 green, only <code>codecov/patch</code> red (one line in "
+        "<code>checkers/utils.py</code>). The primer removes 2 home-assistant "
+        "<code>used-before-assignment</code> false positives. 68 lines for issue 7545.",
+        "Review; ask for a test that reaches the uncovered line, or accept it.",
     ),
     11493: (
         "review",
-        "CI running",
+        "ready",
         "confirmed",
-        "Run released, 37 checks green so far. 94 lines for issue 9134: a class body name looked up "
-        "before a later method shadows it in the class namespace.",
-        "Review when CI finishes; check the class-scope rule is not too wide.",
+        "53/53 green. The primer removes 5 <code>used-before-assignment</code> false positives (django, "
+        "poetry-core, sentry); the astropy <code>too-many-ancestors</code> changes are base drift. 94 "
+        "lines for issue 9134.",
+        "Review and merge. Backport label set.",
     ),
     11432: (
         "review",
@@ -183,6 +184,23 @@ V = {
         "Review. Clean primer, confirmed issue.",
     ),
     # ---- approve the workflow run ----------------------------------------
+    11546: (
+        "approve",
+        "held",
+        "confirmed",
+        "49 lines for issue 10374, reproduced on main 86e06e524: reusing <code>_</code> for a list then "
+        "an object raises R0204. Skips only the bare <code>_</code>; <code>self._</code> keeps the "
+        "check.",
+        "Approve the run.",
+    ),
+    11545: (
+        "approve",
+        "held",
+        "confirmed",
+        "41 lines, makes progress on issue 10423: when an expression infers to two classes, the "
+        "subscription checks now look at every inferred class before reporting. Unit tests only.",
+        "Approve the run.",
+    ),
     11525: (
         "approve",
         "held",
@@ -196,14 +214,6 @@ V = {
         "held",
         "confirmed",
         "51 lines, <code>no-member</code> on an annotated enum value. Second PR from this contributor this month.",
-        "Approve the run.",
-    ),
-    11435: (
-        "approve",
-        "held",
-        "confirmed",
-        "76 lines. Stops <code>attribute-defined-outside-init</code> on a classic <code>property(fget, "
-        "fset)</code> setter; the issue is re-verified.",
         "Approve the run.",
     ),
     11457: (
@@ -340,6 +350,16 @@ V = {
         "Decide whether attrs support belongs in core before retriggering.",
     ),
     # ---- author's move ----------------------------------------------------
+    11435: (
+        "author",
+        "waiting",
+        "confirmed",
+        "Only <code>codecov/patch</code> is red. You asked on 3 October to cover the unreached line or "
+        "remove it. The primer removes about 19 <code>attribute-defined-outside-init</code> false "
+        "positives (astropy, django, pygame). The body quotes an old commit message containing \"Close "
+        "#409\", so GitHub links the 2019 issue 409 as well as 3325.",
+        "Waiting on the author; the primer makes this one worth chasing.",
+    ),
     11519: (
         "author",
         "waiting",
@@ -364,14 +384,6 @@ V = {
         "52/52 green now. You requested changes on 2 October: the refactoring and variables checkers need "
         "the async forms too, with async cases for <code>redeclared-assigned-name</code>, "
         "<code>redefined-argument-from-local</code> and <code>too-many-nested-blocks</code>.",
-        "Waiting on the author.",
-    ),
-    11507: (
-        "author",
-        "waiting",
-        "confirmed",
-        "Regression tests for issues 10609 and 10032, which no longer reproduce. You asked to drop the "
-        "changelog fragment on 30 September.",
         "Waiting on the author.",
     ),
     11410: (
