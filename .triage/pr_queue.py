@@ -82,6 +82,24 @@ V = {
         "Merge it.",
     ),
     # ---- review now -------------------------------------------------------
+    11529: (
+        "review",
+        "coverage",
+        "confirmed",
+        "49 checks green; only <code>codecov/patch</code> is red, one uncovered line in "
+        "<code>checkers/utils.py</code>. 68 lines for issue 7545 (reproduced). Primer comment not "
+        "posted yet.",
+        "Review; ask for a test that reaches the uncovered line, or accept it.",
+    ),
+    11517: (
+        "review",
+        "ready",
+        "confirmed",
+        "42 checks green, the primer reports <b>no effect</b>. 50 lines for issue 10831 (scipy 1.17); "
+        "skips only decorators whose every <code>return</code> is their first parameter. More precise "
+        "than #11518.",
+        "Review and merge; then close #11518.",
+    ),
     11493: (
         "review",
         "CI running",
@@ -89,23 +107,6 @@ V = {
         "Run released, 37 checks green so far. 94 lines for issue 9134: a class body name looked up "
         "before a later method shadows it in the class namespace.",
         "Review when CI finishes; check the class-scope rule is not too wide.",
-    ),
-    11529: (
-        "review",
-        "CI running",
-        "confirmed",
-        "Run released, 37 checks green so far. 68 lines for issue 7545 (reproduced): a tuple target of "
-        "one <code>with</code> item, used by a later item of the same statement.",
-        "Review when CI finishes. Backport label set.",
-    ),
-    11517: (
-        "review",
-        "CI running",
-        "confirmed",
-        "Run released, 43 of the checks done and green so far. 50 lines for issue 10831 (scipy 1.17); "
-        "skips only decorators whose every <code>return</code> is their first parameter. More precise "
-        "than #11518.",
-        "Review when CI finishes; merge this one rather than #11518.",
     ),
     11432: (
         "review",
@@ -614,6 +615,15 @@ V = {
         "Agree on the expected behaviour in the issue before approving a run.",
     ),
     # ---- stale ------------------------------------------------------------
+    11540: (
+        "stale",
+        "close?",
+        "duplicate",
+        "Duplicate of #11469 for issue 8460. You reviewed it on 3 October anyway (changes requested: "
+        "functional config tests instead of unit tests, a transformer instead of "
+        "<code>_preprocess_boolean_arguments</code>).",
+        "Pick one of #11469 and this; close the other.",
+    ),
     11523: (
         "stale",
         "close?",
@@ -629,13 +639,6 @@ V = {
         "duplicate",
         "Duplicate of #11460 for issue 11459, opened eight days later, same fix.",
         "Close with a pointer to #11460.",
-    ),
-    11540: (
-        "stale",
-        "close?",
-        "duplicate",
-        "Duplicate of #11469 for issue 8460, which already has your requested changes pending.",
-        "Close with a pointer to #11469.",
     ),
     11277: (
         "stale",
