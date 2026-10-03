@@ -82,6 +82,31 @@ V = {
         "Merge it.",
     ),
     # ---- review now -------------------------------------------------------
+    11493: (
+        "review",
+        "CI running",
+        "confirmed",
+        "Run released, 37 checks green so far. 94 lines for issue 9134: a class body name looked up "
+        "before a later method shadows it in the class namespace.",
+        "Review when CI finishes; check the class-scope rule is not too wide.",
+    ),
+    11529: (
+        "review",
+        "CI running",
+        "confirmed",
+        "Run released, 37 checks green so far. 68 lines for issue 7545 (reproduced): a tuple target of "
+        "one <code>with</code> item, used by a later item of the same statement.",
+        "Review when CI finishes. Backport label set.",
+    ),
+    11517: (
+        "review",
+        "CI running",
+        "confirmed",
+        "Run released, 43 of the checks done and green so far. 50 lines for issue 10831 (scipy 1.17); "
+        "skips only decorators whose every <code>return</code> is their first parameter. More precise "
+        "than #11518.",
+        "Review when CI finishes; merge this one rather than #11518.",
+    ),
     11432: (
         "review",
         "primer check",
@@ -90,42 +115,6 @@ V = {
         "imports. The 2 October primer is down to 5 new messages (astropy 2, home-assistant 2, pandas 1), "
         "from about 120 on the previous run.",
         "Check the 5 primer hits, then review.",
-    ),
-    11505: (
-        "review",
-        "ready",
-        "feature",
-        "48/48 green, 47 lines, no review. Skips <code>redefined-builtin</code> when the parameter name "
-        "is inherited from a parent signature (issue 11438). The primer removes 9 ansible and 17 "
-        "astropy messages, all of that kind. The body says <b>Closes #1234</b>, a closed 2017 etree "
-        "issue: a typo that would link the wrong issue.",
-        "Review, and ask for <code>Closes #11438</code> before merging.",
-    ),
-    11513: (
-        "review",
-        "ready",
-        "confirmed",
-        "48/48 green, 25 lines, the primer reports no effect. <code>unnecessary-negation</code> "
-        "compared the inferred qname exactly, so a <code>set</code> subclass was still reported. No "
-        "linked issue.",
-        "Quick review and merge.",
-    ),
-    11506: (
-        "review",
-        "ready",
-        "feature",
-        "50/50 green, 40 lines, issue 10164. The MermaidJS printer now uses the label the diagram "
-        "builder already computes, like dot and PlantUML. The astropy <code>no-else-*</code> lines in "
-        "the primer are base drift: pyreverse never reaches the linter.",
-        "Review. Ignore the primer comment.",
-    ),
-    11519: (
-        "review",
-        "ready",
-        "confirmed",
-        "29/29 green, 18 lines of docs for issue 6963: how to escape a regular expression in TOML for "
-        "<code>ignore-paths</code>.",
-        "Read and merge.",
     ),
     11527: (
         "review",
@@ -193,39 +182,6 @@ V = {
         "Review. Clean primer, confirmed issue.",
     ),
     # ---- approve the workflow run ----------------------------------------
-    11517: (
-        "approve",
-        "held",
-        "confirmed",
-        "50 lines for issue 10831 (scipy 1.17). It skips only decorators whose every "
-        "<code>return</code> is their own first parameter, and keeps the message for a pass-through "
-        "decorator used alone. More precise than the competing #11518.",
-        "Approve the run; prefer it over #11518 if green.",
-    ),
-    11529: (
-        "approve",
-        "held",
-        "confirmed",
-        "68 lines for issue 7545 (reproduced): a tuple target of one <code>with</code> item, used by a "
-        "later item of the same statement.",
-        "Approve the run.",
-    ),
-    11493: (
-        "approve",
-        "held",
-        "confirmed",
-        "94 lines for issue 9134: a class body name looked up before a later method shadows it in the "
-        "class namespace.",
-        "Approve the run, then check the class-scope rule is not too wide.",
-    ),
-    11523: (
-        "approve",
-        "held",
-        "confirmed",
-        "20 lines for issue 11520 (reproduced on main): the diff cell of the report table shows the old "
-        "count. Filed two days before the duplicate #11541.",
-        "Approve the run; this one wins over #11541.",
-    ),
     11525: (
         "approve",
         "held",
@@ -383,6 +339,23 @@ V = {
         "Decide whether attrs support belongs in core before retriggering.",
     ),
     # ---- author's move ----------------------------------------------------
+    11519: (
+        "author",
+        "waiting",
+        "confirmed",
+        "You requested changes on 3 October: <code>pylint --generate-toml-config</code> writes regular "
+        "expressions double-quoted with doubled backslashes, so the docs and the generator disagree.",
+        "Waiting on the author's answer: change the generator or document the doubled backslash.",
+    ),
+    11505: (
+        "author",
+        "waiting",
+        "feature",
+        "You requested changes on 3 October: keep <code>redefined-builtin</code> for positional-only "
+        "parameters, since their name is not part of the parent's interface (two suggestions inline). "
+        "The body still says <b>Closes #1234</b>, a closed 2017 etree issue.",
+        "Waiting on the author; ask for <code>Closes #11438</code> in the same round.",
+    ),
     11417: (
         "author",
         "waiting",
@@ -641,12 +614,14 @@ V = {
         "Agree on the expected behaviour in the issue before approving a run.",
     ),
     # ---- stale ------------------------------------------------------------
-    11541: (
+    11523: (
         "stale",
         "close?",
         "duplicate",
-        "Duplicate of #11523 for issue 11520, opened two days later, with a 118-line unit test file.",
-        "Close with a pointer to #11523.",
+        "Superseded: #11541 merged the same one-line fix for issue 11520 on 3 October (issue closed). "
+        "You asked the author whether anything here is still worth keeping; now labelled <em>Work in "
+        "progress</em>.",
+        "Close once the author answers, or after a week.",
     ),
     11542: (
         "stale",
