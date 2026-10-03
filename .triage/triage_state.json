@@ -6284,7 +6284,7 @@
     },
     "11520": {
       "verdict": "FIXED",
-      "note": "Closed by PR 11541 on main (86e06e524): integer statistics now go through diff_string, and a missing old value shows NC. Backport label set, the backport run was still queued on 3 October; ships in 4.1.3 once it lands. The earlier PR 11523 has the same fix and is superseded.",
+      "note": "Closed by PR 11541 on main (86e06e524): integer statistics now go through diff_string, and a missing old value shows NC. Backport PR 11544 approved on 3 October; ships in 4.1.3. The earlier PR 11523 has the same fix and is superseded.",
       "session": 18,
       "ts": "2026-10-03T07:19:13.947434+00:00"
     },
