@@ -1,7 +1,7 @@
 {
  "snapshot": "2026-10-03",
  "owner": "Pierre-Sassoulas",
- "open_total": 108,
+ "open_total": 105,
  "open_own": 23,
  "prs": [
   {
@@ -49,7 +49,7 @@
     "Needs take over 🛎️"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "CONFLICTING",
+   "merge": "UNKNOWN",
    "ci": "not-run",
    "citot": 2,
    "cifail": 0,
@@ -509,7 +509,7 @@
     "Documentation :green_book:"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "UNKNOWN",
+   "merge": "CONFLICTING",
    "ci": "failing",
    "citot": 46,
    "cifail": 1,
@@ -755,7 +755,7 @@
     "Enhancement ✨"
    ],
    "rd": "APPROVED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "failing",
    "citot": 38,
    "cifail": 10,
@@ -789,7 +789,7 @@
     "Crash 💥"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "not-run",
    "citot": 5,
    "cifail": 0,
@@ -919,7 +919,7 @@
    "updated": "2026-07-31",
    "labels": [],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "failing",
    "citot": 51,
    "cifail": 1,
@@ -950,7 +950,7 @@
    "updated": "2026-08-08",
    "labels": [],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "not-run",
    "citot": 3,
    "cifail": 0,
@@ -1004,18 +1004,18 @@
    "a": "Rayyan2235",
    "t": "feat(pyreverse): add --theme option for dark-mode diagram output",
    "draft": false,
-   "size": 609,
-   "files": 41,
+   "size": 624,
+   "files": 42,
    "created": "2026-07-28",
-   "updated": "2026-09-14",
+   "updated": "2026-10-03",
    "labels": [
     "pyreverse",
     "Work in progress"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "UNKNOWN",
-   "ci": "green",
-   "citot": 48,
+   "merge": "MERGEABLE",
+   "ci": "awaiting-approval",
+   "citot": 2,
    "cifail": 0,
    "nrev": 7,
    "mrev": [
@@ -1202,7 +1202,7 @@
    "updated": "2026-08-15",
    "labels": [],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "not-run",
    "citot": 3,
    "cifail": 0,
@@ -1495,7 +1495,7 @@
    "labels": [],
    "rd": "REVIEW_REQUIRED",
    "merge": "UNKNOWN",
-   "ci": "awaiting-approval",
+   "ci": "not-run",
    "citot": 2,
    "cifail": 0,
    "nrev": 0,
@@ -1584,7 +1584,7 @@
     "backport maintenance/4.1.x"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "green",
    "citot": 52,
    "cifail": 0,
@@ -1762,12 +1762,12 @@
    "size": 57,
    "files": 3,
    "created": "2026-09-17",
-   "updated": "2026-09-17",
+   "updated": "2026-10-03",
    "labels": [],
    "rd": "REVIEW_REQUIRED",
-   "merge": "CONFLICTING",
-   "ci": "not-run",
-   "citot": 3,
+   "merge": "MERGEABLE",
+   "ci": "awaiting-approval",
+   "citot": 2,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -1796,7 +1796,7 @@
     "False Negative 🦋"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "green",
    "citot": 48,
    "cifail": 0,
@@ -1812,45 +1812,6 @@
    "lastcom": [
     "github-actions",
     "2026-10-02"
-   ]
-  },
-  {
-   "n": 11435,
-   "a": "udsy19",
-   "t": "Fix false positive attribute-defined-outside-init for classic property(fget, fset) setters",
-   "draft": false,
-   "size": 76,
-   "files": 4,
-   "created": "2026-09-21",
-   "updated": "2026-10-03",
-   "labels": [
-    "False Positive 🦟",
-    "backport maintenance/4.1.x"
-   ],
-   "rd": "CHANGES_REQUESTED",
-   "merge": "MERGEABLE",
-   "ci": "failing",
-   "citot": 48,
-   "cifail": 1,
-   "nrev": 1,
-   "mrev": [
-    "Pierre-Sassoulas"
-   ],
-   "links": [
-    [
-     409,
-     "",
-     ""
-    ],
-    [
-     3325,
-     "",
-     ""
-    ]
-   ],
-   "lastcom": [
-    "Pierre-Sassoulas",
-    "2026-10-03"
    ]
   },
   {
@@ -1883,41 +1844,6 @@
    ]
   },
   {
-   "n": 11447,
-   "a": "dchaudhari7177",
-   "t": "Fix useless-suppression false positive for line-too-long with a # in a string",
-   "draft": false,
-   "size": 56,
-   "files": 5,
-   "created": "2026-09-23",
-   "updated": "2026-10-02",
-   "labels": [
-    "Needs review 🔍",
-    "False Positive 🦟",
-    "backport maintenance/4.1.x"
-   ],
-   "rd": "APPROVED",
-   "merge": "MERGEABLE",
-   "ci": "green",
-   "citot": 55,
-   "cifail": 0,
-   "nrev": 1,
-   "mrev": [
-    "Pierre-Sassoulas"
-   ],
-   "links": [
-    [
-     11440,
-     "",
-     ""
-    ]
-   ],
-   "lastcom": [
-    "github-actions",
-    "2026-09-23"
-   ]
-  },
-  {
    "n": 11450,
    "a": "dchaudhari7177",
    "t": "Don't spellcheck the marker of a reST field in a docstring",
@@ -1930,7 +1856,7 @@
     "Enhancement ✨"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "not-run",
    "citot": 4,
    "cifail": 0,
@@ -1961,7 +1887,7 @@
    "updated": "2026-09-24",
    "labels": [],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "not-run",
    "citot": 3,
    "cifail": 0,
@@ -2084,7 +2010,7 @@
     "False Positive 🦟"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "failing",
    "citot": 48,
    "cifail": 1,
@@ -2141,12 +2067,15 @@
    "size": 54,
    "files": 4,
    "created": "2026-09-28",
-   "updated": "2026-09-28",
-   "labels": [],
+   "updated": "2026-10-03",
+   "labels": [
+    "False Positive 🦟",
+    "backport maintenance/4.1.x"
+   ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
-   "ci": "awaiting-approval",
-   "citot": 3,
+   "merge": "MERGEABLE",
+   "ci": "green",
+   "citot": 53,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -2158,8 +2087,8 @@
     ]
    ],
    "lastcom": [
-    "-",
-    "-"
+    "github-actions",
+    "2026-10-03"
    ]
   },
   {
@@ -2208,7 +2137,7 @@
     "Documentation :green_book:"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "awaiting-approval",
    "citot": 28,
    "cifail": 0,
@@ -2329,41 +2258,6 @@
    ]
   },
   {
-   "n": 11519,
-   "a": "nightcityblade",
-   "t": "Document TOML escaping for regular expressions",
-   "draft": false,
-   "size": 18,
-   "files": 2,
-   "created": "2026-10-01",
-   "updated": "2026-10-03",
-   "labels": [
-    "Documentation :green_book:",
-    "Waiting on author",
-    "Skip news :mute:"
-   ],
-   "rd": "CHANGES_REQUESTED",
-   "merge": "UNKNOWN",
-   "ci": "green",
-   "citot": 35,
-   "cifail": 0,
-   "nrev": 1,
-   "mrev": [
-    "Pierre-Sassoulas"
-   ],
-   "links": [
-    [
-     6963,
-     "",
-     ""
-    ]
-   ],
-   "lastcom": [
-    "codecov",
-    "2026-10-01"
-   ]
-  },
-  {
    "n": 11523,
    "a": "adarshsm",
    "t": "Diff integer counts in report tables",
@@ -2376,7 +2270,7 @@
     "Work in progress"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "CONFLICTING",
    "ci": "awaiting-approval",
    "citot": 4,
    "cifail": 0,
@@ -2405,7 +2299,7 @@
    "updated": "2026-10-01",
    "labels": [],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "CONFLICTING",
    "ci": "awaiting-approval",
    "citot": 3,
    "cifail": 0,
@@ -2457,7 +2351,7 @@
    "a": "shan3520",
    "t": "Fix `used-before-assignment` false positive for tuple targets in multi-item `with`",
    "draft": false,
-   "size": 68,
+   "size": 73,
    "files": 4,
    "created": "2026-10-02",
    "updated": "2026-10-03",
@@ -2466,10 +2360,10 @@
     "backport maintenance/4.1.x"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
-   "ci": "failing",
-   "citot": 53,
-   "cifail": 1,
+   "merge": "MERGEABLE",
+   "ci": "awaiting-approval",
+   "citot": 2,
+   "cifail": 0,
    "nrev": 0,
    "mrev": [],
    "links": [
@@ -2482,35 +2376,6 @@
    "lastcom": [
     "github-actions",
     "2026-10-03"
-   ]
-  },
-  {
-   "n": 11538,
-   "a": "yuefdev",
-   "t": "Allow __main__ in module naming presets",
-   "draft": false,
-   "size": 25,
-   "files": 3,
-   "created": "2026-10-03",
-   "updated": "2026-10-03",
-   "labels": [],
-   "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
-   "ci": "awaiting-approval",
-   "citot": 3,
-   "cifail": 0,
-   "nrev": 0,
-   "mrev": [],
-   "links": [
-    [
-     10442,
-     "",
-     ""
-    ]
-   ],
-   "lastcom": [
-    "-",
-    "-"
    ]
   },
   {
@@ -2587,7 +2452,7 @@
    "updated": "2026-10-03",
    "labels": [],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "awaiting-approval",
    "citot": 3,
    "cifail": 0,
@@ -2616,7 +2481,7 @@
    "updated": "2026-10-03",
    "labels": [],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "awaiting-approval",
    "citot": 3,
    "cifail": 0,
@@ -2639,7 +2504,7 @@
    "updated": "2026-10-03",
    "labels": [],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "awaiting-approval",
    "citot": 3,
    "cifail": 0,
@@ -2656,19 +2521,43 @@
     "-",
     "-"
    ]
+  },
+  {
+   "n": 11552,
+   "a": "Hashimlokasher",
+   "t": "Document how to point --init-hook at a virtualenv's site-packages",
+   "draft": false,
+   "size": 10,
+   "files": 2,
+   "created": "2026-10-03",
+   "updated": "2026-10-03",
+   "labels": [
+    "Documentation :green_book:",
+    "Skip news :mute:"
+   ],
+   "rd": "CHANGES_REQUESTED",
+   "merge": "MERGEABLE",
+   "ci": "awaiting-approval",
+   "citot": 5,
+   "cifail": 0,
+   "nrev": 1,
+   "mrev": [
+    "Pierre-Sassoulas"
+   ],
+   "links": [
+    [
+     9974,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "-",
+    "-"
+   ]
   }
  ],
  "issues": [
-  {
-   "comments": 2,
-   "labels": [
-    "Bug :beetle:"
-   ],
-   "number": 409,
-   "state": "closed",
-   "state_reason": "completed",
-   "title": "attribute-defined-outside-init warning wrongly triggered when using properties"
-  },
   {
    "comments": 45,
    "labels": [
@@ -2726,18 +2615,6 @@
    "state": "open",
    "state_reason": null,
    "title": "Pylint gets confused by functools.singledispatch and assumes wrong return types of its registered functions."
-  },
-  {
-   "comments": 5,
-   "labels": [
-    "Checkers",
-    "False Positive 🦟",
-    "Needs PR"
-   ],
-   "number": 3325,
-   "state": "open",
-   "state_reason": null,
-   "title": "False positive ``attribute-defined-outside-init`` when using properties "
   },
   {
    "comments": 69,
@@ -2875,18 +2752,6 @@
    "state": "open",
    "state_reason": null,
    "title": "``bad-string-format-type``: only works on old-style string formatting and can't infer values"
-  },
-  {
-   "comments": 3,
-   "labels": [
-    "Documentation :green_book:",
-    "pylint-config",
-    "Needs PR"
-   ],
-   "number": 6963,
-   "state": "open",
-   "state_reason": null,
-   "title": "`ignore-paths` Can't use escape sequence in toml config"
   },
   {
    "comments": 6,
@@ -3238,6 +3103,17 @@
    "title": "Alter fallback when `source-root` based package path discovery when a source root containing the module directory is not found"
   },
   {
+   "comments": 2,
+   "labels": [
+    "Documentation :green_book:",
+    "Needs PR"
+   ],
+   "number": 9974,
+   "state": "open",
+   "state_reason": null,
+   "title": "Document how to configure the location of site packages in pylint "
+  },
+  {
    "comments": 0,
    "labels": [
     "False Positive 🦟",
@@ -3365,17 +3241,6 @@
    "state": "open",
    "state_reason": null,
    "title": "False positive ``redefined-variable-type`` on ignored variables like ``_``"
-  },
-  {
-   "comments": 5,
-   "labels": [
-    "False Positive 🦟",
-    "Needs specification :closed_lock_with_key:"
-   ],
-   "number": 10442,
-   "state": "open",
-   "state_reason": null,
-   "title": "Treat `__main__.py` as a special module name under camelCase module-naming-style"
   },
   {
    "comments": 2,
@@ -3561,17 +3426,6 @@
    "state": "open",
    "state_reason": null,
    "title": "Auto-supress `redefined-builtin` when there is no choice?"
-  },
-  {
-   "comments": 0,
-   "labels": [
-    "False Positive 🦟",
-    "Needs PR"
-   ],
-   "number": 11440,
-   "state": "open",
-   "state_reason": null,
-   "title": "useless-suppression false positive for line-too-long when a # appears inside a string literal before the actual pragma comment"
   },
   {
    "comments": 1,
