@@ -422,9 +422,9 @@
     },
     "10442": {
       "verdict": "FIXED",
-      "note": "Does NOT reproduce: '__main__.py' under '--module-naming-style=camelCase' gets 10/10. Pylint 4.0.5 likely special-cases dunder module names.",
-      "session": 1,
-      "ts": "2026-05-12T10:41:46.769306+00:00"
+      "note": "Closed by PR 11538: __main__ is allowed under the camelCase, PascalCase and UPPER_CASE module naming presets. Backported as PR 11551, ships in 4.1.3.",
+      "session": 18,
+      "ts": "2026-10-03T21:52:50.680036+00:00"
     },
     "10440": {
       "verdict": "EXTDEP",
@@ -3769,10 +3769,10 @@
       "ts": "2026-05-12T11:50:15.485105+00:00"
     },
     "6963": {
-      "verdict": "DESIGN",
-      "note": "Docs/bug: ignore-paths doesn't handle escape sequences in toml. Spec.",
-      "session": 5,
-      "ts": "2026-05-12T11:50:15.512164+00:00"
+      "verdict": "FIXED",
+      "note": "Closed by docs PR 11553 (TOML escaping for regular expressions), which replaced PR 11519. On main only: docs ship with 4.2.0.",
+      "session": 18,
+      "ts": "2026-10-03T21:52:50.680036+00:00"
     },
     "6961": {
       "verdict": "DESIGN",
@@ -6121,10 +6121,10 @@
       "ts": "2026-05-12T13:01:05.790087+00:00"
     },
     "3325": {
-      "verdict": "REPRO",
-      "note": "RE-VERIFIED: W0201 attribute-defined-outside-init STILL fires on property(get,set) where set assigns self._value. Initial FIXED determination was wrong because pylint's own pylintrc disables attribute-defined-outside-init.",
-      "session": 10,
-      "ts": "2026-05-12T13:29:16.744735+00:00"
+      "verdict": "FIXED",
+      "note": "Closed by PR 11435 (classic property(fget, fset) setters); the primer removed about 19 attribute-defined-outside-init false positives on astropy, django and pygame. Backported as PR 11554, ships in 4.1.3.",
+      "session": 18,
+      "ts": "2026-10-03T21:52:50.680036+00:00"
     },
     "3327": {
       "verdict": "FIXED",
@@ -6157,10 +6157,10 @@
       "ts": "2026-09-24T09:42:56.808165+00:00"
     },
     "11440": {
-      "verdict": "REPRO",
-      "note": "Confirmed on pylint 4.1.0-dev0 @ 7ab05843d, astroid 4.3.1, CPython 3.13.1 and on 4.0.9: I0021 with the pragma, C0301 (133/100) without. OPTION_PO matches from the first '#' on the raw line, including inside a string literal, so the stripped length is too short. Related to #7911 (open), not an exact dup.",
-      "session": 15,
-      "ts": "2026-09-23T14:23:51.765347+00:00"
+      "verdict": "FIXED",
+      "note": "Closed by PR 11447 (useless-suppression for line-too-long with a # in a string), backported as PR 11550. Ships in 4.1.3.",
+      "session": 18,
+      "ts": "2026-10-03T21:52:50.680036+00:00"
     },
     "11438": {
       "verdict": "DESIGN",

@@ -73,15 +73,16 @@ V = {
         "contributor whose other one is already in the round-trip.",
         "Cheapest merge left in the queue. Read it and land it.",
     ),
-    11447: (
-        "merge",
+    # ---- review now -------------------------------------------------------
+    11483: (
+        "review",
         "ready",
         "confirmed",
-        "53/53 green and <b>approved by you on 25 September</b>. 56 lines; the primer drops one astropy "
-        "<code>useless-suppression</code> false positive.",
-        "Merge it.",
+        "53/53 green, 54 lines for issue 9460: <code>used-before-assignment</code> false positive for a "
+        "walrus in a comprehension condition. The primer only shows astropy "
+        "<code>too-many-ancestors</code> drift.",
+        "Review and merge.",
     ),
-    # ---- review now -------------------------------------------------------
     11517: (
         "review",
         "ready",
@@ -90,15 +91,6 @@ V = {
         "only decorators whose every <code>return</code> is their first parameter. More precise than "
         "#11518.",
         "Review and merge; then close #11518.",
-    ),
-    11529: (
-        "review",
-        "coverage",
-        "confirmed",
-        "52 of 53 green, only <code>codecov/patch</code> red (one line in "
-        "<code>checkers/utils.py</code>). The primer removes 2 home-assistant "
-        "<code>used-before-assignment</code> false positives. 68 lines for issue 7545.",
-        "Review; ask for a test that reaches the uncovered line, or accept it.",
     ),
     11493: (
         "review",
@@ -143,14 +135,6 @@ V = {
         "Review. The author already rewrote a corrupted <code>typecheck.py</code> once, so check the diff is "
         "really 45 lines.",
     ),
-    11205: (
-        "review",
-        "re-review",
-        "feature",
-        "Green now (48/48). The author answered the second round from DudeNr33 on 9 September and says "
-        "the PlantUML and Mermaid output render correctly; still labelled <em>Work in progress</em>.",
-        "Ask DudeNr33 for the re-review they paused, then drop the label.",
-    ),
     11396: (
         "review",
         "primer check",
@@ -184,6 +168,33 @@ V = {
         "Review. Clean primer, confirmed issue.",
     ),
     # ---- approve the workflow run ----------------------------------------
+    11205: (
+        "approve",
+        "held",
+        "feature",
+        "The author merged main on 3 October, so the run is held again. DudeNr33's review (changes "
+        "requested on 3 September) is still the gate; the author says both rendering problems are "
+        "fixed. 624 lines, <em>Work in progress</em>.",
+        "Approve the run, then ask DudeNr33 for the re-review.",
+    ),
+    11430: (
+        "approve",
+        "held",
+        "feature",
+        "The author pushed an attrs abstract-property fix on 3 October, so a run is now waiting for "
+        "approval. 57 lines teaching <code>abstract-class-instantiated</code> about attrs fields; the "
+        "issue was classed as library-specific.",
+        "Decide whether attrs support belongs in core, then approve the run.",
+    ),
+    11529: (
+        "approve",
+        "held",
+        "confirmed",
+        "The author pushed a test for the uncovered line on 3 October (a <code>with</code> item without "
+        "a target before the binding item), so the run is held again. Last full run: 52/53, only "
+        "<code>codecov/patch</code> red; the primer removed 2 home-assistant false positives.",
+        "Approve the run; merge if codecov goes green.",
+    ),
     11546: (
         "approve",
         "held",
@@ -238,14 +249,6 @@ V = {
         "confirmed",
         "136 lines. Treats <code>Enum.value</code> as overridable by a property in "
         "<code>invalid-overridden-method</code>; the issue is confirmed.",
-        "Approve the run.",
-    ),
-    11483: (
-        "approve",
-        "held",
-        "confirmed",
-        "54 lines, opened today. <code>used-before-assignment</code> false positive for a walrus in a "
-        "comprehension condition.",
         "Approve the run.",
     ),
     # ---- retrigger --------------------------------------------------------
@@ -341,32 +344,15 @@ V = {
         "stub; links two issues.",
         "Retrigger.",
     ),
-    11430: (
-        "retrigger",
-        "no ci",
-        "feature",
-        "57 lines teaching <code>abstract-class-instantiated</code> about attrs fields. The issue was "
-        "classed as library-specific.",
-        "Decide whether attrs support belongs in core before retriggering.",
-    ),
     # ---- author's move ----------------------------------------------------
-    11435: (
+    11552: (
         "author",
         "waiting",
-        "confirmed",
-        "Only <code>codecov/patch</code> is red. You asked on 3 October to cover the unreached line or "
-        "remove it. The primer removes about 19 <code>attribute-defined-outside-init</code> false "
-        "positives (astropy, django, pygame). The body quotes an old commit message containing \"Close "
-        "#409\", so GitHub links the 2019 issue 409 as well as 3325.",
-        "Waiting on the author; the primer makes this one worth chasing.",
-    ),
-    11519: (
-        "author",
-        "waiting",
-        "confirmed",
-        "You requested changes on 3 October: <code>pylint --generate-toml-config</code> writes regular "
-        "expressions double-quoted with doubled backslashes, so the docs and the generator disagree.",
-        "Waiting on the author's answer: change the generator or document the doubled backslash.",
+        "feature",
+        "10 lines documenting how to point <code>--init-hook</code> at a virtualenv's site-packages "
+        "(issue 9974). You requested changes on 3 October: that is not what <code>init-hook</code> is "
+        "for; launch pylint from the virtualenv instead.",
+        "Waiting on the author; closing is reasonable if the docs would teach the wrong workflow.",
     ),
     11505: (
         "author",
@@ -545,14 +531,6 @@ V = {
         "all-options. You objected to the long list; the author answered on 30 September (ruff and "
         "eslint use rule prefixes and presets) and reworked it. The CI run is held.",
         "Settle what the page should list, then approve the run.",
-    ),
-    11538: (
-        "decide",
-        "spec",
-        "feature",
-        "25 lines for issue 10442, labelled <em>Needs specification</em>: allow <code>__main__</code> "
-        "under the camelCase, PascalCase and UPPER_CASE module presets.",
-        "Agree that <code>__main__</code> is special first, then approve the run.",
     ),
     11539: (
         "decide",
