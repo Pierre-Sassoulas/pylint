@@ -7,10 +7,10 @@
       "ts": "2026-09-24T09:42:56.808165+00:00"
     },
     "11012": {
-      "verdict": "UNCLEAR",
-      "note": "Verified on pylint 4.0.5 + testing_pylintrc: 'HTML = os.path.join' (and analogous all-caps single-word assignment) at module level is clean. Reporter has the same heavy custom .pylintrc as #11013. Same plugin chain involved. Needs reporter's full config.",
-      "session": 13,
-      "ts": "2026-05-13T07:36:44.023515+00:00"
+      "verdict": "FIXED",
+      "note": "Closed by PR 11172 (naming for all-caps callable aliases), merged 4 October. Backport label set; ships in 4.1.3 once the backport lands.",
+      "session": 18,
+      "ts": "2026-10-04T09:32:50.916900+00:00"
     },
     "11005": {
       "verdict": "FIXED",
