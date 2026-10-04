@@ -66,16 +66,6 @@ LANES = {
 V = {
     # ---- merge lane -------------------------------------------------------
     # ---- review now -------------------------------------------------------
-    11563: (
-        "review",
-        "high priority",
-        "confirmed",
-        "New, 190 lines for issue 8138, labelled <b>High priority</b> and reproduced: "
-        "<code>not-callable</code> on an ellipsis <code>@property</code> stub annotated "
-        "<code>type[...]</code> or <code>Callable[...]</code>. <code>Checks / pylint</code> is red; the "
-        "primer reports no effect. Milestone 4.1.3.",
-        "Review first among the new ones: High priority issue. Ask for the pylint check to be fixed.",
-    ),
     11205: (
         "review",
         "you",
@@ -160,6 +150,16 @@ V = {
         "Review. Clean primer, confirmed issue.",
     ),
     # ---- approve the workflow run ----------------------------------------
+    11569: (
+        "approve",
+        "held",
+        "confirmed",
+        "104/-80 by pylaterreur for issue 1630 (7 reactions): <code>unused-import</code> false "
+        "positives for names used in a <code>metaclass=</code> keyword. Names in the keyword are now "
+        "visited like class children instead of a separate end-of-scope pass. CI partly run (28 green, "
+        "12 pending).",
+        "Approve the rest of the run, then review: 7 reactions is high for this queue.",
+    ),
     11430: (
         "approve",
         "held",
@@ -278,15 +278,6 @@ V = {
         "Retrigger. The size needs a primer run before review.",
     ),
     # ---- author's move ----------------------------------------------------
-    11425: (
-        "author",
-        "rebase",
-        "confirmed",
-        "50/50 green. You requested changes on 4 October: rebase so the primer is meaningful, and issue "
-        "5264 has a second half not covered (the reference method is the parent's first overload stub, "
-        "not its implementation). Issues 5264 and 10186 carry 4 reactions. Milestone 4.1.3.",
-        "Waiting on the author.",
-    ),
     11517: (
         "author",
         "waiting",
@@ -573,6 +564,15 @@ V = {
         "Agree on the expected behaviour in the issue before approving a run.",
     ),
     # ---- stale ------------------------------------------------------------
+    11563: (
+        "stale",
+        "close?",
+        "duplicate",
+        "Superseded for issue 8138 (High priority): you pointed the author at the astroid root cause on "
+        "4 October, astroid PR 3347 infers an ellipsis-only body as Uninferable, and #11570 carries the "
+        "pylint side. This PR allow-lists annotations in pylint instead.",
+        "Close in favour of astroid 3347 + #11570 once they land, crediting the author.",
+    ),
     11277: (
         "stale",
         "close?",

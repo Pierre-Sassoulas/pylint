@@ -1,8 +1,8 @@
 {
  "snapshot": "2026-10-04",
  "owner": "Pierre-Sassoulas",
- "open_total": 98,
- "open_own": 23,
+ "open_total": 100,
+ "open_own": 24,
  "prs": [
   {
    "n": 5401,
@@ -948,9 +948,9 @@
    "rd": "CHANGES_REQUESTED",
    "merge": "MERGEABLE",
    "ci": "awaiting-approval",
-   "citot": 39,
+   "citot": 49,
    "cifail": 0,
-   "nrev": 7,
+   "nrev": 8,
    "mrev": [
     "DudeNr33",
     "Pierre-Sassoulas"
@@ -963,7 +963,7 @@
     ]
    ],
    "lastcom": [
-    "Pierre-Sassoulas",
+    "github-actions",
     "2026-10-04"
    ]
   },
@@ -1606,7 +1606,7 @@
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
    "ci": "green",
-   "citot": 51,
+   "citot": 53,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -1620,45 +1620,6 @@
    "lastcom": [
     "RizgarOzan",
     "2026-09-30"
-   ]
-  },
-  {
-   "n": 11425,
-   "a": "RizgarOzan",
-   "t": "Fix arguments-differ false positive for overload stubs in subclasses",
-   "draft": false,
-   "size": 85,
-   "files": 4,
-   "created": "2026-09-14",
-   "updated": "2026-10-04",
-   "labels": [
-    "False Positive 🦟",
-    "backport maintenance/4.1.x"
-   ],
-   "rd": "CHANGES_REQUESTED",
-   "merge": "MERGEABLE",
-   "ci": "green",
-   "citot": 53,
-   "cifail": 0,
-   "nrev": 1,
-   "mrev": [
-    "Pierre-Sassoulas"
-   ],
-   "links": [
-    [
-     5264,
-     "",
-     ""
-    ],
-    [
-     10186,
-     "",
-     ""
-    ]
-   ],
-   "lastcom": [
-    "github-actions",
-    "2026-10-04"
    ]
   },
   {
@@ -1850,7 +1811,7 @@
    "a": "wufangyong973",
    "t": "fix(config): honor false value for valueless options in config files",
    "draft": false,
-   "size": 80,
+   "size": 74,
    "files": 3,
    "created": "2026-09-26",
    "updated": "2026-10-04",
@@ -1860,9 +1821,9 @@
    ],
    "rd": "CHANGES_REQUESTED",
    "merge": "MERGEABLE",
-   "ci": "green",
+   "ci": "failing",
    "citot": 48,
-   "cifail": 0,
+   "cifail": 1,
    "nrev": 2,
    "mrev": [
     "Pierre-Sassoulas"
@@ -1946,7 +1907,7 @@
    "a": "tk1475",
    "t": "Fix used-before-assignment false positive for walrus in comprehension condition",
    "draft": false,
-   "size": 54,
+   "size": 75,
    "files": 4,
    "created": "2026-09-28",
    "updated": "2026-10-04",
@@ -1956,9 +1917,9 @@
    ],
    "rd": "CHANGES_REQUESTED",
    "merge": "MERGEABLE",
-   "ci": "green",
-   "citot": 53,
-   "cifail": 0,
+   "ci": "failing",
+   "citot": 48,
+   "cifail": 3,
    "nrev": 1,
    "mrev": [
     "Pierre-Sassoulas"
@@ -1972,7 +1933,7 @@
    ],
    "lastcom": [
     "github-actions",
-    "2026-10-03"
+    "2026-10-04"
    ]
   },
   {
@@ -2332,12 +2293,13 @@
    "updated": "2026-10-04",
    "labels": [
     "False Positive 🦟",
+    "High priority",
     "backport maintenance/4.1.x"
    ],
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
    "ci": "failing",
-   "citot": 53,
+   "citot": 55,
    "cifail": 1,
    "nrev": 0,
    "mrev": [],
@@ -2349,8 +2311,67 @@
     ]
    ],
    "lastcom": [
-    "github-actions",
+    "Pierre-Sassoulas",
     "2026-10-04"
+   ]
+  },
+  {
+   "n": 11569,
+   "a": "pylaterreur",
+   "t": "Fix ``unused-import`` false positives for names used in a metaclass",
+   "draft": false,
+   "size": 184,
+   "files": 3,
+   "created": "2026-10-04",
+   "updated": "2026-10-04",
+   "labels": [
+    "False Positive 🦟",
+    "backport maintenance/4.1.x"
+   ],
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "running",
+   "citot": 43,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [
+    [
+     1630,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "-",
+    "-"
+   ]
+  },
+  {
+   "n": 11571,
+   "a": "app/pylint-backport",
+   "t": "[Backport maintenance/4.1.x] Fix arguments-differ false positive for overload stubs in subclasses",
+   "draft": false,
+   "size": 176,
+   "files": 4,
+   "created": "2026-10-04",
+   "updated": "2026-10-04",
+   "labels": [
+    "False Positive 🦟"
+   ],
+   "rd": "APPROVED",
+   "merge": "MERGEABLE",
+   "ci": "running",
+   "citot": 17,
+   "cifail": 0,
+   "nrev": 1,
+   "mrev": [
+    "Pierre-Sassoulas"
+   ],
+   "links": [],
+   "lastcom": [
+    "-",
+    "-"
    ]
   }
  ],
@@ -2369,6 +2390,19 @@
    "state": "open",
    "state_reason": null,
    "title": "Add different configuration for different sub directories"
+  },
+  {
+   "comments": 11,
+   "labels": [
+    "Bug :beetle:",
+    "Control flow",
+    "False Positive 🦟",
+    "Needs PR"
+   ],
+   "number": 1630,
+   "state": "open",
+   "state_reason": null,
+   "title": "unused-import for names used in class keyword arguments inside if expressions"
   },
   {
    "comments": 11,
@@ -2465,18 +2499,6 @@
    "state": "open",
    "state_reason": null,
    "title": "False positive no-member for NamedTuple._replace()"
-  },
-  {
-   "comments": 2,
-   "labels": [
-    "False Positive 🦟",
-    "C: arguments-differ",
-    "Needs PR"
-   ],
-   "number": 5264,
-   "state": "open",
-   "state_reason": null,
-   "title": "False-positive `signature-differs` / `arguments-differ` with `typing.overload`"
   },
   {
    "comments": 6,
@@ -2976,19 +2998,6 @@
    "state": "open",
    "state_reason": null,
    "title": "Question: Is there a reason that `invalid-envvar-default` only checks `os.getenv`, not `os.environ.get`"
-  },
-  {
-   "comments": 0,
-   "labels": [
-    "Bug :beetle:",
-    "typing",
-    "False Positive 🦟",
-    "C: arguments-differ"
-   ],
-   "number": 10186,
-   "state": "open",
-   "state_reason": null,
-   "title": "False positive with `arguments-differ` rule in overridden overloaded methods in subclass"
   },
   {
    "comments": 0,
