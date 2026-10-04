@@ -66,23 +66,24 @@ LANES = {
 V = {
     # ---- merge lane -------------------------------------------------------
     # ---- review now -------------------------------------------------------
-    11529: (
+    11563: (
         "review",
-        "primer check",
+        "high priority",
         "confirmed",
-        "48/48 green on <code>8a327ba</code> (chrikrah's case handled). The new primer shows only "
-        "astropy <code>no-else-*</code> base drift: the 2 home-assistant "
-        "<code>used-before-assignment</code> removals from the first version are gone, so the narrowed "
-        "fix may no longer cover them.",
-        "Check whether the home-assistant cases still fire, then merge. Backport label set.",
+        "New, 190 lines for issue 8138, labelled <b>High priority</b> and reproduced: "
+        "<code>not-callable</code> on an ellipsis <code>@property</code> stub annotated "
+        "<code>type[...]</code> or <code>Callable[...]</code>. <code>Checks / pylint</code> is red; the "
+        "primer reports no effect. Milestone 4.1.3.",
+        "Review first among the new ones: High priority issue. Ask for the pylint check to be fixed.",
     ),
-    11546: (
+    11205: (
         "review",
-        "CI running",
-        "confirmed",
-        "Run released on 4 October, 33 checks green so far. 49 lines for issue 10374 (reproduced): skip "
-        "<code>redefined-variable-type</code> for the bare <code>_</code>.",
-        "Review when CI and the primer finish.",
+        "you",
+        "feature",
+        "You rebased it on main on 4 October to fix the primer and plan to review it for 4.2.0. The "
+        "pyreverse primer is still red; the pylint primer reports no effect. DudeNr33's "
+        "changes-requested review (3 September) is still open.",
+        "Your review, aiming at 4.2.0.",
     ),
     11545: (
         "review",
@@ -276,15 +277,34 @@ V = {
         "test workflow ever ran.",
         "Retrigger. The size needs a primer run before review.",
     ),
-    11425: (
-        "retrigger",
-        "no ci",
-        "confirmed",
-        "85 lines. <code>arguments-differ</code> should compare the whole overload set, not the first "
-        "stub; links two issues.",
-        "Retrigger.",
-    ),
     # ---- author's move ----------------------------------------------------
+    11425: (
+        "author",
+        "rebase",
+        "confirmed",
+        "50/50 green. You requested changes on 4 October: rebase so the primer is meaningful, and issue "
+        "5264 has a second half not covered (the reference method is the parent's first overload stub, "
+        "not its implementation). Issues 5264 and 10186 carry 4 reactions. Milestone 4.1.3.",
+        "Waiting on the author.",
+    ),
+    11517: (
+        "author",
+        "waiting",
+        "confirmed",
+        "After you added #11518's cases: 46 checks green, <code>codecov/patch</code> and "
+        "<code>codecov/project</code> red. The primer removes a sentry <code>redefined-builtin</code>, "
+        "which is base drift from #11505. Milestone 4.1.3.",
+        "Waiting on the author for the two added cases and coverage.",
+    ),
+    11529: (
+        "author",
+        "rebase",
+        "confirmed",
+        "You asked for a rebase on 4 October: the branch is behind main, so the primer comment hit "
+        "GitHub's 65,536-character limit with 180+ astropy <code>no-else-return</code> wording changes "
+        "from main and the real diff never showed. Milestone 4.1.3.",
+        "Waiting on the rebase, then read the fresh primer.",
+    ),
     11469: (
         "author",
         "waiting",
@@ -294,14 +314,6 @@ V = {
         "INI test, an <code>errors-only = false</code> test, and to reuse #10903's functional config "
         "tests with a Co-authored-by trailer.",
         "Waiting on the author.",
-    ),
-    11205: (
-        "author",
-        "waiting",
-        "feature",
-        "After the 3 October main merge the run is red: <code>Checks / pylint</code> and the pyreverse "
-        "primer fail. DudeNr33's changes-requested review (3 September) still stands.",
-        "Waiting on the author to fix CI; then ask DudeNr33 for the re-review.",
     ),
     11557: (
         "author",
@@ -317,14 +329,6 @@ V = {
         "confirmed",
         "You requested changes on 4 October: LGTM, but nested scopes must be handled too. 53/53 green.",
         "Waiting on the author.",
-    ),
-    11517: (
-        "author",
-        "waiting",
-        "confirmed",
-        "You requested changes on 4 October and added the test cases from #11518 (closed in its favour, "
-        "its author credited). CI re-running on the new tests.",
-        "Waiting on the author. Merge once the added cases pass.",
     ),
     11493: (
         "author",
@@ -478,6 +482,15 @@ V = {
         "Ask for a rebase onto #11011, keeping only the package-root fix.",
     ),
     # ---- decide first -----------------------------------------------------
+    11546: (
+        "decide",
+        "design",
+        "confirmed",
+        "50/50 green. The primer removes astropy <code>redefined-variable-type</code> hits on "
+        "<code>_</code>. You asked on 4 October whether the existing ignored-variable option should "
+        "drive this instead of hard-coding <code>_</code>. Milestone 4.1.3.",
+        "Settle the approach with the author.",
+    ),
     11502: (
         "decide",
         "design",
