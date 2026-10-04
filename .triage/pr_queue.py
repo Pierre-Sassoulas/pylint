@@ -65,51 +65,38 @@ LANES = {
 # n: (lane, verdict-chip-text, chip-class, finding, action)
 V = {
     # ---- merge lane -------------------------------------------------------
-    11172: (
-        "merge",
-        "ready",
-        "stale",
-        "48/48 green, 20 lines, and <b>no maintainer has reviewed it in two months</b>. Second PR from a "
-        "contributor whose other one is already in the round-trip.",
-        "Cheapest merge left in the queue. Read it and land it.",
-    ),
     # ---- review now -------------------------------------------------------
-    11557: (
+    11546: (
         "review",
-        "coverage",
+        "CI running",
         "confirmed",
-        "48 of 49 green, only <code>codecov/patch</code> red. 88 lines for issue 10737: escape lone "
-        "backslashes in the generated message and option pages (E2510, W1402, "
-        "<code>valid-magic-values</code>), after #10736 fixed the hand-written ones. The ansible "
-        "<code>redefined-builtin</code> lines in the primer are base drift from #11505.",
-        "Review; check one rendered page before merging.",
+        "Run released on 4 October, 33 checks green so far. 49 lines for issue 10374 (reproduced): skip "
+        "<code>redefined-variable-type</code> for the bare <code>_</code>.",
+        "Review when CI and the primer finish.",
     ),
-    11483: (
+    11545: (
         "review",
-        "ready",
+        "CI running",
         "confirmed",
-        "53/53 green, 54 lines for issue 9460: <code>used-before-assignment</code> false positive for a "
-        "walrus in a comprehension condition. The primer only shows astropy "
-        "<code>too-many-ancestors</code> drift.",
-        "Review and merge.",
+        "Run released on 4 October, 42 checks green so far. 41 lines, progress on issue 10423 "
+        "(subscription checks look at every inferred class).",
+        "Review when CI and the primer finish.",
     ),
-    11517: (
+    11457: (
         "review",
-        "ready",
+        "CI running",
         "confirmed",
-        "53/53 green, the primer reports <b>no effect</b>. 50 lines for issue 10831 (scipy 1.17); skips "
-        "only decorators whose every <code>return</code> is their first parameter. More precise than "
-        "#11518.",
-        "Review and merge; then close #11518.",
+        "Run released on 4 October, 41 checks green so far. Approved by chrikrah (not a maintainer). 25 "
+        "lines for issue 9226 (<code>useless-parent-delegation</code>).",
+        "Review when CI and the primer finish.",
     ),
-    11493: (
+    11529: (
         "review",
-        "ready",
+        "CI running",
         "confirmed",
-        "53/53 green. The primer removes 5 <code>used-before-assignment</code> false positives (django, "
-        "poetry-core, sentry); the astropy <code>too-many-ancestors</code> changes are base drift. 94 "
-        "lines for issue 9134.",
-        "Review and merge. Backport label set.",
+        "Run released on 4 October, 47 checks green so far, after the author handled chrikrah's case in "
+        "<code>8a327ba</code>. Earlier primer removed 2 home-assistant false positives.",
+        "Review when CI and the primer finish.",
     ),
     11432: (
         "review",
@@ -178,34 +165,6 @@ V = {
         "Review. Clean primer, confirmed issue.",
     ),
     # ---- approve the workflow run ----------------------------------------
-    11457: (
-        "approve",
-        "held",
-        "confirmed",
-        "Approved on 4 October by chrikrah (not a maintainer): the functional test fails without the "
-        "fix, and third-party code does not move. 25 lines for issue 9226 "
-        "(<code>useless-parent-delegation</code> when the override changes the values passed). CI has "
-        "never run.",
-        "Approve the run.",
-    ),
-    11529: (
-        "approve",
-        "held",
-        "confirmed",
-        "Approved on 4 October by chrikrah (not a maintainer), who found a case the fix got wrong; the "
-        "author pushed <code>8a327ba</code> for it, so the run is held again. Primer on the earlier "
-        "commit removed 2 home-assistant false positives.",
-        "Approve the run; merge if green. Backport label set.",
-    ),
-    11205: (
-        "approve",
-        "held",
-        "feature",
-        "The author merged main on 3 October, so the run is held again. DudeNr33's review (changes "
-        "requested on 3 September) is still the gate; the author says both rendering problems are "
-        "fixed. 624 lines, <em>Work in progress</em>.",
-        "Approve the run, then ask DudeNr33 for the re-review.",
-    ),
     11430: (
         "approve",
         "held",
@@ -214,23 +173,6 @@ V = {
         "approval. 57 lines teaching <code>abstract-class-instantiated</code> about attrs fields; the "
         "issue was classed as library-specific.",
         "Decide whether attrs support belongs in core, then approve the run.",
-    ),
-    11546: (
-        "approve",
-        "held",
-        "confirmed",
-        "49 lines for issue 10374, reproduced on main 86e06e524: reusing <code>_</code> for a list then "
-        "an object raises R0204. Skips only the bare <code>_</code>; <code>self._</code> keeps the "
-        "check.",
-        "Approve the run.",
-    ),
-    11545: (
-        "approve",
-        "held",
-        "confirmed",
-        "41 lines, makes progress on issue 10423: when an expression infers to two classes, the "
-        "subscription checks now look at every inferred class before reporting. Unit tests only.",
-        "Approve the run.",
     ),
     11525: (
         "approve",
@@ -349,6 +291,46 @@ V = {
         "Retrigger.",
     ),
     # ---- author's move ----------------------------------------------------
+    11205: (
+        "author",
+        "waiting",
+        "feature",
+        "After the 3 October main merge the run is red: <code>Checks / pylint</code> and the pyreverse "
+        "primer fail. DudeNr33's changes-requested review (3 September) still stands.",
+        "Waiting on the author to fix CI; then ask DudeNr33 for the re-review.",
+    ),
+    11557: (
+        "author",
+        "waiting",
+        "confirmed",
+        "You requested changes on 4 October: fix pre-commit and add coverage. Issue 10737, "
+        "generated-doc backslash escaping.",
+        "Waiting on the author.",
+    ),
+    11483: (
+        "author",
+        "waiting",
+        "confirmed",
+        "You requested changes on 4 October: LGTM, but nested scopes must be handled too. 53/53 green.",
+        "Waiting on the author.",
+    ),
+    11517: (
+        "author",
+        "waiting",
+        "confirmed",
+        "You requested changes on 4 October and added the test cases from #11518 (closed in its favour, "
+        "its author credited). CI re-running on the new tests.",
+        "Waiting on the author. Merge once the added cases pass.",
+    ),
+    11493: (
+        "author",
+        "waiting",
+        "confirmed",
+        "You requested changes on 4 October after a positive review: the primer looks right (all 5 "
+        "removed hits involve a property or cached property), with follow-up asks on the PR. 53/53 "
+        "green.",
+        "Waiting on the author.",
+    ),
     11552: (
         "author",
         "waiting",
@@ -509,15 +491,6 @@ V = {
         "Ask for a rebase onto #11011, keeping only the package-root fix.",
     ),
     # ---- decide first -----------------------------------------------------
-    11518: (
-        "decide",
-        "pick one",
-        "duplicate",
-        "49/49 green, 22 lines, also for issue 10831. It treats any decorator whose return cannot be "
-        "inferred as signature-changing, which silences <code>unexpected-keyword-arg</code> behind "
-        "every opaque decorator.",
-        "Pick #11517 or this one; the broader rule risks false negatives.",
-    ),
     11502: (
         "decide",
         "design",
