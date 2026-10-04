@@ -66,6 +66,25 @@ LANES = {
 V = {
     # ---- merge lane -------------------------------------------------------
     # ---- review now -------------------------------------------------------
+    11576: (
+        "review",
+        "approach",
+        "confirmed",
+        "48/48 green, 153 lines for issue 10602. Works around astroid's "
+        "<code>ClassDef.ancestors()</code> skipping a subscripted generic base "
+        "(<code>GenericModel[int]</code>) inside pylint. The primer removes home-assistant "
+        "<code>too-few-public-methods</code> false positives.",
+        "Decide whether the fix belongs in astroid's <code>ancestors()</code> instead, then review.",
+    ),
+    11569: (
+        "review",
+        "ready",
+        "confirmed",
+        "53/53 green, the primer reports no effect. 104/-80 for issue 1630 (7 reactions): names in a "
+        "<code>metaclass=</code> keyword are visited like class children instead of a separate "
+        "end-of-scope pass, so <code>unused-import</code> stops firing for them.",
+        "Review; highest-reaction pylint fix that is green.",
+    ),
     11205: (
         "review",
         "you",
@@ -150,16 +169,6 @@ V = {
         "Review. Clean primer, confirmed issue.",
     ),
     # ---- approve the workflow run ----------------------------------------
-    11569: (
-        "approve",
-        "held",
-        "confirmed",
-        "104/-80 by pylaterreur for issue 1630 (7 reactions): <code>unused-import</code> false "
-        "positives for names used in a <code>metaclass=</code> keyword. Names in the keyword are now "
-        "visited like class children instead of a separate end-of-scope pass. CI partly run (28 green, "
-        "12 pending).",
-        "Approve the rest of the run, then review: 7 reactions is high for this queue.",
-    ),
     11430: (
         "approve",
         "held",
@@ -473,6 +482,17 @@ V = {
         "Ask for a rebase onto #11011, keeping only the package-root fix.",
     ),
     # ---- decide first -----------------------------------------------------
+    11573: (
+        "decide",
+        "design",
+        "feature",
+        "53/53 green, 49 lines for issue 11567. Silences <code>arguments-differ</code> when the "
+        "override makes a parameter positional-only. That is a real signature change (callers passing "
+        "<code>key=</code> break); only the message (\"now 0\" parameters) is clearly wrong. The ansible "
+        "<code>arguments-renamed</code> changes in the primer need a look. Same author's #11572 was "
+        "closed.",
+        "Decide: fix the message only, or accept the silence; then review.",
+    ),
     11546: (
         "decide",
         "design",
@@ -564,15 +584,6 @@ V = {
         "Agree on the expected behaviour in the issue before approving a run.",
     ),
     # ---- stale ------------------------------------------------------------
-    11563: (
-        "stale",
-        "close?",
-        "duplicate",
-        "Superseded for issue 8138 (High priority): you pointed the author at the astroid root cause on "
-        "4 October, astroid PR 3347 infers an ellipsis-only body as Uninferable, and #11570 carries the "
-        "pylint side. This PR allow-lists annotations in pylint instead.",
-        "Close in favour of astroid 3347 + #11570 once they land, crediting the author.",
-    ),
     11277: (
         "stale",
         "close?",
