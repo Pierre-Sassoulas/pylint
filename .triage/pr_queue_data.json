@@ -1,8 +1,8 @@
 {
- "snapshot": "2026-10-03",
+ "snapshot": "2026-10-04",
  "owner": "Pierre-Sassoulas",
- "open_total": 105,
- "open_own": 23,
+ "open_total": 104,
+ "open_own": 24,
  "prs": [
   {
    "n": 5401,
@@ -306,7 +306,7 @@
     "backport maintenance/4.1.x"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "not-run",
    "citot": 2,
    "cifail": 0,
@@ -441,7 +441,7 @@
     "Needs decision :lock:"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "failing",
    "citot": 48,
    "cifail": 6,
@@ -509,7 +509,7 @@
     "Documentation :green_book:"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "CONFLICTING",
+   "merge": "UNKNOWN",
    "ci": "failing",
    "citot": 46,
    "cifail": 1,
@@ -642,7 +642,7 @@
     "tests"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "not-run",
    "citot": 3,
    "cifail": 0,
@@ -755,7 +755,7 @@
     "Enhancement ✨"
    ],
    "rd": "APPROVED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "failing",
    "citot": 38,
    "cifail": 10,
@@ -789,7 +789,7 @@
     "Crash 💥"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "not-run",
    "citot": 5,
    "cifail": 0,
@@ -919,7 +919,7 @@
    "updated": "2026-07-31",
    "labels": [],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "failing",
    "citot": 51,
    "cifail": 1,
@@ -950,7 +950,7 @@
    "updated": "2026-08-08",
    "labels": [],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "not-run",
    "citot": 3,
    "cifail": 0,
@@ -1013,7 +1013,7 @@
     "Work in progress"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "awaiting-approval",
    "citot": 2,
    "cifail": 0,
@@ -1048,7 +1048,7 @@
     "High priority"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "CONFLICTING",
+   "merge": "UNKNOWN",
    "ci": "green",
    "citot": 50,
    "cifail": 0,
@@ -1202,7 +1202,7 @@
    "updated": "2026-08-15",
    "labels": [],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "not-run",
    "citot": 3,
    "cifail": 0,
@@ -1765,7 +1765,7 @@
    "updated": "2026-10-03",
    "labels": [],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "awaiting-approval",
    "citot": 2,
    "cifail": 0,
@@ -1796,7 +1796,7 @@
     "False Negative 🦋"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "green",
    "citot": 48,
    "cifail": 0,
@@ -1856,7 +1856,7 @@
     "Enhancement ✨"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "not-run",
    "citot": 4,
    "cifail": 0,
@@ -1884,47 +1884,18 @@
    "size": 25,
    "files": 4,
    "created": "2026-09-24",
-   "updated": "2026-09-24",
+   "updated": "2026-10-04",
    "labels": [],
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
    "ci": "not-run",
    "citot": 3,
    "cifail": 0,
-   "nrev": 0,
+   "nrev": 1,
    "mrev": [],
    "links": [
     [
      9226,
-     "",
-     ""
-    ]
-   ],
-   "lastcom": [
-    "-",
-    "-"
-   ]
-  },
-  {
-   "n": 11460,
-   "a": "agustin18",
-   "t": "Fix unnecessary-ellipsis false positive for Protocol methods in conditional blocks",
-   "draft": false,
-   "size": 42,
-   "files": 4,
-   "created": "2026-09-25",
-   "updated": "2026-09-25",
-   "labels": [],
-   "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
-   "ci": "not-run",
-   "citot": 3,
-   "cifail": 0,
-   "nrev": 0,
-   "mrev": [],
-   "links": [
-    [
-     11459,
      "",
      ""
     ]
@@ -2010,7 +1981,7 @@
     "False Positive 🦟"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "failing",
    "citot": 48,
    "cifail": 1,
@@ -2073,7 +2044,7 @@
     "backport maintenance/4.1.x"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "green",
    "citot": 53,
    "cifail": 0,
@@ -2137,7 +2108,7 @@
     "Documentation :green_book:"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "awaiting-approval",
    "citot": 28,
    "cifail": 0,
@@ -2154,45 +2125,6 @@
    ],
    "lastcom": [
     "nightcityblade",
-    "2026-09-30"
-   ]
-  },
-  {
-   "n": 11505,
-   "a": "ace2016",
-   "t": "Avoid redefined-builtin for inherited parameter names",
-   "draft": false,
-   "size": 47,
-   "files": 7,
-   "created": "2026-09-30",
-   "updated": "2026-10-03",
-   "labels": [
-    "False Positive 🦟",
-    "backport maintenance/4.1.x"
-   ],
-   "rd": "CHANGES_REQUESTED",
-   "merge": "UNKNOWN",
-   "ci": "green",
-   "citot": 52,
-   "cifail": 0,
-   "nrev": 1,
-   "mrev": [
-    "Pierre-Sassoulas"
-   ],
-   "links": [
-    [
-     1234,
-     "",
-     ""
-    ],
-    [
-     11438,
-     "",
-     ""
-    ]
-   ],
-   "lastcom": [
-    "ace2016",
     "2026-09-30"
    ]
   },
@@ -2258,37 +2190,6 @@
    ]
   },
   {
-   "n": 11523,
-   "a": "adarshsm",
-   "t": "Diff integer counts in report tables",
-   "draft": true,
-   "size": 20,
-   "files": 3,
-   "created": "2026-10-01",
-   "updated": "2026-10-03",
-   "labels": [
-    "Work in progress"
-   ],
-   "rd": "REVIEW_REQUIRED",
-   "merge": "CONFLICTING",
-   "ci": "awaiting-approval",
-   "citot": 4,
-   "cifail": 0,
-   "nrev": 0,
-   "mrev": [],
-   "links": [
-    [
-     11520,
-     "",
-     ""
-    ]
-   ],
-   "lastcom": [
-    "Pierre-Sassoulas",
-    "2026-10-03"
-   ]
-  },
-  {
    "n": 11525,
    "a": "cyphercodes",
    "t": "Fix variant attribute narrowing false positive",
@@ -2299,7 +2200,7 @@
    "updated": "2026-10-01",
    "labels": [],
    "rd": "REVIEW_REQUIRED",
-   "merge": "CONFLICTING",
+   "merge": "UNKNOWN",
    "ci": "awaiting-approval",
    "citot": 3,
    "cifail": 0,
@@ -2351,10 +2252,10 @@
    "a": "shan3520",
    "t": "Fix `used-before-assignment` false positive for tuple targets in multi-item `with`",
    "draft": false,
-   "size": 73,
+   "size": 106,
    "files": 4,
    "created": "2026-10-02",
-   "updated": "2026-10-03",
+   "updated": "2026-10-04",
    "labels": [
     "False Positive 🦟",
     "backport maintenance/4.1.x"
@@ -2364,7 +2265,7 @@
    "ci": "awaiting-approval",
    "citot": 2,
    "cifail": 0,
-   "nrev": 0,
+   "nrev": 1,
    "mrev": [],
    "links": [
     [
@@ -2374,8 +2275,8 @@
     ]
    ],
    "lastcom": [
-    "github-actions",
-    "2026-10-03"
+    "shan3520",
+    "2026-10-04"
    ]
   },
   {
@@ -2439,35 +2340,6 @@
    "lastcom": [
     "github-actions",
     "2026-10-03"
-   ]
-  },
-  {
-   "n": 11542,
-   "a": "aipd506",
-   "t": "Fix false positive unnecessary-ellipsis for Protocol method inside TYPE_CHECKING",
-   "draft": false,
-   "size": 25,
-   "files": 4,
-   "created": "2026-10-03",
-   "updated": "2026-10-03",
-   "labels": [],
-   "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
-   "ci": "awaiting-approval",
-   "citot": 3,
-   "cifail": 0,
-   "nrev": 0,
-   "mrev": [],
-   "links": [
-    [
-     11459,
-     "",
-     ""
-    ]
-   ],
-   "lastcom": [
-    "-",
-    "-"
    ]
   },
   {
@@ -2536,7 +2408,7 @@
     "Skip news :mute:"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "awaiting-approval",
    "citot": 5,
    "cifail": 0,
@@ -2551,6 +2423,62 @@
      ""
     ]
    ],
+   "lastcom": [
+    "-",
+    "-"
+   ]
+  },
+  {
+   "n": 11557,
+   "a": "dchaudhari7177",
+   "t": "Escape backslashes in the generated reST documentation",
+   "draft": false,
+   "size": 88,
+   "files": 8,
+   "created": "2026-10-04",
+   "updated": "2026-10-04",
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "failing",
+   "citot": 49,
+   "cifail": 1,
+   "nrev": 0,
+   "mrev": [],
+   "links": [
+    [
+     10737,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "github-actions",
+    "2026-10-04"
+   ]
+  },
+  {
+   "n": 11560,
+   "a": "app/pylint-backport",
+   "t": "[Backport maintenance/4.1.x] Fix unnecessary-ellipsis false positive for Protocol methods in conditional blocks",
+   "draft": false,
+   "size": 42,
+   "files": 4,
+   "created": "2026-10-04",
+   "updated": "2026-10-04",
+   "labels": [
+    "False Positive 🦟"
+   ],
+   "rd": "APPROVED",
+   "merge": "MERGEABLE",
+   "ci": "running",
+   "citot": 17,
+   "cifail": 0,
+   "nrev": 1,
+   "mrev": [
+    "Pierre-Sassoulas"
+   ],
+   "links": [],
    "lastcom": [
     "-",
     "-"
@@ -2572,14 +2500,6 @@
    "state": "open",
    "state_reason": null,
    "title": "Add different configuration for different sub directories"
-  },
-  {
-   "comments": 1,
-   "labels": [],
-   "number": 1234,
-   "state": "closed",
-   "state_reason": "completed",
-   "title": "incorrect analysing of etree"
   },
   {
    "comments": 11,
@@ -3256,6 +3176,17 @@
    "title": "Add sphinx references to pylint messages"
   },
   {
+   "comments": 2,
+   "labels": [
+    "Documentation :green_book:",
+    "Needs PR"
+   ],
+   "number": 10737,
+   "state": "open",
+   "state_reason": null,
+   "title": "Backslashes don't properly render in docs"
+  },
+  {
    "comments": 0,
    "labels": [
     "pyreverse",
@@ -3415,36 +3346,6 @@
    "state": "open",
    "state_reason": null,
    "title": "False positive no-member for annotated Enum _value_"
-  },
-  {
-   "comments": 0,
-   "labels": [
-    "Enhancement ✨",
-    "Needs PR"
-   ],
-   "number": 11438,
-   "state": "open",
-   "state_reason": null,
-   "title": "Auto-supress `redefined-builtin` when there is no choice?"
-  },
-  {
-   "comments": 1,
-   "labels": [],
-   "number": 11459,
-   "state": "open",
-   "state_reason": null,
-   "title": "False positive unnecessary-ellipsis for Protocol method inside TYPE_CHECKING"
-  },
-  {
-   "comments": 2,
-   "labels": [
-    "Bug :beetle:",
-    "Regression"
-   ],
-   "number": 11520,
-   "state": "closed",
-   "state_reason": "completed",
-   "title": "Integer statistics produce non-string cells in table_lines_from_stats"
   },
   {
    "comments": 1,
