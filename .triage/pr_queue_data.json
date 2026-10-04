@@ -1,8 +1,8 @@
 {
  "snapshot": "2026-10-04",
  "owner": "Pierre-Sassoulas",
- "open_total": 104,
- "open_own": 24,
+ "open_total": 101,
+ "open_own": 23,
  "prs": [
   {
    "n": 5401,
@@ -789,7 +789,7 @@
     "Crash 💥"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "not-run",
    "citot": 5,
    "cifail": 0,
@@ -874,38 +874,6 @@
    "lastcom": [
     "github-actions",
     "2026-07-16"
-   ]
-  },
-  {
-   "n": 11172,
-   "a": "Synvoya",
-   "t": "Fix naming for all-caps callable aliases",
-   "draft": false,
-   "size": 20,
-   "files": 3,
-   "created": "2026-07-16",
-   "updated": "2026-09-15",
-   "labels": [
-    "False Positive 🦟",
-    "backport maintenance/4.1.x"
-   ],
-   "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
-   "ci": "green",
-   "citot": 52,
-   "cifail": 0,
-   "nrev": 0,
-   "mrev": [],
-   "links": [
-    [
-     11012,
-     "",
-     ""
-    ]
-   ],
-   "lastcom": [
-    "github-actions",
-    "2026-09-06"
    ]
   },
   {
@@ -1007,15 +975,15 @@
    "size": 624,
    "files": 42,
    "created": "2026-07-28",
-   "updated": "2026-10-03",
+   "updated": "2026-10-04",
    "labels": [
     "pyreverse",
     "Work in progress"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "awaiting-approval",
-   "citot": 2,
+   "citot": 49,
    "cifail": 0,
    "nrev": 7,
    "mrev": [
@@ -1144,7 +1112,7 @@
     "False Negative 🦋"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "CONFLICTING",
+   "merge": "UNKNOWN",
    "ci": "not-run",
    "citot": 2,
    "cifail": 0,
@@ -1495,7 +1463,7 @@
    "labels": [],
    "rd": "REVIEW_REQUIRED",
    "merge": "UNKNOWN",
-   "ci": "not-run",
+   "ci": "awaiting-approval",
    "citot": 2,
    "cifail": 0,
    "nrev": 0,
@@ -1671,7 +1639,7 @@
     "backport maintenance/4.1.x"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "green",
    "citot": 51,
    "cifail": 0,
@@ -1700,7 +1668,7 @@
    "updated": "2026-09-30",
    "labels": [],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "not-run",
    "citot": 3,
    "cifail": 0,
@@ -1791,17 +1759,19 @@
    "size": 142,
    "files": 5,
    "created": "2026-09-17",
-   "updated": "2026-10-02",
+   "updated": "2026-10-04",
    "labels": [
     "False Negative 🦋"
    ],
-   "rd": "REVIEW_REQUIRED",
+   "rd": "CHANGES_REQUESTED",
    "merge": "UNKNOWN",
    "ci": "green",
    "citot": 48,
    "cifail": 0,
-   "nrev": 0,
-   "mrev": [],
+   "nrev": 1,
+   "mrev": [
+    "Pierre-Sassoulas"
+   ],
    "links": [
     [
      2583,
@@ -1856,7 +1826,7 @@
     "Enhancement ✨"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "not-run",
    "citot": 4,
    "cifail": 0,
@@ -1888,8 +1858,8 @@
    "labels": [],
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "not-run",
-   "citot": 3,
+   "ci": "awaiting-approval",
+   "citot": 49,
    "cifail": 0,
    "nrev": 1,
    "mrev": [],
@@ -1901,8 +1871,8 @@
     ]
    ],
    "lastcom": [
-    "-",
-    "-"
+    "codecov",
+    "2026-10-04"
    ]
   },
   {
@@ -2038,18 +2008,20 @@
    "size": 54,
    "files": 4,
    "created": "2026-09-28",
-   "updated": "2026-10-03",
+   "updated": "2026-10-04",
    "labels": [
     "False Positive 🦟",
     "backport maintenance/4.1.x"
    ],
-   "rd": "REVIEW_REQUIRED",
+   "rd": "CHANGES_REQUESTED",
    "merge": "UNKNOWN",
    "ci": "green",
    "citot": 53,
    "cifail": 0,
-   "nrev": 0,
-   "mrev": [],
+   "nrev": 1,
+   "mrev": [
+    "Pierre-Sassoulas"
+   ],
    "links": [
     [
      9460,
@@ -2070,18 +2042,20 @@
    "size": 94,
    "files": 4,
    "created": "2026-09-29",
-   "updated": "2026-10-03",
+   "updated": "2026-10-04",
    "labels": [
     "False Positive 🦟",
     "backport maintenance/4.1.x"
    ],
-   "rd": "REVIEW_REQUIRED",
+   "rd": "CHANGES_REQUESTED",
    "merge": "UNKNOWN",
    "ci": "green",
    "citot": 53,
    "cifail": 0,
-   "nrev": 0,
-   "mrev": [],
+   "nrev": 1,
+   "mrev": [
+    "Pierre-Sassoulas"
+   ],
    "links": [
     [
      9134,
@@ -2133,21 +2107,23 @@
    "a": "wolfgang-aura",
    "t": "Fix unexpected-keyword-arg false positive for pass-through decorators above a **kwargs decorator",
    "draft": false,
-   "size": 50,
+   "size": 91,
    "files": 4,
    "created": "2026-10-01",
-   "updated": "2026-10-03",
+   "updated": "2026-10-04",
    "labels": [
     "False Positive 🦟",
     "backport maintenance/4.1.x"
    ],
-   "rd": "REVIEW_REQUIRED",
+   "rd": "CHANGES_REQUESTED",
    "merge": "UNKNOWN",
-   "ci": "green",
-   "citot": 53,
+   "ci": "running",
+   "citot": 38,
    "cifail": 0,
-   "nrev": 0,
-   "mrev": [],
+   "nrev": 1,
+   "mrev": [
+    "Pierre-Sassoulas"
+   ],
    "links": [
     [
      10831,
@@ -2158,35 +2134,6 @@
    "lastcom": [
     "codecov",
     "2026-10-03"
-   ]
-  },
-  {
-   "n": 11518,
-   "a": "nightcityblade",
-   "t": "Fix unexpected-keyword-arg for opaque decorators",
-   "draft": false,
-   "size": 22,
-   "files": 3,
-   "created": "2026-10-01",
-   "updated": "2026-10-01",
-   "labels": [],
-   "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
-   "ci": "green",
-   "citot": 49,
-   "cifail": 0,
-   "nrev": 0,
-   "mrev": [],
-   "links": [
-    [
-     10831,
-     "",
-     ""
-    ]
-   ],
-   "lastcom": [
-    "github-actions",
-    "2026-10-01"
    ]
   },
   {
@@ -2261,9 +2208,9 @@
     "backport maintenance/4.1.x"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "awaiting-approval",
-   "citot": 2,
+   "citot": 48,
    "cifail": 0,
    "nrev": 1,
    "mrev": [],
@@ -2275,7 +2222,7 @@
     ]
    ],
    "lastcom": [
-    "shan3520",
+    "github-actions",
     "2026-10-04"
    ]
   },
@@ -2350,19 +2297,19 @@
    "size": 41,
    "files": 3,
    "created": "2026-10-03",
-   "updated": "2026-10-03",
+   "updated": "2026-10-04",
    "labels": [],
    "rd": "REVIEW_REQUIRED",
    "merge": "UNKNOWN",
-   "ci": "awaiting-approval",
-   "citot": 3,
+   "ci": "running",
+   "citot": 49,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
    "links": [],
    "lastcom": [
-    "-",
-    "-"
+    "codecov",
+    "2026-10-04"
    ]
   },
   {
@@ -2377,8 +2324,8 @@
    "labels": [],
    "rd": "REVIEW_REQUIRED",
    "merge": "UNKNOWN",
-   "ci": "awaiting-approval",
-   "citot": 3,
+   "ci": "running",
+   "citot": 39,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -2437,14 +2384,19 @@
    "files": 8,
    "created": "2026-10-04",
    "updated": "2026-10-04",
-   "labels": [],
-   "rd": "REVIEW_REQUIRED",
+   "labels": [
+    "Documentation :green_book:",
+    "backport maintenance/4.1.x"
+   ],
+   "rd": "CHANGES_REQUESTED",
    "merge": "MERGEABLE",
    "ci": "failing",
-   "citot": 49,
+   "citot": 53,
    "cifail": 1,
-   "nrev": 0,
-   "mrev": [],
+   "nrev": 1,
+   "mrev": [
+    "Pierre-Sassoulas"
+   ],
    "links": [
     [
      10737,
@@ -2458,26 +2410,24 @@
    ]
   },
   {
-   "n": 11560,
+   "n": 11561,
    "a": "app/pylint-backport",
-   "t": "[Backport maintenance/4.1.x] Fix unnecessary-ellipsis false positive for Protocol methods in conditional blocks",
+   "t": "[Backport maintenance/4.1.x] Fix naming for all-caps callable aliases",
    "draft": false,
-   "size": 42,
-   "files": 4,
+   "size": 20,
+   "files": 3,
    "created": "2026-10-04",
    "updated": "2026-10-04",
    "labels": [
     "False Positive 🦟"
    ],
-   "rd": "APPROVED",
+   "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
    "ci": "running",
-   "citot": 17,
+   "citot": 14,
    "cifail": 0,
-   "nrev": 1,
-   "mrev": [
-    "Pierre-Sassoulas"
-   ],
+   "nrev": 0,
+   "mrev": [],
    "links": [],
    "lastcom": [
     "-",
@@ -3262,17 +3212,6 @@
    "state": "open",
    "state_reason": null,
    "title": "possibly-used-before-assignment false negative when variable has type annotation"
-  },
-  {
-   "comments": 2,
-   "labels": [
-    "False Positive 🦟",
-    "Needs PR"
-   ],
-   "number": 11012,
-   "state": "open",
-   "state_reason": null,
-   "title": "C0103: Variable name false positive for single word all caps at module level"
   },
   {
    "comments": 1,
