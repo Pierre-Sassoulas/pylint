@@ -1395,12 +1395,12 @@
    "size": 45,
    "files": 4,
    "created": "2026-09-10",
-   "updated": "2026-09-23",
+   "updated": "2026-10-04",
    "labels": [],
    "rd": "REVIEW_REQUIRED",
-   "merge": "CONFLICTING",
-   "ci": "green",
-   "citot": 48,
+   "merge": "MERGEABLE",
+   "ci": "running",
+   "citot": 32,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -1412,8 +1412,8 @@
     ]
    ],
    "lastcom": [
-    "github-actions",
-    "2026-09-23"
+    "ump45nose",
+    "2026-10-04"
    ]
   },
   {
@@ -2283,39 +2283,6 @@
    ]
   },
   {
-   "n": 11563,
-   "a": "mvanhorn",
-   "t": "Not-callable false positive on ellipsis property stubs annotated as classes",
-   "draft": false,
-   "size": 190,
-   "files": 4,
-   "created": "2026-10-04",
-   "updated": "2026-10-04",
-   "labels": [
-    "False Positive 🦟",
-    "High priority",
-    "backport maintenance/4.1.x"
-   ],
-   "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
-   "ci": "failing",
-   "citot": 55,
-   "cifail": 1,
-   "nrev": 0,
-   "mrev": [],
-   "links": [
-    [
-     8138,
-     "",
-     ""
-    ]
-   ],
-   "lastcom": [
-    "Pierre-Sassoulas",
-    "2026-10-04"
-   ]
-  },
-  {
    "n": 11569,
    "a": "pylaterreur",
    "t": "Fix ``unused-import`` false positives for names used in a metaclass",
@@ -2330,8 +2297,8 @@
    ],
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "running",
-   "citot": 43,
+   "ci": "green",
+   "citot": 53,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -2343,35 +2310,69 @@
     ]
    ],
    "lastcom": [
-    "-",
-    "-"
+    "github-actions",
+    "2026-10-04"
    ]
   },
   {
-   "n": 11571,
-   "a": "app/pylint-backport",
-   "t": "[Backport maintenance/4.1.x] Fix arguments-differ false positive for overload stubs in subclasses",
+   "n": 11573,
+   "a": "Vinayak19112003",
+   "t": "Fix arguments-differ false positive for positional-only parameters",
    "draft": false,
-   "size": 176,
+   "size": 49,
    "files": 4,
    "created": "2026-10-04",
    "updated": "2026-10-04",
    "labels": [
-    "False Positive 🦟"
+    "False Positive 🦟",
+    "backport maintenance/4.1.x"
    ],
-   "rd": "APPROVED",
+   "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "running",
-   "citot": 17,
+   "ci": "green",
+   "citot": 53,
    "cifail": 0,
-   "nrev": 1,
-   "mrev": [
-    "Pierre-Sassoulas"
+   "nrev": 0,
+   "mrev": [],
+   "links": [
+    [
+     11567,
+     "",
+     ""
+    ]
    ],
-   "links": [],
    "lastcom": [
-    "-",
-    "-"
+    "github-actions",
+    "2026-10-04"
+   ]
+  },
+  {
+   "n": 11576,
+   "a": "agustin18",
+   "t": "Fix false positive 'too-few-public-methods' (R0903) for subscripted generic classes",
+   "draft": false,
+   "size": 153,
+   "files": 3,
+   "created": "2026-10-04",
+   "updated": "2026-10-04",
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "green",
+   "citot": 48,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [
+    [
+     10602,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "github-actions",
+    "2026-10-04"
    ]
   }
  ],
@@ -3058,6 +3059,18 @@
    "title": "Add sphinx references to pylint messages"
   },
   {
+   "comments": 0,
+   "labels": [
+    "False Positive 🦟",
+    "Lib specific 💅",
+    "Needs PR"
+   ],
+   "number": 10602,
+   "state": "open",
+   "state_reason": null,
+   "title": "False positives on generic pydantic models"
+  },
+  {
    "comments": 2,
    "labels": [
     "Documentation :green_book:",
@@ -3225,6 +3238,16 @@
    "state": "open",
    "state_reason": null,
    "title": "Align helper type annotations with their actual AST values"
+  },
+  {
+   "comments": 0,
+   "labels": [
+    "Needs triage :inbox_tray:"
+   ],
+   "number": 11567,
+   "state": "open",
+   "state_reason": null,
+   "title": "`arguments-differ` (W0221) raises a false positive when using positional-only parameters"
   }
  ]
 }
