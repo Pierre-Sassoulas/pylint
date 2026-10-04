@@ -74,6 +74,16 @@ V = {
         "Cheapest merge left in the queue. Read it and land it.",
     ),
     # ---- review now -------------------------------------------------------
+    11557: (
+        "review",
+        "coverage",
+        "confirmed",
+        "48 of 49 green, only <code>codecov/patch</code> red. 88 lines for issue 10737: escape lone "
+        "backslashes in the generated message and option pages (E2510, W1402, "
+        "<code>valid-magic-values</code>), after #10736 fixed the hand-written ones. The ansible "
+        "<code>redefined-builtin</code> lines in the primer are base drift from #11505.",
+        "Review; check one rendered page before merging.",
+    ),
     11483: (
         "review",
         "ready",
@@ -168,6 +178,25 @@ V = {
         "Review. Clean primer, confirmed issue.",
     ),
     # ---- approve the workflow run ----------------------------------------
+    11457: (
+        "approve",
+        "held",
+        "confirmed",
+        "Approved on 4 October by chrikrah (not a maintainer): the functional test fails without the "
+        "fix, and third-party code does not move. 25 lines for issue 9226 "
+        "(<code>useless-parent-delegation</code> when the override changes the values passed). CI has "
+        "never run.",
+        "Approve the run.",
+    ),
+    11529: (
+        "approve",
+        "held",
+        "confirmed",
+        "Approved on 4 October by chrikrah (not a maintainer), who found a case the fix got wrong; the "
+        "author pushed <code>8a327ba</code> for it, so the run is held again. Primer on the earlier "
+        "commit removed 2 home-assistant false positives.",
+        "Approve the run; merge if green. Backport label set.",
+    ),
     11205: (
         "approve",
         "held",
@@ -185,15 +214,6 @@ V = {
         "approval. 57 lines teaching <code>abstract-class-instantiated</code> about attrs fields; the "
         "issue was classed as library-specific.",
         "Decide whether attrs support belongs in core, then approve the run.",
-    ),
-    11529: (
-        "approve",
-        "held",
-        "confirmed",
-        "The author pushed a test for the uncovered line on 3 October (a <code>with</code> item without "
-        "a target before the binding item), so the run is held again. Last full run: 52/53, only "
-        "<code>codecov/patch</code> red; the primer removed 2 home-assistant false positives.",
-        "Approve the run; merge if codecov goes green.",
     ),
     11546: (
         "approve",
@@ -226,22 +246,6 @@ V = {
         "confirmed",
         "51 lines, <code>no-member</code> on an annotated enum value. Second PR from this contributor this month.",
         "Approve the run.",
-    ),
-    11457: (
-        "approve",
-        "held",
-        "confirmed",
-        "25 lines, the smallest held PR. Keeps <code>useless-parent-delegation</code> quiet when a "
-        "keyword-only argument is changed before the call.",
-        "Approve the run.",
-    ),
-    11460: (
-        "approve",
-        "held",
-        "confirmed",
-        "42 lines, filed 3 days after the issue. The fix targets the verified root cause: the Protocol "
-        "check looks at the <code>if TYPE_CHECKING</code> block instead of the class.",
-        "Approve the run; fast win on a fresh report.",
     ),
     11461: (
         "approve",
@@ -353,15 +357,6 @@ V = {
         "(issue 9974). You requested changes on 3 October: that is not what <code>init-hook</code> is "
         "for; launch pylint from the virtualenv instead.",
         "Waiting on the author; closing is reasonable if the docs would teach the wrong workflow.",
-    ),
-    11505: (
-        "author",
-        "waiting",
-        "feature",
-        "You requested changes on 3 October: keep <code>redefined-builtin</code> for positional-only "
-        "parameters, since their name is not part of the parent's interface (two suggestions inline). "
-        "The body still says <b>Closes #1234</b>, a closed 2017 etree issue.",
-        "Waiting on the author; ask for <code>Closes #11438</code> in the same round.",
     ),
     11417: (
         "author",
@@ -613,22 +608,6 @@ V = {
         "functional config tests instead of unit tests, a transformer instead of "
         "<code>_preprocess_boolean_arguments</code>).",
         "Pick one of #11469 and this; close the other.",
-    ),
-    11523: (
-        "stale",
-        "close?",
-        "duplicate",
-        "Superseded: #11541 merged the same one-line fix for issue 11520 on 3 October (issue closed). "
-        "You asked the author whether anything here is still worth keeping; now labelled <em>Work in "
-        "progress</em>.",
-        "Close once the author answers, or after a week.",
-    ),
-    11542: (
-        "stale",
-        "close?",
-        "duplicate",
-        "Duplicate of #11460 for issue 11459, opened eight days later, same fix.",
-        "Close with a pointer to #11460.",
     ),
     11277: (
         "stale",

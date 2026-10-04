@@ -31,10 +31,10 @@
       "ts": "2026-05-12T10:30:13.925294Z"
     },
     "10991": {
-      "verdict": "REPRO",
-      "note": "Verified on pylint 4.1.0-dev0 / astroid 4.2.0b3 (origin/main): E1123 'Unexpected keyword argument value' fires on Upper[str, int](value=\"hello\") where Upper inherits from Middle[T, *Shape] which inherits from a kw_only=True dataclass Base. Previous UNCLEAR was because pylint 4.0.5 + astroid 4.0.2 lacks PEP 695 TypeVarTuple support; with newer astroid the bug surfaces. Reporter's hypothesis (MCharming98 comment): astroid's _infer_sequence_helper fails when it hits a Starred node containing TypeVarTuple, which silently breaks MRO inference in brain_dataclasses. Related to #10972.",
-      "session": 13,
-      "ts": "2026-05-13T07:35:20.011191+00:00"
+      "verdict": "FIXED",
+      "note": "No longer reproduces on main; PR 11556 adds the regression test (merged 4 October). Closed.",
+      "session": 18,
+      "ts": "2026-10-04T08:02:43.089074+00:00"
     },
     "10976": {
       "verdict": "DESIGN",
@@ -43,10 +43,10 @@
       "ts": "2026-05-12T10:33:02.888030+00:00"
     },
     "10972": {
-      "verdict": "REPRO",
-      "note": "Confirmed: E0110 false positive on Concrete that satisfies abstract Base.get_item via TypeVarTuple chain (PEP 695). pylint cannot follow *Shape forwarding through inheritance.",
-      "session": 1,
-      "ts": "2026-05-12T10:33:02.923887+00:00"
+      "verdict": "FIXED",
+      "note": "No longer reproduces on main; PR 11556 adds the regression test (merged 4 October). Closed.",
+      "session": 18,
+      "ts": "2026-10-04T08:02:43.089074+00:00"
     },
     "10969": {
       "verdict": "REPRO",
@@ -446,9 +446,9 @@
     },
     "10422": {
       "verdict": "FIXED",
-      "note": "Does NOT reproduce on pylint 4.0.5 with -d all -e not-callable: 'getattr(self, f\"_call_{x}\", None); method()' no longer raises E1102. Behavior unified with old-style %-format.",
-      "session": 1,
-      "ts": "2026-05-12T10:44:03.944058+00:00"
+      "note": "No longer reproduces on main; PR 11558 adds the regression test (merged 4 October). Closed.",
+      "session": 18,
+      "ts": "2026-10-04T08:02:43.089074+00:00"
     },
     "10418": {
       "verdict": "EXTDEP",
@@ -6163,10 +6163,10 @@
       "ts": "2026-10-03T21:52:50.680036+00:00"
     },
     "11438": {
-      "verdict": "DESIGN",
-      "note": "Behaves as described on pylint 4.1.0-dev0 @ 7ab05843d, astroid 4.3.1, CPython 3.13.1: overriding BaseHTTPRequestHandler.log_error(self, format, *args) gives W0622 on 'format'. Candidate rule: skip when the parameter name matches the overridden parent method's signature. Needs decision.",
-      "session": 15,
-      "ts": "2026-09-23T14:23:51.765347+00:00"
+      "verdict": "FIXED",
+      "note": "Closed by PR 11505: redefined-builtin is skipped for a parameter name inherited from the parent signature, except positional-only parameters. Backported as PR 11555, ships in 4.1.3.",
+      "session": 18,
+      "ts": "2026-10-04T08:02:43.089074+00:00"
     },
     "11436": {
       "verdict": "FIXED",
@@ -6241,10 +6241,10 @@
       "ts": "2026-10-02T22:36:01.601456+00:00"
     },
     "11459": {
-      "verdict": "REPRO",
-      "note": "Confirmed on main 4f263c11c (astroid 4.3.2, CPython 3.13.1) and on 4.0.9: W2301 on the Protocol method inside if TYPE_CHECKING only (snippets/i11459.py). Root cause: ellipsis_checker passes the function's parent, the If node, to is_protocol_class instead of the enclosing class. PR 11460 open, run held for approval.",
-      "session": 17,
-      "ts": "2026-09-28T14:22:27.584583+00:00"
+      "verdict": "FIXED",
+      "note": "Closed by PR 11460 (Protocol methods inside conditional blocks such as if TYPE_CHECKING). Backport PR 11560 approved; ships in 4.1.3. Duplicate PR 11542 closed.",
+      "session": 18,
+      "ts": "2026-10-04T08:02:43.089074+00:00"
     },
     "11491": {
       "verdict": "FIXED",
