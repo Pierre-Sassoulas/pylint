@@ -66,6 +66,16 @@ LANES = {
 V = {
     # ---- merge lane -------------------------------------------------------
     # ---- review now -------------------------------------------------------
+    11529: (
+        "review",
+        "primer check",
+        "confirmed",
+        "48/48 green on <code>8a327ba</code> (chrikrah's case handled). The new primer shows only "
+        "astropy <code>no-else-*</code> base drift: the 2 home-assistant "
+        "<code>used-before-assignment</code> removals from the first version are gone, so the narrowed "
+        "fix may no longer cover them.",
+        "Check whether the home-assistant cases still fire, then merge. Backport label set.",
+    ),
     11546: (
         "review",
         "CI running",
@@ -80,22 +90,6 @@ V = {
         "confirmed",
         "Run released on 4 October, 42 checks green so far. 41 lines, progress on issue 10423 "
         "(subscription checks look at every inferred class).",
-        "Review when CI and the primer finish.",
-    ),
-    11457: (
-        "review",
-        "CI running",
-        "confirmed",
-        "Run released on 4 October, 41 checks green so far. Approved by chrikrah (not a maintainer). 25 "
-        "lines for issue 9226 (<code>useless-parent-delegation</code>).",
-        "Review when CI and the primer finish.",
-    ),
-    11529: (
-        "review",
-        "CI running",
-        "confirmed",
-        "Run released on 4 October, 47 checks green so far, after the author handled chrikrah's case in "
-        "<code>8a327ba</code>. Earlier primer removed 2 home-assistant false positives.",
         "Review when CI and the primer finish.",
     ),
     11432: (
@@ -291,6 +285,16 @@ V = {
         "Retrigger.",
     ),
     # ---- author's move ----------------------------------------------------
+    11469: (
+        "author",
+        "waiting",
+        "confirmed",
+        "The one PR kept for issue 8460 (#10903 and #11540 closed in its favour, 4 October). Milestone "
+        "4.2.0. You asked for an error on a non-boolean value (<code>exit-zero = \"maybe\"</code>), an "
+        "INI test, an <code>errors-only = false</code> test, and to reuse #10903's functional config "
+        "tests with a Co-authored-by trailer.",
+        "Waiting on the author.",
+    ),
     11205: (
         "author",
         "waiting",
@@ -427,14 +431,6 @@ V = {
         "891 lines over 17 files for a type-annotations checker. Green, changes requested, silent since June.",
         "Too big to land as-is. Ask for a split or close it.",
     ),
-    10903: (
-        "author",
-        "waiting",
-        "confirmed",
-        "TOML boolean handling for <code>store_true</code> options; two red checks, <em>Waiting on "
-        "author</em> and <em>Needs take over</em> both set.",
-        "Small enough to take over — it is a real configuration bug.",
-    ),
     10953: (
         "author",
         "waiting",
@@ -464,15 +460,6 @@ V = {
         "You asked on 25 September whether the regex approach extends to other names, like pylint's own "
         "message names.",
         "Waiting on the author's answer.",
-    ),
-    11469: (
-        "author",
-        "waiting",
-        "confirmed",
-        "You asked for a changelog, reuse of YES_VALUES / NO_VALUES, ini and toml functional tests, and "
-        "an <code>errors-only = false</code> case. Changes the behaviour of existing configs, so it "
-        "targets the next minor.",
-        "Waiting on the author.",
     ),
     11475: (
         "author",
@@ -573,15 +560,6 @@ V = {
         "Agree on the expected behaviour in the issue before approving a run.",
     ),
     # ---- stale ------------------------------------------------------------
-    11540: (
-        "stale",
-        "close?",
-        "duplicate",
-        "Duplicate of #11469 for issue 8460. You reviewed it on 3 October anyway (changes requested: "
-        "functional config tests instead of unit tests, a transformer instead of "
-        "<code>_preprocess_boolean_arguments</code>).",
-        "Pick one of #11469 and this; close the other.",
-    ),
     11277: (
         "stale",
         "close?",

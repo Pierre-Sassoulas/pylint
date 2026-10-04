@@ -1,7 +1,7 @@
 {
  "snapshot": "2026-10-04",
  "owner": "Pierre-Sassoulas",
- "open_total": 101,
+ "open_total": 98,
  "open_own": 23,
  "prs": [
   {
@@ -564,41 +564,6 @@
    ]
   },
   {
-   "n": 10903,
-   "a": "marwinsteiner",
-   "t": "Fix TOML boolean false values for store_true options",
-   "draft": false,
-   "size": 75,
-   "files": 7,
-   "created": "2026-03-08",
-   "updated": "2026-07-16",
-   "labels": [
-    "Configuration",
-    "Waiting on author",
-    "Needs take over 🛎️"
-   ],
-   "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
-   "ci": "failing",
-   "citot": 46,
-   "cifail": 2,
-   "nrev": 3,
-   "mrev": [
-    "DanielNoord"
-   ],
-   "links": [
-    [
-     8460,
-     "",
-     ""
-    ]
-   ],
-   "lastcom": [
-    "github-actions",
-    "2026-07-16"
-   ]
-  },
-  {
    "n": 10904,
    "a": "Br1an67",
    "t": "Add :pylint: Sphinx role for referencing messages",
@@ -789,7 +754,7 @@
     "Crash 💥"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "not-run",
    "citot": 5,
    "cifail": 0,
@@ -981,7 +946,7 @@
     "Work in progress"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "awaiting-approval",
    "citot": 49,
    "cifail": 0,
@@ -999,7 +964,7 @@
    ],
    "lastcom": [
     "github-actions",
-    "2026-09-09"
+    "2026-10-04"
    ]
   },
   {
@@ -1230,7 +1195,7 @@
    "updated": "2026-08-19",
    "labels": [],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "not-run",
    "citot": 3,
    "cifail": 0,
@@ -1639,7 +1604,7 @@
     "backport maintenance/4.1.x"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "green",
    "citot": 51,
    "cifail": 0,
@@ -1668,7 +1633,7 @@
    "updated": "2026-09-30",
    "labels": [],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "not-run",
    "citot": 3,
    "cifail": 0,
@@ -1847,35 +1812,6 @@
    ]
   },
   {
-   "n": 11457,
-   "a": "tanmayBeginsJourney",
-   "t": "Fix false positive ``useless-parent-delegation`` for modified keyword-only arguments",
-   "draft": false,
-   "size": 25,
-   "files": 4,
-   "created": "2026-09-24",
-   "updated": "2026-10-04",
-   "labels": [],
-   "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
-   "ci": "awaiting-approval",
-   "citot": 49,
-   "cifail": 0,
-   "nrev": 1,
-   "mrev": [],
-   "links": [
-    [
-     9226,
-     "",
-     ""
-    ]
-   ],
-   "lastcom": [
-    "codecov",
-    "2026-10-04"
-   ]
-  },
-  {
    "n": 11461,
    "a": "agustin18",
    "t": "Fix false positive 'invalid-overridden-method' when overriding Enum.value",
@@ -1912,7 +1848,7 @@
    "size": 80,
    "files": 3,
    "created": "2026-09-26",
-   "updated": "2026-10-01",
+   "updated": "2026-10-04",
    "labels": [
     "Bug :beetle:",
     "Configuration"
@@ -1920,9 +1856,9 @@
    "rd": "CHANGES_REQUESTED",
    "merge": "UNKNOWN",
    "ci": "awaiting-approval",
-   "citot": 2,
+   "citot": 32,
    "cifail": 0,
-   "nrev": 1,
+   "nrev": 2,
    "mrev": [
     "Pierre-Sassoulas"
    ],
@@ -1934,8 +1870,8 @@
     ]
    ],
    "lastcom": [
-    "github-actions",
-    "2026-09-26"
+    "Pierre-Sassoulas",
+    "2026-10-04"
    ]
   },
   {
@@ -2118,7 +2054,7 @@
    "rd": "CHANGES_REQUESTED",
    "merge": "UNKNOWN",
    "ci": "running",
-   "citot": 38,
+   "citot": 46,
    "cifail": 0,
    "nrev": 1,
    "mrev": [
@@ -2256,40 +2192,6 @@
    ]
   },
   {
-   "n": 11540,
-   "a": "aipd506",
-   "t": "Respect boolean values for flags in configuration files",
-   "draft": false,
-   "size": 161,
-   "files": 4,
-   "created": "2026-10-03",
-   "updated": "2026-10-03",
-   "labels": [
-    "Enhancement ✨",
-    "Configuration"
-   ],
-   "rd": "CHANGES_REQUESTED",
-   "merge": "UNKNOWN",
-   "ci": "failing",
-   "citot": 53,
-   "cifail": 2,
-   "nrev": 1,
-   "mrev": [
-    "Pierre-Sassoulas"
-   ],
-   "links": [
-    [
-     8460,
-     "",
-     ""
-    ]
-   ],
-   "lastcom": [
-    "github-actions",
-    "2026-10-03"
-   ]
-  },
-  {
    "n": 11545,
    "a": "yuefdev",
    "t": "Consider alternative inferred subscription protocols",
@@ -2320,12 +2222,12 @@
    "size": 49,
    "files": 3,
    "created": "2026-10-03",
-   "updated": "2026-10-03",
+   "updated": "2026-10-04",
    "labels": [],
    "rd": "REVIEW_REQUIRED",
    "merge": "UNKNOWN",
    "ci": "running",
-   "citot": 39,
+   "citot": 47,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -2337,8 +2239,8 @@
     ]
    ],
    "lastcom": [
-    "-",
-    "-"
+    "github-actions",
+    "2026-10-04"
    ]
   },
   {
@@ -2389,7 +2291,7 @@
     "backport maintenance/4.1.x"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "failing",
    "citot": 53,
    "cifail": 1,
@@ -2424,7 +2326,7 @@
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
    "ci": "running",
-   "citot": 14,
+   "citot": 17,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -2808,17 +2710,6 @@
    "state": "open",
    "state_reason": null,
    "title": "--recursive option does not find .py files in sub-directories of packages"
-  },
-  {
-   "comments": 0,
-   "labels": [
-    "False Positive 🦟",
-    "Needs PR"
-   ],
-   "number": 9226,
-   "state": "open",
-   "state_reason": null,
-   "title": "False positive `useless-super-delegation` when only passing different arguments"
   },
   {
    "comments": 2,
