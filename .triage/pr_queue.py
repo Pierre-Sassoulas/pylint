@@ -65,7 +65,36 @@ LANES = {
 # n: (lane, verdict-chip-text, chip-class, finding, action)
 V = {
     # ---- merge lane -------------------------------------------------------
+    11569: (
+        "merge",
+        "ready",
+        "confirmed",
+        "49/49 green. You called it mergeable on 4 October and suggested two false negatives; the "
+        "author applied your tests as-is and fixed them (lambda and comprehension bodies inside "
+        "<code>metaclass=</code>). Primer: no effect on the latest commit; your local run found 33 "
+        "removed messages, all false-positive fixes. Issue 1630, 7 reactions.",
+        "Merge.",
+    ),
     # ---- review now -------------------------------------------------------
+    11527: (
+        "review",
+        "ready",
+        "confirmed",
+        "49/49 green, 148 lines, issue 10847. The author explained the one new home-assistant "
+        "<code>used-before-assignment</code>: the bare annotation was hiding a warning that already "
+        "fires without it; it is reachable only if the encoder's metaclass <code>__bool__</code> "
+        "raises. Consistent with the existing exception-flow rule, if pedantic.",
+        "Review; accept the home-assistant hit as consistent.",
+    ),
+    11409: (
+        "review",
+        "ready",
+        "confirmed",
+        "48/48 green after the author rebased (the old history had truncated <code>typecheck.py</code> "
+        "and restored it), primer no effect. 45 lines, issue 10042: <code>not-callable</code> on a "
+        "class subscripted with a type parameter.",
+        "Review; check the diff really is 45 lines now.",
+    ),
     11576: (
         "review",
         "approach",
@@ -75,15 +104,6 @@ V = {
         "(<code>GenericModel[int]</code>) inside pylint. The primer removes home-assistant "
         "<code>too-few-public-methods</code> false positives.",
         "Decide whether the fix belongs in astroid's <code>ancestors()</code> instead, then review.",
-    ),
-    11569: (
-        "review",
-        "ready",
-        "confirmed",
-        "53/53 green, the primer reports no effect. 104/-80 for issue 1630 (7 reactions): names in a "
-        "<code>metaclass=</code> keyword are visited like class children instead of a separate "
-        "end-of-scope pass, so <code>unused-import</code> stops firing for them.",
-        "Review; highest-reaction pylint fix that is green.",
     ),
     11205: (
         "review",
@@ -102,23 +122,6 @@ V = {
         "(subscription checks look at every inferred class).",
         "Review when CI and the primer finish.",
     ),
-    11432: (
-        "review",
-        "primer check",
-        "confirmed",
-        "48/48 green, 142 lines, <code>unused-import</code> false negative on sibling dotted submodule "
-        "imports. The 2 October primer is down to 5 new messages (astropy 2, home-assistant 2, pandas 1), "
-        "from about 120 on the previous run.",
-        "Check the 5 primer hits, then review.",
-    ),
-    11527: (
-        "review",
-        "primer check",
-        "confirmed",
-        "49/49 green, 148 lines, issue 10847 (reproduced). The primer adds one home-assistant "
-        "<code>used-before-assignment</code> on <code>dump</code>; pandas is drift.",
-        "Open the home-assistant hit first: it decides whether the fix is right.",
-    ),
     10507: (
         "review",
         "ready",
@@ -126,15 +129,6 @@ V = {
         "44/44 green, zero reviews, untouched since September 2025. Widens <code>invalid-envvar-default</code> to "
         "<code>os.environ.get</code>.",
         "Review or close with a reason. A year of silence on green CI is the worst of both.",
-    ),
-    11409: (
-        "review",
-        "ready",
-        "confirmed",
-        "48/48 green after you released the run on 23 September, and the primer reports no effect. 45 lines, "
-        "<code>not-callable</code> on subscripted classes.",
-        "Review. The author already rewrote a corrupted <code>typecheck.py</code> once, so check the diff is "
-        "really 45 lines.",
     ),
     11396: (
         "review",
@@ -169,6 +163,51 @@ V = {
         "Review. Clean primer, confirmed issue.",
     ),
     # ---- approve the workflow run ----------------------------------------
+    11578: (
+        "approve",
+        "held",
+        "confirmed",
+        "New, 28 lines by pylaterreur for issue 7240 (3 reactions): <code>no-member</code> in a "
+        "comprehension under a falsy platform guard; the walk up to the guard stopped at the "
+        "comprehension scope.",
+        "Approve the run; small and well-targeted.",
+    ),
+    11577: (
+        "approve",
+        "held",
+        "confirmed",
+        "New, 76 lines for issue 9126 (0 reactions): <code>used-before-assignment</code> false positive "
+        "for names that a lambda binds as <code>*args</code>/<code>**kwargs</code> or keyword-only "
+        "parameters; <code>_assigned_locally</code> only looked at <code>AssignName</code>.",
+        "Approve the run.",
+    ),
+    11517: (
+        "approve",
+        "held",
+        "confirmed",
+        "On top of your <code>6b91a27</code> (helper + 3 tests, nightcityblade credited), the author "
+        "pushed two commits on 5 October, including dropping the <code>args is None</code> guard. CI "
+        "not run since. Milestone 4.1.3.",
+        "Approve the run, read the two new commits, merge when green.",
+    ),
+    11483: (
+        "approve",
+        "held",
+        "confirmed",
+        "The author handled nested scopes in <code>6d6c2b1</code> (names bound by a lambda or "
+        "comprehension inside the walrus value) and added your two test cases; primer no effect on that "
+        "commit. CI not run on the latest push.",
+        "Approve the run; merge when green.",
+    ),
+    11529: (
+        "approve",
+        "held",
+        "confirmed",
+        "Rebased on main as you asked; chrikrah (not a maintainer) re-approved <code>f867f00</code> on "
+        "5 October and checked that the 2 home-assistant <code>used-before-assignment</code> hits stay "
+        "gone after the rebase. CI not run on the new commit. Milestone 4.1.3.",
+        "Approve the run; merge when green.",
+    ),
     11430: (
         "approve",
         "held",
@@ -287,23 +326,16 @@ V = {
         "Retrigger. The size needs a primer run before review.",
     ),
     # ---- author's move ----------------------------------------------------
-    11517: (
+    11432: (
         "author",
         "waiting",
         "confirmed",
-        "After you added #11518's cases: 46 checks green, <code>codecov/patch</code> and "
-        "<code>codecov/project</code> red. The primer removes a sentry <code>redefined-builtin</code>, "
-        "which is base drift from #11505. Milestone 4.1.3.",
-        "Waiting on the author for the two added cases and coverage.",
-    ),
-    11529: (
-        "author",
-        "rebase",
-        "confirmed",
-        "You asked for a rebase on 4 October: the branch is behind main, so the primer comment hit "
-        "GitHub's 65,536-character limit with 180+ astropy <code>no-else-return</code> wording changes "
-        "from main and the real diff never showed. Milestone 4.1.3.",
-        "Waiting on the rebase, then read the fresh primer.",
+        "You requested changes on 4 October (much shorter "
+        "<code>_unused_sibling_submodule_imports</code>, sketched in the review). Only "
+        "<code>codecov/project</code> red. Your local review: the 4 primer hits are true positives; an "
+        "<code>__all__</code> false positive and a one-line <code>import a.x, a.y</code> false negative "
+        "remain.",
+        "Waiting on the author.",
     ),
     11469: (
         "author",
@@ -321,13 +353,6 @@ V = {
         "confirmed",
         "You requested changes on 4 October: fix pre-commit and add coverage. Issue 10737, "
         "generated-doc backslash escaping.",
-        "Waiting on the author.",
-    ),
-    11483: (
-        "author",
-        "waiting",
-        "confirmed",
-        "You requested changes on 4 October: LGTM, but nested scopes must be handled too. 53/53 green.",
         "Waiting on the author.",
     ),
     11493: (
