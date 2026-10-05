@@ -76,6 +76,14 @@ V = {
         "Merge.",
     ),
     # ---- review now -------------------------------------------------------
+    11580: (
+        "review",
+        "ready",
+        "feature",
+        "28/28 green, 11 lines for issue 9320 (1 reaction): generate shorthand redirect pages (upper- "
+        "and lower-case message IDs and symbols) from the message documentation metadata.",
+        "Quick docs review: check a redirect in the built docs.",
+    ),
     11527: (
         "review",
         "ready",
@@ -104,15 +112,6 @@ V = {
         "(<code>GenericModel[int]</code>) inside pylint. The primer removes home-assistant "
         "<code>too-few-public-methods</code> false positives.",
         "Decide whether the fix belongs in astroid's <code>ancestors()</code> instead, then review.",
-    ),
-    11205: (
-        "review",
-        "you",
-        "feature",
-        "You rebased it on main on 4 October to fix the primer and plan to review it for 4.2.0. The "
-        "pyreverse primer is still red; the pylint primer reports no effect. DudeNr33's "
-        "changes-requested review (3 September) is still open.",
-        "Your review, aiming at 4.2.0.",
     ),
     11545: (
         "review",
@@ -241,6 +240,15 @@ V = {
         "Approve the run.",
     ),
     # ---- retrigger --------------------------------------------------------
+    11581: (
+        "retrigger",
+        "rerun",
+        "feature",
+        "47 lines for issue 9818: report <code>from __future__ import annotations</code> as a syntax "
+        "error below Python 3.7. 41 checks green; the primer failed on a GitHub artifact HTTP 503 "
+        "(ServerBusy) before running, and fail-fast cancelled the other shards.",
+        "Re-run the failed primer jobs, then review.",
+    ),
     11377: (
         "retrigger",
         "no ci",
@@ -326,6 +334,15 @@ V = {
         "Retrigger. The size needs a primer run before review.",
     ),
     # ---- author's move ----------------------------------------------------
+    11205: (
+        "author",
+        "waiting",
+        "feature",
+        "You reviewed it on 4 October aiming at 4.2.0 and found two problems (with <code>--theme dark "
+        "--colorized</code> the node text sits on pale palette fills, among others). The new run is "
+        "held for approval.",
+        "Waiting on the author; approve the run after their next push.",
+    ),
     11432: (
         "author",
         "waiting",
@@ -507,6 +524,25 @@ V = {
         "Ask for a rebase onto #11011, keeping only the package-root fix.",
     ),
     # ---- decide first -----------------------------------------------------
+    11579: (
+        "decide",
+        "new check",
+        "feature",
+        "177 lines, no linked issue: extend <code>dangerous-default-value</code> to any function call "
+        "used as a default (like flake8-bugbear B008). This widens an existing message and will be "
+        "noisy on <code>Depends()</code>-style frameworks.",
+        "Decide whether pylint wants this at all, and under which message, before running CI.",
+    ),
+    11546: (
+        "decide",
+        "design",
+        "confirmed",
+        "53/53 green. The author explained the single primer removal (astropy "
+        "<code>test_tree.py</code>: <code>_</code> reused for two throwaway objects) but has not "
+        "answered your 4 October question: should the existing ignored-variable option drive this "
+        "instead of hard-coding <code>_</code>?",
+        "Get an answer on the option before reviewing further.",
+    ),
     11573: (
         "decide",
         "design",
@@ -517,15 +553,6 @@ V = {
         "<code>arguments-renamed</code> changes in the primer need a look. Same author's #11572 was "
         "closed.",
         "Decide: fix the message only, or accept the silence; then review.",
-    ),
-    11546: (
-        "decide",
-        "design",
-        "confirmed",
-        "50/50 green. The primer removes astropy <code>redefined-variable-type</code> hits on "
-        "<code>_</code>. You asked on 4 October whether the existing ignored-variable option should "
-        "drive this instead of hard-coding <code>_</code>. Milestone 4.1.3.",
-        "Settle the approach with the author.",
     ),
     11502: (
         "decide",
