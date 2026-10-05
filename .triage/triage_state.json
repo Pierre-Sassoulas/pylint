@@ -403,10 +403,10 @@
       "ts": "2026-10-02T22:36:01.601456+00:00"
     },
     "10459": {
-      "verdict": "REPRO",
-      "note": "Earlier FIXED verdict only tested the default configuration. With --extension-pkg-allow-list=scipy, scipy 1.16 still crashes with RecursionError in const_factory (scipy.special._orthogonal keeps _modattrs = globals()). Fix in astroid PR 3348 (open, 4 October), which also likely fixes 7894; codspeed reports +16.2% on cold end-to-end lint.",
+      "verdict": "FIXED",
+      "note": "Closed by astroid PR 3348 (const_factory tracks containers being converted; a cycle becomes an EmptyNode), merged 4 October and backported to astroid 4.3.x as PR 3350. Reaches pylint with the next astroid 4.3.x release and a pin bump; nothing released yet (latest astroid 4.3.3).",
       "session": 18,
-      "ts": "2026-10-04T15:24:43.041176+00:00"
+      "ts": "2026-10-05T07:42:19.347653+00:00"
     },
     "10455": {
       "verdict": "FIXED",
@@ -3158,9 +3158,9 @@
     },
     "7894": {
       "verdict": "FIXED",
-      "note": "Crash-label sweep 2026-09-16 (session 14): pylint 4.1.0-dev0 @ ba5c0c79b, astroid 4.3.1, CPython 3.14.5 on Linux, default configuration. from panda3d import core resolves with no recursion and no fatal. Tested against panda3d 1.10.16. Snippet: .triage/snippets/i7894.py",
-      "session": 14,
-      "ts": "2026-09-16T00:00:00+00:00"
+      "note": "Crash-label sweep 2026-09-16 (session 14): pylint 4.1.0-dev0 @ ba5c0c79b, astroid 4.3.1, CPython 3.14.5 on Linux, default configuration. from panda3d import core resolves with no recursion and no fatal. Tested against panda3d 1.10.16. Snippet: .triage/snippets/i7894.py 2026-10-05: same const_factory/_create_dict_items recursion as 10459 per astroid PR 3348, which likely fixes the panda3d case too; unverified.",
+      "session": 18,
+      "ts": "2026-10-05T07:42:19.347653+00:00"
     },
     "7892": {
       "verdict": "DESIGN",
@@ -5599,10 +5599,10 @@
       "ts": "2026-05-12T13:01:10.222915+00:00"
     },
     "1498": {
-      "verdict": "DESIGN",
-      "note": "Pre-2020 issue: re-classified by labels/title. Most are well-documented spec/decision-pending items or older lib-specific reports. Snippet inspection would require deeper context per issue.",
-      "session": 9,
-      "ts": "2026-05-12T13:01:08.223371+00:00"
+      "verdict": "EXTDEP",
+      "note": "Fix merged in astroid main as PR 3101 (constraints computed through and/or, 4 October), milestone astroid 4.4.0, no 4.3.x backport. High priority, 68 reactions. Closes with the pylint upgrade to astroid 4.4.0 (pylint 4.2.0); add a pylint regression test then.",
+      "session": 18,
+      "ts": "2026-10-05T07:42:19.347653+00:00"
     },
     "1536": {
       "verdict": "EXTDEP",

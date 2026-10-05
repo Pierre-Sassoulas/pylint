@@ -1,7 +1,7 @@
 {
- "snapshot": "2026-10-04",
+ "snapshot": "2026-10-05",
  "owner": "Pierre-Sassoulas",
- "open_total": 100,
+ "open_total": 102,
  "open_own": 24,
  "prs": [
   {
@@ -947,9 +947,9 @@
    ],
    "rd": "CHANGES_REQUESTED",
    "merge": "MERGEABLE",
-   "ci": "awaiting-approval",
+   "ci": "failing",
    "citot": 49,
-   "cifail": 0,
+   "cifail": 2,
    "nrev": 8,
    "mrev": [
     "DudeNr33",
@@ -1399,8 +1399,8 @@
    "labels": [],
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "running",
-   "citot": 32,
+   "ci": "green",
+   "citot": 48,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -1412,7 +1412,7 @@
     ]
    ],
    "lastcom": [
-    "ump45nose",
+    "github-actions",
     "2026-10-04"
    ]
   },
@@ -1428,7 +1428,7 @@
    "labels": [],
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "awaiting-approval",
+   "ci": "not-run",
    "citot": 2,
    "cifail": 0,
    "nrev": 0,
@@ -1665,7 +1665,7 @@
    "labels": [],
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "awaiting-approval",
+   "ci": "not-run",
    "citot": 2,
    "cifail": 0,
    "nrev": 0,
@@ -1687,7 +1687,7 @@
    "a": "udsy19",
    "t": "Fix false negative for unused-import on sibling dotted submodule imports",
    "draft": false,
-   "size": 142,
+   "size": 100,
    "files": 5,
    "created": "2026-09-17",
    "updated": "2026-10-04",
@@ -1696,9 +1696,9 @@
    ],
    "rd": "CHANGES_REQUESTED",
    "merge": "MERGEABLE",
-   "ci": "green",
+   "ci": "failing",
    "citot": 48,
-   "cifail": 0,
+   "cifail": 1,
    "nrev": 1,
    "mrev": [
     "Pierre-Sassoulas"
@@ -1712,7 +1712,7 @@
    ],
    "lastcom": [
     "github-actions",
-    "2026-10-02"
+    "2026-10-04"
    ]
   },
   {
@@ -1907,19 +1907,19 @@
    "a": "tk1475",
    "t": "Fix used-before-assignment false positive for walrus in comprehension condition",
    "draft": false,
-   "size": 75,
+   "size": 73,
    "files": 4,
    "created": "2026-09-28",
-   "updated": "2026-10-04",
+   "updated": "2026-10-05",
    "labels": [
     "False Positive 🦟",
     "backport maintenance/4.1.x"
    ],
    "rd": "CHANGES_REQUESTED",
    "merge": "MERGEABLE",
-   "ci": "failing",
-   "citot": 48,
-   "cifail": 3,
+   "ci": "not-run",
+   "citot": 2,
+   "cifail": 0,
    "nrev": 1,
    "mrev": [
     "Pierre-Sassoulas"
@@ -1985,7 +1985,7 @@
    ],
    "rd": "CHANGES_REQUESTED",
    "merge": "MERGEABLE",
-   "ci": "awaiting-approval",
+   "ci": "green",
    "citot": 28,
    "cifail": 0,
    "nrev": 5,
@@ -2009,19 +2009,19 @@
    "a": "wolfgang-aura",
    "t": "Fix unexpected-keyword-arg false positive for pass-through decorators above a **kwargs decorator",
    "draft": false,
-   "size": 91,
+   "size": 119,
    "files": 4,
    "created": "2026-10-01",
-   "updated": "2026-10-04",
+   "updated": "2026-10-05",
    "labels": [
     "False Positive 🦟",
     "backport maintenance/4.1.x"
    ],
    "rd": "CHANGES_REQUESTED",
    "merge": "MERGEABLE",
-   "ci": "failing",
-   "citot": 48,
-   "cifail": 2,
+   "ci": "not-run",
+   "citot": 2,
+   "cifail": 0,
    "nrev": 1,
    "mrev": [
     "Pierre-Sassoulas"
@@ -2034,8 +2034,8 @@
     ]
    ],
    "lastcom": [
-    "github-actions",
-    "2026-10-04"
+    "wolfgang-aura",
+    "2026-10-05"
    ]
   },
   {
@@ -2050,7 +2050,7 @@
    "labels": [],
    "rd": "REVIEW_REQUIRED",
    "merge": "CONFLICTING",
-   "ci": "awaiting-approval",
+   "ci": "not-run",
    "citot": 3,
    "cifail": 0,
    "nrev": 0,
@@ -2075,7 +2075,7 @@
    "size": 148,
    "files": 4,
    "created": "2026-10-02",
-   "updated": "2026-10-02",
+   "updated": "2026-10-04",
    "labels": [],
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
@@ -2092,8 +2092,8 @@
     ]
    ],
    "lastcom": [
-    "github-actions",
-    "2026-10-02"
+    "SAY-5",
+    "2026-10-04"
    ]
   },
   {
@@ -2104,17 +2104,17 @@
    "size": 106,
    "files": 4,
    "created": "2026-10-02",
-   "updated": "2026-10-04",
+   "updated": "2026-10-05",
    "labels": [
     "False Positive 🦟",
     "backport maintenance/4.1.x"
    ],
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "awaiting-approval",
+   "ci": "not-run",
    "citot": 2,
    "cifail": 0,
-   "nrev": 1,
+   "nrev": 2,
    "mrev": [],
    "links": [
     [
@@ -2124,8 +2124,8 @@
     ]
    ],
    "lastcom": [
-    "Pierre-Sassoulas",
-    "2026-10-04"
+    "shan3520",
+    "2026-10-05"
    ]
   },
   {
@@ -2140,7 +2140,7 @@
    "labels": [],
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "awaiting-approval",
+   "ci": "not-run",
    "citot": 2,
    "cifail": 0,
    "nrev": 0,
@@ -2229,7 +2229,7 @@
    ],
    "rd": "CHANGES_REQUESTED",
    "merge": "MERGEABLE",
-   "ci": "awaiting-approval",
+   "ci": "not-run",
    "citot": 5,
    "cifail": 0,
    "nrev": 1,
@@ -2287,21 +2287,23 @@
    "a": "pylaterreur",
    "t": "Fix ``unused-import`` false positives for names used in a metaclass",
    "draft": false,
-   "size": 184,
-   "files": 3,
+   "size": 276,
+   "files": 6,
    "created": "2026-10-04",
    "updated": "2026-10-04",
    "labels": [
     "False Positive 🦟",
-    "backport maintenance/4.1.x"
+    "False Negative 🦋"
    ],
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
    "ci": "green",
-   "citot": 53,
+   "citot": 49,
    "cifail": 0,
-   "nrev": 0,
-   "mrev": [],
+   "nrev": 1,
+   "mrev": [
+    "Pierre-Sassoulas"
+   ],
    "links": [
     [
      1630,
@@ -2373,6 +2375,64 @@
    "lastcom": [
     "github-actions",
     "2026-10-04"
+   ]
+  },
+  {
+   "n": 11577,
+   "a": "Anandb71",
+   "t": "Fix used-before-assignment false positive for lambda parameters (#9126)",
+   "draft": false,
+   "size": 76,
+   "files": 4,
+   "created": "2026-10-05",
+   "updated": "2026-10-05",
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "not-run",
+   "citot": 3,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [
+    [
+     9126,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "-",
+    "-"
+   ]
+  },
+  {
+   "n": 11578,
+   "a": "pylaterreur",
+   "t": "Fix ``no-member`` false positive in a comprehension behind a false guard",
+   "draft": false,
+   "size": 28,
+   "files": 4,
+   "created": "2026-10-05",
+   "updated": "2026-10-05",
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "not-run",
+   "citot": 3,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [
+    [
+     7240,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "-",
+    "-"
    ]
   }
  ],
@@ -2578,6 +2638,18 @@
    "title": "[R0801] Similarities false positive on abstract classes"
   },
   {
+   "comments": 7,
+   "labels": [
+    "Control flow",
+    "False Positive 🦟",
+    "Needs astroid update"
+   ],
+   "number": 7240,
+   "state": "open",
+   "state_reason": null,
+   "title": "False-positive `no-member` in comprehension in unreachable code from platform check"
+  },
+  {
    "comments": 4,
    "labels": [
     "False Positive 🦟",
@@ -2726,6 +2798,18 @@
    "state": "open",
    "state_reason": null,
    "title": "Add randomization to test suite to find test isolation problems"
+  },
+  {
+   "comments": 1,
+   "labels": [
+    "False Positive 🦟",
+    "C: used-before-assignment",
+    "Needs PR"
+   ],
+   "number": 9126,
+   "state": "open",
+   "state_reason": null,
+   "title": "used-before-assignment false positive"
   },
   {
    "comments": 2,
