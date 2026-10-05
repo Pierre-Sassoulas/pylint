@@ -1,7 +1,7 @@
 {
  "snapshot": "2026-10-05",
  "owner": "Pierre-Sassoulas",
- "open_total": 102,
+ "open_total": 105,
  "open_own": 24,
  "prs": [
   {
@@ -940,16 +940,16 @@
    "size": 611,
    "files": 42,
    "created": "2026-07-28",
-   "updated": "2026-10-04",
+   "updated": "2026-10-05",
    "labels": [
     "pyreverse",
     "Work in progress"
    ],
    "rd": "CHANGES_REQUESTED",
    "merge": "MERGEABLE",
-   "ci": "failing",
+   "ci": "awaiting-approval",
    "citot": 49,
-   "cifail": 2,
+   "cifail": 0,
    "nrev": 8,
    "mrev": [
     "DudeNr33",
@@ -964,7 +964,7 @@
    ],
    "lastcom": [
     "github-actions",
-    "2026-10-04"
+    "2026-10-05"
    ]
   },
   {
@@ -1665,7 +1665,7 @@
    "labels": [],
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "not-run",
+   "ci": "awaiting-approval",
    "citot": 2,
    "cifail": 0,
    "nrev": 0,
@@ -1917,7 +1917,7 @@
    ],
    "rd": "CHANGES_REQUESTED",
    "merge": "MERGEABLE",
-   "ci": "not-run",
+   "ci": "awaiting-approval",
    "citot": 2,
    "cifail": 0,
    "nrev": 1,
@@ -2019,7 +2019,7 @@
    ],
    "rd": "CHANGES_REQUESTED",
    "merge": "MERGEABLE",
-   "ci": "not-run",
+   "ci": "awaiting-approval",
    "citot": 2,
    "cifail": 0,
    "nrev": 1,
@@ -2050,7 +2050,7 @@
    "labels": [],
    "rd": "REVIEW_REQUIRED",
    "merge": "CONFLICTING",
-   "ci": "not-run",
+   "ci": "awaiting-approval",
    "citot": 3,
    "cifail": 0,
    "nrev": 0,
@@ -2111,7 +2111,7 @@
    ],
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "not-run",
+   "ci": "awaiting-approval",
    "citot": 2,
    "cifail": 0,
    "nrev": 2,
@@ -2140,7 +2140,7 @@
    "labels": [],
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "not-run",
+   "ci": "awaiting-approval",
    "citot": 2,
    "cifail": 0,
    "nrev": 0,
@@ -2188,7 +2188,7 @@
    "size": 49,
    "files": 3,
    "created": "2026-10-03",
-   "updated": "2026-10-04",
+   "updated": "2026-10-05",
    "labels": [
     "False Positive 🦟",
     "backport maintenance/4.1.x"
@@ -2210,8 +2210,8 @@
     ]
    ],
    "lastcom": [
-    "codecov",
-    "2026-10-04"
+    "yuefdev",
+    "2026-10-05"
    ]
   },
   {
@@ -2229,7 +2229,7 @@
    ],
    "rd": "CHANGES_REQUESTED",
    "merge": "MERGEABLE",
-   "ci": "not-run",
+   "ci": "awaiting-approval",
    "citot": 5,
    "cifail": 0,
    "nrev": 1,
@@ -2298,7 +2298,7 @@
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
    "ci": "green",
-   "citot": 49,
+   "citot": 51,
    "cifail": 0,
    "nrev": 1,
    "mrev": [
@@ -2389,7 +2389,7 @@
    "labels": [],
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "not-run",
+   "ci": "awaiting-approval",
    "citot": 3,
    "cifail": 0,
    "nrev": 0,
@@ -2418,7 +2418,7 @@
    "labels": [],
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "not-run",
+   "ci": "awaiting-approval",
    "citot": 3,
    "cifail": 0,
    "nrev": 0,
@@ -2433,6 +2433,87 @@
    "lastcom": [
     "-",
     "-"
+   ]
+  },
+  {
+   "n": 11579,
+   "a": "tanquetav",
+   "t": "feat: added check to function call in default arguments]",
+   "draft": false,
+   "size": 188,
+   "files": 9,
+   "created": "2026-10-05",
+   "updated": "2026-10-05",
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "awaiting-approval",
+   "citot": 2,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [],
+   "lastcom": [
+    "-",
+    "-"
+   ]
+  },
+  {
+   "n": 11580,
+   "a": "nightcityblade",
+   "t": "Add message documentation shorthand redirects",
+   "draft": false,
+   "size": 11,
+   "files": 2,
+   "created": "2026-10-05",
+   "updated": "2026-10-05",
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "green",
+   "citot": 28,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [
+    [
+     9320,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "codecov",
+    "2026-10-05"
+   ]
+  },
+  {
+   "n": 11581,
+   "a": "nightcityblade",
+   "t": "Report annotations future import as syntax error below Python 3.7",
+   "draft": false,
+   "size": 47,
+   "files": 3,
+   "created": "2026-10-05",
+   "updated": "2026-10-05",
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "failing",
+   "citot": 48,
+   "cifail": 1,
+   "nrev": 0,
+   "mrev": [],
+   "links": [
+    [
+     9818,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "codecov",
+    "2026-10-05"
    ]
   }
  ],
@@ -2866,6 +2947,18 @@
    "comments": 1,
    "labels": [
     "Enhancement ✨",
+    "Documentation :green_book:",
+    "Needs PR"
+   ],
+   "number": 9320,
+   "state": "open",
+   "state_reason": null,
+   "title": "Allow navigating messages by shorthands"
+  },
+  {
+   "comments": 1,
+   "labels": [
+    "Enhancement ✨",
     "Needs PR",
     "pyi"
    ],
@@ -2939,6 +3032,20 @@
    "state": "open",
    "state_reason": null,
    "title": "[pyreverse] Dunder methods in diagrams"
+  },
+  {
+   "comments": 1,
+   "labels": [
+    "Enhancement ✨",
+    "python 3.7",
+    "typing",
+    "py-version",
+    "Needs PR"
+   ],
+   "number": 9818,
+   "state": "open",
+   "state_reason": null,
+   "title": "`from __future__ import annotations` is 3.7+"
   },
   {
    "comments": 2,

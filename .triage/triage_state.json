@@ -794,9 +794,9 @@
     },
     "10054": {
       "verdict": "DESIGN",
-      "note": "Maintainer proposal to remove the 'abstract-method' check (16 comments). Decision pending. 2026-10-04: 11566 (4.1 regression from PR 7955, NotImplementedError methods now reported in concrete subclasses) closed as a duplicate of this one.",
+      "note": "Closed by Pierre on 5 October without removing abstract-method. A focused follow-up issue was planned (Pierre and mbyrnepr2) to list what abstract-method can and cannot fix. The 4.1 regression reported in 11566 (from PR 7955) is still unaddressed: the reporter reads the closure as pylint ignoring @abstractmethod. Track the follow-up issue.",
       "session": 18,
-      "ts": "2026-10-04T20:48:54.590140+00:00"
+      "ts": "2026-10-05T19:59:28.345939+00:00"
     },
     "10052": {
       "verdict": "DESIGN",
@@ -6314,15 +6314,15 @@
     },
     "11574": {
       "verdict": "DESIGN",
-      "note": "Same output on 3.3.9, 4.0.10 and 4.1.2 (scratch reg/i11574.py): 'value == \"\"' as a bare statement gets W0104 pointless-statement, also with an uninferable value. The comparison really has no effect (likely a typo for '='); the reporter expects no message. Behaves as designed; at most a wording question (expression-not-assigned would be clearer).",
+      "note": "Closed 5 October: the reporter agreed the statement was a typo for '=' (correctmost explained). Behaved as designed.",
       "session": 18,
-      "ts": "2026-10-04T20:48:54.590140+00:00"
+      "ts": "2026-10-05T19:59:28.345939+00:00"
     },
     "11575": {
-      "verdict": "UNCLEAR",
-      "note": "Crash in duplicate-code (symilar stripped_lines re-parses the file; astroid _get_position_info tokenizer fails) on a file with a lone CR line ending. Reporter is on pylint 4.0.2 / astroid 4.0.1. The CR characters were lost in the issue markdown; three lone-CR variants (after a body line, after a decorator, in a blank line) lint without a crash on 4.1.2 and main. Needs the real file as a zip.",
+      "verdict": "FIXED",
+      "note": "Closed 5 October as not planned after the reporter confirmed 4.1.2 reports E2511 instead of crashing. correctmost reproduced on 4.0.2 only; probably fixed by astroid issue 2527.",
       "session": 18,
-      "ts": "2026-10-04T20:48:54.590140+00:00"
+      "ts": "2026-10-05T19:59:28.345939+00:00"
     }
   },
   "session_count": 10
