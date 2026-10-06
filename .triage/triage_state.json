@@ -6329,6 +6329,18 @@
       "note": "Reproduced on main cb8d2b59d (astroid 4.3.3), scratch i11582/: with 'a = 0 + 0 ...' and 'b = a + 0 ...', from 26 '+ 0' terms per line 'pylint target.py' misses E1101 on chain.b.missing(), while 'pylint warmup.py target.py' reports it (warmup infers chain.a first, the cached result keeps b under astroid's inference depth limit). Same file-order family as 9943; the fix belongs in astroid (depth limit vs. inference cache).",
       "session": 18,
       "ts": "2026-10-06T11:27:37.687766+00:00"
+    },
+    "11585": {
+      "verdict": "DESIGN",
+      "note": "Pierre's follow-up to 10054 (6 October), Needs decision: lists what is settled for abstract-method (raise NotImplementedError counts as abstract in any class, per the Python docs) and what is open, i.e. which subclasses of an abstract class must implement everything. The 4.1 regression of 11566 belongs here.",
+      "session": 18,
+      "ts": "2026-10-06T20:22:03.973015+00:00"
+    },
+    "11586": {
+      "verdict": "DESIGN",
+      "note": "Feature request (6 October): an 'extends' option so a configuration file can build on a base file (like ruff extend, pyright extends). Related to the per-directory configuration work (PR 9395, reviewed 2026-10-03: recommend redesign).",
+      "session": 18,
+      "ts": "2026-10-06T20:22:03.973015+00:00"
     }
   },
   "session_count": 10
