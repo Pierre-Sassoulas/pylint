@@ -109,10 +109,10 @@
       "ts": "2026-05-12T10:34:37.489137+00:00"
     },
     "10847": {
-      "verdict": "REPRO",
-      "note": "Confirmed false negative: when 'err' has a forward type annotation but only is assigned in some except clauses, pylint does not flag possibly-used-before-assignment at the later use site. Removing the annotation makes pylint flag it.",
-      "session": 1,
-      "ts": "2026-05-12T10:34:37.530932+00:00"
+      "verdict": "FIXED",
+      "note": "Closed by PR 11527 (bare annotations no longer hide unbound names in exception paths), merged 6 October. Milestone 4.2.0, no backport. Adds one home-assistant used-before-assignment that already fired without the annotation.",
+      "session": 18,
+      "ts": "2026-10-06T13:59:13.834165+00:00"
     },
     "10844": {
       "verdict": "DESIGN",
@@ -5611,10 +5611,10 @@
       "ts": "2026-05-12T13:01:10.168702+00:00"
     },
     "1630": {
-      "verdict": "DESIGN",
-      "note": "Pre-2020 issue: re-classified by labels/title. Most are well-documented spec/decision-pending items or older lib-specific reports. Snippet inspection would require deeper context per issue.",
-      "session": 9,
-      "ts": "2026-05-12T13:01:08.162250+00:00"
+      "verdict": "FIXED",
+      "note": "Closed by PR 11569 (names used in a metaclass keyword, including lambda and comprehension bodies), merged 6 October. Milestone 4.2.0 (also fixes false negatives), no backport. Primer: 33 false positives removed in Pierre's local run.",
+      "session": 18,
+      "ts": "2026-10-06T13:59:13.834165+00:00"
     },
     "1694": {
       "verdict": "DESIGN",

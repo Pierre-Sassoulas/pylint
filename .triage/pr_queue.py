@@ -65,43 +65,49 @@ LANES = {
 # n: (lane, verdict-chip-text, chip-class, finding, action)
 V = {
     # ---- merge lane -------------------------------------------------------
-    11569: (
-        "merge",
-        "ready",
-        "confirmed",
-        "49/49 green. You called it mergeable on 4 October and suggested two false negatives; the "
-        "author applied your tests as-is and fixed them (lambda and comprehension bodies inside "
-        "<code>metaclass=</code>). Primer: no effect on the latest commit; your local run found 33 "
-        "removed messages, all false-positive fixes. Issue 1630, 7 reactions.",
-        "Merge.",
-    ),
     # ---- review now -------------------------------------------------------
-    11580: (
+    11529: (
         "review",
-        "ready",
-        "feature",
-        "28/28 green, 11 lines for issue 9320 (1 reaction): generate shorthand redirect pages (upper- "
-        "and lower-case message IDs and symbols) from the message documentation metadata.",
-        "Quick docs review: check a redirect in the built docs.",
-    ),
-    11527: (
-        "review",
-        "ready",
+        "CI running",
         "confirmed",
-        "49/49 green, 148 lines, issue 10847. The author explained the one new home-assistant "
-        "<code>used-before-assignment</code>: the bare annotation was hiding a warning that already "
-        "fires without it; it is reachable only if the encoder's metaclass <code>__bool__</code> "
-        "raises. Consistent with the existing exception-flow rule, if pedantic.",
-        "Review; accept the home-assistant hit as consistent.",
+        "Runs released on 6 October, CI in progress. Rebased; chrikrah confirmed the 2 home-assistant "
+        "fixes hold. Issue 7545, milestone 4.1.3.",
+        "Merge when green.",
     ),
-    11409: (
+    11517: (
         "review",
-        "ready",
+        "CI running",
         "confirmed",
-        "48/48 green after the author rebased (the old history had truncated <code>typecheck.py</code> "
-        "and restored it), primer no effect. 45 lines, issue 10042: <code>not-callable</code> on a "
-        "class subscripted with a type parameter.",
-        "Review; check the diff really is 45 lines now.",
+        "Runs released on 6 October, CI in progress. Two author commits on top of your "
+        "<code>6b91a27</code>, including dropping the <code>args is None</code> guard. Issue 10831, "
+        "milestone 4.1.3.",
+        "Read the two new commits; merge when green.",
+    ),
+    11483: (
+        "review",
+        "CI running",
+        "confirmed",
+        "Runs released on 6 October, CI in progress. Nested scopes handled in <code>6d6c2b1</code> as "
+        "you asked; primer no effect on that commit. Issue 9460.",
+        "Merge when green.",
+    ),
+    11584: (
+        "review",
+        "CI running",
+        "confirmed",
+        "Runs released on 6 October, CI in progress. 51 lines for issue 7997: "
+        "<code>dict-init-mutate</code> false positive when the assignment reads the dictionary being "
+        "built. Milestone 4.1.3.",
+        "Review when CI and the primer finish.",
+    ),
+    11578: (
+        "review",
+        "CI running",
+        "confirmed",
+        "Runs released on 6 October, CI in progress. 28 lines by pylaterreur for issue 7240 (3 "
+        "reactions): <code>no-member</code> in a comprehension under a falsy platform guard. Milestone "
+        "4.1.3.",
+        "Review when CI and the primer finish.",
     ),
     11576: (
         "review",
@@ -162,60 +168,6 @@ V = {
         "Review. Clean primer, confirmed issue.",
     ),
     # ---- approve the workflow run ----------------------------------------
-    11584: (
-        "approve",
-        "held",
-        "confirmed",
-        "New, 51 lines for issue 7997 (1 reaction): skip <code>dict-init-mutate</code> when the key or "
-        "value reads the dictionary being built (<code>counts[key] = 3 + counts.get(key, 0)</code>), "
-        "and stop the suggested literal before a later self-referencing assignment.",
-        "Approve the run.",
-    ),
-    11578: (
-        "approve",
-        "held",
-        "confirmed",
-        "New, 28 lines by pylaterreur for issue 7240 (3 reactions): <code>no-member</code> in a "
-        "comprehension under a falsy platform guard; the walk up to the guard stopped at the "
-        "comprehension scope.",
-        "Approve the run; small and well-targeted.",
-    ),
-    11577: (
-        "approve",
-        "held",
-        "confirmed",
-        "New, 76 lines for issue 9126 (0 reactions): <code>used-before-assignment</code> false positive "
-        "for names that a lambda binds as <code>*args</code>/<code>**kwargs</code> or keyword-only "
-        "parameters; <code>_assigned_locally</code> only looked at <code>AssignName</code>.",
-        "Approve the run.",
-    ),
-    11517: (
-        "approve",
-        "held",
-        "confirmed",
-        "On top of your <code>6b91a27</code> (helper + 3 tests, nightcityblade credited), the author "
-        "pushed two commits on 5 October, including dropping the <code>args is None</code> guard. CI "
-        "not run since. Milestone 4.1.3.",
-        "Approve the run, read the two new commits, merge when green.",
-    ),
-    11483: (
-        "approve",
-        "held",
-        "confirmed",
-        "The author handled nested scopes in <code>6d6c2b1</code> (names bound by a lambda or "
-        "comprehension inside the walrus value) and added your two test cases; primer no effect on that "
-        "commit. CI not run on the latest push.",
-        "Approve the run; merge when green.",
-    ),
-    11529: (
-        "approve",
-        "held",
-        "confirmed",
-        "Rebased on main as you asked; chrikrah (not a maintainer) re-approved <code>f867f00</code> on "
-        "5 October and checked that the 2 home-assistant <code>used-before-assignment</code> hits stay "
-        "gone after the rebase. CI not run on the new commit. Milestone 4.1.3.",
-        "Approve the run; merge when green.",
-    ),
     11430: (
         "approve",
         "held",
@@ -249,6 +201,16 @@ V = {
         "Approve the run.",
     ),
     # ---- retrigger --------------------------------------------------------
+    11577: (
+        "retrigger",
+        "rerun",
+        "confirmed",
+        "Runs released on 6 October, CI in progress. One primer shard failed on a CI error "
+        "(<code>Cannot read properties of undefined (reading 'id')</code> in the artifact step), not on "
+        "pylint output. 76 lines for issue 9126, lambda <code>*args</code>/<code>**kwargs</code> false "
+        "positive. Milestone 4.1.3.",
+        "Re-run the failed primer shard, then review.",
+    ),
     11581: (
         "retrigger",
         "rerun",
@@ -343,6 +305,24 @@ V = {
         "Retrigger. The size needs a primer run before review.",
     ),
     # ---- author's move ----------------------------------------------------
+    11580: (
+        "author",
+        "waiting",
+        "feature",
+        "You requested changes on 6 October: unclear how to use the shorthands; "
+        "<code>…/user_guide/messages/c1111</code> on the docs preview returns 404. Milestone 4.2.0.",
+        "Waiting on the author.",
+    ),
+    11409: (
+        "author",
+        "astroid",
+        "confirmed",
+        "You requested changes on 6 October: the fix belongs in astroid, where "
+        "<code>boundnode.metaclass(context=context)</code> fails; calling it without the context and "
+        "comparing with <code>is_subtype_of</code> fixes both shapes. Milestone 4.1.3, backport label "
+        "set.",
+        "Waiting on the author to move the fix to astroid.",
+    ),
     11205: (
         "author",
         "waiting",
