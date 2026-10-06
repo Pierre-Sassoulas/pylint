@@ -6323,6 +6323,12 @@
       "note": "Closed 5 October as not planned after the reporter confirmed 4.1.2 reports E2511 instead of crashing. correctmost reproduced on 4.0.2 only; probably fixed by astroid issue 2527.",
       "session": 18,
       "ts": "2026-10-05T19:59:28.345939+00:00"
+    },
+    "11582": {
+      "verdict": "REPRO",
+      "note": "Reproduced on main cb8d2b59d (astroid 4.3.3), scratch i11582/: with 'a = 0 + 0 ...' and 'b = a + 0 ...', from 26 '+ 0' terms per line 'pylint target.py' misses E1101 on chain.b.missing(), while 'pylint warmup.py target.py' reports it (warmup infers chain.a first, the cached result keeps b under astroid's inference depth limit). Same file-order family as 9943; the fix belongs in astroid (depth limit vs. inference cache).",
+      "session": 18,
+      "ts": "2026-10-06T11:27:37.687766+00:00"
     }
   },
   "session_count": 10
