@@ -1,7 +1,7 @@
 {
- "snapshot": "2026-10-05",
+ "snapshot": "2026-10-06",
  "owner": "Pierre-Sassoulas",
- "open_total": 105,
+ "open_total": 107,
  "open_own": 24,
  "prs": [
   {
@@ -2050,7 +2050,7 @@
    "labels": [],
    "rd": "REVIEW_REQUIRED",
    "merge": "CONFLICTING",
-   "ci": "awaiting-approval",
+   "ci": "not-run",
    "citot": 3,
    "cifail": 0,
    "nrev": 0,
@@ -2515,6 +2515,62 @@
     "codecov",
     "2026-10-05"
    ]
+  },
+  {
+   "n": 11583,
+   "a": "app/pre-commit-ci",
+   "t": "[pre-commit.ci] pre-commit autoupdate",
+   "draft": false,
+   "size": 8,
+   "files": 1,
+   "created": "2026-10-06",
+   "updated": "2026-10-06",
+   "labels": [
+    "Skip news :mute:"
+   ],
+   "rd": "APPROVED",
+   "merge": "MERGEABLE",
+   "ci": "failing",
+   "citot": 28,
+   "cifail": 1,
+   "nrev": 1,
+   "mrev": [
+    "Pierre-Sassoulas"
+   ],
+   "links": [],
+   "lastcom": [
+    "codecov",
+    "2026-10-06"
+   ]
+  },
+  {
+   "n": 11584,
+   "a": "mottopanikeiku",
+   "t": "Fix false positive `dict-init-mutate` for dictionary references",
+   "draft": false,
+   "size": 51,
+   "files": 4,
+   "created": "2026-10-06",
+   "updated": "2026-10-06",
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "awaiting-approval",
+   "citot": 3,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [
+    [
+     7997,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "-",
+    "-"
+   ]
   }
  ],
  "issues": [
@@ -2756,6 +2812,17 @@
    "state": "open",
    "state_reason": null,
    "title": "Add dark mode to pyreverse"
+  },
+  {
+   "comments": 4,
+   "labels": [
+    "False Positive 🦟",
+    "Needs PR"
+   ],
+   "number": 7997,
+   "state": "open",
+   "state_reason": null,
+   "title": "False Positive `dict-init-mutate` when dict assignment references dict"
   },
   {
    "comments": 4,
