@@ -65,50 +65,15 @@ LANES = {
 # n: (lane, verdict-chip-text, chip-class, finding, action)
 V = {
     # ---- merge lane -------------------------------------------------------
-    # ---- review now -------------------------------------------------------
     11529: (
-        "review",
-        "CI running",
+        "merge",
+        "ready",
         "confirmed",
-        "Runs released on 6 October, CI in progress. Rebased; chrikrah confirmed the 2 home-assistant "
-        "fixes hold. Issue 7545, milestone 4.1.3.",
-        "Merge when green.",
+        "48/48 green after the rebase; the primer only shows astropy base drift, and chrikrah confirmed "
+        "the 2 home-assistant fixes hold. Issue 7545, milestone 4.1.3.",
+        "Merge.",
     ),
-    11517: (
-        "review",
-        "CI running",
-        "confirmed",
-        "Runs released on 6 October, CI in progress. Two author commits on top of your "
-        "<code>6b91a27</code>, including dropping the <code>args is None</code> guard. Issue 10831, "
-        "milestone 4.1.3.",
-        "Read the two new commits; merge when green.",
-    ),
-    11483: (
-        "review",
-        "CI running",
-        "confirmed",
-        "Runs released on 6 October, CI in progress. Nested scopes handled in <code>6d6c2b1</code> as "
-        "you asked; primer no effect on that commit. Issue 9460.",
-        "Merge when green.",
-    ),
-    11584: (
-        "review",
-        "CI running",
-        "confirmed",
-        "Runs released on 6 October, CI in progress. 51 lines for issue 7997: "
-        "<code>dict-init-mutate</code> false positive when the assignment reads the dictionary being "
-        "built. Milestone 4.1.3.",
-        "Review when CI and the primer finish.",
-    ),
-    11578: (
-        "review",
-        "CI running",
-        "confirmed",
-        "Runs released on 6 October, CI in progress. 28 lines by pylaterreur for issue 7240 (3 "
-        "reactions): <code>no-member</code> in a comprehension under a falsy platform guard. Milestone "
-        "4.1.3.",
-        "Review when CI and the primer finish.",
-    ),
+    # ---- review now -------------------------------------------------------
     11576: (
         "review",
         "approach",
@@ -201,15 +166,22 @@ V = {
         "Approve the run.",
     ),
     # ---- retrigger --------------------------------------------------------
+    11584: (
+        "retrigger",
+        "primer",
+        "confirmed",
+        "All checks green except one primer shard (3.15 batch 1). The primer failed on the stale "
+        "'Primer / Main' lookup that your #11588 fixes; rebase after it lands. 51 lines for issue 7997, "
+        "milestone 4.1.3.",
+        "Re-run the primer after #11588, then review.",
+    ),
     11577: (
         "retrigger",
-        "rerun",
+        "primer",
         "confirmed",
-        "Runs released on 6 October, CI in progress. One primer shard failed on a CI error "
-        "(<code>Cannot read properties of undefined (reading 'id')</code> in the artifact step), not on "
-        "pylint output. 76 lines for issue 9126, lambda <code>*args</code>/<code>**kwargs</code> false "
-        "positive. Milestone 4.1.3.",
-        "Re-run the failed primer shard, then review.",
+        "All checks green except one primer shard. The primer failed on the stale 'Primer / Main' "
+        "lookup that your #11588 fixes; rebase after it lands. 76 lines for issue 9126, milestone 4.1.3.",
+        "Re-run the primer after #11588, then review.",
     ),
     11581: (
         "retrigger",
@@ -305,6 +277,31 @@ V = {
         "Retrigger. The size needs a primer run before review.",
     ),
     # ---- author's move ----------------------------------------------------
+    11578: (
+        "author",
+        "rebase",
+        "confirmed",
+        "You asked for a rebase on 6 October so the primer can run. The primer failed on the stale "
+        "'Primer / Main' lookup that your #11588 fixes; rebase after it lands. Issue 7240, milestone "
+        "4.1.3.",
+        "Waiting on the rebase.",
+    ),
+    11517: (
+        "author",
+        "coverage",
+        "confirmed",
+        "You requested changes on 6 October: cover the unreached code or remove it. Only codecov is "
+        "red. Issue 10831, milestone 4.1.3.",
+        "Waiting on the author.",
+    ),
+    11483: (
+        "author",
+        "coverage",
+        "confirmed",
+        "You requested changes on 6 October: cover the unreached code or remove it. Only the two "
+        "codecov checks are red. Issue 9460, milestone 4.1.3.",
+        "Waiting on the author.",
+    ),
     11580: (
         "author",
         "waiting",
@@ -513,6 +510,17 @@ V = {
         "Ask for a rebase onto #11011, keeping only the package-root fix.",
     ),
     # ---- decide first -----------------------------------------------------
+    11587: (
+        "decide",
+        "lib-specific",
+        "feature",
+        "New, 237 lines for issue 9090 (1 reaction, <em>Lib specific</em>): teach "
+        "<code>unexpected-keyword-arg</code> about Pydantic field aliases (<code>Field(alias=)</code>, "
+        "<code>validation_alias</code>, <code>AliasChoices</code>). Pydantic-specific knowledge in core "
+        "pylint; astroid synthesizes the dataclass <code>__init__</code>.",
+        "Decide whether this belongs in pylint, an astroid brain, or a pydantic plugin before running "
+        "CI.",
+    ),
     11579: (
         "decide",
         "new check",
