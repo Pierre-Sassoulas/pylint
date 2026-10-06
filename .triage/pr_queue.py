@@ -162,6 +162,15 @@ V = {
         "Review. Clean primer, confirmed issue.",
     ),
     # ---- approve the workflow run ----------------------------------------
+    11584: (
+        "approve",
+        "held",
+        "confirmed",
+        "New, 51 lines for issue 7997 (1 reaction): skip <code>dict-init-mutate</code> when the key or "
+        "value reads the dictionary being built (<code>counts[key] = 3 + counts.get(key, 0)</code>), "
+        "and stop the suggested literal before a later self-referencing assignment.",
+        "Approve the run.",
+    ),
     11578: (
         "approve",
         "held",
