@@ -206,7 +206,7 @@
    ],
    "rd": "CHANGES_REQUESTED",
    "merge": "CONFLICTING",
-   "ci": "awaiting-approval",
+   "ci": "not-run",
    "citot": 2,
    "cifail": 0,
    "nrev": 2,
@@ -307,7 +307,7 @@
    ],
    "rd": "CHANGES_REQUESTED",
    "merge": "MERGEABLE",
-   "ci": "awaiting-approval",
+   "ci": "not-run",
    "citot": 2,
    "cifail": 0,
    "nrev": 2,
@@ -442,9 +442,9 @@
    ],
    "rd": "CHANGES_REQUESTED",
    "merge": "MERGEABLE",
-   "ci": "awaiting-approval",
+   "ci": "failing",
    "citot": 48,
-   "cifail": 0,
+   "cifail": 6,
    "nrev": 7,
    "mrev": [
     "Pierre-Sassoulas"
@@ -608,7 +608,7 @@
    ],
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "awaiting-approval",
+   "ci": "not-run",
    "citot": 3,
    "cifail": 0,
    "nrev": 0,
@@ -2448,12 +2448,12 @@
     "Bug :beetle:",
     "backport maintenance/4.1.x"
    ],
-   "rd": "CHANGES_REQUESTED",
+   "rd": "APPROVED",
    "merge": "MERGEABLE",
    "ci": "running",
    "citot": 38,
    "cifail": 0,
-   "nrev": 1,
+   "nrev": 2,
    "mrev": [
     "Pierre-Sassoulas"
    ],
