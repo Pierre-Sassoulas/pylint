@@ -699,6 +699,35 @@ def test_add_message_at_node_skips_disabled(linter: PyLinter) -> None:
     assert linter.reporter.messages == []
 
 
+def test_add_message_at_node_rejects_line_scoped_message(linter: PyLinter) -> None:
+    linter.set_reporter(testutils.GenericTestReporter())
+    linter.open()
+    linter.set_current_module("0123")
+    node = astroid.extract_node("apple = 1")
+    with pytest.raises(InvalidMessageError, match="C0301 must only provide line"):
+        linter.add_message_at_node("line-too-long", node, args=(1, 2))
+
+
+def test_add_message_at_location_rejects_node_scoped_message(linter: PyLinter) -> None:
+    linter.set_reporter(testutils.GenericTestReporter())
+    linter.open()
+    linter.set_current_module("0123")
+    with pytest.raises(InvalidMessageError, match="W0612 must provide Node"):
+        linter.add_message_at_location(
+            "unused-variable", module="other_module", lineno=1, args=("apple",)
+        )
+
+
+def test_add_message_at_location_line_scoped_needs_lineno(linter: PyLinter) -> None:
+    linter.set_reporter(testutils.GenericTestReporter())
+    linter.open()
+    linter.set_current_module("0123")
+    with pytest.raises(InvalidMessageError, match="C0301 must provide line"):
+        linter.add_message_at_location(
+            "line-too-long", module="other_module", args=(1, 2)
+        )
+
+
 def test_addmessage_invalid(linter: PyLinter) -> None:
     linter.set_reporter(testutils.GenericTestReporter())
     linter.open()

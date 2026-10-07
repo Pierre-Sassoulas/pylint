@@ -173,7 +173,8 @@ class BaseChecker(_ArgumentsProvider):
 
         Use :meth:`add_message` if you need to override
         ``line``/``col_offset``, or :meth:`add_message_at_location` for
-        cross-module messages.
+        cross-module messages. A line-scoped message cannot be emitted at a
+        node.
         """
         self.linter.add_message_at_node(msgid, node, args, confidence)
 
@@ -195,7 +196,8 @@ class BaseChecker(_ArgumentsProvider):
 
         Use this when the message logically belongs to a module/position
         other than the one currently being processed (e.g. cross-module
-        findings like duplicate-code).
+        findings like duplicate-code). A node-scoped message must use
+        :meth:`add_message_at_node`, a line-scoped one needs ``lineno``.
         """
         self.linter.add_message_at_location(
             msgid,

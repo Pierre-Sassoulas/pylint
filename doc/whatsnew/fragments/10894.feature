@@ -10,6 +10,7 @@ Two new ``BaseChecker`` methods supplement ``add_message``:
   confidence = UNDEFINED)`` emits a message at an explicit location instead of
   deriving it from a node. This is the only way to define module and filepath as
   ``add_message`` didn't provide them. Useful for cross-module findings like
-  ``duplicate-code``.
+  ``duplicate-code``. It accepts line-scoped messages (which need ``lineno``) and
+  fatal or refactoring messages; node-scoped messages must use ``add_message_at_node``.
 
 Refs #10894

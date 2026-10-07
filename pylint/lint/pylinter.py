@@ -1437,12 +1437,16 @@ class PyLinter(
         ``end_col_offset`` parameters that ``add_message`` carries for
         non-AST callers, and skips ``_add_one_message`` entirely so a
         disabled message pays for nothing beyond the filter check.
+
+        Raises ``InvalidMessageError`` for a line-scoped message, like
+        ``add_message`` given a node.
         """
         line, col_offset, end_lineno, end_col_offset = self._node_position(node)
         # Only build the location for definitions that are enabled. Several
         # definitions only happen for an old name that was split into several
         # messages (e.g. ``missing-docstring``), so this is rarely repeated.
         for message_definition in self.msgs_store.get_message_definitions(msgid):
+            message_definition.check_message_definition(line, node)
             if self._is_disabled(message_definition, line, confidence):
                 continue
             module, obj = utils.get_module_and_frameid(node)
@@ -1476,9 +1480,13 @@ class PyLinter(
         Use this when the message logically belongs to a module/position
         other than the one currently being processed (e.g. cross-module
         findings like duplicate-code).
+
+        Raises ``InvalidMessageError`` for a node-scoped message (use
+        ``add_message_at_node``), or a line-scoped one without ``lineno``.
         """
         abspath = filepath if filepath is not None else self.current_file
         for message_definition in self.msgs_store.get_message_definitions(msgid):
+            message_definition.check_message_definition(lineno, None)
             if self._is_disabled(message_definition, lineno, confidence):
                 continue
             location = self._build_location(
