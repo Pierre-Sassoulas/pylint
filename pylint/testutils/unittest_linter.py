@@ -46,24 +46,15 @@ class UnittestLinter(PyLinter):
         confidence = _confidence_or_undefined(confidence, stacklevel=2)
         # Look up "location" data of node if not yet supplied
         if node:
-            if node.position:
-                if line is None:
-                    line = node.position.lineno
-                if col_offset is None:
-                    col_offset = node.position.col_offset
-                if end_lineno is None:
-                    end_lineno = node.position.end_lineno
-                if end_col_offset is None:
-                    end_col_offset = node.position.end_col_offset
-            else:
-                if line is None:
-                    line = node.fromlineno
-                if col_offset is None:
-                    col_offset = node.col_offset
-                if end_lineno is None:
-                    end_lineno = node.end_lineno
-                if end_col_offset is None:
-                    end_col_offset = node.end_col_offset
+            node_line, node_col, node_end_line, node_end_col = self._node_position(node)
+            if line is None:
+                line = node_line
+            if col_offset is None:
+                col_offset = node_col
+            if end_lineno is None:
+                end_lineno = node_end_line
+            if end_col_offset is None:
+                end_col_offset = node_end_col
 
         self._messages.append(
             MessageTest(

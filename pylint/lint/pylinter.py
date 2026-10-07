@@ -1326,24 +1326,15 @@ class PyLinter(
 
         # Look up "location" data of node if not yet supplied
         if node:
-            if node.position:
-                if line is None:
-                    line = node.position.lineno
-                if col_offset is None:
-                    col_offset = node.position.col_offset
-                if end_lineno is None:
-                    end_lineno = node.position.end_lineno
-                if end_col_offset is None:
-                    end_col_offset = node.position.end_col_offset
-            else:
-                if line is None:
-                    line = node.fromlineno
-                if col_offset is None:
-                    col_offset = node.col_offset
-                if end_lineno is None:
-                    end_lineno = node.end_lineno
-                if end_col_offset is None:
-                    end_col_offset = node.end_col_offset
+            node_line, node_col, node_end_line, node_end_col = self._node_position(node)
+            if line is None:
+                line = node_line
+            if col_offset is None:
+                col_offset = node_col
+            if end_lineno is None:
+                end_lineno = node_end_line
+            if end_col_offset is None:
+                end_col_offset = node_end_col
 
         if self._is_disabled(message_definition, line, confidence):
             return
@@ -1447,17 +1438,7 @@ class PyLinter(
         non-AST callers, and skips ``_add_one_message`` entirely so a
         disabled message pays for nothing beyond the filter check.
         """
-        pos = node.position
-        if pos is not None:
-            line = pos.lineno
-            col_offset = pos.col_offset
-            end_lineno = pos.end_lineno
-            end_col_offset = pos.end_col_offset
-        else:
-            line = node.fromlineno
-            col_offset = node.col_offset
-            end_lineno = node.end_lineno
-            end_col_offset = node.end_col_offset
+        line, col_offset, end_lineno, end_col_offset = self._node_position(node)
         # Only build the location for definitions that are enabled. Several
         # definitions only happen for an old name that was split into several
         # messages (e.g. ``missing-docstring``), so this is rarely repeated.
@@ -1504,6 +1485,24 @@ class PyLinter(
                 abspath, module, "", lineno or 1, col_offset, end_lineno, end_col_offset
             )
             self._emit_message(message_definition, args, confidence, location)
+
+    @staticmethod
+    def _node_position(
+        node: nodes.NodeNG,
+    ) -> tuple[int, int | None, int | None, int | None]:
+        """Return ``(line, col_offset, end_lineno, end_col_offset)`` for ``node``.
+
+        ``node.position`` is the more precise location some nodes provide (e.g.
+        only the ``def`` line of a function), otherwise the node's own span.
+        """
+        if node.position:
+            return (
+                node.position.lineno,
+                node.position.col_offset,
+                node.position.end_lineno,
+                node.position.end_col_offset,
+            )
+        return node.fromlineno, node.col_offset, node.end_lineno, node.end_col_offset
 
     def _build_location(
         self,
