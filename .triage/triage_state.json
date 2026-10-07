@@ -1490,9 +1490,9 @@
     },
     "9460": {
       "verdict": "FIXED",
-      "note": "Closed by PR 11483 (walrus in a comprehension condition, nested scopes handled), merged 7 October; backport PR 11596 open. Ships in 4.1.3.",
+      "note": "Closed by PR 11483 (walrus in a comprehension condition, nested scopes handled), merged 7 October; backported as PR 11596 (merged). Ships in 4.1.3.",
       "session": 18,
-      "ts": "2026-10-07T19:32:09.067209+00:00"
+      "ts": "2026-10-07T21:05:06.375144+00:00"
     },
     "9456": {
       "verdict": "DESIGN",
@@ -6347,6 +6347,12 @@
       "note": "Docs request (7 October): the no-header output format, added in PR 7869, is undocumented. Docs-only, good first issue.",
       "session": 18,
       "ts": "2026-10-07T19:13:05.772649+00:00"
+    },
+    "11597": {
+      "verdict": "DESIGN",
+      "note": "Reproduced on 4.1.2 (scratch reg2/i11597.py): --output-format=colorized,no-header prints the header once and every message twice. A comma in output-format selects several reporters, all writing to stdout, so this is two reporters (colorized with header, text without), working as designed. The reporter expects no-header to modify colorized. Options: document it with 11595, or add a header-less colorized format.",
+      "session": 18,
+      "ts": "2026-10-07T21:05:06.375144+00:00"
     }
   },
   "session_count": 10
