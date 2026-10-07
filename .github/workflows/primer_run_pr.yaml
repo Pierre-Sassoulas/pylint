@@ -112,19 +112,28 @@ jobs:
             // Download 'main' pylint output
             const fs = require('fs');
             const rebaseHint = "The primer cannot be computed: rebase on origin/main."
-            // Look up the run of the 'main' commit this PR is merged into: listing
-            // the latest runs sometimes returns a stale page, with old runs only.
-            const { stdout: mainSha } = await exec.getExecOutput("git", ["rev-parse", "HEAD^1"]);
-            const runs = await github.rest.actions.listWorkflowRuns({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              workflow_id: ".github/workflows/primer_run_main.yaml",
-              status: "success",
-              head_sha: mainSha.trim(),
-            });
-            const [lastRunMain] = runs.data.workflow_runs
+            // Look up the run of the 'main' commit this PR is merged into, or of
+            // the commits before it while that run is in progress: listing the
+            // latest runs sometimes returns a stale page, with old runs only.
+            const { stdout: mainShas } = await exec.getExecOutput(
+              "git", ["rev-list", "--first-parent", "--max-count=20", "HEAD^1"]
+            );
+            let lastRunMain;
+            for (const sha of mainShas.split("\n").filter(Boolean)) {
+              const runs = await github.rest.actions.listWorkflowRuns({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                workflow_id: ".github/workflows/primer_run_main.yaml",
+                status: "success",
+                head_sha: sha,
+              });
+              [lastRunMain] = runs.data.workflow_runs
+              if (lastRunMain) {
+                break
+              }
+            }
             if (!lastRunMain) {
-              core.setFailed(`No successful primer run on 'main' for ${mainSha.trim()}. ${rebaseHint}`)
+              core.setFailed(`No successful primer run on the last 20 commits of 'main'. ${rebaseHint}`)
               return
             }
             console.log("Last run on main:")
