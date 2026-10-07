@@ -12,9 +12,7 @@ from astroid import nodes
 
 from pylint.interfaces import UNDEFINED, Confidence, _confidence_or_undefined
 from pylint.lint import PyLinter
-from pylint.message.message_definition import MessageDefinition
 from pylint.testutils.output_line import MessageTest
-from pylint.typing import MessageLocationTuple
 
 
 class UnittestLinter(PyLinter):
@@ -69,30 +67,56 @@ class UnittestLinter(PyLinter):
             )
         )
 
-    def _emit_message(
+    def add_message_at_node(
         self,
-        message_definition: MessageDefinition,
-        args: Any | None,
-        confidence: Confidence,
-        location: MessageLocationTuple,
+        msgid: str,
+        node: nodes.NodeNG,
+        args: Any = None,
+        confidence: Confidence = UNDEFINED,
     ) -> None:
-        """Capture into ``_messages`` instead of dispatching to a reporter.
+        """Add a MessageTest to the _messages attribute of the linter class.
 
-        This catches calls coming through ``add_message_at_location`` (and
-        ``add_message_at_node``). The legacy ``add_message`` is overridden
-        separately so it can preserve the original ``node`` reference in
-        :class:`MessageTest`.
+        Records the same ``MessageTest`` as ``add_message(msgid, node=node)``, so
+        checker tests keep passing when a checker switches to this method.
         """
+        line, col_offset, end_lineno, end_col_offset = self._node_position(node)
         self._messages.append(
             MessageTest(
-                message_definition.msgid,
-                location.line,
+                msgid,
+                line,
+                node,
+                args,
+                confidence,
+                col_offset,
+                end_lineno,
+                end_col_offset,
+            )
+        )
+
+    def add_message_at_location(
+        self,
+        msgid: str,
+        *,
+        module: str,
+        filepath: str | None = None,
+        lineno: int | None = None,
+        col_offset: int | None = None,
+        end_lineno: int | None = None,
+        end_col_offset: int | None = None,
+        args: Any = None,
+        confidence: Confidence = UNDEFINED,
+    ) -> None:
+        """Add a MessageTest to the _messages attribute of the linter class."""
+        self._messages.append(
+            MessageTest(
+                msgid,
+                lineno,
                 None,
                 args,
                 confidence,
-                location.column,
-                location.end_line,
-                location.end_column,
+                col_offset,
+                end_lineno,
+                end_col_offset,
             )
         )
 

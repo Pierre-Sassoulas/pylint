@@ -242,3 +242,23 @@ def test_base_checker_add_message_at_location_delegates() -> None:
     assert messages[0].line == 42
     assert messages[0].col_offset == 3
     assert messages[0].args == ("world",)
+
+
+def test_unittest_linter_records_add_message_at_node_like_add_message() -> None:
+    """Switching a checker to ``add_message_at_node`` must not break its tests.
+
+    ``CheckerTestCase.assertAddsMessages`` compares ``msg_id`` and ``node``, so
+    both methods must record the symbol as given and the node.
+    """
+    linter = UnittestLinter()
+    checker = _DelegationChecker(linter)
+    linter.register_checker(checker)
+    node = astroid.extract_node("apple = 1")
+
+    checker.add_message("delegation-test", node=node, args=("hello",))
+    checker.add_message_at_node("delegation-test", node, args=("hello",))
+
+    old, new = linter.release_messages()
+    assert new == old
+    assert new.msg_id == "delegation-test"
+    assert new.node is node
