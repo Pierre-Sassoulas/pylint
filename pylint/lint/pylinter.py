@@ -1465,7 +1465,7 @@ class PyLinter(
         self,
         msgid: str,
         *,
-        module: str,
+        module: str | None = None,
         filepath: str | None = None,
         lineno: int | None = None,
         col_offset: int | None = None,
@@ -1479,11 +1479,15 @@ class PyLinter(
 
         Use this when the message logically belongs to a module/position
         other than the one currently being processed (e.g. cross-module
-        findings like duplicate-code).
+        findings like duplicate-code). Without ``module`` and ``filepath``,
+        the message is reported in the current module and file, as a
+        token checker does for a line-scoped message.
 
         Raises ``InvalidMessageError`` for a node-scoped message (use
         ``add_message_at_node``), or a line-scoped one without ``lineno``.
         """
+        if module is None:
+            module = self.current_name or ""
         abspath = filepath if filepath is not None else self.current_file
         for message_definition in self.msgs_store.get_message_definitions(msgid):
             message_definition.check_message_definition(lineno, None)

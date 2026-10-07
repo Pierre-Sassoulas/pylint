@@ -631,15 +631,16 @@ def test_add_message_at_location_forwards_line_and_col(linter: PyLinter) -> None
     assert msg.location.end_column == 20
 
 
-def test_add_message_at_location_requires_module_kwarg(linter: PyLinter) -> None:
-    """``module`` is keyword-only and required."""
+def test_add_message_at_location_defaults_to_current_module(linter: PyLinter) -> None:
+    """Without ``module`` and ``filepath``, the message is in the current file."""
     linter.set_reporter(testutils.GenericTestReporter())
     linter.open()
-    linter.set_current_module("current_module")
-    with pytest.raises(TypeError):
-        linter.add_message_at_location(  # type: ignore[call-arg]
-            "C0301", lineno=1, args=(1, 2)
-        )
+    linter.set_current_module("current_module", "/fake/current.py")
+    linter.add_message_at_location("C0301", lineno=3, args=(1, 2))
+    location = linter.reporter.messages[0].location
+    assert location.module == "current_module"
+    assert location.abspath == "/fake/current.py"
+    assert location.line == 3
 
 
 def test_add_message_at_location_skips_disabled(linter: PyLinter) -> None:

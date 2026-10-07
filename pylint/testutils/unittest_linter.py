@@ -97,7 +97,7 @@ class UnittestLinter(PyLinter):
         self,
         msgid: str,
         *,
-        module: str,
+        module: str | None = None,
         filepath: str | None = None,
         lineno: int | None = None,
         col_offset: int | None = None,

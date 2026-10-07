@@ -5,12 +5,13 @@ Two new ``BaseChecker`` methods supplement ``add_message``:
   ``line``/``col_offset``/``end_lineno``/``end_col_offset`` that ``add_message`` carries
   for non-AST callers.
 
-* ``add_message_at_location(msgid, *, module: str, filepath = None, lineno = None,
+* ``add_message_at_location(msgid, *, module = None, filepath = None, lineno = None,
   col_offset = None, end_lineno = None, end_col_offset = None,  args = None,
   confidence = UNDEFINED)`` emits a message at an explicit location instead of
   deriving it from a node. This is the only way to define module and filepath as
   ``add_message`` didn't provide them. Useful for cross-module findings like
-  ``duplicate-code``. It accepts line-scoped messages (which need ``lineno``) and
+  ``duplicate-code``. Without ``module`` and ``filepath``, the message is reported in
+  the current module and file. It accepts line-scoped messages (which need ``lineno``) and
   fatal or refactoring messages; node-scoped messages must use ``add_message_at_node``.
 
 Refs #10894

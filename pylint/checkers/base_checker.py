@@ -182,7 +182,7 @@ class BaseChecker(_ArgumentsProvider):
         self,
         msgid: str,
         *,
-        module: str,
+        module: str | None = None,
         filepath: str | None = None,
         lineno: int | None = None,
         col_offset: int | None = None,
@@ -196,7 +196,9 @@ class BaseChecker(_ArgumentsProvider):
 
         Use this when the message logically belongs to a module/position
         other than the one currently being processed (e.g. cross-module
-        findings like duplicate-code). A node-scoped message must use
+        findings like duplicate-code). Without ``module`` and ``filepath``,
+        the message is reported in the current module and file. A
+        node-scoped message must use
         :meth:`add_message_at_node`, a line-scoped one needs ``lineno``.
         """
         self.linter.add_message_at_location(
