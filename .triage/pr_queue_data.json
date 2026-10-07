@@ -1,7 +1,7 @@
 {
- "snapshot": "2026-10-06",
+ "snapshot": "2026-10-07",
  "owner": "Pierre-Sassoulas",
- "open_total": 106,
+ "open_total": 105,
  "open_own": 25,
  "prs": [
   {
@@ -946,7 +946,7 @@
     "Work in progress"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "awaiting-approval",
    "citot": 49,
    "cifail": 0,
@@ -1315,7 +1315,7 @@
     "Skip news :mute:"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "not-run",
    "citot": 2,
    "cifail": 0,
@@ -1401,7 +1401,7 @@
     "backport maintenance/4.1.x"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "green",
    "citot": 52,
    "cifail": 0,
@@ -1490,7 +1490,7 @@
    "updated": "2026-09-23",
    "labels": [],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "not-run",
    "citot": 2,
    "cifail": 0,
@@ -1609,7 +1609,7 @@
     "backport maintenance/4.1.x"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "green",
    "citot": 53,
    "cifail": 0,
@@ -1669,7 +1669,7 @@
    "updated": "2026-10-03",
    "labels": [],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "awaiting-approval",
    "citot": 2,
    "cifail": 0,
@@ -1700,7 +1700,7 @@
     "False Negative 🦋"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "failing",
    "citot": 48,
    "cifail": 1,
@@ -1731,7 +1731,7 @@
    "updated": "2026-09-22",
    "labels": [],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "not-run",
    "citot": 3,
    "cifail": 0,
@@ -1858,7 +1858,7 @@
     "False Positive 🦟"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "failing",
    "citot": 48,
    "cifail": 1,
@@ -1912,19 +1912,19 @@
    "a": "tk1475",
    "t": "Fix used-before-assignment false positive for walrus in comprehension condition",
    "draft": false,
-   "size": 73,
+   "size": 80,
    "files": 4,
    "created": "2026-09-28",
-   "updated": "2026-10-06",
+   "updated": "2026-10-07",
    "labels": [
     "False Positive 🦟",
     "backport maintenance/4.1.x"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "MERGEABLE",
-   "ci": "failing",
-   "citot": 48,
-   "cifail": 2,
+   "merge": "UNKNOWN",
+   "ci": "awaiting-approval",
+   "citot": 2,
+   "cifail": 0,
    "nrev": 2,
    "mrev": [
     "Pierre-Sassoulas"
@@ -1955,7 +1955,7 @@
     "backport maintenance/4.1.x"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "green",
    "citot": 53,
    "cifail": 0,
@@ -2017,13 +2017,13 @@
    "size": 119,
    "files": 4,
    "created": "2026-10-01",
-   "updated": "2026-10-06",
+   "updated": "2026-10-07",
    "labels": [
     "False Positive 🦟",
     "backport maintenance/4.1.x"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "failing",
    "citot": 48,
    "cifail": 1,
@@ -2039,8 +2039,8 @@
     ]
    ],
    "lastcom": [
-    "github-actions",
-    "2026-10-06"
+    "Pierre-Sassoulas",
+    "2026-10-07"
    ]
   },
   {
@@ -2070,38 +2070,6 @@
    "lastcom": [
     "-",
     "-"
-   ]
-  },
-  {
-   "n": 11529,
-   "a": "shan3520",
-   "t": "Fix `used-before-assignment` false positive for tuple targets in multi-item `with`",
-   "draft": false,
-   "size": 106,
-   "files": 4,
-   "created": "2026-10-02",
-   "updated": "2026-10-06",
-   "labels": [
-    "False Positive 🦟",
-    "backport maintenance/4.1.x"
-   ],
-   "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
-   "ci": "awaiting-approval",
-   "citot": 48,
-   "cifail": 0,
-   "nrev": 2,
-   "mrev": [],
-   "links": [
-    [
-     7545,
-     "",
-     ""
-    ]
-   ],
-   "lastcom": [
-    "github-actions",
-    "2026-10-06"
    ]
   },
   {
@@ -2272,7 +2240,7 @@
     "backport maintenance/4.1.x"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "green",
    "citot": 53,
    "cifail": 0,
@@ -2301,7 +2269,7 @@
    "updated": "2026-10-04",
    "labels": [],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "green",
    "citot": 48,
    "cifail": 0,
@@ -2352,40 +2320,6 @@
    ]
   },
   {
-   "n": 11578,
-   "a": "pylaterreur",
-   "t": "Fix ``no-member`` false positive in a comprehension behind a false guard",
-   "draft": false,
-   "size": 28,
-   "files": 4,
-   "created": "2026-10-05",
-   "updated": "2026-10-06",
-   "labels": [
-    "False Positive 🦟",
-    "backport maintenance/4.1.x"
-   ],
-   "rd": "CHANGES_REQUESTED",
-   "merge": "MERGEABLE",
-   "ci": "failing",
-   "citot": 53,
-   "cifail": 1,
-   "nrev": 1,
-   "mrev": [
-    "Pierre-Sassoulas"
-   ],
-   "links": [
-    [
-     7240,
-     "",
-     ""
-    ]
-   ],
-   "lastcom": [
-    "codecov",
-    "2026-10-06"
-   ]
-  },
-  {
    "n": 11579,
    "a": "tanquetav",
    "t": "feat: added check to function call in default arguments]",
@@ -2396,7 +2330,7 @@
    "updated": "2026-10-05",
    "labels": [],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "awaiting-approval",
    "citot": 2,
    "cifail": 0,
@@ -2421,7 +2355,7 @@
     "Documentation :green_book:"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "green",
    "citot": 28,
    "cifail": 0,
@@ -2452,7 +2386,7 @@
    "updated": "2026-10-05",
    "labels": [],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "failing",
    "citot": 48,
    "cifail": 1,
@@ -2513,7 +2447,7 @@
    "updated": "2026-10-06",
    "labels": [],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "awaiting-approval",
    "citot": 2,
    "cifail": 0,
@@ -2526,6 +2460,29 @@
      ""
     ]
    ],
+   "lastcom": [
+    "-",
+    "-"
+   ]
+  },
+  {
+   "n": 11591,
+   "a": "app/pylint-backport",
+   "t": "[Backport maintenance/4.1.x] Fix ``no-member`` false positive in a comprehension behind a false guard",
+   "draft": false,
+   "size": 28,
+   "files": 4,
+   "created": "2026-10-07",
+   "updated": "2026-10-07",
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "running",
+   "citot": 13,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [],
    "lastcom": [
     "-",
     "-"
@@ -2719,30 +2676,6 @@
    "state": "open",
    "state_reason": null,
    "title": "[R0801] Similarities false positive on abstract classes"
-  },
-  {
-   "comments": 7,
-   "labels": [
-    "Control flow",
-    "False Positive 🦟",
-    "Needs astroid update"
-   ],
-   "number": 7240,
-   "state": "open",
-   "state_reason": null,
-   "title": "False-positive `no-member` in comprehension in unreachable code from platform check"
-  },
-  {
-   "comments": 4,
-   "labels": [
-    "False Positive 🦟",
-    "C: used-before-assignment",
-    "Needs PR"
-   ],
-   "number": 7545,
-   "state": "open",
-   "state_reason": null,
-   "title": "False positive `used-before-assignment` with multi-item `with` statement and tuple target"
   },
   {
    "comments": 6,

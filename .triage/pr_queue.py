@@ -65,14 +65,6 @@ LANES = {
 # n: (lane, verdict-chip-text, chip-class, finding, action)
 V = {
     # ---- merge lane -------------------------------------------------------
-    11529: (
-        "merge",
-        "ready",
-        "confirmed",
-        "48/48 green after the rebase; the primer only shows astropy base drift, and chrikrah confirmed "
-        "the 2 home-assistant fixes hold. Issue 7545, milestone 4.1.3.",
-        "Merge.",
-    ),
     # ---- review now -------------------------------------------------------
     11576: (
         "review",
@@ -133,6 +125,23 @@ V = {
         "Review. Clean primer, confirmed issue.",
     ),
     # ---- approve the workflow run ----------------------------------------
+    11584: (
+        "approve",
+        "held",
+        "confirmed",
+        "51 checks green and no failure left; part of the re-run is held for approval after the primer "
+        "lookup fix (#11588/#11589). 51 lines for issue 7997 (<code>dict-init-mutate</code> reading the "
+        "dictionary being built), milestone 4.1.3.",
+        "Approve the held run, then review.",
+    ),
+    11483: (
+        "approve",
+        "held",
+        "confirmed",
+        "The author pushed tests covering the nested-scope walk and a walrus outside a condition on 7 "
+        "October, answering your coverage request. The run is held. Issue 9460, milestone 4.1.3.",
+        "Approve the run; merge if codecov is green.",
+    ),
     11430: (
         "approve",
         "held",
@@ -166,22 +175,13 @@ V = {
         "Approve the run.",
     ),
     # ---- retrigger --------------------------------------------------------
-    11584: (
-        "retrigger",
-        "primer",
-        "confirmed",
-        "All checks green except one primer shard (3.15 batch 1). The primer failed on the stale "
-        "'Primer / Main' lookup that your #11588 fixes; rebase after it lands. 51 lines for issue 7997, "
-        "milestone 4.1.3.",
-        "Re-run the primer after #11588, then review.",
-    ),
     11577: (
         "retrigger",
         "primer",
         "confirmed",
-        "All checks green except one primer shard. The primer failed on the stale 'Primer / Main' "
-        "lookup that your #11588 fixes; rebase after it lands. 76 lines for issue 9126, milestone 4.1.3.",
-        "Re-run the primer after #11588, then review.",
+        "All checks green except one primer shard, which failed on the stale 'Primer / Main' lookup; "
+        "#11588 and #11589 (merged 7 October) fix that. 76 lines for issue 9126, milestone 4.1.3.",
+        "Re-run the primer (or ask for a rebase), then review.",
     ),
     11581: (
         "retrigger",
@@ -277,30 +277,13 @@ V = {
         "Retrigger. The size needs a primer run before review.",
     ),
     # ---- author's move ----------------------------------------------------
-    11578: (
+    11517: (
         "author",
         "rebase",
         "confirmed",
-        "You asked for a rebase on 6 October so the primer can run. The primer failed on the stale "
-        "'Primer / Main' lookup that your #11588 fixes; rebase after it lands. Issue 7240, milestone "
-        "4.1.3.",
+        "Only <code>codecov/project</code> red (94.33% vs 95%). On 7 October you replied that the "
+        "coverage change landed in <code>5ee69328</code> and asked for a rebase on main.",
         "Waiting on the rebase.",
-    ),
-    11517: (
-        "author",
-        "coverage",
-        "confirmed",
-        "You requested changes on 6 October: cover the unreached code or remove it. Only codecov is "
-        "red. Issue 10831, milestone 4.1.3.",
-        "Waiting on the author.",
-    ),
-    11483: (
-        "author",
-        "coverage",
-        "confirmed",
-        "You requested changes on 6 October: cover the unreached code or remove it. Only the two "
-        "codecov checks are red. Issue 9460, milestone 4.1.3.",
-        "Waiting on the author.",
     ),
     11580: (
         "author",
