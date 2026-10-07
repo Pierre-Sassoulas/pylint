@@ -66,6 +66,15 @@ LANES = {
 V = {
     # ---- merge lane -------------------------------------------------------
     # ---- review now -------------------------------------------------------
+    11593: (
+        "review",
+        "approved",
+        "confirmed",
+        "You approved it on 7 October after the author fixed pre-commit and shortened the wording. CI "
+        "re-running (38 green so far). <code>nested-min-max</code> no longer suggests a non-equivalent "
+        "splat when an inner call has several sequence arguments (variant of closed issue 11130).",
+        "Merge when CI is green.",
+    ),
     11493: (
         "review",
         "re-review",
@@ -303,14 +312,6 @@ V = {
         "feature",
         "You requested changes again on 7 October: the shorthand URLs are hard to discover; the message "
         "index needs a search form that uses them. Issue 9320, milestone 4.2.0.",
-        "Waiting on the author.",
-    ),
-    11593: (
-        "author",
-        "waiting",
-        "confirmed",
-        "You requested changes on 7 October: fix pre-commit and make the changelog and comments brief. "
-        "Issue 11130 variant (non-equivalent splat for several sequence arguments).",
         "Waiting on the author.",
     ),
     11584: (
