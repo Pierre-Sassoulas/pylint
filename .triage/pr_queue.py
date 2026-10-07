@@ -66,6 +66,32 @@ LANES = {
 V = {
     # ---- merge lane -------------------------------------------------------
     # ---- review now -------------------------------------------------------
+    11493: (
+        "review",
+        "re-review",
+        "confirmed",
+        "47 of 48 green, only <code>codecov/project</code> red. <code>12a80713f</code> adds the "
+        "property and cached_property shadowing cases and the enclosing-function true positive you "
+        "asked for. Issue 9134, milestone 4.1.3.",
+        "Re-review; check whether codecov/project is this branch or base drift.",
+    ),
+    11577: (
+        "review",
+        "re-review",
+        "confirmed",
+        "48/48 green. The author fixed your two added cases on 7 October (the scope walk stopped at the "
+        "comprehension and never reached the outer lambda's parameters). Issue 9126, milestone 4.1.3.",
+        "Re-review and merge.",
+    ),
+    11517: (
+        "review",
+        "re-review",
+        "confirmed",
+        "48/48 green, codecov included: the author merged main (keeping your <code>6b91a27</code>), so "
+        "the coverage change from <code>5ee69328</code> is in. Only your changes-requested review "
+        "blocks. Issue 10831, milestone 4.1.3.",
+        "Re-review and merge.",
+    ),
     11205: (
         "review",
         "DudeNr33",
@@ -75,15 +101,6 @@ V = {
         "<code>async_checker.py</code> and another module, which the author says is not theirs. Aimed "
         "at 4.2.0.",
         "Check whether the R0801 comes from this branch; then DudeNr33's review.",
-    ),
-    11493: (
-        "review",
-        "CI running",
-        "confirmed",
-        "Run released; the author pushed <code>12a80713f</code> on 7 October with the property and "
-        "cached_property shadowing cases from the primer and the enclosing-function true positive you "
-        "asked for. Issue 9134, milestone 4.1.3.",
-        "Re-review when CI finishes.",
     ),
     11594: (
         "review",
@@ -153,22 +170,6 @@ V = {
         "Review. Clean primer, confirmed issue.",
     ),
     # ---- approve the workflow run ----------------------------------------
-    11577: (
-        "approve",
-        "held",
-        "confirmed",
-        "You added two functional cases you think are still false positives (7 October); the author "
-        "pushed since and the run is held. Issue 9126, milestone 4.1.3.",
-        "Approve the run and check your two cases pass.",
-    ),
-    11517: (
-        "approve",
-        "held",
-        "confirmed",
-        "Rebased as you asked on 7 October (the codecov/project gap). The run is held. Issue 10831, "
-        "milestone 4.1.3.",
-        "Approve the run; merge when codecov is green.",
-    ),
     11430: (
         "approve",
         "held",
@@ -296,6 +297,14 @@ V = {
         "Retrigger. The size needs a primer run before review.",
     ),
     # ---- author's move ----------------------------------------------------
+    11580: (
+        "author",
+        "waiting",
+        "feature",
+        "You requested changes again on 7 October: the shorthand URLs are hard to discover; the message "
+        "index needs a search form that uses them. Issue 9320, milestone 4.2.0.",
+        "Waiting on the author.",
+    ),
     11593: (
         "author",
         "waiting",
@@ -311,14 +320,6 @@ V = {
         "You asked for a rebase on 7 October: one primer shard still fails on the old 'Primer / Main' "
         "lookup fixed by #11588/#11589. Issue 7997, milestone 4.1.3.",
         "Waiting on the rebase.",
-    ),
-    11580: (
-        "author",
-        "waiting",
-        "feature",
-        "You requested changes on 6 October: unclear how to use the shorthands; "
-        "<code>…/user_guide/messages/c1111</code> on the docs preview returns 404. Milestone 4.2.0.",
-        "Waiting on the author.",
     ),
     11409: (
         "author",
