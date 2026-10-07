@@ -66,15 +66,24 @@ LANES = {
 V = {
     # ---- merge lane -------------------------------------------------------
     # ---- review now -------------------------------------------------------
-    11593: (
+    11205: (
         "review",
-        "pre-commit",
+        "DudeNr33",
+        "feature",
+        "The author says your 4 October points are fixed and asked DudeNr33 for review on 7 October. "
+        "One red check: the self-lint <code>pylint</code> job reports R0801 duplicate-code between "
+        "<code>async_checker.py</code> and another module, which the author says is not theirs. Aimed "
+        "at 4.2.0.",
+        "Check whether the R0801 comes from this branch; then DudeNr33's review.",
+    ),
+    11493: (
+        "review",
+        "CI running",
         "confirmed",
-        "New, 48 checks green, only <code>pre-commit.ci</code> red. 27 lines: "
-        "<code>nested-min-max</code> suggests a non-equivalent splat when an inner call has several "
-        "sequence arguments (<code>max([1, 2], max([3, 4], [5, 6]))</code>). Links issue 11130, already "
-        "closed, so this is a new variant.",
-        "Ask for pre-commit to be fixed, then review.",
+        "Run released; the author pushed <code>12a80713f</code> on 7 October with the property and "
+        "cached_property shadowing cases from the primer and the enclosing-function true positive you "
+        "asked for. Issue 9134, milestone 4.1.3.",
+        "Re-review when CI finishes.",
     ),
     11594: (
         "review",
@@ -84,15 +93,6 @@ V = {
         "<code>used-before-assignment</code> false positive when a later target of a chained assignment "
         "reads a name an earlier target just bound (<code>a = b[id(a)] = 0</code>).",
         "Review.",
-    ),
-    11483: (
-        "review",
-        "re-review",
-        "confirmed",
-        "48/48 green, codecov included, after the author added the tests you asked for on 6 October "
-        "(nested-scope walk, walrus outside a condition). Your changes-requested review still blocks. "
-        "Issue 9460, milestone 4.1.3.",
-        "Re-review and merge.",
     ),
     11576: (
         "review",
@@ -168,15 +168,6 @@ V = {
         "Rebased as you asked on 7 October (the codecov/project gap). The run is held. Issue 10831, "
         "milestone 4.1.3.",
         "Approve the run; merge when codecov is green.",
-    ),
-    11493: (
-        "approve",
-        "held",
-        "confirmed",
-        "The author pushed a new version (now 166 lines) answering your 4 October review (property and "
-        "cached_property cases in the functional tests, the enclosing-function true positive). The run "
-        "is held. Issue 9134, milestone 4.1.3.",
-        "Approve the run, then re-review.",
     ),
     11430: (
         "approve",
@@ -305,6 +296,14 @@ V = {
         "Retrigger. The size needs a primer run before review.",
     ),
     # ---- author's move ----------------------------------------------------
+    11593: (
+        "author",
+        "waiting",
+        "confirmed",
+        "You requested changes on 7 October: fix pre-commit and make the changelog and comments brief. "
+        "Issue 11130 variant (non-equivalent splat for several sequence arguments).",
+        "Waiting on the author.",
+    ),
     11584: (
         "author",
         "rebase",
@@ -330,15 +329,6 @@ V = {
         "comparing with <code>is_subtype_of</code> fixes both shapes. Milestone 4.1.3, backport label "
         "set.",
         "Waiting on the author to move the fix to astroid.",
-    ),
-    11205: (
-        "author",
-        "waiting",
-        "feature",
-        "You reviewed it on 4 October aiming at 4.2.0 and found two problems (with <code>--theme dark "
-        "--colorized</code> the node text sits on pale palette fills, among others). The new run is "
-        "held for approval.",
-        "Waiting on the author; approve the run after their next push.",
     ),
     11432: (
         "author",
