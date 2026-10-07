@@ -643,6 +643,29 @@ def test_add_message_at_location_defaults_to_current_module(linter: PyLinter) ->
     assert location.line == 3
 
 
+def test_add_message_at_location_counts_in_reported_module(linter: PyLinter) -> None:
+    """Per-module stats follow the module the message is reported in."""
+    linter.set_reporter(testutils.GenericTestReporter())
+    linter.open()
+    linter.set_current_module("apple")
+    linter.set_current_module("banana")
+    linter.add_message_at_location("C0301", module="apple", lineno=1, args=(1, 2))
+    assert linter.stats.by_module["apple"]["convention"] == 1
+    assert linter.stats.by_module["banana"]["convention"] == 0
+
+
+def test_add_message_at_location_unlinted_module_counts_in_current(
+    linter: PyLinter,
+) -> None:
+    """A module this run did not lint is not added to the per-module stats."""
+    linter.set_reporter(testutils.GenericTestReporter())
+    linter.open()
+    linter.set_current_module("banana")
+    linter.add_message_at_location("C0301", module="cherry", lineno=1, args=(1, 2))
+    assert "cherry" not in linter.stats.by_module
+    assert linter.stats.by_module["banana"]["convention"] == 1
+
+
 def test_add_message_at_location_skips_disabled(linter: PyLinter) -> None:
     """Disabled messages are filtered before reaching the reporter."""
     linter.set_reporter(testutils.GenericTestReporter())

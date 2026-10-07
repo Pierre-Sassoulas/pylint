@@ -1373,7 +1373,13 @@ class PyLinter(
         msg_cat = MSG_TYPES[message_definition.msgid[0]]
         self.msg_status |= MSG_TYPES_STATUS[message_definition.msgid[0]]
         self.stats.increase_single_message_count(msg_cat, 1)
-        self.stats.increase_single_module_message_count(self.current_name, msg_cat, 1)
+        # Count the message in the module it is reported in. A module this run
+        # did not lint has no entry, and creating one would count it as linted.
+        if location.module in self.stats.by_module:
+            stats_module = location.module
+        else:
+            stats_module = self.current_name
+        self.stats.increase_single_module_message_count(stats_module, msg_cat, 1)
         try:
             self.stats.by_msg[message_definition.symbol] += 1
         except KeyError:
