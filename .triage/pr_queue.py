@@ -66,6 +66,34 @@ LANES = {
 V = {
     # ---- merge lane -------------------------------------------------------
     # ---- review now -------------------------------------------------------
+    11593: (
+        "review",
+        "pre-commit",
+        "confirmed",
+        "New, 48 checks green, only <code>pre-commit.ci</code> red. 27 lines: "
+        "<code>nested-min-max</code> suggests a non-equivalent splat when an inner call has several "
+        "sequence arguments (<code>max([1, 2], max([3, 4], [5, 6]))</code>). Links issue 11130, already "
+        "closed, so this is a new variant.",
+        "Ask for pre-commit to be fixed, then review.",
+    ),
+    11594: (
+        "review",
+        "ready",
+        "confirmed",
+        "New, 53/53 green, primer no effect. 117 lines for issue 5955: "
+        "<code>used-before-assignment</code> false positive when a later target of a chained assignment "
+        "reads a name an earlier target just bound (<code>a = b[id(a)] = 0</code>).",
+        "Review.",
+    ),
+    11483: (
+        "review",
+        "re-review",
+        "confirmed",
+        "48/48 green, codecov included, after the author added the tests you asked for on 6 October "
+        "(nested-scope walk, walrus outside a condition). Your changes-requested review still blocks. "
+        "Issue 9460, milestone 4.1.3.",
+        "Re-review and merge.",
+    ),
     11576: (
         "review",
         "approach",
@@ -125,22 +153,30 @@ V = {
         "Review. Clean primer, confirmed issue.",
     ),
     # ---- approve the workflow run ----------------------------------------
-    11584: (
+    11577: (
         "approve",
         "held",
         "confirmed",
-        "51 checks green and no failure left; part of the re-run is held for approval after the primer "
-        "lookup fix (#11588/#11589). 51 lines for issue 7997 (<code>dict-init-mutate</code> reading the "
-        "dictionary being built), milestone 4.1.3.",
-        "Approve the held run, then review.",
+        "You added two functional cases you think are still false positives (7 October); the author "
+        "pushed since and the run is held. Issue 9126, milestone 4.1.3.",
+        "Approve the run and check your two cases pass.",
     ),
-    11483: (
+    11517: (
         "approve",
         "held",
         "confirmed",
-        "The author pushed tests covering the nested-scope walk and a walrus outside a condition on 7 "
-        "October, answering your coverage request. The run is held. Issue 9460, milestone 4.1.3.",
-        "Approve the run; merge if codecov is green.",
+        "Rebased as you asked on 7 October (the codecov/project gap). The run is held. Issue 10831, "
+        "milestone 4.1.3.",
+        "Approve the run; merge when codecov is green.",
+    ),
+    11493: (
+        "approve",
+        "held",
+        "confirmed",
+        "The author pushed a new version (now 166 lines) answering your 4 October review (property and "
+        "cached_property cases in the functional tests, the enclosing-function true positive). The run "
+        "is held. Issue 9134, milestone 4.1.3.",
+        "Approve the run, then re-review.",
     ),
     11430: (
         "approve",
@@ -175,14 +211,6 @@ V = {
         "Approve the run.",
     ),
     # ---- retrigger --------------------------------------------------------
-    11577: (
-        "retrigger",
-        "primer",
-        "confirmed",
-        "All checks green except one primer shard, which failed on the stale 'Primer / Main' lookup; "
-        "#11588 and #11589 (merged 7 October) fix that. 76 lines for issue 9126, milestone 4.1.3.",
-        "Re-run the primer (or ask for a rebase), then review.",
-    ),
     11581: (
         "retrigger",
         "rerun",
@@ -277,12 +305,12 @@ V = {
         "Retrigger. The size needs a primer run before review.",
     ),
     # ---- author's move ----------------------------------------------------
-    11517: (
+    11584: (
         "author",
         "rebase",
         "confirmed",
-        "Only <code>codecov/project</code> red (94.33% vs 95%). On 7 October you replied that the "
-        "coverage change landed in <code>5ee69328</code> and asked for a rebase on main.",
+        "You asked for a rebase on 7 October: one primer shard still fails on the old 'Primer / Main' "
+        "lookup fixed by #11588/#11589. Issue 7997, milestone 4.1.3.",
         "Waiting on the rebase.",
     ),
     11580: (
@@ -339,15 +367,6 @@ V = {
         "confirmed",
         "You requested changes on 4 October: fix pre-commit and add coverage. Issue 10737, "
         "generated-doc backslash escaping.",
-        "Waiting on the author.",
-    ),
-    11493: (
-        "author",
-        "waiting",
-        "confirmed",
-        "You requested changes on 4 October after a positive review: the primer looks right (all 5 "
-        "removed hits involve a property or cached property), with follow-up asks on the PR. 53/53 "
-        "green.",
         "Waiting on the author.",
     ),
     11552: (
