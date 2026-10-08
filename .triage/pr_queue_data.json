@@ -1,7 +1,7 @@
 {
  "snapshot": "2026-10-08",
  "owner": "Pierre-Sassoulas",
- "open_total": 107,
+ "open_total": 108,
  "open_own": 25,
  "prs": [
   {
@@ -1429,15 +1429,17 @@
    "size": 130,
    "files": 5,
    "created": "2026-09-10",
-   "updated": "2026-09-28",
+   "updated": "2026-10-08",
    "labels": [],
-   "rd": "REVIEW_REQUIRED",
+   "rd": "CHANGES_REQUESTED",
    "merge": "MERGEABLE",
    "ci": "not-run",
    "citot": 2,
    "cifail": 0,
-   "nrev": 0,
-   "mrev": [],
+   "nrev": 1,
+   "mrev": [
+    "Pierre-Sassoulas"
+   ],
    "links": [
     [
      9354,
@@ -1925,7 +1927,7 @@
    "ci": "failing",
    "citot": 48,
    "cifail": 1,
-   "nrev": 1,
+   "nrev": 2,
    "mrev": [
     "Pierre-Sassoulas"
    ],
@@ -1956,7 +1958,7 @@
    ],
    "rd": "CHANGES_REQUESTED",
    "merge": "MERGEABLE",
-   "ci": "awaiting-approval",
+   "ci": "green",
    "citot": 28,
    "cifail": 0,
    "nrev": 5,
@@ -2553,6 +2555,35 @@
     "-",
     "-"
    ]
+  },
+  {
+   "n": 11602,
+   "a": "mohitduhan19",
+   "t": "Error when several output formats write to stdout",
+   "draft": false,
+   "size": 57,
+   "files": 5,
+   "created": "2026-10-08",
+   "updated": "2026-10-08",
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "awaiting-approval",
+   "citot": 3,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [
+    [
+     11597,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "-",
+    "-"
+   ]
   }
  ],
  "issues": [
@@ -2970,6 +3001,17 @@
   {
    "comments": 2,
    "labels": [
+    "False Positive 🦟",
+    "Lib specific 💅"
+   ],
+   "number": 9218,
+   "state": "open",
+   "state_reason": null,
+   "title": "Pylint complains functions in torch.linalg not callable."
+  },
+  {
+   "comments": 2,
+   "labels": [
     "Bug :beetle:",
     "pyreverse",
     "Good first issue"
@@ -3188,6 +3230,18 @@
    "state": "open",
    "state_reason": null,
    "title": "False negative ``superfluous-parens`` when around two conditional and an ``and``"
+  },
+  {
+   "comments": 0,
+   "labels": [
+    "False Positive 🦟",
+    "Lib specific 💅",
+    "Needs PR"
+   ],
+   "number": 10087,
+   "state": "open",
+   "state_reason": null,
+   "title": "False positives on container attributes Pydantic v2"
   },
   {
    "comments": 2,
@@ -3489,6 +3543,17 @@
    "state": "open",
    "state_reason": null,
    "title": "Documentation needed for \"no-header\" output format"
+  },
+  {
+   "comments": 3,
+   "labels": [
+    "Bug :beetle:",
+    "Needs PR"
+   ],
+   "number": 11597,
+   "state": "open",
+   "state_reason": null,
+   "title": "(Undocumented) \"no-header\" output option does not work in conjunction with \"colorized\"; generates duplicate messages"
   }
  ]
 }

@@ -752,9 +752,9 @@
     },
     "10087": {
       "verdict": "EXTDEP",
-      "note": "Needs pydantic v2. False positives on container attributes of pydantic models. Lib-specific brain gap.",
-      "session": 2,
-      "ts": "2026-05-12T10:56:15.108844+00:00"
+      "note": "Fixed by astroid 4.3.4 (released 8 October). Closes with Pierre's pin-bump PR 11570, which lists it; ships in pylint 4.1.3. Previous verdict: EXTDEP.",
+      "session": 18,
+      "ts": "2026-10-08T12:41:37.788365+00:00"
     },
     "10084": {
       "verdict": "REPRO",
@@ -1645,10 +1645,10 @@
       "ts": "2026-05-12T11:12:26.658895+00:00"
     },
     "9354": {
-      "verdict": "DESIGN",
-      "note": "Enhancement: unpacking-non-sequence should consult .pyi stub for RHS function return type. Spec.",
-      "session": 3,
-      "ts": "2026-05-12T11:12:26.691940+00:00"
+      "verdict": "EXTDEP",
+      "note": "Fixed by astroid 4.3.4 (released 8 October). Closes with Pierre's pin-bump PR 11570, which lists it; ships in pylint 4.1.3. Previous verdict: DESIGN.",
+      "session": 18,
+      "ts": "2026-10-08T12:41:37.788365+00:00"
     },
     "9352": {
       "verdict": "DESIGN",
@@ -1826,9 +1826,9 @@
     },
     "9218": {
       "verdict": "EXTDEP",
-      "note": "Needs torch. not-callable on torch.linalg functions. Lib-specific brain.",
-      "session": 3,
-      "ts": "2026-05-12T11:13:34.252089+00:00"
+      "note": "Fixed by astroid 4.3.4 (released 8 October). Closes with Pierre's pin-bump PR 11570, which lists it; ships in pylint 4.1.3. Previous verdict: EXTDEP.",
+      "session": 18,
+      "ts": "2026-10-08T12:41:37.788365+00:00"
     },
     "9216": {
       "verdict": "EXTDEP",
@@ -2917,10 +2917,10 @@
       "ts": "2026-05-12T11:33:23.112397+00:00"
     },
     "8138": {
-      "verdict": "REPRO",
-      "note": "Confirmed E1102 not-callable false positive: TYPE_CHECKING-guarded @property declaring -> Type[X] (class reference) called as func.myfunc(1,2,3) flagged not-callable.",
-      "session": 4,
-      "ts": "2026-05-12T11:36:12.023475+00:00"
+      "verdict": "EXTDEP",
+      "note": "Fixed by astroid 4.3.4 (released 8 October). Closes with Pierre's pin-bump PR 11570, which lists it; ships in pylint 4.1.3. Previous verdict: REPRO.",
+      "session": 18,
+      "ts": "2026-10-08T12:41:37.788365+00:00"
     },
     "8137": {
       "verdict": "DESIGN",
@@ -6350,9 +6350,9 @@
     },
     "11597": {
       "verdict": "DESIGN",
-      "note": "Reproduced on 4.1.2 (scratch reg2/i11597.py): --output-format=colorized,no-header prints the header once and every message twice. A comma in output-format selects several reporters, all writing to stdout, so this is two reporters (colorized with header, text without), working as designed. The reporter expects no-header to modify colorized. Options: document it with 11595, or add a header-less colorized format.",
+      "note": "Reproduced on 4.1.2 (scratch reg2/i11597.py): --output-format=colorized,no-header prints the header once and every message twice. A comma in output-format selects several reporters, all writing to stdout, so this is two reporters (colorized with header, text without), working as designed. The reporter expects no-header to modify colorized. Options: document it with 11595, or add a header-less colorized format. 2026-10-08: Pierre chose an argparse error for several stdout formats; PR 11602 implements it.",
       "session": 18,
-      "ts": "2026-10-07T21:05:06.375144+00:00"
+      "ts": "2026-10-08T12:41:37.788365+00:00"
     },
     "11130": {
       "verdict": "FIXED",

@@ -76,15 +76,6 @@ V = {
         "(ansible 2, astropy 1, sentry 2).",
         "Review; the primer hits are the intended constants.",
     ),
-    11493: (
-        "review",
-        "re-review",
-        "confirmed",
-        "47 of 48 green, only <code>codecov/project</code> red. <code>12a80713f</code> adds the "
-        "property and cached_property shadowing cases and the enclosing-function true positive you "
-        "asked for. Issue 9134, milestone 4.1.3.",
-        "Re-review; check whether codecov/project is this branch or base drift.",
-    ),
     11577: (
         "review",
         "re-review",
@@ -180,6 +171,15 @@ V = {
         "Review. Clean primer, confirmed issue.",
     ),
     # ---- approve the workflow run ----------------------------------------
+    11602: (
+        "approve",
+        "held",
+        "confirmed",
+        "New, 57 lines for issue 11597: raise an argparse error when several output formats write to "
+        "stdout (<code>colorized,no-header</code>), as you asked in the issue on 8 October. The run is "
+        "held.",
+        "Approve the run, then review.",
+    ),
     11599: (
         "approve",
         "held",
@@ -316,6 +316,14 @@ V = {
         "Retrigger. The size needs a primer run before review.",
     ),
     # ---- author's move ----------------------------------------------------
+    11493: (
+        "author",
+        "waiting",
+        "confirmed",
+        "You requested changes again on 8 October: some nits and a new false positive you found. Issue "
+        "9134, milestone 4.1.3.",
+        "Waiting on the author.",
+    ),
     11580: (
         "author",
         "waiting",
@@ -388,14 +396,6 @@ V = {
         "the async forms too, with async cases for <code>redeclared-assigned-name</code>, "
         "<code>redefined-argument-from-local</code> and <code>too-many-nested-blocks</code>.",
         "Waiting on the author.",
-    ),
-    11410: (
-        "author",
-        "primer red",
-        "confirmed",
-        "Released on 23 September: tests green, but <b>the primer adds about 80 messages across 8 packages</b>, "
-        "mostly <code>no-member</code>, and patch coverage is 75%.",
-        "Point the author at the primer comment. Stub-driven inference is leaking into code that has no stub.",
     ),
     11370: (
         "author",
@@ -647,6 +647,14 @@ V = {
         "Agree on the expected behaviour in the issue before approving a run.",
     ),
     # ---- stale ------------------------------------------------------------
+    11410: (
+        "stale",
+        "close?",
+        "duplicate",
+        "Issue 9354 is fixed by the astroid 4.3.4 upgrade in your #11570. You asked the author on 8 "
+        "October whether this PR is still needed.",
+        "Close once #11570 merges, unless the author shows a case 4.3.4 misses.",
+    ),
     11277: (
         "stale",
         "close?",
