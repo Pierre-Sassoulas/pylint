@@ -1460,7 +1460,7 @@ class PyLinter(
                 node.root().file,
                 module or "",
                 obj,
-                line,
+                line or 1,
                 col_offset,
                 end_lineno,
                 end_col_offset,

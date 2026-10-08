@@ -712,6 +712,19 @@ def test_add_message_at_node(linter: PyLinter) -> None:
     assert msg.location.module == "my_module"
 
 
+def test_add_message_at_node_on_module_reports_line_1(linter: PyLinter) -> None:
+    """A module starts at line 0, reported as line 1 like ``add_message`` does."""
+    linter.set_reporter(testutils.GenericTestReporter())
+    linter.open()
+    linter.set_current_module("fruits")
+    module_node = astroid.parse("apple = 1", module_name="fruits")
+    linter.add_message("missing-module-docstring", node=module_node)
+    linter.add_message_at_node("missing-module-docstring", module_node)
+    old, new = linter.reporter.messages
+    assert new.location == old.location
+    assert new.location.line == 1
+
+
 def test_add_message_at_node_skips_disabled(linter: PyLinter) -> None:
     """Disabled messages are filtered before reaching the reporter."""
     linter.set_reporter(testutils.GenericTestReporter())
