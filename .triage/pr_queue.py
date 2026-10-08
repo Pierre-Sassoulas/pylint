@@ -66,14 +66,15 @@ LANES = {
 V = {
     # ---- merge lane -------------------------------------------------------
     # ---- review now -------------------------------------------------------
-    11593: (
+    11600: (
         "review",
-        "approved",
+        "ready",
         "confirmed",
-        "You approved it on 7 October after the author fixed pre-commit and shortened the wording. CI "
-        "re-running (38 green so far). <code>nested-min-max</code> no longer suggests a non-equivalent "
-        "splat when an inner call has several sequence arguments (variant of closed issue 11130).",
-        "Merge when CI is green.",
+        "New, 48/48 green, 45 lines for issue 10691: <code>consider-using-assignment-expr</code> no "
+        "longer suggests inlining an all-caps or <code>Final</code> constant into a walrus, which also "
+        "ended its loop with <code>magic-value-comparison</code>. The primer removes 5 such suggestions "
+        "(ansible 2, astropy 1, sentry 2).",
+        "Review; the primer hits are the intended constants.",
     ),
     11493: (
         "review",
@@ -179,6 +180,15 @@ V = {
         "Review. Clean primer, confirmed issue.",
     ),
     # ---- approve the workflow run ----------------------------------------
+    11599: (
+        "approve",
+        "held",
+        "confirmed",
+        "New, 20 lines of docs for issue 11595: list <code>no-header</code> in <code>output.rst</code> "
+        "and the <code>--output-format</code> help. Could also note that comma-separated formats are "
+        "separate reporters (issue 11597).",
+        "Approve the run, review, and suggest the 11597 note.",
+    ),
     11430: (
         "approve",
         "held",
