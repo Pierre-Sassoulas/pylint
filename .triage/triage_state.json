@@ -350,9 +350,9 @@
     },
     "10513": {
       "verdict": "EXTDEP",
-      "note": "Needs pyo3-compiled module to reproduce; pylint hangs in astroid transforms on Rust enum-with-named-fields. Minimal Python repro provided but cannot be tested without building the .so. Astroid recursion.",
-      "session": 1,
-      "ts": "2026-05-12T10:40:23.900172+00:00"
+      "note": "Needs pyo3-compiled module to reproduce; pylint hangs in astroid transforms on Rust enum-with-named-fields. Minimal Python repro provided but cannot be tested without building the .so. Astroid recursion. 2026-10-08: astroid PR 3286 (raw building must not close a parent cycle) merged; the reporter of astroid 3284 confirmed it fixes the PyO3 hang. 4.3.x backport queued, ships with astroid 4.3.4.",
+      "session": 18,
+      "ts": "2026-10-08T05:35:06.262099+00:00"
     },
     "10479": {
       "verdict": "DESIGN",
@@ -6353,6 +6353,12 @@
       "note": "Reproduced on 4.1.2 (scratch reg2/i11597.py): --output-format=colorized,no-header prints the header once and every message twice. A comma in output-format selects several reporters, all writing to stdout, so this is two reporters (colorized with header, text without), working as designed. The reporter expects no-header to modify colorized. Options: document it with 11595, or add a header-less colorized format.",
       "session": 18,
       "ts": "2026-10-07T21:05:06.375144+00:00"
+    },
+    "11130": {
+      "verdict": "FIXED",
+      "note": "Closed earlier. 2026-10-08: a further variant (several sequence arguments in the inner min/max call) fixed by PR 11593, backported as PR 11598; ships in 4.1.3.",
+      "session": 18,
+      "ts": "2026-10-08T05:35:06.262099+00:00"
     }
   },
   "session_count": 10
