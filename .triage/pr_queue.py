@@ -65,23 +65,16 @@ LANES = {
 # n: (lane, verdict-chip-text, chip-class, finding, action)
 V = {
     # ---- merge lane -------------------------------------------------------
-    11602: (
-        "merge",
-        "approved",
-        "confirmed",
-        "You approved it on 8 October (LGTM). CI still running (17 green so far). Raises an argparse "
-        "error when several output formats write to stdout, issue 11597.",
-        "Merge when green.",
-    ),
-    11517: (
-        "merge",
-        "approved",
-        "confirmed",
-        "You approved it on 8 October. 47 checks green, one still running. Issue 10831 (scipy 1.17 "
-        "pass-through decorators), milestone 4.1.3.",
-        "Merge when the last check is green.",
-    ),
     # ---- review now -------------------------------------------------------
+    11604: (
+        "review",
+        "ready",
+        "confirmed",
+        "53/53 green. The primer only changes pandas <code>redefined-variable-type</code> lines, the "
+        "usual pandas R0204 noise. 46 lines for issue 8909: the marker after <code>raise</code> in a "
+        "generator is no longer <code>unreachable</code>.",
+        "Review.",
+    ),
     11594: (
         "review",
         "ready",
@@ -150,23 +143,6 @@ V = {
         "Review. Clean primer, confirmed issue.",
     ),
     # ---- approve the workflow run ----------------------------------------
-    11605: (
-        "approve",
-        "held",
-        "feature",
-        "New docs, 34 lines, no linked issue: the built-in design checker and the optional McCabe "
-        "extension share the name <code>design</code>; add a note to the McCabe page.",
-        "Approve the run; quick docs review.",
-    ),
-    11604: (
-        "approve",
-        "held",
-        "confirmed",
-        "New, 46 lines for issue 8909: a <code>yield</code> after <code>raise</code> still makes a "
-        "generator, so the marker after <code>raise</code> is no longer <code>unreachable</code>; "
-        "statements after the marker still are.",
-        "Approve the run.",
-    ),
     11430: (
         "approve",
         "held",
@@ -294,6 +270,14 @@ V = {
         "Retrigger. The size needs a primer run before review.",
     ),
     # ---- author's move ----------------------------------------------------
+    11602: (
+        "author",
+        "CI",
+        "confirmed",
+        "After your LGTM you requested changes on 8 October: <code>Tests / run / 3.13 / "
+        "ubuntu-latest</code> fails. Issue 11597 (argparse error for several stdout formats).",
+        "Waiting on the author to fix the 3.13 test job.",
+    ),
     11205: (
         "author",
         "waiting",
