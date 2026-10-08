@@ -1,0 +1,11 @@
+astroid==2.4.0
+isort==4.3.21
+lazy-object-proxy==1.4.3
+MarkupSafe==1.1.1
+mccabe==0.6.1
+pylint==2.5.0
+six==1.14.0
+toml==0.10.0
+typed-ast==1.4.1
+wrapt==1.12.1
+WTForms==2.3.1
