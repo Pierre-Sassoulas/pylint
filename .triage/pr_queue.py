@@ -65,43 +65,23 @@ LANES = {
 # n: (lane, verdict-chip-text, chip-class, finding, action)
 V = {
     # ---- merge lane -------------------------------------------------------
-    # ---- review now -------------------------------------------------------
-    11599: (
-        "review",
-        "ready",
+    11602: (
+        "merge",
+        "approved",
         "confirmed",
-        "Run released, 48 checks green (one still running). 20 lines of docs for issue 11595: list "
-        "<code>no-header</code> in <code>output.rst</code> and the <code>--output-format</code> help. Could "
-        "also say that comma-separated formats are separate reporters, which #11602 turns into an error.",
-        "Review; suggest the 11597 note.",
-    ),
-    11577: (
-        "review",
-        "re-review",
-        "confirmed",
-        "48/48 green. The author fixed your two added cases on 7 October (the scope walk stopped at the "
-        "comprehension and never reached the outer lambda's parameters). Issue 9126, milestone 4.1.3.",
-        "Re-review and merge.",
+        "You approved it on 8 October (LGTM). CI still running (17 green so far). Raises an argparse "
+        "error when several output formats write to stdout, issue 11597.",
+        "Merge when green.",
     ),
     11517: (
-        "review",
-        "re-review",
+        "merge",
+        "approved",
         "confirmed",
-        "48/48 green, codecov included: the author merged main (keeping your <code>6b91a27</code>), so "
-        "the coverage change from <code>5ee69328</code> is in. Only your changes-requested review "
-        "blocks. Issue 10831, milestone 4.1.3.",
-        "Re-review and merge.",
+        "You approved it on 8 October. 47 checks green, one still running. Issue 10831 (scipy 1.17 "
+        "pass-through decorators), milestone 4.1.3.",
+        "Merge when the last check is green.",
     ),
-    11205: (
-        "review",
-        "DudeNr33",
-        "feature",
-        "The author says your 4 October points are fixed and asked DudeNr33 for review on 7 October. "
-        "One red check: the self-lint <code>pylint</code> job reports R0801 duplicate-code between "
-        "<code>async_checker.py</code> and another module, which the author says is not theirs. Aimed "
-        "at 4.2.0.",
-        "Check whether the R0801 comes from this branch; then DudeNr33's review.",
-    ),
+    # ---- review now -------------------------------------------------------
     11594: (
         "review",
         "ready",
@@ -170,14 +150,22 @@ V = {
         "Review. Clean primer, confirmed issue.",
     ),
     # ---- approve the workflow run ----------------------------------------
-    11602: (
+    11605: (
+        "approve",
+        "held",
+        "feature",
+        "New docs, 34 lines, no linked issue: the built-in design checker and the optional McCabe "
+        "extension share the name <code>design</code>; add a note to the McCabe page.",
+        "Approve the run; quick docs review.",
+    ),
+    11604: (
         "approve",
         "held",
         "confirmed",
-        "New, 57 lines for issue 11597: raise an argparse error when several output formats write to "
-        "stdout (<code>colorized,no-header</code>), as you asked in the issue on 8 October. The run is "
-        "held.",
-        "Approve the run, then review.",
+        "New, 46 lines for issue 8909: a <code>yield</code> after <code>raise</code> still makes a "
+        "generator, so the marker after <code>raise</code> is no longer <code>unreachable</code>; "
+        "statements after the marker still are.",
+        "Approve the run.",
     ),
     11430: (
         "approve",
@@ -306,6 +294,14 @@ V = {
         "Retrigger. The size needs a primer run before review.",
     ),
     # ---- author's move ----------------------------------------------------
+    11205: (
+        "author",
+        "waiting",
+        "feature",
+        "You asked on 7 October to fix the pipeline. The latest push grew the PR from +497 to +971 "
+        "lines and the run is held; DudeNr33's review is still pending. Aimed at 4.2.0.",
+        "Check why it doubled in size before approving the run.",
+    ),
     11493: (
         "author",
         "waiting",
