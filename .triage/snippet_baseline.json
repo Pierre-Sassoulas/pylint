@@ -1,5 +1,5 @@
 {
- "versions": "pylint 4.2.0-dev0\nastroid 4.3.4\nPython 3.13.1 (main, Dec 19 2024, 14:32:25) [Clang 18.1.8 ]\npylint commit 1d73ad3c5 Fix used-before-assignment false positive for lambda parameters (#9126) (#11577)",
+ "versions": "pylint 4.2.0-dev0\nastroid 4.3.4\nPython 3.13.1 (main, Dec 19 2024, 14:32:25) [Clang 18.1.8 ]\npylint commit 1e5861d71 Fix unexpected-keyword-arg false positive for pass-through decorators above a **kwargs decorator (#11517)",
  "snippets": {
   "snippets/i10029.py": [
    "1:0:missing-module-docstring:Missing module docstring",
@@ -274,8 +274,7 @@
    "1:0:astroid-error:i10813.py: Fatal error while checking 'i10813.py'. Please open an issue in our bug tracker so we address this. There is a pre-filled template that you can use in '/home/pierre/.cache/pylint/pylint-crash.txt'."
   ],
   "snippets/i10831.py": [
-   "1:0:missing-module-docstring:Missing module docstring",
-   "4:6:unexpected-keyword-arg:Unexpected keyword argument 'nan_policy' in function call"
+   "1:0:missing-module-docstring:Missing module docstring"
   ],
   "snippets/i10838.py": [
    "1:0:missing-module-docstring:Missing module docstring",
