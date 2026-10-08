@@ -1,5 +1,5 @@
 {
- "versions": "pylint 4.2.0-dev0\nastroid 4.3.4\nPython 3.13.1 (main, Dec 19 2024, 14:32:25) [Clang 18.1.8 ]\npylint commit 276d0a622 Fix false positive ``not-callable`` / ``not-an-iterable`` for code using ellipsis stubs (#11570)",
+ "versions": "pylint 4.2.0-dev0\nastroid 4.3.4\nPython 3.13.1 (main, Dec 19 2024, 14:32:25) [Clang 18.1.8 ]\npylint commit 1d73ad3c5 Fix used-before-assignment false positive for lambda parameters (#9126) (#11577)",
  "snippets": {
   "snippets/i10029.py": [
    "1:0:missing-module-docstring:Missing module docstring",
@@ -2904,13 +2904,6 @@
   ],
   "snippets_auto/i9118_block0.py": [
    "1:8:syntax-error:Parsing failed: 'invalid syntax (i9118_block0, line 1)'"
-  ],
-  "snippets_auto/i9126_block0.py": [
-   "1:0:missing-module-docstring:Missing module docstring",
-   "1:0:missing-function-docstring:Missing function or method docstring",
-   "1:0:redefined-outer-name:Redefining name 'args' from outer scope (line 8)",
-   "4:0:missing-function-docstring:Missing function or method docstring",
-   "5:40:possibly-used-before-assignment:Possibly using variable 'args' before assignment"
   ],
   "snippets_auto/i9130_block0.py": [
    "1:0:missing-module-docstring:Missing module docstring",
