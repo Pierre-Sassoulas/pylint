@@ -1,7 +1,7 @@
 {
  "snapshot": "2026-10-08",
  "owner": "Pierre-Sassoulas",
- "open_total": 106,
+ "open_total": 104,
  "open_own": 24,
  "prs": [
   {
@@ -946,7 +946,7 @@
     "Work in progress"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "awaiting-approval",
    "citot": 2,
    "cifail": 0,
@@ -1640,7 +1640,7 @@
    "updated": "2026-10-03",
    "labels": [],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "awaiting-approval",
    "citot": 2,
    "cifail": 0,
@@ -1927,7 +1927,7 @@
    ],
    "rd": "CHANGES_REQUESTED",
    "merge": "UNKNOWN",
-   "ci": "green",
+   "ci": "awaiting-approval",
    "citot": 28,
    "cifail": 0,
    "nrev": 5,
@@ -1947,40 +1947,6 @@
    ]
   },
   {
-   "n": 11517,
-   "a": "wolfgang-aura",
-   "t": "Fix unexpected-keyword-arg false positive for pass-through decorators above a **kwargs decorator",
-   "draft": false,
-   "size": 152,
-   "files": 4,
-   "created": "2026-10-01",
-   "updated": "2026-10-08",
-   "labels": [
-    "False Positive 🦟",
-    "backport maintenance/4.1.x"
-   ],
-   "rd": "APPROVED",
-   "merge": "MERGEABLE",
-   "ci": "running",
-   "citot": 48,
-   "cifail": 0,
-   "nrev": 3,
-   "mrev": [
-    "Pierre-Sassoulas"
-   ],
-   "links": [
-    [
-     10831,
-     "",
-     ""
-    ]
-   ],
-   "lastcom": [
-    "github-actions",
-    "2026-10-08"
-   ]
-  },
-  {
    "n": 11525,
    "a": "cyphercodes",
    "t": "Fix variant attribute narrowing false positive",
@@ -1992,7 +1958,7 @@
    "labels": [],
    "rd": "REVIEW_REQUIRED",
    "merge": "UNKNOWN",
-   "ci": "not-run",
+   "ci": "awaiting-approval",
    "citot": 3,
    "cifail": 0,
    "nrev": 0,
@@ -2143,7 +2109,7 @@
     "backport maintenance/4.1.x"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "failing",
    "citot": 53,
    "cifail": 1,
@@ -2260,7 +2226,7 @@
     "Documentation :green_book:"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "green",
    "citot": 28,
    "cifail": 0,
@@ -2354,7 +2320,7 @@
    "updated": "2026-10-06",
    "labels": [],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "awaiting-approval",
    "citot": 2,
    "cifail": 0,
@@ -2415,9 +2381,9 @@
    "updated": "2026-10-08",
    "labels": [],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "awaiting-approval",
-   "citot": 3,
+   "citot": 29,
    "cifail": 0,
    "nrev": 1,
    "mrev": [],
@@ -2447,12 +2413,12 @@
     "Documentation :green_book:",
     "backport maintenance/4.1.x"
    ],
-   "rd": "APPROVED",
+   "rd": "CHANGES_REQUESTED",
    "merge": "MERGEABLE",
-   "ci": "running",
-   "citot": 39,
-   "cifail": 0,
-   "nrev": 1,
+   "ci": "failing",
+   "citot": 48,
+   "cifail": 1,
+   "nrev": 2,
    "mrev": [
     "Pierre-Sassoulas"
    ],
@@ -2464,8 +2430,8 @@
     ]
    ],
    "lastcom": [
-    "-",
-    "-"
+    "github-actions",
+    "2026-10-08"
    ]
   },
   {
@@ -2477,11 +2443,14 @@
    "files": 4,
    "created": "2026-10-08",
    "updated": "2026-10-08",
-   "labels": [],
+   "labels": [
+    "False Positive 🦟",
+    "backport maintenance/4.1.x"
+   ],
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "awaiting-approval",
-   "citot": 3,
+   "ci": "green",
+   "citot": 53,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -2493,52 +2462,27 @@
     ]
    ],
    "lastcom": [
-    "-",
-    "-"
+    "github-actions",
+    "2026-10-08"
    ]
   },
   {
-   "n": 11605,
-   "a": "aryankinha",
-   "t": "Clarify built-in design and optional McCabe checkers",
-   "draft": false,
-   "size": 34,
-   "files": 3,
-   "created": "2026-10-08",
-   "updated": "2026-10-08",
-   "labels": [],
-   "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
-   "ci": "awaiting-approval",
-   "citot": 3,
-   "cifail": 0,
-   "nrev": 0,
-   "mrev": [],
-   "links": [],
-   "lastcom": [
-    "-",
-    "-"
-   ]
-  },
-  {
-   "n": 11606,
+   "n": 11607,
    "a": "app/pylint-backport",
-   "t": "[Backport maintenance/4.1.x] Fix used-before-assignment false positive for lambda parameters (#9126)",
+   "t": "[Backport maintenance/4.1.x] Fix unexpected-keyword-arg false positive for pass-through decorators above a **kwargs decorator",
    "draft": false,
-   "size": 90,
+   "size": 152,
    "files": 4,
    "created": "2026-10-08",
    "updated": "2026-10-08",
    "labels": [],
-   "rd": "APPROVED",
-   "merge": "MERGEABLE",
-   "ci": "green",
-   "citot": 19,
+   "rd": "REVIEW_REQUIRED",
+   "merge": "UNKNOWN",
+   "ci": "running",
+   "citot": 16,
    "cifail": 0,
-   "nrev": 1,
-   "mrev": [
-    "Pierre-Sassoulas"
-   ],
+   "nrev": 0,
+   "mrev": [],
    "links": [],
    "lastcom": [
     "-",
@@ -3314,18 +3258,6 @@
    "state": "open",
    "state_reason": null,
    "title": "Improper handling of log message format bytestrings"
-  },
-  {
-   "comments": 1,
-   "labels": [
-    "False Positive 🦟",
-    "Lib specific 💅",
-    "Needs PR"
-   ],
-   "number": 10831,
-   "state": "open",
-   "state_reason": null,
-   "title": "False positive unexpected-keyword-arg with scipy.stats 1.17"
   },
   {
    "comments": 0,

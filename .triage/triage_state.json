@@ -133,10 +133,10 @@
       "ts": "2026-05-12T16:42:32.156308+00:00"
     },
     "10831": {
-      "verdict": "EXTDEP",
-      "note": "Needs scipy 1.17 installed (scipy not installed locally). Regression in scipy 1.17 where stats.entropy added nan_policy kwarg; astroid hasn't followed the API change.",
-      "session": 1,
-      "ts": "2026-05-12T10:34:37.946118+00:00"
+      "verdict": "FIXED",
+      "note": "Closed by PR 11517 (pass-through decorators above a **kwargs decorator; nightcityblade's cases from 11518 included), merged 8 October; backport PR 11607 open, ships in 4.1.3. Snippet sweep on 1e5861d71 (scipy 1.17 installed): E1123 on nan_policy gone.",
+      "session": 18,
+      "ts": "2026-10-08T18:58:14.011317+00:00"
     },
     "10827": {
       "verdict": "EXTDEP",
@@ -2012,9 +2012,9 @@
     },
     "9126": {
       "verdict": "FIXED",
-      "note": "Closed by PR 11577 (lambda parameters, also through nested comprehensions), merged 8 October; backport PR 11606 approved, ships in 4.1.3. Snippet sweep: the auto snippet's possibly-used-before-assignment on 'args' is gone on 1d73ad3c5.",
+      "note": "Closed by PR 11577 (lambda parameters, also through nested comprehensions), merged 8 October; backported as PR 11606 (merged), ships in 4.1.3. Snippet sweep: the auto snippet's possibly-used-before-assignment on 'args' is gone on 1d73ad3c5.",
       "session": 18,
-      "ts": "2026-10-08T17:57:45.389220+00:00"
+      "ts": "2026-10-08T18:58:14.011317+00:00"
     },
     "9125": {
       "verdict": "DESIGN",
@@ -6332,9 +6332,9 @@
     },
     "11585": {
       "verdict": "DESIGN",
-      "note": "Pierre's follow-up to 10054 (6 October), Needs decision: lists what is settled for abstract-method (raise NotImplementedError counts as abstract in any class, per the Python docs) and what is open, i.e. which subclasses of an abstract class must implement everything. The 4.1 regression of 11566 belongs here.",
+      "note": "Pierre's follow-up to 10054 (6 October), Needs decision: lists what is settled for abstract-method (raise NotImplementedError counts as abstract in any class, per the Python docs) and what is open, i.e. which subclasses of an abstract class must implement everything. The 4.1 regression of 11566 belongs here. Pierre 2026-10-08: not urgent, the current abstract-method behaviour is reasonable.",
       "session": 18,
-      "ts": "2026-10-06T20:22:03.973015+00:00"
+      "ts": "2026-10-08T18:58:14.011317+00:00"
     },
     "11586": {
       "verdict": "DESIGN",
