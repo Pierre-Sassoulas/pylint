@@ -17,6 +17,10 @@ https://github.com/pylint-dev/pylint/issues. Per-issue state lives under `.triag
 - `.triage/triage_state.json` — machine-readable verdict ledger
 - `.triage/sessions/session-XX.md` — per-session deep-dive notes
 - `.triage/snippets/iNNNN.py` — minimal reproduction code I ran (200+ files)
+- `.triage/snippets_auto/iNNNN_blockK.py` — code blocks extracted, not verified, from the open
+  "False Positive" / "False Negative" issues that have no hand-made snippet
+- `.triage/snippet_sweep.py` — lint every snippet under two setups (e.g. two astroid versions) and
+  list the issues whose output changed; `.triage/snippet_baseline.json` is the last recorded run
 - `.triage/status.py` — re-run for a fresh roll-up
 - `.triage/crash-queue.html` — every open crash-labelled issue, re-run with its library installed
 - `.triage/crash_queue.py` — re-render that report from `crash_queue_data.json`

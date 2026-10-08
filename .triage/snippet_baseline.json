@@ -1,0 +1,3283 @@
+{
+ "versions": "pylint 4.2.0-dev0\nastroid 4.3.4\nPython 3.13.1 (main, Dec 19 2024, 14:32:25) [Clang 18.1.8 ]\npylint commit 276d0a622 Fix false positive ``not-callable`` / ``not-an-iterable`` for code using ellipsis stubs (#11570)",
+ "snippets": {
+  "snippets/i10029.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-function-docstring:Missing function or method docstring",
+   "5:0:dict-init-mutate:Declare all known key/values when initializing the dictionary: someargs = {'c': 3, 'd': 4, 'e': 5, 'f': 6, 'g': 7}"
+  ],
+  "snippets/i10030.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "5:0:missing-class-docstring:Missing class docstring"
+  ],
+  "snippets/i10031.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-class-docstring:Missing class docstring",
+   "6:4:missing-function-docstring:Missing function or method docstring",
+   "7:14:no-member:Instance of 'Ints' has no 'member' member",
+   "11:6:no-member:Instance of 'Ints' has no 'member' member"
+  ],
+  "snippets/i10032.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "4:9:consider-using-tuple:Consider using an in-place tuple instead of list",
+   "7:8:invalid-name:Constant name \"key\" doesn't conform to UPPER_CASE naming style",
+   "11:11:magic-value-comparison:Consider using a named constant or an enum instead of ''1''.",
+   "17:8:invalid-name:Constant name \"key\" doesn't conform to UPPER_CASE naming style"
+  ],
+  "snippets/i10042.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "4:0:missing-class-docstring:Missing class docstring",
+   "4:23:deprecated-attribute:Using deprecated attribute 'typing.AnyStr'",
+   "4:0:too-few-public-methods:Too few public methods (0/2)",
+   "7:0:missing-class-docstring:Missing class docstring",
+   "7:10:deprecated-attribute:Using deprecated attribute 'typing.AnyStr'",
+   "7:0:too-few-public-methods:Too few public methods (0/2)",
+   "10:18:deprecated-attribute:Using deprecated attribute 'typing.AnyStr'",
+   "10:0:too-few-public-methods:Too few public methods (0/2)",
+   "16:0:not-callable:Z[str] is not callable"
+  ],
+  "snippets/i10055.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:22:cell-var-from-loop:Cell variable i defined in loop"
+  ],
+  "snippets/i10056.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "5:0:missing-class-docstring:Missing class docstring",
+   "11:0:missing-class-docstring:Missing class docstring",
+   "16:0:missing-class-docstring:Missing class docstring",
+   "21:4:no-value-for-parameter:No value for argument 'id' in constructor call"
+  ],
+  "snippets/i10074.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-function-docstring:Missing function or method docstring",
+   "1:0:disallowed-name:Disallowed name \"foo\"",
+   "5:0:missing-function-docstring:Missing function or method docstring",
+   "9:0:missing-function-docstring:Missing function or method docstring",
+   "9:0:invalid-name:Function name \"should_not_give_E1142\" doesn't conform to snake_case naming style",
+   "10:12:await-outside-async:'await' should be used within an async function",
+   "13:0:missing-function-docstring:Missing function or method docstring",
+   "13:0:invalid-name:Function name \"should_give_E1142\" doesn't conform to snake_case naming style",
+   "17:0:missing-function-docstring:Missing function or method docstring",
+   "17:0:invalid-name:Function name \"correctly_gives_E1142\" doesn't conform to snake_case naming style",
+   "18:23:await-outside-async:'await' should be used within an async function",
+   "21:0:missing-function-docstring:Missing function or method docstring",
+   "21:0:invalid-name:Function name \"correctly_does_not_give_E1142\" doesn't conform to snake_case naming style"
+  ],
+  "snippets/i10080.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-function-docstring:Missing function or method docstring",
+   "6:3:using-constant-test:Using a conditional statement with a constant value"
+  ],
+  "snippets/i10084.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:invalid-name:Constant name \"a\" doesn't conform to UPPER_CASE naming style",
+   "3:3:condition-evals-to-constant:Boolean condition '1 == 1 and 2 == 1' will always evaluate to '2 == 1'",
+   "3:3:comparison-with-itself:Redundant comparison - 1 == 1",
+   "3:3:comparison-of-constants:Comparison between constants: \"1 == 1\" has a constant value",
+   "3:14:comparison-of-constants:Comparison between constants: \"2 == 1\" has a constant value"
+  ],
+  "snippets/i10090.py": [
+   "8:0:import-error:Unable to import 'black'",
+   "9:0:import-error:Unable to import 'black.parsing'",
+   "8:0:unused-import:Unused FileMode imported from black",
+   "8:0:unused-import:Unused format_str imported from black",
+   "9:0:unused-import:Unused InvalidInput imported from black.parsing"
+  ],
+  "snippets/i10091.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:5:invalid-name:Type alias name \"X\" doesn't conform to predefined naming style",
+   "3:6:no-member:Class 'str' has no '__value__' member"
+  ],
+  "snippets/i10113.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "6:8:consider-using-with:Consider using 'with' for resource-allocating operations",
+   "15:0:missing-function-docstring:Missing function or method docstring"
+  ],
+  "snippets/i10158.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "4:0:missing-class-docstring:Missing class docstring",
+   "10:0:missing-function-docstring:Missing function or method docstring"
+  ],
+  "snippets/i10166.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "7:12:no-member:Instance of 'DatetimeIndex' has no 'to_pydatetime' member"
+  ],
+  "snippets/i10186.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "5:0:missing-class-docstring:Missing class docstring",
+   "5:0:too-few-public-methods:Too few public methods (1/2)",
+   "27:0:missing-class-docstring:Missing class docstring",
+   "27:0:too-few-public-methods:Too few public methods (1/2)"
+  ],
+  "snippets/i10195.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-function-docstring:Missing function or method docstring",
+   "5:7:magic-value-comparison:Consider using a named constant or an enum instead of ''B''.",
+   "6:14:used-before-assignment:Using variable 'v' before assignment",
+   "7:9:magic-value-comparison:Consider using a named constant or an enum instead of ''A''."
+  ],
+  "snippets/i10298.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "4:0:missing-function-docstring:Missing function or method docstring",
+   "10:0:missing-function-docstring:Missing function or method docstring"
+  ],
+  "snippets/i10326.py": [
+   "1:0:astroid-error:i10326.py: Fatal error while checking 'i10326.py'. Please open an issue in our bug tracker so we address this. There is a pre-filled template that you can use in '/home/pierre/.cache/pylint/pylint-crash.txt'."
+  ],
+  "snippets/i10348.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-class-docstring:Missing class docstring",
+   "3:4:missing-function-docstring:Missing function or method docstring",
+   "3:4:disallowed-name:Disallowed name \"bar\"",
+   "1:0:too-few-public-methods:Too few public methods (1/2)"
+  ],
+  "snippets/i10360.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "6:0:missing-class-docstring:Missing class docstring",
+   "6:0:too-few-public-methods:Too few public methods (1/2)"
+  ],
+  "snippets/i10374.py": [
+   "1:0:missing-module-docstring:Missing module docstring"
+  ],
+  "snippets/i10422.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-class-docstring:Missing class docstring",
+   "10:32:consider-using-f-string:Formatting a regular string which could be an f-string",
+   "1:0:too-few-public-methods:Too few public methods (0/2)"
+  ],
+  "snippets/i10442.py": [],
+  "snippets/i10448.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-function-docstring:Missing function or method docstring",
+   "1:0:disallowed-name:Disallowed name \"foo\"",
+   "5:4:unreachable:Unreachable code"
+  ],
+  "snippets/i10455.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "4:0:missing-function-docstring:Missing function or method docstring",
+   "5:44:magic-value-comparison:Consider using a named constant or an enum instead of ''<key>''.",
+   "6:43:magic-value-comparison:Consider using a named constant or an enum instead of ''<key>''."
+  ],
+  "snippets/i10459.py": [
+   "7:0:no-name-in-module:No name 'erf' in module 'scipy.special'",
+   "7:0:unused-import:Unused erf imported from scipy.special"
+  ],
+  "snippets/i10460.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "3:3:magic-value-comparison:Consider using a named constant or an enum instead of ''nt''."
+  ],
+  "snippets/i10471.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "4:0:missing-class-docstring:Missing class docstring",
+   "4:0:too-few-public-methods:Too few public methods (1/2)",
+   "9:0:missing-class-docstring:Missing class docstring",
+   "9:0:too-few-public-methods:Too few public methods (1/2)",
+   "14:0:missing-class-docstring:Missing class docstring",
+   "19:4:missing-function-docstring:Missing function or method docstring",
+   "22:4:missing-function-docstring:Missing function or method docstring",
+   "24:19:not-callable:self.processor is not callable"
+  ],
+  "snippets/i10472.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "5:0:missing-class-docstring:Missing class docstring",
+   "14:9:no-member:Instance of 'tuple' has no 'name' member",
+   "14:32:consider-using-tuple:Consider using an in-place tuple instead of list"
+  ],
+  "snippets/i10519.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "10:0:missing-class-docstring:Missing class docstring",
+   "30:0:missing-class-docstring:Missing class docstring"
+  ],
+  "snippets/i10609.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "4:0:missing-class-docstring:Missing class docstring",
+   "12:0:missing-class-docstring:Missing class docstring"
+  ],
+  "snippets/i10670.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "5:0:missing-class-docstring:Missing class docstring",
+   "6:4:signature-differs:Signature differs from overridden '__new__' method",
+   "6:4:too-many-arguments:Too many arguments (7/5)",
+   "6:4:too-many-positional-arguments:Too many positional arguments (7/5)"
+  ],
+  "snippets/i10691.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "2:11:magic-value-comparison:Consider using a named constant or an enum instead of ''test''."
+  ],
+  "snippets/i10731.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-class-docstring:Missing class docstring",
+   "2:4:missing-function-docstring:Missing function or method docstring",
+   "2:4:no-self-use:Method could be a function",
+   "1:0:too-few-public-methods:Too few public methods (1/2)",
+   "7:6:no-value-for-parameter:No value for argument 'wing' in method call",
+   "10:0:missing-class-docstring:Missing class docstring",
+   "14:4:missing-function-docstring:Missing function or method docstring",
+   "18:4:missing-function-docstring:Missing function or method docstring",
+   "21:4:missing-function-docstring:Missing function or method docstring",
+   "21:4:no-self-use:Method could be a function"
+  ],
+  "snippets/i10766.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-function-docstring:Missing function or method docstring"
+  ],
+  "snippets/i10767.py": [
+   "12:8:prefer-typing-namedtuple:Prefer 'typing.NamedTuple' over 'collections.namedtuple'",
+   "15:0:missing-class-docstring:Missing class docstring",
+   "16:0:unused-argument:Unused argument 'args'",
+   "21:0:missing-class-docstring:Missing class docstring",
+   "21:0:too-few-public-methods:Too few public methods (0/2)"
+  ],
+  "snippets/i10768.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:invalid-name:Constant name \"_g_is_installed\" doesn't conform to UPPER_CASE naming style",
+   "4:0:missing-function-docstring:Missing function or method docstring",
+   "5:4:global-statement:Using the global statement"
+  ],
+  "snippets/i10784.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-class-docstring:Missing class docstring",
+   "1:0:too-few-public-methods:Too few public methods (0/2)",
+   "5:0:missing-class-docstring:Missing class docstring",
+   "5:0:too-few-public-methods:Too few public methods (0/2)",
+   "9:0:missing-class-docstring:Missing class docstring",
+   "9:0:too-few-public-methods:Too few public methods (0/2)",
+   "13:0:missing-class-docstring:Missing class docstring",
+   "13:0:too-few-public-methods:Too few public methods (0/2)",
+   "17:0:missing-class-docstring:Missing class docstring",
+   "17:0:too-few-public-methods:Too few public methods (0/2)",
+   "21:0:missing-class-docstring:Missing class docstring",
+   "21:0:too-few-public-methods:Too few public methods (0/2)",
+   "25:0:missing-function-docstring:Missing function or method docstring",
+   "31:0:missing-function-docstring:Missing function or method docstring",
+   "34:55:no-member:Instance of 'ConditionalJump' has no 'src' member"
+  ],
+  "snippets/i10796.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "3:6:no-member:Instance of 'DatetimeIndex' has no 'date' member"
+  ],
+  "snippets/i10806.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "3:4:no-member:Instance of 'finfo' has no 'eps' member"
+  ],
+  "snippets/i10807.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "4:0:missing-class-docstring:Missing class docstring",
+   "5:4:missing-function-docstring:Missing function or method docstring",
+   "4:0:too-few-public-methods:Too few public methods (1/2)",
+   "9:0:missing-class-docstring:Missing class docstring",
+   "10:4:missing-function-docstring:Missing function or method docstring",
+   "13:4:missing-function-docstring:Missing function or method docstring"
+  ],
+  "snippets/i10813.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:astroid-error:i10813.py: Fatal error while checking 'i10813.py'. Please open an issue in our bug tracker so we address this. There is a pre-filled template that you can use in '/home/pierre/.cache/pylint/pylint-crash.txt'."
+  ],
+  "snippets/i10831.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "4:6:unexpected-keyword-arg:Unexpected keyword argument 'nan_policy' in function call"
+  ],
+  "snippets/i10838.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "3:6:no-member:Instance of 'finfo' has no 'eps' member"
+  ],
+  "snippets/i10840.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "5:0:missing-class-docstring:Missing class docstring",
+   "9:0:invalid-envvar-value:os.getenv does not support i10840.Env.LOG_LEVEL type argument"
+  ],
+  "snippets/i10847.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-class-docstring:Missing class docstring",
+   "1:0:too-few-public-methods:Too few public methods (0/2)",
+   "5:0:missing-class-docstring:Missing class docstring",
+   "5:0:too-few-public-methods:Too few public methods (0/2)",
+   "9:0:missing-class-docstring:Missing class docstring",
+   "9:0:too-few-public-methods:Too few public methods (0/2)",
+   "13:0:missing-class-docstring:Missing class docstring",
+   "17:0:missing-class-docstring:Missing class docstring",
+   "21:0:missing-function-docstring:Missing function or method docstring",
+   "25:0:missing-function-docstring:Missing function or method docstring",
+   "29:0:missing-function-docstring:Missing function or method docstring",
+   "41:21:used-before-assignment:Using variable 'err' before assignment",
+   "38:8:redefined-variable-type:Redefinition of err type from i10847.CustomErrOne to i10847.CustomErrTwo"
+  ],
+  "snippets/i10848.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "4:0:missing-function-docstring:Missing function or method docstring",
+   "13:0:missing-function-docstring:Missing function or method docstring",
+   "17:0:missing-function-docstring:Missing function or method docstring",
+   "19:10:no-member:Instance of 'int' has no 'replace' member"
+  ],
+  "snippets/i10951.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "4:0:missing-class-docstring:Missing class docstring",
+   "5:4:import-outside-toplevel:Import outside toplevel (syslog.LOG_CRIT)",
+   "6:4:import-outside-toplevel:Import outside toplevel (syslog.LOG_DEBUG)",
+   "7:4:import-outside-toplevel:Import outside toplevel (syslog.LOG_EMERG)",
+   "8:4:import-outside-toplevel:Import outside toplevel (syslog.LOG_ERR)",
+   "9:4:import-outside-toplevel:Import outside toplevel (syslog.LOG_INFO)",
+   "10:4:import-outside-toplevel:Import outside toplevel (syslog.LOG_WARNING)",
+   "13:6:no-member:Instance of 'int' has no 'value' member"
+  ],
+  "snippets/i10972.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "9:0:missing-class-docstring:Missing class docstring",
+   "11:4:missing-function-docstring:Missing function or method docstring",
+   "9:0:too-few-public-methods:Too few public methods (1/2)",
+   "14:0:missing-class-docstring:Missing class docstring",
+   "15:4:missing-function-docstring:Missing function or method docstring",
+   "14:0:too-few-public-methods:Too few public methods (1/2)",
+   "19:0:abstract-method:Method 'get_item' is abstract in class 'Middle' but is not overridden in child class 'Concrete'",
+   "19:0:too-few-public-methods:Too few public methods (1/2)"
+  ],
+  "snippets/i10991.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "5:0:missing-class-docstring:Missing class docstring",
+   "10:0:missing-class-docstring:Missing class docstring",
+   "15:0:missing-class-docstring:Missing class docstring"
+  ],
+  "snippets/i10994.py": [
+   "3:0:locally-disabled:Locally disabling missing-function-docstring (C0116)",
+   "3:0:locally-disabled:Locally disabling redefined-builtin (W0622)",
+   "1:0:missing-module-docstring:Missing module docstring",
+   "7:0:no-member:Class 'float' has no 'split' member",
+   "1:0:suppressed-message:Suppressed 'missing-function-docstring' (from line 3)",
+   "2:0:suppressed-message:Suppressed 'redefined-builtin' (from line 3)"
+  ],
+  "snippets/i10995.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "6:0:missing-function-docstring:Missing function or method docstring",
+   "6:13:redefined-outer-name:Redefining name 'T' from outer scope (line 3)",
+   "13:12:redefined-outer-name:Redefining name 'T' from outer scope (line 3)",
+   "14:0:missing-function-docstring:Missing function or method docstring",
+   "14:12:redefined-outer-name:Redefining name 'T' from outer scope (line 3)",
+   "14:12:unused-variable:Unused variable 'T'"
+  ],
+  "snippets/i11012.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:import-error:Unable to import 'lxml.etree'"
+  ],
+  "snippets/i11013.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "6:24:consider-alternative-union-syntax:Consider using alternative union syntax instead of 'Union'",
+   "9:0:missing-class-docstring:Missing class docstring",
+   "9:0:too-few-public-methods:Too few public methods (0/2)",
+   "12:0:missing-class-docstring:Missing class docstring",
+   "12:0:too-few-public-methods:Too few public methods (0/2)"
+  ],
+  "snippets/i11092.py": [],
+  "snippets/i11356.py": [
+   "10:0:missing-class-docstring:Missing class docstring",
+   "10:0:too-few-public-methods:Too few public methods (0/2)",
+   "16:22:undefined-variable:Undefined variable '_'"
+  ],
+  "snippets/i11361.py": [
+   "9:0:missing-class-docstring:Missing class docstring",
+   "9:0:too-few-public-methods:Too few public methods (0/2)",
+   "14:0:missing-class-docstring:Missing class docstring",
+   "15:4:missing-function-docstring:Missing function or method docstring",
+   "15:4:no-method-argument:Method 'help' has no argument",
+   "15:4:method-hidden:An attribute defined in i11361 line 11 hides this method",
+   "14:0:too-few-public-methods:Too few public methods (1/2)"
+  ],
+  "snippets/i11436.py": [
+   "1:0:missing-module-docstring:Missing module docstring"
+  ],
+  "snippets/i11438.py": [],
+  "snippets/i11440.py": [
+   "1:0:locally-disabled:Locally disabling line-too-long (C0301)",
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:suppressed-message:Suppressed 'line-too-long' (from line 1)"
+  ],
+  "snippets/i11444.py": [
+   "5:0:unnecessary-semicolon:Unnecessary semicolon",
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:invalid-name:Constant name \"b\" doesn't conform to UPPER_CASE naming style",
+   "2:0:invalid-name:Constant name \"a\" doesn't conform to UPPER_CASE naming style",
+   "5:0:invalid-name:Constant name \"x\" doesn't conform to UPPER_CASE naming style",
+   "5:7:multiple-statements:More than one statement on a single line",
+   "5:7:invalid-name:Constant name \"y\" doesn't conform to UPPER_CASE naming style"
+  ],
+  "snippets/i11459.py": [],
+  "snippets/i11479.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "3:9:not-callable:'' is not callable",
+   "1:0:unused-import:Unused randint imported from random"
+  ],
+  "snippets/i11484.py": [
+   "1:0:missing-module-docstring:Missing module docstring"
+  ],
+  "snippets/i1493.py": [
+   "1:0:missing-module-docstring:Missing module docstring"
+  ],
+  "snippets/i157.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "2:4:invalid-name:Constant name \"a\" doesn't conform to UPPER_CASE naming style"
+  ],
+  "snippets/i1925.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "3:4:prefer-typing-namedtuple:Prefer 'typing.NamedTuple' over 'collections.namedtuple'"
+  ],
+  "snippets/i1934.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-function-docstring:Missing function or method docstring",
+   "2:13:consider-using-tuple:Consider using an in-place tuple instead of list"
+  ],
+  "snippets/i2072.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "6:12:unsubscriptable-object:Value 'a' is unsubscriptable"
+  ],
+  "snippets/i2271.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "4:0:missing-function-docstring:Missing function or method docstring",
+   "4:0:disallowed-name:Disallowed name \"foo\"",
+   "11:0:missing-class-docstring:Missing class docstring",
+   "12:4:disallowed-name:Disallowed name \"bar\"",
+   "14:4:missing-function-docstring:Missing function or method docstring",
+   "16:8:redundant-keyword-arg:Argument 'y' passed by position and keyword in function call",
+   "11:0:too-few-public-methods:Too few public methods (1/2)"
+  ],
+  "snippets/i2296.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "3:0:invalid-name:Class name \"a\" doesn't conform to PascalCase naming style",
+   "6:0:missing-function-docstring:Missing function or method docstring",
+   "11:0:missing-function-docstring:Missing function or method docstring",
+   "12:13:not-an-iterable:Non-iterable value fun() is used in an iterating context",
+   "12:8:unused-variable:Unused variable 'x'"
+  ],
+  "snippets/i241.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:consider-using-from-import:Use 'from os import path' instead"
+  ],
+  "snippets/i2578.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "5:0:missing-function-docstring:Missing function or method docstring",
+   "14:0:missing-function-docstring:Missing function or method docstring",
+   "18:0:no-member:Instance of 'int' has no 'strip' member"
+  ],
+  "snippets/i2589.py": [
+   "2:0:locally-disabled:Locally disabling import-outside-toplevel (C0415)",
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-function-docstring:Missing function or method docstring",
+   "1:0:disallowed-name:Disallowed name \"foo\"",
+   "2:0:suppressed-message:Suppressed 'import-outside-toplevel' (from line 2)"
+  ],
+  "snippets/i2620.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-class-docstring:Missing class docstring",
+   "3:8:unused-private-member:Unused private member `Base.__foobar`",
+   "1:0:too-few-public-methods:Too few public methods (0/2)",
+   "6:0:missing-class-docstring:Missing class docstring",
+   "7:4:missing-function-docstring:Missing function or method docstring",
+   "6:0:too-few-public-methods:Too few public methods (1/2)"
+  ],
+  "snippets/i2621.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "7:7:consider-using-assignment-expr:Use 'if (vp1 := 1) < 0:' instead"
+  ],
+  "snippets/i2633.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-class-docstring:Missing class docstring",
+   "2:35:used-before-assignment:Using variable 'type' before assignment",
+   "7:4:missing-function-docstring:Missing function or method docstring",
+   "11:4:missing-function-docstring:Missing function or method docstring"
+  ],
+  "snippets/i2647.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "4:0:missing-class-docstring:Missing class docstring",
+   "4:0:too-few-public-methods:Too few public methods (0/2)",
+   "9:0:missing-class-docstring:Missing class docstring",
+   "9:0:too-few-public-methods:Too few public methods (0/2)",
+   "15:0:missing-function-docstring:Missing function or method docstring",
+   "24:0:missing-function-docstring:Missing function or method docstring",
+   "27:11:magic-value-comparison:Consider using a named constant or an enum instead of '3'.",
+   "27:11:no-member:Instance of 'HasNoAttributeX' has no 'attribute_x' member"
+  ],
+  "snippets/i2821.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "4:0:missing-function-docstring:Missing function or method docstring",
+   "13:0:missing-function-docstring:Missing function or method docstring"
+  ],
+  "snippets/i2855.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "4:0:missing-class-docstring:Missing class docstring",
+   "4:0:too-few-public-methods:Too few public methods (0/2)",
+   "8:0:missing-class-docstring:Missing class docstring",
+   "8:0:too-few-public-methods:Too few public methods (0/2)",
+   "12:0:invalid-name:Class name \"A_B\" doesn't conform to PascalCase naming style",
+   "15:0:missing-class-docstring:Missing class docstring",
+   "19:4:missing-function-docstring:Missing function or method docstring",
+   "25:4:missing-function-docstring:Missing function or method docstring",
+   "26:8:unpacking-non-sequence:Attempting to unpack a non-sequence defined at line 16"
+  ],
+  "snippets/i2856.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-class-docstring:Missing class docstring",
+   "5:0:missing-class-docstring:Missing class docstring",
+   "13:7:broad-exception-caught:Catching too general exception Exception"
+  ],
+  "snippets/i2981.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "6:0:missing-class-docstring:Missing class docstring",
+   "6:0:too-few-public-methods:Too few public methods (0/2)",
+   "11:0:missing-class-docstring:Missing class docstring",
+   "12:4:missing-function-docstring:Missing function or method docstring",
+   "11:0:too-few-public-methods:Too few public methods (1/2)"
+  ],
+  "snippets/i3045.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-class-docstring:Missing class docstring",
+   "5:4:missing-function-docstring:Missing function or method docstring",
+   "11:4:missing-function-docstring:Missing function or method docstring",
+   "12:25:unsupported-membership-test:Value 'cls.all()' doesn't support membership test",
+   "15:0:missing-function-docstring:Missing function or method docstring"
+  ],
+  "snippets/i3162.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "4:0:missing-class-docstring:Missing class docstring",
+   "4:0:too-few-public-methods:Too few public methods (0/2)",
+   "15:6:no-member:Instance of 'B' has no 'value' member"
+  ],
+  "snippets/i3268.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-class-docstring:Missing class docstring",
+   "3:4:missing-function-docstring:Missing function or method docstring",
+   "3:4:disallowed-name:Disallowed name \"foo\"",
+   "6:4:missing-function-docstring:Missing function or method docstring",
+   "6:4:disallowed-name:Disallowed name \"bar\"",
+   "9:4:missing-function-docstring:Missing function or method docstring",
+   "9:4:disallowed-name:Disallowed name \"baz\"",
+   "10:8:no-value-for-parameter:No value for argument 'string' in unbound method call",
+   "13:0:missing-class-docstring:Missing class docstring",
+   "13:0:too-few-public-methods:Too few public methods (0/2)"
+  ],
+  "snippets/i3325.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-class-docstring:Missing class docstring",
+   "5:4:missing-function-docstring:Missing function or method docstring",
+   "8:4:missing-function-docstring:Missing function or method docstring"
+  ],
+  "snippets/i3327.py": [
+   "1:0:missing-module-docstring:Missing module docstring"
+  ],
+  "snippets/i3367.py": [
+   "1:0:locally-disabled:Locally disabling line-too-long (C0301)",
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-function-docstring:Missing function or method docstring",
+   "1:0:useless-suppression:Useless suppression of 'line-too-long'"
+  ],
+  "snippets/i3506.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:29:use-implicit-booleaness-not-comparison-to-zero:\"y % 2 == 0\" can be simplified to \"not y % 2\", if it is strictly an int, as 0 is falsey"
+  ],
+  "snippets/i3586.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-function-docstring:Missing function or method docstring",
+   "2:0:unused-argument:Unused argument 'args'",
+   "2:0:unused-argument:Unused argument 'kwargs'",
+   "1:9:unused-argument:Unused argument 'func'",
+   "9:0:missing-function-docstring:Missing function or method docstring",
+   "13:0:assignment-from-no-return:Assigning result of a function call, but 'function' returns None"
+  ],
+  "snippets/i3602.py": [
+   "11:0:missing-class-docstring:Missing class docstring",
+   "15:8:invalid-name:Attribute name \"X\" doesn't conform to snake_case naming style",
+   "14:23:invalid-name:Argument name \"D\" doesn't conform to snake_case naming style",
+   "11:0:too-few-public-methods:Too few public methods (0/2)"
+  ],
+  "snippets/i3603.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "3:4:missing-class-docstring:Missing class docstring",
+   "3:4:too-few-public-methods:Too few public methods (0/2)",
+   "9:4:missing-class-docstring:Missing class docstring",
+   "9:4:too-few-public-methods:Too few public methods (0/2)"
+  ],
+  "snippets/i3641.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-class-docstring:Missing class docstring",
+   "3:4:missing-function-docstring:Missing function or method docstring",
+   "1:0:too-few-public-methods:Too few public methods (1/2)",
+   "7:0:missing-class-docstring:Missing class docstring",
+   "9:4:invalid-overridden-method:Method 'x' was expected to be 'property', found it instead as 'method'",
+   "7:0:too-few-public-methods:Too few public methods (1/2)"
+  ],
+  "snippets/i3668.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-function-docstring:Missing function or method docstring"
+  ],
+  "snippets/i3728.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "4:0:missing-function-docstring:Missing function or method docstring",
+   "5:11:no-member:Instance of 'BufferedWriter' has no 'peek' member; maybe 'seek'?"
+  ],
+  "snippets/i3745.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-class-docstring:Missing class docstring",
+   "1:0:too-few-public-methods:Too few public methods (0/2)",
+   "6:0:missing-class-docstring:Missing class docstring",
+   "7:4:super-init-not-called:__init__ method from base class 'Base' is not called",
+   "10:4:missing-function-docstring:Missing function or method docstring",
+   "10:4:method-hidden:An attribute defined in i3745 line 3 hides this method",
+   "10:4:no-self-use:Method could be a function",
+   "6:0:too-few-public-methods:Too few public methods (1/2)"
+  ],
+  "snippets/i3857.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:invalid-name:Constant name \"x\" doesn't conform to UPPER_CASE naming style",
+   "2:0:invalid-name:Constant name \"y\" doesn't conform to UPPER_CASE naming style",
+   "3:0:invalid-name:Constant name \"z\" doesn't conform to UPPER_CASE naming style"
+  ],
+  "snippets/i3879.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-class-docstring:Missing class docstring",
+   "3:8:unused-private-member:Unused private member `Test.__test`",
+   "1:0:too-few-public-methods:Too few public methods (0/2)",
+   "6:0:missing-class-docstring:Missing class docstring",
+   "6:0:too-few-public-methods:Too few public methods (0/2)",
+   "11:6:protected-access:Access to a protected member _Test__test of a client class",
+   "11:6:no-member:Instance of 'TestSub' has no '_Test__test' member"
+  ],
+  "snippets/i3893.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-class-docstring:Missing class docstring",
+   "2:4:too-many-arguments:Too many arguments (6/5)",
+   "2:4:too-many-positional-arguments:Too many positional arguments (6/5)",
+   "1:0:too-few-public-methods:Too few public methods (0/2)",
+   "8:0:missing-class-docstring:Missing class docstring",
+   "9:4:too-many-arguments:Too many arguments (7/5)",
+   "9:4:too-many-positional-arguments:Too many positional arguments (7/5)",
+   "8:0:too-few-public-methods:Too few public methods (0/2)",
+   "22:9:consider-using-tuple:Consider using an in-place tuple instead of list"
+  ],
+  "snippets/i3925.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-class-docstring:Missing class docstring",
+   "5:4:missing-function-docstring:Missing function or method docstring",
+   "10:4:missing-function-docstring:Missing function or method docstring"
+  ],
+  "snippets/i3957.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "6:0:missing-class-docstring:Missing class docstring",
+   "11:0:missing-function-docstring:Missing function or method docstring",
+   "21:0:missing-function-docstring:Missing function or method docstring",
+   "32:0:no-member:Instance of 'tuple' has no 'init' member",
+   "33:0:no-member:Instance of 'tuple' has no 'apply' member"
+  ],
+  "snippets/i4018.py": [
+   "5:0:locally-disabled:Locally disabling unexpected-keyword-arg (E1123)",
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-function-docstring:Missing function or method docstring",
+   "5:0:suppressed-message:Suppressed 'unexpected-keyword-arg' (from line 5)"
+  ],
+  "snippets/i4033.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-class-docstring:Missing class docstring",
+   "6:0:missing-function-docstring:Missing function or method docstring",
+   "10:0:missing-function-docstring:Missing function or method docstring",
+   "11:10:no-value-for-parameter:No value for argument 'required' in constructor call"
+  ],
+  "snippets/i4048.py": [
+   "1:0:missing-module-docstring:Missing module docstring"
+  ],
+  "snippets/i4066.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-class-docstring:Missing class docstring",
+   "1:0:invalid-name:Class name \"TestPylint_return_1\" doesn't conform to PascalCase naming style",
+   "2:4:missing-function-docstring:Missing function or method docstring",
+   "2:4:disallowed-name:Disallowed name \"foo\"",
+   "2:21:used-before-assignment:Using variable 'bool' before assignment",
+   "5:4:missing-function-docstring:Missing function or method docstring",
+   "5:4:no-self-use:Method could be a function"
+  ],
+  "snippets/i4070.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "4:0:missing-class-docstring:Missing class docstring",
+   "7:4:missing-function-docstring:Missing function or method docstring",
+   "8:15:no-member:Instance of 'Lines' has no '_replace' member"
+  ],
+  "snippets/i4083.py": [
+   "1:0:missing-module-docstring:Missing module docstring"
+  ],
+  "snippets/i4546.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-function-docstring:Missing function or method docstring",
+   "1:0:disallowed-name:Disallowed name \"foo\"",
+   "5:0:missing-function-docstring:Missing function or method docstring",
+   "10:0:no-value-for-parameter:No value for argument 'arg' in function call"
+  ],
+  "snippets/i4554.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "4:0:missing-function-docstring:Missing function or method docstring"
+  ],
+  "snippets/i4608.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "3:0:consider-ternary-expression:Consider rewriting as a ternary expression",
+   "4:4:invalid-name:Constant name \"x\" doesn't conform to UPPER_CASE naming style",
+   "6:4:invalid-name:Constant name \"x\" doesn't conform to UPPER_CASE naming style"
+  ],
+  "snippets/i4803.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-class-docstring:Missing class docstring",
+   "4:4:missing-function-docstring:Missing function or method docstring",
+   "1:0:too-few-public-methods:Too few public methods (1/2)",
+   "8:0:unpacking-non-sequence:Attempting to unpack a non-sequence defined at line 2"
+  ],
+  "snippets/i4861.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-function-docstring:Missing function or method docstring",
+   "5:9:use-dict-literal:Consider using '{\"this\": 1, \"that\": 2}' instead of a call to 'dict'.",
+   "7:0:repeated-keyword:Got multiple values for keyword argument 'that' in function call"
+  ],
+  "snippets/i4908.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-function-docstring:Missing function or method docstring",
+   "5:0:invalid-name:Constant name \"g\" doesn't conform to UPPER_CASE naming style",
+   "6:0:no-member:Instance of 'bytes' has no 'send' member"
+  ],
+  "snippets/i4920.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-class-docstring:Missing class docstring",
+   "5:0:missing-function-docstring:Missing function or method docstring",
+   "6:51:magic-value-comparison:Consider using a named constant or an enum instead of '404'."
+  ],
+  "snippets/i4944.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "5:0:pointless-statement:Statement seems to have no effect",
+   "5:0:unsubscriptable-object:Value 'x' is unsubscriptable"
+  ],
+  "snippets/i4961.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "5:0:unpacking-non-sequence:Attempting to unpack a non-sequence defined at line 10 of "
+  ],
+  "snippets/i4968.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-class-docstring:Missing class docstring",
+   "10:4:missing-function-docstring:Missing function or method docstring",
+   "1:0:too-few-public-methods:Too few public methods (1/2)"
+  ],
+  "snippets/i4993.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "4:0:missing-class-docstring:Missing class docstring",
+   "9:4:missing-function-docstring:Missing function or method docstring",
+   "4:0:too-few-public-methods:Too few public methods (1/2)",
+   "1:0:unused-import:Unused import gettext"
+  ],
+  "snippets/i5083.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-class-docstring:Missing class docstring",
+   "1:0:too-few-public-methods:Too few public methods (0/2)",
+   "6:0:missing-class-docstring:Missing class docstring",
+   "6:0:too-few-public-methods:Too few public methods (0/2)"
+  ],
+  "snippets/i5085.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-class-docstring:Missing class docstring",
+   "6:4:missing-function-docstring:Missing function or method docstring",
+   "11:4:missing-function-docstring:Missing function or method docstring",
+   "12:23:invalid-unary-operand-type:bad operand type for unary -: NoneType"
+  ],
+  "snippets/i5091.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "6:0:missing-class-docstring:Missing class docstring",
+   "11:30:invalid-envvar-value:os.getenv does not support builtins.str type argument"
+  ],
+  "snippets/i5637.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "4:0:missing-class-docstring:Missing class docstring",
+   "4:0:too-few-public-methods:Too few public methods (0/2)",
+   "16:4:no-value-for-parameter:No value for argument 'value' in constructor call"
+  ],
+  "snippets/i5671.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-function-docstring:Missing function or method docstring",
+   "8:0:unbalanced-tuple-unpacking:Possible unbalanced tuple unpacking with sequence defined at line 2: left side has 2 labels, right side has 0 values"
+  ],
+  "snippets/i5678.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-function-docstring:Missing function or method docstring",
+   "4:10:unused-argument:Unused argument 'x'",
+   "2:4:unused-variable:Unused variable 'x'",
+   "4:4:unused-variable:Unused variable 'f'"
+  ],
+  "snippets/i5699.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-class-docstring:Missing class docstring",
+   "8:4:missing-function-docstring:Missing function or method docstring",
+   "1:0:too-few-public-methods:Too few public methods (1/2)",
+   "12:6:unsubscriptable-object:Value 'Unknown.all_constants' is unsubscriptable"
+  ],
+  "snippets/i5734.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-class-docstring:Missing class docstring",
+   "2:4:unused-private-member:Unused private member `Foo.__foo`",
+   "1:0:too-few-public-methods:Too few public methods (0/2)",
+   "5:0:pointless-statement:Statement seems to have no effect",
+   "5:0:protected-access:Access to a protected member __foo of a client class"
+  ],
+  "snippets/i5735.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-function-docstring:Missing function or method docstring",
+   "1:15:disallowed-name:Disallowed name \"bar\"",
+   "5:0:missing-function-docstring:Missing function or method docstring",
+   "5:15:disallowed-name:Disallowed name \"foo\"",
+   "5:15:redefined-outer-name:Redefining name 'foo' from outer scope (line 29)",
+   "9:0:missing-function-docstring:Missing function or method docstring",
+   "9:15:disallowed-name:Disallowed name \"foo\"",
+   "9:15:redefined-outer-name:Redefining name 'foo' from outer scope (line 29)",
+   "10:11:magic-value-comparison:Consider using a named constant or an enum instead of ''bcdef''.",
+   "13:0:missing-function-docstring:Missing function or method docstring",
+   "13:16:disallowed-name:Disallowed name \"foo\"",
+   "13:16:redefined-outer-name:Redefining name 'foo' from outer scope (line 29)",
+   "20:0:missing-function-docstring:Missing function or method docstring",
+   "32:0:missing-function-docstring:Missing function or method docstring"
+  ],
+  "snippets/i5761.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "5:0:missing-class-docstring:Missing class docstring",
+   "6:4:missing-function-docstring:Missing function or method docstring",
+   "6:4:disallowed-name:Disallowed name \"bar\"",
+   "5:0:too-few-public-methods:Too few public methods (1/2)",
+   "9:0:missing-class-docstring:Missing class docstring",
+   "10:4:invalid-overridden-method:Method 'bar' was expected to be 'non-async', found it instead as 'async'",
+   "9:0:too-few-public-methods:Too few public methods (1/2)"
+  ],
+  "snippets/i5780.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "4:4:invalid-name:Constant name \"msg\" doesn't conform to UPPER_CASE naming style"
+  ],
+  "snippets/i5784.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-function-docstring:Missing function or method docstring",
+   "16:12:use-implicit-booleaness-not-comparison-to-zero:\"len(new_func_kwargs) == 0\" can be simplified to \"not len(new_func_kwargs)\", if it is strictly an int, as 0 is falsey",
+   "24:0:missing-function-docstring:Missing function or method docstring",
+   "28:0:unexpected-keyword-arg:Unexpected keyword argument 'print_me' in function call"
+  ],
+  "snippets/i5793.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-class-docstring:Missing class docstring",
+   "2:4:missing-function-docstring:Missing function or method docstring",
+   "2:4:no-self-use:Method could be a function",
+   "1:0:too-few-public-methods:Too few public methods (1/2)",
+   "6:0:missing-class-docstring:Missing class docstring",
+   "7:4:arguments-differ:Number of parameters was 2 in 'Base.fun' and is now 2 in overriding 'Class.fun' method",
+   "6:0:too-few-public-methods:Too few public methods (1/2)"
+  ],
+  "snippets/i5806.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-class-docstring:Missing class docstring",
+   "5:4:missing-function-docstring:Missing function or method docstring",
+   "8:4:missing-function-docstring:Missing function or method docstring"
+  ],
+  "snippets/i5810.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "5:0:missing-class-docstring:Missing class docstring",
+   "11:0:missing-class-docstring:Missing class docstring",
+   "16:28:not-a-mapping:Non-mapping value self.f_four is used in a mapping context"
+  ],
+  "snippets/i5814.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:invalid-name:Constant name \"a\" doesn't conform to UPPER_CASE naming style",
+   "2:0:invalid-name:Constant name \"b\" doesn't conform to UPPER_CASE naming style",
+   "4:3:impossible-comparison:This comparison always evaluates to False"
+  ],
+  "snippets/i5823.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "10:4:missing-function-docstring:Missing function or method docstring",
+   "15:0:missing-class-docstring:Missing class docstring"
+  ],
+  "snippets/i5889.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-class-docstring:Missing class docstring",
+   "7:0:try-except-raise:The except handler raises immediately"
+  ],
+  "snippets/i5955.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "2:0:invalid-name:Constant name \"a\" doesn't conform to UPPER_CASE naming style",
+   "2:9:used-before-assignment:Using variable 'a' before assignment"
+  ],
+  "snippets/i6478.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:docstring-first-line-empty:First line empty in function docstring"
+  ],
+  "snippets/i6663.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "4:0:missing-class-docstring:Missing class docstring",
+   "5:4:missing-function-docstring:Missing function or method docstring",
+   "5:4:invalid-name:Method name \"testColors\" doesn't conform to snake_case naming style",
+   "7:12:no-member:Instance of 'MyTest' has no 'string_output' member"
+  ],
+  "snippets/i6856.py": [
+   "1:0:missing-module-docstring:Missing module docstring"
+  ],
+  "snippets/i7240.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "3:3:magic-value-comparison:Consider using a named constant or an enum instead of ''linux''.",
+   "7:10:unnecessary-comprehension:Unnecessary use of a comprehension, use list(os.getgroups()) instead.",
+   "8:10:unnecessary-comprehension:Unnecessary use of a comprehension, use set(os.getgroups()) instead."
+  ],
+  "snippets/i7269.py": [
+   "1:0:missing-module-docstring:Missing module docstring"
+  ],
+  "snippets/i7271.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "4:0:missing-function-docstring:Missing function or method docstring"
+  ],
+  "snippets/i7293.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-function-docstring:Missing function or method docstring",
+   "5:0:dict-init-mutate:Declare all known key/values when initializing the dictionary: d = {'b': 'hello world', 'arg': d['b']}",
+   "9:0:unexpected-keyword-arg:Unexpected keyword argument 'b' in function call"
+  ],
+  "snippets/i7296.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "11:6:no-member:Instance of 'Pattern' has no 'pattern' member"
+  ],
+  "snippets/i7348.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-class-docstring:Missing class docstring",
+   "2:4:missing-function-docstring:Missing function or method docstring",
+   "1:0:too-few-public-methods:Too few public methods (1/2)",
+   "6:0:missing-class-docstring:Missing class docstring",
+   "7:4:arguments-differ:Number of parameters was 1 in 'Foo.method' and is now 2 in overriding 'Bar.method' method",
+   "6:0:too-few-public-methods:Too few public methods (1/2)",
+   "11:0:missing-class-docstring:Missing class docstring",
+   "12:4:missing-function-docstring:Missing function or method docstring",
+   "13:8:disallowed-name:Disallowed name \"foo\"",
+   "12:4:no-self-use:Method could be a function",
+   "11:0:too-few-public-methods:Too few public methods (1/2)",
+   "17:0:missing-class-docstring:Missing class docstring",
+   "18:4:missing-function-docstring:Missing function or method docstring",
+   "19:8:disallowed-name:Disallowed name \"bar\"",
+   "20:8:unexpected-keyword-arg:Unexpected keyword argument 'param' in lambda call",
+   "20:8:no-value-for-parameter:No value for argument 'x' in lambda call",
+   "18:4:no-self-use:Method could be a function",
+   "17:0:too-few-public-methods:Too few public methods (1/2)"
+  ],
+  "snippets/i7350.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-function-docstring:Missing function or method docstring"
+  ],
+  "snippets/i7379.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "6:0:missing-class-docstring:Missing class docstring",
+   "7:4:disallowed-name:Disallowed name \"foo\"",
+   "6:0:too-few-public-methods:Too few public methods (0/2)",
+   "13:0:missing-class-docstring:Missing class docstring",
+   "13:0:too-few-public-methods:Too few public methods (0/2)"
+  ],
+  "snippets/i7381.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "4:0:missing-class-docstring:Missing class docstring"
+  ],
+  "snippets/i7389.py": [
+   "8:0:import-error:Unable to import 'xarray'",
+   "11:0:missing-class-docstring:Missing class docstring",
+   "11:0:too-few-public-methods:Too few public methods (0/2)"
+  ],
+  "snippets/i7424.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-function-docstring:Missing function or method docstring",
+   "17:12:invalid-sequence-index:Sequence index is not an int, slice, or instance with __index__",
+   "16:8:unused-variable:Unused variable 'a1'",
+   "16:12:unused-variable:Unused variable 'a2'",
+   "16:16:unused-variable:Unused variable 'a3'",
+   "17:8:unused-variable:Unused variable 'i'"
+  ],
+  "snippets/i7460.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-function-docstring:Missing function or method docstring"
+  ],
+  "snippets/i7470.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-function-docstring:Missing function or method docstring",
+   "5:0:missing-function-docstring:Missing function or method docstring",
+   "9:0:missing-function-docstring:Missing function or method docstring",
+   "17:12:function-redefined:function already defined line 12"
+  ],
+  "snippets/i7487.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-function-docstring:Missing function or method docstring",
+   "4:14:no-member:Function 'test' has no 'thing' member"
+  ],
+  "snippets/i7500.py": [
+   "1:0:missing-module-docstring:Missing module docstring"
+  ],
+  "snippets/i7538.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:16:used-before-assignment:Using variable 's1' before assignment",
+   "3:10:used-before-assignment:Using variable 's2' before assignment"
+  ],
+  "snippets/i7545.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "5:0:missing-function-docstring:Missing function or method docstring",
+   "10:0:missing-function-docstring:Missing function or method docstring"
+  ],
+  "snippets/i7548.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "2:0:unused-import:Unused Path imported from pathlib"
+  ],
+  "snippets/i7614.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-function-docstring:Missing function or method docstring",
+   "1:0:disallowed-name:Disallowed name \"foo\"",
+   "1:8:unused-argument:Unused argument 'a'",
+   "1:16:unused-argument:Unused argument 'b'",
+   "1:24:unused-argument:Unused argument 'c'",
+   "9:0:repeated-keyword:Got multiple values for keyword argument 'c' in function call"
+  ],
+  "snippets/i7647.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "4:0:missing-function-docstring:Missing function or method docstring",
+   "8:0:missing-function-docstring:Missing function or method docstring",
+   "13:0:missing-function-docstring:Missing function or method docstring"
+  ],
+  "snippets/i7720.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-class-docstring:Missing class docstring",
+   "2:4:missing-function-docstring:Missing function or method docstring",
+   "2:4:no-self-use:Method could be a function",
+   "1:0:too-few-public-methods:Too few public methods (1/2)",
+   "9:0:missing-class-docstring:Missing class docstring",
+   "13:4:missing-class-docstring:Missing class docstring",
+   "12:5:undefined-variable:Undefined variable 'CONVERTER'",
+   "13:4:too-few-public-methods:Too few public methods (0/2)",
+   "9:0:too-few-public-methods:Too few public methods (0/2)"
+  ],
+  "snippets/i7853.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-function-docstring:Missing function or method docstring",
+   "15:0:missing-function-docstring:Missing function or method docstring",
+   "17:4:assignment-from-none:Assigning result of a function call, where the function returns None"
+  ],
+  "snippets/i7891.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "4:0:missing-class-docstring:Missing class docstring"
+  ],
+  "snippets/i7894.py": [
+   "3:0:import-error:Unable to import 'panda3d'",
+   "3:0:unused-import:Unused core imported from panda3d"
+  ],
+  "snippets/i7934.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "4:0:invalid-name:Type variable name \"T_Test\" doesn't conform to predefined naming style",
+   "7:0:missing-class-docstring:Missing class docstring",
+   "7:0:too-few-public-methods:Too few public methods (1/2)",
+   "13:0:missing-class-docstring:Missing class docstring",
+   "13:0:invalid-name:Class name \"typed_dict\" doesn't conform to PascalCase naming style",
+   "17:0:missing-class-docstring:Missing class docstring",
+   "17:0:too-few-public-methods:Too few public methods (1/2)"
+  ],
+  "snippets/i7950.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "5:0:missing-class-docstring:Missing class docstring",
+   "7:4:missing-function-docstring:Missing function or method docstring",
+   "11:4:missing-function-docstring:Missing function or method docstring",
+   "15:0:missing-class-docstring:Missing class docstring",
+   "20:0:missing-class-docstring:Missing class docstring",
+   "20:0:abstract-method:Method 'test_something' is abstract in class 'Abstract' but is not overridden in child class 'Sub'"
+  ],
+  "snippets/i7978.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "4:0:missing-class-docstring:Missing class docstring",
+   "8:0:missing-function-docstring:Missing function or method docstring",
+   "10:4:while-used:Used `while` loop",
+   "10:30:unsupported-membership-test:Value 'x' doesn't support membership test",
+   "10:23:magic-value-comparison:Consider using a named constant or an enum instead of ''a''."
+  ],
+  "snippets/i7991.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-class-docstring:Missing class docstring",
+   "2:4:missing-function-docstring:Missing function or method docstring",
+   "1:0:too-few-public-methods:Too few public methods (1/2)",
+   "6:0:missing-class-docstring:Missing class docstring",
+   "10:4:useless-parent-delegation:Useless parent or super() delegation in method 'save'",
+   "6:0:too-few-public-methods:Too few public methods (1/2)"
+  ],
+  "snippets/i7997.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:invalid-name:Constant name \"key\" doesn't conform to UPPER_CASE naming style",
+   "2:0:dict-init-mutate:Declare all known key/values when initializing the dictionary: counts = {'int64': 1, 'object': 1, key: 3 + counts.get(key, 0)}"
+  ],
+  "snippets/i8022.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "6:0:missing-class-docstring:Missing class docstring",
+   "11:4:missing-function-docstring:Missing function or method docstring",
+   "6:0:too-few-public-methods:Too few public methods (1/2)",
+   "23:6:invalid-unary-operand-type:bad operand type for unary -: str"
+  ],
+  "snippets/i8049.py": [
+   "10:0:import-error:Unable to import 'haggis.logs'",
+   "17:0:missing-class-docstring:Missing class docstring",
+   "18:4:missing-function-docstring:Missing function or method docstring",
+   "18:4:no-self-use:Method could be a function",
+   "17:0:too-few-public-methods:Too few public methods (1/2)"
+  ],
+  "snippets/i8050.py": [],
+  "snippets/i8053.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "4:0:missing-class-docstring:Missing class docstring",
+   "18:0:missing-class-docstring:Missing class docstring",
+   "22:4:missing-function-docstring:Missing function or method docstring",
+   "18:0:too-few-public-methods:Too few public methods (1/2)",
+   "26:0:missing-class-docstring:Missing class docstring",
+   "36:4:invalid-name:Attribute name \"MyChildField\" doesn't conform to snake_case naming style",
+   "37:4:invalid-name:Attribute name \"MyParentField\" doesn't conform to snake_case naming style",
+   "26:0:too-few-public-methods:Too few public methods (1/2)"
+  ],
+  "snippets/i8068.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-class-docstring:Missing class docstring",
+   "5:4:missing-function-docstring:Missing function or method docstring",
+   "1:0:too-few-public-methods:Too few public methods (1/2)"
+  ],
+  "snippets/i8079.py": [
+   "36:0:missing-class-docstring:Missing class docstring",
+   "40:4:missing-function-docstring:Missing function or method docstring",
+   "40:4:method-hidden:An attribute defined in i8079 line 38 hides this method",
+   "36:0:too-few-public-methods:Too few public methods (1/2)"
+  ],
+  "snippets/i8129.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-function-docstring:Missing function or method docstring",
+   "5:0:missing-function-docstring:Missing function or method docstring",
+   "9:0:invalid-name:Constant name \"test\" doesn't conform to UPPER_CASE naming style",
+   "10:0:expression-not-assigned:Expression \"f1() if test else f2()\" is assigned to nothing"
+  ],
+  "snippets/i8138.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "6:0:missing-class-docstring:Missing class docstring",
+   "6:0:invalid-name:Class name \"myfunc\" doesn't conform to PascalCase naming style",
+   "6:0:too-few-public-methods:Too few public methods (0/2)",
+   "15:8:missing-function-docstring:Missing function or method docstring",
+   "11:0:too-few-public-methods:Too few public methods (1/2)"
+  ],
+  "snippets/i8145.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "4:0:missing-function-docstring:Missing function or method docstring",
+   "4:0:disallowed-name:Disallowed name \"foo\"",
+   "5:4:missing-class-docstring:Missing class docstring",
+   "6:8:missing-function-docstring:Missing function or method docstring",
+   "6:8:disallowed-name:Disallowed name \"foo\"",
+   "6:25:undefined-variable:Undefined variable 'Foo'",
+   "6:8:no-self-use:Method could be a function",
+   "5:4:too-few-public-methods:Too few public methods (1/2)",
+   "5:4:unused-variable:Unused variable 'Foo'",
+   "9:0:missing-class-docstring:Missing class docstring",
+   "10:4:missing-function-docstring:Missing function or method docstring",
+   "10:4:disallowed-name:Disallowed name \"foo\"",
+   "10:4:no-self-use:Method could be a function",
+   "9:0:too-few-public-methods:Too few public methods (1/2)"
+  ],
+  "snippets/i8179.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "2:0:consider-using-augmented-assign:Use '%=' to do an augmented assign directly"
+  ],
+  "snippets/i8201.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "3:0:expression-not-assigned:Expression \"(print('demo'), )\" is assigned to nothing"
+  ],
+  "snippets/i8210.py": [
+   "3:0:import-error:Unable to import 'mcculw'",
+   "4:0:import-error:Unable to import 'mcculw.enums'",
+   "3:0:unused-import:Unused ul imported from mcculw",
+   "4:0:unused-import:Unused ULRange imported from mcculw.enums"
+  ],
+  "snippets/i8213.py": [
+   "1:0:missing-module-docstring:Missing module docstring"
+  ],
+  "snippets/i8215.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "4:0:missing-class-docstring:Missing class docstring",
+   "5:4:missing-class-docstring:Missing class docstring",
+   "5:4:too-few-public-methods:Too few public methods (0/2)",
+   "8:4:missing-class-docstring:Missing class docstring",
+   "9:11:undefined-variable:Undefined variable 'B'",
+   "8:4:too-few-public-methods:Too few public methods (0/2)",
+   "4:0:too-few-public-methods:Too few public methods (0/2)"
+  ],
+  "snippets/i8221.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "4:28:consider-using-tuple:Consider using an in-place tuple instead of list"
+  ],
+  "snippets/i8224.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:14:bad-builtin:Used builtin function 'map'. Using a list comprehension can be clearer.",
+   "1:18:consider-using-f-string:Formatting a regular string which could be an f-string"
+  ],
+  "snippets/i8250.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "3:7:use-implicit-booleaness-not-comparison-to-zero:\"year % 400 == 0\" can be simplified to \"not year % 400\", if it is strictly an int, as 0 is falsey",
+   "5:7:use-implicit-booleaness-not-comparison-to-zero:\"year % 100 == 0\" can be simplified to \"not year % 100\", if it is strictly an int, as 0 is falsey",
+   "7:7:use-implicit-booleaness-not-comparison-to-zero:\"year % 4 == 0\" can be simplified to \"not year % 4\", if it is strictly an int, as 0 is falsey"
+  ],
+  "snippets/i8256.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "2:8:unnecessary-comprehension:Unnecessary use of a comprehension, use dict(dict1.keys()) instead."
+  ],
+  "snippets/i8325.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-class-docstring:Missing class docstring",
+   "2:4:missing-function-docstring:Missing function or method docstring",
+   "3:8:no-value-for-parameter:No value for argument 'cls' in classmethod call",
+   "1:0:too-few-public-methods:Too few public methods (1/2)"
+  ],
+  "snippets/i8327.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "6:0:missing-function-docstring:Missing function or method docstring",
+   "7:11:isinstance-second-argument-not-valid-type:Second argument of isinstance is not a type"
+  ],
+  "snippets/i8331.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "3:14:consider-alternative-union-syntax:Consider using alternative union syntax instead of 'Union'",
+   "4:21:consider-alternative-union-syntax:Consider using alternative union syntax instead of 'Union'",
+   "7:0:missing-function-docstring:Missing function or method docstring",
+   "8:7:magic-value-comparison:Consider using a named constant or an enum instead of ''int''.",
+   "10:7:magic-value-comparison:Consider using a named constant or an enum instead of ''float''.",
+   "12:7:magic-value-comparison:Consider using a named constant or an enum instead of ''complex''.",
+   "14:7:magic-value-comparison:Consider using a named constant or an enum instead of ''str''.",
+   "16:7:magic-value-comparison:Consider using a named constant or an enum instead of ''set''.",
+   "21:0:missing-function-docstring:Missing function or method docstring",
+   "27:11:invalid-unary-operand-type:bad operand type for unary -: str",
+   "27:11:invalid-unary-operand-type:bad operand type for unary -: set",
+   "27:11:invalid-unary-operand-type:bad operand type for unary -: NoneType"
+  ],
+  "snippets/i8367.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-class-docstring:Missing class docstring",
+   "5:4:missing-function-docstring:Missing function or method docstring",
+   "5:4:no-self-use:Method could be a function",
+   "8:4:missing-function-docstring:Missing function or method docstring",
+   "11:8:missing-class-docstring:Missing class docstring",
+   "12:12:missing-function-docstring:Missing function or method docstring",
+   "12:12:no-self-use:Method could be a function",
+   "11:8:too-few-public-methods:Too few public methods (1/2)"
+  ],
+  "snippets/i8394.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-function-docstring:Missing function or method docstring",
+   "7:11:undefined-loop-variable:Using possibly undefined loop variable 'number'"
+  ],
+  "snippets/i841.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:invalid-name:Constant name \"x\" doesn't conform to UPPER_CASE naming style",
+   "4:0:missing-function-docstring:Missing function or method docstring",
+   "4:0:disallowed-name:Disallowed name \"foo\"",
+   "5:4:redefined-outer-name:Redefining name 'x' from outer scope (line 1)"
+  ],
+  "snippets/i8419.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "3:7:unspecified-encoding:Using open without explicitly specifying an encoding"
+  ],
+  "snippets/i8455.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "4:7:no-member:Class 'dict' has no '__origin__' member"
+  ],
+  "snippets/i8486.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:14:used-before-assignment:Using variable 'test1' before assignment",
+   "3:13:used-before-assignment:Using variable 'test2' before assignment",
+   "5:0:pointless-statement:Statement seems to have no effect"
+  ],
+  "snippets/i8495.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-function-docstring:Missing function or method docstring"
+  ],
+  "snippets/i8499.py": [
+   "1:0:missing-module-docstring:Missing module docstring"
+  ],
+  "snippets/i8577.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "2:4:unnecessary-comprehension:Unnecessary use of a comprehension, use list(a) instead."
+  ],
+  "snippets/i8600.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "6:0:missing-class-docstring:Missing class docstring",
+   "6:0:too-few-public-methods:Too few public methods (0/2)",
+   "11:0:missing-class-docstring:Missing class docstring",
+   "13:8:protected-access:Access to a protected member _foo of a client class",
+   "11:0:too-few-public-methods:Too few public methods (0/2)"
+  ],
+  "snippets/i8659.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "4:0:missing-class-docstring:Missing class docstring",
+   "5:23:unused-argument:Unused argument 'i2c_address'",
+   "9:4:missing-function-docstring:Missing function or method docstring",
+   "4:0:too-few-public-methods:Too few public methods (1/2)"
+  ],
+  "snippets/i8686.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-function-docstring:Missing function or method docstring",
+   "9:11:used-before-assignment:Using variable 'results' before assignment"
+  ],
+  "snippets/i8687.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "5:0:missing-class-docstring:Missing class docstring",
+   "7:4:missing-function-docstring:Missing function or method docstring",
+   "5:0:too-few-public-methods:Too few public methods (1/2)",
+   "10:0:missing-class-docstring:Missing class docstring",
+   "11:4:arguments-differ:Number of parameters was 1 in 'Proto.fun' and is now 2 in overriding 'Class.fun' method",
+   "11:4:invalid-overridden-method:Method 'fun' was expected to be 'property', found it instead as 'method'",
+   "10:0:too-few-public-methods:Too few public methods (1/2)"
+  ],
+  "snippets/i8739.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-class-docstring:Missing class docstring",
+   "3:4:missing-function-docstring:Missing function or method docstring",
+   "1:0:too-few-public-methods:Too few public methods (1/2)",
+   "7:0:pointless-statement:Statement seems to have no effect"
+  ],
+  "snippets/i8746.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "4:0:invalid-name:Class name \"mu\" doesn't conform to PascalCase naming style",
+   "4:5:prefer-typing-namedtuple:Prefer 'typing.NamedTuple' over 'collections.namedtuple'"
+  ],
+  "snippets/i8755.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-class-docstring:Missing class docstring",
+   "1:0:too-few-public-methods:Too few public methods (0/2)",
+   "6:0:missing-function-docstring:Missing function or method docstring",
+   "6:0:disallowed-name:Disallowed name \"foo\"",
+   "1:0:astroid-error:i8755.py: Fatal error while checking 'i8755.py'. Please open an issue in our bug tracker so we address this. There is a pre-filled template that you can use in '/home/pierre/.cache/pylint/pylint-crash.txt'."
+  ],
+  "snippets/i8805.py": [
+   "1:0:missing-module-docstring:Missing module docstring"
+  ],
+  "snippets/i8975.py": [
+   "7:0:import-error:Unable to import 'black'",
+   "7:0:unused-import:Unused FileMode imported from black"
+  ],
+  "snippets/i9137.py": [
+   "7:0:import-error:Unable to import 'bson.json_util'"
+  ],
+  "snippets/i9159.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "4:0:missing-class-docstring:Missing class docstring",
+   "6:4:missing-function-docstring:Missing function or method docstring",
+   "4:0:too-few-public-methods:Too few public methods (1/2)",
+   "10:0:missing-class-docstring:Missing class docstring",
+   "15:4:missing-function-docstring:Missing function or method docstring"
+  ],
+  "snippets/i9183.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "5:0:missing-class-docstring:Missing class docstring",
+   "9:6:no-member:Class 'Youpi' has no '__dataclass_fields__' member"
+  ],
+  "snippets/i9190.py": [
+   "10:0:import-error:Unable to import 'methodtools'",
+   "12:0:consider-ternary-expression:Consider rewriting as a ternary expression",
+   "18:0:missing-class-docstring:Missing class docstring",
+   "19:4:missing-class-docstring:Missing class docstring",
+   "19:4:too-few-public-methods:Too few public methods (0/2)",
+   "23:4:missing-function-docstring:Missing function or method docstring",
+   "23:4:no-self-use:Method could be a function"
+  ],
+  "snippets/i9203.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-class-docstring:Missing class docstring",
+   "3:8:disallowed-name:Disallowed name \"foo\"",
+   "6:4:missing-function-docstring:Missing function or method docstring",
+   "6:23:unused-argument:Unused argument 'values'",
+   "1:0:too-few-public-methods:Too few public methods (1/2)",
+   "10:0:missing-class-docstring:Missing class docstring",
+   "13:8:disallowed-name:Disallowed name \"baz\"",
+   "10:0:too-few-public-methods:Too few public methods (1/2)"
+  ],
+  "snippets/i9222.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "4:0:missing-class-docstring:Missing class docstring",
+   "8:0:missing-class-docstring:Missing class docstring",
+   "12:0:missing-class-docstring:Missing class docstring",
+   "16:0:missing-class-docstring:Missing class docstring",
+   "16:0:duplicate-bases:Duplicate bases for class 'ABCD'"
+  ],
+  "snippets/i9277.py": [
+   "11:1:fixme:TODO: réparer le décodage — naïve"
+  ],
+  "snippets/i9319.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "4:0:missing-class-docstring:Missing class docstring",
+   "4:0:too-few-public-methods:Too few public methods (1/2)"
+  ],
+  "snippets/i9359.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-class-docstring:Missing class docstring"
+  ],
+  "snippets/i9389.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "5:0:missing-class-docstring:Missing class docstring",
+   "10:0:missing-class-docstring:Missing class docstring",
+   "14:0:too-many-function-args:Too many positional arguments for constructor call"
+  ],
+  "snippets/i9439.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "4:0:missing-function-docstring:Missing function or method docstring",
+   "8:0:missing-function-docstring:Missing function or method docstring"
+  ],
+  "snippets/i9460.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-function-docstring:Missing function or method docstring"
+  ],
+  "snippets/i9479.py": [
+   "16:0:missing-class-docstring:Missing class docstring",
+   "16:0:too-few-public-methods:Too few public methods (0/2)",
+   "20:0:missing-function-docstring:Missing function or method docstring",
+   "24:0:too-few-public-methods:Too few public methods (1/2)",
+   "31:19:deprecated-typing-alias:'typing.List' is deprecated, use 'list' instead",
+   "32:25:deprecated-typing-alias:'typing.List' is deprecated, use 'list' instead"
+  ],
+  "snippets/i9488.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "6:0:missing-class-docstring:Missing class docstring",
+   "6:0:too-few-public-methods:Too few public methods (0/2)",
+   "10:0:missing-class-docstring:Missing class docstring",
+   "10:0:too-few-public-methods:Too few public methods (0/2)",
+   "18:0:missing-class-docstring:Missing class docstring",
+   "23:0:missing-class-docstring:Missing class docstring",
+   "27:4:unexpected-keyword-arg:Unexpected keyword argument 'field' in constructor call"
+  ],
+  "snippets/i9497.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "3:6:no-member:Class 'datetime' has no 'not_a_member' member"
+  ],
+  "snippets/i9519.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-class-docstring:Missing class docstring",
+   "2:4:missing-function-docstring:Missing function or method docstring",
+   "2:4:no-self-use:Method could be a function",
+   "1:0:too-few-public-methods:Too few public methods (1/2)",
+   "6:0:missing-class-docstring:Missing class docstring",
+   "7:4:missing-function-docstring:Missing function or method docstring",
+   "7:4:no-self-use:Method could be a function",
+   "6:0:too-few-public-methods:Too few public methods (1/2)",
+   "11:0:missing-class-docstring:Missing class docstring",
+   "11:0:too-few-public-methods:Too few public methods (1/2)"
+  ],
+  "snippets/i9533.py": [
+   "1:0:missing-module-docstring:Missing module docstring"
+  ],
+  "snippets/i9683.py": [
+   "1:0:missing-module-docstring:Missing module docstring"
+  ],
+  "snippets/i9722.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-class-docstring:Missing class docstring",
+   "1:0:invalid-name:Class name \"my_prop\" doesn't conform to PascalCase naming style",
+   "5:0:missing-class-docstring:Missing class docstring",
+   "5:0:invalid-name:Class name \"my_prop2\" doesn't conform to PascalCase naming style",
+   "9:0:missing-class-docstring:Missing class docstring",
+   "15:4:missing-function-docstring:Missing function or method docstring",
+   "19:4:missing-function-docstring:Missing function or method docstring",
+   "25:3:magic-value-comparison:Consider using a named constant or an enum instead of ''test''.",
+   "28:3:magic-value-comparison:Consider using a named constant or an enum instead of ''test''."
+  ],
+  "snippets/i9741.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:invalid-name:Constant name \"target\" doesn't conform to UPPER_CASE naming style",
+   "2:3:unnecessary-negation:Consider changing \"not 0.0 < target\" to \"0.0 >= target\"",
+   "2:7:misplaced-comparison-constant:Comparison should be target > 0.0"
+  ],
+  "snippets/i9839.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "4:0:missing-class-docstring:Missing class docstring",
+   "4:0:invalid-slots:Invalid __slots__ object"
+  ],
+  "snippets/i9850.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:no-name-in-module:No name 'AddressFamily' in module 'socket'",
+   "1:0:no-name-in-module:No name 'SocketKind' in module 'socket'"
+  ],
+  "snippets/i9878.py": [
+   "8:0:superfluous-parens:Unnecessary parens after 'in' keyword",
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-function-docstring:Missing function or method docstring",
+   "1:0:invalid-name:Function name \"testMethod\" doesn't conform to snake_case naming style",
+   "1:15:invalid-name:Argument name \"testString\" doesn't conform to snake_case naming style",
+   "2:7:magic-value-comparison:Consider using a named constant or an enum instead of ''option1''.",
+   "4:7:magic-value-comparison:Consider using a named constant or an enum instead of ''option2''.",
+   "6:21:use-set-for-membership:Consider using set for membership test",
+   "8:7:magic-value-comparison:Consider using a named constant or an enum instead of ''option4''.",
+   "10:7:magic-value-comparison:Consider using a named constant or an enum instead of ''option''."
+  ],
+  "snippets/i9884.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "4:0:missing-function-docstring:Missing function or method docstring",
+   "4:0:disallowed-name:Disallowed name \"foo\"",
+   "4:8:redefined-outer-name:Redefining name 'T' from outer scope (line 1)",
+   "4:8:unused-variable:Unused variable 'T'"
+  ],
+  "snippets/i9885.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "6:6:no-member:Class 'Literal' has no '__value__' member"
+  ],
+  "snippets/i9905.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "4:0:missing-class-docstring:Missing class docstring",
+   "8:4:invalid-overridden-method:Method 'value' was expected to be 'method', found it instead as 'property'"
+  ],
+  "snippets/i9908.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "9:4:invalid-sequence-index:Sequence index is not an int, slice, or instance with __index__"
+  ],
+  "snippets/i9950.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "4:0:missing-class-docstring:Missing class docstring",
+   "4:0:too-few-public-methods:Too few public methods (0/2)"
+  ],
+  "snippets/i9979.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "4:0:missing-class-docstring:Missing class docstring",
+   "6:4:missing-function-docstring:Missing function or method docstring",
+   "4:0:too-few-public-methods:Too few public methods (1/2)",
+   "10:0:missing-class-docstring:Missing class docstring",
+   "10:0:abstract-method:Method 'do_something' is abstract in class 'Base' but is not overridden in child class 'Derived'",
+   "11:4:missing-function-docstring:Missing function or method docstring"
+  ],
+  "snippets/i9986.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-class-docstring:Missing class docstring",
+   "5:4:missing-function-docstring:Missing function or method docstring",
+   "8:4:missing-function-docstring:Missing function or method docstring",
+   "10:12:unbalanced-dict-unpacking:Possible unbalanced dict unpacking with self.data.items(): left side has 1 label, right side has 0 values"
+  ],
+  "snippets/i9994.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-class-docstring:Missing class docstring",
+   "1:0:too-few-public-methods:Too few public methods (0/2)",
+   "6:0:missing-class-docstring:Missing class docstring",
+   "6:0:too-few-public-methods:Too few public methods (0/2)",
+   "11:0:missing-class-docstring:Missing class docstring"
+  ],
+  "snippets_auto/i10025_block0.py": [],
+  "snippets_auto/i10025_block1.py": [
+   "3:0:import-error:Unable to import 'pack'"
+  ],
+  "snippets_auto/i10043_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:3:undefined-variable:Undefined variable 'sys'",
+   "2:4:unused-import:Unused TraversableResources imported from importlib.resources.abc"
+  ],
+  "snippets_auto/i10050_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "2:4:dict-init-mutate:Declare all known key/values when initializing the dictionary: test_dict = {'key': None, 'key': {'key': None}}",
+   "4:4:unsupported-assignment-operation:\"test_dict['key']\" does not support item assignment"
+  ],
+  "snippets_auto/i10082_block0.py": [
+   "12:8:unsupported-assignment-operation:'cls.csvdata' does not support item assignment",
+   "13:27:unsubscriptable-object:Value 'cls.csvdata' is unsubscriptable",
+   "13:55:unsubscriptable-object:Value 'cls.csvdata' is unsubscriptable",
+   "4:0:too-few-public-methods:Too few public methods (0/2)"
+  ],
+  "snippets_auto/i10140_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "2:0:relative-beyond-top-level:Attempted relative import beyond top-level package",
+   "2:0:wildcard-import:Wildcard import b",
+   "5:0:relative-beyond-top-level:Attempted relative import beyond top-level package",
+   "5:0:wildcard-import:Wildcard import c",
+   "8:0:relative-beyond-top-level:Attempted relative import beyond top-level package",
+   "8:0:wildcard-import:Wildcard import a"
+  ],
+  "snippets_auto/i10144_block0.py": [
+   "18:17:not-an-iterable:Non-iterable value Person.model_fields is used in an iterating context",
+   "23:17:not-an-iterable:Non-iterable value p.model_fields is used in an iterating context"
+  ],
+  "snippets_auto/i10237_block0.py": [
+   "5:9:unused-argument:Unused argument 'x'"
+  ],
+  "snippets_auto/i10239_block0.py": [
+   "1:0:locally-disabled:Locally disabling missing-module-docstring (C0114)",
+   "2:0:locally-disabled:Locally disabling missing-class-docstring (C0115)",
+   "6:6:prefer-typing-namedtuple:Prefer 'typing.NamedTuple' over 'collections.namedtuple'",
+   "1:0:suppressed-message:Suppressed 'missing-module-docstring' (from line 1)",
+   "9:0:suppressed-message:Suppressed 'missing-class-docstring' (from line 2)"
+  ],
+  "snippets_auto/i10281_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "4:3:use-implicit-booleaness-not-len:Do not use `len(SEQUENCE)` without comparison to determine if a sequence is empty",
+   "7:3:use-implicit-booleaness-not-len:Do not use `len(SEQUENCE)` without comparison to determine if a sequence is empty"
+  ],
+  "snippets_auto/i10281_block1.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "7:3:use-implicit-booleaness-not-comparison-to-zero:\"len(vegetables) == 0\" can be simplified to \"not len(vegetables)\", if it is strictly an int, as 0 is falsey"
+  ],
+  "snippets_auto/i10281_block2.py": [
+   "1:0:missing-module-docstring:Missing module docstring"
+  ],
+  "snippets_auto/i10312_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "8:15:invalid-sequence-index:Sequence index is not an int, slice, or instance with __index__"
+  ],
+  "snippets_auto/i10316_block0.py": [
+   "10:8:no-member:Instance of 'Wave_read' has no 'setnchannels' member; maybe 'getnchannels'?",
+   "11:8:no-member:Instance of 'Wave_read' has no 'setsampwidth' member; maybe 'getsampwidth'?",
+   "12:8:no-member:Instance of 'Wave_read' has no 'setframerate' member; maybe 'getframerate'?",
+   "13:8:no-member:Instance of 'Wave_read' has no 'setnframes' member; maybe 'getnframes'?",
+   "14:8:no-member:Instance of 'Wave_read' has no 'setcomptype' member; maybe 'getcomptype'?",
+   "20:8:no-member:Instance of 'Wave_read' has no 'writeframes' member"
+  ],
+  "snippets_auto/i10339_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:unused-import:Unused import yaml"
+  ],
+  "snippets_auto/i10352_block0.py": [
+   "2:0:locally-disabled:Locally disabling too-few-public-methods (R0903)",
+   "10:0:empty-comment:Line with empty comment",
+   "17:0:suppressed-message:Suppressed 'too-few-public-methods' (from line 2)",
+   "53:0:suppressed-message:Suppressed 'too-few-public-methods' (from line 2)"
+  ],
+  "snippets_auto/i10352_block1.py": [
+   "20:0:locally-disabled:Locally disabling unused-argument (W0613)",
+   "20:0:suppressed-message:Suppressed 'unused-argument' (from line 20)"
+  ],
+  "snippets_auto/i10440_block0.py": [
+   "1:0:bad-docstring-quotes:Bad docstring quotes in module, expected \"\"\", given \"",
+   "4:0:unbalanced-tuple-unpacking:Possible unbalanced tuple unpacking with sequence defined at line 2 of : left side has 2 labels, right side has 1 value"
+  ],
+  "snippets_auto/i10476_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-function-docstring:Missing function or method docstring",
+   "5:0:missing-function-docstring:Missing function or method docstring",
+   "6:4:assignment-from-no-return:Assigning result of a function call, but 'f1' returns None",
+   "7:11:consider-using-assignment-expr:Use 'if not (r := f1(2)):' instead"
+  ],
+  "snippets_auto/i10602_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "6:0:missing-class-docstring:Missing class docstring",
+   "9:0:missing-class-docstring:Missing class docstring",
+   "9:0:too-few-public-methods:Too few public methods (0/2)"
+  ],
+  "snippets_auto/i10650_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:no-name-in-module:No name 'QApplication' in module 'PySide6.QtWidgets'",
+   "1:0:no-name-in-module:No name 'QPushButton' in module 'PySide6.QtWidgets'"
+  ],
+  "snippets_auto/i10761_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:import-error:Unable to import 'pyglet.gl'",
+   "3:0:missing-function-docstring:Missing function or method docstring"
+  ],
+  "snippets_auto/i10827_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:11:undefined-all-variable:Undefined variable name 'solve' in __all__",
+   "1:20:undefined-all-variable:Undefined variable name 'extractor' in __all__",
+   "1:33:undefined-all-variable:Undefined variable name 'stdgrid' in __all__",
+   "1:44:undefined-all-variable:Undefined variable name 'dictlang' in __all__",
+   "1:56:undefined-all-variable:Undefined variable name 'generate' in __all__",
+   "1:68:undefined-all-variable:Undefined variable name 'tags' in __all__",
+   "1:76:undefined-all-variable:Undefined variable name 'difficulty' in __all__"
+  ],
+  "snippets_auto/i10916_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:no-name-in-module:No name 'QApplication' in module 'PySide6.QtWidgets'",
+   "1:0:no-name-in-module:No name 'QWidget' in module 'PySide6.QtWidgets'",
+   "1:0:no-name-in-module:No name 'QVBoxLayout' in module 'PySide6.QtWidgets'",
+   "1:0:no-name-in-module:No name 'QSpinBox' in module 'PySide6.QtWidgets'",
+   "1:0:no-name-in-module:No name 'QComboBox' in module 'PySide6.QtWidgets'",
+   "1:0:no-name-in-module:No name 'QLabel' in module 'PySide6.QtWidgets'",
+   "3:0:missing-class-docstring:Missing class docstring",
+   "24:4:missing-function-docstring:Missing function or method docstring",
+   "27:4:missing-function-docstring:Missing function or method docstring"
+  ],
+  "snippets_auto/i1104_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "4:0:missing-function-docstring:Missing function or method docstring",
+   "5:11:no-value-for-parameter:No value for argument 'dt' in unbound method call"
+  ],
+  "snippets_auto/i11115_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-class-docstring:Missing class docstring",
+   "1:19:used-before-assignment:Using variable 'Item' before assignment",
+   "1:0:too-few-public-methods:Too few public methods (0/2)",
+   "5:0:missing-class-docstring:Missing class docstring",
+   "5:0:too-few-public-methods:Too few public methods (0/2)"
+  ],
+  "snippets_auto/i11202_block0.py": [
+   "1:0:bad-docstring-quotes:Bad docstring quotes in module, expected \"\"\", given \"",
+   "4:0:unspecified-encoding:Using open without explicitly specifying an encoding",
+   "5:0:unspecified-encoding:Using open without explicitly specifying an encoding"
+  ],
+  "snippets_auto/i11353_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "16:0:wrong-import-position:Import \"import json\" should be placed at the top of the module",
+   "17:0:wrong-import-position:Import \"import re\" should be placed at the top of the module",
+   "18:0:reimported:Reimport 're' (imported line 17)",
+   "18:0:wrong-import-position:Import \"import re as re1\" should be placed at the top of the module",
+   "20:0:reimported:Reimport 'json' (imported line 16)",
+   "20:0:wrong-import-position:Import \"from . import json as my_json\" should be placed at the top of the module",
+   "20:0:no-name-in-module:No name 'json' in module ''",
+   "22:0:relative-beyond-top-level:Attempted relative import beyond top-level package",
+   "22:0:wrong-import-position:Import \"from .json import ONE\" should be placed at the top of the module",
+   "16:0:unused-import:Unused import json",
+   "17:0:unused-import:Unused import re",
+   "22:0:unused-import:Unused ONE imported from json"
+  ],
+  "snippets_auto/i11412_block0.py": [
+   "1:0:locally-disabled:Locally disabling missing-module-docstring (C0114)",
+   "2:0:locally-disabled:Locally disabling missing-function-docstring (C0116)",
+   "24:10:no-member:Instance of 'TextIOWrapper' has no 'getvalue' member",
+   "1:0:suppressed-message:Suppressed 'missing-module-docstring' (from line 1)",
+   "9:0:suppressed-message:Suppressed 'missing-function-docstring' (from line 2)",
+   "15:0:suppressed-message:Suppressed 'missing-function-docstring' (from line 2)"
+  ],
+  "snippets_auto/i1469_block0.py": [
+   "1:3:syntax-error:Parsing failed: 'unexpected indent (i1469_block0, line 1)'"
+  ],
+  "snippets_auto/i1480_block0.py": [
+   "11:11:invalid-sequence-index:Sequence index is not an int, slice, or instance with __index__",
+   "18:19:invalid-sequence-index:Sequence index is not an int, slice, or instance with __index__",
+   "25:4:consider-using-dict-items:Consider iterating with .items()"
+  ],
+  "snippets_auto/i1801_block0.py": [
+   "1:0:docstring-first-line-empty:First line empty in module docstring",
+   "1:0:bad-docstring-quotes:Bad docstring quotes in module, expected \"\"\", given '''",
+   "9:0:docstring-first-line-empty:First line empty in class docstring",
+   "9:0:bad-docstring-quotes:Bad docstring quotes in class, expected \"\"\", given '''",
+   "21:0:docstring-first-line-empty:First line empty in class docstring",
+   "21:0:bad-docstring-quotes:Bad docstring quotes in class, expected \"\"\", given '''",
+   "30:0:docstring-first-line-empty:First line empty in function docstring",
+   "30:0:bad-docstring-quotes:Bad docstring quotes in function, expected \"\"\", given '''"
+  ],
+  "snippets_auto/i2053_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring"
+  ],
+  "snippets_auto/i2392_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:relative-beyond-top-level:Attempted relative import beyond top-level package",
+   "1:0:wildcard-import:Wildcard import foobar"
+  ],
+  "snippets_auto/i2392_block1.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "4:0:missing-class-docstring:Missing class docstring",
+   "4:0:too-few-public-methods:Too few public methods (0/2)"
+  ],
+  "snippets_auto/i2392_block2.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:import-error:Unable to import 'mymodule'"
+  ],
+  "snippets_auto/i2559_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-class-docstring:Missing class docstring",
+   "1:0:undefined-variable:Undefined variable 'abc'",
+   "2:4:unnecessary-ellipsis:Unnecessary ellipsis constant",
+   "3:4:bad-docstring-quotes:Bad docstring quotes in method, expected \"\"\", given \"",
+   "3:4:no-self-use:Method could be a function",
+   "7:4:bad-docstring-quotes:Bad docstring quotes in method, expected \"\"\", given \"",
+   "9:8:assignment-from-none:Assigning result of a function call, where the function returns None",
+   "10:11:consider-using-assignment-expr:Use 'if (lock_path := self.lock_name()) is None:' instead",
+   "12:8:unnecessary-ellipsis:Unnecessary ellipsis constant",
+   "7:4:inconsistent-return-statements:Either all return statements in a function should return an expression, or none of them should."
+  ],
+  "snippets_auto/i2563_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "7:0:missing-function-docstring:Missing function or method docstring"
+  ],
+  "snippets_auto/i2583_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:import-error:Unable to import 'test.bar'",
+   "2:0:import-error:Unable to import 'test.foo'"
+  ],
+  "snippets_auto/i2685_block0.py": [
+   "2:0:import-error:Unable to import 'pywintypes'"
+  ],
+  "snippets_auto/i2835_block0.py": [
+   "2:0:bad-indentation:Bad indentation. Found 3 spaces, expected 4",
+   "4:0:bad-indentation:Bad indentation. Found 3 spaces, expected 4",
+   "1:0:missing-module-docstring:Missing module docstring",
+   "3:0:bare-except:No exception type(s) specified"
+  ],
+  "snippets_auto/i2840_block0.py": [
+   "1:0:locally-disabled:Locally disabling missing-module-docstring (C0114)",
+   "1:0:locally-disabled:Locally disabling missing-class-docstring (C0115)",
+   "1:0:locally-disabled:Locally disabling missing-function-docstring (C0116)",
+   "1:0:locally-disabled:Locally disabling disallowed-name (C0104)",
+   "4:7:magic-value-comparison:Consider using a named constant or an enum instead of '4'.",
+   "1:0:useless-suppression:Useless suppression of 'missing-class-docstring'",
+   "1:0:suppressed-message:Suppressed 'missing-module-docstring' (from line 1)",
+   "3:0:suppressed-message:Suppressed 'missing-function-docstring' (from line 1)",
+   "8:0:suppressed-message:Suppressed 'disallowed-name' (from line 1)",
+   "3:0:suppressed-message:Suppressed 'disallowed-name' (from line 1)",
+   "5:0:suppressed-message:Suppressed 'disallowed-name' (from line 1)"
+  ],
+  "snippets_auto/i2983_block0.py": [
+   "8:0:useless-object-inheritance:Class 'Model' inherits from object, can be safely removed from bases in python3",
+   "8:0:too-few-public-methods:Too few public methods (1/2)",
+   "22:0:too-few-public-methods:Too few public methods (1/2)",
+   "27:7:magic-value-comparison:Consider using a named constant or an enum instead of ''hello''."
+  ],
+  "snippets_auto/i3060_block0.py": [],
+  "snippets_auto/i3104_block0.py": [
+   "9:20:trailing-whitespace:Trailing whitespace",
+   "1:0:missing-module-docstring:Missing module docstring"
+  ],
+  "snippets_auto/i3215_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:invalid-name:Constant name \"b\" doesn't conform to UPPER_CASE naming style",
+   "2:0:invalid-name:Constant name \"a\" doesn't conform to UPPER_CASE naming style"
+  ],
+  "snippets_auto/i3215_block1.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:invalid-name:Constant name \"b\" doesn't conform to UPPER_CASE naming style",
+   "2:0:invalid-name:Constant name \"a\" doesn't conform to UPPER_CASE naming style",
+   "2:4:magic-value-comparison:Consider using a named constant or an enum instead of ''a''."
+  ],
+  "snippets_auto/i3297_block0.py": [
+   "11:12:magic-value-comparison:Consider using a named constant or an enum instead of '5'.",
+   "14:12:magic-value-comparison:Consider using a named constant or an enum instead of '5'."
+  ],
+  "snippets_auto/i3339_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-class-docstring:Missing class docstring",
+   "8:0:missing-class-docstring:Missing class docstring",
+   "9:4:missing-function-docstring:Missing function or method docstring",
+   "8:0:too-few-public-methods:Too few public methods (1/2)",
+   "13:0:missing-class-docstring:Missing class docstring",
+   "15:15:no-member:Instance of 'Test' has no 'aloha' member",
+   "13:0:too-few-public-methods:Too few public methods (1/2)"
+  ],
+  "snippets_auto/i3348_block0.py": [
+   "3:0:no-name-in-module:No name 'FMT_BINARY' in module 'plistlib'"
+  ],
+  "snippets_auto/i3420_block0.py": [
+   "53:0:trailing-newlines:Trailing newlines"
+  ],
+  "snippets_auto/i3484_block0.py": [
+   "5:0:import-error:Unable to import 'cached_property'",
+   "14:4:missing-function-docstring:Missing function or method docstring",
+   "15:11:using-constant-test:Using a conditional statement with a constant value",
+   "8:0:too-few-public-methods:Too few public methods (1/2)",
+   "23:0:missing-function-docstring:Missing function or method docstring"
+  ],
+  "snippets_auto/i3492_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "3:0:missing-class-docstring:Missing class docstring",
+   "3:0:too-few-public-methods:Too few public methods (0/2)",
+   "8:0:missing-class-docstring:Missing class docstring",
+   "8:0:too-few-public-methods:Too few public methods (0/2)",
+   "11:6:too-many-function-args:Too many positional arguments for constructor call"
+  ],
+  "snippets_auto/i3531_block0.py": [
+   "1:13:syntax-error:Parsing failed: 'invalid syntax (i3531_block0, line 1)'"
+  ],
+  "snippets_auto/i3531_block1.py": [
+   "6:0:locally-disabled:Locally disabling too-few-public-methods (R0903)",
+   "6:0:locally-disabled:Locally disabling missing-function-docstring (C0116)",
+   "6:0:locally-disabled:Locally disabling missing-class-docstring (C0115)",
+   "6:0:locally-disabled:Locally disabling too-many-arguments (R0913)",
+   "6:0:useless-suppression:Useless suppression of 'too-many-arguments'",
+   "36:0:suppressed-message:Suppressed 'missing-function-docstring' (from line 6)",
+   "43:0:suppressed-message:Suppressed 'missing-function-docstring' (from line 6)",
+   "13:0:suppressed-message:Suppressed 'missing-function-docstring' (from line 6)",
+   "61:0:suppressed-message:Suppressed 'missing-function-docstring' (from line 6)",
+   "53:0:suppressed-message:Suppressed 'missing-function-docstring' (from line 6)",
+   "22:0:suppressed-message:Suppressed 'missing-function-docstring' (from line 6)",
+   "29:0:suppressed-message:Suppressed 'missing-function-docstring' (from line 6)",
+   "18:0:suppressed-message:Suppressed 'too-few-public-methods' (from line 6)",
+   "41:0:suppressed-message:Suppressed 'missing-class-docstring' (from line 6)",
+   "34:0:suppressed-message:Suppressed 'missing-class-docstring' (from line 6)",
+   "59:0:suppressed-message:Suppressed 'missing-class-docstring' (from line 6)",
+   "49:0:suppressed-message:Suppressed 'missing-class-docstring' (from line 6)"
+  ],
+  "snippets_auto/i3637_block0.py": [
+   "7:0:trailing-newlines:Trailing newlines",
+   "1:0:missing-module-docstring:Missing module docstring",
+   "3:0:invalid-name:Constant name \"data\" doesn't conform to UPPER_CASE naming style",
+   "6:15:unsubscriptable-object:Value 'data' is unsubscriptable"
+  ],
+  "snippets_auto/i3656_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-function-docstring:Missing function or method docstring",
+   "1:0:disallowed-name:Disallowed name \"foo\"",
+   "5:8:raise-missing-from:Consider explicitly re-raising using 'except Exception as exc' and 'raise Exception() from exc'",
+   "5:8:broad-exception-raised:Raising too general exception: Exception",
+   "1:8:unused-argument:Unused argument 'arg'"
+  ],
+  "snippets_auto/i3656_block1.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-function-docstring:Missing function or method docstring",
+   "1:0:disallowed-name:Disallowed name \"foo\"",
+   "7:8:raise-missing-from:Consider explicitly re-raising using 'except Exception as exc' and 'raise Exception() from exc'",
+   "7:8:broad-exception-raised:Raising too general exception: Exception"
+  ],
+  "snippets_auto/i3656_block2.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-function-docstring:Missing function or method docstring",
+   "1:0:disallowed-name:Disallowed name \"foo\"",
+   "4:4:bare-except:No exception type(s) specified",
+   "6:12:raise-missing-from:Consider explicitly re-raising using 'except Exception as exc' and 'raise Exception() from exc'",
+   "6:12:broad-exception-raised:Raising too general exception: Exception",
+   "1:0:useless-return:Useless return at end of function or method"
+  ],
+  "snippets_auto/i3662_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "3:0:missing-class-docstring:Missing class docstring",
+   "7:4:missing-function-docstring:Missing function or method docstring",
+   "9:34:consider-using-f-string:Formatting a regular string which could be an f-string",
+   "7:0:unused-argument:Unused argument 'kwargs'",
+   "7:4:no-self-use:Method could be a function"
+  ],
+  "snippets_auto/i3801_block0.py": [
+   "2:1:syntax-error:Parsing failed: 'invalid non-printable character U+200B (i3801_block0, line 2)'"
+  ],
+  "snippets_auto/i3804_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "8:0:missing-class-docstring:Missing class docstring",
+   "12:18:undefined-variable:Undefined variable 'String'",
+   "15:4:missing-function-docstring:Missing function or method docstring",
+   "19:4:missing-function-docstring:Missing function or method docstring",
+   "19:4:no-self-argument:Method 'name_lower' should have \"self\" as first argument",
+   "19:24:unused-argument:Unused argument 'value'",
+   "8:0:too-few-public-methods:Too few public methods (1/2)"
+  ],
+  "snippets_auto/i3911_block0.py": [
+   "1:4:syntax-error:Parsing failed: 'unexpected indent (i3911_block0, line 1)'"
+  ],
+  "snippets_auto/i3911_block1.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "3:0:missing-class-docstring:Missing class docstring",
+   "4:4:arguments-differ:Number of parameters was 4 in 'UpdateModelMixin.update' and is now 4 in overriding 'SomeView.update' method",
+   "4:4:arguments-differ:Variadics removed in overriding 'SomeView.update' method",
+   "10:4:arguments-differ:Number of parameters was 4 in 'RetrieveModelMixin.retrieve' and is now 4 in overriding 'SomeView.retrieve' method",
+   "10:4:arguments-differ:Variadics removed in overriding 'SomeView.retrieve' method"
+  ],
+  "snippets_auto/i392_block0.py": [
+   "27:5:syntax-error:Parsing failed: 'Missing parentheses in call to 'print'. Did you mean print(...)? (i392_block0, line 27)'"
+  ],
+  "snippets_auto/i392_block1.py": [
+   "3:13:syntax-error:Parsing failed: 'invalid syntax (i392_block1, line 3)'"
+  ],
+  "snippets_auto/i392_block2.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "2:0:missing-function-docstring:Missing function or method docstring",
+   "2:0:invalid-name:Function name \"findByName\" doesn't conform to snake_case naming style",
+   "3:18:undefined-variable:Undefined variable 'xrange'",
+   "4:14:undefined-variable:Undefined variable 'Users'",
+   "3:8:unused-variable:Unused variable 'unused'"
+  ],
+  "snippets_auto/i3933_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "2:4:wildcard-import:Wildcard import local",
+   "4:4:relative-beyond-top-level:Attempted relative import beyond top-level package",
+   "4:4:wildcard-import:Wildcard import base"
+  ],
+  "snippets_auto/i3955_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "2:0:import-error:Unable to import 'flask_sqlalchemy'"
+  ],
+  "snippets_auto/i3955_block1.py": [
+   "7:0:trailing-whitespace:Trailing whitespace",
+   "14:0:line-too-long:Line too long (143/100)",
+   "1:0:missing-module-docstring:Missing module docstring",
+   "4:0:import-error:Unable to import 'app'",
+   "6:0:missing-class-docstring:Missing class docstring",
+   "9:4:missing-function-docstring:Missing function or method docstring",
+   "9:4:no-self-argument:Method 'account_id' should have \"self\" as first argument",
+   "9:4:no-self-use:Method could be a function",
+   "13:4:missing-function-docstring:Missing function or method docstring"
+  ],
+  "snippets_auto/i3984_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-function-docstring:Missing function or method docstring"
+  ],
+  "snippets_auto/i3984_block1.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:import-error:Unable to import 'a'"
+  ],
+  "snippets_auto/i4002_block0.py": [
+   "1:4:syntax-error:Parsing failed: 'unexpected indent (i4002_block0, line 1)'"
+  ],
+  "snippets_auto/i4047_block0.py": [
+   "9:4:consider-ternary-expression:Consider rewriting as a ternary expression",
+   "9:7:condition-evals-to-constant:Boolean condition 'True and True' will always evaluate to 'True'",
+   "18:14:no-member:Instance of 'bool' has no 'name' member"
+  ],
+  "snippets_auto/i4121_block0.py": [
+   "8:0:locally-disabled:Locally disabling invalid-name (C0103)",
+   "1:0:missing-module-docstring:Missing module docstring",
+   "5:23:use-set-for-membership:Consider using set for membership test",
+   "1:0:too-few-public-methods:Too few public methods (1/2)",
+   "15:13:unsupported-membership-test:Value 'Singleton()' doesn't support membership test",
+   "15:6:magic-value-comparison:Consider using a named constant or an enum instead of ''a''.",
+   "16:13:unsupported-membership-test:Value 'Singleton()' doesn't support membership test",
+   "16:6:magic-value-comparison:Consider using a named constant or an enum instead of ''b''.",
+   "9:0:suppressed-message:Suppressed 'invalid-name' (from line 8)"
+  ],
+  "snippets_auto/i4137_block0.py": [
+   "8:0:locally-disabled:Locally disabling global-statement (W0603)",
+   "15:0:locally-disabled:Locally disabling global-statement (W0603)",
+   "1:0:bad-docstring-quotes:Bad docstring quotes in module, expected \"\"\", given \"",
+   "6:0:bad-docstring-quotes:Bad docstring quotes in function, expected \"\"\", given \"",
+   "13:0:bad-docstring-quotes:Bad docstring quotes in function, expected \"\"\", given \"",
+   "15:4:global-variable-not-assigned:Using global for 'KAZOO_CLIENT' but no assignment is done",
+   "15:0:useless-suppression:Useless suppression of 'global-statement'",
+   "8:0:suppressed-message:Suppressed 'global-statement' (from line 8)"
+  ],
+  "snippets_auto/i4137_block1.py": [
+   "1:0:bad-docstring-quotes:Bad docstring quotes in module, expected \"\"\", given \"",
+   "2:0:import-error:Unable to import 'pt1'"
+  ],
+  "snippets_auto/i4278_block0.py": [
+   "10:0:trailing-newlines:Trailing newlines",
+   "1:0:missing-module-docstring:Missing module docstring",
+   "4:0:missing-class-docstring:Missing class docstring"
+  ],
+  "snippets_auto/i4386_block0.py": [
+   "1:0:locally-disabled:Locally disabling missing-module-docstring (C0114)",
+   "1:0:locally-disabled:Locally disabling missing-class-docstring (C0115)",
+   "1:0:locally-disabled:Locally disabling missing-function-docstring (C0116)",
+   "28:0:trailing-newlines:Trailing newlines",
+   "9:35:consider-alternative-union-syntax:Consider using alternative union syntax instead of 'Union'",
+   "22:14:too-many-function-args:Too many positional arguments for function call",
+   "7:19:deprecated-typing-alias:'typing.Callable' is deprecated, use 'collections.abc.Callable' instead",
+   "1:0:useless-suppression:Useless suppression of 'missing-class-docstring'",
+   "1:0:suppressed-message:Suppressed 'missing-module-docstring' (from line 1)",
+   "17:0:suppressed-message:Suppressed 'missing-function-docstring' (from line 1)",
+   "21:0:suppressed-message:Suppressed 'missing-function-docstring' (from line 1)",
+   "7:0:suppressed-message:Suppressed 'missing-function-docstring' (from line 1)"
+  ],
+  "snippets_auto/i4386_block1.py": [
+   "1:13:syntax-error:Parsing failed: 'invalid syntax (i4386_block1, line 1)'"
+  ],
+  "snippets_auto/i4444_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:import-error:Unable to import 'a'",
+   "1:0:unused-import:Unused b imported from a"
+  ],
+  "snippets_auto/i4542_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "5:0:too-few-public-methods:Too few public methods (0/2)",
+   "7:0:invalid-name:Constant name \"_some_constant\" doesn't conform to UPPER_CASE naming style"
+  ],
+  "snippets_auto/i4556_block0.py": [
+   "1:0:locally-disabled:Locally disabling missing-module-docstring (C0114)",
+   "1:0:locally-disabled:Locally disabling missing-class-docstring (C0115)",
+   "1:0:locally-disabled:Locally disabling missing-function-docstring (C0116)",
+   "4:0:unexpected-keyword-arg:Unexpected keyword argument 'hello' in classmethod call",
+   "1:0:useless-suppression:Useless suppression of 'missing-class-docstring'",
+   "1:0:useless-suppression:Useless suppression of 'missing-function-docstring'",
+   "1:0:suppressed-message:Suppressed 'missing-module-docstring' (from line 1)"
+  ],
+  "snippets_auto/i4577_block0.py": [
+   "1:0:locally-disabled:Locally disabling missing-module-docstring (C0114)",
+   "1:0:suppressed-message:Suppressed 'missing-module-docstring' (from line 1)"
+  ],
+  "snippets_auto/i4577_block1.py": [
+   "1:12:syntax-error:Parsing failed: 'invalid syntax (i4577_block1, line 1)'"
+  ],
+  "snippets_auto/i4584_block0.py": [
+   "1:0:locally-disabled:Locally disabling missing-module-docstring (C0114)",
+   "1:0:locally-disabled:Locally disabling missing-class-docstring (C0115)",
+   "1:0:locally-disabled:Locally disabling missing-function-docstring (C0116)",
+   "6:0:trailing-newlines:Trailing newlines",
+   "5:0:no-member:Module 'requests.packages' has no 'urllib3' member",
+   "1:0:useless-suppression:Useless suppression of 'missing-class-docstring'",
+   "1:0:useless-suppression:Useless suppression of 'missing-function-docstring'",
+   "1:0:suppressed-message:Suppressed 'missing-module-docstring' (from line 1)"
+  ],
+  "snippets_auto/i4584_block1.py": [
+   "1:15:syntax-error:Parsing failed: 'invalid syntax (i4584_block1, line 1)'"
+  ],
+  "snippets_auto/i4617_block0.py": [
+   "5:0:trailing-whitespace:Trailing whitespace",
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-class-docstring:Missing class docstring",
+   "6:4:no-self-use:Method could be a function",
+   "1:0:too-few-public-methods:Too few public methods (1/2)"
+  ],
+  "snippets_auto/i4667_block0.py": [
+   "1:0:docstring-first-line-empty:First line empty in module docstring",
+   "18:0:docstring-first-line-empty:First line empty in class docstring",
+   "33:0:docstring-first-line-empty:First line empty in function docstring"
+  ],
+  "snippets_auto/i4690_block0.py": [
+   "2:4:syntax-error:Parsing failed: 'unexpected indent (i4690_block0, line 2)'"
+  ],
+  "snippets_auto/i4690_block1.py": [
+   "1:10:syntax-error:Parsing failed: 'invalid syntax (i4690_block1, line 1)'"
+  ],
+  "snippets_auto/i4693_block0.py": [
+   "1:4:syntax-error:Parsing failed: 'unexpected indent (i4693_block0, line 1)'"
+  ],
+  "snippets_auto/i4694_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "6:0:missing-class-docstring:Missing class docstring",
+   "15:0:missing-class-docstring:Missing class docstring",
+   "24:0:missing-function-docstring:Missing function or method docstring",
+   "32:10:unsubscriptable-object:Value 'serializer.data' is unsubscriptable",
+   "34:4:redefined-variable-type:Redefinition of serializer type from i4694_block0.DataSerializerWithError to i4694_block0.DataSerializerWithoutError"
+  ],
+  "snippets_auto/i4697_block0.py": [
+   "1:0:locally-disabled:Locally disabling missing-module-docstring (C0114)",
+   "1:0:locally-disabled:Locally disabling missing-class-docstring (C0115)",
+   "12:0:line-too-long:Line too long (101/100)",
+   "13:33:trailing-whitespace:Trailing whitespace",
+   "6:0:consider-ternary-expression:Consider rewriting as a ternary expression",
+   "1:0:suppressed-message:Suppressed 'missing-module-docstring' (from line 1)",
+   "13:0:suppressed-message:Suppressed 'missing-class-docstring' (from line 1)"
+  ],
+  "snippets_auto/i4697_block1.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:consider-ternary-expression:Consider rewriting as a ternary expression",
+   "1:7:undefined-variable:Undefined variable 'typing'",
+   "2:19:undefined-variable:Undefined variable 'models'",
+   "4:19:undefined-variable:Undefined variable 'models'",
+   "4:35:undefined-variable:Undefined variable 'models'"
+  ],
+  "snippets_auto/i4739_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:import-error:Unable to import 'web3'",
+   "2:0:import-error:Unable to import 'web3._utils.abi'",
+   "6:0:invalid-name:Constant name \"address\" doesn't conform to UPPER_CASE naming style",
+   "8:0:invalid-name:Constant name \"method_name\" doesn't conform to UPPER_CASE naming style",
+   "9:0:invalid-name:Constant name \"arguments\" doesn't conform to UPPER_CASE naming style",
+   "11:9:protected-access:Access to a protected member _find_matching_fn_abi of a client class",
+   "16:0:invalid-name:Constant name \"result\" doesn't conform to UPPER_CASE naming style",
+   "19:0:consider-ternary-expression:Consider rewriting as a ternary expression"
+  ],
+  "snippets_auto/i4899_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "11:16:undefined-variable:Undefined variable 'Item'",
+   "13:29:undefined-variable:Undefined variable 'Item'",
+   "18:45:undefined-variable:Undefined variable 'Item'",
+   "11:11:deprecated-typing-alias:'typing.List' is deprecated, use 'list' instead"
+  ],
+  "snippets_auto/i4911_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring"
+  ],
+  "snippets_auto/i4912_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:12:unused-argument:Unused argument 'arg_a'",
+   "1:23:unused-argument:Unused argument 'arg_b'",
+   "3:4:possibly-unused-variable:Possibly unused variable 'var_c'"
+  ],
+  "snippets_auto/i4917_block0.py": [
+   "1:4:syntax-error:Parsing failed: 'unexpected indent (i4917_block0, line 1)'"
+  ],
+  "snippets_auto/i5061_block0.py": [],
+  "snippets_auto/i5270_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-class-docstring:Missing class docstring",
+   "2:4:missing-function-docstring:Missing function or method docstring",
+   "1:0:too-few-public-methods:Too few public methods (1/2)",
+   "5:0:missing-class-docstring:Missing class docstring",
+   "5:0:too-few-public-methods:Too few public methods (1/2)"
+  ],
+  "snippets_auto/i5321_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "11:14:consider-alternative-union-syntax:Consider using alternative union syntax instead of 'Optional'",
+   "21:7:consider-using-with:Consider using 'with' for resource-allocating operations",
+   "22:7:consider-using-with:Consider using 'with' for resource-allocating operations",
+   "23:7:consider-using-with:Consider using 'with' for resource-allocating operations",
+   "24:7:consider-using-with:Consider using 'with' for resource-allocating operations"
+  ],
+  "snippets_auto/i5337_block0.py": [
+   "1:0:locally-disabled:Locally disabling missing-module-docstring (C0114)",
+   "1:0:locally-disabled:Locally disabling missing-class-docstring (C0115)",
+   "1:0:locally-disabled:Locally disabling missing-function-docstring (C0116)",
+   "7:28:consider-using-with:Consider using 'with' for resource-allocating operations",
+   "1:0:useless-suppression:Useless suppression of 'missing-class-docstring'",
+   "1:0:suppressed-message:Suppressed 'missing-module-docstring' (from line 1)",
+   "5:0:suppressed-message:Suppressed 'missing-function-docstring' (from line 1)"
+  ],
+  "snippets_auto/i5363_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "5:0:subprocess-run-check:'subprocess.run' used without explicitly defining the value for 'check'."
+  ],
+  "snippets_auto/i5480_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "4:0:missing-function-docstring:Missing function or method docstring",
+   "5:8:redefined-builtin:Redefining built-in 'dict'",
+   "4:33:undefined-loop-variable:Using possibly undefined loop variable 'dict'",
+   "4:54:undefined-loop-variable:Using possibly undefined loop variable 'dict'",
+   "4:28:deprecated-typing-alias:'typing.List' is deprecated, use 'list' instead"
+  ],
+  "snippets_auto/i5508_block0.py": [
+   "25:41:cell-var-from-loop:Cell variable category defined in loop"
+  ],
+  "snippets_auto/i5533_block0.py": [
+   "2:0:trailing-whitespace:Trailing whitespace",
+   "1:0:missing-module-docstring:Missing module docstring",
+   "4:8:consider-using-f-string:Formatting a regular string which could be an f-string",
+   "5:8:consider-using-f-string:Formatting a regular string which could be an f-string"
+  ],
+  "snippets_auto/i553_block0.py": [
+   "21:0:trailing-newlines:Trailing newlines",
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-class-docstring:Missing class docstring",
+   "2:4:missing-function-docstring:Missing function or method docstring",
+   "2:4:no-self-use:Method could be a function",
+   "1:0:too-few-public-methods:Too few public methods (1/2)",
+   "6:0:missing-class-docstring:Missing class docstring",
+   "10:4:missing-function-docstring:Missing function or method docstring",
+   "6:0:too-few-public-methods:Too few public methods (1/2)",
+   "14:0:missing-function-docstring:Missing function or method docstring"
+  ],
+  "snippets_auto/i5543_block0.py": [
+   "1:0:locally-disabled:Locally disabling missing-module-docstring (C0114)",
+   "1:0:locally-disabled:Locally disabling missing-class-docstring (C0115)",
+   "1:0:locally-disabled:Locally disabling missing-function-docstring (C0116)",
+   "5:0:unsupported-assignment-operation:'a' does not support item assignment",
+   "1:0:useless-suppression:Useless suppression of 'missing-class-docstring'",
+   "1:0:useless-suppression:Useless suppression of 'missing-function-docstring'",
+   "1:0:suppressed-message:Suppressed 'missing-module-docstring' (from line 1)"
+  ],
+  "snippets_auto/i5551_block0.py": [
+   "2:0:bad-indentation:Bad indentation. Found 5 spaces, expected 4",
+   "3:0:bad-indentation:Bad indentation. Found 5 spaces, expected 4",
+   "4:0:bad-indentation:Bad indentation. Found 9 spaces, expected 8",
+   "5:0:bad-indentation:Bad indentation. Found 13 spaces, expected 12",
+   "8:0:bad-indentation:Bad indentation. Found 5 spaces, expected 4",
+   "9:0:bad-indentation:Bad indentation. Found 5 spaces, expected 4",
+   "10:0:bad-indentation:Bad indentation. Found 9 spaces, expected 8",
+   "11:0:bad-indentation:Bad indentation. Found 9 spaces, expected 8",
+   "1:0:missing-module-docstring:Missing module docstring",
+   "4:12:using-constant-test:Using a conditional statement with a constant value",
+   "1:0:too-few-public-methods:Too few public methods (0/2)",
+   "7:0:too-few-public-methods:Too few public methods (0/2)"
+  ],
+  "snippets_auto/i5655_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:no-name-in-module:No name 'FigureCanvas' in module 'matplotlib.backends.backend_agg'",
+   "1:0:unused-import:Unused FigureCanvas imported from matplotlib.backends.backend_agg"
+  ],
+  "snippets_auto/i5705_block0.py": [
+   "13:0:line-too-long:Line too long (123/100)",
+   "31:0:line-too-long:Line too long (124/100)",
+   "1:0:missing-module-docstring:Missing module docstring",
+   "6:0:abstract-method:Method '__iter__' is abstract in class 'Iterable' but is not overridden in child class 'Data'",
+   "6:0:too-few-public-methods:Too few public methods (0/2)",
+   "15:0:function-redefined:class already defined line 6",
+   "15:0:abstract-method:Method '__iter__' is abstract in class 'Iterable' but is not overridden in child class 'Data'",
+   "15:0:too-few-public-methods:Too few public methods (0/2)",
+   "24:0:function-redefined:class already defined line 6",
+   "24:0:abstract-method:Method '__contains__' is abstract in class 'Container' but is not overridden in child class 'Data'",
+   "24:0:too-few-public-methods:Too few public methods (0/2)",
+   "33:0:function-redefined:class already defined line 6",
+   "33:0:abstract-method:Method '__contains__' is abstract in class 'Container' but is not overridden in child class 'Data'",
+   "33:0:too-few-public-methods:Too few public methods (0/2)"
+  ],
+  "snippets_auto/i5794_block0.py": [
+   "6:0:line-too-long:Line too long (105/100)",
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-class-docstring:Missing class docstring",
+   "1:0:invalid-name:Class name \"EF_DIR\" doesn't conform to PascalCase naming style",
+   "1:13:undefined-variable:Undefined variable 'LinFixedEF'",
+   "2:4:missing-class-docstring:Missing class docstring",
+   "2:27:undefined-variable:Undefined variable 'BER_TLV_IE'",
+   "3:21:undefined-variable:Undefined variable 'GreedyString'",
+   "2:4:too-few-public-methods:Too few public methods (0/2)",
+   "5:4:missing-class-docstring:Missing class docstring",
+   "5:30:undefined-variable:Undefined variable 'BER_TLV_IE'",
+   "6:38:undefined-variable:Undefined variable 'iso7816_4'",
+   "6:63:undefined-variable:Undefined variable 'ApplicationLabel'",
+   "6:81:undefined-variable:Undefined variable 'iso7816_4'",
+   "7:38:undefined-variable:Undefined variable 'iso7816_4'",
+   "7:61:undefined-variable:Undefined variable 'iso7816_4'",
+   "8:38:undefined-variable:Undefined variable 'iso7816_4'",
+   "8:71:undefined-variable:Undefined variable 'iso7816_4'",
+   "9:38:undefined-variable:Undefined variable 'iso7816_4'",
+   "5:4:too-few-public-methods:Too few public methods (0/2)",
+   "1:0:too-few-public-methods:Too few public methods (0/2)"
+  ],
+  "snippets_auto/i5831_block0.py": [
+   "1:0:bad-docstring-quotes:Bad docstring quotes in module, expected \"\"\", given \""
+  ],
+  "snippets_auto/i5947_block0.py": [
+   "3:0:import-error:Unable to import 'unicon.core.errors'"
+  ],
+  "snippets_auto/i5_block0.py": [
+   "5:0:trailing-newlines:Trailing newlines",
+   "1:0:missing-module-docstring:Missing module docstring"
+  ],
+  "snippets_auto/i6044_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-class-docstring:Missing class docstring",
+   "4:4:missing-function-docstring:Missing function or method docstring",
+   "9:31:not-an-iterable:Non-iterable value Wat.get_asdf() is used in an iterating context",
+   "1:0:too-few-public-methods:Too few public methods (1/2)"
+  ],
+  "snippets_auto/i6085_block0.py": [
+   "1:0:locally-disabled:Locally disabling consider-using-f-string (C0209)",
+   "1:0:locally-disabled:Locally disabling missing-module-docstring (C0114)",
+   "3:6:bad-format-character:Unsupported format character 'v' (0x76) at index 9",
+   "1:0:suppressed-message:Suppressed 'missing-module-docstring' (from line 1)",
+   "3:0:suppressed-message:Suppressed 'consider-using-f-string' (from line 1)",
+   "4:0:suppressed-message:Suppressed 'consider-using-f-string' (from line 1)"
+  ],
+  "snippets_auto/i6163_block0.py": [
+   "1:0:locally-disabled:Locally disabling consider-using-f-string (C0209)",
+   "1:0:locally-disabled:Locally disabling missing-module-docstring (C0114)",
+   "3:6:bad-string-format-type:Argument 'builtins.str' does not match format type 'd'",
+   "4:6:bad-string-format-type:Argument 'builtins.str' does not match format type 'd'",
+   "1:0:suppressed-message:Suppressed 'missing-module-docstring' (from line 1)",
+   "3:0:suppressed-message:Suppressed 'consider-using-f-string' (from line 1)",
+   "4:0:suppressed-message:Suppressed 'consider-using-f-string' (from line 1)",
+   "6:0:suppressed-message:Suppressed 'consider-using-f-string' (from line 1)"
+  ],
+  "snippets_auto/i6352_block0.py": [
+   "9:0:locally-disabled:Locally disabling wrong-import-position (C0413)",
+   "56:0:trailing-newlines:Trailing newlines",
+   "1:0:docstring-first-line-empty:First line empty in module docstring",
+   "7:0:import-error:Unable to import 'gi'",
+   "10:0:import-error:Unable to import 'gi.repository'",
+   "13:0:docstring-first-line-empty:First line empty in class docstring",
+   "13:0:too-few-public-methods:Too few public methods (0/2)",
+   "18:17:deprecated-typing-alias:'typing.Tuple' is deprecated, use 'tuple' instead",
+   "10:0:suppressed-message:Suppressed 'wrong-import-position' (from line 9)"
+  ],
+  "snippets_auto/i6484_block0.py": [
+   "1:0:locally-disabled:Locally disabling missing-module-docstring (C0114)",
+   "1:0:locally-disabled:Locally disabling pointless-statement (W0104)",
+   "10:0:locally-disabled:Locally disabling unused-import (W0611)",
+   "24:0:consider-alternative-union-syntax:Consider using alternative union syntax instead of 'Optional'",
+   "26:0:consider-alternative-union-syntax:Consider using alternative union syntax instead of 'Union'",
+   "3:0:unused-import:Unused Iterator imported from typing",
+   "19:0:deprecated-typing-alias:'typing.Callable' is deprecated, use 'collections.abc.Callable' instead",
+   "20:0:deprecated-typing-alias:'typing.Collection' is deprecated, use 'collections.abc.Collection' instead",
+   "21:0:deprecated-typing-alias:'typing.Dict' is deprecated, use 'dict' instead",
+   "22:0:deprecated-typing-alias:'typing.Generator' is deprecated, use 'collections.abc.Generator' instead",
+   "23:0:deprecated-typing-alias:'typing.List' is deprecated, use 'list' instead",
+   "25:0:deprecated-typing-alias:'typing.Tuple' is deprecated, use 'tuple' instead",
+   "10:0:useless-suppression:Useless suppression of 'unused-import'",
+   "1:0:suppressed-message:Suppressed 'missing-module-docstring' (from line 1)",
+   "17:0:suppressed-message:Suppressed 'pointless-statement' (from line 1)",
+   "18:0:suppressed-message:Suppressed 'pointless-statement' (from line 1)",
+   "19:0:suppressed-message:Suppressed 'pointless-statement' (from line 1)",
+   "20:0:suppressed-message:Suppressed 'pointless-statement' (from line 1)",
+   "21:0:suppressed-message:Suppressed 'pointless-statement' (from line 1)",
+   "22:0:suppressed-message:Suppressed 'pointless-statement' (from line 1)",
+   "23:0:suppressed-message:Suppressed 'pointless-statement' (from line 1)",
+   "24:0:suppressed-message:Suppressed 'pointless-statement' (from line 1)",
+   "25:0:suppressed-message:Suppressed 'pointless-statement' (from line 1)",
+   "26:0:suppressed-message:Suppressed 'pointless-statement' (from line 1)"
+  ],
+  "snippets_auto/i6535_block0.py": [
+   "1:3:syntax-error:Parsing failed: 'unexpected indent (i6535_block0, line 1)'"
+  ],
+  "snippets_auto/i6568_block0.py": [
+   "49:0:line-too-long:Line too long (124/100)",
+   "54:0:line-too-long:Line too long (143/100)",
+   "79:0:line-too-long:Line too long (145/100)",
+   "87:0:line-too-long:Line too long (127/100)",
+   "135:0:line-too-long:Line too long (133/100)",
+   "141:0:line-too-long:Line too long (132/100)",
+   "146:0:trailing-newlines:Trailing newlines",
+   "1:0:docstring-first-line-empty:First line empty in module docstring",
+   "8:0:missing-function-docstring:Missing function or method docstring",
+   "12:0:missing-function-docstring:Missing function or method docstring",
+   "12:0:invalid-name:Function name \"moduleFunction\" doesn't conform to snake_case naming style",
+   "16:0:missing-function-docstring:Missing function or method docstring",
+   "16:0:invalid-name:Function name \"ModuleFunction\" doesn't conform to snake_case naming style",
+   "20:0:docstring-first-line-empty:First line empty in class docstring",
+   "26:4:invalid-name:Class constant name \"snake_case\" doesn't conform to UPPER_CASE naming style",
+   "27:4:invalid-name:Class constant name \"_snake_case\" doesn't conform to UPPER_CASE naming style",
+   "28:4:invalid-name:Class constant name \"__snake_case\" doesn't conform to UPPER_CASE naming style",
+   "30:4:invalid-name:Class constant name \"camelCase\" doesn't conform to UPPER_CASE naming style",
+   "31:4:invalid-name:Class constant name \"_camelCase\" doesn't conform to UPPER_CASE naming style",
+   "32:4:invalid-name:Class constant name \"__camelCase\" doesn't conform to UPPER_CASE naming style",
+   "34:4:invalid-name:Class constant name \"PascalCase\" doesn't conform to UPPER_CASE naming style",
+   "35:4:invalid-name:Class constant name \"_PascalCase\" doesn't conform to UPPER_CASE naming style",
+   "36:4:invalid-name:Class constant name \"__PascalCase\" doesn't conform to UPPER_CASE naming style",
+   "28:4:unused-private-member:Unused private member `SampleEnum.__snake_case`",
+   "32:4:unused-private-member:Unused private member `SampleEnum.__camelCase`",
+   "36:4:unused-private-member:Unused private member `SampleEnum.__PascalCase`",
+   "100:8:invalid-name:Attribute name \"camelCaseAttr\" doesn't conform to snake_case naming style",
+   "101:8:invalid-name:Attribute name \"_camelCaseAttr\" doesn't conform to snake_case naming style",
+   "102:8:invalid-name:Attribute name \"__camelCaseAttr\" doesn't conform to snake_case naming style",
+   "104:8:invalid-name:Attribute name \"PascalCaseAttr\" doesn't conform to snake_case naming style",
+   "105:8:invalid-name:Attribute name \"_PascalCaseAttr\" doesn't conform to snake_case naming style",
+   "106:8:invalid-name:Attribute name \"__PascalCaseAttr\" doesn't conform to snake_case naming style",
+   "39:0:too-many-instance-attributes:Too many instance attributes (9/7)",
+   "39:0:docstring-first-line-empty:First line empty in class docstring",
+   "59:4:missing-function-docstring:Missing function or method docstring",
+   "71:4:missing-function-docstring:Missing function or method docstring",
+   "71:4:invalid-name:Method name \"classMethodCamelCase\" doesn't conform to snake_case naming style",
+   "75:4:invalid-name:Method name \"_classMethodCamelCase\" doesn't conform to snake_case naming style",
+   "79:4:invalid-name:Method name \"__classMethodCamelCase\" doesn't conform to snake_case naming style",
+   "83:4:missing-function-docstring:Missing function or method docstring",
+   "83:4:invalid-name:Method name \"ClassMethodPascalCase\" doesn't conform to snake_case naming style",
+   "87:4:invalid-name:Method name \"_ClassMethodPascalCase\" doesn't conform to snake_case naming style",
+   "91:4:invalid-name:Method name \"__ClassMethodPascalCase\" doesn't conform to snake_case naming style",
+   "108:4:missing-function-docstring:Missing function or method docstring",
+   "129:4:missing-function-docstring:Missing function or method docstring",
+   "129:4:invalid-name:Method name \"camelCaseMethod\" doesn't conform to snake_case naming style",
+   "132:4:invalid-name:Method name \"_camelCaseMethod\" doesn't conform to snake_case naming style",
+   "135:4:invalid-name:Method name \"__camelCaseMethod\" doesn't conform to snake_case naming style",
+   "138:4:missing-function-docstring:Missing function or method docstring",
+   "138:4:invalid-name:Method name \"PascalCaseMethod\" doesn't conform to snake_case naming style",
+   "141:4:invalid-name:Method name \"_PascalCaseMethod\" doesn't conform to snake_case naming style",
+   "144:4:invalid-name:Method name \"__PascalCaseMethod\" doesn't conform to snake_case naming style"
+  ],
+  "snippets_auto/i6748_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "6:0:missing-class-docstring:Missing class docstring",
+   "9:11:used-before-assignment:Using variable 'collections' before assignment"
+  ],
+  "snippets_auto/i7098_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "2:0:missing-class-docstring:Missing class docstring",
+   "3:4:global-statement:Using the global statement",
+   "2:0:too-few-public-methods:Too few public methods (0/2)"
+  ],
+  "snippets_auto/i7100_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-function-docstring:Missing function or method docstring",
+   "1:0:disallowed-name:Disallowed name \"foo\"",
+   "3:8:disallowed-name:Disallowed name \"bar\"",
+   "4:18:cell-var-from-loop:Cell variable i defined in loop"
+  ],
+  "snippets_auto/i7238_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:import-error:Unable to import 'tensorflow'"
+  ],
+  "snippets_auto/i7258_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "4:0:missing-class-docstring:Missing class docstring",
+   "6:4:missing-class-docstring:Missing class docstring",
+   "6:4:invalid-name:Class name \"response\" doesn't conform to PascalCase naming style",
+   "4:0:too-few-public-methods:Too few public methods (1/2)",
+   "13:7:magic-value-comparison:Consider using a named constant or an enum instead of '42'.",
+   "13:7:no-member:Instance of 'Chameleon' has no 'universe' member"
+  ],
+  "snippets_auto/i7282_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "14:12:no-member:Instance of 'str' has no 'match' member",
+   "17:0:consider-using-dict-items:Consider iterating with .items()"
+  ],
+  "snippets_auto/i7282_block1.py": [
+   "1:1:syntax-error:Parsing failed: 'invalid syntax (i7282_block1, line 1)'"
+  ],
+  "snippets_auto/i7283_block0.py": [
+   "6:0:import-error:Unable to import 'i2c'",
+   "10:7:magic-value-comparison:Consider using a named constant or an enum instead of ''-f''."
+  ],
+  "snippets_auto/i7283_block1.py": [
+   "7:0:locally-disabled:Locally disabling c-extension-no-member (I1101)",
+   "7:0:use-symbolic-message-instead:'I1101' is cryptic: use '# pylint: disable=c-extension-no-member' instead",
+   "1:0:missing-module-docstring:Missing module docstring",
+   "2:0:import-error:Unable to import 'smbus'",
+   "4:0:missing-class-docstring:Missing class docstring",
+   "10:4:missing-function-docstring:Missing function or method docstring",
+   "4:0:too-few-public-methods:Too few public methods (1/2)",
+   "1:0:unused-import:Unused datetime imported from datetime",
+   "7:0:useless-suppression:Useless suppression of 'c-extension-no-member'"
+  ],
+  "snippets_auto/i7289_block0.py": [],
+  "snippets_auto/i7351_block0.py": [
+   "1:0:locally-disabled:Locally disabling missing-module-docstring (C0114)",
+   "1:0:locally-disabled:Locally disabling missing-class-docstring (C0115)",
+   "7:0:locally-disabled:Locally disabling too-few-public-methods (R0903)",
+   "13:0:locally-disabled:Locally disabling missing-function-docstring (C0116)",
+   "20:36:unnecessary-dunder-call:Unnecessarily calls dunder method __setitem__. Set item via subscript.",
+   "13:4:no-self-use:Method could be a function",
+   "1:0:suppressed-message:Suppressed 'missing-module-docstring' (from line 1)",
+   "12:0:suppressed-message:Suppressed 'missing-class-docstring' (from line 1)",
+   "7:0:suppressed-message:Suppressed 'missing-class-docstring' (from line 1)",
+   "7:0:suppressed-message:Suppressed 'too-few-public-methods' (from line 7)",
+   "13:0:suppressed-message:Suppressed 'missing-function-docstring' (from line 13)"
+  ],
+  "snippets_auto/i7452_block0.py": [
+   "1:1:syntax-error:Parsing failed: 'invalid syntax (i7452_block0, line 1)'"
+  ],
+  "snippets_auto/i7474_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "8:0:unsupported-assignment-operation:'test' does not support item assignment",
+   "9:4:unsubscriptable-object:Value 'test' is unsubscriptable",
+   "5:37:deprecated-typing-alias:'typing.Dict' is deprecated, use 'dict' instead"
+  ],
+  "snippets_auto/i7519_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:no-name-in-module:No name 'QApplication' in module 'PySide6.QtWidgets'",
+   "1:0:no-name-in-module:No name 'QSlider' in module 'PySide6.QtWidgets'",
+   "3:0:import-error:Unable to import '__feature__'",
+   "8:6:magic-value-comparison:Consider using a named constant or an enum instead of '99'.",
+   "3:0:unused-import:Unused snake_case imported from __feature__",
+   "3:0:unused-import:Unused true_property imported from __feature__"
+  ],
+  "snippets_auto/i7527_block0.py": [
+   "1:0:bad-docstring-quotes:Bad docstring quotes in module, expected \"\"\", given '''",
+   "7:0:bad-docstring-quotes:Bad docstring quotes in class, expected \"\"\", given '''",
+   "8:0:too-few-public-methods:Too few public methods (0/2)",
+   "10:3:misplaced-comparison-constant:Comparison should be implementation.name == 'cpython'",
+   "10:3:magic-value-comparison:Consider using a named constant or an enum instead of ''cpython''.",
+   "11:4:bad-docstring-quotes:Bad docstring quotes in class, expected \"\"\", given '''",
+   "11:4:too-few-public-methods:Too few public methods (0/2)"
+  ],
+  "snippets_auto/i7688_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-function-docstring:Missing function or method docstring",
+   "4:11:unnecessary-negation:Consider changing \"not first_string == second_string\" to \"first_string != second_string\"",
+   "6:11:unnecessary-negation:Consider changing \"not int(first_string) == int(second_string)\" to \"int(first_string) != int(second_string)\""
+  ],
+  "snippets_auto/i7702_block0.py": [],
+  "snippets_auto/i7729_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "4:0:missing-class-docstring:Missing class docstring",
+   "5:4:invalid-name:Class constant name \"Monday\" doesn't conform to UPPER_CASE naming style",
+   "7:0:missing-class-docstring:Missing class docstring",
+   "8:4:missing-function-docstring:Missing function or method docstring",
+   "7:0:too-few-public-methods:Too few public methods (1/2)",
+   "10:0:missing-class-docstring:Missing class docstring",
+   "11:4:missing-function-docstring:Missing function or method docstring",
+   "12:25:no-member:Method 'weekday' has no 'value' member",
+   "14:0:missing-class-docstring:Missing class docstring",
+   "15:4:super-init-not-called:__init__ method from base class 'EventMix' is not called"
+  ],
+  "snippets_auto/i7734_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "6:0:missing-function-docstring:Missing function or method docstring",
+   "7:20:unused-variable:Unused variable 'count'"
+  ],
+  "snippets_auto/i7736_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-function-docstring:Missing function or method docstring",
+   "2:7:use-implicit-booleaness-not-comparison-to-zero:\"len(my_list) == 0\" can be simplified to \"not len(my_list)\", if it is strictly an int, as 0 is falsey",
+   "1:12:unused-argument:Unused argument 'cls'",
+   "5:0:missing-class-docstring:Missing class docstring",
+   "5:0:too-few-public-methods:Too few public methods (0/2)",
+   "9:0:assignment-from-no-return:Assigning result of a function call, but '__get__' returns None",
+   "9:26:no-value-for-parameter:No value for argument 'my_list' in function call",
+   "9:26:no-value-for-parameter:No value for argument 'type' in function call"
+  ],
+  "snippets_auto/i7790_block0.py": [
+   "1:0:locally-disabled:Locally disabling missing-function-docstring (C0116)",
+   "1:0:locally-disabled:Locally disabling missing-class-docstring (C0115)",
+   "1:0:locally-disabled:Locally disabling missing-module-docstring (C0114)",
+   "2:0:locally-disabled:Locally disabling too-many-function-args (E1121)",
+   "2:0:locally-disabled:Locally disabling too-many-instance-attributes (R0902)",
+   "2:0:locally-disabled:Locally disabling invalid-name (C0103)",
+   "3:0:locally-disabled:Locally disabling too-many-arguments (R0913)",
+   "3:0:locally-disabled:Locally disabling too-many-lines (C0302)",
+   "1:98:trailing-whitespace:Trailing whitespace",
+   "2:87:trailing-whitespace:Trailing whitespace",
+   "1:0:useless-suppression:Useless suppression of 'missing-function-docstring'",
+   "2:0:useless-suppression:Useless suppression of 'too-many-function-args'",
+   "2:0:useless-suppression:Useless suppression of 'too-many-instance-attributes'",
+   "2:0:useless-suppression:Useless suppression of 'invalid-name'",
+   "3:0:useless-suppression:Useless suppression of 'too-many-arguments'",
+   "3:0:useless-suppression:Useless suppression of 'too-many-lines'",
+   "1:0:suppressed-message:Suppressed 'missing-module-docstring' (from line 1)",
+   "8:0:suppressed-message:Suppressed 'missing-class-docstring' (from line 1)"
+  ],
+  "snippets_auto/i7883_block0.py": [
+   "1:0:locally-disabled:Locally disabling missing-module-docstring (C0114)",
+   "1:0:locally-disabled:Locally disabling missing-class-docstring (C0115)",
+   "1:0:locally-disabled:Locally disabling missing-function-docstring (C0116)",
+   "2:4:undefined-variable:Undefined variable 'np'",
+   "1:0:useless-suppression:Useless suppression of 'missing-class-docstring'",
+   "1:0:useless-suppression:Useless suppression of 'missing-function-docstring'",
+   "1:0:suppressed-message:Suppressed 'missing-module-docstring' (from line 1)"
+  ],
+  "snippets_auto/i7911_block0.py": [
+   "1:0:locally-disabled:Locally disabling missing-module-docstring (C0114)",
+   "1:0:locally-disabled:Locally disabling unused-argument (W0613)",
+   "2:0:locally-disabled:Locally disabling missing-function-docstring (C0116)",
+   "2:0:locally-disabled:Locally disabling unused-variable (W0612)",
+   "3:0:locally-disabled:Locally disabling too-many-arguments (R0913)",
+   "15:0:locally-disabled:Locally disabling line-too-long (C0301)",
+   "21:0:locally-disabled:Locally disabling line-too-long (C0301)",
+   "26:0:locally-disabled:Locally disabling line-too-long (C0301)",
+   "26:4:too-many-positional-arguments:Too many positional arguments (7/5)",
+   "15:0:useless-suppression:Useless suppression of 'line-too-long'",
+   "21:0:useless-suppression:Useless suppression of 'line-too-long'",
+   "26:0:useless-suppression:Useless suppression of 'line-too-long'",
+   "1:0:suppressed-message:Suppressed 'missing-module-docstring' (from line 1)",
+   "8:0:suppressed-message:Suppressed 'missing-function-docstring' (from line 2)",
+   "24:0:suppressed-message:Suppressed 'missing-function-docstring' (from line 2)",
+   "18:0:suppressed-message:Suppressed 'missing-function-docstring' (from line 2)",
+   "13:0:suppressed-message:Suppressed 'missing-function-docstring' (from line 2)",
+   "10:0:suppressed-message:Suppressed 'unused-argument' (from line 1)",
+   "26:0:suppressed-message:Suppressed 'unused-argument' (from line 1)",
+   "21:0:suppressed-message:Suppressed 'unused-argument' (from line 1)",
+   "15:0:suppressed-message:Suppressed 'unused-argument' (from line 1)",
+   "10:0:suppressed-message:Suppressed 'unused-variable' (from line 2)",
+   "26:0:suppressed-message:Suppressed 'unused-variable' (from line 2)",
+   "21:0:suppressed-message:Suppressed 'unused-variable' (from line 2)",
+   "15:0:suppressed-message:Suppressed 'unused-variable' (from line 2)",
+   "26:0:suppressed-message:Suppressed 'too-many-arguments' (from line 3)"
+  ],
+  "snippets_auto/i7935_block0.py": [
+   "1:0:superfluous-parens:Unnecessary parens after 'if' keyword",
+   "3:0:trailing-newlines:Trailing newlines",
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:4:using-constant-test:Using a conditional statement with a constant value",
+   "2:12:used-before-assignment:Using variable 'query' before assignment",
+   "2:25:comparison-with-callable:Comparing against a callable, did you omit the parenthesis?",
+   "2:25:undefined-variable:Undefined variable 'row'"
+  ],
+  "snippets_auto/i7981_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "7:6:unsubscriptable-object:Value 'arr.strides' is unsubscriptable"
+  ],
+  "snippets_auto/i8001_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "2:0:missing-function-docstring:Missing function or method docstring",
+   "2:21:undefined-variable:Undefined variable 'OsmObject'",
+   "2:36:undefined-variable:Undefined variable 'WdItem'",
+   "2:57:undefined-variable:Undefined variable 'Link'",
+   "3:23:undefined-variable:Undefined variable 'OsmNode'",
+   "4:15:undefined-variable:Undefined variable 'NodeLink'",
+   "5:23:undefined-variable:Undefined variable 'OsmWay'",
+   "6:15:undefined-variable:Undefined variable 'WayLink'",
+   "7:23:undefined-variable:Undefined variable 'OsmRelation'",
+   "8:15:undefined-variable:Undefined variable 'RelationLink'",
+   "9:23:undefined-variable:Undefined variable 'OsmArea'",
+   "10:15:undefined-variable:Undefined variable 'AreaLink'"
+  ],
+  "snippets_auto/i8001_block1.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "2:0:missing-class-docstring:Missing class docstring",
+   "1:1:undefined-variable:Undefined variable 'dataclass'",
+   "2:11:undefined-variable:Undefined variable 'ABC'",
+   "3:9:undefined-variable:Undefined variable 'OsmObject'",
+   "4:8:undefined-variable:Undefined variable 'WdItem'",
+   "2:0:too-few-public-methods:Too few public methods (0/2)",
+   "8:0:missing-class-docstring:Missing class docstring",
+   "7:1:undefined-variable:Undefined variable 'dataclass'",
+   "9:9:undefined-variable:Undefined variable 'OsmNode'",
+   "8:0:too-few-public-methods:Too few public methods (0/2)"
+  ],
+  "snippets_auto/i8018_block0.py": [
+   "1:0:locally-disabled:Locally disabling missing-module-docstring (C0114)",
+   "1:0:locally-disabled:Locally disabling missing-function-docstring (C0116)",
+   "13:10:invalid-sequence-index:Sequence index is not an int, slice, or instance with __index__",
+   "1:0:suppressed-message:Suppressed 'missing-module-docstring' (from line 1)",
+   "9:0:suppressed-message:Suppressed 'missing-function-docstring' (from line 1)"
+  ],
+  "snippets_auto/i8178_block0.py": [
+   "23:0:line-too-long:Line too long (105/100)",
+   "25:0:trailing-newlines:Trailing newlines",
+   "1:0:missing-module-docstring:Missing module docstring",
+   "5:0:missing-function-docstring:Missing function or method docstring",
+   "17:0:missing-function-docstring:Missing function or method docstring"
+  ],
+  "snippets_auto/i8296_block0.py": [
+   "1:0:bad-docstring-quotes:Bad docstring quotes in module, expected \"\"\", given \"",
+   "4:6:consider-using-f-string:Formatting a regular string which could be an f-string",
+   "6:0:bad-docstring-quotes:Bad docstring quotes in function, expected \"\"\", given \"",
+   "8:12:consider-using-f-string:Formatting a regular string which could be an f-string"
+  ],
+  "snippets_auto/i8301_block0.py": [
+   "4:0:locally-disabled:Locally disabling line-too-long (C0301)",
+   "9:0:line-too-long:Line too long (111/100)",
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:docstring-first-line-empty:First line empty in function docstring",
+   "7:0:docstring-first-line-empty:First line empty in function docstring",
+   "4:0:useless-suppression:Useless suppression of 'line-too-long'"
+  ],
+  "snippets_auto/i8497_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "6:10:no-member:Instance of 'IPRoute' has no 'link_lookup' member"
+  ],
+  "snippets_auto/i8501_block0.py": [
+   "3:0:import-error:Unable to import 'prettyprinter'",
+   "4:0:import-error:Unable to import 'prettyprinter.doctypes'",
+   "4:0:unused-import:Unused import prettyprinter.doctypes"
+  ],
+  "snippets_auto/i8567_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "4:0:missing-function-docstring:Missing function or method docstring",
+   "6:4:unreachable:Unreachable code"
+  ],
+  "snippets_auto/i8628_block0.py": [
+   "27:34:consider-alternative-union-syntax:Consider using alternative union syntax instead of 'Union'"
+  ],
+  "snippets_auto/i8646_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring"
+  ],
+  "snippets_auto/i8652_block0.py": [
+   "1:0:locally-disabled:Locally disabling missing-module-docstring (C0114)",
+   "1:0:locally-disabled:Locally disabling missing-class-docstring (C0115)",
+   "1:0:locally-disabled:Locally disabling missing-function-docstring (C0116)",
+   "3:0:unused-import:Unused import readline",
+   "1:0:useless-suppression:Useless suppression of 'missing-class-docstring'",
+   "1:0:useless-suppression:Useless suppression of 'missing-function-docstring'",
+   "1:0:suppressed-message:Suppressed 'missing-module-docstring' (from line 1)"
+  ],
+  "snippets_auto/i8658_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "4:0:while-used:Used `while` loop",
+   "4:21:magic-value-comparison:Consider using a named constant or an enum instead of '0.9'."
+  ],
+  "snippets_auto/i8704_block0.py": [
+   "5:0:no-name-in-module:No name 'QApplication' in module 'PySide6.QtWidgets'",
+   "5:0:no-name-in-module:No name 'QMainWindow' in module 'PySide6.QtWidgets'",
+   "8:0:missing-class-docstring:Missing class docstring",
+   "9:4:missing-function-docstring:Missing function or method docstring",
+   "8:0:too-few-public-methods:Too few public methods (1/2)",
+   "14:0:missing-class-docstring:Missing class docstring",
+   "17:0:missing-class-docstring:Missing class docstring",
+   "17:0:too-few-public-methods:Too few public methods (1/2)",
+   "29:0:missing-class-docstring:Missing class docstring",
+   "29:0:inconsistent-mro:Inconsistent method resolution order for class 'PathMeta'",
+   "32:0:missing-class-docstring:Missing class docstring",
+   "32:0:invalid-metaclass:Invalid metaclass 'PathMeta' used"
+  ],
+  "snippets_auto/i8781_block0.py": [
+   "21:0:locally-disabled:Locally disabling too-few-public-methods (R0903)",
+   "31:0:trailing-newlines:Trailing newlines",
+   "5:0:logging-fstring-interpolation:Use lazy % formatting in logging functions",
+   "8:0:logging-fstring-interpolation:Use lazy % formatting in logging functions",
+   "13:4:logging-fstring-interpolation:Use lazy % formatting in logging functions",
+   "16:4:logging-fstring-interpolation:Use lazy % formatting in logging functions",
+   "25:8:logging-fstring-interpolation:Use lazy % formatting in logging functions",
+   "28:8:logging-fstring-interpolation:Use lazy % formatting in logging functions",
+   "21:0:suppressed-message:Suppressed 'too-few-public-methods' (from line 21)"
+  ],
+  "snippets_auto/i8806_block0.py": [
+   "2:1:syntax-error:Parsing failed: 'expected an indented block after function definition on line 1 (i8806_block0, line 2)'"
+  ],
+  "snippets_auto/i8831_block0.py": [
+   "3:0:locally-disabled:Locally disabling missing-module-docstring (C0114)",
+   "3:0:locally-disabled:Locally disabling missing-class-docstring (C0115)",
+   "3:0:locally-disabled:Locally disabling missing-function-docstring (C0116)",
+   "4:0:unused-import:Unused Literal imported from typing",
+   "3:0:useless-suppression:Useless suppression of 'missing-class-docstring'",
+   "1:0:suppressed-message:Suppressed 'missing-module-docstring' (from line 3)",
+   "7:0:suppressed-message:Suppressed 'missing-function-docstring' (from line 3)"
+  ],
+  "snippets_auto/i8869_block0.py": [
+   "1:0:locally-disabled:Locally disabling consider-alternative-union-syntax (R6003)",
+   "1:0:missing-module-docstring:Missing module docstring",
+   "2:19:undefined-variable:Undefined variable 'Union'",
+   "2:47:undefined-variable:Undefined variable 'Union'",
+   "1:0:useless-suppression:Useless suppression of 'consider-alternative-union-syntax'"
+  ],
+  "snippets_auto/i8869_block1.py": [
+   "2:1:syntax-error:Parsing failed: 'expected an indented block after function definition on line 1 (i8869_block1, line 2)'"
+  ],
+  "snippets_auto/i8869_block2.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "2:0:invalid-name:Variable name \"PlotlyColorScale\" doesn't conform to snake_case naming style"
+  ],
+  "snippets_auto/i8876_block0.py": [
+   "1:0:locally-disabled:Locally disabling missing-module-docstring (C0114)",
+   "2:0:locally-disabled:Locally disabling missing-class-docstring (C0115)",
+   "3:0:locally-disabled:Locally disabling missing-function-docstring (C0116)",
+   "40:0:trailing-newlines:Trailing newlines",
+   "35:15:no-member:Instance of 'Bar' has no '_x' member; maybe 'x'?",
+   "39:16:no-member:Instance of 'Bar' has no 'y' member; maybe 'x'?",
+   "1:0:suppressed-message:Suppressed 'missing-module-docstring' (from line 1)",
+   "24:0:suppressed-message:Suppressed 'missing-class-docstring' (from line 2)",
+   "6:0:suppressed-message:Suppressed 'missing-class-docstring' (from line 2)",
+   "16:0:suppressed-message:Suppressed 'missing-function-docstring' (from line 3)",
+   "34:0:suppressed-message:Suppressed 'missing-function-docstring' (from line 3)"
+  ],
+  "snippets_auto/i8879_block0.py": [
+   "12:0:locally-disabled:Locally disabling invalid-name (C0103)",
+   "1:0:docstring-first-line-empty:First line empty in module docstring",
+   "20:8:invalid-name:Attribute name \"thisIsABadField\" doesn't conform to snake_case naming style",
+   "7:0:docstring-first-line-empty:First line empty in class docstring",
+   "19:4:missing-function-docstring:Missing function or method docstring",
+   "22:4:missing-function-docstring:Missing function or method docstring",
+   "12:0:useless-suppression:Useless suppression of 'invalid-name'"
+  ],
+  "snippets_auto/i8890_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring"
+  ],
+  "snippets_auto/i8900_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-class-docstring:Missing class docstring",
+   "1:0:too-few-public-methods:Too few public methods (0/2)",
+   "8:0:missing-class-docstring:Missing class docstring",
+   "8:0:too-few-public-methods:Too few public methods (0/2)",
+   "12:0:missing-function-docstring:Missing function or method docstring",
+   "13:7:use-implicit-booleaness-not-comparison-to-string:\"operation != ''\" can be simplified to \"operation\", if it is strictly a string, as an empty string is falsey",
+   "18:0:missing-function-docstring:Missing function or method docstring"
+  ],
+  "snippets_auto/i8909_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-function-docstring:Missing function or method docstring",
+   "3:4:unreachable:Unreachable code",
+   "2:4:broad-exception-raised:Raising too general exception: Exception"
+  ],
+  "snippets_auto/i8923_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "6:0:missing-class-docstring:Missing class docstring",
+   "7:4:missing-function-docstring:Missing function or method docstring",
+   "9:14:no-member:Instance of 'int' has no 'abs' member",
+   "7:4:no-self-use:Method could be a function",
+   "6:0:too-few-public-methods:Too few public methods (1/2)"
+  ],
+  "snippets_auto/i8965_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:import-error:Unable to import 'pylxd'"
+  ],
+  "snippets_auto/i8969_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:invalid-name:Constant name \"value1\" doesn't conform to UPPER_CASE naming style",
+   "2:0:invalid-name:Constant name \"value2\" doesn't conform to UPPER_CASE naming style",
+   "3:0:invalid-name:Constant name \"value3\" doesn't conform to UPPER_CASE naming style"
+  ],
+  "snippets_auto/i8978_block0.py": [
+   "1:0:bad-docstring-quotes:Bad docstring quotes in module, expected \"\"\", given \"",
+   "3:0:bad-docstring-quotes:Bad docstring quotes in class, expected \"\"\", given \"",
+   "3:0:too-few-public-methods:Too few public methods (1/2)",
+   "14:0:unnecessary-dunder-call:Unnecessarily calls dunder method __iadd__. Use += operator."
+  ],
+  "snippets_auto/i8978_block1.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:4:undefined-variable:Undefined variable 'd'",
+   "1:22:undefined-variable:Undefined variable 'Incrementable'",
+   "2:5:undefined-variable:Undefined variable 'Incrementable'"
+  ],
+  "snippets_auto/i8978_block2.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "2:14:undefined-variable:Undefined variable 'd'",
+   "2:32:undefined-variable:Undefined variable 'Incrementable'",
+   "2:51:undefined-variable:Undefined variable 'Incrementable'"
+  ],
+  "snippets_auto/i9013_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "6:0:missing-class-docstring:Missing class docstring",
+   "9:4:missing-function-docstring:Missing function or method docstring",
+   "6:0:too-few-public-methods:Too few public methods (1/2)",
+   "14:0:missing-class-docstring:Missing class docstring",
+   "19:0:missing-class-docstring:Missing class docstring",
+   "19:0:invalid-name:Class name \"Concrete_FalsePositive\" doesn't conform to PascalCase naming style",
+   "23:7:abstract-class-instantiated:Abstract class 'Concrete' with abstract methods instantiated",
+   "24:10:abstract-class-instantiated:Abstract class 'Concrete_FalsePositive' with abstract methods instantiated"
+  ],
+  "snippets_auto/i9040_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:multiple-imports:Multiple imports on one line (abc, dataclasses)",
+   "4:0:missing-class-docstring:Missing class docstring",
+   "9:0:missing-class-docstring:Missing class docstring",
+   "12:4:unexpected-keyword-arg:Unexpected keyword argument 'name' in constructor call"
+  ],
+  "snippets_auto/i9054_block0.py": [
+   "1:8:syntax-error:Parsing failed: 'invalid syntax (i9054_block0, line 1)'"
+  ],
+  "snippets_auto/i9054_block1.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "3:22:undefined-variable:Undefined variable 'sys'",
+   "3:33:undefined-variable:Undefined variable 'TextIOWrapper'",
+   "4:4:undefined-variable:Undefined variable 'sys'",
+   "4:16:undefined-variable:Undefined variable 'TextIOWrapper'",
+   "4:30:undefined-variable:Undefined variable 'sys'",
+   "5:11:undefined-variable:Undefined variable 'sys'"
+  ],
+  "snippets_auto/i9080_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "4:0:missing-class-docstring:Missing class docstring",
+   "5:4:missing-function-docstring:Missing function or method docstring",
+   "4:0:too-few-public-methods:Too few public methods (1/2)",
+   "9:0:missing-class-docstring:Missing class docstring",
+   "11:4:missing-function-docstring:Missing function or method docstring",
+   "12:8:assignment-from-no-return:Assigning result of a function call, but 'do_thing' returns None"
+  ],
+  "snippets_auto/i9087_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-class-docstring:Missing class docstring",
+   "2:4:missing-function-docstring:Missing function or method docstring",
+   "3:8:no-member:Super of 'A' has no 'func' member",
+   "1:0:too-few-public-methods:Too few public methods (1/2)",
+   "6:0:missing-class-docstring:Missing class docstring",
+   "7:4:missing-function-docstring:Missing function or method docstring",
+   "7:4:no-self-use:Method could be a function",
+   "6:0:too-few-public-methods:Too few public methods (1/2)",
+   "11:0:missing-class-docstring:Missing class docstring",
+   "11:0:function-redefined:class already defined line 6",
+   "11:0:too-few-public-methods:Too few public methods (1/2)"
+  ],
+  "snippets_auto/i9087_block1.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:import-error:Unable to import 'classes'"
+  ],
+  "snippets_auto/i9090_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "5:0:missing-class-docstring:Missing class docstring",
+   "9:10:unexpected-keyword-arg:Unexpected keyword argument 'n' in constructor call"
+  ],
+  "snippets_auto/i9090_block1.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "4:0:missing-class-docstring:Missing class docstring"
+  ],
+  "snippets_auto/i9115_block0.py": [
+   "14:0:line-too-long:Line too long (102/100)",
+   "1:0:missing-module-docstring:Missing module docstring",
+   "7:0:missing-class-docstring:Missing class docstring",
+   "8:18:used-before-assignment:Using variable 'str' before assignment",
+   "9:14:consider-alternative-union-syntax:Consider using alternative union syntax instead of 'Optional'",
+   "11:13:used-before-assignment:Using variable 'dict' before assignment",
+   "13:4:missing-function-docstring:Missing function or method docstring",
+   "16:4:missing-function-docstring:Missing function or method docstring"
+  ],
+  "snippets_auto/i9118_block0.py": [
+   "1:8:syntax-error:Parsing failed: 'invalid syntax (i9118_block0, line 1)'"
+  ],
+  "snippets_auto/i9126_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-function-docstring:Missing function or method docstring",
+   "1:0:redefined-outer-name:Redefining name 'args' from outer scope (line 8)",
+   "4:0:missing-function-docstring:Missing function or method docstring",
+   "5:40:possibly-used-before-assignment:Possibly using variable 'args' before assignment"
+  ],
+  "snippets_auto/i9130_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "4:0:missing-class-docstring:Missing class docstring",
+   "7:0:missing-class-docstring:Missing class docstring",
+   "8:15:invalid-field-call:Invalid usage of field(), it should be used within a dataclass or the make_dataclass() function.",
+   "7:0:too-few-public-methods:Too few public methods (0/2)"
+  ],
+  "snippets_auto/i9134_block0.py": [
+   "8:0:line-too-long:Line too long (107/100)",
+   "1:0:missing-module-docstring:Missing module docstring",
+   "7:0:missing-class-docstring:Missing class docstring",
+   "8:84:used-before-assignment:Using variable 'validate' before assignment",
+   "10:4:missing-function-docstring:Missing function or method docstring",
+   "7:0:too-few-public-methods:Too few public methods (1/2)",
+   "4:0:unused-import:Unused validate imported from marshmallow",
+   "8:15:deprecated-typing-alias:'typing.List' is deprecated, use 'list' instead"
+  ],
+  "snippets_auto/i9151_block0.py": [
+   "1:6:syntax-error:Parsing failed: 'invalid syntax (i9151_block0, line 1)'"
+  ],
+  "snippets_auto/i9153_block0.py": [
+   "1:0:locally-disabled:Locally disabling missing-module-docstring (C0114)",
+   "1:0:suppressed-message:Suppressed 'missing-module-docstring' (from line 1)"
+  ],
+  "snippets_auto/i9192_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-function-docstring:Missing function or method docstring",
+   "10:0:missing-function-docstring:Missing function or method docstring",
+   "14:40:undefined-variable:Undefined variable 'os'",
+   "17:20:undefined-variable:Undefined variable 'os'",
+   "17:37:undefined-variable:Undefined variable 'os'",
+   "20:17:magic-value-comparison:Consider using a named constant or an enum instead of ''locale''.",
+   "21:32:undefined-variable:Undefined variable 'os'",
+   "14:27:unused-variable:Unused variable 'filenames'"
+  ],
+  "snippets_auto/i9216_block0.py": [
+   "35:0:line-too-long:Line too long (106/100)",
+   "41:0:line-too-long:Line too long (101/100)",
+   "24:4:not-callable:unhinted_mock.example is not callable",
+   "30:4:not-callable:hinted_as_mock.example is not callable",
+   "36:4:not-callable:hinted_as_class.example is not callable",
+   "14:13:deprecated-typing-alias:'typing.Callable' is deprecated, use 'collections.abc.Callable' instead"
+  ],
+  "snippets_auto/i9223_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "5:0:invalid-name:Constant name \"MyAlias\" doesn't conform to UPPER_CASE naming style",
+   "7:0:missing-function-docstring:Missing function or method docstring",
+   "1:0:unused-import:Unused Callable imported from typing"
+  ],
+  "snippets_auto/i9238_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:deprecated-module:Deprecated module 'distutils.errors'",
+   "1:0:import-error:Unable to import 'distutils.errors'",
+   "1:0:unused-import:Unused import distutils.errors"
+  ],
+  "snippets_auto/i9239_block0.py": [
+   "16:21:syntax-error:Parsing failed: ''[' was never closed (i9239_block0, line 16)'"
+  ],
+  "snippets_auto/i9252_block0.py": [
+   "1:0:locally-disabled:Locally disabling missing-module-docstring (C0114)",
+   "1:0:locally-disabled:Locally disabling missing-function-docstring (C0116)",
+   "1:0:use-symbolic-message-instead:'C0114' is cryptic: use '# pylint: disable=missing-module-docstring' instead",
+   "1:0:use-symbolic-message-instead:'C0116' is cryptic: use '# pylint: disable=missing-function-docstring' instead",
+   "5:22:unnecessary-default-type-args:Type `Generator[int, None, None]` has unnecessary default type args. Change it to `Generator[int]`.",
+   "9:25:unnecessary-default-type-args:Type `Generator[int, None, None]` has unnecessary default type args. Change it to `Generator[int]`.",
+   "18:10:no-member:Generator 'generator' has no 'bit_count' member",
+   "5:22:deprecated-typing-alias:'typing.Generator' is deprecated, use 'collections.abc.Generator' instead",
+   "9:25:deprecated-typing-alias:'typing.Generator' is deprecated, use 'collections.abc.Generator' instead",
+   "1:0:suppressed-message:Suppressed 'missing-module-docstring' (from line 1)",
+   "9:0:suppressed-message:Suppressed 'missing-function-docstring' (from line 1)",
+   "5:0:suppressed-message:Suppressed 'missing-function-docstring' (from line 1)"
+  ],
+  "snippets_auto/i9259_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-class-docstring:Missing class docstring",
+   "7:0:missing-class-docstring:Missing class docstring",
+   "13:0:missing-function-docstring:Missing function or method docstring",
+   "13:0:disallowed-name:Disallowed name \"foo\"",
+   "20:23:no-member:Instance of 'Base' has no 'child_field' member",
+   "13:0:inconsistent-return-statements:Either all return statements in a function should return an expression, or none of them should.",
+   "25:0:missing-function-docstring:Missing function or method docstring",
+   "25:0:disallowed-name:Disallowed name \"bar\""
+  ],
+  "snippets_auto/i9262_block0.py": [
+   "2:2:syntax-error:Parsing failed: 'unexpected indent (i9262_block0, line 2)'"
+  ],
+  "snippets_auto/i9262_block1.py": [
+   "3:2:syntax-error:Parsing failed: 'unexpected indent (i9262_block1, line 3)'"
+  ],
+  "snippets_auto/i9282_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring"
+  ],
+  "snippets_auto/i9311_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring"
+  ],
+  "snippets_auto/i9340_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "10:8:unsubscriptable-object:Value 'item' is unsubscriptable"
+  ],
+  "snippets_auto/i9349_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "7:0:missing-class-docstring:Missing class docstring",
+   "7:0:too-few-public-methods:Too few public methods (0/2)",
+   "14:0:import-error:Unable to import 'mwe.sub_item'",
+   "14:0:wrong-import-position:Import \"from mwe.sub_item import SubItem\" should be placed at the top of the module",
+   "16:0:missing-class-docstring:Missing class docstring",
+   "20:4:missing-function-docstring:Missing function or method docstring",
+   "16:0:too-few-public-methods:Too few public methods (1/2)"
+  ],
+  "snippets_auto/i9379_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring"
+  ],
+  "snippets_auto/i9405_block0.py": [
+   "6:3:consider-using-assignment-expr:Use 'if (SOME_BOOL := False):' instead",
+   "7:10:undefined-variable:Undefined variable 'bar'"
+  ],
+  "snippets_auto/i9410_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "6:0:missing-class-docstring:Missing class docstring",
+   "7:23:consider-alternative-union-syntax:Consider using alternative union syntax instead of 'Optional'",
+   "8:8:consider-alternative-union-syntax:Consider using alternative union syntax instead of 'Union'",
+   "11:4:missing-function-docstring:Missing function or method docstring",
+   "18:17:not-callable:self.data_schema_class is not callable",
+   "6:0:too-few-public-methods:Too few public methods (1/2)",
+   "22:0:missing-class-docstring:Missing class docstring",
+   "26:4:missing-function-docstring:Missing function or method docstring",
+   "31:0:missing-class-docstring:Missing class docstring",
+   "35:4:missing-function-docstring:Missing function or method docstring",
+   "8:21:deprecated-typing-alias:'typing.Type' is deprecated, use 'type' instead"
+  ],
+  "snippets_auto/i9421_block0.py": [
+   "1:0:locally-disabled:Locally disabling missing-module-docstring (C0114)",
+   "1:0:locally-disabled:Locally disabling missing-class-docstring (C0115)",
+   "1:0:locally-disabled:Locally disabling missing-function-docstring (C0116)",
+   "22:0:unexpected-keyword-arg:Unexpected keyword argument 'wrong' in function call",
+   "1:0:useless-suppression:Useless suppression of 'missing-class-docstring'",
+   "1:0:suppressed-message:Suppressed 'missing-module-docstring' (from line 1)",
+   "4:0:suppressed-message:Suppressed 'missing-function-docstring' (from line 1)"
+  ],
+  "snippets_auto/i9424_block0.py": [
+   "1:0:locally-disabled:Locally disabling missing-module-docstring (C0114)",
+   "1:0:locally-disabled:Locally disabling missing-class-docstring (C0115)",
+   "1:0:locally-disabled:Locally disabling missing-function-docstring (C0116)",
+   "14:4:arguments-differ:Number of parameters was 3 in 'Base.forward' and is now 3 in overriding 'Derived.forward' method",
+   "14:4:arguments-differ:Variadics removed in overriding 'Derived.forward' method",
+   "1:0:suppressed-message:Suppressed 'missing-module-docstring' (from line 1)",
+   "2:0:suppressed-message:Suppressed 'missing-class-docstring' (from line 1)",
+   "12:0:suppressed-message:Suppressed 'missing-class-docstring' (from line 1)",
+   "8:0:suppressed-message:Suppressed 'missing-function-docstring' (from line 1)",
+   "4:0:suppressed-message:Suppressed 'missing-function-docstring' (from line 1)"
+  ],
+  "snippets_auto/i9424_block1.py": [
+   "1:0:locally-disabled:Locally disabling missing-module-docstring (C0114)",
+   "1:0:locally-disabled:Locally disabling missing-class-docstring (C0115)",
+   "1:0:locally-disabled:Locally disabling missing-function-docstring (C0116)",
+   "20:4:arguments-differ:Number of parameters was 3 in 'Base.forward' and is now 3 in overriding 'Derived.forward' method",
+   "20:4:arguments-differ:Variadics removed in overriding 'Derived.forward' method",
+   "1:0:suppressed-message:Suppressed 'missing-module-docstring' (from line 1)",
+   "8:0:suppressed-message:Suppressed 'missing-class-docstring' (from line 1)",
+   "18:0:suppressed-message:Suppressed 'missing-class-docstring' (from line 1)",
+   "10:0:suppressed-message:Suppressed 'missing-function-docstring' (from line 1)",
+   "14:0:suppressed-message:Suppressed 'missing-function-docstring' (from line 1)"
+  ],
+  "snippets_auto/i9424_block2.py": [
+   "1:0:locally-disabled:Locally disabling missing-module-docstring (C0114)",
+   "1:0:locally-disabled:Locally disabling missing-class-docstring (C0115)",
+   "1:0:locally-disabled:Locally disabling missing-function-docstring (C0116)",
+   "17:4:arguments-differ:Number of parameters was 3 in 'Base.forward' and is now 3 in overriding 'Derived.forward' method",
+   "17:4:arguments-differ:Variadics removed in overriding 'Derived.forward' method",
+   "1:0:suppressed-message:Suppressed 'missing-module-docstring' (from line 1)",
+   "5:0:suppressed-message:Suppressed 'missing-class-docstring' (from line 1)",
+   "15:0:suppressed-message:Suppressed 'missing-class-docstring' (from line 1)",
+   "11:0:suppressed-message:Suppressed 'missing-function-docstring' (from line 1)",
+   "7:0:suppressed-message:Suppressed 'missing-function-docstring' (from line 1)"
+  ],
+  "snippets_auto/i9517_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:10:undefined-variable:Undefined variable 'requests'",
+   "2:12:undefined-variable:Undefined variable 'url'"
+  ],
+  "snippets_auto/i9518_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "6:0:missing-class-docstring:Missing class docstring",
+   "11:0:missing-class-docstring:Missing class docstring",
+   "13:4:missing-function-docstring:Missing function or method docstring",
+   "11:0:too-few-public-methods:Too few public methods (1/2)",
+   "18:0:missing-class-docstring:Missing class docstring",
+   "27:0:missing-class-docstring:Missing class docstring",
+   "31:4:missing-function-docstring:Missing function or method docstring",
+   "36:10:missing-kwoa:Missing mandatory keyword argument 'x' in constructor call"
+  ],
+  "snippets_auto/i9556_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "4:0:invalid-name:Function name \"test_invalid_W0125\" doesn't conform to snake_case naming style",
+   "4:0:docstring-first-line-empty:First line empty in function docstring"
+  ],
+  "snippets_auto/i9590_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring"
+  ],
+  "snippets_auto/i9633_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "2:4:global-at-module-level:Using the global statement at the module level",
+   "3:7:magic-value-comparison:Consider using a named constant or an enum instead of ''g_object''.",
+   "5:4:undefined-variable:Undefined variable 'g_object'"
+  ],
+  "snippets_auto/i9633_block1.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "2:4:global-at-module-level:Using the global statement at the module level",
+   "3:7:magic-value-comparison:Consider using a named constant or an enum instead of ''g_object''.",
+   "5:10:possibly-used-before-assignment:Possibly using variable 'g_object' before assignment"
+  ],
+  "snippets_auto/i9633_block2.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "2:4:global-at-module-level:Using the global statement at the module level",
+   "3:7:magic-value-comparison:Consider using a named constant or an enum instead of ''g_object''.",
+   "5:10:used-before-assignment:Using variable 'g_object' before assignment"
+  ],
+  "snippets_auto/i9641_block0.py": [
+   "2:0:import-error:Unable to import 'pytest'",
+   "6:30:used-before-assignment:Using variable 'l' before assignment"
+  ],
+  "snippets_auto/i9642_block0.py": [
+   "14:0:trailing-newlines:Trailing newlines",
+   "6:13:consider-using-tuple:Consider using an in-place tuple instead of list",
+   "9:10:possibly-used-before-assignment:Possibly using variable 'fail1' before assignment",
+   "11:13:consider-using-tuple:Consider using an in-place tuple instead of list"
+  ],
+  "snippets_auto/i9662_block0.py": [
+   "1:0:locally-disabled:Locally disabling missing-module-docstring (C0114)",
+   "1:0:locally-disabled:Locally disabling invalid-name (C0103)",
+   "9:10:possibly-used-before-assignment:Possibly using variable 'c' before assignment",
+   "1:0:useless-suppression:Useless suppression of 'invalid-name'",
+   "1:0:suppressed-message:Suppressed 'missing-module-docstring' (from line 1)"
+  ],
+  "snippets_auto/i9666_block0.py": [
+   "7:0:locally-disabled:Locally disabling invalid-name (C0103)",
+   "7:0:locally-disabled:Locally disabling too-few-public-methods (R0903)",
+   "66:0:trailing-newlines:Trailing newlines",
+   "7:0:docstring-first-line-empty:First line empty in class docstring",
+   "7:0:suppressed-message:Suppressed 'invalid-name' (from line 7)",
+   "7:0:suppressed-message:Suppressed 'too-few-public-methods' (from line 7)"
+  ],
+  "snippets_auto/i9666_block1.py": [
+   "2:0:locally-disabled:Locally disabling invalid-name (C0103)",
+   "2:0:locally-disabled:Locally disabling too-few-public-methods (R0903)",
+   "5:0:import-error:Unable to import 'example_structure'",
+   "22:4:docstring-first-line-empty:First line empty in method docstring",
+   "2:0:useless-suppression:Useless suppression of 'invalid-name'",
+   "9:0:suppressed-message:Suppressed 'too-few-public-methods' (from line 2)"
+  ],
+  "snippets_auto/i9689_block0.py": [
+   "1:0:locally-disabled:Locally disabling missing-module-docstring (C0114)",
+   "1:0:locally-disabled:Locally disabling missing-class-docstring (C0115)",
+   "1:0:locally-disabled:Locally disabling missing-function-docstring (C0116)",
+   "1:0:locally-disabled:Locally disabling bare-except (W0702)",
+   "6:8:too-many-try-statements:try clause contains 4 statements, expected at most 1",
+   "8:18:used-before-assignment:Using variable 'a' before assignment",
+   "15:8:while-used:Used `while` loop",
+   "15:14:magic-value-comparison:Consider using a named constant or an enum instead of '2'.",
+   "18:18:used-before-assignment:Using variable 'a' before assignment",
+   "1:0:useless-suppression:Useless suppression of 'missing-class-docstring'",
+   "1:0:suppressed-message:Suppressed 'missing-module-docstring' (from line 1)",
+   "3:0:suppressed-message:Suppressed 'missing-function-docstring' (from line 1)",
+   "11:0:suppressed-message:Suppressed 'bare-except' (from line 1)"
+  ],
+  "snippets_auto/i9762_block0.py": [
+   "3:15:syntax-error:Parsing failed: ''(' was never closed (i9762_block0, line 3)'"
+  ],
+  "snippets_auto/i9804_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "6:0:missing-class-docstring:Missing class docstring",
+   "14:0:missing-class-docstring:Missing class docstring"
+  ],
+  "snippets_auto/i9809_block0.py": [
+   "6:7:consider-alternative-union-syntax:Consider using alternative union syntax instead of 'Optional'",
+   "19:8:unsupported-assignment-operation:'cls.a' does not support item assignment",
+   "20:12:unsubscriptable-object:Value 'cls.a' is unsubscriptable",
+   "21:17:unsupported-membership-test:Value 'cls.a' doesn't support membership test"
+  ],
+  "snippets_auto/i9813_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "6:0:missing-class-docstring:Missing class docstring",
+   "9:4:missing-function-docstring:Missing function or method docstring"
+  ],
+  "snippets_auto/i981_block0.py": [],
+  "snippets_auto/i9846_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-class-docstring:Missing class docstring",
+   "4:0:invalid-name:Variable name \"MyDict\" doesn't conform to snake_case naming style",
+   "5:6:magic-value-comparison:Consider using a named constant or an enum instead of ''item''."
+  ],
+  "snippets_auto/i9846_block1.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:import-error:Unable to import 'other'",
+   "2:6:magic-value-comparison:Consider using a named constant or an enum instead of ''item''."
+  ],
+  "snippets_auto/i9863_block0.py": [
+   "8:0:locally-disabled:Locally disabling too-few-public-methods (R0903)",
+   "23:17:unsubscriptable-object:Value 'MyClass' is unsubscriptable",
+   "30:4:missing-function-docstring:Missing function or method docstring",
+   "30:4:no-self-use:Method could be a function",
+   "39:0:invalid-name:Constant name \"MyAlias\" doesn't conform to UPPER_CASE naming style",
+   "41:9:unsubscriptable-object:Value 'MyAlias' is unsubscriptable",
+   "35:0:suppressed-message:Suppressed 'too-few-public-methods' (from line 8)",
+   "14:0:suppressed-message:Suppressed 'too-few-public-methods' (from line 8)"
+  ],
+  "snippets_auto/i9874_block0.py": [
+   "1:0:locally-disabled:Locally disabling missing-module-docstring (C0114)",
+   "1:0:locally-disabled:Locally disabling missing-class-docstring (C0115)",
+   "1:0:locally-disabled:Locally disabling missing-function-docstring (C0116)",
+   "1:0:locally-disabled:Locally disabling missing-class-docstring (C0115)",
+   "1:0:locally-disabled:Locally disabling too-few-public-methods (R0903)",
+   "3:0:import-error:Unable to import 'advanced_alchemy.repository'",
+   "1:0:useless-suppression:Useless suppression of 'missing-function-docstring'",
+   "1:0:suppressed-message:Suppressed 'missing-module-docstring' (from line 1)",
+   "18:0:suppressed-message:Suppressed 'missing-class-docstring' (from line 1)",
+   "11:0:suppressed-message:Suppressed 'missing-class-docstring' (from line 1)",
+   "7:0:suppressed-message:Suppressed 'missing-class-docstring' (from line 1)",
+   "18:0:suppressed-message:Suppressed 'too-few-public-methods' (from line 1)",
+   "11:0:suppressed-message:Suppressed 'too-few-public-methods' (from line 1)",
+   "7:0:suppressed-message:Suppressed 'too-few-public-methods' (from line 1)"
+  ],
+  "snippets_auto/i9935_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "1:0:missing-function-docstring:Missing function or method docstring",
+   "5:0:missing-function-docstring:Missing function or method docstring",
+   "5:14:unused-argument:Unused argument 'value'",
+   "9:0:missing-function-docstring:Missing function or method docstring"
+  ],
+  "snippets_auto/i9941_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "5:7:broad-exception-caught:Catching too general exception Exception",
+   "6:10:used-before-assignment:Using variable 'response' before assignment"
+  ],
+  "snippets_auto/i9941_block1.py": [
+   "4:60:trailing-whitespace:Trailing whitespace",
+   "8:0:trailing-newlines:Trailing newlines",
+   "1:0:missing-module-docstring:Missing module docstring",
+   "6:7:broad-exception-caught:Catching too general exception Exception",
+   "3:0:too-many-try-statements:try clause contains 2 statements, expected at most 1"
+  ],
+  "snippets_auto/i9956_block0.py": [
+   "3:20:no-member:Module 'numpy.dtypes' has no 'StringDType' member"
+  ],
+  "snippets_auto/i9968_block0.py": [
+   "1:0:docstring-first-line-empty:First line empty in module docstring",
+   "10:0:missing-function-docstring:Missing function or method docstring",
+   "16:0:reimported:Reimport 'BaseMessage' (imported line 8)",
+   "16:0:wrong-import-position:Import \"from langchain_core.messages import BaseMessage\" should be placed at the top of the module",
+   "17:0:import-error:Unable to import 'langchain_core.pydantic_v1'",
+   "17:0:wrong-import-position:Import \"from langchain_core.pydantic_v1 import Field\" should be placed at the top of the module",
+   "17:0:no-name-in-module:No name 'pydantic_v1' in module 'langchain_core'",
+   "20:0:missing-class-docstring:Missing class docstring",
+   "23:0:missing-function-docstring:Missing function or method docstring",
+   "23:0:function-redefined:function already defined line 10"
+  ],
+  "snippets_auto/i9972_block0.py": [
+   "8:0:locally-disabled:Locally disabling invalid-field-call (E3701)",
+   "1:0:missing-module-docstring:Missing module docstring",
+   "4:0:missing-function-docstring:Missing function or method docstring",
+   "10:0:missing-class-docstring:Missing class docstring",
+   "10:0:too-few-public-methods:Too few public methods (0/2)",
+   "14:0:missing-class-docstring:Missing class docstring",
+   "17:4:missing-function-docstring:Missing function or method docstring",
+   "19:14:no-member:Instance of 'Field' has no 'sub_field' member",
+   "8:0:suppressed-message:Suppressed 'invalid-field-call' (from line 8)"
+  ]
+ }
+}

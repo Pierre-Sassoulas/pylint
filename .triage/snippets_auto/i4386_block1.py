@@ -1,0 +1,3 @@
+pandas==0.23.2
+marshmallow==3.10.0
+...
