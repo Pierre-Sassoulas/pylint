@@ -2011,10 +2011,10 @@
       "ts": "2026-05-12T11:13:35.045223+00:00"
     },
     "9126": {
-      "verdict": "DESIGN",
-      "note": "False positive used-before-assignment. Spec/PR.",
-      "session": 3,
-      "ts": "2026-05-12T11:13:35.068949+00:00"
+      "verdict": "FIXED",
+      "note": "Closed by PR 11577 (lambda parameters, also through nested comprehensions), merged 8 October; backport PR 11606 approved, ships in 4.1.3. Snippet sweep: the auto snippet's possibly-used-before-assignment on 'args' is gone on 1d73ad3c5.",
+      "session": 18,
+      "ts": "2026-10-08T17:57:45.389220+00:00"
     },
     "9125": {
       "verdict": "DESIGN",
@@ -6343,10 +6343,10 @@
       "ts": "2026-10-06T20:22:03.973015+00:00"
     },
     "11595": {
-      "verdict": "DESIGN",
-      "note": "Docs request (7 October): the no-header output format, added in PR 7869, is undocumented. Docs-only, good first issue.",
+      "verdict": "FIXED",
+      "note": "Closed by docs PR 11599 (no-header documented), merged 8 October. Docs ship with 4.2.0.",
       "session": 18,
-      "ts": "2026-10-07T19:13:05.772649+00:00"
+      "ts": "2026-10-08T17:57:45.389220+00:00"
     },
     "11597": {
       "verdict": "DESIGN",
