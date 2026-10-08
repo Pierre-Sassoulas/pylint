@@ -241,10 +241,10 @@
       "ts": "2026-05-12T10:37:49.694480+00:00"
     },
     "10691": {
-      "verdict": "REPRO",
-      "note": "Confirmed: applying R6103's walrus suggestion in the magic_value example still leaves R2004. Either R6103 should not apply here, or R2004 should look through walrus. Real interaction bug.",
-      "session": 1,
-      "ts": "2026-05-12T10:38:38.663673+00:00"
+      "verdict": "DESIGN",
+      "note": "Closed as not planned by Pierre on 8 October: R6103 suggests 'if (TEST := \"test\") in ll:' with parentheses; the reporter's version without them parses as TEST := (\"test\" in ll). Triaged too quickly before; PR 11600 closed.",
+      "session": 18,
+      "ts": "2026-10-08T14:20:11.368626+00:00"
     },
     "10688": {
       "verdict": "DESIGN",
@@ -752,9 +752,9 @@
     },
     "10087": {
       "verdict": "FIXED",
-      "note": "Fixed by astroid 4.3.4; closed by PR 11570 (astroid pin bump + 8138 tests + special-methods ellipsis guard removal), merged 8 October. Backport PR 11603 open; ships in 4.1.3.",
+      "note": "Fixed by astroid 4.3.4; closed by PR 11570 (astroid pin bump + 8138 tests + special-methods ellipsis guard removal), merged 8 October. Backported as PR 11603 (merged); ships in 4.1.3.",
       "session": 18,
-      "ts": "2026-10-08T13:32:56.358621+00:00"
+      "ts": "2026-10-08T14:19:52.806948+00:00"
     },
     "10084": {
       "verdict": "REPRO",
@@ -1646,9 +1646,9 @@
     },
     "9354": {
       "verdict": "FIXED",
-      "note": "Fixed by astroid 4.3.4; closed by PR 11570 (astroid pin bump + 8138 tests + special-methods ellipsis guard removal), merged 8 October. Backport PR 11603 open; ships in 4.1.3. Contributor PR 11410 closed as redundant.",
+      "note": "Fixed by astroid 4.3.4; closed by PR 11570 (astroid pin bump + 8138 tests + special-methods ellipsis guard removal), merged 8 October. Backported as PR 11603 (merged); ships in 4.1.3. Contributor PR 11410 closed as redundant.",
       "session": 18,
-      "ts": "2026-10-08T13:32:56.358621+00:00"
+      "ts": "2026-10-08T14:19:52.806948+00:00"
     },
     "9352": {
       "verdict": "DESIGN",
@@ -1826,9 +1826,9 @@
     },
     "9218": {
       "verdict": "FIXED",
-      "note": "Fixed by astroid 4.3.4; closed by PR 11570 (astroid pin bump + 8138 tests + special-methods ellipsis guard removal), merged 8 October. Backport PR 11603 open; ships in 4.1.3.",
+      "note": "Fixed by astroid 4.3.4; closed by PR 11570 (astroid pin bump + 8138 tests + special-methods ellipsis guard removal), merged 8 October. Backported as PR 11603 (merged); ships in 4.1.3.",
       "session": 18,
-      "ts": "2026-10-08T13:32:56.358621+00:00"
+      "ts": "2026-10-08T14:19:52.806948+00:00"
     },
     "9216": {
       "verdict": "EXTDEP",
@@ -2918,9 +2918,9 @@
     },
     "8138": {
       "verdict": "FIXED",
-      "note": "Fixed by astroid 4.3.4; closed by PR 11570 (astroid pin bump + 8138 tests + special-methods ellipsis guard removal), merged 8 October. Backport PR 11603 open; ships in 4.1.3.",
+      "note": "Fixed by astroid 4.3.4; closed by PR 11570 (astroid pin bump + 8138 tests + special-methods ellipsis guard removal), merged 8 October. Backported as PR 11603 (merged); ships in 4.1.3.",
       "session": 18,
-      "ts": "2026-10-08T13:32:56.358621+00:00"
+      "ts": "2026-10-08T14:19:52.806948+00:00"
     },
     "8137": {
       "verdict": "DESIGN",
