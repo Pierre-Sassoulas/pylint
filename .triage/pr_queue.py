@@ -514,6 +514,16 @@ V = {
         "Ask for a rebase onto #11011, keeping only the package-root fix.",
     ),
     # ---- decide first -----------------------------------------------------
+    11601: (
+        "decide",
+        "design",
+        "feature",
+        "New, 145 lines for issue 10731: report <code>no-value-for-parameter</code> on a method call when the "
+        "receiver is Uninferable but annotated, by inferring the instance from the annotation. Pylint does not "
+        "infer from annotations elsewhere, so this is a design shift. Same author as astroid #3359 (closed as a "
+        "duplicate).",
+        "Decide whether annotation-based inference belongs in pylint (or astroid) before running CI.",
+    ),
     11587: (
         "decide",
         "lib-specific",
