@@ -66,15 +66,14 @@ LANES = {
 V = {
     # ---- merge lane -------------------------------------------------------
     # ---- review now -------------------------------------------------------
-    11600: (
+    11599: (
         "review",
         "ready",
         "confirmed",
-        "New, 48/48 green, 45 lines for issue 10691: <code>consider-using-assignment-expr</code> no "
-        "longer suggests inlining an all-caps or <code>Final</code> constant into a walrus, which also "
-        "ended its loop with <code>magic-value-comparison</code>. The primer removes 5 such suggestions "
-        "(ansible 2, astropy 1, sentry 2).",
-        "Review; the primer hits are the intended constants.",
+        "Run released, 48 checks green (one still running). 20 lines of docs for issue 11595: list "
+        "<code>no-header</code> in <code>output.rst</code> and the <code>--output-format</code> help. Could "
+        "also say that comma-separated formats are separate reporters, which #11602 turns into an error.",
+        "Review; suggest the 11597 note.",
     ),
     11577: (
         "review",
@@ -179,15 +178,6 @@ V = {
         "stdout (<code>colorized,no-header</code>), as you asked in the issue on 8 October. The run is "
         "held.",
         "Approve the run, then review.",
-    ),
-    11599: (
-        "approve",
-        "held",
-        "confirmed",
-        "New, 20 lines of docs for issue 11595: list <code>no-header</code> in <code>output.rst</code> "
-        "and the <code>--output-format</code> help. Could also note that comma-separated formats are "
-        "separate reporters (issue 11597).",
-        "Approve the run, review, and suggest the 11597 note.",
     ),
     11430: (
         "approve",
