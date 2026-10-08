@@ -647,14 +647,6 @@ V = {
         "Agree on the expected behaviour in the issue before approving a run.",
     ),
     # ---- stale ------------------------------------------------------------
-    11410: (
-        "stale",
-        "close?",
-        "duplicate",
-        "Issue 9354 is fixed by the astroid 4.3.4 upgrade in your #11570. You asked the author on 8 "
-        "October whether this PR is still needed.",
-        "Close once #11570 merges, unless the author shows a case 4.3.4 misses.",
-    ),
     11277: (
         "stale",
         "close?",
