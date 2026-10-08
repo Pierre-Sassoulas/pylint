@@ -136,7 +136,7 @@ class NestedMinMaxChecker(BaseChecker):
             if isinstance(node.func, nodes.Attribute)
             else node.func.name
         )
-        self.add_message(
+        self.add_message_at_node(
             "nested-min-max",
             node=node,
             args=(func_name, fixed_node.as_string()),

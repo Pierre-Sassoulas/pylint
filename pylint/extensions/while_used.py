@@ -30,7 +30,7 @@ class WhileChecker(BaseChecker):
 
     @only_required_for_messages("while-used")
     def visit_while(self, node: nodes.While) -> None:
-        self.add_message("while-used", node=node)
+        self.add_message_at_node("while-used", node=node)
 
 
 def register(linter: PyLinter) -> None:

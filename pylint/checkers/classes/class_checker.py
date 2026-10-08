@@ -1051,7 +1051,7 @@ a metaclass class method.",
                 ) if name not in slot_names and not utils.is_assign_name_annotated_with(
                     child.target, "ClassVar"
                 ):
-                    self.add_message(
+                    self.add_message_at_node(
                         "declare-non-slot",
                         args=child.target.name,
                         node=child.target,
@@ -1063,9 +1063,9 @@ a metaclass class method.",
         try:
             node.mro()
         except astroid.InconsistentMroError:
-            self.add_message("inconsistent-mro", args=node.name, node=node)
+            self.add_message_at_node("inconsistent-mro", args=node.name, node=node)
         except astroid.DuplicateBasesError:
-            self.add_message("duplicate-bases", args=node.name, node=node)
+            self.add_message_at_node("duplicate-bases", args=node.name, node=node)
 
     def _check_enum_base(self, node: nodes.ClassDef, ancestor: nodes.ClassDef) -> None:
         match ancestor.locals.get("__members__", []):
@@ -1078,7 +1078,7 @@ a metaclass class method.",
                         for item in ancestor.getattr(name_node.name)
                     ):
                         continue
-                    self.add_message(
+                    self.add_message_at_node(
                         "invalid-enum-extension",
                         args=ancestor.name,
                         node=node,
@@ -1111,7 +1111,7 @@ a metaclass class method.",
             # Report the overlapping values
             for overlap in overlaps:
                 for assignment_node in assignments[overlap]:
-                    self.add_message(
+                    self.add_message_at_node(
                         "implicit-flag-alias",
                         node=assignment_node,
                         args={
@@ -1142,7 +1142,9 @@ a metaclass class method.",
             if not isinstance(ancestor, nodes.ClassDef) or _is_invalid_base_class(
                 ancestor
             ):
-                self.add_message("inherit-non-class", args=base.as_string(), node=node)
+                self.add_message_at_node(
+                    "inherit-non-class", args=base.as_string(), node=node
+                )
 
             if isinstance(ancestor, nodes.ClassDef) and ancestor.is_subtype_of(
                 "enum.Enum"
@@ -1150,7 +1152,7 @@ a metaclass class method.",
                 self._check_enum_base(node, ancestor)
 
             if ancestor.name == object.__name__:
-                self.add_message(
+                self.add_message_at_node(
                     "useless-object-inheritance", args=node.name, node=node
                 )
 
@@ -1170,7 +1172,7 @@ a metaclass class method.",
                 if decorated_with(ancestor, ["typing.final"]) or any(
                     is_typing_member(decorator, ("final",)) for decorator in decorators
                 ):
-                    self.add_message(
+                    self.add_message_at_node(
                         "subclassed-final-class",
                         args=(node.name, ancestor.name),
                         node=node,
@@ -1242,7 +1244,7 @@ a metaclass class method.",
 
                 outer_level_names = f"{'.'.join(reversed(name_stack))}"
                 function_repr = f"{outer_level_names}.{function_def.name}({function_def.args.as_string()})"
-                self.add_message(
+                self.add_message_at_node(
                     "unused-private-member",
                     node=function_def,
                     args=(node.name, function_repr.lstrip(".")),
@@ -1269,7 +1271,9 @@ a metaclass class method.",
                         break
             else:
                 args = (node.name, assign_name.name)
-                self.add_message("unused-private-member", node=assign_name, args=args)
+                self.add_message_at_node(
+                    "unused-private-member", node=assign_name, args=args
+                )
 
     def _check_unused_private_attributes(self, node: nodes.ClassDef) -> None:
         for assign_attr in node.nodes_of_class(nodes.AssignAttr):
@@ -1321,7 +1325,9 @@ a metaclass class method.",
 
             else:
                 args = (node.name, assign_attr.attrname)
-                self.add_message("unused-private-member", node=assign_attr, args=args)
+                self.add_message_at_node(
+                    "unused-private-member", node=assign_attr, args=args
+                )
 
     def _check_attribute_defined_outside_init(self, cnode: nodes.ClassDef) -> None:
         setattr_attrs = self._setattr_attrs.pop(cnode, None)
@@ -1410,7 +1416,9 @@ a metaclass class method.",
                 continue
 
             for node in filtered_nodes:
-                self.add_message("attribute-defined-outside-init", args=attr, node=node)
+                self.add_message_at_node(
+                    "attribute-defined-outside-init", args=attr, node=node
+                )
 
     def _defined_in_parent_init(
         self, cnode: nodes.ClassDef, attr: str, defining_methods: Sequence[str]
@@ -1555,7 +1563,7 @@ a metaclass class method.",
                     if isinstance(obj, nodes.FunctionDef):
                         return
             args = (overridden.root().name, overridden.fromlineno)
-            self.add_message("method-hidden", args=args, node=node)
+            self.add_message_at_node("method-hidden", args=args, node=node)
         except astroid.NotFoundError:
             pass
 
@@ -1651,7 +1659,7 @@ a metaclass class method.",
                 return
 
         if _definition_equivalent_to_call(params, args):
-            self.add_message(
+            self.add_message_at_node(
                 "useless-parent-delegation",
                 node=function,
                 args=(function.name,),
@@ -1664,7 +1672,9 @@ a metaclass class method.",
             and decorated_with_property(node)
             and not is_property_setter(node)
         ):
-            self.add_message("property-with-parameters", node=node, confidence=HIGH)
+            self.add_message_at_node(
+                "property-with-parameters", node=node, confidence=HIGH
+            )
 
     def _check_invalid_overridden_method(
         self,
@@ -1678,13 +1688,13 @@ a metaclass class method.",
             function_node
         ) or is_property_setter_or_deleter(function_node)
         if parent_is_property and not current_is_property:
-            self.add_message(
+            self.add_message_at_node(
                 "invalid-overridden-method",
                 args=(function_node.name, "property", function_node.type),
                 node=function_node,
             )
         elif not parent_is_property and current_is_property:
-            self.add_message(
+            self.add_message_at_node(
                 "invalid-overridden-method",
                 args=(function_node.name, "method", "property"),
                 node=function_node,
@@ -1694,14 +1704,14 @@ a metaclass class method.",
         current_is_async = isinstance(function_node, nodes.AsyncFunctionDef)
 
         if parent_is_async and not current_is_async:
-            self.add_message(
+            self.add_message_at_node(
                 "invalid-overridden-method",
                 args=(function_node.name, "async", "non-async"),
                 node=function_node,
             )
 
         elif not parent_is_async and current_is_async:
-            self.add_message(
+            self.add_message_at_node(
                 "invalid-overridden-method",
                 args=(function_node.name, "non-async", "async"),
                 node=function_node,
@@ -1716,7 +1726,7 @@ a metaclass class method.",
             decorated_with(parent_function_node, ["typing.final"])
             or any(is_typing_member(decorator, ("final",)) for decorator in decorators)
         ) and self._py38_plus:
-            self.add_message(
+            self.add_message_at_node(
                 "overridden-final-method",
                 args=(function_node.name, parent_function_node.parent.frame().name),
                 node=function_node,
@@ -1775,12 +1785,12 @@ a metaclass class method.",
             if isinstance(slots, util.UninferableBase):
                 continue
             if not is_iterable(slots) and not is_comprehension(slots):
-                self.add_message("invalid-slots", node=node)
+                self.add_message_at_node("invalid-slots", node=node)
                 continue
 
             if isinstance(slots, nodes.Const):
                 # a string, ignore the following checks
-                self.add_message("single-string-used-for-slots", node=node)
+                self.add_message_at_node("single-string-used-for-slots", node=node)
                 continue
             if not hasattr(slots, "itered"):
                 # we can't obtain the values, maybe a .deque?
@@ -1847,7 +1857,7 @@ a metaclass class method.",
         redefined_slots = ancestors_slots_names.intersection(slots_names)
 
         if redefined_slots:
-            self.add_message(
+            self.add_message_at_node(
                 "redefined-slots-in-subclass",
                 args=([name for name in slots_names if name in redefined_slots],),
                 node=slots_node,
@@ -1863,7 +1873,7 @@ a metaclass class method.",
                 case nodes.Const(value=str() as value) if value:
                     pass
                 case _:
-                    self.add_message(
+                    self.add_message_at_node(
                         "invalid-slots-object",
                         args=elt.as_string(),
                         node=elt,
@@ -1877,7 +1887,7 @@ a metaclass class method.",
                     # Skip annotated assignments which don't conflict at all with slots.
                     return
                 case _ if class_variable:
-                    self.add_message(
+                    self.add_message_at_node(
                         "class-variable-slots-conflict",
                         args=(inferred.value,),
                         node=elt,
@@ -1927,7 +1937,9 @@ a metaclass class method.",
         if not isinstance(node.expr, nodes.Name):
             return
         if node.expr.name == "super":
-            self.add_message("super-without-brackets", node=node.expr, confidence=HIGH)
+            self.add_message_at_node(
+                "super-without-brackets", node=node.expr, confidence=HIGH
+            )
 
     @only_required_for_messages(
         "assigning-non-slot", "invalid-class-object", "access-member-before-definition"
@@ -1975,7 +1987,7 @@ a metaclass class method.",
             case nodes.ClassDef() | util.UninferableBase() | None:
                 # If uninferable, we allow it to prevent false positives
                 return
-        self.add_message(
+        self.add_message_at_node(
             "invalid-class-object",
             node=node,
             args=inferred.__class__.__name__,
@@ -2055,7 +2067,7 @@ a metaclass class method.",
                         return
                     if _has_same_layout_slots(slots, assigned_value):
                         return
-                self.add_message(
+                self.add_message_at_node(
                     "assigning-non-slot",
                     args=(node.attrname,),
                     node=node,
@@ -2106,7 +2118,7 @@ a metaclass class method.",
             return
 
         if any(method_name == member.name for member in parent_class.mymethods()):
-            self.add_message(msg, node=node.targets[0])
+            self.add_message_at_node(msg, node=node.targets[0])
 
     def _check_protected_attribute_access(
         self, node: nodes.Attribute | nodes.AssignAttr
@@ -2147,7 +2159,7 @@ a metaclass class method.",
         klass = node_frame_class(node)
         if klass is None:
             # We are not in a class, no remaining valid case
-            self.add_message("protected-access", node=node, args=attrname)
+            self.add_message_at_node("protected-access", node=node, args=attrname)
             return
 
         # In classes, check we are not getting a parent method
@@ -2210,7 +2222,7 @@ a metaclass class method.",
             ):
                 return
 
-            self.add_message("protected-access", node=node, args=attrname)
+            self.add_message_at_node("protected-access", node=node, args=attrname)
 
     @staticmethod
     def _is_called_inside_special_method(node: nodes.NodeNG) -> bool:
@@ -2348,7 +2360,7 @@ a metaclass class method.",
                                 _node.statement(), defstmt, excs
                             )
                         ):
-                            self.add_message(
+                            self.add_message_at_node(
                                 "access-member-before-definition",
                                 node=_node,
                                 args=(attr, lno),
@@ -2384,7 +2396,9 @@ a metaclass class method.",
                 or first_arg in self.linter.config.valid_classmethod_first_arg
                 or first_arg in self.linter.config.valid_metaclass_classmethod_first_arg
             ):
-                self.add_message("bad-staticmethod-argument", args=first, node=node)
+                self.add_message_at_node(
+                    "bad-staticmethod-argument", args=first, node=node
+                )
                 return
             self._first_attrs[-1] = None
         elif "builtins.staticmethod" in node.decoratornames():
@@ -2398,7 +2412,7 @@ a metaclass class method.",
             or node.args.vararg
             or node.args.kwarg
         ):
-            self.add_message("no-method-argument", node=node, args=node.name)
+            self.add_message_at_node("no-method-argument", node=node, args=node.name)
         # metaclass
         elif metaclass:
             # metaclass __new__ or classmethod
@@ -2430,7 +2444,7 @@ a metaclass class method.",
             )
         # regular class with regular method without self as argument
         elif first != "self":
-            self.add_message("no-self-argument", node=node, args=node.name)
+            self.add_message_at_node("no-self-argument", node=node, args=node.name)
 
     def _check_first_arg_config(
         self,
@@ -2446,7 +2460,7 @@ a metaclass class method.",
             else:
                 valid = ", ".join(repr(v) for v in config[:-1])
                 valid = f"{valid} or {config[-1]!r}"
-            self.add_message(message, args=(method_name, valid), node=node)
+            self.add_message_at_node(message, args=(method_name, valid), node=node)
 
     def _check_bases_classes(self, node: nodes.ClassDef) -> None:
         """Check that the given class node implements abstract methods from
@@ -2474,7 +2488,7 @@ a metaclass class method.",
                 # it is redefined as an attribute or with a descriptor
                 continue
 
-            self.add_message(
+            self.add_message_at_node(
                 "abstract-method",
                 node=node,
                 args=(name, owner.name, node.name),
@@ -2527,7 +2541,7 @@ a metaclass class method.",
                         parents_with_called_inits.add(node_frame_class(method))
                     except KeyError:
                         if klass not in klass_node.ancestors(recurs=False):
-                            self.add_message(
+                            self.add_message_at_node(
                                 "non-parent-init-called", node=expr, args=klass.name
                             )
             except astroid.InferenceError:
@@ -2543,7 +2557,7 @@ a metaclass class method.",
 
             if decorated_with(node, ["typing.overload"]):
                 continue
-            self.add_message(
+            self.add_message_at_node(
                 "super-init-not-called",
                 args=klass.name,
                 node=node,
@@ -2561,7 +2575,7 @@ a metaclass class method.",
             isinstance(method1, nodes.FunctionDef)
             and isinstance(refmethod, nodes.FunctionDef)
         ):
-            self.add_message(
+            self.add_message_at_node(
                 "method-check-failed", args=(method1, refmethod), node=method1
             )
             return
@@ -2630,13 +2644,13 @@ a metaclass class method.",
                         class_type,
                         f"{method1.parent.frame().name}.{method1.name}",
                     )
-                self.add_message(error_type, args=msg_args, node=method1)
+                self.add_message_at_node(error_type, args=msg_args, node=method1)
         elif (
             len(method1.args.defaults) < len(refmethod.args.defaults)
             and not method1.args.vararg
         ):
             class_type = "overridden"
-            self.add_message(
+            self.add_message_at_node(
                 "signature-differs", args=(class_type, method1.name), node=method1
             )
 

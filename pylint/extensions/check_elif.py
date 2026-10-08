@@ -57,7 +57,7 @@ class ElseifUsedChecker(BaseTokenChecker):
             and (node.lineno, node.col_offset) in self._elifs
             and self._elifs[(node.lineno, node.col_offset)] == "if"
         ):
-            self.add_message("else-if-used", node=node, confidence=HIGH)
+            self.add_message_at_node("else-if-used", node=node, confidence=HIGH)
 
 
 def register(linter: PyLinter) -> None:

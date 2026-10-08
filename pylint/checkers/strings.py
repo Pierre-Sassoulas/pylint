@@ -281,22 +281,22 @@ class StringFormatChecker(BaseChecker):
             ) = utils.parse_format_string(format_string)
         except utils.UnsupportedFormatCharacter as exc:
             formatted = format_string[exc.index]
-            self.add_message(
+            self.add_message_at_node(
                 "bad-format-character",
                 node=node,
                 args=(formatted, ord(formatted), exc.index),
             )
             return
         except utils.IncompleteFormatString:
-            self.add_message("truncated-format-string", node=node)
+            self.add_message_at_node("truncated-format-string", node=node)
             return
         if not required_keys and not required_num_args:
-            self.add_message("format-string-without-interpolation", node=node)
+            self.add_message_at_node("format-string-without-interpolation", node=node)
             return
         if required_keys and required_num_args:
             # The format string uses both named and unnamed format
             # specifiers.
-            self.add_message("mixed-format-string", node=node)
+            self.add_message_at_node("mixed-format-string", node=node)
         elif required_keys:
             # The format string uses only named format specifiers.
             # Check that the RHS of the % operator is a mapping object
@@ -311,7 +311,7 @@ class StringFormatChecker(BaseChecker):
                         if isinstance(key, str):
                             keys.add(key)
                         else:
-                            self.add_message(
+                            self.add_message_at_node(
                                 "bad-format-string-key", node=node, args=key
                             )
                     else:
@@ -323,12 +323,12 @@ class StringFormatChecker(BaseChecker):
                 if not unknown_keys:
                     for key in required_keys:
                         if key not in keys:
-                            self.add_message(
+                            self.add_message_at_node(
                                 "missing-format-string-key", node=node, args=key
                             )
                 for key in keys:
                     if key not in required_keys:
-                        self.add_message(
+                        self.add_message_at_node(
                             "unused-format-string-key", node=node, args=key
                         )
                 for key, arg in args.items:
@@ -342,14 +342,16 @@ class StringFormatChecker(BaseChecker):
                         and not isinstance(arg_type, util.UninferableBase)
                         and not arg_matches_format_type(arg_type, format_type)
                     ):
-                        self.add_message(
+                        self.add_message_at_node(
                             "bad-string-format-type",
                             node=node,
                             args=(arg_type.pytype(), format_type),
                         )
             elif isinstance(args, (OTHER_NODES, nodes.Tuple)):
                 type_name = type(args).__name__
-                self.add_message("format-needs-mapping", node=node, args=type_name)
+                self.add_message_at_node(
+                    "format-needs-mapping", node=node, args=type_name
+                )
             # else:
             # The RHS of the format specifier is a name or
             # expression.  It may be a mapping object, so
@@ -388,9 +390,9 @@ class StringFormatChecker(BaseChecker):
                 num_args = None
             if num_args is not None:
                 if num_args > required_num_args:
-                    self.add_message("too-many-format-args", node=node)
+                    self.add_message_at_node("too-many-format-args", node=node)
                 elif num_args < required_num_args:
-                    self.add_message("too-few-format-args", node=node)
+                    self.add_message_at_node("too-few-format-args", node=node)
                 for arg, format_type in zip(args_elts, required_arg_types):
                     if not arg:
                         continue
@@ -400,7 +402,7 @@ class StringFormatChecker(BaseChecker):
                         and not isinstance(arg_type, util.UninferableBase)
                         and not arg_matches_format_type(arg_type, format_type)
                     ):
-                        self.add_message(
+                        self.add_message_at_node(
                             "bad-string-format-type",
                             node=node,
                             args=(arg_type.pytype(), format_type),
@@ -416,7 +418,7 @@ class StringFormatChecker(BaseChecker):
         for value in node.values:
             if isinstance(value, nodes.FormattedValue):
                 return
-        self.add_message("f-string-without-interpolation", node=node)
+        self.add_message_at_node("f-string-without-interpolation", node=node)
 
     def visit_call(self, node: nodes.Call) -> None:
         match func := utils.safe_infer(node.func):
@@ -430,7 +432,7 @@ class StringFormatChecker(BaseChecker):
                     ):
                         return
                     if len(arg.value) != len(set(arg.value)):
-                        self.add_message(
+                        self.add_message_at_node(
                             "bad-str-strip-call",
                             node=node,
                             args=(bound_name, func.name),
@@ -447,7 +449,7 @@ class StringFormatChecker(BaseChecker):
         for name, count in counter.items():
             if count == 1:
                 continue
-            self.add_message(
+            self.add_message_at_node(
                 "duplicate-string-formatting-argument", node=node, args=(name,)
             )
 
@@ -484,14 +486,14 @@ class StringFormatChecker(BaseChecker):
                 strnode.value
             )
         except utils.IncompleteFormatString:
-            self.add_message("bad-format-string", node=node)
+            self.add_message_at_node("bad-format-string", node=node)
             return
 
         positional_arguments = call_site.positional_arguments
         named_arguments = call_site.keyword_arguments
         named_fields = {field[0] for field in fields if isinstance(field[0], str)}
         if num_args and manual_pos:
-            self.add_message("format-combined-specification", node=node)
+            self.add_message_at_node("format-combined-specification", node=node)
             return
 
         check_args = False
@@ -500,12 +502,12 @@ class StringFormatChecker(BaseChecker):
         if named_fields:
             for field in named_fields:
                 if field and field not in named_arguments:
-                    self.add_message(
+                    self.add_message_at_node(
                         "missing-format-argument-key", node=node, args=(field,)
                     )
             for field in named_arguments:
                 if field not in named_fields:
-                    self.add_message(
+                    self.add_message_at_node(
                         "unused-format-string-argument", node=node, args=(field,)
                     )
             # num_args can be 0 if manual_pos is not.
@@ -525,12 +527,14 @@ class StringFormatChecker(BaseChecker):
             # num_args can be 0 if manual_pos is not.
             num_args = num_args or manual_pos
             if not num_args:
-                self.add_message("format-string-without-interpolation", node=node)
+                self.add_message_at_node(
+                    "format-string-without-interpolation", node=node
+                )
                 return
             if len(positional_arguments) > num_args:
-                self.add_message("too-many-format-args", node=node)
+                self.add_message_at_node("too-many-format-args", node=node)
             elif len(positional_arguments) < num_args:
-                self.add_message("too-few-format-args", node=node)
+                self.add_message_at_node("too-few-format-args", node=node)
 
         self._detect_vacuous_formatting(node, positional_arguments)
         self._check_new_format_specifiers(node, fields, named_arguments)
@@ -594,7 +598,7 @@ class StringFormatChecker(BaseChecker):
                             # Don't warn if the object has a custom __getattr__
                             break
                         path = get_access_path(key, parsed)
-                        self.add_message(
+                        self.add_message_at_node(
                             "missing-format-attribute",
                             args=(specifier, path),
                             node=node,
@@ -626,7 +630,7 @@ class StringFormatChecker(BaseChecker):
                             warn_error = True
                     if warn_error:
                         path = get_access_path(key, parsed)
-                        self.add_message(
+                        self.add_message_at_node(
                             "invalid-format-index", args=(specifier, path), node=node
                         )
                         break
@@ -869,8 +873,8 @@ class StringConstantChecker(BaseTokenChecker, BaseRawFileChecker):
                     _is_quote_delimiter_chosen_freely(token)
                     and quote_delimiter != most_common_delimiter
                 ):
-                    self.add_message(
-                        "inconsistent-quotes", line=start[0], args=(quote_delimiter,)
+                    self.add_message_at_location(
+                        "inconsistent-quotes", lineno=start[0], args=(quote_delimiter,)
                     )
 
     def check_for_concatenated_strings(
@@ -912,9 +916,9 @@ class StringConstantChecker(BaseTokenChecker, BaseRawFileChecker):
                         (elt.lineno, elt.col_offset)
                     )
                 ):
-                    self.add_message(
+                    self.add_message_at_location(
                         "implicit-str-concat",
-                        line=elt.lineno,
+                        lineno=elt.lineno,
                         args=(iterable_type,),
                         confidence=HIGH,
                     )
@@ -989,16 +993,16 @@ class StringConstantChecker(BaseTokenChecker, BaseRawFileChecker):
                 elif "b" not in prefix:
                     pass  # unicode by default
                 else:
-                    self.add_message(
+                    self.add_message_at_location(
                         "anomalous-unicode-escape-in-string",
-                        line=line,
+                        lineno=line,
                         args=(match,),
                         col_offset=col_offset,
                     )
             elif next_char not in self.ESCAPE_CHARACTERS:
-                self.add_message(
+                self.add_message_at_location(
                     "anomalous-backslash-in-string",
-                    line=line,
+                    lineno=line,
                     args=(match,),
                     col_offset=col_offset,
                 )
@@ -1017,9 +1021,9 @@ class StringConstantChecker(BaseTokenChecker, BaseRawFileChecker):
     def _detect_u_string_prefix(self, node: nodes.Const) -> None:
         """Check whether strings include a 'u' prefix like u'String'."""
         if node.kind == "u":
-            self.add_message(
+            self.add_message_at_location(
                 "redundant-u-string-prefix",
-                line=node.lineno,
+                lineno=node.lineno,
                 col_offset=node.col_offset,
             )
 

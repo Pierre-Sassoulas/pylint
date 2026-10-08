@@ -297,11 +297,11 @@ class BasicErrorChecker(_BasicChecker):
         match assign_target := node.targets[0]:
             case nodes.Starred():
                 # Check *a = b
-                self.add_message("invalid-star-assignment-target", node=node)
+                self.add_message_at_node("invalid-star-assignment-target", node=node)
             case nodes.Tuple():
                 # Check *a, *b = ...
                 if self._too_many_starred_for_tuple(assign_target):
-                    self.add_message("too-many-star-expressions", node=node)
+                    self.add_message_at_node("too-many-star-expressions", node=node)
 
     @utils.only_required_for_messages("star-needs-assignment-target")
     def visit_starred(self, node: nodes.Starred) -> None:
@@ -326,7 +326,7 @@ class BasicErrorChecker(_BasicChecker):
             return
 
         if stmt.value is node or stmt.value.parent_of(node):
-            self.add_message("star-needs-assignment-target", node=node)
+            self.add_message_at_node("star-needs-assignment-target", node=node)
 
     @utils.only_required_for_messages(
         "init-is-generator",
@@ -352,17 +352,17 @@ class BasicErrorChecker(_BasicChecker):
         )
         if node.is_method() and node.name == "__init__":
             if node.is_generator():
-                self.add_message("init-is-generator", node=node)
+                self.add_message_at_node("init-is-generator", node=node)
             else:
                 values = [r.value for r in returns]
                 # Are we returning anything but None from constructors
                 if any(v for v in values if not utils.is_none(v)):
-                    self.add_message("return-in-init", node=node)
+                    self.add_message_at_node("return-in-init", node=node)
         # Check for duplicate names by clustering args with same name for detailed report
         arg_clusters = {}
         for arg in node.args.arguments:
             if arg.name in arg_clusters:
-                self.add_message(
+                self.add_message_at_node(
                     "duplicate-argument-name",
                     node=arg,
                     args=(arg.name,),
@@ -395,7 +395,7 @@ class BasicErrorChecker(_BasicChecker):
 
             global_lineno = corresponding_global.fromlineno
             if global_lineno and global_lineno > node_name.fromlineno:
-                self.add_message(
+                self.add_message_at_node(
                     "used-prior-global-declaration", node=node_name, args=(name,)
                 )
 
@@ -425,12 +425,12 @@ class BasicErrorChecker(_BasicChecker):
             )
         )
         for name in nonlocals.intersection(global_vars):
-            self.add_message("nonlocal-and-global", args=(name,), node=node)
+            self.add_message_at_node("nonlocal-and-global", args=(name,), node=node)
 
     @utils.only_required_for_messages("return-outside-function")
     def visit_return(self, node: nodes.Return) -> None:
         if not isinstance(node.frame(), nodes.FunctionDef):
-            self.add_message("return-outside-function", node=node)
+            self.add_message_at_node("return-outside-function", node=node)
 
     @utils.only_required_for_messages("yield-outside-function")
     def visit_yield(self, node: nodes.Yield) -> None:
@@ -465,13 +465,17 @@ class BasicErrorChecker(_BasicChecker):
             and (node.operand.op == node.op)
             and (node.col_offset + 1 == node.operand.col_offset)
         ):
-            self.add_message("nonexistent-operator", node=node, args=node.op * 2)
+            self.add_message_at_node(
+                "nonexistent-operator", node=node, args=node.op * 2
+            )
 
     def _check_nonlocal_without_binding(self, node: nodes.Nonlocal, name: str) -> None:
         current_scope = node.scope()
         while current_scope.parent is not None:
             if not isinstance(current_scope, (nodes.ClassDef, nodes.FunctionDef)):
-                self.add_message("nonlocal-without-binding", args=(name,), node=node)
+                self.add_message_at_node(
+                    "nonlocal-without-binding", args=(name,), node=node
+                )
                 return
 
             # Search for `name` in the parent scope if:
@@ -485,7 +489,7 @@ class BasicErrorChecker(_BasicChecker):
             return
 
         if not isinstance(current_scope, nodes.FunctionDef):
-            self.add_message(
+            self.add_message_at_node(
                 "nonlocal-without-binding", args=(name,), node=node, confidence=HIGH
             )
 
@@ -529,7 +533,7 @@ class BasicErrorChecker(_BasicChecker):
             # by ClassNode.metaclass()
             for ancestor in inferred.ancestors():
                 if ancestor.qname() == "abc.ABC":
-                    self.add_message(
+                    self.add_message_at_node(
                         "abstract-class-instantiated", args=(inferred.name,), node=node
                     )
                     break
@@ -537,13 +541,13 @@ class BasicErrorChecker(_BasicChecker):
             return
 
         if metaclass.qname() in ABC_METACLASSES:
-            self.add_message(
+            self.add_message_at_node(
                 "abstract-class-instantiated", args=(inferred.name,), node=node
             )
 
     def _check_yield_outside_func(self, node: nodes.Yield) -> None:
         if not isinstance(node.frame(), (nodes.FunctionDef, nodes.Lambda)):
-            self.add_message("yield-outside-function", node=node)
+            self.add_message_at_node("yield-outside-function", node=node)
 
     def _check_else_on_loop(self, node: nodes.For | nodes.While) -> None:
         """Check that any loop with an else clause has a break statement."""
@@ -573,15 +577,15 @@ class BasicErrorChecker(_BasicChecker):
                 and node in parent.finalbody
                 and isinstance(node, nodes.Continue)
             ):
-                self.add_message("continue-in-finally", node=node)
+                self.add_message_at_node("continue-in-finally", node=node)
             if (
                 isinstance(parent, nodes.Try)
                 and node in parent.finalbody
                 and isinstance(node, nodes.Break)
             ):
-                self.add_message("break-in-finally", node=node)
+                self.add_message_at_node("break-in-finally", node=node)
 
-        self.add_message("not-in-loop", node=node, args=node_name)
+        self.add_message_at_node("not-in-loop", node=node, args=node_name)
 
     def _check_redefinition(
         self, redeftype: str, node: nodes.Call | nodes.FunctionDef
@@ -650,7 +654,7 @@ class BasicErrorChecker(_BasicChecker):
             dummy_variables_rgx = self.linter.config.dummy_variables_rgx
             if dummy_variables_rgx and dummy_variables_rgx.match(node.name):
                 return
-            self.add_message(
+            self.add_message_at_node(
                 "function-redefined",
                 node=node,
                 args=(redeftype, defined_self.fromlineno),

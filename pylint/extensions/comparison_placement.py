@@ -50,7 +50,9 @@ class MisplacedComparisonConstantChecker(BaseChecker):
             return
         operator = REVERSED_COMPS.get(operator, operator)
         suggestion = f"{right.as_string()} {operator} {left.value!r}"
-        self.add_message("misplaced-comparison-constant", node=node, args=(suggestion,))
+        self.add_message_at_node(
+            "misplaced-comparison-constant", node=node, args=(suggestion,)
+        )
 
     @utils.only_required_for_messages("misplaced-comparison-constant")
     def visit_compare(self, node: nodes.Compare) -> None:

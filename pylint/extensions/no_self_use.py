@@ -97,7 +97,7 @@ class NoSelfUseChecker(BaseChecker):
                     or is_overload_stub(node)
                 )
             ):
-                self.add_message("no-self-use", node=node, confidence=INFERENCE)
+                self.add_message_at_node("no-self-use", node=node, confidence=INFERENCE)
             self._meth_could_be_func = self._meth_could_be_func_stack.pop()
 
     leave_asyncfunctiondef = leave_functiondef

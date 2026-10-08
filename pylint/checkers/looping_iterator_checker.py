@@ -251,7 +251,7 @@ class RepeatedIteratorLoopChecker(checkers.BaseChecker):
             # refreshed or the scope ends.
             return
 
-        self.add_message(
+        self.add_message_at_node(
             "looping-through-iterator",
             node=usage_node,
             args=(iterator_name,),

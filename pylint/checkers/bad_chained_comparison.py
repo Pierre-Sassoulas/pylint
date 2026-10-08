@@ -48,7 +48,7 @@ class BadChainedComparisonChecker(BaseChecker):
             incompatibles = (
                 ", ".join(f"'{o}'" for o in operators[:-1]) + f" and '{operators[-1]}'"
             )
-            self.add_message(
+            self.add_message_at_node(
                 "bad-chained-comparison",
                 node=node,
                 args=(num_parts, incompatibles),

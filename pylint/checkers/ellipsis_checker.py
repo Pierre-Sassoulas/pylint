@@ -57,7 +57,7 @@ class EllipsisChecker(BaseChecker):
         if (
             isinstance(scope, (nodes.ClassDef, nodes.FunctionDef)) and scope.doc_node
         ) or len(scope.body) > 1:
-            self.add_message("unnecessary-ellipsis", node=node)
+            self.add_message_at_node("unnecessary-ellipsis", node=node)
 
 
 def register(linter: PyLinter) -> None:

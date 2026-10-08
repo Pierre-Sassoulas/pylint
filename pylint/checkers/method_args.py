@@ -91,7 +91,7 @@ class MethodArgsChecker(BaseChecker):
             keyword_arguments = [keyword.arg for keyword in node.keywords]
             keyword_arguments.extend(call_site.keyword_arguments)
             if "timeout" not in keyword_arguments:
-                self.add_message(
+                self.add_message_at_node(
                     "missing-timeout",
                     node=node,
                     args=(node.func.as_string(),),
@@ -117,7 +117,7 @@ class MethodArgsChecker(BaseChecker):
         if not kws:
             return
 
-        self.add_message(
+        self.add_message_at_node(
             "positional-only-arguments-expected",
             node=node,
             args=(node.func.as_string(), ", ".join(f"'{k}'" for k in kws)),

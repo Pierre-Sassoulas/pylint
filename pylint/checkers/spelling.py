@@ -383,8 +383,8 @@ class SpellingChecker(BaseTokenChecker):
                 if self.spelling_dict.check(word):
                     continue
             except enchant.errors.Error:
-                self.add_message(
-                    "invalid-characters-in-docstring", line=line_num, args=(word,)
+                self.add_message_at_location(
+                    "invalid-characters-in-docstring", lineno=line_num, args=(word,)
                 )
                 continue
 
@@ -415,7 +415,7 @@ class SpellingChecker(BaseTokenChecker):
                 indicator = (" " * col) + ("^" * len(word))
                 all_suggestion = "' or '".join(suggestions)
                 args = (word, original_line, indicator, f"'{all_suggestion}'")
-                self.add_message(msgid, line=line_num, args=args)
+                self.add_message_at_location(msgid, lineno=line_num, args=args)
 
     def process_tokens(self, tokens: list[tokenize.TokenInfo]) -> None:
         if not self.initialized:

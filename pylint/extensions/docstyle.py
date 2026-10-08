@@ -53,7 +53,7 @@ class DocStringStyleChecker(checkers.BaseChecker):
     ) -> None:
         docstring = node.doc_node.value if node.doc_node else None
         if docstring and docstring[0] == "\n":
-            self.add_message(
+            self.add_message_at_node(
                 "docstring-first-line-empty",
                 node=node,
                 args=(node_type,),
@@ -77,7 +77,7 @@ class DocStringStyleChecker(checkers.BaseChecker):
             else:
                 quotes = ""
             if quotes:
-                self.add_message(
+                self.add_message_at_node(
                     "bad-docstring-quotes",
                     node=node,
                     args=(node_type, quotes),

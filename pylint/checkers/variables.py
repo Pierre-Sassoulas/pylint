@@ -1455,7 +1455,7 @@ class VariablesChecker(BaseChecker):
             if utils.is_builtin(name):
                 if self._should_ignore_redefined_builtin(stmts[0]) or name == "__doc__":
                     continue
-                self.add_message("redefined-builtin", args=name, node=stmts[0])
+                self.add_message_at_node("redefined-builtin", args=name, node=stmts[0])
 
     @utils.only_required_for_messages(
         "unused-import",
@@ -1575,7 +1575,7 @@ class VariablesChecker(BaseChecker):
 
                 line = definition.fromlineno
                 if not self._is_name_ignored(stmt, name):
-                    self.add_message(
+                    self.add_message_at_node(
                         "redefined-outer-name", args=(name, line), node=stmt
                     )
 
@@ -1598,7 +1598,7 @@ class VariablesChecker(BaseChecker):
                     ):
                         continue
                 # do not print Redefining builtin for additional builtins
-                self.add_message("redefined-builtin", args=name, node=stmt)
+                self.add_message_at_node("redefined-builtin", args=name, node=stmt)
 
     def leave_functiondef(self, node: nodes.FunctionDef) -> None:
         """Leave function: check function's locals are consumed."""
@@ -1658,7 +1658,9 @@ class VariablesChecker(BaseChecker):
         """Check names imported exists in the global scope."""
         frame = node.frame()
         if isinstance(frame, nodes.Module):
-            self.add_message("global-at-module-level", node=node, confidence=HIGH)
+            self.add_message_at_node(
+                "global-at-module-level", node=node, confidence=HIGH
+            )
             return
 
         module = frame.root()
@@ -1680,7 +1682,7 @@ class VariablesChecker(BaseChecker):
                 and not utils.is_deleted_after_current(node, name)
                 and not_defined_locally_by_import
             ):
-                self.add_message(
+                self.add_message_at_node(
                     "global-variable-not-assigned",
                     args=name,
                     node=node,
@@ -1694,7 +1696,7 @@ class VariablesChecker(BaseChecker):
                     isinstance(anode, nodes.AssignName)
                     and anode.name in module.special_attributes
                 ):
-                    self.add_message("redefined-builtin", args=name, node=node)
+                    self.add_message_at_node("redefined-builtin", args=name, node=node)
                     break
                 if anode.frame() is module:
                     # module level assignment
@@ -1708,7 +1710,7 @@ class VariablesChecker(BaseChecker):
             else:
                 if not_defined_locally_by_import:
                     # global undefined at the module scope
-                    self.add_message(
+                    self.add_message_at_node(
                         "global-variable-undefined",
                         args=name,
                         node=node,
@@ -1717,7 +1719,7 @@ class VariablesChecker(BaseChecker):
                     default_message = False
 
         if default_message:
-            self.add_message("global-statement", node=node, confidence=HIGH)
+            self.add_message_at_node("global-statement", node=node, confidence=HIGH)
 
     def visit_assignname(self, node: nodes.AssignName) -> None:
         if isinstance(node.assign_type(), nodes.AugAssign):
@@ -1748,7 +1750,7 @@ class VariablesChecker(BaseChecker):
 
         for outer_except, outer_except_assign_name in self._except_handler_names_queue:
             if node.name.name == outer_except_assign_name.name:
-                self.add_message(
+                self.add_message_at_node(
                     "redefined-outer-name",
                     args=(outer_except_assign_name.name, outer_except.fromlineno),
                     node=node,
@@ -1811,7 +1813,7 @@ class VariablesChecker(BaseChecker):
                 )
             )
         ) and not utils.node_ignores_exception(node, NameError):
-            self.add_message("undefined-variable", args=node.name, node=node)
+            self.add_message_at_node("undefined-variable", args=node.name, node=node)
 
     def _should_node_be_skipped(
         self,
@@ -2012,7 +2014,7 @@ class VariablesChecker(BaseChecker):
                     and utils.get_node_first_ancestor_of_type(stmt, nodes.FunctionDef)
                     or isinstance(stmt, nodes.TypeAlias)
                 ):
-                    self.add_message(
+                    self.add_message_at_node(
                         "used-before-assignment",
                         args=node.name,
                         node=node,
@@ -2035,7 +2037,7 @@ class VariablesChecker(BaseChecker):
                     and node.name in frame.locals
                     and stmt.fromlineno <= defstmt.fromlineno
                 ):
-                    self.add_message(
+                    self.add_message_at_node(
                         "used-before-assignment",
                         args=node.name,
                         node=node,
@@ -2046,11 +2048,11 @@ class VariablesChecker(BaseChecker):
             node, defstmt
         ):
             if node.scope().locals.get(node.name):
-                self.add_message(
+                self.add_message_at_node(
                     "used-before-assignment", args=node.name, node=node, confidence=HIGH
                 )
             else:
-                self.add_message(
+                self.add_message_at_node(
                     "undefined-variable", args=node.name, node=node, confidence=HIGH
                 )
             return (VariableVisitConsumerAction.RETURN, found_nodes)
@@ -2063,7 +2065,7 @@ class VariablesChecker(BaseChecker):
         elif isinstance(defnode, nodes.NamedExpr):
             if isinstance(defnode.parent, nodes.IfExp):
                 if self._is_never_evaluated(defnode, defnode.parent):
-                    self.add_message(
+                    self.add_message_at_node(
                         "undefined-variable",
                         args=node.name,
                         node=node,
@@ -2113,7 +2115,7 @@ class VariablesChecker(BaseChecker):
         else:
             msg = "used-before-assignment"
 
-        self.add_message(
+        self.add_message_at_node(
             msg,
             args=node.name,
             node=node,
@@ -2729,7 +2731,9 @@ class VariablesChecker(BaseChecker):
             return
 
         if not isinstance(assign, nodes.For):
-            self.add_message("undefined-loop-variable", args=node.name, node=node)
+            self.add_message_at_node(
+                "undefined-loop-variable", args=node.name, node=node
+            )
             return
         for else_stmt in assign.orelse:
             if isinstance(
@@ -2794,7 +2798,9 @@ class VariablesChecker(BaseChecker):
                 if isinstance(likely_call, nodes.Call) and likely_call.args:
                     inferred = next(likely_call.args[0].infer())
         except astroid.InferenceError:
-            self.add_message("undefined-loop-variable", args=node.name, node=node)
+            self.add_message_at_node(
+                "undefined-loop-variable", args=node.name, node=node
+            )
         else:
             if (
                 isinstance(inferred, astroid.Instance)
@@ -2812,12 +2818,16 @@ class VariablesChecker(BaseChecker):
                 objects.FrozenSet,
             )
             if not isinstance(inferred, sequences):
-                self.add_message("undefined-loop-variable", args=node.name, node=node)
+                self.add_message_at_node(
+                    "undefined-loop-variable", args=node.name, node=node
+                )
                 return
 
             elements = getattr(inferred, "elts", getattr(inferred, "items", []))
             if not elements:
-                self.add_message("undefined-loop-variable", args=node.name, node=node)
+                self.add_message_at_node(
+                    "undefined-loop-variable", args=node.name, node=node
+                )
 
     # pylint: disable = too-many-branches
     def _check_is_unused(
@@ -2895,14 +2905,14 @@ class VariablesChecker(BaseChecker):
                             msg = f"{qname} imported as {asname}"
                         else:
                             msg = f"import {name}"
-                        self.add_message("unused-import", args=msg, node=stmt)
+                        self.add_message_at_node("unused-import", args=msg, node=stmt)
                         return
                     case nodes.ImportFrom():
                         if asname is not None:
                             msg = f"{qname} imported from {stmt.modname} as {asname}"
                         else:
                             msg = f"{name} imported from {stmt.modname}"
-                        self.add_message("unused-import", args=msg, node=stmt)
+                        self.add_message_at_node("unused-import", args=msg, node=stmt)
                         return
                 message_name = "unused-variable"
 
@@ -2917,7 +2927,7 @@ class VariablesChecker(BaseChecker):
             if self._is_exception_binding_used_in_handler(stmt, name):
                 return
 
-            self.add_message(message_name, args=name, node=stmt)
+            self.add_message_at_node(message_name, args=name, node=stmt)
 
     def _is_name_ignored(
         self,
@@ -2986,7 +2996,9 @@ class VariablesChecker(BaseChecker):
         if name in nonlocal_names:
             return
 
-        self.add_message("unused-argument", args=name, node=stmt, confidence=confidence)
+        self.add_message_at_node(
+            "unused-argument", args=name, node=stmt, confidence=confidence
+        )
 
     def _is_exception_binding_used_in_handler(
         self, stmt: nodes.NodeNG, name: str
@@ -3026,7 +3038,7 @@ class VariablesChecker(BaseChecker):
             return
 
         if utils.is_comprehension(assign_scope):
-            self.add_message("cell-var-from-loop", node=node, args=node.name)
+            self.add_message_at_node("cell-var-from-loop", node=node, args=node.name)
         else:
             # Look for an enclosing For loop.
             # Currently, we only consider the first assignment
@@ -3045,7 +3057,9 @@ class VariablesChecker(BaseChecker):
                     and node_scope.parent
                     and not isinstance(node_scope.statement(), nodes.Return)
                 ):
-                    self.add_message("cell-var-from-loop", node=node, args=node.name)
+                    self.add_message_at_node(
+                        "cell-var-from-loop", node=node, args=node.name
+                    )
 
     def _should_ignore_redefined_builtin(self, stmt: nodes.NodeNG) -> bool:
         if not isinstance(stmt, nodes.ImportFrom):
@@ -3130,7 +3144,9 @@ class VariablesChecker(BaseChecker):
             return
         self_cls_name = argument_names[0]
         if self_cls_name in assign_names:
-            self.add_message("self-cls-assignment", node=node, args=(self_cls_name,))
+            self.add_message_at_node(
+                "self-cls-assignment", node=node, args=(self_cls_name,)
+            )
 
     def _check_unpacking(
         self,
@@ -3224,12 +3240,12 @@ class VariablesChecker(BaseChecker):
             if isinstance(inferred, DICT_TYPES)
             else "unbalanced-tuple-unpacking"
         )
-        self.add_message(symbol, node=node, args=args, confidence=INFERENCE)
+        self.add_message_at_node(symbol, node=node, args=args, confidence=INFERENCE)
 
     def _report_unpacking_non_sequence(self, node: nodes.NodeNG, details: str) -> None:
         if details and not details.startswith(" "):
             details = f" {details}"
-        self.add_message("unpacking-non-sequence", node=node, args=details)
+        self.add_message_at_node("unpacking-non-sequence", node=node, args=details)
 
     def _check_module_attrs(
         self,
@@ -3256,7 +3272,7 @@ class VariablesChecker(BaseChecker):
                 # module, we first check if it matches the ignored modules.
                 if is_module_ignored(f"{module.qname()}.{name}", self._ignored_modules):
                     return None
-                self.add_message(
+                self.add_message_at_node(
                     "no-name-in-module", args=(name, module.name), node=node
                 )
                 return None
@@ -3264,7 +3280,7 @@ class VariablesChecker(BaseChecker):
                 return None
         if module_names:
             modname = module.name if module else "__dict__"
-            self.add_message(
+            self.add_message_at_node(
                 "no-name-in-module", node=node, args=(".".join(module_names), modname)
             )
             return None
@@ -3284,7 +3300,7 @@ class VariablesChecker(BaseChecker):
         if isinstance(assigned, util.UninferableBase):
             return
         if assigned.pytype() not in {"builtins.list", "builtins.tuple"}:
-            self.add_message("invalid-all-format", node=assigned)
+            self.add_message_at_node("invalid-all-format", node=assigned)
             return
         for elt in getattr(assigned, "elts", ()):
             try:
@@ -3299,7 +3315,9 @@ class VariablesChecker(BaseChecker):
             if not (
                 isinstance(elt_name, nodes.Const) and isinstance(elt_name.value, str)
             ):
-                self.add_message("invalid-all-object", args=elt.as_string(), node=elt)
+                self.add_message_at_node(
+                    "invalid-all-object", args=elt.as_string(), node=elt
+                )
                 continue
 
             elt_name = elt_name.value
@@ -3310,7 +3328,7 @@ class VariablesChecker(BaseChecker):
 
             if elt_name not in node.locals:
                 if not node.package:
-                    self.add_message(
+                    self.add_message_at_node(
                         "undefined-all-variable", args=(elt_name,), node=elt
                     )
                 else:
@@ -3320,7 +3338,7 @@ class VariablesChecker(BaseChecker):
                         try:
                             astroid.modutils.file_from_modpath(name.split("."))
                         except ImportError:
-                            self.add_message(
+                            self.add_message_at_node(
                                 "undefined-all-variable", args=(elt_name,), node=elt
                             )
                         except SyntaxError:
@@ -3348,7 +3366,7 @@ class VariablesChecker(BaseChecker):
                     continue
                 if self._is_name_ignored(node, name):
                     continue
-                self.add_message("unused-variable", args=(name,), node=node)
+                self.add_message_at_node("unused-variable", args=(name,), node=node)
 
     # pylint: disable = too-many-branches
     def _check_imports(self, not_consumed: Consumption) -> None:
@@ -3401,7 +3419,7 @@ class VariablesChecker(BaseChecker):
                     else:
                         msg = f"{imported_name} imported as {as_name}"
                     if not in_type_checking_block(stmt):
-                        self.add_message("unused-import", args=msg, node=stmt)
+                        self.add_message_at_node("unused-import", args=msg, node=stmt)
                 elif isinstance(stmt, nodes.ImportFrom) and stmt.modname != FUTURE:
                     if SPECIAL_OBJ.search(imported_name):
                         # Filter special objects (__doc__, __all__) etc.,
@@ -3426,7 +3444,9 @@ class VariablesChecker(BaseChecker):
                         else:
                             msg = f"{imported_name} imported from {stmt.modname} as {as_name}"
                         if not in_type_checking_block(stmt):
-                            self.add_message("unused-import", args=msg, node=stmt)
+                            self.add_message_at_node(
+                                "unused-import", args=msg, node=stmt
+                            )
 
         # Construct string for unused-wildcard-import message
         for module, unused_list in unused_wildcard_imports.items():
@@ -3436,7 +3456,7 @@ class VariablesChecker(BaseChecker):
                 arg_string = (
                     f"{', '.join(i for i in unused_list[:-1])} and {unused_list[-1]}"
                 )
-            self.add_message(
+            self.add_message_at_node(
                 "unused-wildcard-import", args=(arg_string, module[0]), node=module[1]
             )
         del self._to_consume
@@ -3467,7 +3487,7 @@ class VariablesChecker(BaseChecker):
                 )
             ):
                 undefined.add(name)
-                self.add_message("undefined-variable", node=klass, args=(name,))
+                self.add_message_at_node("undefined-variable", node=klass, args=(name,))
 
     def _is_bound_in_metaclass(
         self, klass: nodes.ClassDef, name_node: nodes.Name
@@ -3554,7 +3574,7 @@ class VariablesChecker(BaseChecker):
         if isinstance(node.value, (nodes.Tuple, nodes.List)):
             # Add 1 because iterables are 0-indexed
             if self._inferred_iterable_length(node.value) < inferred_slice.value + 1:
-                self.add_message(
+                self.add_message_at_node(
                     "potential-index-error", node=node, confidence=INFERENCE
                 )
             return

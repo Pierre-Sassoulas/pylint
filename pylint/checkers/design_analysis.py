@@ -460,7 +460,7 @@ class MisdesignChecker(BaseChecker):
         )
         nb_parents = len(parents)
         if nb_parents > self.linter.config.max_parents:
-            self.add_message(
+            self.add_message_at_node(
                 "too-many-ancestors",
                 node=node,
                 args=(nb_parents, self.linter.config.max_parents),
@@ -476,7 +476,7 @@ class MisdesignChecker(BaseChecker):
             k for (k, v) in node.instance_attrs.items() if v[0].root() is root
         ]
         if len(filtered_attrs) > self.linter.config.max_attributes:
-            self.add_message(
+            self.add_message_at_node(
                 "too-many-instance-attributes",
                 node=node,
                 args=(len(filtered_attrs), self.linter.config.max_attributes),
@@ -497,7 +497,7 @@ class MisdesignChecker(BaseChecker):
         # a lot of assert methods. It doesn't make sense to warn
         # when the user subclasses TestCase to add his own tests.
         if my_methods > self.linter.config.max_public_methods:
-            self.add_message(
+            self.add_message_at_node(
                 "too-many-public-methods",
                 node=node,
                 args=(my_methods, self.linter.config.max_public_methods),
@@ -522,7 +522,7 @@ class MisdesignChecker(BaseChecker):
         # by the current class.
         all_methods = _count_methods_in_class(node)
         if all_methods < self.linter.config.min_public_methods:
-            self.add_message(
+            self.add_message_at_node(
                 "too-few-public-methods",
                 node=node,
                 args=(all_methods, self.linter.config.min_public_methods),
@@ -564,14 +564,14 @@ class MisdesignChecker(BaseChecker):
 
             args_num = len(args) - ignored_args_num
             if args_num > self.linter.config.max_args:
-                self.add_message(
+                self.add_message_at_node(
                     "too-many-arguments",
                     node=node,
                     args=(args_num, self.linter.config.max_args),
                 )
             pos_args_num = len(pos_args) - ignored_pos_args_num
             if pos_args_num > self.linter.config.max_positional_arguments:
-                self.add_message(
+                self.add_message_at_node(
                     "too-many-positional-arguments",
                     node=node,
                     args=(pos_args_num, self.linter.config.max_positional_arguments),
@@ -589,7 +589,7 @@ class MisdesignChecker(BaseChecker):
             locnum -= 1
 
         if locnum > self.linter.config.max_locals:
-            self.add_message(
+            self.add_message_at_node(
                 "too-many-locals",
                 node=node,
                 args=(locnum, self.linter.config.max_locals),
@@ -612,14 +612,14 @@ class MisdesignChecker(BaseChecker):
         """
         returns = self._returns.pop()
         if returns > self.linter.config.max_returns:
-            self.add_message(
+            self.add_message_at_node(
                 "too-many-return-statements",
                 node=node,
                 args=(returns, self.linter.config.max_returns),
             )
         branches = self._branches[node]
         if branches > self.linter.config.max_branches:
-            self.add_message(
+            self.add_message_at_node(
                 "too-many-branches",
                 node=node,
                 args=(branches, self.linter.config.max_branches),
@@ -627,7 +627,7 @@ class MisdesignChecker(BaseChecker):
         # check number of statements
         stmts = self._stmts.pop()
         if stmts > self.linter.config.max_statements:
-            self.add_message(
+            self.add_message_at_node(
                 "too-many-statements",
                 node=node,
                 args=(stmts, self.linter.config.max_statements),
@@ -680,7 +680,7 @@ class MisdesignChecker(BaseChecker):
             return
         nb_bool_expr = _count_boolean_expressions(condition)
         if nb_bool_expr > self.linter.config.max_bool_expr:
-            self.add_message(
+            self.add_message_at_node(
                 "too-many-boolean-expressions",
                 node=condition,
                 args=(nb_bool_expr, self.linter.config.max_bool_expr),

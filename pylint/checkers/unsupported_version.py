@@ -87,14 +87,14 @@ class UnsupportedVersionChecker(BaseChecker):
     def visit_joinedstr(self, node: nodes.JoinedStr) -> None:
         """Check f-strings."""
         if not self._py36_plus:
-            self.add_message(
+            self.add_message_at_node(
                 "using-f-string-in-unsupported-version", node=node, confidence=HIGH
             )
 
     @only_required_for_messages("using-assignment-expression-in-unsupported-version")
     def visit_namedexpr(self, node: nodes.JoinedStr) -> None:
         if not self._py38_plus:
-            self.add_message(
+            self.add_message_at_node(
                 "using-assignment-expression-in-unsupported-version",
                 node=node,
                 confidence=HIGH,
@@ -103,7 +103,7 @@ class UnsupportedVersionChecker(BaseChecker):
     @only_required_for_messages("using-positional-only-args-in-unsupported-version")
     def visit_arguments(self, node: nodes.Arguments) -> None:
         if not self._py38_plus and node.posonlyargs:
-            self.add_message(
+            self.add_message_at_node(
                 "using-positional-only-args-in-unsupported-version",
                 node=node,
                 confidence=HIGH,
@@ -128,7 +128,7 @@ class UnsupportedVersionChecker(BaseChecker):
         ]
 
         for decorator in decorators:
-            self.add_message(
+            self.add_message_at_node(
                 "using-final-decorator-in-unsupported-version",
                 node=decorator,
                 confidence=HIGH,
@@ -137,7 +137,7 @@ class UnsupportedVersionChecker(BaseChecker):
     @only_required_for_messages("using-exception-groups-in-unsupported-version")
     def visit_trystar(self, node: nodes.TryStar) -> None:
         if not self._py311_plus:
-            self.add_message(
+            self.add_message_at_node(
                 "using-exception-groups-in-unsupported-version",
                 node=node,
                 confidence=HIGH,
@@ -150,7 +150,7 @@ class UnsupportedVersionChecker(BaseChecker):
             and isinstance(node.type, nodes.Name)
             and node.type.name == "ExceptionGroup"
         ):
-            self.add_message(
+            self.add_message_at_node(
                 "using-exception-groups-in-unsupported-version",
                 node=node,
                 confidence=HIGH,
@@ -164,7 +164,7 @@ class UnsupportedVersionChecker(BaseChecker):
             and isinstance(node.exc.func, nodes.Name)
             and node.exc.func.name == "ExceptionGroup"
         ):
-            self.add_message(
+            self.add_message_at_node(
                 "using-exception-groups-in-unsupported-version",
                 node=node,
                 confidence=HIGH,
@@ -173,7 +173,7 @@ class UnsupportedVersionChecker(BaseChecker):
     @only_required_for_messages("using-generic-type-syntax-in-unsupported-version")
     def visit_typealias(self, node: nodes.TypeAlias) -> None:
         if not self._py312_plus:
-            self.add_message(
+            self.add_message_at_node(
                 "using-generic-type-syntax-in-unsupported-version",
                 node=node,
                 confidence=HIGH,
@@ -182,7 +182,7 @@ class UnsupportedVersionChecker(BaseChecker):
     @only_required_for_messages("using-generic-type-syntax-in-unsupported-version")
     def visit_typevar(self, node: nodes.TypeVar) -> None:
         if not self._py312_plus:
-            self.add_message(
+            self.add_message_at_node(
                 "using-generic-type-syntax-in-unsupported-version",
                 node=node,
                 confidence=HIGH,
@@ -191,7 +191,7 @@ class UnsupportedVersionChecker(BaseChecker):
     @only_required_for_messages("using-generic-type-syntax-in-unsupported-version")
     def visit_typevartuple(self, node: nodes.TypeVarTuple) -> None:
         if not self._py312_plus:
-            self.add_message(
+            self.add_message_at_node(
                 "using-generic-type-syntax-in-unsupported-version",
                 node=node,
                 confidence=HIGH,
@@ -216,7 +216,7 @@ class UnsupportedVersionChecker(BaseChecker):
         py-version is lower than 3.15.
         """
         if not self._py315_plus and isinstance(node.elt, nodes.Starred):
-            self.add_message(
+            self.add_message_at_node(
                 "using-comprehension-unpacking-in-unsupported-version",
                 node=node,
                 confidence=HIGH,
@@ -229,7 +229,7 @@ class UnsupportedVersionChecker(BaseChecker):
         astroid represents that unpacking with a ``DictUnpack`` key.
         """
         if not self._py315_plus and isinstance(node.key, nodes.DictUnpack):
-            self.add_message(
+            self.add_message_at_node(
                 "using-comprehension-unpacking-in-unsupported-version",
                 node=node,
                 confidence=HIGH,

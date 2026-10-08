@@ -485,8 +485,8 @@ class PyLinter(
         """
         for modname, module_or_error in self._dynamic_plugins.items():
             if isinstance(module_or_error, ModuleNotFoundError):
-                self.add_message(
-                    "bad-plugin-value", args=(modname, module_or_error), line=0
+                self.add_message_at_location(
+                    "bad-plugin-value", args=(modname, module_or_error), lineno=0
                 )
             elif hasattr(module_or_error, "load_configuration"):
                 module_or_error.load_configuration(self)
@@ -866,7 +866,7 @@ class PyLinter(
                     ex, fileitem.filepath, self.crash_file_path
                 )
                 msg = get_fatal_error_message(fileitem.filepath, template_path)
-                self.add_message(
+                self.add_message_at_location(
                     "astroid-error",
                     args=(fileitem.filepath, msg),
                     confidence=HIGH,
@@ -905,11 +905,11 @@ class PyLinter(
                 )
                 msg = get_fatal_error_message(fileitem.filepath, template_path)
                 if isinstance(ex, astroid.AstroidError):
-                    self.add_message(
+                    self.add_message_at_location(
                         "astroid-error", args=(fileitem.filepath, msg), confidence=HIGH
                     )
                 else:
-                    self.add_message("fatal", args=msg, confidence=HIGH)
+                    self.add_message_at_location("fatal", args=msg, confidence=HIGH)
 
     def _lint_file(
         self,
@@ -943,7 +943,7 @@ class PyLinter(
             self.msgs_store
         )
         for msgid, line, args in spurious_messages:
-            self.add_message(msgid, line, None, args)
+            self.add_message_at_location(msgid, lineno=line, args=args)
 
     def _check_file(
         self,
@@ -985,7 +985,7 @@ class PyLinter(
             self.msgs_store
         )
         for msgid, line, args in spurious_messages:
-            self.add_message(msgid, line, None, args)
+            self.add_message_at_location(msgid, lineno=line, args=args)
 
     def _get_file_descr_from_stdin(self, filepath: str) -> Iterator[FileItem]:
         """Return file description (tuple of module name, file path, base name) from
@@ -1048,7 +1048,7 @@ class PyLinter(
             self.set_current_module(modname)
             if key == "fatal":
                 message = str(error["ex"]).replace(os.getcwd() + os.sep, "")
-            self.add_message(key, args=message)
+            self.add_message_at_location(key, args=message)
         return result
 
     def set_current_module(self, modname: str, filepath: str | None = None) -> None:
@@ -1136,15 +1136,15 @@ class PyLinter(
             line = getattr(ex.error, "lineno", None)
             if line is None:
                 line = 0
-            self.add_message(
+            self.add_message_at_location(
                 "syntax-error",
-                line=line,
+                lineno=line,
                 col_offset=getattr(ex.error, "offset", None),
                 args=f"Parsing failed: '{ex.error}'",
                 confidence=HIGH,
             )
         except astroid.AstroidBuildingError as ex:
-            self.add_message("parse-error", args=ex)
+            self.add_message_at_location("parse-error", args=ex)
         except Exception as ex:
             traceback.print_exc()
             # We raise BuildingError here as this is essentially an astroid issue
@@ -1198,9 +1198,9 @@ class PyLinter(
         try:
             tokens = utils.tokenize_module(node)
         except tokenize.TokenError as ex:
-            self.add_message(
+            self.add_message_at_location(
                 "syntax-error",
-                line=ex.args[1][0],
+                lineno=ex.args[1][0],
                 col_offset=ex.args[1][1],
                 args=ex.args[0],
                 confidence=HIGH,
@@ -1208,7 +1208,7 @@ class PyLinter(
             return None
 
         if not node.pure_python:
-            self.add_message("raw-checker-failed", args=node.name)
+            self.add_message_at_location("raw-checker-failed", args=node.name)
         else:
             # assert astroid.file.endswith('.py')
             # Parse module/block level option pragma's
@@ -1600,10 +1600,10 @@ class PyLinter(
             modname, symbol = keys
             self.linter.set_current_module(modname)
             for args in values:
-                self.add_message(
+                self.add_message_at_location(
                     symbol,
                     args=args,
-                    line=0,
+                    lineno=0,
                     confidence=HIGH,
                 )
         self._stashed_messages = collections.defaultdict(list)

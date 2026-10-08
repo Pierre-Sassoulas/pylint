@@ -238,7 +238,7 @@ class SpecialMethodsChecker(BaseChecker):
 
         if emit:
             verb = "was" if current_params <= 1 else "were"
-            self.add_message(
+            self.add_message_at_node(
                 "unexpected-special-method-signature",
                 args=(node.name, expected_params, current_params, verb),
                 node=node,
@@ -327,61 +327,61 @@ class SpecialMethodsChecker(BaseChecker):
 
     def _check_iter(self, node: nodes.FunctionDef, inferred: InferenceResult) -> None:
         if not self._is_iterator(inferred):
-            self.add_message("non-iterator-returned", node=node)
+            self.add_message_at_node("non-iterator-returned", node=node)
 
     def _check_len(self, node: nodes.FunctionDef, inferred: InferenceResult) -> None:
         if not self._is_int(inferred):
-            self.add_message("invalid-length-returned", node=node)
+            self.add_message_at_node("invalid-length-returned", node=node)
         elif isinstance(inferred, nodes.Const) and inferred.value < 0:
-            self.add_message("invalid-length-returned", node=node)
+            self.add_message_at_node("invalid-length-returned", node=node)
 
     def _check_bool(self, node: nodes.FunctionDef, inferred: InferenceResult) -> None:
         if not self._is_bool(inferred):
-            self.add_message("invalid-bool-returned", node=node)
+            self.add_message_at_node("invalid-bool-returned", node=node)
 
     def _check_index(self, node: nodes.FunctionDef, inferred: InferenceResult) -> None:
         if not self._is_int(inferred):
-            self.add_message("invalid-index-returned", node=node)
+            self.add_message_at_node("invalid-index-returned", node=node)
 
     def _check_repr(self, node: nodes.FunctionDef, inferred: InferenceResult) -> None:
         if not self._is_str(inferred):
-            self.add_message("invalid-repr-returned", node=node)
+            self.add_message_at_node("invalid-repr-returned", node=node)
 
     def _check_str(self, node: nodes.FunctionDef, inferred: InferenceResult) -> None:
         if not self._is_str(inferred):
-            self.add_message("invalid-str-returned", node=node)
+            self.add_message_at_node("invalid-str-returned", node=node)
 
     def _check_bytes(self, node: nodes.FunctionDef, inferred: InferenceResult) -> None:
         if not self._is_bytes(inferred):
-            self.add_message("invalid-bytes-returned", node=node)
+            self.add_message_at_node("invalid-bytes-returned", node=node)
 
     def _check_hash(self, node: nodes.FunctionDef, inferred: InferenceResult) -> None:
         if not self._is_int(inferred):
-            self.add_message("invalid-hash-returned", node=node)
+            self.add_message_at_node("invalid-hash-returned", node=node)
 
     def _check_length_hint(
         self, node: nodes.FunctionDef, inferred: InferenceResult
     ) -> None:
         if not self._is_int(inferred):
-            self.add_message("invalid-length-hint-returned", node=node)
+            self.add_message_at_node("invalid-length-hint-returned", node=node)
         elif isinstance(inferred, nodes.Const) and inferred.value < 0:
-            self.add_message("invalid-length-hint-returned", node=node)
+            self.add_message_at_node("invalid-length-hint-returned", node=node)
 
     def _check_format(self, node: nodes.FunctionDef, inferred: InferenceResult) -> None:
         if not self._is_str(inferred):
-            self.add_message("invalid-format-returned", node=node)
+            self.add_message_at_node("invalid-format-returned", node=node)
 
     def _check_getnewargs(
         self, node: nodes.FunctionDef, inferred: InferenceResult
     ) -> None:
         if not self._is_tuple(inferred):
-            self.add_message("invalid-getnewargs-returned", node=node)
+            self.add_message_at_node("invalid-getnewargs-returned", node=node)
 
     def _check_getnewargs_ex(
         self, node: nodes.FunctionDef, inferred: InferenceResult
     ) -> None:
         if not self._is_tuple(inferred):
-            self.add_message("invalid-getnewargs-ex-returned", node=node)
+            self.add_message_at_node("invalid-getnewargs-ex-returned", node=node)
             return
 
         if not isinstance(inferred, nodes.Tuple):
@@ -406,4 +406,4 @@ class SpecialMethodsChecker(BaseChecker):
                         break
 
         if found_error:
-            self.add_message("invalid-getnewargs-ex-returned", node=node)
+            self.add_message_at_node("invalid-getnewargs-ex-returned", node=node)

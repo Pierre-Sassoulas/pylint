@@ -45,7 +45,7 @@ class SetMembershipChecker(BaseChecker):
 
         # Heuristic - We need to be sure all items in set are hashable
         if all(isinstance(item, nodes.Const) for item in comparator.elts):
-            self.add_message("use-set-for-membership", node=comparator)
+            self.add_message_at_node("use-set-for-membership", node=comparator)
 
 
 def register(linter: PyLinter) -> None:

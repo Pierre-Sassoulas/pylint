@@ -116,7 +116,7 @@ class CodeStyleChecker(BaseChecker):
             if not (called and isinstance(called, (nodes.FunctionDef, nodes.ClassDef))):
                 return
             if called.qname() == "collections.namedtuple":
-                self.add_message(
+                self.add_message_at_node(
                     "prefer-typing-namedtuple", node=node, confidence=INFERENCE
                 )
             elif called.qname() == "builtins.float":
@@ -139,7 +139,7 @@ class CodeStyleChecker(BaseChecker):
                             value, ["inf", "nan"], n=1, cutoff=0
                         )[0]
                     minus = "-" if math_call == "inf" and value.startswith("-") else ""
-                    self.add_message(
+                    self.add_message_at_node(
                         "consider-math-not-float",
                         node=node,
                         args=(minus, math_call, node.as_string()),
@@ -153,12 +153,12 @@ class CodeStyleChecker(BaseChecker):
     @only_required_for_messages("consider-using-tuple")
     def visit_for(self, node: nodes.For) -> None:
         if isinstance(node.iter, nodes.List):
-            self.add_message("consider-using-tuple", node=node.iter)
+            self.add_message_at_node("consider-using-tuple", node=node.iter)
 
     @only_required_for_messages("consider-using-tuple")
     def visit_comprehension(self, node: nodes.Comprehension) -> None:
         if isinstance(node.iter, nodes.List):
-            self.add_message("consider-using-tuple", node=node.iter)
+            self.add_message_at_node("consider-using-tuple", node=node.iter)
 
     @only_required_for_messages("consider-using-assignment-expr")
     def visit_if(self, node: nodes.If) -> None:
@@ -217,7 +217,9 @@ class CodeStyleChecker(BaseChecker):
             if not keys_intersection:
                 return
 
-            self.add_message("consider-using-namedtuple-or-dataclass", node=node)
+            self.add_message_at_node(
+                "consider-using-namedtuple-or-dataclass", node=node
+            )
             return
 
         # All dict_values are itself either list or tuple nodes
@@ -238,7 +240,9 @@ class CodeStyleChecker(BaseChecker):
                 if all(isinstance(entry, nodes.Dict) for entry in dict_value.elts):
                     return
 
-            self.add_message("consider-using-namedtuple-or-dataclass", node=node)
+            self.add_message_at_node(
+                "consider-using-namedtuple-or-dataclass", node=node
+            )
             return
 
     def _check_consider_using_assignment_expr(self, node: nodes.If) -> None:
@@ -293,7 +297,7 @@ class CodeStyleChecker(BaseChecker):
             ) or len(suggestion) > self._max_length:
                 return
 
-            self.add_message(
+            self.add_message_at_node(
                 "consider-using-assignment-expr",
                 node=node_name,
                 args=(suggestion,),
@@ -347,7 +351,7 @@ class CodeStyleChecker(BaseChecker):
     def visit_assign(self, node: nodes.Assign) -> None:
         is_aug, op = utils.is_augmented_assign(node)
         if is_aug:
-            self.add_message(
+            self.add_message_at_node(
                 "consider-using-augmented-assign",
                 args=f"{op}=",
                 node=node,

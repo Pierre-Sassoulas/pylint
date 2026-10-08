@@ -250,7 +250,7 @@ class LoggingChecker(checkers.BaseChecker):
                     )
                     emit = total_number_of_strings > 0
                 if emit:
-                    self.add_message(
+                    self.add_message_at_node(
                         "logging-not-lazy",
                         node=node,
                         args=(self._helper_string(node),),
@@ -262,7 +262,7 @@ class LoggingChecker(checkers.BaseChecker):
             case nodes.JoinedStr():
                 if str_formatting_in_f_string(format_arg):
                     return
-                self.add_message(
+                self.add_message_at_node(
                     "logging-fstring-interpolation",
                     node=node,
                     args=(self._helper_string(node),),
@@ -313,7 +313,7 @@ class LoggingChecker(checkers.BaseChecker):
             and is_method_call(func, types, methods)
             and not is_complex_format_str(func.bound)
         ):
-            self.add_message(
+            self.add_message_at_node(
                 "logging-format-interpolation",
                 node=node,
                 args=(self._helper_string(node),),
@@ -360,19 +360,21 @@ class LoggingChecker(checkers.BaseChecker):
                     # When no arguments are supplied, no formatting is performed
                     # https://docs.python.org/3/library/logging.html#logging.Logger.debug
                     char = format_string[ex.index]
-                    self.add_message(
+                    self.add_message_at_node(
                         "logging-unsupported-format",
                         node=node,
                         args=(char, ord(char), ex.index),
                     )
                 return
             except utils.IncompleteFormatString:
-                self.add_message("logging-format-truncated", node=node)
+                self.add_message_at_node("logging-format-truncated", node=node)
                 return
         if num_args > required_num_args:
-            self.add_message("logging-too-many-args", node=node, confidence=HIGH)
+            self.add_message_at_node(
+                "logging-too-many-args", node=node, confidence=HIGH
+            )
         elif num_args < required_num_args:
-            self.add_message("logging-too-few-args", node=node)
+            self.add_message_at_node("logging-too-few-args", node=node)
 
 
 def is_complex_format_str(node: nodes.NodeNG) -> bool:

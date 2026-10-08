@@ -101,7 +101,7 @@ class RecommendationChecker(checkers.BaseChecker):
         ):
             match utils.safe_infer(node.func):
                 case astroid.BoundMethod(bound=nodes.Dict()):
-                    self.add_message(
+                    self.add_message_at_node(
                         "consider-iterating-dictionary", node=node, confidence=INFERENCE
                     )
 
@@ -171,7 +171,7 @@ class RecommendationChecker(checkers.BaseChecker):
                     + new_fn
                     + f"({sep.as_string()}, maxsplit=1)[{subscript_value}]"
                 )
-                self.add_message(
+                self.add_message_at_node(
                     "use-maxsplit-arg",
                     node=node,
                     args=(new_name,),
@@ -265,7 +265,7 @@ class RecommendationChecker(checkers.BaseChecker):
                         and iterating_object.attrname == subscript.value.attrname
                     )
                 ):
-                    self.add_message("consider-using-enumerate", node=node)
+                    self.add_message_at_node("consider-using-enumerate", node=node)
                     return
 
     def _check_consider_using_dict_items(self, node: nodes.For) -> None:
@@ -323,7 +323,7 @@ class RecommendationChecker(checkers.BaseChecker):
                     # dictionary item.
                     return
 
-                self.add_message("consider-using-dict-items", node=node)
+                self.add_message_at_node("consider-using-dict-items", node=node)
                 return
 
     @utils.only_required_for_messages(
@@ -360,7 +360,7 @@ class RecommendationChecker(checkers.BaseChecker):
                 ):
                     continue
 
-                self.add_message("consider-using-dict-items", node=node)
+                self.add_message_at_node("consider-using-dict-items", node=node)
                 return
 
     def _check_use_sequence_for_iteration(
@@ -373,7 +373,7 @@ class RecommendationChecker(checkers.BaseChecker):
         if isinstance(node.iter, nodes.Set) and not any(
             utils.has_starred_node_recursive(node)
         ):
-            self.add_message(
+            self.add_message_at_node(
                 "use-sequence-for-iteration", node=node.iter, confidence=HIGH
             )
 
@@ -434,7 +434,7 @@ class RecommendationChecker(checkers.BaseChecker):
                         return
 
             # If all tests pass, then raise message
-            self.add_message("consider-using-f-string", node=node)
+            self.add_message_at_node("consider-using-f-string", node=node)
 
         elif isinstance(node.parent, nodes.BinOp) and node.parent.op == "%":
             # Backslashes can't be in f-string expressions
@@ -458,4 +458,4 @@ class RecommendationChecker(checkers.BaseChecker):
                     return
 
             # If all tests pass, then raise message
-            self.add_message("consider-using-f-string", node=node)
+            self.add_message_at_node("consider-using-f-string", node=node)

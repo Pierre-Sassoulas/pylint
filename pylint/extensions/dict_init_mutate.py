@@ -53,7 +53,7 @@ class DictInitMutateChecker(BaseChecker):
                 suggestion = self._build_suggestion(
                     dict_name, dict_node, node.next_sibling()
                 )
-                self.add_message(
+                self.add_message_at_node(
                     "dict-init-mutate",
                     node=node,
                     args=(suggestion,),

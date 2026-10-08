@@ -63,7 +63,7 @@ class DunderChecker(BaseChecker):
             and node.name.endswith("_")
             and node.name not in self._dunder_methods
         ):
-            self.add_message(
+            self.add_message_at_node(
                 "bad-dunder-name",
                 node=node,
                 args=(node.name),

@@ -696,7 +696,7 @@ class NameChecker(_BasicChecker):
             else (type_label.capitalize(), name)
         )
 
-        self.add_message(warning, node=node, args=args, confidence=confidence)
+        self.add_message_at_node(warning, node=node, args=args, confidence=confidence)
         self.linter.stats.increase_bad_name(node_type, 1)
 
     def _name_allowed_by_regex(self, name: str) -> bool:
@@ -730,7 +730,7 @@ class NameChecker(_BasicChecker):
             return
         if self._name_disallowed_by_regex(name=name):
             self.linter.stats.increase_bad_name(node_type, 1)
-            self.add_message(
+            self.add_message_at_node(
                 "disallowed-name", node=node, args=name, confidence=interfaces.HIGH
             )
             return
@@ -835,12 +835,12 @@ class NameChecker(_BasicChecker):
                 # Adding _co or _contra suffix can help to reason about TypeVar.
                 pass
             case TypeVarVariance.double_variant:
-                self.add_message(
+                self.add_message_at_node(
                     "typevar-double-variance",
                     node=node,
                     confidence=interfaces.INFERENCE,
                 )
-                self.add_message(
+                self.add_message_at_node(
                     "typevar-name-incorrect-variance",
                     node=node,
                     args=("",),
@@ -848,7 +848,7 @@ class NameChecker(_BasicChecker):
                 )
             case TypeVarVariance.covariant if not name.endswith("_co"):
                 suggest_name = f"{re.sub('_contra$', '', name)}_co"
-                self.add_message(
+                self.add_message_at_node(
                     "typevar-name-incorrect-variance",
                     node=node,
                     args=(f'. "{name}" is covariant, use "{suggest_name}" instead'),
@@ -856,7 +856,7 @@ class NameChecker(_BasicChecker):
                 )
             case TypeVarVariance.contravariant if not name.endswith("_contra"):
                 suggest_name = f"{re.sub('_co$', '', name)}_contra"
-                self.add_message(
+                self.add_message_at_node(
                     "typevar-name-incorrect-variance",
                     node=node,
                     args=(f'. "{name}" is contravariant, use "{suggest_name}" instead'),
@@ -864,7 +864,7 @@ class NameChecker(_BasicChecker):
                 )
             case TypeVarVariance.invariant if name.endswith(("_co", "_contra")):
                 suggest_name = re.sub("_contra$|_co$", "", name)
-                self.add_message(
+                self.add_message_at_node(
                     "typevar-name-incorrect-variance",
                     node=node,
                     args=(f'. "{name}" is invariant, use "{suggest_name}" instead'),
@@ -872,7 +872,7 @@ class NameChecker(_BasicChecker):
                 )
 
         if name_arg is not None and name_arg != name:
-            self.add_message(
+            self.add_message_at_node(
                 "typevar-name-mismatch",
                 node=node,
                 args=(name_arg, name),

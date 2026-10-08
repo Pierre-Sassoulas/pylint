@@ -46,7 +46,9 @@ class ByIdManagedMessagesChecker(BaseRawFileChecker):
             if mod_name == node.name:
                 verb = "disable" if is_disabled else "enable"
                 txt = f"'{msgid}' is cryptic: use '# pylint: {verb}={symbol}' instead"
-                self.add_message("use-symbolic-message-instead", line=lineno, args=txt)
+                self.add_message_at_location(
+                    "use-symbolic-message-instead", lineno=lineno, args=txt
+                )
         self._clear_by_id_managed_msgs()
 
 
@@ -136,7 +138,7 @@ class EncodingChecker(BaseTokenChecker, BaseRawFileChecker):
                 and file_encoding in str(line)
             ):
                 msg = f"Cannot decode using encoding '{file_encoding}', bad encoding"
-                self.add_message("syntax-error", line=lineno, args=msg)
+                self.add_message_at_location("syntax-error", lineno=lineno, args=msg)
         return None
 
     def process_module(self, node: nodes.Module) -> None:
@@ -154,29 +156,29 @@ class EncodingChecker(BaseTokenChecker, BaseRawFileChecker):
         for token_info in tokens:
             if token_info.type == tokenize.COMMENT:
                 if match := self._comment_fixme_pattern.match(token_info.string):
-                    self.add_message(
+                    self.add_message_at_location(
                         "fixme",
                         col_offset=token_info.start[1] + 1,
                         args=match.group("msg"),
-                        line=token_info.start[0],
+                        lineno=token_info.start[0],
                     )
             elif self.linter.config.check_fixme_in_docstring:
                 if self._is_multiline_docstring(token_info):
                     docstring_lines = token_info.string.split("\n")
                     for line_no, line in enumerate(docstring_lines):
                         if match := self._multiline_docstring_fixme_pattern.match(line):
-                            self.add_message(
+                            self.add_message_at_location(
                                 "fixme",
                                 col_offset=token_info.start[1] + 1,
                                 args=match.group("msg"),
-                                line=token_info.start[0] + line_no,
+                                lineno=token_info.start[0] + line_no,
                             )
                 elif match := self._docstring_fixme_pattern.match(token_info.string):
-                    self.add_message(
+                    self.add_message_at_location(
                         "fixme",
                         col_offset=token_info.start[1] + 1,
                         args=match.group("msg"),
-                        line=token_info.start[0],
+                        lineno=token_info.start[0],
                     )
 
     def _is_multiline_docstring(self, token_info: tokenize.TokenInfo) -> bool:

@@ -125,5 +125,7 @@ class _ConfigurationFileParser:
         try:
             return _RawConfParser.parse_config_file(file_path, self.verbose_mode)
         except (configparser.Error, tomllib.TOMLDecodeError) as e:
-            self.linter.add_message("config-parse-error", line=0, args=str(e))
+            self.linter.add_message_at_location(
+                "config-parse-error", lineno=0, args=str(e)
+            )
             return {}, []

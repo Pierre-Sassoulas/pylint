@@ -50,7 +50,7 @@ class ConsiderUsingAnyOrAllChecker(BaseChecker):
         if self._assigned_reassigned_returned(node, if_children, node_after_loop):
             final_return_bool = node_after_loop.value.name
             suggested_string = self._build_suggested_string(node, final_return_bool)
-            self.add_message(
+            self.add_message_at_node(
                 "consider-using-any-or-all",
                 node=node,
                 args=suggested_string,
@@ -61,7 +61,7 @@ class ConsiderUsingAnyOrAllChecker(BaseChecker):
         if self._if_statement_returns_bool(if_children, node_after_loop):
             final_return_bool = node_after_loop.value.value
             suggested_string = self._build_suggested_string(node, final_return_bool)
-            self.add_message(
+            self.add_message_at_node(
                 "consider-using-any-or-all",
                 node=node,
                 args=suggested_string,

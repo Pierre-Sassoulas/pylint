@@ -275,7 +275,9 @@ class DocstringParameterChecker(BaseChecker):
         if (node_doc.has_returns() or node_doc.has_rtype()) and not any(
             utils.returns_something(ret_node) for ret_node in return_nodes
         ):
-            self.add_message("redundant-returns-doc", node=node, confidence=HIGH)
+            self.add_message_at_node(
+                "redundant-returns-doc", node=node, confidence=HIGH
+            )
 
     def check_functiondef_yields(
         self, node: nodes.FunctionDef, node_doc: Docstring
@@ -286,7 +288,7 @@ class DocstringParameterChecker(BaseChecker):
         if (
             node_doc.has_yields() or node_doc.has_yields_type()
         ) and not node.is_generator():
-            self.add_message("redundant-yields-doc", node=node)
+            self.add_message_at_node("redundant-yields-doc", node=node)
 
     def visit_raise(self, node: nodes.Raise) -> None:
         func_node = node.frame()
@@ -368,13 +370,17 @@ class DocstringParameterChecker(BaseChecker):
         is_property = checker_utils.decorated_with_property(func_node)
 
         if not (doc.has_returns() or (doc.has_property_returns() and is_property)):
-            self.add_message("missing-return-doc", node=func_node, confidence=HIGH)
+            self.add_message_at_node(
+                "missing-return-doc", node=func_node, confidence=HIGH
+            )
 
         if func_node.returns or func_node.type_comment_returns:
             return
 
         if not (doc.has_rtype() or (doc.has_property_type() and is_property)):
-            self.add_message("missing-return-type-doc", node=func_node, confidence=HIGH)
+            self.add_message_at_node(
+                "missing-return-type-doc", node=func_node, confidence=HIGH
+            )
 
     def visit_yield(self, node: nodes.Yield | nodes.YieldFrom) -> None:
         if self.linter.config.accept_no_yields_doc:
@@ -403,12 +409,16 @@ class DocstringParameterChecker(BaseChecker):
             doc_has_yields_type = doc.has_rtype()
 
         if not doc_has_yields:
-            self.add_message("missing-yield-doc", node=func_node, confidence=HIGH)
+            self.add_message_at_node(
+                "missing-yield-doc", node=func_node, confidence=HIGH
+            )
 
         if not (
             doc_has_yields_type or func_node.returns or func_node.type_comment_returns
         ):
-            self.add_message("missing-yield-type-doc", node=func_node, confidence=HIGH)
+            self.add_message_at_node(
+                "missing-yield-type-doc", node=func_node, confidence=HIGH
+            )
 
     visit_yieldfrom = visit_yield
 
@@ -445,7 +455,7 @@ class DocstringParameterChecker(BaseChecker):
             missing_argument_names.add(name)
 
         if missing_argument_names:
-            self.add_message(
+            self.add_message_at_node(
                 message_id,
                 args=(", ".join(sorted(missing_argument_names)),),
                 node=warning_node,
@@ -488,7 +498,7 @@ class DocstringParameterChecker(BaseChecker):
         )
 
         if differing_argument_names:
-            self.add_message(
+            self.add_message_at_node(
                 message_id,
                 args=(", ".join(sorted(differing_argument_names)),),
                 node=warning_node,
@@ -513,7 +523,7 @@ class DocstringParameterChecker(BaseChecker):
         existing_ignored_argument_names = ignored_argument_names & found_argument_names
 
         if existing_ignored_argument_names:
-            self.add_message(
+            self.add_message_at_node(
                 message_id,
                 args=(", ".join(sorted(existing_ignored_argument_names)),),
                 node=warning_node,
@@ -615,7 +625,7 @@ class DocstringParameterChecker(BaseChecker):
                 missing_param_doc == expected_argument_names == missing_type_doc
                 and len(expected_argument_names) != 0
             ):
-                self.add_message(
+                self.add_message_at_node(
                     "missing-any-param-doc",
                     args=(warning_node.name,),
                     node=warning_node,
@@ -667,7 +677,7 @@ class DocstringParameterChecker(BaseChecker):
         constructor_name: str,
     ) -> None:
         if class_doc.has_params() and init_doc.has_params():
-            self.add_message(
+            self.add_message_at_node(
                 "multiple-constructor-doc",
                 args=(class_node.name, constructor_name),
                 node=class_node,
@@ -688,7 +698,7 @@ class DocstringParameterChecker(BaseChecker):
             except KeyError:
                 pass
         if missing_exceptions:
-            self.add_message(
+            self.add_message_at_node(
                 "missing-raises-doc",
                 args=(", ".join(sorted(missing_exceptions)),),
                 node=node,

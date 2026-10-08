@@ -58,7 +58,7 @@ class BadBuiltinChecker(BaseChecker):
                 if name in self.linter.config.bad_functions:
                     hint = BUILTIN_HINTS.get(name)
                     args = f"{name!r}. {hint}" if hint else repr(name)
-                    self.add_message("bad-builtin", node=node, args=args)
+                    self.add_message_at_node("bad-builtin", node=node, args=args)
 
 
 def register(linter: PyLinter) -> None:

@@ -90,7 +90,7 @@ class DunderCallChecker(BaseChecker):
                 # Skip dunder calls to non instantiated classes.
                 return
 
-            self.add_message(
+            self.add_message_at_node(
                 "unnecessary-dunder-call",
                 node=node,
                 args=(node.func.attrname, self._dunder_methods[node.func.attrname]),

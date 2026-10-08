@@ -56,7 +56,9 @@ class CommentChecker(BaseRawFileChecker):
                 line = line.rstrip()
                 if line.endswith(b"#"):
                     if not is_line_commented(line[:-1]):
-                        self.add_message("empty-comment", line=line_num + 1)
+                        self.add_message_at_location(
+                            "empty-comment", lineno=line_num + 1
+                        )
 
 
 def register(linter: PyLinter) -> None:

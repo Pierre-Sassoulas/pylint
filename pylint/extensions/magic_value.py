@@ -88,7 +88,7 @@ class MagicValueChecker(BaseChecker):
         elif const_operands[RIGHT_OPERAND] and self._is_magic_value(right_operand):
             operand_value = right_operand.as_string()
         if operand_value is not None:
-            self.add_message(
+            self.add_message_at_node(
                 "magic-value-comparison",
                 node=node,
                 args=(operand_value),

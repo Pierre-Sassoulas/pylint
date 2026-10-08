@@ -90,7 +90,7 @@ class ModifiedIterationChecker(checkers.BaseChecker):
         elif self._modified_iterating_set_cond(node, iter_obj):
             msg_id = "modified-iterating-set"
         if msg_id:
-            self.add_message(
+            self.add_message_at_node(
                 msg_id,
                 node=node,
                 args=(iter_obj.repr_name(),),

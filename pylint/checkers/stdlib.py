@@ -742,7 +742,7 @@ class StdlibChecker(DeprecatedMixin, BaseChecker):
             return
 
         if len(node.args) < 2 and not (node.kwargs and "target" in func_kwargs):
-            self.add_message(
+            self.add_message_at_node(
                 "bad-thread-instantiation", node=node, confidence=interfaces.HIGH
             )
 
@@ -750,12 +750,14 @@ class StdlibChecker(DeprecatedMixin, BaseChecker):
         if node.keywords:
             for keyword in node.keywords:
                 if keyword.arg == "preexec_fn":
-                    self.add_message("subprocess-popen-preexec-fn", node=node)
+                    self.add_message_at_node("subprocess-popen-preexec-fn", node=node)
 
     def _check_for_check_kw_in_run(self, node: nodes.Call) -> None:
         kwargs = {keyword.arg for keyword in (node.keywords or ())}
         if "check" not in kwargs:
-            self.add_message("subprocess-run-check", node=node, confidence=INFERENCE)
+            self.add_message_at_node(
+                "subprocess-run-check", node=node, confidence=INFERENCE
+            )
 
     def _check_shallow_copy_environ(self, node: nodes.Call) -> None:
         confidence = HIGH
@@ -772,7 +774,7 @@ class StdlibChecker(DeprecatedMixin, BaseChecker):
             return
         for inferred in inferred_args:
             if inferred.qname() == OS_ENVIRON:
-                self.add_message(
+                self.add_message_at_node(
                     "shallow-copy-environ", node=node, confidence=confidence
                 )
                 break
@@ -822,7 +824,7 @@ class StdlibChecker(DeprecatedMixin, BaseChecker):
                 elif name == SUBPROCESS_RUN:
                     self._check_for_check_kw_in_run(node)
                 elif name in DEBUG_BREAKPOINTS:
-                    self.add_message("forgotten-debug-statement", node=node)
+                    self.add_message_at_node("forgotten-debug-statement", node=node)
             self.check_deprecated_method(node, inferred)
 
     @utils.only_required_for_messages("boolean-datetime")
@@ -890,7 +892,7 @@ class StdlibChecker(DeprecatedMixin, BaseChecker):
             except astroid.InferenceError:
                 pass
         for lru_cache_node in lru_cache_nodes:
-            self.add_message(
+            self.add_message_at_node(
                 "method-cache-max-size-none",
                 node=lru_cache_node,
                 confidence=interfaces.INFERENCE,
@@ -912,13 +914,13 @@ class StdlibChecker(DeprecatedMixin, BaseChecker):
 
         if node.is_method():
             if "singledispatch" in decorators_map:
-                self.add_message(
+                self.add_message_at_node(
                     "singledispatch-method",
                     node=decorators_map["singledispatch"][0],
                     confidence=decorators_map["singledispatch"][1],
                 )
         elif "singledispatchmethod" in decorators_map:
-            self.add_message(
+            self.add_message_at_node(
                 "singledispatchmethod-function",
                 node=decorators_map["singledispatchmethod"][0],
                 confidence=decorators_map["singledispatchmethod"][1],
@@ -932,7 +934,7 @@ class StdlibChecker(DeprecatedMixin, BaseChecker):
             and isinstance(node.args[0], nodes.Const)
             and infer.name in {"assertTrue", "assertFalse"}
         ):
-            self.add_message(
+            self.add_message_at_node(
                 "redundant-unittest-assert",
                 args=(infer.name, node.args[0].value),
                 node=node,
@@ -943,7 +945,7 @@ class StdlibChecker(DeprecatedMixin, BaseChecker):
             and isinstance(node.args[1], nodes.Const)
             and infer.name in {"assertEqual", "assertNotEqual"}
         ):
-            self.add_message(
+            self.add_message_at_node(
                 "redundant-unittest-assert",
                 args=(infer.name, (node.args[0].value, node.args[1].value)),
                 node=node,
@@ -959,7 +961,7 @@ class StdlibChecker(DeprecatedMixin, BaseChecker):
             "_pydatetime.time",
             "datetime.time",
         }:
-            self.add_message("boolean-datetime", node=node)
+            self.add_message_at_node("boolean-datetime", node=node)
 
     def _check_open_call(
         self, node: nodes.Call, open_module: str, func_name: str
@@ -990,7 +992,7 @@ class StdlibChecker(DeprecatedMixin, BaseChecker):
                 if not isinstance(mode_arg, nodes.Const):
                     return  # mode may be binary - don't guess
                 if not _check_mode_str(mode_arg.value):
-                    self.add_message(
+                    self.add_message_at_node(
                         "bad-open-mode",
                         node=node,
                         # avoid a boolean context on the constant ``bool(NotImplemented)``
@@ -1027,7 +1029,7 @@ class StdlibChecker(DeprecatedMixin, BaseChecker):
                 if encoding_arg:
                     confidence = INFERENCE
                 else:
-                    self.add_message(
+                    self.add_message_at_node(
                         "unspecified-encoding", node=node, confidence=confidence
                     )
 
@@ -1035,7 +1037,7 @@ class StdlibChecker(DeprecatedMixin, BaseChecker):
                 encoding_arg = utils.safe_infer(encoding_arg)
 
                 if isinstance(encoding_arg, nodes.Const) and encoding_arg.value is None:
-                    self.add_message(
+                    self.add_message_at_node(
                         "unspecified-encoding", node=node, confidence=confidence
                     )
 
@@ -1100,9 +1102,11 @@ class StdlibChecker(DeprecatedMixin, BaseChecker):
                 case _:
                     emit = True
             if emit:
-                self.add_message(message, node=node, args=(name, call_arg.pytype()))
+                self.add_message_at_node(
+                    message, node=node, args=(name, call_arg.pytype())
+                )
         else:
-            self.add_message(message, node=node, args=(name, call_arg.pytype()))
+            self.add_message_at_node(message, node=node, args=(name, call_arg.pytype()))
 
     def deprecated_methods(self) -> set[str]:
         return self._deprecated_methods

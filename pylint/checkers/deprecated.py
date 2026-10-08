@@ -151,7 +151,7 @@ class DeprecatedMixin(BaseChecker):
             return
         qname = inferred.qname()
         if qname in self.deprecated_decorators():
-            self.add_message("deprecated-decorator", node=node, args=qname)
+            self.add_message_at_node("deprecated-decorator", node=node, args=qname)
 
     @utils.only_required_for_messages("deprecated-module", "deprecated-class")
     def visit_importfrom(self, node: nodes.ImportFrom) -> None:
@@ -230,7 +230,7 @@ class DeprecatedMixin(BaseChecker):
         attribute_qname = ".".join((inferred_expr.qname(), node.attrname))
         for deprecated_name in self.deprecated_attributes():
             if attribute_qname == deprecated_name:
-                self.add_message(
+                self.add_message_at_node(
                     "deprecated-attribute",
                     node=node,
                     args=(attribute_qname,),
@@ -243,7 +243,7 @@ class DeprecatedMixin(BaseChecker):
             if mod_path == mod_name or (
                 mod_path and mod_path.startswith(mod_name + ".")
             ):
-                self.add_message("deprecated-module", node=node, args=mod_path)
+                self.add_message_at_node("deprecated-module", node=node, args=mod_path)
 
     def check_deprecated_method(self, node: nodes.Call, inferred: nodes.NodeNG) -> None:
         """Executes the checker for the given node.
@@ -263,7 +263,7 @@ class DeprecatedMixin(BaseChecker):
 
         qnames = {inferred.qname(), func_name}
         if any(name in self.deprecated_methods() for name in qnames):
-            self.add_message("deprecated-method", node=node, args=(func_name,))
+            self.add_message_at_node("deprecated-method", node=node, args=(func_name,))
             return
         num_of_args = len(node.args)
         kwargs = {kw.arg for kw in node.keywords} if node.keywords else {}
@@ -271,12 +271,12 @@ class DeprecatedMixin(BaseChecker):
         for position, arg_name in chain(*deprecated_arguments):
             if arg_name in kwargs:
                 # function was called with deprecated argument as keyword argument
-                self.add_message(
+                self.add_message_at_node(
                     "deprecated-argument", node=node, args=(arg_name, func_name)
                 )
             elif position is not None and position < num_of_args:
                 # function was called with deprecated argument as positional argument
-                self.add_message(
+                self.add_message_at_node(
                     "deprecated-argument", node=node, args=(arg_name, func_name)
                 )
 
@@ -286,7 +286,7 @@ class DeprecatedMixin(BaseChecker):
         """Checks if the class is deprecated."""
         for class_name in class_names:
             if class_name in self.deprecated_classes(mod_name):
-                self.add_message(
+                self.add_message_at_node(
                     "deprecated-class", node=node, args=(class_name, mod_name)
                 )
 

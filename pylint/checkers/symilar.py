@@ -861,7 +861,7 @@ class SimilaritiesChecker(BaseRawFileChecker, Symilar):
                 for line in lineset.real_lines[start_line:end_line]:
                     msg.append(line.rstrip())
 
-            self.add_message("R0801", args=(len(couples), "\n".join(msg)))
+            self.add_message_at_location("R0801", args=(len(couples), "\n".join(msg)))
             duplicated += num * (len(couples) - 1)
         stats.nb_duplicated_lines += int(duplicated)
         stats.percent_duplicated_lines += float(total and duplicated * 100.0 / total)

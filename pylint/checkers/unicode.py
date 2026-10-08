@@ -463,11 +463,11 @@ class UnicodeChecker(checkers.BaseRawFileChecker):
             msg = "bad-file-encoding"
             if self._is_invalid_codec(codec):
                 msg = "invalid-unicode-codec"
-            self.add_message(
+            self.add_message_at_location(
                 msg,
                 # Currently Nodes will lead to crashes of pylint
                 # node=node,
-                line=codec_definition_line,
+                lineno=codec_definition_line,
                 end_lineno=codec_definition_line,
                 confidence=pylint.interfaces.HIGH,
                 col_offset=None,
@@ -478,11 +478,11 @@ class UnicodeChecker(checkers.BaseRawFileChecker):
         """Look for chars considered bad."""
         matches = self._find_line_matches(line, codec)
         for col, char in matches.items():
-            self.add_message(
+            self.add_message_at_location(
                 char.human_code(),
                 # Currently Nodes will lead to crashes of pylint
                 # node=node,
-                line=lineno,
+                lineno=lineno,
                 end_lineno=lineno,
                 confidence=pylint.interfaces.HIGH,
                 col_offset=col + 1,
@@ -499,11 +499,11 @@ class UnicodeChecker(checkers.BaseRawFileChecker):
                 #   Using these unicode characters it depends on the editor
                 #   how it displays the location of characters in the line.
                 #   So we mark the complete line.
-                self.add_message(
+                self.add_message_at_location(
                     "bidirectional-unicode",
                     # Currently Nodes will lead to crashes of pylint
                     # node=node,
-                    line=lineno,
+                    lineno=lineno,
                     end_lineno=lineno,
                     # We mark the complete line, as bidi controls make it hard
                     # to determine the correct cursor position within an editor

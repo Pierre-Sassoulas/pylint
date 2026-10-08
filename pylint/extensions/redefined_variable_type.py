@@ -82,7 +82,7 @@ class MultipleTypesChecker(BaseChecker):
                         continue
                 orig_type = orig_type.replace("builtins.", "")
                 redef_type = redef_type.replace("builtins.", "")
-                self.add_message(
+                self.add_message_at_node(
                     "redefined-variable-type",
                     node=redef_node,
                     args=(name, orig_type, redef_type),

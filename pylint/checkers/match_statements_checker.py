@@ -92,7 +92,7 @@ class MatchStatementChecker(BaseChecker):
                 )
             )
         ):
-            self.add_message(
+            self.add_message_at_node(
                 "invalid-match-args-definition",
                 node=node.parent.value,
                 args=(),
@@ -114,7 +114,7 @@ class MatchStatementChecker(BaseChecker):
                 ) if (
                     idx < len(node.cases) - 1
                 ):
-                    self.add_message(
+                    self.add_message_at_node(
                         "bare-name-capture-pattern",
                         node=case.pattern,
                         args=(name,),
@@ -134,7 +134,7 @@ class MatchStatementChecker(BaseChecker):
                     isinstance(inferred, nodes.ClassDef)
                     and inferred.qname() in MATCH_CLASS_SELF_NAMES
                 ):
-                    self.add_message(
+                    self.add_message_at_node(
                         "match-class-bind-self",
                         node=node,
                         args=(cls_name.name, name),
@@ -171,7 +171,7 @@ class MatchStatementChecker(BaseChecker):
         """Track attribute names and emit error if name is given more than once."""
         if name in attrs and name not in dups:
             dups.add(name)
-            self.add_message(
+            self.add_message_at_node(
                 "multiple-class-sub-patterns",
                 node=node,
                 args=(name,),
@@ -194,7 +194,7 @@ class MatchStatementChecker(BaseChecker):
             and (match_args := self.get_match_args_for_class(node.cls)) is not None
         ):
             if len(node.patterns) > len(match_args):
-                self.add_message(
+                self.add_message_at_node(
                     "too-many-positional-sub-patterns",
                     node=node,
                     args=(node.cls.as_string(), len(match_args), len(node.patterns)),
@@ -211,7 +211,7 @@ class MatchStatementChecker(BaseChecker):
                 )
             ):
                 attributes = [f"'{attr}'" for attr in match_args[: len(node.patterns)]]
-                self.add_message(
+                self.add_message_at_node(
                     "match-class-positional-attributes",
                     node=node,
                     args=(", ".join(attributes),),

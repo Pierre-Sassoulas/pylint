@@ -192,12 +192,12 @@ class DocStringChecker(_BasicChecker):
                     message = "missing-class-docstring"
                 case _:
                     message = "missing-function-docstring"
-            self.add_message(message, node=node, confidence=confidence)
+            self.add_message_at_node(message, node=node, confidence=confidence)
         elif not docstring.strip():
             if node_type == "class":
                 self.linter.stats.undocumented["klass"] += 1
             else:
                 self.linter.stats.undocumented[node_type] += 1
-            self.add_message(
+            self.add_message_at_node(
                 "empty-docstring", node=node, args=(node_type,), confidence=confidence
             )

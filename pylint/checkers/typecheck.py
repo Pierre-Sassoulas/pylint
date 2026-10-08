@@ -1084,7 +1084,9 @@ accessed. Python regular expressions are accepted.",
             # >>> def name(pos_only_params, /, pos_or_keyword_params, *args): ...
             if node.args.posonlyargs and not node.args.args:
                 return
-            self.add_message("keyword-arg-before-vararg", node=node, args=(node.name))
+            self.add_message_at_node(
+                "keyword-arg-before-vararg", node=node, args=(node.name)
+            )
 
     visit_asyncfunctiondef = visit_functiondef
 
@@ -1113,11 +1115,11 @@ accessed. Python regular expressions are accepted.",
 
         if isinstance(metaclass, nodes.ClassDef):
             if _is_invalid_metaclass(metaclass):
-                self.add_message(
+                self.add_message_at_node(
                     "invalid-metaclass", node=node, args=(_metaclass_name(metaclass),)
                 )
         else:
-            self.add_message(
+            self.add_message_at_node(
                 "invalid-metaclass", node=node, args=(_metaclass_name(metaclass),)
             )
 
@@ -1275,7 +1277,7 @@ accessed. Python regular expressions are accepted.",
                 done.add(actual)
 
                 msg, hint = self._get_nomember_msgid_hint(node, owner)
-                self.add_message(
+                self.add_message_at_node(
                     msg,
                     node=node,
                     args=(owner.display_type(), name, node.attrname, hint),
@@ -1344,7 +1346,7 @@ accessed. Python regular expressions are accepted.",
 
         # Handle builtins such as list.sort() or dict.update()
         if self._is_builtin_no_return(node):
-            self.add_message(
+            self.add_message_at_node(
                 "assignment-from-no-return",
                 node=node,
                 args=self._assignment_from_no_return_args(node.value),
@@ -1359,7 +1361,7 @@ accessed. Python regular expressions are accepted.",
             function_node.nodes_of_class(nodes.Return, skip_klass=nodes.FunctionDef)
         )
         if not return_nodes:
-            self.add_message(
+            self.add_message_at_node(
                 "assignment-from-no-return",
                 node=node,
                 args=self._assignment_from_no_return_args(node.value),
@@ -1373,7 +1375,7 @@ accessed. Python regular expressions are accepted.",
                     case _:
                         break
             else:
-                self.add_message("assignment-from-none", node=node)
+                self.add_message_at_node("assignment-from-none", node=node)
 
     @staticmethod
     def _is_ignored_function(
@@ -1441,7 +1443,7 @@ accessed. Python regular expressions are accepted.",
             case nodes.Const(value=str()):
                 pass
             case _:
-                self.add_message("non-str-assignment-to-dunder-name", node=node)
+                self.add_message_at_node("non-str-assignment-to-dunder-name", node=node)
 
     def _check_uninferable_call(self, node: nodes.Call) -> None:
         """Check that the given uninferable Call node does not
@@ -1488,7 +1490,9 @@ accessed. Python regular expressions are accepted.",
                     # Only raise this issue if *all* the inferred values are not callable
                     continue
 
-                self.add_message("not-callable", node=node, args=node.func.as_string())
+                self.add_message_at_node(
+                    "not-callable", node=node, args=node.func.as_string()
+                )
 
     def _check_argument_order(
         self,
@@ -1534,12 +1538,12 @@ accessed. Python regular expressions are accepted.",
 
         # Warn based on the equality of argument ordering
         if calling_parg_names != called_param_names[: len(calling_parg_names)]:
-            self.add_message("arguments-out-of-order", node=node, args=())
+            self.add_message_at_node("arguments-out-of-order", node=node, args=())
 
     def _check_isinstance_args(self, node: nodes.Call, callable_name: str) -> None:
         if len(node.args) > 2:
             # for when isinstance called with too many args
-            self.add_message(
+            self.add_message_at_node(
                 "too-many-function-args",
                 node=node,
                 args=(callable_name,),
@@ -1551,7 +1555,7 @@ accessed. Python regular expressions are accepted.",
             # argument info, making this necessary for now.
             parameters = ("'_obj'", "'__class_or_tuple'")
             for parameter in parameters[len(node.args) :]:
-                self.add_message(
+                self.add_message_at_node(
                     "no-value-for-parameter",
                     node=node,
                     args=(parameter, callable_name),
@@ -1561,7 +1565,7 @@ accessed. Python regular expressions are accepted.",
 
         second_arg = node.args[1]
         if _is_invalid_isinstance_type(second_arg):
-            self.add_message(
+            self.add_message_at_node(
                 "isinstance-second-argument-not-valid-type",
                 node=node,
                 confidence=INFERENCE,
@@ -1601,7 +1605,7 @@ accessed. Python regular expressions are accepted.",
 
         # Warn about duplicated keyword arguments, such as `f=24, **{'f': 24}`
         for keyword in call_site.duplicated_keywords:
-            self.add_message("repeated-keyword", node=node, args=(keyword,))
+            self.add_message_at_node("repeated-keyword", node=node, args=(keyword,))
 
         if call_site.has_invalid_arguments() or call_site.has_invalid_keywords():
             # Can't make sense of this.
@@ -1688,7 +1692,7 @@ accessed. Python regular expressions are accepted.",
                 break
             elif not overload_function:
                 # Too many positional arguments.
-                self.add_message(
+                self.add_message_at_node(
                     "too-many-function-args",
                     node=node,
                     args=(callable_name,),
@@ -1702,7 +1706,7 @@ accessed. Python regular expressions are accepted.",
             if called.args.kwarg and keyword in [
                 arg.name for arg in called.args.posonlyargs
             ]:
-                self.add_message(
+                self.add_message_at_node(
                     "kwarg-superseded-by-positional-arg",
                     node=node,
                     args=(keyword, f"**{called.args.kwarg}"),
@@ -1720,7 +1724,7 @@ accessed. Python regular expressions are accepted.",
                     # It's perfectly valid to so, so we're just skipping
                     # it if that's the case.
                     if not (keyword == "self" and called.qname() in STR_FORMAT):
-                        self.add_message(
+                        self.add_message_at_node(
                             "redundant-keyword-arg",
                             node=node,
                             args=(keyword, callable_name),
@@ -1730,7 +1734,7 @@ accessed. Python regular expressions are accepted.",
             elif keyword in kwparams:
                 if kwparams[keyword][1]:
                     # Duplicate definition of function parameter.
-                    self.add_message(
+                    self.add_message_at_node(
                         "redundant-keyword-arg",
                         node=node,
                         args=(keyword, callable_name),
@@ -1746,7 +1750,7 @@ accessed. Python regular expressions are accepted.",
                 pass
             elif not overload_function:
                 # Unexpected keyword argument.
-                self.add_message(
+                self.add_message_at_node(
                     "unexpected-keyword-arg", node=node, args=(keyword, callable_name)
                 )
 
@@ -1779,7 +1783,7 @@ accessed. Python regular expressions are accepted.",
             if (defval is None) and not assigned:
                 display_name = "<tuple>" if name is None else repr(name)
                 if not has_no_context_positional_variadic and not overload_function:
-                    self.add_message(
+                    self.add_message_at_node(
                         "no-value-for-parameter",
                         node=node,
                         args=(display_name, callable_name),
@@ -1793,7 +1797,7 @@ accessed. Python regular expressions are accepted.",
                 and not has_no_context_keywords_variadic
                 and not overload_function
             ):
-                self.add_message(
+                self.add_message_at_node(
                     "missing-kwoa",
                     node=node,
                     args=(name, callable_name),
@@ -1911,7 +1915,7 @@ accessed. Python regular expressions are accepted.",
                 return self._check_invalid_slice_index(index_type)
 
         # Anything else is an error
-        self.add_message("invalid-sequence-index", node=subscript)
+        self.add_message_at_node("invalid-sequence-index", node=subscript)
         return None
 
     def _check_not_callable(
@@ -1928,7 +1932,9 @@ accessed. Python regular expressions are accepted.",
             return
 
         if not isinstance(inferred_call, astroid.Instance):
-            self.add_message("not-callable", node=node, args=node.func.as_string())
+            self.add_message_at_node(
+                "not-callable", node=node, args=node.func.as_string()
+            )
             return
 
         # Don't emit if we can't make sure this object is callable.
@@ -1943,7 +1949,7 @@ accessed. Python regular expressions are accepted.",
             if inferred_call.qname() in {"builtins.function", "typing.NamedTuple"}:
                 return
 
-        self.add_message("not-callable", node=node, args=node.func.as_string())
+        self.add_message_at_node("not-callable", node=node, args=node.func.as_string())
 
     def _check_invalid_slice_index(self, node: nodes.Slice) -> None:
         # Check the type of each part of the slice
@@ -2007,9 +2013,11 @@ accessed. Python regular expressions are accepted.",
                 # Might be an instance that knows how to handle this slice object
                 return
         for snode in invalid_slices_nodes:
-            self.add_message("invalid-slice-index", node=snode)
+            self.add_message_at_node("invalid-slice-index", node=snode)
         if invalid_slice_step:
-            self.add_message("invalid-slice-step", node=node.step, confidence=HIGH)
+            self.add_message_at_node(
+                "invalid-slice-step", node=node.step, confidence=HIGH
+            )
 
     @only_required_for_messages(
         "not-context-manager", "async-context-manager-with-regular-with"
@@ -2031,7 +2039,7 @@ accessed. Python regular expressions are accepted.",
                     if isinstance(inferred, bases.AsyncGenerator):
                         async_decorators = ["contextlib.asynccontextmanager"]
                         if decorated_with(inferred.parent, async_decorators):
-                            self.add_message(
+                            self.add_message_at_node(
                                 "async-context-manager-with-regular-with",
                                 node=node,
                                 args=(inferred.parent.name,),
@@ -2065,7 +2073,7 @@ accessed. Python regular expressions are accepted.",
                         ):
                             break
                     else:
-                        self.add_message(
+                        self.add_message_at_node(
                             "not-context-manager", node=node, args=(inferred.name,)
                         )
                 case _:
@@ -2104,7 +2112,7 @@ accessed. Python regular expressions are accepted.",
                             inferred_name = inferred.name
                         else:
                             inferred_name = inferred.pytype().rsplit(".", 1)[-1]
-                        self.add_message(
+                        self.add_message_at_node(
                             "not-context-manager", node=node, args=(inferred_name,)
                         )
                     except AttributeError:
@@ -2113,7 +2121,7 @@ accessed. Python regular expressions are accepted.",
                         # no ``getattr``: they can never be context managers,
                         # so report ``not-context-manager`` with the inferred
                         # type's name instead of crashing.
-                        self.add_message(
+                        self.add_message_at_node(
                             "not-context-manager",
                             node=node,
                             args=(inferred.pytype().rsplit(".", 1)[-1],),
@@ -2124,7 +2132,9 @@ accessed. Python regular expressions are accepted.",
         """Detect TypeErrors for unary operands."""
         for error in node.type_errors():
             # Let the error customize its output.
-            self.add_message("invalid-unary-operand-type", args=str(error), node=node)
+            self.add_message_at_node(
+                "invalid-unary-operand-type", args=str(error), node=node
+            )
 
     @only_required_for_messages("unsupported-binary-operation")
     def visit_binop(self, node: nodes.BinOp) -> None:
@@ -2220,7 +2230,7 @@ accessed. Python regular expressions are accepted.",
             return
 
         if left_is_type or right_is_type:
-            self.add_message(
+            self.add_message_at_node(
                 "unsupported-binary-operation",
                 args=msg,
                 node=node,
@@ -2251,7 +2261,9 @@ accessed. Python regular expressions are accepted.",
                 for obj in (error.left_type, error.right_type)
             ):
                 continue
-            self.add_message("unsupported-binary-operation", args=str(error), node=node)
+            self.add_message_at_node(
+                "unsupported-binary-operation", args=str(error), node=node
+            )
 
     def _check_membership_test(self, node: nodes.NodeNG) -> None:
         if is_inside_abstract_class(node):
@@ -2262,7 +2274,7 @@ accessed. Python regular expressions are accepted.",
         if inferred is None or isinstance(inferred, util.UninferableBase):
             return
         if not supports_membership_test(inferred):
-            self.add_message(
+            self.add_message_at_node(
                 "unsupported-membership-test", args=node.as_string(), node=node
             )
 
@@ -2279,7 +2291,7 @@ accessed. Python regular expressions are accepted.",
     def visit_dict(self, node: nodes.Dict) -> None:
         for k, _ in node.items:
             if not is_hashable(k):
-                self.add_message(
+                self.add_message_at_node(
                     "unhashable-member",
                     node=k,
                     args=(k.as_string(), "key", "dict"),
@@ -2290,7 +2302,7 @@ accessed. Python regular expressions are accepted.",
     def visit_set(self, node: nodes.Set) -> None:
         for element in node.elts:
             if not is_hashable(element):
-                self.add_message(
+                self.add_message_at_node(
                     "unhashable-member",
                     node=element,
                     args=(element.as_string(), "member", "set"),
@@ -2317,7 +2329,7 @@ accessed. Python regular expressions are accepted.",
             case nodes.Dict():
                 # Assert dict key is hashable
                 if not is_hashable(node.slice):
-                    self.add_message(
+                    self.add_message_at_node(
                         "unhashable-member",
                         node=node.value,
                         args=(node.slice.as_string(), "key", "dict"),
@@ -2336,7 +2348,7 @@ accessed. Python regular expressions are accepted.",
                 msg = "unsupported-delete-operation"
 
         if isinstance(node.value, nodes.SetComp):
-            self.add_message(msg, args=node.value.as_string(), node=node.value)
+            self.add_message_at_node(msg, args=node.value.as_string(), node=node.value)
             return
 
         if is_inside_abstract_class(node):
@@ -2360,7 +2372,7 @@ accessed. Python regular expressions are accepted.",
             and not supported_protocol(inferred, node)
             and not utils.in_type_checking_block(node)
         ):
-            self.add_message(msg, args=node.value.as_string(), node=node.value)
+            self.add_message_at_node(msg, args=node.value.as_string(), node=node.value)
 
     @only_required_for_messages("dict-items-missing-iter")
     def visit_for(self, node: nodes.For) -> None:
@@ -2384,7 +2396,7 @@ accessed. Python regular expressions are accepted.",
             # if all keys are tuples
             return
 
-        self.add_message("dict-iter-missing-items", node=node)
+        self.add_message_at_node("dict-iter-missing-items", node=node)
 
     @only_required_for_messages("await-outside-async")
     def visit_await(self, node: nodes.Await) -> None:
@@ -2399,7 +2411,7 @@ accessed. Python regular expressions are accepted.",
                 case nodes.FunctionDef() | nodes.Lambda():
                     break
             node_scope = node_scope.parent.scope()
-        self.add_message("await-outside-async", node=node)
+        self.add_message_at_node("await-outside-async", node=node)
 
 
 class IterableChecker(BaseChecker):
@@ -2457,7 +2469,9 @@ class IterableChecker(BaseChecker):
         if not inferred or is_comprehension(inferred):
             return
         if not is_iterable(inferred, check_async=check_async):
-            self.add_message("not-an-iterable", args=node.as_string(), node=node)
+            self.add_message_at_node(
+                "not-an-iterable", args=node.as_string(), node=node
+            )
 
     def _check_mapping(self, node: nodes.NodeNG) -> None:
         if is_inside_abstract_class(node):
@@ -2468,7 +2482,7 @@ class IterableChecker(BaseChecker):
         if inferred is None or isinstance(inferred, util.UninferableBase):
             return
         if not is_mapping(inferred):
-            self.add_message("not-a-mapping", args=node.as_string(), node=node)
+            self.add_message_at_node("not-a-mapping", args=node.as_string(), node=node)
 
     @only_required_for_messages("not-an-iterable")
     def visit_for(self, node: nodes.For) -> None:

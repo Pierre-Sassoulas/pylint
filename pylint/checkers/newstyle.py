@@ -71,7 +71,9 @@ class NewStyleConflictChecker(BaseChecker):
             # in derived classes
             match arg0:
                 case nodes.Call(func=nodes.Name(name="type")):
-                    self.add_message("bad-super-call", node=call, args=("type",))
+                    self.add_message_at_node(
+                        "bad-super-call", node=call, args=("type",)
+                    )
                     continue
 
             # calling super(self.__class__, self) can lead to recursion loop
@@ -82,7 +84,7 @@ class NewStyleConflictChecker(BaseChecker):
                     nodes.Name(name="self"),
                     *_,
                 ]:
-                    self.add_message(
+                    self.add_message_at_node(
                         "bad-super-call", node=call, args=("self.__class__",)
                     )
                     continue
@@ -104,7 +106,7 @@ class NewStyleConflictChecker(BaseChecker):
                 elif call.args and hasattr(call.args[0], "name"):
                     name = call.args[0].name
                 if name:
-                    self.add_message("bad-super-call", node=call, args=(name,))
+                    self.add_message_at_node("bad-super-call", node=call, args=(name,))
 
     visit_asyncfunctiondef = visit_functiondef
 

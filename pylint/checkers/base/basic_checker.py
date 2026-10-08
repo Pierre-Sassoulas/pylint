@@ -352,13 +352,15 @@ class BasicChecker(_BasicChecker):
                         break
                     all_returns_were_generator = True
                 if all_returns_were_generator:
-                    self.add_message(
+                    self.add_message_at_node(
                         "using-constant-test", node=node, confidence=INFERENCE
                     )
                     return
 
         if emit:
-            self.add_message("using-constant-test", node=test, confidence=INFERENCE)
+            self.add_message_at_node(
+                "using-constant-test", node=test, confidence=INFERENCE
+            )
         elif isinstance(inferred, const_nodes):
             # If the constant node is a FunctionDef or Lambda then
             # it may be an illicit function call due to missing parentheses
@@ -372,12 +374,14 @@ class BasicChecker(_BasicChecker):
             except astroid.InferenceError:
                 call_inferred = None
             if call_inferred:
-                self.add_message(
+                self.add_message_at_node(
                     "missing-parentheses-for-call-in-test",
                     node=test,
                     confidence=INFERENCE,
                 )
-            self.add_message("using-constant-test", node=test, confidence=INFERENCE)
+            self.add_message_at_node(
+                "using-constant-test", node=test, confidence=INFERENCE
+            )
 
     @staticmethod
     def _name_holds_generator(test: nodes.Name) -> tuple[bool, nodes.Call | None]:
@@ -458,7 +462,7 @@ class BasicChecker(_BasicChecker):
                         )
                     ):
                         return
-            self.add_message("pointless-string-statement", node=node)
+            self.add_message_at_node("pointless-string-statement", node=node)
             return
 
         # Warn W0133 for exceptions that are used as statements
@@ -474,7 +478,7 @@ class BasicChecker(_BasicChecker):
             # For more details, see: https://github.com/pylint-dev/pylint/issues/8073
             inferred = utils.safe_infer(expr) if name[:1].isupper() else None
             if isinstance(inferred, objects.ExceptionInstance):
-                self.add_message(
+                self.add_message_at_node(
                     "pointless-exception-statement", node=node, confidence=INFERENCE
                 )
             return
@@ -495,13 +499,15 @@ class BasicChecker(_BasicChecker):
         ):
             return
         if isinstance(expr, nodes.NamedExpr):
-            self.add_message("named-expr-without-context", node=node, confidence=HIGH)
+            self.add_message_at_node(
+                "named-expr-without-context", node=node, confidence=HIGH
+            )
         elif any(expr.nodes_of_class(nodes.Call)):
-            self.add_message(
+            self.add_message_at_node(
                 "expression-not-assigned", node=node, args=expr.as_string()
             )
         else:
-            self.add_message("pointless-statement", node=node)
+            self.add_message_at_node("pointless-statement", node=node)
 
     @staticmethod
     def _filter_vararg(
@@ -589,7 +595,7 @@ class BasicChecker(_BasicChecker):
             ):
                 return
 
-        self.add_message("unnecessary-lambda", node=node)
+        self.add_message_at_node("unnecessary-lambda", node=node)
 
     @utils.only_required_for_messages("dangerous-default-value")
     def visit_functiondef(self, node: nodes.FunctionDef) -> None:
@@ -639,7 +645,7 @@ class BasicChecker(_BasicChecker):
             # Variable name referring to a mutable from somewhere else; the
             # name alone is uninformative, so include the qname.
             msg = f"{default.as_string()} ({qname})"
-        self.add_message(
+        self.add_message_at_node(
             "dangerous-default-value",
             node=msg_node,
             args=(msg,),
@@ -701,7 +707,9 @@ class BasicChecker(_BasicChecker):
             # was called on print()
             match call_node.func.expr:
                 case nodes.Call(func=nodes.Name(name="print")):
-                    self.add_message("misplaced-format-function", node=call_node)
+                    self.add_message_at_node(
+                        "misplaced-format-function", node=call_node
+                    )
 
     @utils.only_required_for_messages(
         "eval-used",
@@ -722,21 +730,23 @@ class BasicChecker(_BasicChecker):
             if not (name in node.frame() or name in node.root()):
                 match name:
                     case "exec":
-                        self.add_message("exec-used", node=node)
+                        self.add_message_at_node("exec-used", node=node)
                     case "reversed":
                         self._check_reversed(node)
                     case "eval":
-                        self.add_message("eval-used", node=node)
+                        self.add_message_at_node("eval-used", node=node)
 
     @utils.only_required_for_messages("assert-on-tuple", "assert-on-string-literal")
     def visit_assert(self, node: nodes.Assert) -> None:
         """Check whether assert is used on a tuple or string literal."""
         match node.test:
             case nodes.Tuple(elts=elts) if len(elts) > 0:
-                self.add_message("assert-on-tuple", node=node, confidence=HIGH)
+                self.add_message_at_node("assert-on-tuple", node=node, confidence=HIGH)
             case nodes.Const(value=str() as val):
                 when = "never" if val else "always"
-                self.add_message("assert-on-string-literal", node=node, args=(when,))
+                self.add_message_at_node(
+                    "assert-on-string-literal", node=node, args=(when,)
+                )
 
     @utils.only_required_for_messages("duplicate-key")
     def visit_dict(self, node: nodes.Dict) -> None:
@@ -751,7 +761,7 @@ class BasicChecker(_BasicChecker):
                 case _:
                     continue
             if key in keys:
-                self.add_message("duplicate-key", node=node, args=key)
+                self.add_message_at_node("duplicate-key", node=node, args=key)
             keys.add(key)
 
     @utils.only_required_for_messages("duplicate-value")
@@ -764,7 +774,7 @@ class BasicChecker(_BasicChecker):
             else:
                 continue
             if value in values:
-                self.add_message(
+                self.add_message_at_node(
                     "duplicate-value", node=node, args=value, confidence=HIGH
                 )
             values.add(value)
@@ -775,7 +785,9 @@ class BasicChecker(_BasicChecker):
 
         for final_node in node.finalbody:
             for return_node in final_node.nodes_of_class(nodes.Return):
-                self.add_message("return-in-finally", node=return_node, confidence=HIGH)
+                self.add_message_at_node(
+                    "return-in-finally", node=return_node, confidence=HIGH
+                )
 
     def leave_try(self, _: nodes.Try) -> None:
         """Update try block flag."""
@@ -799,7 +811,7 @@ class BasicChecker(_BasicChecker):
                 unreachable_statement = unreachable_statement.next_sibling()
                 if unreachable_statement is None:
                     return
-            self.add_message(
+            self.add_message_at_node(
                 "unreachable", node=unreachable_statement, confidence=confidence
             )
 
@@ -823,7 +835,7 @@ class BasicChecker(_BasicChecker):
         _node = node
         while _parent and not isinstance(_parent, breaker_classes):
             if hasattr(_parent, "finalbody") and _node in _parent.finalbody:
-                self.add_message("lost-exception", node=node, args=node_name)
+                self.add_message_at_node("lost-exception", node=node, args=node_name)
                 return
             _node = _parent
             _parent = _node.parent
@@ -849,7 +861,7 @@ class BasicChecker(_BasicChecker):
                         if getattr(
                             func, "name", None
                         ) == "iter" and utils.is_builtin_object(func):
-                            self.add_message("bad-reversed-sequence", node=node)
+                            self.add_message_at_node("bad-reversed-sequence", node=node)
                     return
 
                 case nodes.List() | nodes.Tuple():
@@ -868,7 +880,7 @@ class BasicChecker(_BasicChecker):
                         try:
                             argument.locals[REVERSED_PROTOCOL_METHOD]
                         except KeyError:
-                            self.add_message("bad-reversed-sequence", node=node)
+                            self.add_message_at_node("bad-reversed-sequence", node=node)
                         return
 
             if hasattr(argument, "getattr"):
@@ -882,9 +894,9 @@ class BasicChecker(_BasicChecker):
                     else:
                         break
                 else:
-                    self.add_message("bad-reversed-sequence", node=node)
+                    self.add_message_at_node("bad-reversed-sequence", node=node)
             else:
-                self.add_message("bad-reversed-sequence", node=node)
+                self.add_message_at_node("bad-reversed-sequence", node=node)
 
     @utils.only_required_for_messages("confusing-with-statement")
     def visit_with(self, node: nodes.With) -> None:
@@ -900,7 +912,7 @@ class BasicChecker(_BasicChecker):
                     # there's no way that can be mistaken for a name assignment.
                     # If the line number doesn't match
                     # we assume it's a nested "with".
-                    self.add_message("confusing-with-statement", node=node)
+                    self.add_message_at_node("confusing-with-statement", node=node)
 
     def _check_self_assigning_variable(self, node: nodes.Assign) -> None:
         # Detect assigning to the same variable.
@@ -940,7 +952,7 @@ class BasicChecker(_BasicChecker):
             if isinstance(scope, nodes.ClassDef) and target.name in scope_locals:
                 continue
             if target.name == lhs_name.name:
-                self.add_message(
+                self.add_message_at_node(
                     "self-assigning-variable", args=(target.name,), node=target
                 )
 
@@ -963,7 +975,7 @@ class BasicChecker(_BasicChecker):
             names = collections.Counter(found_names)
             for name, count in names.most_common():
                 if count > 1:
-                    self.add_message(
+                    self.add_message_at_node(
                         "redeclared-assigned-name", args=(name,), node=target
                     )
 

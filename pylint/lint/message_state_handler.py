@@ -73,8 +73,8 @@ class _MessageStateHandler:
 
             self.linter.file_state.set_msg_status(msg, line, enable, scope)
             if not enable and msg.symbol != "locally-disabled":
-                self.linter.add_message(
-                    "locally-disabled", line=line, args=(msg.symbol, msg.msgid)
+                self.linter.add_message_at_location(
+                    "locally-disabled", lineno=line, args=(msg.symbol, msg.msgid)
                 )
         else:
             msgs = self._msgs_state
@@ -373,12 +373,14 @@ class _MessageStateHandler:
                 for pragma_repr in parse_pragma(match.group(2)):
                     if pragma_repr.action in {"disable-all", "skip-file"}:
                         if pragma_repr.action == "disable-all":
-                            self.linter.add_message(
+                            self.linter.add_message_at_location(
                                 "deprecated-pragma",
-                                line=start[0],
+                                lineno=start[0],
                                 args=("disable-all", "skip-file"),
                             )
-                        self.linter.add_message("file-ignored", line=start[0])
+                        self.linter.add_message_at_location(
+                            "file-ignored", lineno=start[0]
+                        )
                         self._ignore_file: bool = True
                         return
                     try:
@@ -386,9 +388,9 @@ class _MessageStateHandler:
                     except KeyError:
                         meth = self._bw_options_methods[pragma_repr.action]
                         # found a "(dis|en)able-msg" pragma deprecated suppression
-                        self.linter.add_message(
+                        self.linter.add_message_at_location(
                             "deprecated-pragma",
-                            line=start[0],
+                            lineno=start[0],
                             args=(
                                 pragma_repr.action,
                                 pragma_repr.action.replace("-msg", ""),
@@ -400,12 +402,14 @@ class _MessageStateHandler:
                             self._pragma_lineno[msgid] = start[0]
 
                         if (pragma_repr.action, msgid) == ("disable", "all"):
-                            self.linter.add_message(
+                            self.linter.add_message_at_location(
                                 "deprecated-pragma",
-                                line=start[0],
+                                lineno=start[0],
                                 args=("disable=all", "skip-file"),
                             )
-                            self.linter.add_message("file-ignored", line=start[0])
+                            self.linter.add_message_at_location(
+                                "file-ignored", lineno=start[0]
+                            )
                             self._ignore_file = True
                             return
                             # If we did not see a newline between the previous line and now,
@@ -419,27 +423,27 @@ class _MessageStateHandler:
                             exceptions.DeletedMessageError,
                             exceptions.MessageBecameExtensionError,
                         ) as e:
-                            self.linter.add_message(
+                            self.linter.add_message_at_location(
                                 "useless-option-value",
                                 args=(pragma_repr.action, e),
-                                line=start[0],
+                                lineno=start[0],
                                 confidence=HIGH,
                             )
                         except exceptions.UnknownMessageError:
-                            self.linter.add_message(
+                            self.linter.add_message_at_location(
                                 "unknown-option-value",
                                 args=(pragma_repr.action, msgid),
-                                line=start[0],
+                                lineno=start[0],
                                 confidence=HIGH,
                             )
 
             except UnRecognizedOptionError as err:
-                self.linter.add_message(
-                    "unrecognized-inline-option", args=err.token, line=start[0]
+                self.linter.add_message_at_location(
+                    "unrecognized-inline-option", args=err.token, lineno=start[0]
                 )
                 continue
             except InvalidPragmaError as err:
-                self.linter.add_message(
-                    "bad-inline-option", args=err.token, line=start[0]
+                self.linter.add_message_at_location(
+                    "bad-inline-option", args=err.token, lineno=start[0]
                 )
                 continue

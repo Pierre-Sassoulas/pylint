@@ -50,7 +50,7 @@ class NotChecker(checkers.BaseChecker):
         operand = node.operand
 
         if isinstance(operand, nodes.UnaryOp) and operand.op == "not":
-            self.add_message(
+            self.add_message_at_node(
                 "unnecessary-negation",
                 node=node,
                 args=(node.as_string(), operand.operand.as_string()),
@@ -79,6 +79,6 @@ class NotChecker(checkers.BaseChecker):
             suggestion = (
                 f"{left.as_string()} {self.reverse_op[operator]} {right.as_string()}"
             )
-            self.add_message(
+            self.add_message_at_node(
                 "unnecessary-negation", node=node, args=(node.as_string(), suggestion)
             )

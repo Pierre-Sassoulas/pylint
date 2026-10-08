@@ -145,7 +145,7 @@ class ComparisonChecker(_BasicChecker):
             suggestion = singleton_comparison_example[checking_for_absence].format(
                 left_value.as_string(), right_value.as_string()
             )
-        self.add_message(
+        self.add_message_at_node(
             "singleton-comparison",
             node=root_node,
             args=(f"'{root_node.as_string()}'", suggestion),
@@ -230,7 +230,7 @@ class ComparisonChecker(_BasicChecker):
             suggestion = f"'{absence_text}math.isnan({right_value.as_string()})'"
         else:
             suggestion = f"'{absence_text}math.isnan({left_value.as_string()})'"
-        self.add_message(
+        self.add_message_at_node(
             "nan-comparison",
             node=root_node,
             args=(f"'{root_node.as_string()}'", suggestion),
@@ -267,7 +267,7 @@ class ComparisonChecker(_BasicChecker):
             f"{node.left.as_string()} {equal_or_not_equal} "
             f"{node.ops[0][1].as_string()}"
         )
-        self.add_message(
+        self.add_message_at_node(
             "literal-comparison",
             args=(
                 incorrect_node_str,
@@ -311,7 +311,9 @@ class ComparisonChecker(_BasicChecker):
 
         if left_operand == right_operand:
             suggestion = f"{left_operand} {operator} {right_operand}"
-            self.add_message("comparison-with-itself", node=node, args=(suggestion,))
+            self.add_message_at_node(
+                "comparison-with-itself", node=node, args=(suggestion,)
+            )
 
     def _check_constants_comparison(self, node: nodes.Compare) -> None:
         """When two constants are being compared it is always a logical tautology."""
@@ -324,7 +326,7 @@ class ComparisonChecker(_BasicChecker):
             return
 
         operator = node.ops[0][0]
-        self.add_message(
+        self.add_message_at_node(
             "comparison-of-constants",
             node=node,
             args=(left_operand.as_string(), operator, right_operand.as_string()),
@@ -361,7 +363,7 @@ class ComparisonChecker(_BasicChecker):
             ):
                 number_of_bare_callables += 1
         if number_of_bare_callables == 1:
-            self.add_message("comparison-with-callable", node=node)
+            self.add_message_at_node("comparison-with-callable", node=node)
 
     @utils.only_required_for_messages(
         "singleton-comparison",
@@ -428,4 +430,4 @@ class ComparisonChecker(_BasicChecker):
                 if not isinstance(right_arg, LITERAL_NODE_TYPES):
                     # not e.g. type(x) == type([])
                     return
-        self.add_message("unidiomatic-typecheck", node=node)
+        self.add_message_at_node("unidiomatic-typecheck", node=node)

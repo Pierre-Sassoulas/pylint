@@ -26,4 +26,4 @@ class PassChecker(_BasicChecker):
             isinstance(node.parent, (nodes.ClassDef, nodes.FunctionDef))
             and node.parent.doc_node
         ):
-            self.add_message("unnecessary-pass", node=node)
+            self.add_message_at_node("unnecessary-pass", node=node)

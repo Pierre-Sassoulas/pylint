@@ -507,7 +507,7 @@ class ImportsChecker(DeprecatedMixin, BaseChecker):
             graph = self._import_graph_without_ignored_edges()
             vertices = list(graph)
             for cycle in get_cycles(graph, vertices=vertices):
-                self.add_message("cyclic-import", args=" -> ".join(cycle))
+                self.add_message_at_location("cyclic-import", args=" -> ".join(cycle))
 
     def get_map_data(
         self,
@@ -553,7 +553,9 @@ class ImportsChecker(DeprecatedMixin, BaseChecker):
 
         names = [name for name, _ in node.names]
         if len(names) >= 2:
-            self.add_message("multiple-imports", args=", ".join(names), node=node)
+            self.add_message_at_node(
+                "multiple-imports", args=", ".join(names), node=node
+            )
 
         for name in names:
             self.check_deprecated_module(node, name)
@@ -630,7 +632,9 @@ class ImportsChecker(DeprecatedMixin, BaseChecker):
                     )
                 )
             ):
-                self.add_message("ungrouped-imports", node=import_node, args=package)
+                self.add_message_at_node(
+                    "ungrouped-imports", node=import_node, args=package
+                )
             current_package = package
             if not self.linter.is_message_enabled(
                 "ungrouped-imports", import_node.fromlineno
@@ -698,7 +702,7 @@ class ImportsChecker(DeprecatedMixin, BaseChecker):
                 if not (
                     isinstance(prev, nodes.ImportFrom) and prev.modname == "__future__"
                 ):
-                    self.add_message("misplaced-future", node=node)
+                    self.add_message_at_node("misplaced-future", node=node)
 
     def _check_same_line_imports(self, node: nodes.ImportFrom) -> None:
         # Detect duplicate imports on the same line.
@@ -706,7 +710,9 @@ class ImportsChecker(DeprecatedMixin, BaseChecker):
         counter = collections.Counter(names)
         for name, count in counter.items():
             if count > 1:
-                self.add_message("reimported", node=node, args=(name, node.fromlineno))
+                self.add_message_at_node(
+                    "reimported", node=node, args=(name, node.fromlineno)
+                )
 
     def _check_position(self, node: ImportNode) -> None:
         """Check `node` import or importfrom node position is correct.
@@ -745,7 +751,9 @@ class ImportsChecker(DeprecatedMixin, BaseChecker):
                     )
                     return
 
-            self.add_message("wrong-import-position", node=node, args=node.as_string())
+            self.add_message_at_node(
+                "wrong-import-position", node=node, args=node.as_string()
+            )
 
     def _record_import(
         self,
@@ -842,7 +850,7 @@ class ImportsChecker(DeprecatedMixin, BaseChecker):
                     if self._is_fallback_import(node, wrong_import):
                         continue
                     if wrong_import and not nested:
-                        self.add_message(
+                        self.add_message_at_node(
                             "wrong-import-order",
                             node=node,
                             args=(  ## TODO - this isn't right for multiple on the same line...
@@ -866,7 +874,7 @@ class ImportsChecker(DeprecatedMixin, BaseChecker):
                             )
                     wrong_import = first_party_not_ignored or local_not_ignored
                     if wrong_import and not nested:
-                        self.add_message(
+                        self.add_message_at_node(
                             "wrong-import-order",
                             node=node,
                             args=(
@@ -888,7 +896,7 @@ class ImportsChecker(DeprecatedMixin, BaseChecker):
                             )
                     wrong_import = local_not_ignored
                     if wrong_import and not nested:
-                        self.add_message(
+                        self.add_message_at_node(
                             "wrong-import-order",
                             node=node,
                             args=(
@@ -1066,11 +1074,11 @@ class ImportsChecker(DeprecatedMixin, BaseChecker):
         except astroid.TooManyLevelsError:
             if _ignore_import_failure(importnode, modname, self._ignored_modules):
                 return None
-            self.add_message("relative-beyond-top-level", node=importnode)
+            self.add_message_at_node("relative-beyond-top-level", node=importnode)
         except astroid.AstroidSyntaxError as exc:
             message = f"Cannot import {modname!r} due to '{exc.error}'"
-            self.add_message(
-                "syntax-error", line=importnode.lineno, args=message, confidence=HIGH
+            self.add_message_at_location(
+                "syntax-error", lineno=importnode.lineno, args=message, confidence=HIGH
             )
 
         except astroid.AstroidBuildingError:
@@ -1085,7 +1093,9 @@ class ImportsChecker(DeprecatedMixin, BaseChecker):
                 return None
 
             dotted_modname = get_import_name(importnode, modname)
-            self.add_message("import-error", args=repr(dotted_modname), node=importnode)
+            self.add_message_at_node(
+                "import-error", args=repr(dotted_modname), node=importnode
+            )
         except Exception as e:  # pragma: no cover
             raise astroid.AstroidError from e
         return None
@@ -1107,7 +1117,7 @@ class ImportsChecker(DeprecatedMixin, BaseChecker):
             pass
 
         if context_name == importedmodname:
-            self.add_message("import-self", node=node)
+            self.add_message_at_node("import-self", node=node)
 
         elif not astroid.modutils.is_stdlib_module(importedmodname):
             # if this is not a package __init__ module
@@ -1149,7 +1159,7 @@ class ImportsChecker(DeprecatedMixin, BaseChecker):
 
         # if we have matches, add message
         if matches:
-            self.add_message(
+            self.add_message_at_node(
                 "preferred-module",
                 node=node,
                 args=(self.preferred_modules[matches[0]], matches[0]),
@@ -1171,9 +1181,11 @@ class ImportsChecker(DeprecatedMixin, BaseChecker):
                 self._allow_reexport_package is False
                 or self._current_module_package is False
             ):
-                self.add_message("useless-import-alias", node=node, confidence=HIGH)
+                self.add_message_at_node(
+                    "useless-import-alias", node=node, confidence=HIGH
+                )
             elif len(splitted_packages) == 2:
-                self.add_message(
+                self.add_message_at_node(
                     "consider-using-from-import",
                     node=node,
                     args=(splitted_packages[0], import_name),
@@ -1204,7 +1216,7 @@ class ImportsChecker(DeprecatedMixin, BaseChecker):
                 )
                 if first is not None and msg is not None:
                     name = name if msg == "reimported" else alias
-                    self.add_message(
+                    self.add_message_at_node(
                         msg, node=node, args=(name, first.fromlineno), confidence=HIGH
                     )
 
@@ -1277,7 +1289,9 @@ class ImportsChecker(DeprecatedMixin, BaseChecker):
         wildcard_import_is_allowed = self._wildcard_import_is_allowed(imported_module)
         for name, _ in node.names:
             if name == "*" and not wildcard_import_is_allowed:
-                self.add_message("wildcard-import", args=node.modname, node=node)
+                self.add_message_at_node(
+                    "wildcard-import", args=node.modname, node=node
+                )
 
     def _wildcard_import_is_allowed(self, imported_module: nodes.Module | None) -> bool:
         return (
@@ -1308,7 +1322,7 @@ class ImportsChecker(DeprecatedMixin, BaseChecker):
         ]
 
         if scoped_imports:
-            self.add_message(
+            self.add_message_at_node(
                 "import-outside-toplevel", args=", ".join(scoped_imports), node=node
             )
 

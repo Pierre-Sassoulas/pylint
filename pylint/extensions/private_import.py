@@ -54,7 +54,7 @@ class PrivateImportChecker(BaseChecker):
         if private_names:
             imported_identifier = "modules" if len(private_names) > 1 else "module"
             private_name_string = ", ".join(private_names)
-            self.add_message(
+            self.add_message_at_node(
                 "import-private-name",
                 node=node,
                 args=(imported_identifier, private_name_string),
@@ -83,7 +83,7 @@ class PrivateImportChecker(BaseChecker):
             node, private_module_imports
         )
         if private_module_imports:
-            self.add_message(
+            self.add_message_at_node(
                 "import-private-name",
                 node=node,
                 args=("module", private_module_imports[0]),
@@ -96,7 +96,7 @@ class PrivateImportChecker(BaseChecker):
         if private_names:
             imported_identifier = "objects" if len(private_names) > 1 else "object"
             private_name_string = ", ".join(private_names)
-            self.add_message(
+            self.add_message_at_node(
                 "import-private-name",
                 node=node,
                 args=(imported_identifier, private_name_string),

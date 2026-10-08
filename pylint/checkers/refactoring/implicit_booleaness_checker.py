@@ -127,7 +127,7 @@ class ImplicitBooleanessChecker(checkers.BaseChecker):
         len_arg = node.args[0]
         if isinstance(len_arg, (nodes.ListComp, nodes.SetComp, nodes.DictComp)):
             # The node is a comprehension as in len([x for x in ...])
-            self.add_message(
+            self.add_message_at_node(
                 "use-implicit-booleaness-not-len",
                 node=node,
                 confidence=HIGH,
@@ -145,7 +145,7 @@ class ImplicitBooleanessChecker(checkers.BaseChecker):
         if "range" in mother_classes or (
             affected_by_pep8 and not self.instance_has_bool(instance)
         ):
-            self.add_message(
+            self.add_message_at_node(
                 "use-implicit-booleaness-not-len",
                 node=node,
                 confidence=INFERENCE,
@@ -170,7 +170,7 @@ class ImplicitBooleanessChecker(checkers.BaseChecker):
             and node.op == "not"
             and utils.is_call_of_name(node.operand, "len")
         ):
-            self.add_message(
+            self.add_message_at_node(
                 "use-implicit-booleaness-not-len", node=node, confidence=HIGH
             )
 
@@ -223,7 +223,7 @@ class ImplicitBooleanessChecker(checkers.BaseChecker):
                 suggestion = self._get_suggestion(
                     node, operand.as_string(), operator, negation_redundant_ops
                 )
-                self.add_message(
+                self.add_message_at_node(
                     "use-implicit-booleaness-not-comparison-to-zero",
                     args=(original, suggestion),
                     node=node,
@@ -243,7 +243,7 @@ class ImplicitBooleanessChecker(checkers.BaseChecker):
                 suggestion = self._get_suggestion(
                     node, node_name, operator, negation_redundant_ops
                 )
-                self.add_message(
+                self.add_message_at_node(
                     "use-implicit-booleaness-not-comparison-to-string",
                     args=(node.as_string(), suggestion),
                     node=node,
@@ -290,7 +290,7 @@ class ImplicitBooleanessChecker(checkers.BaseChecker):
 
         # No need to check for operator when visiting compare node
         if operator in {"==", "!=", ">=", ">", "<=", "<"}:
-            self.add_message(
+            self.add_message_at_node(
                 "use-implicit-booleaness-not-comparison",
                 args=self._implicit_booleaness_message_args(
                     node, literal_node, operator, target_node

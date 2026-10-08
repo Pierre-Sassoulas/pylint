@@ -112,8 +112,8 @@ def _config_initialization(  # pylint: disable=too-many-statements
     # with all disables, it is safe to emit messages
     if unrecognized_options_message is not None:
         linter.set_current_module(str(config_file) if config_file else "")
-        linter.add_message(
-            "unrecognized-option", args=unrecognized_options_message, line=0
+        linter.add_message_at_location(
+            "unrecognized-option", args=unrecognized_options_message, lineno=0
         )
 
     # TODO: Change this to be checked only when upgrading the configuration

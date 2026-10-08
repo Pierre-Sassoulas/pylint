@@ -52,7 +52,7 @@ class LambdaExpressionChecker(BaseChecker):
             case nodes.Assign(
                 targets=[nodes.AssignName(), *_], value=nodes.Lambda() as value
             ):
-                self.add_message(
+                self.add_message_at_node(
                     "unnecessary-lambda-assignment",
                     node=value,
                     confidence=HIGH,
@@ -72,7 +72,7 @@ class LambdaExpressionChecker(BaseChecker):
                     if isinstance(lhs_elem, nodes.AssignName) and isinstance(
                         rhs_elem, nodes.Lambda
                     ):
-                        self.add_message(
+                        self.add_message_at_node(
                             "unnecessary-lambda-assignment",
                             node=rhs_elem,
                             confidence=HIGH,
@@ -83,7 +83,7 @@ class LambdaExpressionChecker(BaseChecker):
             case nodes.NamedExpr(
                 target=nodes.AssignName(), value=nodes.Lambda() as value
             ):
-                self.add_message(
+                self.add_message_at_node(
                     "unnecessary-lambda-assignment",
                     node=value,
                     confidence=HIGH,
@@ -92,7 +92,7 @@ class LambdaExpressionChecker(BaseChecker):
     def visit_call(self, node: nodes.Call) -> None:
         """Check if lambda expression is called directly."""
         if isinstance(node.func, nodes.Lambda) and not _lambda_scope_is_required(node):
-            self.add_message(
+            self.add_message_at_node(
                 "unnecessary-direct-lambda-call",
                 node=node,
                 confidence=HIGH,

@@ -83,7 +83,7 @@ class DataclassChecker(BaseChecker):
             return
 
         if not (scope_node and scope_node.is_dataclass):
-            self.add_message(
+            self.add_message_at_node(
                 "invalid-field-call",
                 node=node,
                 args=(
@@ -94,7 +94,7 @@ class DataclassChecker(BaseChecker):
             return
 
         if not (isinstance(node.parent, nodes.AnnAssign) and node == node.parent.value):
-            self.add_message(
+            self.add_message_at_node(
                 "invalid-field-call",
                 node=node,
                 args=("it should be the value of an assignment within a dataclass.",),
@@ -115,7 +115,7 @@ class DataclassChecker(BaseChecker):
             and _is_dataclasses_module(inferred_func.root())
         ):
             return
-        self.add_message(
+        self.add_message_at_node(
             "invalid-field-call",
             node=node,
             args=(

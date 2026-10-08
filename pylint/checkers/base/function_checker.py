@@ -70,7 +70,7 @@ class FunctionChecker(_BasicChecker):
                 if not isinstance(inferred_node, nodes.FunctionDef):
                     continue
                 if self._node_fails_contextmanager_cleanup(inferred_node, yield_nodes):
-                    self.add_message(
+                    self.add_message_at_node(
                         "contextmanager-generator-missing-cleanup",
                         node=with_node,
                         args=(node.name,),

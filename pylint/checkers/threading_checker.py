@@ -52,7 +52,7 @@ class ThreadingChecker(BaseChecker):
                     continue
                 qname = infered_function.qname()
                 if qname in self.LOCKS:
-                    self.add_message("useless-with-lock", node=node, args=qname)
+                    self.add_message_at_node("useless-with-lock", node=node, args=qname)
 
 
 def register(linter: PyLinter) -> None:

@@ -296,7 +296,9 @@ class FormatChecker(BaseTokenChecker, BaseRawFileChecker):
     def new_line(self, tokens: TokenWrapper, line_end: int, line_start: int) -> None:
         """A new line has been encountered, process it if necessary."""
         if _last_token_on_line_is(tokens, line_end, ";"):
-            self.add_message("unnecessary-semicolon", line=tokens.start_line(line_end))
+            self.add_message_at_location(
+                "unnecessary-semicolon", lineno=tokens.start_line(line_end)
+            )
 
         line_num = tokens.start_line(line_start)
         line = tokens.line(line_start)
@@ -390,8 +392,8 @@ class FormatChecker(BaseTokenChecker, BaseRawFileChecker):
                         }
                         if not single_literal:
                             return
-                    self.add_message(
-                        "superfluous-parens", line=line_num, args=keyword_token
+                    self.add_message_at_location(
+                        "superfluous-parens", lineno=line_num, args=keyword_token
                     )
                 return
             elif depth == 1:
@@ -498,16 +500,16 @@ class FormatChecker(BaseTokenChecker, BaseRawFileChecker):
                 filter(None, (self.linter._pragma_lineno.get(name) for name in names)),
                 1,
             )
-            self.add_message(
+            self.add_message_at_location(
                 "too-many-lines",
                 args=(line_num, self.linter.config.max_module_lines),
-                line=lineno,
+                lineno=lineno,
             )
 
         # See if there are any trailing lines.  Do not complain about empty
         # files like __init__.py markers.
         if line_num == last_blank_line_num and line_num > 0:
-            self.add_message("trailing-newlines", line=line_num)
+            self.add_message_at_location("trailing-newlines", lineno=line_num)
 
     def _check_line_ending(self, line_ending: str, line_num: int) -> None:
         # check if line endings are mixed
@@ -516,7 +518,7 @@ class FormatChecker(BaseTokenChecker, BaseRawFileChecker):
             # the end of a file that does not, in fact, end with a
             # newline.
             if line_ending and line_ending != self._last_line_ending:
-                self.add_message("mixed-line-endings", line=line_num)
+                self.add_message_at_location("mixed-line-endings", lineno=line_num)
 
         self._last_line_ending = line_ending
 
@@ -527,10 +529,10 @@ class FormatChecker(BaseTokenChecker, BaseRawFileChecker):
             line_ending = reduce(lambda x, y: x + y if x != y else x, line_ending, "")
             line_ending = "LF" if line_ending == "\n" else "CRLF"
             if line_ending != expected:
-                self.add_message(
+                self.add_message_at_location(
                     "unexpected-line-ending-format",
                     args=(line_ending, expected),
-                    line=line_num,
+                    lineno=line_num,
                 )
 
     @only_required_for_messages("multiple-statements")
@@ -616,7 +618,7 @@ class FormatChecker(BaseTokenChecker, BaseRawFileChecker):
                 # Functions stubs and class with ``Ellipsis`` as body are exempted.
                 return
 
-        self.add_message("multiple-statements", node=node, confidence=HIGH)
+        self.add_message_at_node("multiple-statements", node=node, confidence=HIGH)
         self._visited_lines[line] = 2
 
     def check_trailing_whitespace_ending(self, line: str, i: int) -> None:
@@ -624,9 +626,9 @@ class FormatChecker(BaseTokenChecker, BaseRawFileChecker):
         # exclude \f (formfeed) from the rstrip
         stripped_line = line.rstrip("\t\n\r\v ")
         if line[len(stripped_line) :] not in ("\n", "\r\n"):
-            self.add_message(
+            self.add_message_at_location(
                 "trailing-whitespace",
-                line=i,
+                lineno=i,
                 col_offset=len(stripped_line),
                 confidence=HIGH,
             )
@@ -640,7 +642,9 @@ class FormatChecker(BaseTokenChecker, BaseRawFileChecker):
             if checker_off:
                 self.linter.add_ignored_message("line-too-long", i)
             else:
-                self.add_message("line-too-long", line=i, args=(len(line), max_chars))
+                self.add_message_at_location(
+                    "line-too-long", lineno=i, args=(len(line), max_chars)
+                )
 
     @staticmethod
     def _first_comment_offset(
@@ -730,7 +734,9 @@ class FormatChecker(BaseTokenChecker, BaseRawFileChecker):
 
         for offset, line in enumerate(split_lines):
             if not line.endswith("\n"):
-                self.add_message("missing-final-newline", line=lineno + offset)
+                self.add_message_at_location(
+                    "missing-final-newline", lineno=lineno + offset
+                )
                 continue
             # We don't test for trailing whitespaces in strings
             # See https://github.com/pylint-dev/pylint/issues/6936
@@ -793,9 +799,9 @@ class FormatChecker(BaseTokenChecker, BaseRawFileChecker):
             i_type = "spaces"
             if indent[0] == "\t":
                 i_type = "tabs"
-            self.add_message(
+            self.add_message_at_location(
                 "bad-indentation",
-                line=line_num,
+                lineno=line_num,
                 args=(level * unit_size + len(suppl), i_type, expected * unit_size),
             )
 

@@ -45,7 +45,7 @@ class ConsiderTernaryExpressionChecker(BaseChecker):
             ):
                 return
 
-        self.add_message("consider-ternary-expression", node=node)
+        self.add_message_at_node("consider-ternary-expression", node=node)
 
 
 def register(linter: PyLinter) -> None:

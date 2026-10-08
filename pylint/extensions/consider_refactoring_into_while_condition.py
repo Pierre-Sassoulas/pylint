@@ -80,7 +80,7 @@ class ConsiderRefactorIntoWhileConditionChecker(checkers.BaseChecker):
         if not msg:
             return
 
-        self.add_message(
+        self.add_message_at_node(
             "consider-refactoring-into-while-condition",
             node=node,
             args=(msg, node.test.as_string()),

@@ -248,7 +248,7 @@ class TypingChecker(BaseChecker):
         annotation = node.annotation
         if self._is_deprecated_union_annotation(annotation, "Optional"):
             if self._is_optional_none_annotation(annotation):
-                self.add_message(
+                self.add_message_at_node(
                     "redundant-typehint-argument",
                     node=annotation,
                     args="None",
@@ -289,7 +289,7 @@ class TypingChecker(BaseChecker):
             suggested_str = (
                 f"{node.value.as_string()}[{node.slice.elts[0].as_string()}]"
             )
-            self.add_message(
+            self.add_message_at_node(
                 "unnecessary-default-type-args",
                 args=(node.as_string(), suggested_str),
                 node=node,
@@ -336,7 +336,7 @@ class TypingChecker(BaseChecker):
         for typehint in types:
             typehint_str = typehint.as_string()
             if typehint_str in types_set:
-                self.add_message(
+                self.add_message_at_node(
                     "redundant-typehint-argument",
                     node=annotation,
                     args=(typehint_str),
@@ -371,7 +371,7 @@ class TypingChecker(BaseChecker):
             return
         if not (self._py310_plus or is_node_in_type_annotation_context(node)):
             return
-        self.add_message(
+        self.add_message_at_node(
             "consider-alternative-union-syntax",
             node=node,
             args=(name, self._msg_postponed_eval_hint(node)),
@@ -444,7 +444,7 @@ class TypingChecker(BaseChecker):
                     and msg.qname == "typing.Callable"
                 ):
                     continue
-                self.add_message(
+                self.add_message_at_node(
                     "deprecated-typing-alias",
                     node=msg.node,
                     args=(msg.qname, msg.alias),
@@ -456,7 +456,7 @@ class TypingChecker(BaseChecker):
             for msg in self._consider_using_alias_msgs:
                 if msg.qname in self._alias_name_collisions:
                     continue
-                self.add_message(
+                self.add_message_at_node(
                     "consider-using-alias",
                     node=msg.node,
                     args=(
@@ -499,7 +499,9 @@ class TypingChecker(BaseChecker):
                     and inferred._proxied.qname() == "typing._SpecialForm"
                 )
             ):
-                self.add_message("broken-noreturn", node=node, confidence=INFERENCE)
+                self.add_message_at_node(
+                    "broken-noreturn", node=node, confidence=INFERENCE
+                )
                 break
 
     def _check_broken_callable(self, node: nodes.Name | nodes.Attribute) -> None:
@@ -512,7 +514,9 @@ class TypingChecker(BaseChecker):
         ):
             return
 
-        self.add_message("broken-collections-callable", node=node, confidence=INFERENCE)
+        self.add_message_at_node(
+            "broken-collections-callable", node=node, confidence=INFERENCE
+        )
 
     def _broken_callable_location(self, node: nodes.Name | nodes.Attribute) -> bool:
         """Check if node would be a broken location for collections.abc.Callable."""
