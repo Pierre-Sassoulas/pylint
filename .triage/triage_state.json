@@ -476,9 +476,9 @@
     },
     "10345": {
       "verdict": "EXTDEP",
-      "note": "Crash-label sweep 2026-09-16 (session 14): pylint 4.1.0-dev0 @ ba5c0c79b, astroid 4.3.1, CPython 3.14.5 on Linux, default configuration. The file imports the reporter's private ft_core package. Nothing runnable was shared. Snippet: none shared",
-      "session": 14,
-      "ts": "2026-09-16T00:00:00+00:00"
+      "note": "Crash-label sweep 2026-09-16 (session 14): pylint 4.1.0-dev0 @ ba5c0c79b, astroid 4.3.1, CPython 3.14.5 on Linux, default configuration. The file imports the reporter's private ft_core package. Nothing runnable was shared. Snippet: none shared 2026-10-09: astroid PR 3370 (nabhan06, _is_property on a method proxying a Lambda) claims the fix.",
+      "session": 18,
+      "ts": "2026-10-09T07:32:15.069191+00:00"
     },
     "10316": {
       "verdict": "EXTDEP",
