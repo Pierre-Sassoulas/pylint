@@ -1,7 +1,7 @@
 {
  "snapshot": "2026-10-09",
  "owner": "Pierre-Sassoulas",
- "open_total": 106,
+ "open_total": 109,
  "open_own": 24,
  "prs": [
   {
@@ -1397,7 +1397,7 @@
    "size": 45,
    "files": 4,
    "created": "2026-09-10",
-   "updated": "2026-10-06",
+   "updated": "2026-10-09",
    "labels": [
     "False Positive 🦟",
     "backport maintenance/4.1.x"
@@ -1419,8 +1419,8 @@
     ]
    ],
    "lastcom": [
-    "github-actions",
-    "2026-10-04"
+    "ump45nose",
+    "2026-10-09"
    ]
   },
   {
@@ -1976,17 +1976,17 @@
    "a": "cyphercodes",
    "t": "Fix variant attribute narrowing false positive",
    "draft": false,
-   "size": 364,
+   "size": 380,
    "files": 4,
    "created": "2026-10-01",
-   "updated": "2026-10-08",
+   "updated": "2026-10-09",
    "labels": [
     "False Positive 🦟"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "CONFLICTING",
-   "ci": "not-run",
-   "citot": 4,
+   "merge": "MERGEABLE",
+   "ci": "awaiting-approval",
+   "citot": 2,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -2565,7 +2565,7 @@
    "a": "ningkexin96",
    "t": "Fix Windows initializer path classification",
    "draft": false,
-   "size": 86,
+   "size": 88,
    "files": 4,
    "created": "2026-10-09",
    "updated": "2026-10-09",
@@ -2573,10 +2573,12 @@
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
    "ci": "awaiting-approval",
-   "citot": 3,
+   "citot": 2,
    "cifail": 0,
-   "nrev": 0,
-   "mrev": [],
+   "nrev": 1,
+   "mrev": [
+    "Pierre-Sassoulas"
+   ],
    "links": [],
    "lastcom": [
     "-",
@@ -2603,6 +2605,93 @@
    "links": [
     [
      9517,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "-",
+    "-"
+   ]
+  },
+  {
+   "n": 11617,
+   "a": "san086041-glitch",
+   "t": "Fix false positive for unnecessary-comprehension when rebuilding tuples",
+   "draft": false,
+   "size": 57,
+   "files": 4,
+   "created": "2026-10-09",
+   "updated": "2026-10-09",
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "awaiting-approval",
+   "citot": 3,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [
+    [
+     8577,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "-",
+    "-"
+   ]
+  },
+  {
+   "n": 11618,
+   "a": "aryankinha",
+   "t": "Explain the rationale for too-many-locals",
+   "draft": false,
+   "size": 27,
+   "files": 4,
+   "created": "2026-10-09",
+   "updated": "2026-10-09",
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "green",
+   "citot": 49,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [
+    [
+     8196,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "github-actions",
+    "2026-10-09"
+   ]
+  },
+  {
+   "n": 11619,
+   "a": "jebakishore509-sys",
+   "t": "Print explicit failure message when fail-under condition fails",
+   "draft": false,
+   "size": 21,
+   "files": 2,
+   "created": "2026-10-09",
+   "updated": "2026-10-09",
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "awaiting-approval",
+   "citot": 2,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [
+    [
+     8503,
      "",
      ""
     ]
@@ -2851,6 +2940,17 @@
    "title": "Pyreverse: Duplicated class variables"
   },
   {
+   "comments": 2,
+   "labels": [
+    "Documentation :green_book:",
+    "Needs PR"
+   ],
+   "number": 8196,
+   "state": "open",
+   "state_reason": null,
+   "title": "Docs - ``too-many-locals`` - message description is not helpful"
+  },
+  {
    "comments": 4,
    "labels": [
     "False Positive 🦟",
@@ -2888,6 +2988,17 @@
    "state": "open",
    "state_reason": null,
    "title": "--fail-under has no visual impact on terminal output"
+  },
+  {
+   "comments": 2,
+   "labels": [
+    "False Positive 🦟",
+    "Needs PR"
+   ],
+   "number": 8577,
+   "state": "open",
+   "state_reason": null,
+   "title": "`unnecessary-comprehension` false positive"
   },
   {
    "comments": 2,
@@ -3425,7 +3536,7 @@
    "title": "Incorrect/Missing inference for slash-joining `pathlib` paths -> Missing diagnostics"
   },
   {
-   "comments": 0,
+   "comments": 1,
    "labels": [
     "False Positive 🦟",
     "Needs PR"
