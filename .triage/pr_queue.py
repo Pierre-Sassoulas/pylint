@@ -152,6 +152,16 @@ V = {
         "Review. Clean primer, confirmed issue.",
     ),
     # ---- approve the workflow run ----------------------------------------
+    11616: (
+        "approve",
+        "held",
+        "confirmed",
+        "New, 101 lines for issue 9517: <code>missing-timeout</code> only knew the module-level "
+        "<code>requests.get()</code> and friends; it now also reports "
+        "<code>requests.Session().get()</code> and the other session methods, which hang the same way "
+        "without a timeout.",
+        "Approve the run; false negative.",
+    ),
     11614: (
         "approve",
         "held",
@@ -288,6 +298,16 @@ V = {
         "Retrigger. The size needs a primer run before review.",
     ),
     # ---- author's move ----------------------------------------------------
+    11615: (
+        "author",
+        "pre-commit",
+        "confirmed",
+        "New, 86 lines, refs issue 10137 (Windows, 3 reactions): on Windows, passing an initializer "
+        "spelled <code>__Init__.py</code> gives it an ordinary module name (spurious "
+        "<code>invalid-name</code>) and duplicates the input; normalize with <code>normcase</code>. "
+        "Only <code>pre-commit.ci</code> red so far; the test run is held.",
+        "Ask for pre-commit, then approve the run.",
+    ),
     11602: (
         "author",
         "CI",
