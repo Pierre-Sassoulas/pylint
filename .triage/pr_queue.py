@@ -66,6 +66,14 @@ LANES = {
 V = {
     # ---- merge lane -------------------------------------------------------
     # ---- review now -------------------------------------------------------
+    11618: (
+        "review",
+        "docs",
+        "feature",
+        "New, 27 lines of docs for issue 8196: the <code>too-many-locals</code> description now says "
+        "why to act on it (maintainability) and how to split the function. 48 checks green.",
+        "Quick docs review; low priority.",
+    ),
     11610: (
         "review",
         "crash",
@@ -152,6 +160,15 @@ V = {
         "Review. Clean primer, confirmed issue.",
     ),
     # ---- approve the workflow run ----------------------------------------
+    11617: (
+        "approve",
+        "held",
+        "confirmed",
+        "New, 57 lines for issue 8577: <code>unnecessary-comprehension</code> suggests "
+        "<code>list(a)</code> for <code>[(x, y) for x, y in a]</code>, which is only equivalent when "
+        "the items of <code>a</code> already are tuples (for a list of lists it changes the result).",
+        "Approve the run; false positive with a wrong suggestion.",
+    ),
     11616: (
         "approve",
         "held",
@@ -298,6 +315,16 @@ V = {
         "Retrigger. The size needs a primer run before review.",
     ),
     # ---- author's move ----------------------------------------------------
+    11409: (
+        "author",
+        "astroid",
+        "confirmed",
+        "The author opened astroid #3371 on 9 October as you asked (bind the class to a metaclass "
+        "method; the typing brain rebuilt its <code>Meta</code> template on every inference, which "
+        "broke an identity check). This PR waits for that. Issue 10042 (<code>not-callable</code> when "
+        "inheriting from <code>typing.IO</code>).",
+        "Review astroid #3371; this PR becomes a test or closes.",
+    ),
     11615: (
         "author",
         "pre-commit",
@@ -347,16 +374,6 @@ V = {
         "You asked for a rebase on 7 October: one primer shard still fails on the old 'Primer / Main' "
         "lookup fixed by #11588/#11589. Issue 7997, milestone 4.1.3.",
         "Waiting on the rebase.",
-    ),
-    11409: (
-        "author",
-        "astroid",
-        "confirmed",
-        "You requested changes on 6 October: the fix belongs in astroid, where "
-        "<code>boundnode.metaclass(context=context)</code> fails; calling it without the context and "
-        "comparing with <code>is_subtype_of</code> fixes both shapes. Milestone 4.1.3, backport label "
-        "set.",
-        "Waiting on the author to move the fix to astroid.",
     ),
     11432: (
         "author",
@@ -515,6 +532,15 @@ V = {
         "Ask for a rebase onto #11011, keeping only the package-root fix.",
     ),
     # ---- decide first -----------------------------------------------------
+    11619: (
+        "decide",
+        "duplicate?",
+        "duplicate",
+        "New, 21 lines for issue 8503 (<code>--fail-under</code> gives no visible sign in the "
+        "terminal): prints <em>Code has been rated at X, which is less than fail-under=Y</em> to "
+        "stderr. #11087 (June) targets the same issue, approved by you but red for months.",
+        "Pick one of #11087 and #11619 for 8503; close the other.",
+    ),
     11601: (
         "decide",
         "design",
