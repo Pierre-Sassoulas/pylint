@@ -1,5 +1,5 @@
 {
- "versions": "pylint 4.2.0-dev0\nastroid 4.3.4\nPython 3.13.1 (main, Dec 19 2024, 14:32:25) [Clang 18.1.8 ]\npylint commit 1e5861d71 Fix unexpected-keyword-arg false positive for pass-through decorators above a **kwargs decorator (#11517)",
+ "versions": "pylint 4.2.0-dev0\nastroid 4.3.4\nPython 3.13.1 (main, Dec 19 2024, 14:32:25) [Clang 18.1.8 ]\npylint commit 86808dc60 Fix pyreverse crash on classes with EmptyNode instance attrs (#11278)",
  "snippets": {
   "snippets/i10029.py": [
    "1:0:missing-module-docstring:Missing module docstring",
@@ -2783,12 +2783,6 @@
    "13:7:use-implicit-booleaness-not-comparison-to-string:\"operation != ''\" can be simplified to \"operation\", if it is strictly a string, as an empty string is falsey",
    "18:0:missing-function-docstring:Missing function or method docstring"
   ],
-  "snippets_auto/i8909_block0.py": [
-   "1:0:missing-module-docstring:Missing module docstring",
-   "1:0:missing-function-docstring:Missing function or method docstring",
-   "3:4:unreachable:Unreachable code",
-   "2:4:broad-exception-raised:Raising too general exception: Exception"
-  ],
   "snippets_auto/i8923_block0.py": [
    "1:0:missing-module-docstring:Missing module docstring",
    "6:0:missing-class-docstring:Missing class docstring",
@@ -3270,6 +3264,19 @@
    "17:4:missing-function-docstring:Missing function or method docstring",
    "19:14:no-member:Instance of 'Field' has no 'sub_field' member",
    "8:0:suppressed-message:Suppressed 'invalid-field-call' (from line 8)"
+  ],
+  "snippets/i11608.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "5:0:missing-class-docstring:Missing class docstring",
+   "6:4:no-method-argument:Method '__init__' has no argument",
+   "9:0:pointless-statement:Statement seems to have no effect",
+   "1:0:astroid-error:i11608.py: Fatal error while checking 'i11608.py'. Please open an issue in our bug tracker so we address this. There is a pre-filled template that you can use in '/home/pierre/.cache/pylint/pylint-crash.txt'."
+  ],
+  "snippets/i11609.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "5:0:missing-class-docstring:Missing class docstring",
+   "5:0:inherit-non-class:Inheriting 'Unpack()[:]', which is not a class.",
+   "1:0:astroid-error:i11609.py: Fatal error while checking 'i11609.py'. Please open an issue in our bug tracker so we address this. There is a pre-filled template that you can use in '/home/pierre/.cache/pylint/pylint-crash.txt'."
   ]
  }
 }

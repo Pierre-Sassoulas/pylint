@@ -134,9 +134,9 @@
     },
     "10831": {
       "verdict": "FIXED",
-      "note": "Closed by PR 11517 (pass-through decorators above a **kwargs decorator; nightcityblade's cases from 11518 included), merged 8 October; backport PR 11607 open, ships in 4.1.3. Snippet sweep on 1e5861d71 (scipy 1.17 installed): E1123 on nan_policy gone.",
+      "note": "Closed by PR 11517 (pass-through decorators above a **kwargs decorator; nightcityblade's cases from 11518 included), merged 8 October; backported as PR 11607 (merged), ships in 4.1.3. Snippet sweep on 1e5861d71 (scipy 1.17 installed): E1123 on nan_policy gone.",
       "session": 18,
-      "ts": "2026-10-08T18:58:14.011317+00:00"
+      "ts": "2026-10-09T04:26:33.322682+00:00"
     },
     "10827": {
       "verdict": "EXTDEP",
@@ -187,10 +187,10 @@
       "ts": "2026-05-12T13:29:16.744709+00:00"
     },
     "10767": {
-      "verdict": "UNCLEAR",
-      "note": "Crash-label sweep 2026-09-16 (session 14): pylint 4.1.0-dev0 @ ba5c0c79b, astroid 4.3.1, CPython 3.14.5 on Linux, default configuration. No natural trigger found: pyreverse walks namedtuple subclasses and argparse.Namespace subclasses and writes its dot file. The open PR constructs the EmptyNode by hand in its test, which suggests nobody has one either. Snippet: .triage/snippets/i10767.py",
-      "session": 14,
-      "ts": "2026-09-16T00:00:00+00:00"
+      "verdict": "FIXED",
+      "note": "Closed by PR 11278 (pyreverse crash on classes with EmptyNode instance attributes), merged 8 October; backported as PR 11613, ships in 4.1.3.",
+      "session": 18,
+      "ts": "2026-10-09T04:26:33.322682+00:00"
     },
     "10766": {
       "verdict": "REPRO",
@@ -2233,10 +2233,10 @@
       "ts": "2026-05-12T11:14:16.550993+00:00"
     },
     "8909": {
-      "verdict": "DESIGN",
-      "note": "False-positive unreachable code for generator with raise. Spec/PR.",
-      "session": 3,
-      "ts": "2026-05-12T11:14:16.573475+00:00"
+      "verdict": "FIXED",
+      "note": "Closed by PR 11604 (marker after raise in a generator no longer unreachable), merged 8 October; backported as PR 11612, ships in 4.1.3. Snippet sweep: unreachable on the yield gone on 86808dc60.",
+      "session": 18,
+      "ts": "2026-10-09T04:26:33.322682+00:00"
     },
     "8908": {
       "verdict": "DESIGN",
@@ -6359,6 +6359,18 @@
       "note": "Closed earlier. 2026-10-08: a further variant (several sequence arguments in the inner min/max call) fixed by PR 11593, backported as PR 11598; ships in 4.1.3.",
       "session": 18,
       "ts": "2026-10-08T05:35:06.262099+00:00"
+    },
+    "11608": {
+      "verdict": "REPRO",
+      "note": "Fuzzer crash, reproduced on main 86808dc60 (snippets/i11608.py): IndexError in _enum_has_attribute when an Enum __init__ takes no arguments, after AttributeInferenceError on C.A. Fix PR 11610 (agustin18), green.",
+      "session": 18,
+      "ts": "2026-10-09T04:26:33.322682+00:00"
+    },
+    "11609": {
+      "verdict": "REPRO",
+      "note": "Fuzzer crash, reproduced on main 86808dc60 (snippets/i11609.py): AttributeError 'Slice' object has no attribute 'name' in class_checker._check_proper_bases for class C(Unpack()[:]). Fix PR 11611 (agustin18), green.",
+      "session": 18,
+      "ts": "2026-10-09T04:26:33.322682+00:00"
     }
   },
   "session_count": 10

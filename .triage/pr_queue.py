@@ -66,14 +66,23 @@ LANES = {
 V = {
     # ---- merge lane -------------------------------------------------------
     # ---- review now -------------------------------------------------------
-    11604: (
+    11610: (
         "review",
-        "ready",
-        "confirmed",
-        "53/53 green. The primer only changes pandas <code>redefined-variable-type</code> lines, the "
-        "usual pandas R0204 noise. 46 lines for issue 8909: the marker after <code>raise</code> in a "
-        "generator is no longer <code>unreachable</code>.",
-        "Review.",
+        "crash",
+        "crash",
+        "New, 48/48 green, 35 lines for issue 11608 (fuzzer crash, reproduced on main): "
+        "<code>IndexError</code> in <code>_enum_has_attribute</code> when an Enum <code>__init__</code> "
+        "takes no arguments.",
+        "Review and merge; crash fix for 4.1.3.",
+    ),
+    11611: (
+        "review",
+        "crash",
+        "crash",
+        "New, 48/48 green, 44 lines for issue 11609 (fuzzer crash, reproduced on main): "
+        "<code>_check_proper_bases</code> reads <code>.name</code> on an inferred base that is a "
+        "<code>Slice</code> (<code>class C(Unpack()[:])</code>).",
+        "Review and merge; crash fix for 4.1.3.",
     ),
     11594: (
         "review",
@@ -143,6 +152,15 @@ V = {
         "Review. Clean primer, confirmed issue.",
     ),
     # ---- approve the workflow run ----------------------------------------
+    11614: (
+        "approve",
+        "held",
+        "confirmed",
+        "New, 36 lines, no linked issue: an <code>await</code> inside a generator expression makes it "
+        "an async generator expression, which Python accepts outside an async function, so "
+        "<code>await-outside-async</code> is a false positive there.",
+        "Approve the run.",
+    ),
     11430: (
         "approve",
         "held",
@@ -380,13 +398,6 @@ V = {
         "confirmed",
         "49/49 green but changes requested and untouched since mid-July.",
         "Ping — green CI with an open request is easy to forget.",
-    ),
-    11278: (
-        "author",
-        "draft",
-        "crash",
-        "Draft, green, fixes a pyreverse crash. Changes requested in August, no reply.",
-        "Ping once; a crash fix should not sit in draft.",
     ),
     11241: (
         "author",
