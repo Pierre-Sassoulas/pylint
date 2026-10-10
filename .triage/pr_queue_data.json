@@ -720,19 +720,19 @@
    "a": "weiDaXinXin",
    "t": "Add visual indicator when score is below fail-under threshold ",
    "draft": false,
-   "size": 16,
-   "files": 3,
+   "size": 20,
+   "files": 4,
    "created": "2026-06-08",
-   "updated": "2026-09-24",
+   "updated": "2026-10-10",
    "labels": [
     "Enhancement ✨"
    ],
    "rd": "APPROVED",
-   "merge": "UNKNOWN",
-   "ci": "failing",
-   "citot": 38,
-   "cifail": 10,
-   "nrev": 3,
+   "merge": "MERGEABLE",
+   "ci": "running",
+   "citot": 31,
+   "cifail": 0,
+   "nrev": 4,
    "mrev": [
     "Pierre-Sassoulas"
    ],
@@ -864,9 +864,9 @@
    ],
    "rd": "REVIEW_REQUIRED",
    "merge": "UNKNOWN",
-   "ci": "failing",
+   "ci": "awaiting-approval",
    "citot": 53,
-   "cifail": 1,
+   "cifail": 0,
    "nrev": 2,
    "mrev": [
     "DanielNoord"
@@ -1593,7 +1593,7 @@
     "backport maintenance/4.1.x"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "green",
    "citot": 53,
    "cifail": 0,
@@ -2420,12 +2420,14 @@
    "size": 36,
    "files": 4,
    "created": "2026-10-09",
-   "updated": "2026-10-09",
-   "labels": [],
+   "updated": "2026-10-10",
+   "labels": [
+    "False Positive 🦟"
+   ],
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
    "ci": "awaiting-approval",
-   "citot": 3,
+   "citot": 4,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -2471,12 +2473,14 @@
    "size": 101,
    "files": 8,
    "created": "2026-10-09",
-   "updated": "2026-10-09",
-   "labels": [],
+   "updated": "2026-10-10",
+   "labels": [
+    "False Negative 🦋"
+   ],
    "rd": "REVIEW_REQUIRED",
    "merge": "UNKNOWN",
    "ci": "awaiting-approval",
-   "citot": 3,
+   "citot": 4,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -2500,12 +2504,14 @@
    "size": 57,
    "files": 4,
    "created": "2026-10-09",
-   "updated": "2026-10-09",
-   "labels": [],
+   "updated": "2026-10-10",
+   "labels": [
+    "False Positive 🦟"
+   ],
    "rd": "REVIEW_REQUIRED",
    "merge": "UNKNOWN",
    "ci": "awaiting-approval",
-   "citot": 3,
+   "citot": 4,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -2556,68 +2562,6 @@
    ]
   },
   {
-   "n": 11619,
-   "a": "jebakishore509-sys",
-   "t": "Print explicit failure message when fail-under condition fails",
-   "draft": false,
-   "size": 21,
-   "files": 2,
-   "created": "2026-10-09",
-   "updated": "2026-10-09",
-   "labels": [],
-   "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
-   "ci": "awaiting-approval",
-   "citot": 2,
-   "cifail": 0,
-   "nrev": 0,
-   "mrev": [],
-   "links": [
-    [
-     8503,
-     "",
-     ""
-    ]
-   ],
-   "lastcom": [
-    "-",
-    "-"
-   ]
-  },
-  {
-   "n": 11620,
-   "a": "bhaskargurram-ai",
-   "t": "[pyreverse] Fix hang/RecursionError with --all-associated on classes rebuilt on each inference",
-   "draft": false,
-   "size": 112,
-   "files": 3,
-   "created": "2026-10-10",
-   "updated": "2026-10-10",
-   "labels": [
-    "pyreverse",
-    "performance",
-    "backport maintenance/4.1.x"
-   ],
-   "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
-   "ci": "running",
-   "citot": 39,
-   "cifail": 0,
-   "nrev": 0,
-   "mrev": [],
-   "links": [
-    [
-     3602,
-     "",
-     ""
-    ]
-   ],
-   "lastcom": [
-    "github-actions",
-    "2026-10-10"
-   ]
-  },
-  {
    "n": 11621,
    "a": "devanshranjan10",
    "t": "Emit break/continue-in-finally when nested inside the finally clause",
@@ -2626,11 +2570,14 @@
    "files": 5,
    "created": "2026-10-10",
    "updated": "2026-10-10",
-   "labels": [],
+   "labels": [
+    "False Negative 🦋",
+    "python 3.14"
+   ],
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
    "ci": "awaiting-approval",
-   "citot": 2,
+   "citot": 4,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -2649,11 +2596,14 @@
    "files": 4,
    "created": "2026-10-10",
    "updated": "2026-10-10",
-   "labels": [],
+   "labels": [
+    "Bug :beetle:",
+    "C: Pragma's"
+   ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "green",
-   "citot": 49,
+   "citot": 53,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -2683,9 +2633,9 @@
     "backport maintenance/4.1.x"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "running",
-   "citot": 33,
+   "citot": 51,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -2697,8 +2647,8 @@
     ]
    ],
    "lastcom": [
-    "-",
-    "-"
+    "github-actions",
+    "2026-10-10"
    ]
   },
   {
@@ -2710,11 +2660,14 @@
    "files": 4,
    "created": "2026-10-10",
    "updated": "2026-10-10",
-   "labels": [],
+   "labels": [
+    "typing",
+    "False Positive 🦟"
+   ],
    "rd": "REVIEW_REQUIRED",
    "merge": "UNKNOWN",
    "ci": "awaiting-approval",
-   "citot": 3,
+   "citot": 4,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -2739,7 +2692,9 @@
    "files": 4,
    "created": "2026-10-10",
    "updated": "2026-10-10",
-   "labels": [],
+   "labels": [
+    "False Positive 🦟"
+   ],
    "rd": "REVIEW_REQUIRED",
    "merge": "UNKNOWN",
    "ci": "awaiting-approval",
@@ -2768,7 +2723,9 @@
    "files": 4,
    "created": "2026-10-10",
    "updated": "2026-10-10",
-   "labels": [],
+   "labels": [
+    "False Positive 🦟"
+   ],
    "rd": "REVIEW_REQUIRED",
    "merge": "UNKNOWN",
    "ci": "awaiting-approval",
@@ -2783,6 +2740,60 @@
      ""
     ]
    ],
+   "lastcom": [
+    "-",
+    "-"
+   ]
+  },
+  {
+   "n": 11632,
+   "a": "app/pylint-backport",
+   "t": "[Backport maintenance/4.1.x] Fix duplicate-code crash when min-similarity-lines is 0",
+   "draft": false,
+   "size": 38,
+   "files": 7,
+   "created": "2026-10-10",
+   "updated": "2026-10-10",
+   "labels": [
+    "Regression",
+    "Crash 💥"
+   ],
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "running",
+   "citot": 26,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [],
+   "lastcom": [
+    "-",
+    "-"
+   ]
+  },
+  {
+   "n": 11633,
+   "a": "app/pylint-backport",
+   "t": "[Backport maintenance/4.1.x] [pyreverse] Fix hang/RecursionError with --all-associated on classes rebuilt on each inference",
+   "draft": false,
+   "size": 112,
+   "files": 3,
+   "created": "2026-10-10",
+   "updated": "2026-10-10",
+   "labels": [
+    "pyreverse",
+    "performance"
+   ],
+   "rd": "APPROVED",
+   "merge": "MERGEABLE",
+   "ci": "running",
+   "citot": 18,
+   "cifail": 0,
+   "nrev": 1,
+   "mrev": [
+    "Pierre-Sassoulas"
+   ],
+   "links": [],
    "lastcom": [
     "-",
     "-"
@@ -2850,20 +2861,6 @@
    "state": "open",
    "state_reason": null,
    "title": "Disable certain messages by default"
-  },
-  {
-   "comments": 9,
-   "labels": [
-    "Bug :beetle:",
-    "pyreverse",
-    "performance",
-    "Crash 💥",
-    "Needs PR"
-   ],
-   "number": 3602,
-   "state": "open",
-   "state_reason": null,
-   "title": "Maximum recursion depth crash with pyreverse ``-S`` option"
   },
   {
    "comments": 0,
@@ -3709,7 +3706,10 @@
   },
   {
    "comments": 0,
-   "labels": [],
+   "labels": [
+    "False Positive 🦟",
+    "enum"
+   ],
    "number": 11413,
    "state": "open",
    "state_reason": null,
@@ -3717,7 +3717,11 @@
   },
   {
    "comments": 1,
-   "labels": [],
+   "labels": [
+    "Minor 💅",
+    "typing",
+    "Maintenance"
+   ],
    "number": 11524,
    "state": "open",
    "state_reason": null,
@@ -3726,7 +3730,8 @@
   {
    "comments": 0,
    "labels": [
-    "Needs triage :inbox_tray:"
+    "False Positive 🦟",
+    "C: arguments-differ"
    ],
    "number": 11567,
    "state": "open",
