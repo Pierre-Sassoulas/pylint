@@ -1,7 +1,7 @@
 {
  "snapshot": "2026-10-10",
  "owner": "Pierre-Sassoulas",
- "open_total": 110,
+ "open_total": 108,
  "open_own": 24,
  "prs": [
   {
@@ -1008,7 +1008,7 @@
     ]
    ],
    "lastcom": [
-    "Pierre-Sassoulas",
+    "subotac",
     "2026-10-10"
    ]
   },
@@ -2028,40 +2028,6 @@
    ]
   },
   {
-   "n": 11546,
-   "a": "yuefdev",
-   "t": "Ignore discard variable type redefinitions",
-   "draft": false,
-   "size": 25,
-   "files": 4,
-   "created": "2026-10-03",
-   "updated": "2026-10-10",
-   "labels": [
-    "False Positive 🦟",
-    "backport maintenance/4.1.x"
-   ],
-   "rd": "APPROVED",
-   "merge": "MERGEABLE",
-   "ci": "failing",
-   "citot": 48,
-   "cifail": 1,
-   "nrev": 2,
-   "mrev": [
-    "Pierre-Sassoulas"
-   ],
-   "links": [
-    [
-     10374,
-     "",
-     ""
-    ]
-   ],
-   "lastcom": [
-    "github-actions",
-    "2026-10-10"
-   ]
-  },
-  {
    "n": 11552,
    "a": "Hashimlokasher",
    "t": "Document how to point --init-hook at a virtualenv's site-packages",
@@ -2134,7 +2100,7 @@
    "a": "Vinayak19112003",
    "t": "Fix arguments-differ false positive for positional-only parameters",
    "draft": false,
-   "size": 72,
+   "size": 912,
    "files": 5,
    "created": "2026-10-04",
    "updated": "2026-10-10",
@@ -2142,12 +2108,12 @@
     "False Positive 🦟",
     "backport maintenance/4.1.x"
    ],
-   "rd": "CHANGES_REQUESTED",
+   "rd": "APPROVED",
    "merge": "MERGEABLE",
    "ci": "running",
-   "citot": 38,
+   "citot": 46,
    "cifail": 0,
-   "nrev": 1,
+   "nrev": 2,
    "mrev": [
     "Pierre-Sassoulas"
    ],
@@ -2160,7 +2126,7 @@
    ],
    "lastcom": [
     "github-actions",
-    "2026-10-04"
+    "2026-10-10"
    ]
   },
   {
@@ -2418,12 +2384,14 @@
    "updated": "2026-10-10",
    "labels": [
     "Bug :beetle:",
+    "Needs reproduction :mag:",
+    "Windows 🪟",
     "backport maintenance/4.1.x"
    ],
    "rd": "CHANGES_REQUESTED",
    "merge": "MERGEABLE",
    "ci": "awaiting-approval",
-   "citot": 48,
+   "citot": 52,
    "cifail": 0,
    "nrev": 1,
    "mrev": [
@@ -2431,7 +2399,7 @@
    ],
    "links": [],
    "lastcom": [
-    "github-actions",
+    "Pierre-Sassoulas",
     "2026-10-10"
    ]
   },
@@ -2590,38 +2558,6 @@
    ]
   },
   {
-   "n": 11628,
-   "a": "fredrikblau",
-   "t": "Fix protected-access false positive through a subscripted generic base",
-   "draft": false,
-   "size": 36,
-   "files": 4,
-   "created": "2026-10-10",
-   "updated": "2026-10-10",
-   "labels": [
-    "False Positive 🦟",
-    "backport maintenance/4.1.x"
-   ],
-   "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
-   "ci": "green",
-   "citot": 53,
-   "cifail": 0,
-   "nrev": 0,
-   "mrev": [],
-   "links": [
-    [
-     8600,
-     "",
-     ""
-    ]
-   ],
-   "lastcom": [
-    "codecov",
-    "2026-10-10"
-   ]
-  },
-  {
    "n": 11629,
    "a": "DariusHQ",
    "t": "Fix `unused-import` false positive for names in `typing.cast` strings",
@@ -2716,47 +2652,26 @@
    ]
   },
   {
-   "n": 11634,
-   "a": "Aryan007-dev",
-   "t": "Add regression tests for three false positives that no longer occur",
+   "n": 11636,
+   "a": "app/pylint-backport",
+   "t": "[Backport maintenance/4.1.x] Fix protected-access false positive through a subscripted generic base",
    "draft": false,
-   "size": 37,
-   "files": 3,
+   "size": 38,
+   "files": 4,
    "created": "2026-10-10",
    "updated": "2026-10-10",
-   "labels": [
-    "Maintenance",
-    "Skip news :mute:"
-   ],
-   "rd": "APPROVED",
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "awaiting-approval",
-   "citot": 18,
+   "ci": "running",
+   "citot": 16,
    "cifail": 0,
-   "nrev": 1,
-   "mrev": [
-    "Pierre-Sassoulas"
-   ],
-   "links": [
-    [
-     9359,
-     "",
-     ""
-    ],
-    [
-     9683,
-     "",
-     ""
-    ],
-    [
-     9804,
-     "",
-     ""
-    ]
-   ],
+   "nrev": 0,
+   "mrev": [],
+   "links": [],
    "lastcom": [
-    "Pierre-Sassoulas",
-    "2026-10-10"
+    "-",
+    "-"
    ]
   }
  ],
@@ -3082,17 +2997,6 @@
    "title": "`unnecessary-comprehension` false positive"
   },
   {
-   "comments": 0,
-   "labels": [
-    "False Positive 🦟",
-    "Needs PR"
-   ],
-   "number": 8600,
-   "state": "open",
-   "state_reason": null,
-   "title": "protected-access false positive with Generic classes"
-  },
-  {
    "comments": 2,
    "labels": [
     "False Positive 🦟",
@@ -3226,19 +3130,6 @@
    "title": "Allow navigating messages by shorthands"
   },
   {
-   "comments": 1,
-   "labels": [
-    "Bug :beetle:",
-    "Checkers",
-    "Astroid",
-    "False Positive 🦟"
-   ],
-   "number": 9359,
-   "state": "open",
-   "state_reason": null,
-   "title": "useless-parent-delegation false positive when __init__ signatures differ but parent is built-in type"
-  },
-  {
    "comments": 2,
    "labels": [
     "Enhancement ✨",
@@ -3282,18 +3173,6 @@
    "title": "False negatives for `duplicate-argument-name`"
   },
   {
-   "comments": 1,
-   "labels": [
-    "Bug :beetle:",
-    "Needs astroid Brain 🧠",
-    "False Positive 🦟"
-   ],
-   "number": 9683,
-   "state": "open",
-   "state_reason": null,
-   "title": "False positive invalid-sequence-index using properties of range object as index"
-  },
-  {
    "comments": 5,
    "labels": [
     "Maintenance",
@@ -3303,19 +3182,6 @@
    "state": "open",
    "state_reason": null,
    "title": "Can't update functional test refs"
-  },
-  {
-   "comments": 1,
-   "labels": [
-    "Bug :beetle:",
-    "False Positive 🦟",
-    "C: arguments-differ",
-    "dataclasses"
-   ],
-   "number": 9804,
-   "state": "open",
-   "state_reason": null,
-   "title": "False positive `arguments-differ` on `__post_init__` method in dataclass inheritence"
   },
   {
    "comments": 1,
@@ -3519,17 +3385,6 @@
    "state": "open",
    "state_reason": null,
    "title": "Expand to ``use-implicit-booleaness-not-len`` to catch `len(iterable) == 0` and `>0`"
-  },
-  {
-   "comments": 2,
-   "labels": [
-    "False Positive 🦟",
-    "Needs specification :closed_lock_with_key:"
-   ],
-   "number": 10374,
-   "state": "open",
-   "state_reason": null,
-   "title": "False positive ``redefined-variable-type`` on ignored variables like ``_``"
   },
   {
    "comments": 2,
