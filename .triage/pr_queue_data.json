@@ -1,7 +1,7 @@
 {
  "snapshot": "2026-10-10",
  "owner": "Pierre-Sassoulas",
- "open_total": 112,
+ "open_total": 109,
  "open_own": 24,
  "prs": [
   {
@@ -716,39 +716,6 @@
    ]
   },
   {
-   "n": 11087,
-   "a": "weiDaXinXin",
-   "t": "Add visual indicator when score is below fail-under threshold ",
-   "draft": false,
-   "size": 20,
-   "files": 4,
-   "created": "2026-06-08",
-   "updated": "2026-10-10",
-   "labels": [
-    "Enhancement ✨"
-   ],
-   "rd": "APPROVED",
-   "merge": "MERGEABLE",
-   "ci": "running",
-   "citot": 31,
-   "cifail": 0,
-   "nrev": 4,
-   "mrev": [
-    "Pierre-Sassoulas"
-   ],
-   "links": [
-    [
-     8503,
-     "",
-     ""
-    ]
-   ],
-   "lastcom": [
-    "github-actions",
-    "2026-06-14"
-   ]
-  },
-  {
    "n": 11111,
    "a": "sarathfrancis90",
    "t": "Fix crash in logging checker on a non-UTF-8 bytes format string",
@@ -897,7 +864,7 @@
    ],
    "rd": "REVIEW_REQUIRED",
    "merge": "UNKNOWN",
-   "ci": "not-run",
+   "ci": "awaiting-approval",
    "citot": 4,
    "cifail": 0,
    "nrev": 0,
@@ -959,7 +926,7 @@
     "Work in progress"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "not-run",
    "citot": 2,
    "cifail": 0,
@@ -1027,7 +994,7 @@
     "Enhancement ✨"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "CONFLICTING",
    "ci": "not-run",
    "citot": 4,
    "cifail": 0,
@@ -1154,7 +1121,7 @@
    ],
    "rd": "REVIEW_REQUIRED",
    "merge": "UNKNOWN",
-   "ci": "not-run",
+   "ci": "awaiting-approval",
    "citot": 5,
    "cifail": 0,
    "nrev": 0,
@@ -1590,12 +1557,13 @@
    "updated": "2026-10-10",
    "labels": [
     "False Positive 🦟",
+    "Needs astroid update",
     "backport maintenance/4.1.x"
    ],
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
    "ci": "green",
-   "citot": 53,
+   "citot": 55,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -1607,7 +1575,7 @@
     ]
    ],
    "lastcom": [
-    "RizgarOzan",
+    "Pierre-Sassoulas",
     "2026-10-10"
    ]
   },
@@ -1656,7 +1624,7 @@
     "Lib specific 💅"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "not-run",
    "citot": 4,
    "cifail": 0,
@@ -1885,7 +1853,7 @@
     "False Positive 🦟"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "green",
    "citot": 50,
    "cifail": 0,
@@ -2073,7 +2041,7 @@
     "backport maintenance/4.1.x"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "green",
    "citot": 53,
    "cifail": 0,
@@ -2175,7 +2143,7 @@
     "backport maintenance/4.1.x"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "green",
    "citot": 53,
    "cifail": 0,
@@ -2451,9 +2419,9 @@
     "backport maintenance/4.1.x"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "awaiting-approval",
-   "citot": 2,
+   "citot": 48,
    "cifail": 0,
    "nrev": 1,
    "mrev": [
@@ -2601,7 +2569,7 @@
     "C: Pragma's"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "green",
    "citot": 53,
    "cifail": 0,
@@ -2633,9 +2601,9 @@
     "backport maintenance/4.1.x"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
-   "ci": "running",
-   "citot": 51,
+   "merge": "MERGEABLE",
+   "ci": "green",
+   "citot": 53,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -2647,7 +2615,7 @@
     ]
    ],
    "lastcom": [
-    "github-actions",
+    "codecov",
     "2026-10-10"
    ]
   },
@@ -2696,7 +2664,7 @@
     "False Positive 🦟"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "awaiting-approval",
    "citot": 3,
    "cifail": 0,
@@ -2740,60 +2708,6 @@
      ""
     ]
    ],
-   "lastcom": [
-    "-",
-    "-"
-   ]
-  },
-  {
-   "n": 11632,
-   "a": "app/pylint-backport",
-   "t": "[Backport maintenance/4.1.x] Fix duplicate-code crash when min-similarity-lines is 0",
-   "draft": false,
-   "size": 38,
-   "files": 7,
-   "created": "2026-10-10",
-   "updated": "2026-10-10",
-   "labels": [
-    "Regression",
-    "Crash 💥"
-   ],
-   "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
-   "ci": "running",
-   "citot": 26,
-   "cifail": 0,
-   "nrev": 0,
-   "mrev": [],
-   "links": [],
-   "lastcom": [
-    "-",
-    "-"
-   ]
-  },
-  {
-   "n": 11633,
-   "a": "app/pylint-backport",
-   "t": "[Backport maintenance/4.1.x] [pyreverse] Fix hang/RecursionError with --all-associated on classes rebuilt on each inference",
-   "draft": false,
-   "size": 112,
-   "files": 3,
-   "created": "2026-10-10",
-   "updated": "2026-10-10",
-   "labels": [
-    "pyreverse",
-    "performance"
-   ],
-   "rd": "APPROVED",
-   "merge": "MERGEABLE",
-   "ci": "running",
-   "citot": 18,
-   "cifail": 0,
-   "nrev": 1,
-   "mrev": [
-    "Pierre-Sassoulas"
-   ],
-   "links": [],
    "lastcom": [
     "-",
     "-"
@@ -3109,21 +3023,6 @@
    "state": "open",
    "state_reason": null,
    "title": "Pylint does not respect false values for boolean config options in toml files"
-  },
-  {
-   "comments": 9,
-   "labels": [
-    "Enhancement ✨",
-    "Configuration",
-    "Good first issue",
-    "Usability",
-    "Hacktoberfest",
-    "Needs PR"
-   ],
-   "number": 8503,
-   "state": "open",
-   "state_reason": null,
-   "title": "--fail-under has no visual impact on terminal output"
   },
   {
    "comments": 2,
