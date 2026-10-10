@@ -66,6 +66,16 @@ LANES = {
 V = {
     # ---- merge lane -------------------------------------------------------
     # ---- review now -------------------------------------------------------
+    11620: (
+        "review",
+        "ready",
+        "crash",
+        "89 lines for issue 3602 (crash and performance, 1 reaction): <code>pyreverse -S</code> "
+        "(<code>--all-associated</code>) runs for minutes, hits the recursion limit and can be "
+        "OOM-killed on a class with a numpy array attribute. Self-lint fixed, CI green, primer no "
+        "effect. Milestone 4.1.3.",
+        "Review: crash plus hang, backport label set.",
+    ),
     11624: (
         "review",
         "ready",
@@ -126,6 +136,35 @@ V = {
         "Review. Clean primer, confirmed issue.",
     ),
     # ---- approve the workflow run ----------------------------------------
+    11631: (
+        "approve",
+        "held",
+        "confirmed",
+        "New, 49 lines by DariusHQ for issue 5363 (FP, 0 reactions, Minor): "
+        "<code>subprocess-run-check</code> when <code>check</code> comes from <code>**kwargs</code> "
+        "unpacking a dict that always defines it. Inference over every possible dict.",
+        "Approve the run, then review.",
+    ),
+    11630: (
+        "approve",
+        "held",
+        "confirmed",
+        "New, 38 lines by DariusHQ for issue 7351 (FP, 1 reaction): "
+        "<code>unnecessary-dunder-call</code> on <code>mock.call.method.__setitem__(1, 2)</code>, "
+        "which describes an expected mock call. Walks the attribute/call chain looking for "
+        "<code>unittest.mock._Call</code>.",
+        "Approve the run, then review.",
+    ),
+    11629: (
+        "approve",
+        "held",
+        "confirmed",
+        "New, 56 lines by DariusHQ (one of 3 PRs opened within 8 minutes) for issue 7548 (FP, 0 "
+        "reactions): <code>unused-import</code> on names used only in the string type argument of "
+        "<code>typing.cast(\"set[Path]\", x)</code>. Treats the first argument (or <code>typ=</code>) "
+        "of <code>cast</code> as an annotation.",
+        "Approve the run, then review.",
+    ),
     11617: (
         "approve",
         "held",
@@ -187,6 +226,16 @@ V = {
         "Approve the run.",
     ),
     # ---- retrigger --------------------------------------------------------
+    11628: (
+        "retrigger",
+        "CI",
+        "confirmed",
+        "New, 31 lines by fredrikblau for issue 8600 (FP, 0 reactions): <code>protected-access</code> "
+        "on <code>Parent._foo(self)</code> when the base is a subscripted generic "
+        "<code>Parent[T]</code>. Compares base names with the subscript stripped. CI running; "
+        "backport label set.",
+        "Review once CI is green; small and safe.",
+    ),
     11581: (
         "retrigger",
         "rerun",
@@ -315,16 +364,6 @@ V = {
         "body; nested ones (inside an <code>if</code>) are missed. Only <code>pre-commit.ci</code> red, "
         "test run held.",
         "Ask for pre-commit, then approve the run. False negative.",
-    ),
-    11620: (
-        "author",
-        "CI",
-        "crash",
-        "New, 89 lines for issue 3602 (crash and performance, 1 reaction): <code>pyreverse -S</code> "
-        "(<code>--all-associated</code>) runs for minutes, hits the recursion limit and can be "
-        "OOM-killed on a class with a numpy array attribute. Only <code>Checks / pylint</code> "
-        "(self-lint) is red.",
-        "Ask for the self-lint fix, then review: crash plus hang.",
     ),
     11409: (
         "author",
