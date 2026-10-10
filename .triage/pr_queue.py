@@ -65,23 +65,14 @@ LANES = {
 # n: (lane, verdict-chip-text, chip-class, finding, action)
 V = {
     # ---- merge lane -------------------------------------------------------
-    11087: (
-        "merge",
-        "approved",
-        "confirmed",
-        "You approved on 10 October; 18 lines for issue 8503 (enhancement): show a visible line when "
-        "the score is below <code>--fail-under</code>. Duplicate #11619 closed. CI was still running.",
-        "Merge when green.",
-    ),
     # ---- review now -------------------------------------------------------
     11628: (
         "review",
         "ready",
         "confirmed",
-        "31 lines by fredrikblau for issue 8600 (FP, 0 reactions): <code>protected-access</code> on "
-        "<code>Parent._foo(self)</code> when the base is a subscripted generic "
-        "<code>Parent[T]</code>. Primer no effect, 41 green, a few jobs still running. Backport label "
-        "set.",
+        "31 lines by fredrikblau for issue 8600 (FP): <code>protected-access</code> on "
+        "<code>Parent._foo(self)</code> through a subscripted generic base <code>Parent[T]</code>. "
+        "50/50 green, full coverage, primer no effect. Backport label set.",
         "Review; 4.1.3 candidate.",
     ),
     11624: (
@@ -328,6 +319,16 @@ V = {
         "Retrigger. The size needs a primer run before review.",
     ),
     # ---- author's move ----------------------------------------------------
+    11424: (
+        "author",
+        "astroid",
+        "confirmed",
+        "Issue 10091 (FP): <code>no-member</code> on <code>__value__</code> of a PEP 695 "
+        "<code>type</code> alias. On 10 October you agreed with the author that astroid should infer "
+        "the alias name as a <code>typing.TypeAliasType</code> instance; the author offered to write "
+        "it.",
+        "Wait for the astroid PR, then close this one.",
+    ),
     11230: (
         "author",
         "question",
@@ -555,18 +556,6 @@ V = {
         "Ask for a rebase onto #11011, keeping only the package-root fix.",
     ),
     # ---- decide first -----------------------------------------------------
-    11424: (
-        "decide",
-        "decide",
-        "confirmed",
-        "Issue 10091 (FP): <code>no-member</code> on <code>__value__</code> of a PEP 695 "
-        "<code>type</code> alias. The author tested astroid #3119: still fails there, since the alias "
-        "name infers to the aliased value. Together they pass. The author suggests the cleaner fix: "
-        "astroid infers the alias name as a <code>typing.TypeAliasType</code> instance, and offers to "
-        "do it.",
-        "Decide: take this pylint workaround for 4.1.x, or ask for the astroid change (fits your "
-        "inferred-value-names work) and close.",
-    ),
     11601: (
         "decide",
         "design",
