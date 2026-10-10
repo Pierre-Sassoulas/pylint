@@ -66,40 +66,14 @@ LANES = {
 V = {
     # ---- merge lane -------------------------------------------------------
     # ---- review now -------------------------------------------------------
-    11618: (
-        "review",
-        "docs",
-        "feature",
-        "New, 27 lines of docs for issue 8196: the <code>too-many-locals</code> description now says "
-        "why to act on it (maintainability) and how to split the function. 48 checks green.",
-        "Quick docs review; low priority.",
-    ),
-    11610: (
-        "review",
-        "crash",
-        "crash",
-        "New, 48/48 green, 35 lines for issue 11608 (fuzzer crash, reproduced on main): "
-        "<code>IndexError</code> in <code>_enum_has_attribute</code> when an Enum <code>__init__</code> "
-        "takes no arguments.",
-        "Review and merge; crash fix for 4.1.3.",
-    ),
-    11611: (
-        "review",
-        "crash",
-        "crash",
-        "New, 48/48 green, 44 lines for issue 11609 (fuzzer crash, reproduced on main): "
-        "<code>_check_proper_bases</code> reads <code>.name</code> on an inferred base that is a "
-        "<code>Slice</code> (<code>class C(Unpack()[:])</code>).",
-        "Review and merge; crash fix for 4.1.3.",
-    ),
-    11594: (
+    11624: (
         "review",
         "ready",
         "confirmed",
-        "New, 53/53 green, primer no effect. 117 lines for issue 5955: "
-        "<code>used-before-assignment</code> false positive when a later target of a chained assignment "
-        "reads a name an earlier target just bound (<code>a = b[id(a)] = 0</code>).",
-        "Review.",
+        "New, 33 lines by kdelay for issue 3945 (bug): a <code># pylint: disable</code> pragma that is "
+        "not the first statement of its block re-enabled every earlier line of the block, overriding "
+        "<code>--disable</code> on the command line. 48/48 green.",
+        "Review; backport candidate.",
     ),
     11576: (
         "review",
@@ -134,14 +108,6 @@ V = {
         "Released and green (49/49), 50 lines. The primer reports about 190 changed or new lines on "
         "ansible, django and astropy, far more than a <code>pass</code> exemption should move.",
         "Read the primer comment before the diff: check the new messages are base drift, not the change.",
-    ),
-    11424: (
-        "review",
-        "ready",
-        "confirmed",
-        "51/51 green, 52 lines, backport label set, no review yet. The primer drops one home-assistant "
-        "<code>no-member</code> on <code>__value__</code>.",
-        "Review. Small, verified issue, clean primer.",
     ),
     11428: (
         "review",
@@ -315,6 +281,51 @@ V = {
         "Retrigger. The size needs a primer run before review.",
     ),
     # ---- author's move ----------------------------------------------------
+    11230: (
+        "author",
+        "question",
+        "duplicate",
+        "You asked on 10 October whether issue 9943 (output depends on file order) is already fixed; "
+        "#11011 already sorts the recursive walk.",
+        "Waiting on the author; close if 9943 is fixed.",
+    ),
+    11618: (
+        "author",
+        "waiting",
+        "feature",
+        "You requested changes on 10 October. Docs for issue 8196 (<code>too-many-locals</code> "
+        "rationale).",
+        "Waiting on the author.",
+    ),
+    11615: (
+        "author",
+        "question",
+        "confirmed",
+        "You asked on 10 October whether a human reproduced the Windows <code>__Init__.py</code> "
+        "problem or whether the PR is fully AI-driven (you cannot test on Windows). Refs issue 10137 (3 "
+        "reactions).",
+        "Waiting on the author's answer.",
+    ),
+    11621: (
+        "author",
+        "pre-commit",
+        "confirmed",
+        "New, 76 lines, no linked issue: <code>break-in-finally</code> and "
+        "<code>continue-in-finally</code> only fire on direct children of the <code>finally</code> "
+        "body; nested ones (inside an <code>if</code>) are missed. Only <code>pre-commit.ci</code> red, "
+        "test run held.",
+        "Ask for pre-commit, then approve the run. False negative.",
+    ),
+    11620: (
+        "author",
+        "CI",
+        "crash",
+        "New, 89 lines for issue 3602 (crash and performance, 1 reaction): <code>pyreverse -S</code> "
+        "(<code>--all-associated</code>) runs for minutes, hits the recursion limit and can be "
+        "OOM-killed on a class with a numpy array attribute. Only <code>Checks / pylint</code> "
+        "(self-lint) is red.",
+        "Ask for the self-lint fix, then review: crash plus hang.",
+    ),
     11409: (
         "author",
         "astroid",
@@ -324,24 +335,6 @@ V = {
         "broke an identity check). This PR waits for that. Issue 10042 (<code>not-callable</code> when "
         "inheriting from <code>typing.IO</code>).",
         "Review astroid #3371; this PR becomes a test or closes.",
-    ),
-    11615: (
-        "author",
-        "pre-commit",
-        "confirmed",
-        "New, 86 lines, refs issue 10137 (Windows, 3 reactions): on Windows, passing an initializer "
-        "spelled <code>__Init__.py</code> gives it an ordinary module name (spurious "
-        "<code>invalid-name</code>) and duplicates the input; normalize with <code>normcase</code>. "
-        "Only <code>pre-commit.ci</code> red so far; the test run is held.",
-        "Ask for pre-commit, then approve the run.",
-    ),
-    11602: (
-        "author",
-        "CI",
-        "confirmed",
-        "After your LGTM you requested changes on 8 October: <code>Tests / run / 3.13 / "
-        "ubuntu-latest</code> fails. Issue 11597 (argparse error for several stdout formats).",
-        "Waiting on the author to fix the 3.13 test job.",
     ),
     11205: (
         "author",
@@ -532,6 +525,15 @@ V = {
         "Ask for a rebase onto #11011, keeping only the package-root fix.",
     ),
     # ---- decide first -----------------------------------------------------
+    11424: (
+        "decide",
+        "astroid?",
+        "confirmed",
+        "50/50 green. You asked on 10 October whether the unmerged PEP 695 work in astroid (#3119) "
+        "makes this obsolete. False positive <code>no-member</code> on <code>__value__</code> of a "
+        "<code>type X = ...</code> alias (10091).",
+        "Decide after checking astroid #3119; drop from 4.1.3 until then.",
+    ),
     11619: (
         "decide",
         "duplicate?",
@@ -744,14 +746,6 @@ V = {
         "feature",
         "The pylintd daemon, opened in 2021, conflicting, no CI.",
         "Close it. Four years is an answer.",
-    ),
-    11230: (
-        "stale",
-        "close?",
-        "duplicate",
-        "Superseded: #11011 sorts dirnames and files in the recursive walk since 27 September, and this "
-        "PR now conflicts. The astroid-side order it claims to fix is a separate problem.",
-        "Close with a pointer to #11011.",
     ),
 }
 
