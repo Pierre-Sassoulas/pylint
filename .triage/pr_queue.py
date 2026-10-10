@@ -65,6 +65,26 @@ LANES = {
 # n: (lane, verdict-chip-text, chip-class, finding, action)
 V = {
     # ---- merge lane -------------------------------------------------------
+    11546: (
+        "merge",
+        "approved",
+        "confirmed",
+        "Issue 10374 (FP): <code>redefined-variable-type</code> on throwaway names like "
+        "<code>_</code>. You pushed a test move and approved on 10 October. Only "
+        "<code>codecov/project</code> red (project-wide, not patch). Milestone 4.1.3.",
+        "Merge; backport.",
+    ),
+    11634: (
+        "merge",
+        "approved",
+        "confirmed",
+        "New, 37 lines of regression tests for 3 FPs already fixed: 9804 "
+        "(<code>arguments-differ</code> on dataclass <code>__post_init__</code>), 9359 "
+        "(<code>useless-parent-delegation</code> with a builtin parent), 9683 "
+        "(<code>invalid-sequence-index</code> with <code>range</code> properties). You bisected each "
+        "fix, dropped the fragments and approved.",
+        "Merge when green.",
+    ),
     # ---- review now -------------------------------------------------------
     11628: (
         "review",
@@ -324,10 +344,20 @@ V = {
         "astroid",
         "confirmed",
         "Issue 10091 (FP): <code>no-member</code> on <code>__value__</code> of a PEP 695 "
-        "<code>type</code> alias. On 10 October you agreed with the author that astroid should infer "
-        "the alias name as a <code>typing.TypeAliasType</code> instance; the author offered to write "
-        "it.",
-        "Wait for the astroid PR, then close this one.",
+        "<code>type</code> alias. The author is writing the astroid change (alias name infers to a "
+        "<code>typing.TypeAliasType</code> instance); you want to keep this PR for its regression "
+        "tests.",
+        "Wait for the astroid PR, then trim this one to tests.",
+    ),
+    11573: (
+        "author",
+        "changes",
+        "confirmed",
+        "Issue 11567 (FP): <code>arguments-differ</code> when the override makes a parameter "
+        "positional-only. You rebased and requested changes on 10 October: counting posonly params is "
+        "right, but the rename check now fires on positional-only params, where renaming is safe (3 "
+        "new primer hits). Milestone 4.1.4.",
+        "Waiting on the author.",
     ),
     11230: (
         "author",
@@ -585,27 +615,6 @@ V = {
         "used as a default (like flake8-bugbear B008). This widens an existing message and will be "
         "noisy on <code>Depends()</code>-style frameworks.",
         "Decide whether pylint wants this at all, and under which message, before running CI.",
-    ),
-    11546: (
-        "decide",
-        "design",
-        "confirmed",
-        "53/53 green. The author explained the single primer removal (astropy "
-        "<code>test_tree.py</code>: <code>_</code> reused for two throwaway objects) but has not "
-        "answered your 4 October question: should the existing ignored-variable option drive this "
-        "instead of hard-coding <code>_</code>?",
-        "Get an answer on the option before reviewing further.",
-    ),
-    11573: (
-        "decide",
-        "design",
-        "feature",
-        "53/53 green, 49 lines for issue 11567. Silences <code>arguments-differ</code> when the "
-        "override makes a parameter positional-only. That is a real signature change (callers passing "
-        "<code>key=</code> break); only the message (\"now 0\" parameters) is clearly wrong. The ansible "
-        "<code>arguments-renamed</code> changes in the primer need a look. Same author's #11572 was "
-        "closed.",
-        "Decide: fix the message only, or accept the silence; then review.",
     ),
     11502: (
         "decide",
