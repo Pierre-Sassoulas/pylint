@@ -1,8 +1,8 @@
 {
  "snapshot": "2026-10-10",
  "owner": "Pierre-Sassoulas",
- "open_total": 110,
- "open_own": 25,
+ "open_total": 112,
+ "open_own": 24,
  "prs": [
   {
    "n": 5401,
@@ -864,9 +864,9 @@
    ],
    "rd": "REVIEW_REQUIRED",
    "merge": "UNKNOWN",
-   "ci": "awaiting-approval",
+   "ci": "failing",
    "citot": 53,
-   "cifail": 0,
+   "cifail": 1,
    "nrev": 2,
    "mrev": [
     "DanielNoord"
@@ -897,7 +897,7 @@
    ],
    "rd": "REVIEW_REQUIRED",
    "merge": "UNKNOWN",
-   "ci": "awaiting-approval",
+   "ci": "not-run",
    "citot": 4,
    "cifail": 0,
    "nrev": 0,
@@ -960,7 +960,7 @@
    ],
    "rd": "CHANGES_REQUESTED",
    "merge": "UNKNOWN",
-   "ci": "awaiting-approval",
+   "ci": "not-run",
    "citot": 2,
    "cifail": 0,
    "nrev": 9,
@@ -1154,7 +1154,7 @@
    ],
    "rd": "REVIEW_REQUIRED",
    "merge": "UNKNOWN",
-   "ci": "awaiting-approval",
+   "ci": "not-run",
    "citot": 5,
    "cifail": 0,
    "nrev": 0,
@@ -1185,7 +1185,7 @@
    ],
    "rd": "REVIEW_REQUIRED",
    "merge": "UNKNOWN",
-   "ci": "awaiting-approval",
+   "ci": "not-run",
    "citot": 4,
    "cifail": 0,
    "nrev": 0,
@@ -1216,9 +1216,9 @@
    ],
    "rd": "REVIEW_REQUIRED",
    "merge": "UNKNOWN",
-   "ci": "awaiting-approval",
+   "ci": "failing",
    "citot": 50,
-   "cifail": 0,
+   "cifail": 1,
    "nrev": 1,
    "mrev": [
     "DanielNoord"
@@ -1250,7 +1250,7 @@
    ],
    "rd": "REVIEW_REQUIRED",
    "merge": "UNKNOWN",
-   "ci": "awaiting-approval",
+   "ci": "not-run",
    "citot": 4,
    "cifail": 0,
    "nrev": 0,
@@ -1341,7 +1341,7 @@
    ],
    "rd": "REVIEW_REQUIRED",
    "merge": "UNKNOWN",
-   "ci": "awaiting-approval",
+   "ci": "green",
    "citot": 51,
    "cifail": 0,
    "nrev": 0,
@@ -1372,9 +1372,9 @@
    ],
    "rd": "REVIEW_REQUIRED",
    "merge": "UNKNOWN",
-   "ci": "awaiting-approval",
+   "ci": "failing",
    "citot": 50,
-   "cifail": 0,
+   "cifail": 1,
    "nrev": 0,
    "mrev": [],
    "links": [
@@ -1437,9 +1437,9 @@
    ],
    "rd": "REVIEW_REQUIRED",
    "merge": "UNKNOWN",
-   "ci": "awaiting-approval",
+   "ci": "failing",
    "citot": 49,
-   "cifail": 0,
+   "cifail": 2,
    "nrev": 0,
    "mrev": [],
    "links": [
@@ -1469,7 +1469,7 @@
    ],
    "rd": "REVIEW_REQUIRED",
    "merge": "UNKNOWN",
-   "ci": "awaiting-approval",
+   "ci": "not-run",
    "citot": 4,
    "cifail": 0,
    "nrev": 1,
@@ -1529,7 +1529,7 @@
    ],
    "rd": "REVIEW_REQUIRED",
    "merge": "UNKNOWN",
-   "ci": "awaiting-approval",
+   "ci": "not-run",
    "citot": 3,
    "cifail": 0,
    "nrev": 0,
@@ -1593,7 +1593,7 @@
     "backport maintenance/4.1.x"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "green",
    "citot": 53,
    "cifail": 0,
@@ -1607,7 +1607,7 @@
     ]
    ],
    "lastcom": [
-    "Pierre-Sassoulas",
+    "RizgarOzan",
     "2026-10-10"
    ]
   },
@@ -1657,7 +1657,7 @@
    ],
    "rd": "REVIEW_REQUIRED",
    "merge": "UNKNOWN",
-   "ci": "awaiting-approval",
+   "ci": "not-run",
    "citot": 4,
    "cifail": 0,
    "nrev": 0,
@@ -1722,7 +1722,7 @@
    ],
    "rd": "REVIEW_REQUIRED",
    "merge": "UNKNOWN",
-   "ci": "awaiting-approval",
+   "ci": "not-run",
    "citot": 5,
    "cifail": 0,
    "nrev": 1,
@@ -2239,7 +2239,7 @@
    ],
    "rd": "REVIEW_REQUIRED",
    "merge": "UNKNOWN",
-   "ci": "awaiting-approval",
+   "ci": "not-run",
    "citot": 3,
    "cifail": 0,
    "nrev": 1,
@@ -2297,7 +2297,7 @@
     "py-version"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "failing",
    "citot": 52,
    "cifail": 1,
@@ -2364,7 +2364,7 @@
    ],
    "rd": "REVIEW_REQUIRED",
    "merge": "UNKNOWN",
-   "ci": "awaiting-approval",
+   "ci": "not-run",
    "citot": 4,
    "cifail": 0,
    "nrev": 0,
@@ -2395,9 +2395,9 @@
    ],
    "rd": "REVIEW_REQUIRED",
    "merge": "UNKNOWN",
-   "ci": "awaiting-approval",
+   "ci": "failing",
    "citot": 43,
-   "cifail": 0,
+   "cifail": 13,
    "nrev": 1,
    "mrev": [],
    "links": [
@@ -2589,7 +2589,7 @@
    "a": "bhaskargurram-ai",
    "t": "[pyreverse] Fix hang/RecursionError with --all-associated on classes rebuilt on each inference",
    "draft": false,
-   "size": 89,
+   "size": 112,
    "files": 3,
    "created": "2026-10-10",
    "updated": "2026-10-10",
@@ -2599,10 +2599,10 @@
     "backport maintenance/4.1.x"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
-   "ci": "failing",
-   "citot": 58,
-   "cifail": 1,
+   "merge": "MERGEABLE",
+   "ci": "running",
+   "citot": 39,
+   "cifail": 0,
    "nrev": 0,
    "mrev": [],
    "links": [
@@ -2670,23 +2670,119 @@
    ]
   },
   {
-   "n": 11627,
-   "a": "app/pylint-backport",
-   "t": "[Backport maintenance/4.1.x] Fix `used-before-assignment` false positive for names bound by an earlier target",
+   "n": 11628,
+   "a": "fredrikblau",
+   "t": "Fix protected-access false positive through a subscripted generic base",
    "draft": false,
-   "size": 150,
-   "files": 6,
+   "size": 36,
+   "files": 4,
+   "created": "2026-10-10",
+   "updated": "2026-10-10",
+   "labels": [
+    "False Positive 🦟",
+    "backport maintenance/4.1.x"
+   ],
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "running",
+   "citot": 33,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [
+    [
+     8600,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "-",
+    "-"
+   ]
+  },
+  {
+   "n": 11629,
+   "a": "DariusHQ",
+   "t": "Fix `unused-import` false positive for names in `typing.cast` strings",
+   "draft": false,
+   "size": 57,
+   "files": 4,
    "created": "2026-10-10",
    "updated": "2026-10-10",
    "labels": [],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
-   "ci": "running",
-   "citot": 16,
+   "merge": "UNKNOWN",
+   "ci": "awaiting-approval",
+   "citot": 3,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
-   "links": [],
+   "links": [
+    [
+     7548,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "-",
+    "-"
+   ]
+  },
+  {
+   "n": 11630,
+   "a": "DariusHQ",
+   "t": "Fix `unnecessary-dunder-call` false positive for `unittest.mock.call`",
+   "draft": false,
+   "size": 39,
+   "files": 4,
+   "created": "2026-10-10",
+   "updated": "2026-10-10",
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "merge": "UNKNOWN",
+   "ci": "awaiting-approval",
+   "citot": 3,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [
+    [
+     7351,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "-",
+    "-"
+   ]
+  },
+  {
+   "n": 11631,
+   "a": "DariusHQ",
+   "t": "Fix `subprocess-run-check` false positive for `check` in unpacked kwargs",
+   "draft": false,
+   "size": 52,
+   "files": 4,
+   "created": "2026-10-10",
+   "updated": "2026-10-10",
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "merge": "UNKNOWN",
+   "ci": "awaiting-approval",
+   "citot": 3,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [
+    [
+     5363,
+     "",
+     ""
+    ]
+   ],
    "lastcom": [
     "-",
     "-"
@@ -2834,6 +2930,20 @@
    "title": "False positive no-member for NamedTuple._replace()"
   },
   {
+   "comments": 2,
+   "labels": [
+    "Astroid",
+    "Minor 💅",
+    "Control flow",
+    "False Positive 🦟",
+    "Needs PR"
+   ],
+   "number": 5363,
+   "state": "open",
+   "state_reason": null,
+   "title": "False positive ``subprocess-run-check`` when passing check = True by kwargs"
+  },
+  {
    "comments": 6,
    "labels": [
     "Enhancement ✨",
@@ -2908,6 +3018,28 @@
    "state": "open",
    "state_reason": null,
    "title": "[R0801] Similarities false positive on abstract classes"
+  },
+  {
+   "comments": 4,
+   "labels": [
+    "False Positive 🦟",
+    "Needs PR"
+   ],
+   "number": 7351,
+   "state": "open",
+   "state_reason": null,
+   "title": "False positive C2801 (unnecessary-dunder-call) with unittest.mock.call"
+  },
+  {
+   "comments": 3,
+   "labels": [
+    "False Positive 🦟",
+    "Needs PR"
+   ],
+   "number": 7548,
+   "state": "open",
+   "state_reason": null,
+   "title": "unused-import false positive for names in string argument to typing.cast"
   },
   {
    "comments": 6,
@@ -3006,6 +3138,17 @@
    "state": "open",
    "state_reason": null,
    "title": "`unnecessary-comprehension` false positive"
+  },
+  {
+   "comments": 0,
+   "labels": [
+    "False Positive 🦟",
+    "Needs PR"
+   ],
+   "number": 8600,
+   "state": "open",
+   "state_reason": null,
+   "title": "protected-access false positive with Generic classes"
   },
   {
    "comments": 2,
@@ -3589,18 +3732,6 @@
    "state": "open",
    "state_reason": null,
    "title": "`arguments-differ` (W0221) raises a false positive when using positional-only parameters"
-  },
-  {
-   "comments": 6,
-   "labels": [
-    "Regression",
-    "Crash 💥",
-    "duplicate-code"
-   ],
-   "number": 11625,
-   "state": "open",
-   "state_reason": null,
-   "title": "`symilar.py` crash with pylint 4.1, not in pylint 4.0.10"
   }
  ]
 }
