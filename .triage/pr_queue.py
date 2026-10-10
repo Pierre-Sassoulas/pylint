@@ -65,36 +65,16 @@ LANES = {
 # n: (lane, verdict-chip-text, chip-class, finding, action)
 V = {
     # ---- merge lane -------------------------------------------------------
-    11546: (
+    11573: (
         "merge",
         "approved",
         "confirmed",
-        "Issue 10374 (FP): <code>redefined-variable-type</code> on throwaway names like "
-        "<code>_</code>. You pushed a test move and approved on 10 October. Only "
-        "<code>codecov/project</code> red (project-wide, not patch). Milestone 4.1.3.",
-        "Merge; backport.",
-    ),
-    11634: (
-        "merge",
-        "approved",
-        "confirmed",
-        "New, 37 lines of regression tests for 3 FPs already fixed: 9804 "
-        "(<code>arguments-differ</code> on dataclass <code>__post_init__</code>), 9359 "
-        "(<code>useless-parent-delegation</code> with a builtin parent), 9683 "
-        "(<code>invalid-sequence-index</code> with <code>range</code> properties). You bisected each "
-        "fix, dropped the fragments and approved.",
-        "Merge when green.",
+        "Issue 11567 (FP): <code>arguments-differ</code> when the override makes a parameter "
+        "positional-only. You pushed the fix for renamed positional-only params and approved on 10 "
+        "October. Milestone 4.1.3, backport label set; CI was finishing.",
+        "Merge when green; backport for 4.1.3.",
     ),
     # ---- review now -------------------------------------------------------
-    11628: (
-        "review",
-        "ready",
-        "confirmed",
-        "31 lines by fredrikblau for issue 8600 (FP): <code>protected-access</code> on "
-        "<code>Parent._foo(self)</code> through a subscripted generic base <code>Parent[T]</code>. "
-        "50/50 green, full coverage, primer no effect. Backport label set.",
-        "Review; 4.1.3 candidate.",
-    ),
     11624: (
         "review",
         "ready",
@@ -348,16 +328,6 @@ V = {
         "<code>typing.TypeAliasType</code> instance); you want to keep this PR for its regression "
         "tests.",
         "Wait for the astroid PR, then trim this one to tests.",
-    ),
-    11573: (
-        "author",
-        "changes",
-        "confirmed",
-        "Issue 11567 (FP): <code>arguments-differ</code> when the override makes a parameter "
-        "positional-only. You rebased and requested changes on 10 October: counting posonly params is "
-        "right, but the rename check now fires on positional-only params, where renaming is safe (3 "
-        "new primer hits). Milestone 4.1.4.",
-        "Waiting on the author.",
     ),
     11230: (
         "author",
