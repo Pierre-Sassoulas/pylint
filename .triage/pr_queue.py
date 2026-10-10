@@ -65,16 +65,24 @@ LANES = {
 # n: (lane, verdict-chip-text, chip-class, finding, action)
 V = {
     # ---- merge lane -------------------------------------------------------
+    11087: (
+        "merge",
+        "approved",
+        "confirmed",
+        "You approved on 10 October; 18 lines for issue 8503 (enhancement): show a visible line when "
+        "the score is below <code>--fail-under</code>. Duplicate #11619 closed. CI was still running.",
+        "Merge when green.",
+    ),
     # ---- review now -------------------------------------------------------
-    11620: (
+    11628: (
         "review",
         "ready",
-        "crash",
-        "89 lines for issue 3602 (crash and performance, 1 reaction): <code>pyreverse -S</code> "
-        "(<code>--all-associated</code>) runs for minutes, hits the recursion limit and can be "
-        "OOM-killed on a class with a numpy array attribute. Self-lint fixed, CI green, primer no "
-        "effect. Milestone 4.1.3.",
-        "Review: crash plus hang, backport label set.",
+        "confirmed",
+        "31 lines by fredrikblau for issue 8600 (FP, 0 reactions): <code>protected-access</code> on "
+        "<code>Parent._foo(self)</code> when the base is a subscripted generic "
+        "<code>Parent[T]</code>. Primer no effect, 41 green, a few jobs still running. Backport label "
+        "set.",
+        "Review; 4.1.3 candidate.",
     ),
     11624: (
         "review",
@@ -226,16 +234,6 @@ V = {
         "Approve the run.",
     ),
     # ---- retrigger --------------------------------------------------------
-    11628: (
-        "retrigger",
-        "CI",
-        "confirmed",
-        "New, 31 lines by fredrikblau for issue 8600 (FP, 0 reactions): <code>protected-access</code> "
-        "on <code>Parent._foo(self)</code> when the base is a subscripted generic "
-        "<code>Parent[T]</code>. Compares base names with the subscript stripped. CI running; "
-        "backport label set.",
-        "Review once CI is green; small and safe.",
-    ),
     11581: (
         "retrigger",
         "rerun",
@@ -489,13 +487,6 @@ V = {
         "<em>Waiting on author</em> since July, backport label set, no CI.",
         "Waiting on the author.",
     ),
-    11087: (
-        "author",
-        "approved, red",
-        "confirmed",
-        "<b>Approved, but ten checks are red</b> — the approval predates months of drift on main.",
-        "Rebase it yourself and merge, or drop the approval. Approved-and-red is the worst state in the queue.",
-    ),
     11177: (
         "author",
         "waiting",
@@ -566,21 +557,15 @@ V = {
     # ---- decide first -----------------------------------------------------
     11424: (
         "decide",
-        "astroid?",
-        "confirmed",
-        "50/50 green. You asked on 10 October whether the unmerged PEP 695 work in astroid (#3119) "
-        "makes this obsolete. False positive <code>no-member</code> on <code>__value__</code> of a "
-        "<code>type X = ...</code> alias (10091).",
-        "Decide after checking astroid #3119; drop from 4.1.3 until then.",
-    ),
-    11619: (
         "decide",
-        "duplicate?",
-        "duplicate",
-        "New, 21 lines for issue 8503 (<code>--fail-under</code> gives no visible sign in the "
-        "terminal): prints <em>Code has been rated at X, which is less than fail-under=Y</em> to "
-        "stderr. #11087 (June) targets the same issue, approved by you but red for months.",
-        "Pick one of #11087 and #11619 for 8503; close the other.",
+        "confirmed",
+        "Issue 10091 (FP): <code>no-member</code> on <code>__value__</code> of a PEP 695 "
+        "<code>type</code> alias. The author tested astroid #3119: still fails there, since the alias "
+        "name infers to the aliased value. Together they pass. The author suggests the cleaner fix: "
+        "astroid infers the alias name as a <code>typing.TypeAliasType</code> instance, and offers to "
+        "do it.",
+        "Decide: take this pylint workaround for 4.1.x, or ask for the astroid change (fits your "
+        "inferred-value-names work) and close.",
     ),
     11601: (
         "decide",
