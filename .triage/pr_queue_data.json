@@ -1,8 +1,8 @@
 {
- "snapshot": "2026-10-10",
+ "snapshot": "2026-10-11",
  "owner": "Pierre-Sassoulas",
- "open_total": 108,
- "open_own": 24,
+ "open_total": 109,
+ "open_own": 25,
  "prs": [
   {
    "n": 5401,
@@ -580,7 +580,7 @@
    ],
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "awaiting-approval",
+   "ci": "not-run",
    "citot": 4,
    "cifail": 0,
    "nrev": 1,
@@ -671,7 +671,7 @@
    ],
    "rd": "NONE",
    "merge": "MERGEABLE",
-   "ci": "awaiting-approval",
+   "ci": "not-run",
    "citot": 5,
    "cifail": 0,
    "nrev": 0,
@@ -762,7 +762,7 @@
     "backport maintenance/4.1.x"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "MERGEABLE",
+   "merge": "CONFLICTING",
    "ci": "not-run",
    "citot": 2,
    "cifail": 0,
@@ -831,9 +831,9 @@
    ],
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "awaiting-approval",
+   "ci": "failing",
    "citot": 53,
-   "cifail": 0,
+   "cifail": 1,
    "nrev": 2,
    "mrev": [
     "DanielNoord"
@@ -864,7 +864,7 @@
    ],
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "awaiting-approval",
+   "ci": "not-run",
    "citot": 4,
    "cifail": 0,
    "nrev": 0,
@@ -920,15 +920,15 @@
    "size": 1123,
    "files": 54,
    "created": "2026-07-28",
-   "updated": "2026-10-08",
+   "updated": "2026-10-11",
    "labels": [
-    "pyreverse",
-    "Work in progress"
+    "Enhancement ✨",
+    "pyreverse"
    ],
    "rd": "CHANGES_REQUESTED",
    "merge": "MERGEABLE",
-   "ci": "not-run",
-   "citot": 2,
+   "ci": "green",
+   "citot": 54,
    "cifail": 0,
    "nrev": 9,
    "mrev": [
@@ -943,8 +943,8 @@
     ]
    ],
    "lastcom": [
-    "Rayyan2235",
-    "2026-10-07"
+    "github-actions",
+    "2026-10-10"
    ]
   },
   {
@@ -986,7 +986,7 @@
    "a": "subotac",
    "t": "Guarantee deterministic recursive file discovery",
    "draft": false,
-   "size": 36,
+   "size": 44,
    "files": 3,
    "created": "2026-08-04",
    "updated": "2026-10-10",
@@ -994,9 +994,9 @@
     "Enhancement ✨"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "CONFLICTING",
-   "ci": "not-run",
-   "citot": 4,
+   "merge": "MERGEABLE",
+   "ci": "awaiting-approval",
+   "citot": 2,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -1121,7 +1121,7 @@
    ],
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "awaiting-approval",
+   "ci": "not-run",
    "citot": 5,
    "cifail": 0,
    "nrev": 0,
@@ -1554,7 +1554,7 @@
    "size": 52,
    "files": 5,
    "created": "2026-09-14",
-   "updated": "2026-10-10",
+   "updated": "2026-10-11",
    "labels": [
     "False Positive 🦟",
     "Needs astroid update",
@@ -1575,8 +1575,8 @@
     ]
    ],
    "lastcom": [
-    "Pierre-Sassoulas",
-    "2026-10-10"
+    "RizgarOzan",
+    "2026-10-11"
    ]
   },
   {
@@ -2096,40 +2096,6 @@
    ]
   },
   {
-   "n": 11573,
-   "a": "Vinayak19112003",
-   "t": "Fix arguments-differ false positive for positional-only parameters",
-   "draft": false,
-   "size": 912,
-   "files": 5,
-   "created": "2026-10-04",
-   "updated": "2026-10-10",
-   "labels": [
-    "False Positive 🦟",
-    "backport maintenance/4.1.x"
-   ],
-   "rd": "APPROVED",
-   "merge": "MERGEABLE",
-   "ci": "running",
-   "citot": 46,
-   "cifail": 0,
-   "nrev": 2,
-   "mrev": [
-    "Pierre-Sassoulas"
-   ],
-   "links": [
-    [
-     11567,
-     "",
-     ""
-    ]
-   ],
-   "lastcom": [
-    "github-actions",
-    "2026-10-10"
-   ]
-  },
-  {
    "n": 11576,
    "a": "agustin18",
    "t": "Fix false positive 'too-few-public-methods' (R0903) for subscripted generic classes",
@@ -2184,39 +2150,6 @@
    "lastcom": [
     "-",
     "-"
-   ]
-  },
-  {
-   "n": 11580,
-   "a": "nightcityblade",
-   "t": "Add message documentation shorthand redirects",
-   "draft": false,
-   "size": 49,
-   "files": 3,
-   "created": "2026-10-05",
-   "updated": "2026-10-08",
-   "labels": [
-    "Documentation :green_book:"
-   ],
-   "rd": "CHANGES_REQUESTED",
-   "merge": "MERGEABLE",
-   "ci": "green",
-   "citot": 28,
-   "cifail": 0,
-   "nrev": 3,
-   "mrev": [
-    "Pierre-Sassoulas"
-   ],
-   "links": [
-    [
-     9320,
-     "",
-     ""
-    ]
-   ],
-   "lastcom": [
-    "nightcityblade",
-    "2026-10-08"
    ]
   },
   {
@@ -2381,7 +2314,7 @@
    "size": 104,
    "files": 4,
    "created": "2026-10-09",
-   "updated": "2026-10-10",
+   "updated": "2026-10-11",
    "labels": [
     "Bug :beetle:",
     "Needs reproduction :mag:",
@@ -2652,23 +2585,87 @@
    ]
   },
   {
-   "n": 11636,
-   "a": "app/pylint-backport",
-   "t": "[Backport maintenance/4.1.x] Fix protected-access false positive through a subscripted generic base",
+   "n": 11639,
+   "a": "agustin18",
+   "t": "Fix AssertionError when enum_def is None in types checker (#11638)",
    "draft": false,
-   "size": 38,
-   "files": 4,
+   "size": 31,
+   "files": 3,
    "created": "2026-10-10",
-   "updated": "2026-10-10",
+   "updated": "2026-10-11",
    "labels": [],
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "running",
-   "citot": 16,
+   "ci": "green",
+   "citot": 48,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
-   "links": [],
+   "links": [
+    [
+     11638,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "github-actions",
+    "2026-10-11"
+   ]
+  },
+  {
+   "n": 11640,
+   "a": "ningkexin96",
+   "t": "fix(pyreverse): skip empty class diagrams",
+   "draft": false,
+   "size": 84,
+   "files": 6,
+   "created": "2026-10-11",
+   "updated": "2026-10-11",
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "awaiting-approval",
+   "citot": 3,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [
+    [
+     9237,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "-",
+    "-"
+   ]
+  },
+  {
+   "n": 11641,
+   "a": "ningkexin96",
+   "t": "Fix import-self for scripts sharing an importable module name",
+   "draft": false,
+   "size": 115,
+   "files": 3,
+   "created": "2026-10-11",
+   "updated": "2026-10-11",
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "awaiting-approval",
+   "citot": 3,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [
+    [
+     10025,
+     "",
+     ""
+    ]
+   ],
    "lastcom": [
     "-",
     "-"
@@ -2830,15 +2827,15 @@
    "title": "SARIF output format for pylint ?"
   },
   {
-   "comments": 13,
+   "comments": 14,
    "labels": [
     "Enhancement ✨",
     "High priority",
     "Needs PR"
    ],
    "number": 5701,
-   "state": "closed",
-   "state_reason": "completed",
+   "state": "open",
+   "state_reason": "reopened",
    "title": "Should  ``pylint`` be equivalent to ``pylint .`` ?"
   },
   {
@@ -3106,6 +3103,17 @@
    "title": "--recursive option does not find .py files in sub-directories of packages"
   },
   {
+   "comments": 0,
+   "labels": [
+    "Bug :beetle:",
+    "pyreverse"
+   ],
+   "number": 9237,
+   "state": "open",
+   "state_reason": null,
+   "title": "Pyreverse produces a class diagram even when there are no classes in the source code"
+  },
+  {
    "comments": 2,
    "labels": [
     "Bug :beetle:",
@@ -3116,18 +3124,6 @@
    "state": "closed",
    "state_reason": "completed",
    "title": "Pyreverse: Duplicate arrows when class attribute is assigned more than once"
-  },
-  {
-   "comments": 1,
-   "labels": [
-    "Enhancement ✨",
-    "Documentation :green_book:",
-    "Needs PR"
-   ],
-   "number": 9320,
-   "state": "open",
-   "state_reason": null,
-   "title": "Allow navigating messages by shorthands"
   },
   {
    "comments": 2,
@@ -3280,6 +3276,18 @@
    "state": "open",
    "state_reason": null,
    "title": "Document how to configure the location of site packages in pylint "
+  },
+  {
+   "comments": 0,
+   "labels": [
+    "Bug :beetle:",
+    "Import system",
+    "False Positive 🦟"
+   ],
+   "number": 10025,
+   "state": "open",
+   "state_reason": null,
+   "title": "Rerunning pylint on the same code can produce inconsistent `import-self` warnings"
   },
   {
    "comments": 0,
@@ -3568,13 +3576,12 @@
   {
    "comments": 0,
    "labels": [
-    "False Positive 🦟",
-    "C: arguments-differ"
+    "Needs triage :inbox_tray:"
    ],
-   "number": 11567,
+   "number": 11638,
    "state": "open",
    "state_reason": null,
-   "title": "`arguments-differ` (W0221) raises a false positive when using positional-only parameters"
+   "title": "`AssertionError: enum_def unexpectedly None` in types checker"
   }
  ]
 }
