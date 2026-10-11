@@ -65,6 +65,15 @@ LANES = {
 # n: (lane, verdict-chip-text, chip-class, finding, action)
 V = {
     # ---- merge lane -------------------------------------------------------
+    11640: (
+        "merge",
+        "approved",
+        "confirmed",
+        "Issue 9237 (pyreverse bug): an empty module still wrote a <code>classes</code> diagram "
+        "holding only the header. You approved on 11 October and asked DudeNr33 to confirm. 53 green, "
+        "one cancelled job.",
+        "Merge after DudeNr33, or rerun the cancelled job and merge.",
+    ),
     # ---- review now -------------------------------------------------------
     11615: (
         "review",
@@ -76,17 +85,6 @@ V = {
         "<code>__Init__</code> before, clean after); code and tests are Codex-assisted; the original "
         "recursion warning was not reproduced. 50/50 green. Milestone 4.1.4.",
         "Review; decide whether a fix that does not reproduce the reported recursion closes 10137.",
-    ),
-    11639: (
-        "review",
-        "ready",
-        "crash",
-        "New, 29 lines by agustin18 for fuzzer crash 11638 (reproduced on main): "
-        "<code>AssertionError: enum_def unexpectedly None</code> in <code>_enum_has_attribute</code> "
-        "on <code>except Enum as e: e.message</code>. Same function as 11608. Turns the assert into "
-        "<code>return False</code>; 48/48 green.",
-        "Review: guard or root cause? The instance is of <code>Enum</code> itself, so the enum lookup "
-        "has nothing to find.",
     ),
     11624: (
         "review",
@@ -148,31 +146,6 @@ V = {
         "Review. Clean primer, confirmed issue.",
     ),
     # ---- approve the workflow run ----------------------------------------
-    11621: (
-        "approve",
-        "held",
-        "confirmed",
-        "Issue for Python 3.14 (FN): <code>break</code>/<code>continue</code> nested deeper inside a "
-        "<code>finally</code> clause was not reported. New commit on 11 October (pre-commit was red "
-        "before); the run waits for approval.",
-        "Approve the run, then review.",
-    ),
-    11641: (
-        "approve",
-        "held",
-        "confirmed",
-        "New, 113 lines by ningkexin96 for issue 10025 (FP): <code>import-self</code> when an "
-        "extensionless script has the same basename as an importable module it imports from.",
-        "Approve the run, then review.",
-    ),
-    11640: (
-        "approve",
-        "held",
-        "confirmed",
-        "New, 71 lines by ningkexin96 for issue 9237 (pyreverse bug): an empty module still writes a "
-        "<code>classes</code> diagram holding only the header. Skips empty class diagrams.",
-        "Approve the run, then review.",
-    ),
     11631: (
         "approve",
         "held",
@@ -263,6 +236,16 @@ V = {
         "Approve the run.",
     ),
     # ---- retrigger --------------------------------------------------------
+    11645: (
+        "retrigger",
+        "CI",
+        "confirmed",
+        "New, 88 lines by agustin18 for issue 9641 (FP): <code>used-before-assignment</code> for a "
+        "walrus bound in one decorator and used in a later stacked decorator. You requested "
+        "functional tests; the author switched to one on 11 October; CI was rerunning (earlier red "
+        "was a PyPy setup disconnect).",
+        "Review when green.",
+    ),
     11581: (
         "retrigger",
         "rerun",
@@ -357,6 +340,60 @@ V = {
         "Retrigger. The size needs a primer run before review.",
     ),
     # ---- author's move ----------------------------------------------------
+    11230: (
+        "author",
+        "red",
+        "confirmed",
+        "Issue 9943 (output depends on file order). The follow-up on 10 October sorts the files of an "
+        "expanded package too; <code>test_package_expansion_order</code> now fails on every job (the "
+        "package's <code>__init__.py</code> no longer comes first). Primer shows astropy changes.",
+        "Waiting on the author to fix the test or the order.",
+    ),
+    11579: (
+        "author",
+        "changes",
+        "confirmed",
+        "Enhancement: flag function calls in default arguments. The author proposed a separate "
+        "optional check; on 11 October you answered that a function result is a value too, so extend "
+        "<code>dangerous-default-value</code> with a consensual, extensible list. 3 jobs red.",
+        "Waiting on the author.",
+    ),
+    11646: (
+        "author",
+        "red",
+        "confirmed",
+        "New, 115 lines by arslan-shafique for issue 5471 (enhancement, 1 reaction): new "
+        "<code>misplaced-module-dunder</code> check for module dunders like <code>__all__</code> "
+        "placed below imports (PEP 8). Self-lint and two test jobs red.",
+        "Wait for green; then decide if the check is wanted.",
+    ),
+    11621: (
+        "author",
+        "changes",
+        "confirmed",
+        "Python 3.14 FN: <code>break</code>/<code>continue</code> nested deeper inside "
+        "<code>finally</code> was not reported. You pushed two functional tests on 11 October; they "
+        "fail on purpose (<code>continue_in_finally</code>, <code>not_in_loop</code>).",
+        "Waiting on the author to make your tests pass.",
+    ),
+    11639: (
+        "author",
+        "changes",
+        "crash",
+        "Fuzzer crash 11638 (reproduced on main): <code>AssertionError: enum_def unexpectedly "
+        "None</code> in <code>_enum_has_attribute</code> on <code>except Enum as e: e.message</code>. "
+        "Turns the assert into a guard. You asked for functional tests; backport label set.",
+        "Waiting on the author. Root cause (an instance of <code>Enum</code> itself) still open.",
+    ),
+    11641: (
+        "author",
+        "changes",
+        "confirmed",
+        "Issue 10025 (FP): <code>import-self</code> when an extensionless script has the same "
+        "basename as an importable module it imports from. 49 green. You asked for functional tests "
+        "instead of unit tests on 11 October.",
+        "Waiting on the author.",
+    ),
     11424: (
         "author",
         "astroid",
@@ -366,14 +403,6 @@ V = {
         "<code>typing.TypeAliasType</code> instance); you want to keep this PR for its regression "
         "tests.",
         "Wait for the astroid PR, then trim this one to tests.",
-    ),
-    11230: (
-        "author",
-        "question",
-        "duplicate",
-        "You asked on 10 October whether issue 9943 (output depends on file order) is already fixed; "
-        "#11011 already sorts the recursive walk.",
-        "Waiting on the author; close if 9943 is fixed.",
     ),
     11618: (
         "author",
@@ -567,6 +596,16 @@ V = {
         "Ask for a rebase onto #11011, keeping only the package-root fix.",
     ),
     # ---- decide first -----------------------------------------------------
+    11644: (
+        "decide",
+        "decide",
+        "confirmed",
+        "Issue 3732 (FP): <code>too-few-public-methods</code> on classes decorated with "
+        "<code>attr.s</code>, <code>attr.dataclass</code> and similar. You asked to build it on "
+        "<code>is_module_member</code> from #11294; the author tried it (a relative <code>from .attr "
+        "import s</code> resolves differently) and you said you will make the change.",
+        "Yours: rebase onto #11294 and adapt; merge after #11294.",
+    ),
     11601: (
         "decide",
         "design",
@@ -587,15 +626,6 @@ V = {
         "pylint; astroid synthesizes the dataclass <code>__init__</code>.",
         "Decide whether this belongs in pylint, an astroid brain, or a pydantic plugin before running "
         "CI.",
-    ),
-    11579: (
-        "decide",
-        "new check",
-        "feature",
-        "177 lines, no linked issue: extend <code>dangerous-default-value</code> to any function call "
-        "used as a default (like flake8-bugbear B008). This widens an existing message and will be "
-        "noisy on <code>Depends()</code>-style frameworks.",
-        "Decide whether pylint wants this at all, and under which message, before running CI.",
     ),
     11502: (
         "decide",
