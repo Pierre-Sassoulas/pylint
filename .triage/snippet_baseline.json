@@ -1,5 +1,5 @@
 {
- "versions": "pylint 4.2.0-dev0\nastroid 4.3.4\nPython 3.13.1 (main, Dec 19 2024, 14:32:25) [Clang 18.1.8 ]\npylint commit b42d3deba Add regression tests for three false positives that no longer occur (#11634)",
+ "versions": "pylint 4.2.0-dev0\nastroid 4.3.4\nPython 3.13.1 (main, Dec 19 2024, 14:32:25) [Clang 18.1.8 ]\npylint commit f96d5a830 Fix arguments-differ false positive for positional-only parameters (#11573)",
  "snippets": {
   "snippets/i10029.py": [
    "1:0:missing-module-docstring:Missing module docstring",
@@ -1306,7 +1306,6 @@
    "6:0:missing-class-docstring:Missing class docstring",
    "6:0:too-few-public-methods:Too few public methods (0/2)",
    "11:0:missing-class-docstring:Missing class docstring",
-   "13:8:protected-access:Access to a protected member _foo of a client class",
    "11:0:too-few-public-methods:Too few public methods (0/2)"
   ],
   "snippets/i8659.py": [
