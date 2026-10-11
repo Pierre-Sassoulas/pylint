@@ -6377,6 +6377,18 @@
       "note": "4.1 regression (not in 4.0.10), reported 10 October: duplicate-code crashes with min-similarity-lines=0, because the rolling hash added in 4.1 indexes past the end of the stripped lines. Workaround: --disable=duplicate-code. Fix in Pierre's PR 11626.",
       "session": 18,
       "ts": "2026-10-10T15:26:50.684846+00:00"
+    },
+    "11647": {
+      "verdict": "REPRO",
+      "note": "Reproduced on main f96d5a830 + astroid 4.3.4: undefined-variable on x used in a comprehension condition walrus (if (x := i)) when the enclosing function has a bare annotation x: int. Removing the annotation removes the message.",
+      "session": 18,
+      "ts": "2026-10-11T22:25:24.876451+00:00"
+    },
+    "11638": {
+      "verdict": "REPRO",
+      "note": "Fuzzer crash, reproduced on main: AssertionError enum_def unexpectedly None in _enum_has_attribute on except Enum as e: e.message. PR 11639 turns the assert into a guard (changes requested: functional tests).",
+      "session": 18,
+      "ts": "2026-10-11T22:25:24.876451+00:00"
     }
   },
   "session_count": 10

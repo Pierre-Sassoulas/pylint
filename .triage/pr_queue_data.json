@@ -1,7 +1,7 @@
 {
- "snapshot": "2026-10-11",
+ "snapshot": "2026-10-12",
  "owner": "Pierre-Sassoulas",
- "open_total": 109,
+ "open_total": 112,
  "open_own": 25,
  "prs": [
   {
@@ -580,7 +580,7 @@
    ],
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "not-run",
+   "ci": "awaiting-approval",
    "citot": 4,
    "cifail": 0,
    "nrev": 1,
@@ -671,7 +671,7 @@
    ],
    "rd": "NONE",
    "merge": "MERGEABLE",
-   "ci": "not-run",
+   "ci": "awaiting-approval",
    "citot": 5,
    "cifail": 0,
    "nrev": 0,
@@ -831,9 +831,9 @@
    ],
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "failing",
+   "ci": "awaiting-approval",
    "citot": 53,
-   "cifail": 1,
+   "cifail": 0,
    "nrev": 2,
    "mrev": [
     "DanielNoord"
@@ -989,15 +989,15 @@
    "size": 44,
    "files": 3,
    "created": "2026-08-04",
-   "updated": "2026-10-10",
+   "updated": "2026-10-11",
    "labels": [
     "Enhancement ✨"
    ],
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "awaiting-approval",
-   "citot": 2,
-   "cifail": 0,
+   "ci": "failing",
+   "citot": 41,
+   "cifail": 9,
    "nrev": 0,
    "mrev": [],
    "links": [
@@ -1008,8 +1008,8 @@
     ]
    ],
    "lastcom": [
-    "subotac",
-    "2026-10-10"
+    "github-actions",
+    "2026-10-11"
    ]
   },
   {
@@ -2135,21 +2135,21 @@
    "size": 188,
    "files": 9,
    "created": "2026-10-05",
-   "updated": "2026-10-10",
+   "updated": "2026-10-11",
    "labels": [
     "Enhancement ✨"
    ],
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "not-run",
-   "citot": 3,
-   "cifail": 0,
+   "ci": "failing",
+   "citot": 50,
+   "cifail": 3,
    "nrev": 1,
    "mrev": [],
    "links": [],
    "lastcom": [
-    "-",
-    "-"
+    "github-actions",
+    "2026-10-11"
    ]
   },
   {
@@ -2332,8 +2332,8 @@
    ],
    "links": [],
    "lastcom": [
-    "Pierre-Sassoulas",
-    "2026-10-10"
+    "ningkexin96",
+    "2026-10-11"
    ]
   },
   {
@@ -2437,25 +2437,27 @@
    "a": "devanshranjan10",
    "t": "Emit break/continue-in-finally when nested inside the finally clause",
    "draft": false,
-   "size": 76,
-   "files": 5,
+   "size": 115,
+   "files": 10,
    "created": "2026-10-10",
-   "updated": "2026-10-10",
+   "updated": "2026-10-11",
    "labels": [
     "False Negative 🦋",
     "python 3.14"
    ],
-   "rd": "REVIEW_REQUIRED",
+   "rd": "CHANGES_REQUESTED",
    "merge": "MERGEABLE",
    "ci": "awaiting-approval",
-   "citot": 4,
+   "citot": 41,
    "cifail": 0,
-   "nrev": 0,
-   "mrev": [],
+   "nrev": 1,
+   "mrev": [
+    "Pierre-Sassoulas"
+   ],
    "links": [],
    "lastcom": [
-    "-",
-    "-"
+    "github-actions",
+    "2026-10-11"
    ]
   },
   {
@@ -2593,14 +2595,19 @@
    "files": 3,
    "created": "2026-10-10",
    "updated": "2026-10-11",
-   "labels": [],
-   "rd": "REVIEW_REQUIRED",
+   "labels": [
+    "Crash 💥",
+    "backport maintenance/4.1.x"
+   ],
+   "rd": "CHANGES_REQUESTED",
    "merge": "MERGEABLE",
    "ci": "green",
-   "citot": 48,
+   "citot": 52,
    "cifail": 0,
-   "nrev": 0,
-   "mrev": [],
+   "nrev": 1,
+   "mrev": [
+    "Pierre-Sassoulas"
+   ],
    "links": [
     [
      11638,
@@ -2622,14 +2629,19 @@
    "files": 6,
    "created": "2026-10-11",
    "updated": "2026-10-11",
-   "labels": [],
-   "rd": "REVIEW_REQUIRED",
+   "labels": [
+    "Bug :beetle:",
+    "pyreverse"
+   ],
+   "rd": "APPROVED",
    "merge": "MERGEABLE",
-   "ci": "awaiting-approval",
-   "citot": 3,
+   "ci": "green",
+   "citot": 59,
    "cifail": 0,
-   "nrev": 0,
-   "mrev": [],
+   "nrev": 1,
+   "mrev": [
+    "Pierre-Sassoulas"
+   ],
    "links": [
     [
      9237,
@@ -2638,8 +2650,8 @@
     ]
    ],
    "lastcom": [
-    "-",
-    "-"
+    "github-actions",
+    "2026-10-11"
    ]
   },
   {
@@ -2651,17 +2663,118 @@
    "files": 3,
    "created": "2026-10-11",
    "updated": "2026-10-11",
-   "labels": [],
-   "rd": "REVIEW_REQUIRED",
+   "labels": [
+    "False Positive 🦟"
+   ],
+   "rd": "CHANGES_REQUESTED",
+   "merge": "MERGEABLE",
+   "ci": "green",
+   "citot": 51,
+   "cifail": 0,
+   "nrev": 1,
+   "mrev": [
+    "Pierre-Sassoulas"
+   ],
+   "links": [
+    [
+     10025,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "github-actions",
+    "2026-10-11"
+   ]
+  },
+  {
+   "n": 11644,
+   "a": "Om-singhaI",
+   "t": "Do not report `too-few-public-methods` for `attr.s`, `attr.dataclass` and other attrs decorators",
+   "draft": false,
+   "size": 167,
+   "files": 5,
+   "created": "2026-10-11",
+   "updated": "2026-10-11",
+   "labels": [
+    "False Positive 🦟"
+   ],
+   "rd": "CHANGES_REQUESTED",
    "merge": "MERGEABLE",
    "ci": "awaiting-approval",
-   "citot": 3,
+   "citot": 4,
    "cifail": 0,
+   "nrev": 1,
+   "mrev": [
+    "Pierre-Sassoulas"
+   ],
+   "links": [
+    [
+     3732,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "Pierre-Sassoulas",
+    "2026-10-11"
+   ]
+  },
+  {
+   "n": 11645,
+   "a": "agustin18",
+   "t": "Fix false positive used-before-assignment for walrus in stacked decorators (#9641)",
+   "draft": false,
+   "size": 94,
+   "files": 5,
+   "created": "2026-10-11",
+   "updated": "2026-10-11",
+   "labels": [
+    "False Positive 🦟"
+   ],
+   "rd": "CHANGES_REQUESTED",
+   "merge": "MERGEABLE",
+   "ci": "running",
+   "citot": 46,
+   "cifail": 0,
+   "nrev": 1,
+   "mrev": [
+    "Pierre-Sassoulas"
+   ],
+   "links": [
+    [
+     9641,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "github-actions",
+    "2026-10-11"
+   ]
+  },
+  {
+   "n": 11646,
+   "a": "arslan-shafique",
+   "t": "Add misplaced-module-dunder check",
+   "draft": false,
+   "size": 115,
+   "files": 7,
+   "created": "2026-10-11",
+   "updated": "2026-10-11",
+   "labels": [
+    "Enhancement ✨"
+   ],
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "running",
+   "citot": 35,
+   "cifail": 3,
    "nrev": 0,
    "mrev": [],
    "links": [
     [
-     10025,
+     5471,
      "",
      ""
     ]
@@ -2733,6 +2846,19 @@
    "state": "open",
    "state_reason": null,
    "title": "Disable certain messages by default"
+  },
+  {
+   "comments": 13,
+   "labels": [
+    "Enhancement ✨",
+    "High priority",
+    "Hacktoberfest",
+    "Needs PR"
+   ],
+   "number": 3732,
+   "state": "open",
+   "state_reason": null,
+   "title": "do not report too-few-public-methods for `attr.s`, `attr.dataclass`, `typing.NamedTuple` and similar. "
   },
   {
    "comments": 0,
@@ -2811,6 +2937,21 @@
    "state": "open",
    "state_reason": null,
    "title": "False positive ``subprocess-run-check`` when passing check = True by kwargs"
+  },
+  {
+   "comments": 13,
+   "labels": [
+    "Enhancement ✨",
+    "Help wanted 🙏",
+    "Good first issue",
+    "Needs investigation 🔬",
+    "Hacktoberfest",
+    "Needs PR"
+   ],
+   "number": 5471,
+   "state": "open",
+   "state_reason": "reopened",
+   "title": "Warn if module dunders are below imports"
   },
   {
    "comments": 6,
@@ -3157,6 +3298,20 @@
    "state": "open",
    "state_reason": null,
    "title": "[too-many-function-args] False negative when calling `super().__init__()` with non-self argument"
+  },
+  {
+   "comments": 0,
+   "labels": [
+    "Decorators",
+    "False Positive 🦟",
+    "C: used-before-assignment",
+    "C: undefined-variable",
+    "Needs PR"
+   ],
+   "number": 9641,
+   "state": "open",
+   "state_reason": null,
+   "title": "False positive: unused-variable + undefined-variable when using := operator in stacked decorators"
   },
   {
    "comments": 0,
@@ -3576,7 +3731,8 @@
   {
    "comments": 0,
    "labels": [
-    "Needs triage :inbox_tray:"
+    "Crash 💥",
+    "Needs PR"
    ],
    "number": 11638,
    "state": "open",
