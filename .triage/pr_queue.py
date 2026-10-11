@@ -66,6 +66,17 @@ LANES = {
 V = {
     # ---- merge lane -------------------------------------------------------
     # ---- review now -------------------------------------------------------
+    11615: (
+        "review",
+        "ready",
+        "confirmed",
+        "Issue 10137 (bug, 3 reactions): a path to <code>__Init__.py</code> with different "
+        "capitalization is treated as a module, not a package initializer, on Windows. The author "
+        "answered on 11 October: a human ran it on native Windows (<code>invalid-name</code> on "
+        "<code>__Init__</code> before, clean after); code and tests are Codex-assisted; the original "
+        "recursion warning was not reproduced. 50/50 green. Milestone 4.1.4.",
+        "Review; decide whether a fix that does not reproduce the reported recursion closes 10137.",
+    ),
     11639: (
         "review",
         "ready",
@@ -137,6 +148,15 @@ V = {
         "Review. Clean primer, confirmed issue.",
     ),
     # ---- approve the workflow run ----------------------------------------
+    11621: (
+        "approve",
+        "held",
+        "confirmed",
+        "Issue for Python 3.14 (FN): <code>break</code>/<code>continue</code> nested deeper inside a "
+        "<code>finally</code> clause was not reported. New commit on 11 October (pre-commit was red "
+        "before); the run waits for approval.",
+        "Approve the run, then review.",
+    ),
     11641: (
         "approve",
         "held",
@@ -362,25 +382,6 @@ V = {
         "You requested changes on 10 October. Docs for issue 8196 (<code>too-many-locals</code> "
         "rationale).",
         "Waiting on the author.",
-    ),
-    11615: (
-        "author",
-        "question",
-        "confirmed",
-        "You asked on 10 October whether a human reproduced the Windows <code>__Init__.py</code> "
-        "problem or whether the PR is fully AI-driven (you cannot test on Windows). Refs issue 10137 (3 "
-        "reactions).",
-        "Waiting on the author's answer.",
-    ),
-    11621: (
-        "author",
-        "pre-commit",
-        "confirmed",
-        "New, 76 lines, no linked issue: <code>break-in-finally</code> and "
-        "<code>continue-in-finally</code> only fire on direct children of the <code>finally</code> "
-        "body; nested ones (inside an <code>if</code>) are missed. Only <code>pre-commit.ci</code> red, "
-        "test run held.",
-        "Ask for pre-commit, then approve the run. False negative.",
     ),
     11409: (
         "author",
