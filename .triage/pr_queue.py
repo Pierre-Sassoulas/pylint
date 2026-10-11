@@ -65,16 +65,18 @@ LANES = {
 # n: (lane, verdict-chip-text, chip-class, finding, action)
 V = {
     # ---- merge lane -------------------------------------------------------
-    11573: (
-        "merge",
-        "approved",
-        "confirmed",
-        "Issue 11567 (FP): <code>arguments-differ</code> when the override makes a parameter "
-        "positional-only. You pushed the fix for renamed positional-only params and approved on 10 "
-        "October. Milestone 4.1.3, backport label set; CI was finishing.",
-        "Merge when green; backport for 4.1.3.",
-    ),
     # ---- review now -------------------------------------------------------
+    11639: (
+        "review",
+        "ready",
+        "crash",
+        "New, 29 lines by agustin18 for fuzzer crash 11638 (reproduced on main): "
+        "<code>AssertionError: enum_def unexpectedly None</code> in <code>_enum_has_attribute</code> "
+        "on <code>except Enum as e: e.message</code>. Same function as 11608. Turns the assert into "
+        "<code>return False</code>; 48/48 green.",
+        "Review: guard or root cause? The instance is of <code>Enum</code> itself, so the enum lookup "
+        "has nothing to find.",
+    ),
     11624: (
         "review",
         "ready",
@@ -135,6 +137,22 @@ V = {
         "Review. Clean primer, confirmed issue.",
     ),
     # ---- approve the workflow run ----------------------------------------
+    11641: (
+        "approve",
+        "held",
+        "confirmed",
+        "New, 113 lines by ningkexin96 for issue 10025 (FP): <code>import-self</code> when an "
+        "extensionless script has the same basename as an importable module it imports from.",
+        "Approve the run, then review.",
+    ),
+    11640: (
+        "approve",
+        "held",
+        "confirmed",
+        "New, 71 lines by ningkexin96 for issue 9237 (pyreverse bug): an empty module still writes a "
+        "<code>classes</code> diagram holding only the header. Skips empty class diagrams.",
+        "Approve the run, then review.",
+    ),
     11631: (
         "approve",
         "held",
@@ -388,14 +406,6 @@ V = {
         "confirmed",
         "You requested changes again on 8 October: some nits and a new false positive you found. Issue "
         "9134, milestone 4.1.3.",
-        "Waiting on the author.",
-    ),
-    11580: (
-        "author",
-        "waiting",
-        "feature",
-        "You requested changes again on 7 October: the shorthand URLs are hard to discover; the message "
-        "index needs a search form that uses them. Issue 9320, milestone 4.2.0.",
         "Waiting on the author.",
     ),
     11584: (
