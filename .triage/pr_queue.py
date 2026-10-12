@@ -75,6 +75,25 @@ V = {
         "Merge after DudeNr33, or rerun the cancelled job and merge.",
     ),
     # ---- review now -------------------------------------------------------
+    11639: (
+        "review",
+        "ready",
+        "crash",
+        "Fuzzer crash 11638: <code>AssertionError: enum_def unexpectedly None</code> in "
+        "<code>_enum_has_attribute</code> on <code>except Enum as e: e.message</code>. Now 14 lines "
+        "with a functional test, 43/43 green. Still a guard, not a root-cause fix. Backport label "
+        "set.",
+        "Review: accept the guard, or ask why an instance of <code>Enum</code> itself reaches the "
+        "enum lookup.",
+    ),
+    11645: (
+        "review",
+        "ready",
+        "confirmed",
+        "Issue 9641 (FP): <code>used-before-assignment</code> for a walrus bound in one decorator and "
+        "used in a later stacked decorator. Functional test now, 43/43 green.",
+        "Review.",
+    ),
     11615: (
         "review",
         "ready",
@@ -146,6 +165,24 @@ V = {
         "Review. Clean primer, confirmed issue.",
     ),
     # ---- approve the workflow run ----------------------------------------
+    11646: (
+        "approve",
+        "held",
+        "confirmed",
+        "Issue 5471 (enhancement, 1 reaction): new <code>misplaced-module-dunder</code> check for "
+        "module dunders like <code>__all__</code> below imports (PEP 8). Grew to 201 lines on 11 "
+        "October; the new run waits for approval.",
+        "Approve the run; decide whether the check is wanted.",
+    ),
+    11641: (
+        "approve",
+        "held",
+        "confirmed",
+        "Issue 10025 (FP): <code>import-self</code> when an extensionless script has the same "
+        "basename as an importable module it imports from. Functional tests now, as you asked; the "
+        "new run waits for approval.",
+        "Approve the run, then review.",
+    ),
     11631: (
         "approve",
         "held",
@@ -236,16 +273,6 @@ V = {
         "Approve the run.",
     ),
     # ---- retrigger --------------------------------------------------------
-    11645: (
-        "retrigger",
-        "CI",
-        "confirmed",
-        "New, 88 lines by agustin18 for issue 9641 (FP): <code>used-before-assignment</code> for a "
-        "walrus bound in one decorator and used in a later stacked decorator. You requested "
-        "functional tests; the author switched to one on 11 October; CI was rerunning (earlier red "
-        "was a PyPy setup disconnect).",
-        "Review when green.",
-    ),
     11581: (
         "retrigger",
         "rerun",
@@ -358,15 +385,6 @@ V = {
         "<code>dangerous-default-value</code> with a consensual, extensible list. 3 jobs red.",
         "Waiting on the author.",
     ),
-    11646: (
-        "author",
-        "red",
-        "confirmed",
-        "New, 115 lines by arslan-shafique for issue 5471 (enhancement, 1 reaction): new "
-        "<code>misplaced-module-dunder</code> check for module dunders like <code>__all__</code> "
-        "placed below imports (PEP 8). Self-lint and two test jobs red.",
-        "Wait for green; then decide if the check is wanted.",
-    ),
     11621: (
         "author",
         "changes",
@@ -375,24 +393,6 @@ V = {
         "<code>finally</code> was not reported. You pushed two functional tests on 11 October; they "
         "fail on purpose (<code>continue_in_finally</code>, <code>not_in_loop</code>).",
         "Waiting on the author to make your tests pass.",
-    ),
-    11639: (
-        "author",
-        "changes",
-        "crash",
-        "Fuzzer crash 11638 (reproduced on main): <code>AssertionError: enum_def unexpectedly "
-        "None</code> in <code>_enum_has_attribute</code> on <code>except Enum as e: e.message</code>. "
-        "Turns the assert into a guard. You asked for functional tests; backport label set.",
-        "Waiting on the author. Root cause (an instance of <code>Enum</code> itself) still open.",
-    ),
-    11641: (
-        "author",
-        "changes",
-        "confirmed",
-        "Issue 10025 (FP): <code>import-self</code> when an extensionless script has the same "
-        "basename as an importable module it imports from. 49 green. You asked for functional tests "
-        "instead of unit tests on 11 October.",
-        "Waiting on the author.",
     ),
     11424: (
         "author",
@@ -596,6 +596,17 @@ V = {
         "Ask for a rebase onto #11011, keeping only the package-root fix.",
     ),
     # ---- decide first -----------------------------------------------------
+    11648: (
+        "decide",
+        "dup",
+        "confirmed",
+        "New, 104 lines by agustin18 for issue 11647 (FP): <code>undefined-variable</code> on a "
+        "walrus in a comprehension condition after a bare <code>x: int</code> annotation. Duplicates "
+        "your #11649 (opened 4 hours later, written earlier). This one rewrites the line-order test "
+        "for every comparison inside a comprehension; yours only exempts a <code>NamedExpr</code> in "
+        "the condition and keeps the self-referencing TP.",
+        "Close in favour of #11649, or credit the author.",
+    ),
     11644: (
         "decide",
         "decide",
