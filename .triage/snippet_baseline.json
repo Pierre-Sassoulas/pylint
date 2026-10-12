@@ -1,5 +1,5 @@
 {
- "versions": "pylint 4.2.0-dev0\nastroid 4.3.4\nPython 3.13.1 (main, Dec 19 2024, 14:32:25) [Clang 18.1.8 ]\npylint commit f96d5a830 Fix arguments-differ false positive for positional-only parameters (#11573)",
+ "versions": "pylint 4.2.0-dev0\nastroid 4.3.4\nPython 3.13.1 (main, Dec 19 2024, 14:32:25) [Clang 18.1.8 ]\npylint commit e9f39004d Remove min_pyver=3.11 from the functional tests",
  "snippets": {
   "snippets/i10029.py": [
    "1:0:missing-module-docstring:Missing module docstring",
@@ -1737,8 +1737,10 @@
    "17:15:no-member:Instance of '_value_' has no 'formatter' member",
    "19:0:missing-class-docstring:Missing class docstring"
   ],
-  "snippets_auto/i11567_block0.py": [
-   "1:1:syntax-error:Parsing failed: 'invalid syntax (i11567_block0, line 1)'"
+  "snippets_auto/i11647_block0.py": [
+   "1:0:missing-module-docstring:Missing module docstring",
+   "2:0:missing-function-docstring:Missing function or method docstring",
+   "5:8:undefined-variable:Undefined variable 'x'"
   ],
   "snippets_auto/i1469_block0.py": [
    "1:3:syntax-error:Parsing failed: 'unexpected indent (i1469_block0, line 1)'"
