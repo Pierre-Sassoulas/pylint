@@ -6389,6 +6389,12 @@
       "note": "Fuzzer crash, reproduced on main: AssertionError enum_def unexpectedly None in _enum_has_attribute on except Enum as e: e.message. PR 11639 turns the assert into a guard (changes requested: functional tests).",
       "session": 18,
       "ts": "2026-10-11T22:25:24.876451+00:00"
+    },
+    "11651": {
+      "verdict": "REPRO",
+      "note": "Reproduced on main 9f4566698 + astroid 4.3.4 with zope.interface installed: inherit-non-class on Interface, no-method-argument, no-self-argument, arguments-differ against InterfaceClass.__str__, too-many-ancestors. zope's Interface is an InterfaceClass instance used as a base, and interface methods omit self by design. Needs an astroid brain (or plugin) teaching that subclassing Interface makes an interface whose methods take no self; not a checker fix. No older zope issue found.",
+      "session": 18,
+      "ts": "2026-10-13T09:19:38.415191+00:00"
     }
   },
   "session_count": 10

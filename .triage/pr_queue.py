@@ -75,6 +75,23 @@ V = {
         "Merge after DudeNr33, or rerun the cancelled job and merge.",
     ),
     # ---- review now -------------------------------------------------------
+    11621: (
+        "review",
+        "ready",
+        "confirmed",
+        "Python 3.14 FN: <code>break</code>/<code>continue</code> nested deeper inside "
+        "<code>finally</code> was not reported. The author fixed the three problems your tests "
+        "exposed (loop <code>else</code> handling) on 12 October; 43/43 green.",
+        "Review.",
+    ),
+    11654: (
+        "review",
+        "ready",
+        "confirmed",
+        "New, 18 lines by agustin18 for issue 5270 (FN): <code>signature-differs</code> missed "
+        "keyword-only argument changes. 43/43 green.",
+        "Review.",
+    ),
     11639: (
         "review",
         "ready",
@@ -165,6 +182,61 @@ V = {
         "Review. Clean primer, confirmed issue.",
     ),
     # ---- approve the workflow run ----------------------------------------
+    11230: (
+        "approve",
+        "held",
+        "confirmed",
+        "Issue 9943 (output depends on file order). New push on 12 October for the failing "
+        "<code>test_package_expansion_order</code>; the run waits for approval. Astroid #3384 (cache "
+        "of budget-truncated inference) targets the inference side of the same symptom (11582).",
+        "Approve the run; compare with astroid #3384.",
+    ),
+    11493: (
+        "approve",
+        "held",
+        "confirmed",
+        "Issue 9134 (FP): <code>used-before-assignment</code> for names shadowed by a later method. "
+        "The author fixed the class-inside-function FP you found (<code>late_bound_module_name</code> "
+        "test) on 13 October; the run waits for approval. Milestone 4.1.4.",
+        "Approve the run, then re-review.",
+    ),
+    11579: (
+        "approve",
+        "held",
+        "confirmed",
+        "Enhancement: flag function calls in default arguments, extending "
+        "<code>dangerous-default-value</code> as you asked. New push on 13 October; the run waits for "
+        "approval.",
+        "Approve the run, then review the design.",
+    ),
+    11641: (
+        "approve",
+        "held",
+        "confirmed",
+        "Issue 10025 (FP): <code>import-self</code> when an extensionless script has the same "
+        "basename as an importable module it imports from. Functional tests added as you asked on 12 "
+        "October; the run waits for approval.",
+        "Approve the run, then review.",
+    ),
+    11655: (
+        "approve",
+        "held",
+        "confirmed",
+        "New, 44 lines by Cherith1222 for issue 9624 (FP, 1 reaction): "
+        "<code>unsupported-binary-operation</code> on PEP 604 unions like <code>int | None</code> in "
+        "<code>.pyi</code> stubs, which never run.",
+        "Approve the run, then review.",
+    ),
+    11650: (
+        "approve",
+        "held",
+        "crash",
+        "New, 60 lines by summeriver13 for crash 10278: <code>ImportError: Unable to find "
+        "module</code> when an implicit namespace package also exists in site-packages (or shadows a "
+        "stdlib package such as <code>email/</code>). chrikrah reproduced the crash on main and the "
+        "fix on the branch. Run waits for approval.",
+        "Approve the run, then review: crash fix, backport candidate.",
+    ),
     11646: (
         "approve",
         "held",
@@ -173,15 +245,6 @@ V = {
         "module dunders like <code>__all__</code> below imports (PEP 8). Grew to 201 lines on 11 "
         "October; the new run waits for approval.",
         "Approve the run; decide whether the check is wanted.",
-    ),
-    11641: (
-        "approve",
-        "held",
-        "confirmed",
-        "Issue 10025 (FP): <code>import-self</code> when an extensionless script has the same "
-        "basename as an importable module it imports from. Functional tests now, as you asked; the "
-        "new run waits for approval.",
-        "Approve the run, then review.",
     ),
     11631: (
         "approve",
@@ -367,32 +430,13 @@ V = {
         "Retrigger. The size needs a primer run before review.",
     ),
     # ---- author's move ----------------------------------------------------
-    11230: (
+    11652: (
         "author",
         "red",
         "confirmed",
-        "Issue 9943 (output depends on file order). The follow-up on 10 October sorts the files of an "
-        "expanded package too; <code>test_package_expansion_order</code> now fails on every job (the "
-        "package's <code>__init__.py</code> no longer comes first). Primer shows astropy changes.",
-        "Waiting on the author to fix the test or the order.",
-    ),
-    11579: (
-        "author",
-        "changes",
-        "confirmed",
-        "Enhancement: flag function calls in default arguments. The author proposed a separate "
-        "optional check; on 11 October you answered that a function result is a value too, so extend "
-        "<code>dangerous-default-value</code> with a consensual, extensible list. 3 jobs red.",
-        "Waiting on the author.",
-    ),
-    11621: (
-        "author",
-        "changes",
-        "confirmed",
-        "Python 3.14 FN: <code>break</code>/<code>continue</code> nested deeper inside "
-        "<code>finally</code> was not reported. You pushed two functional tests on 11 October; they "
-        "fail on purpose (<code>continue_in_finally</code>, <code>not_in_loop</code>).",
-        "Waiting on the author to make your tests pass.",
+        "New, 3-line doc fix by kaidenwang0309-hub: removes a superfluous import from the "
+        "<code>ungrouped-imports</code> example. One check red.",
+        "Wait for green, then merge (docs).",
     ),
     11424: (
         "author",
@@ -429,14 +473,6 @@ V = {
         "You asked on 7 October to fix the pipeline. The latest push grew the PR from +497 to +971 "
         "lines and the run is held; DudeNr33's review is still pending. Aimed at 4.2.0.",
         "Check why it doubled in size before approving the run.",
-    ),
-    11493: (
-        "author",
-        "waiting",
-        "confirmed",
-        "You requested changes again on 8 October: some nits and a new false positive you found. Issue "
-        "9134, milestone 4.1.3.",
-        "Waiting on the author.",
     ),
     11584: (
         "author",
