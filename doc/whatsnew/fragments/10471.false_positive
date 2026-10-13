@@ -1,0 +1,5 @@
+Fixed a false positive for ``not-callable`` when calling a property that may be
+``None`` inside a condition that excludes ``None``, such as
+``if self.processor: self.processor()``.
+
+Closes #10471

@@ -266,3 +266,29 @@ class MethodByName:
         method()
         method = getattr(self, "_call_%s" % self.meth_name, None)  # pylint: disable=consider-using-f-string
         method()
+
+
+# Regression test for https://github.com/pylint-dev/pylint/issues/10471:
+# the condition guarding the call narrows the values of the property.
+class CallableProcessor:
+    def __call__(self, data):
+        return data
+
+
+class Container:
+    def __init__(self, processor=None):
+        self._processor = processor
+
+    @property
+    def processor(self):
+        return self._processor
+
+    def process(self, data):
+        if self.processor:
+            return self.processor(data)
+        if self.processor is not None:
+            return self.processor(data)
+        return data
+
+
+Container(CallableProcessor()).process("data")

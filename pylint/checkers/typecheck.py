@@ -33,6 +33,7 @@ from pylint.checkers.utils import (
     decorated_with,
     decorated_with_property,
     has_known_bases,
+    infer_all,
     is_builtin_object,
     is_comprehension,
     is_hashable,
@@ -1492,6 +1493,13 @@ accessed. Python regular expressions are accepted.",
             # Decorated, see if it is decorated with a property.
             # Also, check the returns and see if they are callable.
             if decorated_with_property(attr):
+                if all(
+                    isinstance(value, util.UninferableBase)
+                    for value in infer_all(node.func)
+                ):
+                    # The conditions guarding the call narrowed the values of the
+                    # property to unknown ones, as in ``if self.prop: self.prop()``.
+                    return
                 try:
                     call_results = list(attr.infer_call_result(node))
                 except astroid.InferenceError:
