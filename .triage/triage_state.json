@@ -6395,6 +6395,12 @@
       "note": "Reproduced on main 9f4566698 + astroid 4.3.4 with zope.interface installed: inherit-non-class on Interface, no-method-argument, no-self-argument, arguments-differ against InterfaceClass.__str__, too-many-ancestors. zope's Interface is an InterfaceClass instance used as a base, and interface methods omit self by design. Needs an astroid brain (or plugin) teaching that subclassing Interface makes an interface whose methods take no self; not a checker fix. No older zope issue found.",
       "session": 18,
       "ts": "2026-10-13T09:19:38.415191+00:00"
+    },
+    "11656": {
+      "verdict": "REPRO",
+      "note": "Reproduced on main 1a60ec190: useless-suppression on a disable of deprecated-method, while cyclic-import on the next function stays exempt. INCOMPATIBLE_WITH_USELESS_SUPPRESSION still lists the pre-2.15 ids (W0402, W1505, W1511-W1513) instead of W4901-W4905. Fix in PR 11657 (run held).",
+      "session": 18,
+      "ts": "2026-10-14T09:13:13.278684+00:00"
     }
   },
   "session_count": 10
