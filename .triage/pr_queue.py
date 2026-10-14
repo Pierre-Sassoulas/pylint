@@ -75,6 +75,14 @@ V = {
         "Merge after DudeNr33, or rerun the cancelled job and merge.",
     ),
     # ---- review now -------------------------------------------------------
+    11661: (
+        "review",
+        "ready",
+        "confirmed",
+        "85 lines by shan3520 for issue 7538 (FP): <code>used-before-assignment</code> when a branch "
+        "of a nested conditional expression uses a name its test binds with a walrus. 43/43 green.",
+        "Review.",
+    ),
     11205: (
         "review",
         "ready",
@@ -180,6 +188,15 @@ V = {
         "Review. Clean primer, confirmed issue.",
     ),
     # ---- approve the workflow run ----------------------------------------
+    11417: (
+        "approve",
+        "held",
+        "confirmed",
+        "For and With checkers did not run on <code>async for</code> / <code>async with</code>. The "
+        "author aliased the variables checker callbacks too (as you asked on 2 October) on 14 "
+        "October; the run waits for approval. Milestone 4.1.4.",
+        "Approve the run, then re-review.",
+    ),
     11584: (
         "approve",
         "held",
@@ -252,16 +269,6 @@ V = {
         "<code>unsupported-binary-operation</code> on PEP 604 unions like <code>int | None</code> in "
         "<code>.pyi</code> stubs, which never run.",
         "Approve the run, then review.",
-    ),
-    11650: (
-        "approve",
-        "held",
-        "crash",
-        "New, 60 lines by summeriver13 for crash 10278: <code>ImportError: Unable to find "
-        "module</code> when an implicit namespace package also exists in site-packages (or shadows a "
-        "stdlib package such as <code>email/</code>). chrikrah reproduced the crash on main and the "
-        "fix on the branch. Run waits for approval.",
-        "Approve the run, then review: crash fix, backport candidate.",
     ),
     11646: (
         "approve",
@@ -362,15 +369,6 @@ V = {
         "Approve the run.",
     ),
     # ---- retrigger --------------------------------------------------------
-    11661: (
-        "retrigger",
-        "CI",
-        "confirmed",
-        "New, 85 lines by shan3520 for issue 7538 (FP): <code>used-before-assignment</code> when a "
-        "branch of a conditional expression uses a name its test binds with a walrus, and the "
-        "conditional is nested deeper than a direct value or call argument. CI running.",
-        "Review when green.",
-    ),
     11581: (
         "retrigger",
         "rerun",
@@ -465,6 +463,27 @@ V = {
         "Retrigger. The size needs a primer run before review.",
     ),
     # ---- author's move ----------------------------------------------------
+    11662: (
+        "author",
+        "astroid",
+        "confirmed",
+        "New, 120 lines by Anandb71 for issue 9192 (FN): <code>modified-iterating-list</code> missed "
+        "lists astroid cannot infer. You requested on 14 October that astroid infers better instead "
+        "of pylint accepting inference failure; labelled Blocked / Needs astroid update.",
+        "Waiting on an astroid fix.",
+    ),
+    11650: (
+        "author",
+        "red",
+        "crash",
+        "Crash 10278: <code>ImportError: Unable to find module</code> when an implicit namespace "
+        "package also exists in site-packages (or shadows a stdlib package like <code>email/</code>). "
+        "You milestoned it 4.1.4 with the backport label. Only the self-lint job is red, on the "
+        "spelling of <code>astroid's</code> in two comments (custom words get no possessive); the "
+        "cancelled jobs followed it.",
+        "Ask to rephrase the two comments (e.g. \"the is_namespace() of astroid\"), or push that fix "
+        "yourself, then review.",
+    ),
     11660: (
         "author",
         "red",
@@ -548,15 +567,6 @@ V = {
         "(issue 9974). You requested changes on 3 October: that is not what <code>init-hook</code> is "
         "for; launch pylint from the virtualenv instead.",
         "Waiting on the author; closing is reasonable if the docs would teach the wrong workflow.",
-    ),
-    11417: (
-        "author",
-        "waiting",
-        "feature",
-        "52/52 green now. You requested changes on 2 October: the refactoring and variables checkers need "
-        "the async forms too, with async cases for <code>redeclared-assigned-name</code>, "
-        "<code>redefined-argument-from-local</code> and <code>too-many-nested-blocks</code>.",
-        "Waiting on the author.",
     ),
     11370: (
         "author",
