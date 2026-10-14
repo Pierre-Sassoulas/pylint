@@ -75,6 +75,15 @@ V = {
         "Merge after DudeNr33, or rerun the cancelled job and merge.",
     ),
     # ---- review now -------------------------------------------------------
+    11205: (
+        "review",
+        "ready",
+        "confirmed",
+        "Issue 7572 (enhancement, Good first issue): pyreverse <code>--theme</code> option for "
+        "dark-mode diagrams, 971 lines. The author fixed the R0801 duplicate-code on 13 October; 52 "
+        "green, one cancelled. Last changes requested by you on 7 October.",
+        "Re-review (large); DudeNr33 also requested changes before.",
+    ),
     11621: (
         "review",
         "ready",
@@ -91,17 +100,6 @@ V = {
         "New, 18 lines by agustin18 for issue 5270 (FN): <code>signature-differs</code> missed "
         "keyword-only argument changes. 43/43 green.",
         "Review.",
-    ),
-    11639: (
-        "review",
-        "ready",
-        "crash",
-        "Fuzzer crash 11638: <code>AssertionError: enum_def unexpectedly None</code> in "
-        "<code>_enum_has_attribute</code> on <code>except Enum as e: e.message</code>. Now 14 lines "
-        "with a functional test, 43/43 green. Still a guard, not a root-cause fix. Backport label "
-        "set.",
-        "Review: accept the guard, or ask why an instance of <code>Enum</code> itself reaches the "
-        "enum lookup.",
     ),
     11645: (
         "review",
@@ -182,6 +180,34 @@ V = {
         "Review. Clean primer, confirmed issue.",
     ),
     # ---- approve the workflow run ----------------------------------------
+    11584: (
+        "approve",
+        "held",
+        "confirmed",
+        "Issue 7997 (FP): <code>dict-init-mutate</code> when the later assignment reads the "
+        "dictionary being built. Rebased on 13 October as you asked (the old red was the primer "
+        "lookup flake); the run waits for approval. Milestone 4.1.4, backport label.",
+        "Approve the run, then review.",
+    ),
+    11657: (
+        "approve",
+        "held",
+        "confirmed",
+        "New, 26 lines by adityasinha-ghub for issue 11656 (FP): <code>useless-suppression</code> on "
+        "disabled <code>deprecated-*</code> messages, because the exemption list still holds their "
+        "pre-#6693 ids (W0402, W1505, W1511-W1513) instead of W4901-W4905. Run waits for approval.",
+        "Approve the run; small bug fix, backport candidate.",
+    ),
+    11659: (
+        "approve",
+        "held",
+        "confirmed",
+        "New, 70 lines by devanshranjan10 (FP+FN): <code>return-in-finally</code> flagged a "
+        "<code>return</code> inside a function defined in the <code>finally</code> clause, and missed "
+        "nested <code>finally</code> clauses. Same author and walk as #11621 (break/continue in "
+        "finally). Run waits for approval.",
+        "Approve the run; review together with #11621.",
+    ),
     11230: (
         "approve",
         "held",
@@ -336,6 +362,15 @@ V = {
         "Approve the run.",
     ),
     # ---- retrigger --------------------------------------------------------
+    11661: (
+        "retrigger",
+        "CI",
+        "confirmed",
+        "New, 85 lines by shan3520 for issue 7538 (FP): <code>used-before-assignment</code> when a "
+        "branch of a conditional expression uses a name its test binds with a walrus, and the "
+        "conditional is nested deeper than a direct value or call argument. CI running.",
+        "Review when green.",
+    ),
     11581: (
         "retrigger",
         "rerun",
@@ -430,6 +465,16 @@ V = {
         "Retrigger. The size needs a primer run before review.",
     ),
     # ---- author's move ----------------------------------------------------
+    11660: (
+        "author",
+        "red",
+        "confirmed",
+        "New, 281 lines by agustin18 for issue 9642 (FN): "
+        "<code>possibly-used-before-assignment</code> missed a name defined only in a loop that may "
+        "never run (<code>for i in []:</code>, <code>while False:</code>). Only "
+        "<code>codecov/patch</code> red. Large for an FN; primer impact unknown.",
+        "Ask for full patch coverage; check the primer before reviewing.",
+    ),
     11652: (
         "author",
         "red",
@@ -465,22 +510,6 @@ V = {
         "broke an identity check). This PR waits for that. Issue 10042 (<code>not-callable</code> when "
         "inheriting from <code>typing.IO</code>).",
         "Review astroid #3371; this PR becomes a test or closes.",
-    ),
-    11205: (
-        "author",
-        "waiting",
-        "feature",
-        "You asked on 7 October to fix the pipeline. The latest push grew the PR from +497 to +971 "
-        "lines and the run is held; DudeNr33's review is still pending. Aimed at 4.2.0.",
-        "Check why it doubled in size before approving the run.",
-    ),
-    11584: (
-        "author",
-        "rebase",
-        "confirmed",
-        "You asked for a rebase on 7 October: one primer shard still fails on the old 'Primer / Main' "
-        "lookup fixed by #11588/#11589. Issue 7997, milestone 4.1.3.",
-        "Waiting on the rebase.",
     ),
     11432: (
         "author",

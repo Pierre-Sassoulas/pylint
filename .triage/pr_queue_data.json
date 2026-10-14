@@ -1,7 +1,7 @@
 {
- "snapshot": "2026-10-13",
+ "snapshot": "2026-10-14",
  "owner": "Pierre-Sassoulas",
- "open_total": 117,
+ "open_total": 120,
  "open_own": 25,
  "prs": [
   {
@@ -695,7 +695,7 @@
     "Blocked 🚧"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "failing",
    "citot": 40,
    "cifail": 11,
@@ -920,13 +920,13 @@
    "size": 1123,
    "files": 54,
    "created": "2026-07-28",
-   "updated": "2026-10-11",
+   "updated": "2026-10-13",
    "labels": [
     "Enhancement ✨",
     "pyreverse"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "green",
    "citot": 54,
    "cifail": 0,
@@ -943,8 +943,8 @@
     ]
    ],
    "lastcom": [
-    "github-actions",
-    "2026-10-10"
+    "Rayyan2235",
+    "2026-10-13"
    ]
   },
   {
@@ -994,7 +994,7 @@
     "Enhancement ✨"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "awaiting-approval",
    "citot": 2,
    "cifail": 0,
@@ -1338,7 +1338,7 @@
     "False Positive 🦟"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "failing",
    "citot": 50,
    "cifail": 1,
@@ -1561,7 +1561,7 @@
     "backport maintenance/4.1.x"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "green",
    "citot": 55,
    "cifail": 0,
@@ -1592,7 +1592,7 @@
     "False Positive 🦟"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "green",
    "citot": 48,
    "cifail": 0,
@@ -1655,7 +1655,7 @@
     "False Negative 🦋"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "failing",
    "citot": 48,
    "cifail": 1,
@@ -1820,7 +1820,7 @@
     "False Positive 🦟"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "failing",
    "citot": 48,
    "cifail": 1,
@@ -1853,7 +1853,7 @@
     "False Positive 🦟"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "green",
    "citot": 50,
    "cifail": 0,
@@ -2192,16 +2192,16 @@
    "size": 51,
    "files": 4,
    "created": "2026-10-06",
-   "updated": "2026-10-10",
+   "updated": "2026-10-14",
    "labels": [
     "False Positive 🦟",
     "backport maintenance/4.1.x"
    ],
    "rd": "CHANGES_REQUESTED",
    "merge": "MERGEABLE",
-   "ci": "failing",
-   "citot": 53,
-   "cifail": 1,
+   "ci": "awaiting-approval",
+   "citot": 2,
+   "cifail": 0,
    "nrev": 1,
    "mrev": [
     "Pierre-Sassoulas"
@@ -2214,8 +2214,8 @@
     ]
    ],
    "lastcom": [
-    "codecov",
-    "2026-10-06"
+    "mottopanikeiku",
+    "2026-10-13"
    ]
   },
   {
@@ -2322,7 +2322,7 @@
     "backport maintenance/4.1.x"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "green",
    "citot": 52,
    "cifail": 0,
@@ -2349,7 +2349,7 @@
     "False Negative 🦋"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "awaiting-approval",
    "citot": 4,
    "cifail": 0,
@@ -2587,40 +2587,6 @@
    ]
   },
   {
-   "n": 11639,
-   "a": "agustin18",
-   "t": "Fix AssertionError when enum_def is None in types checker (#11638)",
-   "draft": false,
-   "size": 16,
-   "files": 4,
-   "created": "2026-10-10",
-   "updated": "2026-10-11",
-   "labels": [
-    "Crash 💥",
-    "backport maintenance/4.1.x"
-   ],
-   "rd": "CHANGES_REQUESTED",
-   "merge": "UNKNOWN",
-   "ci": "green",
-   "citot": 43,
-   "cifail": 0,
-   "nrev": 1,
-   "mrev": [
-    "Pierre-Sassoulas"
-   ],
-   "links": [
-    [
-     11638,
-     "",
-     ""
-    ]
-   ],
-   "lastcom": [
-    "github-actions",
-    "2026-10-11"
-   ]
-  },
-  {
    "n": 11640,
    "a": "ningkexin96",
    "t": "fix(pyreverse): skip empty class diagrams",
@@ -2634,7 +2600,7 @@
     "pyreverse"
    ],
    "rd": "APPROVED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "green",
    "citot": 59,
    "cifail": 0,
@@ -2667,7 +2633,7 @@
     "False Positive 🦟"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "awaiting-approval",
    "citot": 2,
    "cifail": 0,
@@ -2700,7 +2666,7 @@
     "False Positive 🦟"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "awaiting-approval",
    "citot": 4,
    "cifail": 0,
@@ -2766,7 +2732,7 @@
     "Enhancement ✨"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "awaiting-approval",
    "citot": 2,
    "cifail": 0,
@@ -2821,12 +2787,14 @@
    "size": 64,
    "files": 3,
    "created": "2026-10-12",
-   "updated": "2026-10-13",
-   "labels": [],
+   "updated": "2026-10-14",
+   "labels": [
+    "Crash 💥"
+   ],
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
    "ci": "awaiting-approval",
-   "citot": 2,
+   "citot": 27,
    "cifail": 0,
    "nrev": 1,
    "mrev": [],
@@ -2876,7 +2844,7 @@
    "updated": "2026-10-13",
    "labels": [],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "green",
    "citot": 44,
    "cifail": 0,
@@ -2914,6 +2882,116 @@
    "links": [
     [
      9624,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "-",
+    "-"
+   ]
+  },
+  {
+   "n": 11657,
+   "a": "adityasinha-ghub",
+   "t": "Fix useless-suppression false positive for deprecated-* messages",
+   "draft": false,
+   "size": 31,
+   "files": 5,
+   "created": "2026-10-13",
+   "updated": "2026-10-13",
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "awaiting-approval",
+   "citot": 3,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [
+    [
+     11656,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "-",
+    "-"
+   ]
+  },
+  {
+   "n": 11659,
+   "a": "devanshranjan10",
+   "t": "Fix return-in-finally for nested functions and nested finally clauses",
+   "draft": false,
+   "size": 75,
+   "files": 4,
+   "created": "2026-10-13",
+   "updated": "2026-10-13",
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "awaiting-approval",
+   "citot": 2,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [],
+   "lastcom": [
+    "-",
+    "-"
+   ]
+  },
+  {
+   "n": 11660,
+   "a": "agustin18",
+   "t": "Fix false-negative possibly-used-before-assignment in loops that never run",
+   "draft": false,
+   "size": 297,
+   "files": 5,
+   "created": "2026-10-14",
+   "updated": "2026-10-14",
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "failing",
+   "citot": 43,
+   "cifail": 1,
+   "nrev": 0,
+   "mrev": [],
+   "links": [
+    [
+     9642,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "github-actions",
+    "2026-10-14"
+   ]
+  },
+  {
+   "n": 11661,
+   "a": "shan3520",
+   "t": "Fix `used-before-assignment` false positive for a walrus in a nested conditional test",
+   "draft": false,
+   "size": 85,
+   "files": 4,
+   "created": "2026-10-14",
+   "updated": "2026-10-14",
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "running",
+   "citot": 35,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [
+    [
+     7538,
      "",
      ""
     ]
@@ -3190,6 +3268,20 @@
    "state": "open",
    "state_reason": null,
    "title": "False positive C2801 (unnecessary-dunder-call) with unittest.mock.call"
+  },
+  {
+   "comments": 0,
+   "labels": [
+    "Needs investigation 🔬",
+    "False Positive 🦟",
+    "Assignment expression",
+    "C: used-before-assignment",
+    "Needs PR"
+   ],
+   "number": 7538,
+   "state": "open",
+   "state_reason": null,
+   "title": "False positive `used-before-assignment` with walrus operator inside binary operation"
   },
   {
    "comments": 3,
@@ -3475,6 +3567,18 @@
    "state": "open",
    "state_reason": null,
    "title": "False positive: unused-variable + undefined-variable when using := operator in stacked decorators"
+  },
+  {
+   "comments": 0,
+   "labels": [
+    "False Negative 🦋",
+    "C: used-before-assignment",
+    "Needs PR"
+   ],
+   "number": 9642,
+   "state": "open",
+   "state_reason": null,
+   "title": "[used-before-assignment] False negative for name defined inside loop that never runs"
   },
   {
    "comments": 0,
@@ -3906,17 +4010,6 @@
   {
    "comments": 0,
    "labels": [
-    "Crash 💥",
-    "Needs PR"
-   ],
-   "number": 11638,
-   "state": "open",
-   "state_reason": null,
-   "title": "`AssertionError: enum_def unexpectedly None` in types checker"
-  },
-  {
-   "comments": 0,
-   "labels": [
     "False Positive 🦟",
     "Assignment expression",
     "C: undefined-variable"
@@ -3925,6 +4018,14 @@
    "state": "open",
    "state_reason": null,
    "title": "False-positive `undefined-variable` with `:=` and blank type annotation"
+  },
+  {
+   "comments": 0,
+   "labels": [],
+   "number": 11656,
+   "state": "open",
+   "state_reason": null,
+   "title": "useless-suppression reported for deprecated-* messages that should be exempt"
   }
  ]
 }
