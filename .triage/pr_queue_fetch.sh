@@ -22,7 +22,7 @@ retry() {
   return 1
 }
 
-retry base.json number,author,title,createdAt,updatedAt,isDraft,labels,additions,deletions,changedFiles,reviewDecision,mergeable,headRefName,url
+retry base.json number,author,title,createdAt,updatedAt,isDraft,labels,additions,deletions,changedFiles,reviewDecision,mergeable,headRefName,headRefOid,url
 retry revs.json number,reviews
 # statusCheckRollup for all open pull requests at once times out (HTTP 504), so the
 # check runs are fetched one pull request at a time.
@@ -36,8 +36,12 @@ done
 jq -s '.' "$TMP/ci.ndjson" >"$TMP/ci.json"
 retry meta.json number,closingIssuesReferences,comments
 
-gh api "repos/$REPO/actions/runs?status=action_required&per_page=100" \
-  --jq '[.workflow_runs[].head_branch] | unique' >"$TMP/pending.json"
+# Paginated: one page holds 100 runs and there are several hundred, so the
+# oldest held pull requests would otherwise look like they never got a run.
+# Matched on the head commit: a held run left over from an earlier push does
+# not mean the current commit is waiting.
+gh api --paginate "repos/$REPO/actions/runs?status=action_required&per_page=100" \
+  --jq '.workflow_runs[].head_sha' | jq -R . | jq -s 'unique' >"$TMP/pending.json"
 
 # Linked issues, fetched one by one so labels and state_reason are current
 # rather than whatever the issue snapshot held.
@@ -68,7 +72,7 @@ maintainers = {"Pierre-Sassoulas", "DanielNoord", "jacobtylerwalls", "DudeNr33",
 
 def ci_state(number):
     runs = checks.get(number) or []
-    if base[number]["headRefName"] in pending:
+    if base[number]["headRefOid"] in pending:
         return "awaiting-approval", len(runs), 0
     failed = [r for r in runs if r.get("conclusion") in ("FAILURE", "TIMED_OUT")]
     # Fewer than six checks means the test matrix never reported: only the

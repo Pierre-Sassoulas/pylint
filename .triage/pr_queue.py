@@ -65,6 +65,16 @@ LANES = {
 # n: (lane, verdict-chip-text, chip-class, finding, action)
 V = {
     # ---- merge lane -------------------------------------------------------
+    11650: (
+        "merge",
+        "approved",
+        "crash",
+        "Crash 10278: <code>ImportError: Unable to find module</code> when an implicit namespace "
+        "package also exists in site-packages or shadows a stdlib package like <code>email/</code>. "
+        "The author fixed the <code>astroid's</code> spelling on 15 October; now 41/41 green, "
+        "primer clean, chrikrah approved. Milestone 4.1.4, backport label.",
+        "Review and merge; backport to 4.1.x.",
+    ),
     11640: (
         "merge",
         "approved",
@@ -74,7 +84,72 @@ V = {
         "one cancelled job.",
         "Merge after DudeNr33, or rerun the cancelled job and merge.",
     ),
+    10507: (
+        "merge",
+        "yours",
+        "confirmed",
+        "<code>invalid-envvar-default</code> extended to <code>os.environ.get</code>. You pushed 3 "
+        "commits on 16 October (merge main, find the call by inference, accept a non-string default "
+        "passed straight to <code>bool()</code>). 43/43 green; primer adds one ansible true "
+        "positive (<code>bool</code> default).",
+        "Merge, or ask a second maintainer since the last commits are yours.",
+    ),
+    11652: (
+        "merge",
+        "docs",
+        "confirmed",
+        "3-line doc fix by kaidenwang0309-hub: removes a superfluous import from the "
+        "<code>ungrouped-imports</code> example. Only the changelog check is red.",
+        "Add the skip news label and merge.",
+    ),
     # ---- review now -------------------------------------------------------
+    11676: (
+        "review",
+        "crash",
+        "crash",
+        "New, 58 lines by udsy19: <code>AttributeError: 'Subscript' object has no attribute "
+        "'name'</code> in <code>use-maxsplit-arg</code> when a loop holding "
+        "<code>text.split(',')[i]</code> also does <code>seq[i] += 1</code> or <code>obj.attr = "
+        "1</code>. Reproduced on main; the earlier fix for closed issue 11286 missed this target. "
+        "Green, full coverage, primer only the usual astropy noise.",
+        "Review first; backport candidate.",
+    ),
+    11690: (
+        "review",
+        "ready",
+        "confirmed",
+        "New, 24 lines by agustin18 for issue 9986 (Regression FP): "
+        "<code>unbalanced-dict-unpacking</code> on <code>.items()</code> of a dict held in an "
+        "instance attribute or defined in another scope. Green, full coverage, primer clean.",
+        "Review; backport candidate (regression).",
+    ),
+    11683: (
+        "review",
+        "ready",
+        "confirmed",
+        "New, 18 lines by udsy19 for issue 3808 (FP): <code>unnecessary-lambda</code> on "
+        "<code>lambda: (datetime.utcnow() + delta).isoformat()</code>, where the call sits inside "
+        "the receiver. Green, full coverage, primer only astropy noise.",
+        "Review.",
+    ),
+    11660: (
+        "review",
+        "ready",
+        "confirmed",
+        "281 lines by agustin18 for issue 9642 (FN): <code>possibly-used-before-assignment</code> "
+        "missed a name defined only in a loop body that may never run. Pushed 18 October: full "
+        "patch coverage now, 43/43 green, primer clean.",
+        "Review.",
+    ),
+    11461: (
+        "review",
+        "ready",
+        "confirmed",
+        "136 lines by agustin18 (FP): <code>invalid-overridden-method</code> when a property "
+        "overrides <code>Enum.value</code>. The run was released; 48/48 green, full coverage, "
+        "primer only astropy noise.",
+        "Review.",
+    ),
     11661: (
         "review",
         "ready",
@@ -117,17 +192,6 @@ V = {
         "used in a later stacked decorator. Functional test now, 43/43 green.",
         "Review.",
     ),
-    11615: (
-        "review",
-        "ready",
-        "confirmed",
-        "Issue 10137 (bug, 3 reactions): a path to <code>__Init__.py</code> with different "
-        "capitalization is treated as a module, not a package initializer, on Windows. The author "
-        "answered on 11 October: a human ran it on native Windows (<code>invalid-name</code> on "
-        "<code>__Init__</code> before, clean after); code and tests are Codex-assisted; the original "
-        "recursion warning was not reproduced. 50/50 green. Milestone 4.1.4.",
-        "Review; decide whether a fix that does not reproduce the reported recursion closes 10137.",
-    ),
     11624: (
         "review",
         "ready",
@@ -155,14 +219,6 @@ V = {
         "(subscription checks look at every inferred class).",
         "Review when CI and the primer finish.",
     ),
-    10507: (
-        "review",
-        "ready",
-        "stale",
-        "44/44 green, zero reviews, untouched since September 2025. Widens <code>invalid-envvar-default</code> to "
-        "<code>os.environ.get</code>.",
-        "Review or close with a reason. A year of silence on green CI is the worst of both.",
-    ),
     11396: (
         "review",
         "primer check",
@@ -187,7 +243,147 @@ V = {
         "the exact case of the issue.",
         "Review. Clean primer, confirmed issue.",
     ),
+    11664: (
+        "review",
+        "tests",
+        "feature",
+        "New, 426 lines by Julfried: directory-based pyreverse functional tests (regular and "
+        "namespace packages), sharing the config parsing with the single-file tests. Only the "
+        "changelog check is red.",
+        "Add skip news, then review with DudeNr33.",
+    ),
     # ---- approve the workflow run ----------------------------------------
+    11672: (
+        "approve",
+        "held",
+        "crash",
+        "New, 67 lines by VedantBhayani for crash 9277 (2 reactions): "
+        "<code>UnicodeEncodeError</code> in <code>BaseReporter.writeln</code> when stdout cannot "
+        "encode a message, e.g. Windows cp1252 with a non-Latin comment.",
+        "Approve the run, then review: crash, backport candidate.",
+    ),
+    11675: (
+        "approve",
+        "held",
+        "crash",
+        "New, 48 lines by elupus for crash 11674 (filed the same minute): <code>--jobs</code> above "
+        "1 crashes with <code>PermissionError</code> when <code>ProcessPoolExecutor</code> cannot "
+        "be created (sandbox without semaphores); falls back to one process like the existing "
+        "import check.",
+        "Approve the run, then review.",
+    ),
+    11644: (
+        "approve",
+        "held",
+        "confirmed",
+        "Issue 3732 (FP): <code>too-few-public-methods</code> on <code>attr.s</code>-decorated "
+        "classes. The author rebased on 16 October onto the merged <code>is_module_member</code> "
+        "(#11294), dropped the own helper, and added a <code>level</code> check so <code>from .attr "
+        "import s</code> is not taken for <code>attr.s</code>, with a unit test. That check touches "
+        "your helper.",
+        "Approve the run, then review the <code>level</code> change to "
+        "<code>is_module_member</code>.",
+    ),
+    11680: (
+        "approve",
+        "held",
+        "confirmed",
+        "New, 93 lines by soodoku for issue 11679 (bug, filed the same minute): "
+        "<code>duplicate-code</code> reports a block copied into three files as one pair; the third "
+        "copy never appears.",
+        "Approve the run, then review.",
+    ),
+    11682: (
+        "approve",
+        "held",
+        "confirmed",
+        "New, 72 lines by soodoku for issue 11681 (bug): <code>ignore-comments</code> of "
+        "<code>duplicate-code</code> cuts lines at a <code>#</code> inside a string; now uses "
+        "tokenize.",
+        "Approve the run, then review.",
+    ),
+    11663: (
+        "approve",
+        "held",
+        "confirmed",
+        "New, 219 lines by wesleybl for issue 11651 (FP, untriaged): <code>no-self-argument</code>, "
+        "<code>no-method-argument</code> and others on <code>zope.interface.Interface</code> "
+        "subclasses, whose base type is not a subclass of <code>type</code>.",
+        "Approve the run; triage 11651 with it.",
+    ),
+    11667: (
+        "approve",
+        "held",
+        "confirmed",
+        "New, 142 lines by summeriver13 for issue 7470 (FP, 1 reaction, re-confirmed by a user on "
+        "14 October): <code>function-redefined</code> for a function defined in two "
+        "<code>case</code> branches of one <code>match</code>.",
+        "Approve the run, then review.",
+    ),
+    11666: (
+        "approve",
+        "held",
+        "confirmed",
+        "New, 54 lines by summeriver13 for issue 10827 (FP): <code>unused-wildcard-import</code> "
+        "for names the module's <code>__all__</code> excludes, and <code>from . import *</code> "
+        "reported as an unused <code>*</code>.",
+        "Approve the run, then review.",
+    ),
+    11670: (
+        "approve",
+        "held",
+        "confirmed",
+        "New, 77 lines by abdull-ah-med for issue 2589 (FP): <code>redefined-outer-name</code> on a "
+        "local <code>import xml.etree</code> when <code>import xml</code> is already at module "
+        "level.",
+        "Approve the run, then review.",
+    ),
+    11691: (
+        "approve",
+        "held",
+        "confirmed",
+        "New this morning, 49 lines by b84330808 for issue 9666 (FP): <code>invalid-name</code> "
+        "ignores a module-level disable when <code>self._srv_status.field = ...</code> is assigned "
+        "on a ctypes <code>Structure</code> defined in another module (astroid adds the attribute "
+        "there, so the message lands in the other file).",
+        "Approve the run, then review.",
+    ),
+    11692: (
+        "approve",
+        "held",
+        "confirmed",
+        "New this morning, 101 lines by b84330808 for issue 9424 (FP): "
+        "<code>arguments-differ</code> when an override fills in a <code>ParamSpec</code> "
+        "(<code>*args: P.args, **kwargs: P.kwargs</code>) with concrete parameters, as mypy "
+        "accepts.",
+        "Approve the run, then review.",
+    ),
+    11673: (
+        "approve",
+        "held",
+        "confirmed",
+        "New, 59 lines by mehdimirzafaruk for issue 8680 (FN, 1 reaction): "
+        "<code>missing-parentheses-for-call-in-test</code> missed methods, as in <code>if "
+        "self.is_on:</code>.",
+        "Approve the run, then review.",
+    ),
+    11687: (
+        "approve",
+        "held",
+        "confirmed",
+        "New, 193 lines by ybai08 for issue 8968 (FN, 1 reaction, labelled Needs astroid update): "
+        "<code>implicit-str-concat</code> missed f-strings and t-strings (<code>JoinedStr</code>, "
+        "<code>TemplateStr</code>); done in pylint without the astroid change.",
+        "Approve the run; decide whether the pylint-side fix is enough.",
+    ),
+    10953: (
+        "approve",
+        "held",
+        "confirmed",
+        "pytest-remaster for the functional suite, mchris86 branch you rebased on 17 October (10 "
+        "commits); 10961 closed in its favour the same day. Run waits for approval.",
+        "Approve the run; it unblocks the autofix branch stacked on it.",
+    ),
     11417: (
         "approve",
         "held",
@@ -242,15 +438,6 @@ V = {
         "The author fixed the class-inside-function FP you found (<code>late_bound_module_name</code> "
         "test) on 13 October; the run waits for approval. Milestone 4.1.4.",
         "Approve the run, then re-review.",
-    ),
-    11579: (
-        "approve",
-        "held",
-        "confirmed",
-        "Enhancement: flag function calls in default arguments, extending "
-        "<code>dangerous-default-value</code> as you asked. New push on 13 October; the run waits for "
-        "approval.",
-        "Approve the run, then review the design.",
     ),
     11641: (
         "approve",
@@ -360,14 +547,6 @@ V = {
         "51 lines, <code>no-member</code> on an annotated enum value. Second PR from this contributor this month.",
         "Approve the run.",
     ),
-    11461: (
-        "approve",
-        "held",
-        "confirmed",
-        "136 lines. Treats <code>Enum.value</code> as overridable by a property in "
-        "<code>invalid-overridden-method</code>; the issue is confirmed.",
-        "Approve the run.",
-    ),
     # ---- retrigger --------------------------------------------------------
     11581: (
         "retrigger",
@@ -439,13 +618,6 @@ V = {
         "and squarely a maintainer concern.",
         "Retrigger and review — this is test-harness hygiene you benefit from directly.",
     ),
-    10961: (
-        "retrigger",
-        "no ci",
-        "feature",
-        "162 lines adding pytest-remaster to the functional suite. No review, no CI, no comment since April.",
-        "Decide whether a new test dependency is wanted at all before retriggering.",
-    ),
     11421: (
         "retrigger",
         "no ci",
@@ -463,6 +635,16 @@ V = {
         "Retrigger. The size needs a primer run before review.",
     ),
     # ---- author's move ----------------------------------------------------
+    11579: (
+        "author",
+        "blocked",
+        "feature",
+        "Enhancement: flag calls in default arguments, extending "
+        "<code>dangerous-default-value</code>. chrikrah blocked on 16 October: the docs still name "
+        "the deleted <code>allowed-default-calls</code> option, and <code>object()</code>, "
+        "<code>complex()</code>, <code>range()</code> now raise W0102.",
+        "Waiting on the author.",
+    ),
     11662: (
         "author",
         "astroid",
@@ -471,36 +653,6 @@ V = {
         "lists astroid cannot infer. You requested on 14 October that astroid infers better instead "
         "of pylint accepting inference failure; labelled Blocked / Needs astroid update.",
         "Waiting on an astroid fix.",
-    ),
-    11650: (
-        "author",
-        "red",
-        "crash",
-        "Crash 10278: <code>ImportError: Unable to find module</code> when an implicit namespace "
-        "package also exists in site-packages (or shadows a stdlib package like <code>email/</code>). "
-        "You milestoned it 4.1.4 with the backport label. Only the self-lint job is red, on the "
-        "spelling of <code>astroid's</code> in two comments (custom words get no possessive); the "
-        "cancelled jobs followed it.",
-        "Ask to rephrase the two comments (e.g. \"the is_namespace() of astroid\"), or push that fix "
-        "yourself, then review.",
-    ),
-    11660: (
-        "author",
-        "red",
-        "confirmed",
-        "New, 281 lines by agustin18 for issue 9642 (FN): "
-        "<code>possibly-used-before-assignment</code> missed a name defined only in a loop that may "
-        "never run (<code>for i in []:</code>, <code>while False:</code>). Only "
-        "<code>codecov/patch</code> red. Large for an FN; primer impact unknown.",
-        "Ask for full patch coverage; check the primer before reviewing.",
-    ),
-    11652: (
-        "author",
-        "red",
-        "confirmed",
-        "New, 3-line doc fix by kaidenwang0309-hub: removes a superfluous import from the "
-        "<code>ungrouped-imports</code> example. One check red.",
-        "Wait for green, then merge (docs).",
     ),
     11424: (
         "author",
@@ -624,13 +776,6 @@ V = {
         "891 lines over 17 files for a type-annotations checker. Green, changes requested, silent since June.",
         "Too big to land as-is. Ask for a split or close it.",
     ),
-    10953: (
-        "author",
-        "waiting",
-        "confirmed",
-        "One red check, no reviews, author's last word in April.",
-        "Pairs with 10950 and 10961 from the same contributor — handle the three together.",
-    ),
     11398: (
         "author",
         "waiting",
@@ -671,6 +816,35 @@ V = {
         "Ask for a rebase onto #11011, keeping only the package-root fix.",
     ),
     # ---- decide first -----------------------------------------------------
+    11668: (
+        "decide",
+        "dup",
+        "confirmed",
+        "New, 126 lines by summeriver13 for issue 10137 (bug, 3 reactions), competing with #11615: "
+        "normalizes the case of the whole input path instead of only the <code>__init__</code> "
+        "basename. The author compared both branches on Windows on 15 October. Run held.",
+        "Pick one of #11615 / #11668 for 10137 (milestone 4.1.4), close the other.",
+    ),
+    11615: (
+        "decide",
+        "dup",
+        "confirmed",
+        "Issue 10137 (bug, 3 reactions): <code>__Init__.py</code> with different capitalization is "
+        "linted as a module on Windows. 50/50 green, milestone 4.1.4. Since 15 October #11668 fixes "
+        "the same issue by normalizing the whole path; the reported recursion was reproduced by "
+        "neither.",
+        "Decide with #11668.",
+    ),
+    11678: (
+        "decide",
+        "design",
+        "feature",
+        "New, 513 lines by soodoku for issue 11677 (filed the same minute): an "
+        "<code>ignore-local-names</code> option so <code>duplicate-code</code> matches blocks that "
+        "differ only by renamed locals. One of 3 issue+PR pairs this account opened within 9 "
+        "minutes on 18 October; the issue carries measurements.",
+        "Decide whether the option is wanted before reading 513 lines.",
+    ),
     11648: (
         "decide",
         "dup",
@@ -681,16 +855,6 @@ V = {
         "for every comparison inside a comprehension; yours only exempts a <code>NamedExpr</code> in "
         "the condition and keeps the self-referencing TP.",
         "Close in favour of #11649, or credit the author.",
-    ),
-    11644: (
-        "decide",
-        "decide",
-        "confirmed",
-        "Issue 3732 (FP): <code>too-few-public-methods</code> on classes decorated with "
-        "<code>attr.s</code>, <code>attr.dataclass</code> and similar. You asked to build it on "
-        "<code>is_module_member</code> from #11294; the author tried it (a relative <code>from .attr "
-        "import s</code> resolves differently) and you said you will make the change.",
-        "Yours: rebase onto #11294 and adapt; merge after #11294.",
     ),
     11601: (
         "decide",
