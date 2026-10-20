@@ -71,9 +71,11 @@ V = {
         "crash",
         "Crash 10278: <code>ImportError: Unable to find module</code> when an implicit namespace "
         "package also exists in site-packages or shadows a stdlib package like <code>email/</code>. "
-        "The author fixed the <code>astroid's</code> spelling on 15 October; now 41/41 green, "
-        "primer clean, chrikrah approved. Milestone 4.1.4, backport label.",
-        "Review and merge; backport to 4.1.x.",
+        "41/41 green, primer clean, chrikrah approved. You asked on 19 October whether "
+        "<code>is_namespace()</code> should be fixed in astroid instead; the author answered the same "
+        "day: it is conservative on purpose (astroid 1756, pylint 7365) and only sees the module "
+        "name, so a fix there needs a path-aware API. Offers to open the astroid issue.",
+        "Accept the answer and merge (backport to 4.1.x), asking for the astroid issue as follow-up.",
     ),
     11640: (
         "merge",
@@ -123,6 +125,17 @@ V = {
         "instance attribute or defined in another scope. Green, full coverage, primer clean.",
         "Review; backport candidate (regression).",
     ),
+    11693: (
+        "review",
+        "ready",
+        "confirmed",
+        "New, 63 lines by agustin18 for issue 8567 (Regression FP): <code>unreachable</code> after "
+        "<code>signal.signal(..., lambda s, f: [print(), sys.exit(1)])</code>; the lambda guard only "
+        "looked at the direct parent. Green, unit + functional tests. Primer: 5 django "
+        "<code>invalid-name</code> on <code>settings.X = ...</code>, unrelated to the change (the "
+        "case #11691 targets).",
+        "Review.",
+    ),
     11683: (
         "review",
         "ready",
@@ -131,6 +144,26 @@ V = {
         "<code>lambda: (datetime.utcnow() + delta).isoformat()</code>, where the call sits inside "
         "the receiver. Green, full coverage, primer only astropy noise.",
         "Review.",
+    ),
+    11694: (
+        "review",
+        "ready",
+        "confirmed",
+        "New, 25 lines by agustin18 for issue 8145 (FP, 2 reactions): <code>undefined-variable</code> "
+        "on <code>def meth(self) -&gt; Foo</code> in a class defined inside a function, with "
+        "postponed annotations. Green, primer only astropy noise.",
+        "Review.",
+    ),
+    11695: (
+        "review",
+        "ready",
+        "confirmed",
+        "New, 30 lines by agustin18 for issue 4993 (FP, 2 reactions): <code>unused-import</code> on "
+        "<code>import gettext</code> used in a method annotation when the class later defines a "
+        "<code>gettext</code> property. Green, primer only astropy noise. Uses "
+        "<code>getattr(n, \"fromlineno\")</code> (AGENTS.md) and a module-wide <code>lookup</code> "
+        "heuristic.",
+        "Review; ask for isinstance and a narrower condition.",
     ),
     11660: (
         "review",
@@ -253,6 +286,33 @@ V = {
         "Add skip news, then review with DudeNr33.",
     ),
     # ---- approve the workflow run ----------------------------------------
+    11700: (
+        "approve",
+        "held",
+        "confirmed",
+        "New, 108 lines by manoj-1407 for new issue 11699 (bug, same author, Needs triage): "
+        "<code>--generate-toml-config</code>/<code>--generate-rcfile</code> write the options of "
+        "<code>--load-plugins</code> plugins but not <code>load-plugins</code>, so pylint rejects its "
+        "own output. Appends loaded dynamic plugins to <code>config.load_plugins</code>; 5 tests.",
+        "Approve the run; triage 11699 (reproduces as described).",
+    ),
+    11698: (
+        "approve",
+        "held",
+        "confirmed",
+        "New, 96 lines by mehdimirzafaruk for issue 3484 (FP, 3 reactions): "
+        "<code>using-constant-test</code> on <code>if self.cached:</code> when the method has an "
+        "unknown or class decorator (third-party <code>cached_property</code>).",
+        "Approve the run.",
+    ),
+    11697: (
+        "approve",
+        "held",
+        "confirmed",
+        "New, 43 lines by mehdimirzafaruk for issue 8628 (FP): <code>missing-param-doc</code> on "
+        "Sphinx <code>:param Union[str, int] name:</code>; the regex refused a space after a comma.",
+        "Approve the run.",
+    ),
     11672: (
         "approve",
         "held",
@@ -389,8 +449,10 @@ V = {
         "held",
         "confirmed",
         "For and With checkers did not run on <code>async for</code> / <code>async with</code>. The "
-        "author aliased the variables checker callbacks too (as you asked on 2 October) on 14 "
-        "October; the run waits for approval. Milestone 4.1.4.",
+        "author pushed again on 20 October: <code>too-many-nested-blocks</code> now has an async "
+        "test, each of the three gaps you listed fails on main; the two index-lookup checks are left "
+        "untested on purpose (explained). Run held, your changes requested still standing. "
+        "Milestone 4.1.4.",
         "Approve the run, then re-review.",
     ),
     11584: (
@@ -820,20 +882,20 @@ V = {
         "decide",
         "dup",
         "confirmed",
-        "New, 126 lines by summeriver13 for issue 10137 (bug, 3 reactions), competing with #11615: "
-        "normalizes the case of the whole input path instead of only the <code>__init__</code> "
-        "basename. The author compared both branches on Windows on 15 October. Run held.",
-        "Pick one of #11615 / #11668 for 10137 (milestone 4.1.4), close the other.",
+        "126 lines by summeriver13 for issue 10137, competing with #11615. Since 19 October the same "
+        "commit also sits on #11615's branch as ningkexin96/pylint#1; the author keeps this open only "
+        "as the fallback vehicle. Run held.",
+        "Close once #11615 takes the fix.",
     ),
     11615: (
         "decide",
         "dup",
         "confirmed",
         "Issue 10137 (bug, 3 reactions): <code>__Init__.py</code> with different capitalization is "
-        "linted as a module on Windows. 50/50 green, milestone 4.1.4. Since 15 October #11668 fixes "
-        "the same issue by normalizing the whole path; the reported recursion was reproduced by "
-        "neither.",
-        "Decide with #11668.",
+        "linted as a module on Windows. 52/52 green, milestone 4.1.4. On 19 October both authors "
+        "converged: ningkexin96 reproduced the directory-case and duplicate-input gaps on Windows "
+        "and summeriver13 opened the whole-path fix as ningkexin96/pylint#1 on top of this branch.",
+        "Tell ningkexin96 to merge their PR 1 into this branch, then review; close #11668.",
     ),
     11678: (
         "decide",
