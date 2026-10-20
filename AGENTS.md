@@ -158,3 +158,24 @@ When replacing such a guard:
   base — or the proxied node may legitimately lack the attribute (a `BoundMethod` can
   wrap a `Lambda`, which has no `.decorators`) — keep `hasattr`. That is honest
   duck-typing, not a grammar check, and `isinstance` cannot express it safely.
+
+## Triage: approve the held workflow runs of a pull request
+
+The workflows of a pull request from a first-time contributor wait in `action_required`
+until a maintainer approves them (the "Approve the run" lane of
+`.triage/pr-queue.html`). One push holds several runs (Tests, Primer, Checks, CodeQL,
+changelog), all on the head commit of the pull request. To approve all of them, change
+only `11700` to the pull request number:
+
+```shell
+pr=11700
+sha=$(gh pr view "$pr" --repo pylint-dev/pylint --json headRefOid --jq .headRefOid)
+gh api "repos/pylint-dev/pylint/actions/runs?head_sha=$sha&status=action_required" \
+  --jq '.workflow_runs[].id' |
+  xargs -I{} gh api -X POST "repos/pylint-dev/pylint/actions/runs/{}/approve"
+```
+
+Filter on the head commit, not the branch name: runs held from an earlier push would run
+old code. Read the diff first, since the approved workflows run the contributor's code.
+Approving is a maintainer action visible on GitHub: an agent only prints the command, a
+maintainer runs it.
