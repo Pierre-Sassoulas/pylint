@@ -65,6 +65,15 @@ LANES = {
 # n: (lane, verdict-chip-text, chip-class, finding, action)
 V = {
     # ---- merge lane -------------------------------------------------------
+    11672: (
+        "merge",
+        "approved",
+        "crash",
+        "Crash 9277 (2 reactions): <code>UnicodeEncodeError</code> in <code>BaseReporter.writeln</code> "
+        "when stdout cannot encode a message (Windows cp1252, non-Latin comment). chrikrah approved on "
+        "22 October; run released the same day: 43/43 green, full coverage, primer only astropy noise.",
+        "Merge; backport to 4.1.x.",
+    ),
     11640: (
         "merge",
         "approved",
@@ -93,15 +102,43 @@ V = {
         "Add the skip news label and merge.",
     ),
     # ---- review now -------------------------------------------------------
-    11675: (
+    11698: (
         "review",
-        "crash",
-        "crash",
-        "48 lines by elupus for crash 11674: <code>--jobs</code> above 1 crashes with "
-        "<code>PermissionError</code> when <code>ProcessPoolExecutor</code> cannot be created "
-        "(sandbox without semaphores); falls back to one process like the existing import check. "
-        "Run approved 22 October: 44/44 green, full coverage, primer only astropy noise.",
-        "Review first; backport candidate.",
+        "ready",
+        "confirmed",
+        "96 lines by mehdimirzafaruk for issue 3484 (FP, 3 reactions): <code>using-constant-test</code> "
+        "on <code>if self.cached:</code> when the method has an unknown or class decorator "
+        "(third-party <code>cached_property</code>). 43/43 green, full coverage. Primer removes 5 real "
+        "FPs (django <code>views/generic/base.py</code> x3, home-assistant x2); rest is noise.",
+        "Review.",
+    ),
+    11644: (
+        "review",
+        "ready",
+        "confirmed",
+        "Issue 3732 (FP, 16 reactions, High priority): <code>too-few-public-methods</code> on "
+        "<code>attr.s</code> / <code>attr.dataclass</code> classes. Rebased onto "
+        "<code>is_module_member</code> with a <code>level</code> check (touches your helper). 43/43 "
+        "green, full coverage; primer removes 7 ansible + several home-assistant FPs.",
+        "Re-review the <code>level</code> change to <code>is_module_member</code>, then merge.",
+    ),
+    11615: (
+        "review",
+        "ready",
+        "confirmed",
+        "Issue 10137 (bug, 3 reactions, milestone 4.1.4): <code>__Init__.py</code> with different "
+        "capitalization is linted as a module on Windows. Now carries the whole-path fix from the "
+        "closed #11668. 43/43 green; primer only the usual astropy/django/music21 noise.",
+        "Re-review (your changes requested still standing); backport.",
+    ),
+    11417: (
+        "review",
+        "ready",
+        "confirmed",
+        "For and With checkers did not run on <code>async for</code> / <code>async with</code>. "
+        "Milestone 4.1.4, backport label. 43/43 green; primer adds 3 home-assistant "
+        "<code>too-many-nested-blocks</code> on <code>async for</code>, the intended new hits.",
+        "Re-review (your changes requested still standing); backport.",
     ),
     11676: (
         "review",
@@ -113,17 +150,6 @@ V = {
         "1</code>. Reproduced on main; the earlier fix for closed issue 11286 missed this target. "
         "Green, full coverage, primer only the usual astropy noise.",
         "Review first; backport candidate.",
-    ),
-    11700: (
-        "review",
-        "ready",
-        "confirmed",
-        "108 lines by manoj-1407 for issue 11699 (bug, reproduced on 4.1.3, still Needs triage): "
-        "<code>--generate-toml-config</code>/<code>--generate-rcfile</code> write the options of "
-        "<code>--load-plugins</code> plugins but not <code>load-plugins</code>, so pylint rejects its "
-        "own output. Appends loaded dynamic plugins to <code>config.load_plugins</code>; 5 tests. "
-        "44/44 green, full coverage, primer only astropy noise.",
-        "Review; label 11699 as Bug.",
     ),
     11690: (
         "review",
@@ -295,45 +321,6 @@ V = {
         "Add skip news, then review with DudeNr33.",
     ),
     # ---- approve the workflow run ----------------------------------------
-    11672: (
-        "approve",
-        "held",
-        "crash",
-        "67 lines by VedantBhayani for crash 9277 (2 reactions): <code>UnicodeEncodeError</code> in "
-        "<code>BaseReporter.writeln</code> when stdout cannot encode a message, e.g. Windows cp1252 "
-        "with a non-Latin comment. chrikrah approved on 22 October (retry with the stream's own "
-        "encoding, checked on cp1252); the run is still held, so no CI yet.",
-        "Approve the run, then merge if green; backport candidate.",
-    ),
-    11703: (
-        "approve",
-        "held",
-        "confirmed",
-        "New, 51 lines by summeriver13 for issue 11701 (bug, same author, reproduced on 4.1.3): with "
-        "<code>--jobs</code> above 1, every message of a <code>--load-plugins</code> checker is "
-        "emitted twice (and counted twice in the score): the dynamic-plugin set was snapshotted "
-        "before the command-line plugins loaded, so workers registered a second copy.",
-        "Approve the run, then review; backport candidate.",
-    ),
-    11615: (
-        "approve",
-        "held",
-        "confirmed",
-        "Issue 10137 (bug, 3 reactions, milestone 4.1.4): <code>__Init__.py</code> with different "
-        "capitalization is linted as a module on Windows. The whole-path fix from #11668 is now on "
-        "this branch (<code>809157d</code>, <code>93fc234</code>, 21 October) and #11668 is closed; "
-        "the new head's six runs are held. Previous head was 52/52 green.",
-        "Approve the run, then review (your changes requested still standing).",
-    ),
-    11698: (
-        "approve",
-        "held",
-        "confirmed",
-        "New, 96 lines by mehdimirzafaruk for issue 3484 (FP, 3 reactions): "
-        "<code>using-constant-test</code> on <code>if self.cached:</code> when the method has an "
-        "unknown or class decorator (third-party <code>cached_property</code>).",
-        "Approve the run.",
-    ),
     11697: (
         "approve",
         "held",
@@ -341,6 +328,16 @@ V = {
         "New, 43 lines by mehdimirzafaruk for issue 8628 (FP): <code>missing-param-doc</code> on "
         "Sphinx <code>:param Union[str, int] name:</code>; the regex refused a space after a comma.",
         "Approve the run.",
+    ),
+    11708: (
+        "approve",
+        "held",
+        "confirmed",
+        "New, 152 lines by ykakade for issue 9745 (Proposal, 0 reactions): "
+        "<code>invalid-overridden-method</code> accepts a sync override that directly returns a "
+        "coroutine call (<code>return sleep(0)</code>) of an async parent, and the reverse. Return "
+        "annotations alone do not count.",
+        "Low priority: approve with the next batch.",
     ),
     11704: (
         "approve",
@@ -351,18 +348,6 @@ V = {
         "**{\"end\": \"?\"})</code>, because the check came after the early return for callees "
         "without argument information. Moves the check up.",
         "Low priority: approve with the next batch.",
-    ),
-    11644: (
-        "approve",
-        "held",
-        "confirmed",
-        "Issue 3732 (FP): <code>too-few-public-methods</code> on <code>attr.s</code>-decorated "
-        "classes. The author rebased on 16 October onto the merged <code>is_module_member</code> "
-        "(#11294), dropped the own helper, and added a <code>level</code> check so <code>from .attr "
-        "import s</code> is not taken for <code>attr.s</code>, with a unit test. That check touches "
-        "your helper.",
-        "Approve the run, then review the <code>level</code> change to "
-        "<code>is_module_member</code>.",
     ),
     11680: (
         "approve",
@@ -464,17 +449,6 @@ V = {
         "commits); 10961 closed in its favour the same day. Run waits for approval.",
         "Approve the run; it unblocks the autofix branch stacked on it.",
     ),
-    11417: (
-        "approve",
-        "held",
-        "confirmed",
-        "For and With checkers did not run on <code>async for</code> / <code>async with</code>. The "
-        "author pushed again on 20 October: <code>too-many-nested-blocks</code> now has an async "
-        "test, each of the three gaps you listed fails on main; the two index-lookup checks are left "
-        "untested on purpose (explained). Run held, your changes requested still standing. "
-        "Milestone 4.1.4.",
-        "Approve the run, then re-review.",
-    ),
     11657: (
         "approve",
         "held",
@@ -502,15 +476,6 @@ V = {
         "<code>test_package_expansion_order</code>; the run waits for approval. Astroid #3384 (cache "
         "of budget-truncated inference) targets the inference side of the same symptom (11582).",
         "Approve the run; compare with astroid #3384.",
-    ),
-    11641: (
-        "approve",
-        "held",
-        "confirmed",
-        "Issue 10025 (FP): <code>import-self</code> when an extensionless script has the same "
-        "basename as an importable module it imports from. Functional tests added as you asked on 12 "
-        "October; the run waits for approval.",
-        "Approve the run, then review.",
     ),
     11655: (
         "approve",
@@ -699,6 +664,34 @@ V = {
         "Retrigger. The size needs a primer run before review.",
     ),
     # ---- author's move ----------------------------------------------------
+    11675: (
+        "author",
+        "changes",
+        "crash",
+        "Crash 11674: <code>--jobs</code> above 1 crashes with <code>PermissionError</code> when "
+        "<code>ProcessPoolExecutor</code> cannot be created (sandbox). Green. You requested changes "
+        "on 22 October: check more before trying the pool so a one-CPU machine does not create an "
+        "executor for nothing (+15 to +40 ms).",
+        "Wait for the author.",
+    ),
+    11703: (
+        "author",
+        "red",
+        "confirmed",
+        "Issue 11701 (bug, reproduced on 4.1.3): with <code>--jobs</code> above 1, every message of a "
+        "<code>--load-plugins</code> checker is emitted twice. 42/43: only the spelling check fails "
+        "on <code>deregister</code> in a test docstring. Full coverage; primer only noise.",
+        "Ask for the one-word fix (or add it to the dictionary); review meanwhile, backport candidate.",
+    ),
+    11641: (
+        "author",
+        "red",
+        "confirmed",
+        "Issue 10025 (FP): <code>import-self</code> when an extensionless script has the same "
+        "basename as an importable module. 42/43: only the spelling check fails on "
+        "<code>extensionless</code> in a docstring. Primer only noise.",
+        "Ask for the one-word fix; then re-review.",
+    ),
     11579: (
         "author",
         "blocked",

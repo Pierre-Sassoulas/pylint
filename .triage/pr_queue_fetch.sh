@@ -39,9 +39,10 @@ retry meta.json number,closingIssuesReferences,comments
 # Paginated: one page holds 100 runs and there are several hundred, so the
 # oldest held pull requests would otherwise look like they never got a run.
 # Matched on the head commit: a held run left over from an earlier push does
-# not mean the current commit is waiting.
+# not mean the current commit is waiting. The changelog workflow is held again
+# on every label change, after the test matrix already ran, so it is ignored.
 gh api --paginate "repos/$REPO/actions/runs?status=action_required&per_page=100" \
-  --jq '.workflow_runs[].head_sha' | jq -R . | jq -s 'unique' >"$TMP/pending.json"
+  --jq '.workflow_runs[] | select(.name != "changelog") | .head_sha' | jq -R . | jq -s 'unique' >"$TMP/pending.json"
 
 # Linked issues, fetched one by one so labels and state_reason are current
 # rather than whatever the issue snapshot held.

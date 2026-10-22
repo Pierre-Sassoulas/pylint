@@ -1,7 +1,7 @@
 {
  "snapshot": "2026-10-22",
  "owner": "Pierre-Sassoulas",
- "open_total": 139,
+ "open_total": 140,
  "open_own": 22,
  "prs": [
   {
@@ -1033,7 +1033,7 @@
     "False Negative 🦋"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "CONFLICTING",
+   "merge": "UNKNOWN",
    "ci": "not-run",
    "citot": 2,
    "cifail": 0,
@@ -1125,7 +1125,7 @@
     "False Positive 🦟"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "awaiting-approval",
    "citot": 4,
    "cifail": 0,
@@ -1435,15 +1435,15 @@
    "size": 93,
    "files": 15,
    "created": "2026-09-13",
-   "updated": "2026-10-20",
+   "updated": "2026-10-22",
    "labels": [
     "Bug :beetle:",
     "backport maintenance/4.1.x"
    ],
    "rd": "CHANGES_REQUESTED",
    "merge": "UNKNOWN",
-   "ci": "awaiting-approval",
-   "citot": 2,
+   "ci": "green",
+   "citot": 43,
    "cifail": 0,
    "nrev": 2,
    "mrev": [
@@ -1452,8 +1452,8 @@
    ],
    "links": [],
    "lastcom": [
-    "arpitjain099",
-    "2026-10-20"
+    "github-actions",
+    "2026-10-22"
    ]
   },
   {
@@ -2186,7 +2186,7 @@
    "size": 271,
    "files": 4,
    "created": "2026-10-09",
-   "updated": "2026-10-21",
+   "updated": "2026-10-22",
    "labels": [
     "Bug :beetle:",
     "Needs reproduction :mag:",
@@ -2195,8 +2195,8 @@
    ],
    "rd": "CHANGES_REQUESTED",
    "merge": "UNKNOWN",
-   "ci": "awaiting-approval",
-   "citot": 2,
+   "ci": "green",
+   "citot": 43,
    "cifail": 0,
    "nrev": 1,
    "mrev": [
@@ -2204,8 +2204,8 @@
    ],
    "links": [],
    "lastcom": [
-    "summeriver13",
-    "2026-10-21"
+    "github-actions",
+    "2026-10-22"
    ]
   },
   {
@@ -2221,7 +2221,7 @@
     "False Negative 🦋"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "awaiting-approval",
    "citot": 4,
    "cifail": 0,
@@ -2500,15 +2500,15 @@
    "size": 93,
    "files": 15,
    "created": "2026-10-11",
-   "updated": "2026-10-12",
+   "updated": "2026-10-22",
    "labels": [
     "False Positive 🦟"
    ],
    "rd": "CHANGES_REQUESTED",
    "merge": "UNKNOWN",
-   "ci": "awaiting-approval",
-   "citot": 2,
-   "cifail": 0,
+   "ci": "failing",
+   "citot": 43,
+   "cifail": 1,
    "nrev": 1,
    "mrev": [
     "Pierre-Sassoulas"
@@ -2521,8 +2521,8 @@
     ]
    ],
    "lastcom": [
-    "ningkexin96",
-    "2026-10-12"
+    "github-actions",
+    "2026-10-22"
    ]
   },
   {
@@ -2533,14 +2533,14 @@
    "size": 167,
    "files": 7,
    "created": "2026-10-11",
-   "updated": "2026-10-16",
+   "updated": "2026-10-22",
    "labels": [
     "False Positive 🦟"
    ],
    "rd": "CHANGES_REQUESTED",
    "merge": "UNKNOWN",
-   "ci": "awaiting-approval",
-   "citot": 2,
+   "ci": "green",
+   "citot": 43,
    "cifail": 0,
    "nrev": 1,
    "mrev": [
@@ -2554,8 +2554,8 @@
     ]
    ],
    "lastcom": [
-    "Om-singhaI",
-    "2026-10-16"
+    "github-actions",
+    "2026-10-22"
    ]
   },
   {
@@ -3064,8 +3064,8 @@
    "labels": [],
    "rd": "REVIEW_REQUIRED",
    "merge": "UNKNOWN",
-   "ci": "awaiting-approval",
-   "citot": 3,
+   "ci": "green",
+   "citot": 44,
    "cifail": 0,
    "nrev": 1,
    "mrev": [],
@@ -3077,8 +3077,8 @@
     ]
    ],
    "lastcom": [
-    "-",
-    "-"
+    "github-actions",
+    "2026-10-22"
    ]
   },
   {
@@ -3092,7 +3092,7 @@
    "updated": "2026-10-17",
    "labels": [],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "awaiting-approval",
    "citot": 3,
    "cifail": 0,
@@ -3119,14 +3119,20 @@
    "files": 3,
    "created": "2026-10-17",
    "updated": "2026-10-22",
-   "labels": [],
-   "rd": "REVIEW_REQUIRED",
+   "labels": [
+    "Bug :beetle:",
+    "multiprocessing",
+    "backport maintenance/4.1.x"
+   ],
+   "rd": "CHANGES_REQUESTED",
    "merge": "UNKNOWN",
    "ci": "green",
-   "citot": 44,
+   "citot": 47,
    "cifail": 0,
-   "nrev": 0,
-   "mrev": [],
+   "nrev": 1,
+   "mrev": [
+    "Pierre-Sassoulas"
+   ],
    "links": [
     [
      11674,
@@ -3492,7 +3498,7 @@
    "updated": "2026-10-20",
    "labels": [],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "awaiting-approval",
    "citot": 3,
    "cifail": 0,
@@ -3518,12 +3524,12 @@
    "size": 96,
    "files": 4,
    "created": "2026-10-20",
-   "updated": "2026-10-20",
+   "updated": "2026-10-22",
    "labels": [],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
-   "ci": "awaiting-approval",
-   "citot": 3,
+   "merge": "UNKNOWN",
+   "ci": "green",
+   "citot": 44,
    "cifail": 0,
    "nrev": 1,
    "mrev": [],
@@ -3535,37 +3541,8 @@
     ]
    ],
    "lastcom": [
-    "-",
-    "-"
-   ]
-  },
-  {
-   "n": 11700,
-   "a": "manoj-1407",
-   "t": "Include plugins from the command line in the generated config",
-   "draft": false,
-   "size": 108,
-   "files": 3,
-   "created": "2026-10-20",
-   "updated": "2026-10-20",
-   "labels": [],
-   "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
-   "ci": "green",
-   "citot": 44,
-   "cifail": 0,
-   "nrev": 0,
-   "mrev": [],
-   "links": [
-    [
-     11699,
-     "",
-     ""
-    ]
-   ],
-   "lastcom": [
     "github-actions",
-    "2026-10-20"
+    "2026-10-22"
    ]
   },
   {
@@ -3576,13 +3553,16 @@
    "size": 51,
    "files": 4,
    "created": "2026-10-20",
-   "updated": "2026-10-20",
-   "labels": [],
+   "updated": "2026-10-22",
+   "labels": [
+    "Bug :beetle:",
+    "backport maintenance/4.1.x"
+   ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
-   "ci": "awaiting-approval",
-   "citot": 2,
-   "cifail": 0,
+   "merge": "MERGEABLE",
+   "ci": "failing",
+   "citot": 45,
+   "cifail": 1,
    "nrev": 0,
    "mrev": [],
    "links": [
@@ -3593,8 +3573,8 @@
     ]
    ],
    "lastcom": [
-    "-",
-    "-"
+    "github-actions",
+    "2026-10-22"
    ]
   },
   {
@@ -3608,7 +3588,7 @@
    "updated": "2026-10-21",
    "labels": [],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "awaiting-approval",
    "citot": 3,
    "cifail": 0,
@@ -3621,6 +3601,58 @@
      ""
     ]
    ],
+   "lastcom": [
+    "-",
+    "-"
+   ]
+  },
+  {
+   "n": 11708,
+   "a": "ykakade",
+   "t": "Fix coroutine-returning method overrides",
+   "draft": true,
+   "size": 152,
+   "files": 5,
+   "created": "2026-10-22",
+   "updated": "2026-10-22",
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "awaiting-approval",
+   "citot": 3,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [
+    [
+     9745,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "-",
+    "-"
+   ]
+  },
+  {
+   "n": 11709,
+   "a": "app/pylint-backport",
+   "t": "[Backport maintenance/4.1.x] Include plugins from the command line in the generated config",
+   "draft": false,
+   "size": 104,
+   "files": 3,
+   "created": "2026-10-22",
+   "updated": "2026-10-22",
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "running",
+   "citot": 16,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [],
    "lastcom": [
     "-",
     "-"
@@ -4380,6 +4412,17 @@
    "title": "Can't update functional test refs"
   },
   {
+   "comments": 5,
+   "labels": [
+    "Proposal 📨",
+    "Needs PR"
+   ],
+   "number": 9745,
+   "state": "open",
+   "state_reason": null,
+   "title": "Pylint is not smart enough when analyzes functions returning coroutine."
+  },
+  {
    "comments": 1,
    "labels": [
     "Documentation :green_book:",
@@ -4831,7 +4874,11 @@
   },
   {
    "comments": 0,
-   "labels": [],
+   "labels": [
+    "Bug :beetle:",
+    "Work in progress",
+    "multiprocessing"
+   ],
    "number": 11674,
    "state": "open",
    "state_reason": null,
@@ -4872,18 +4919,10 @@
    "title": "Default `py-version` to `requires-python` from `pyproject.toml`"
   },
   {
-   "comments": 0,
+   "comments": 1,
    "labels": [
-    "Needs triage :inbox_tray:"
+    "Bug :beetle:"
    ],
-   "number": 11699,
-   "state": "open",
-   "state_reason": null,
-   "title": "`--generate-toml-config` and `--generate-rcfile` leave out plugins given with `--load-plugins`"
-  },
-  {
-   "comments": 0,
-   "labels": [],
    "number": 11701,
    "state": "open",
    "state_reason": null,
