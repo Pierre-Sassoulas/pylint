@@ -31,6 +31,14 @@
   td.finding {{ width: 27%; }}
   td.finding em, td.action em {{ font-style: normal; color: var(--ink); }}
   table {{ min-width: 1120px; }}
+  .todo {{ margin-top: 32px; padding: 16px 20px; border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: var(--radius); background: var(--surface); }}
+  .todo h2 {{ font-family: "IBM Plex Serif", Georgia, serif; font-size: 20px; font-weight: 600; margin: 0 0 4px; }}
+  .todo h3 {{ font-size: 14px; font-weight: 600; margin: 16px 0 6px; }}
+  .todo ol {{ margin: 0; padding-left: 22px; }}
+  .todo li {{ margin: 3px 0; font-size: 13.5px; line-height: 1.45; }}
+  .todo li .k {{ font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 10.5px; color: var(--ink-soft); border: 1px solid var(--line); border-radius: var(--radius); padding: 0 5px; margin-right: 4px; white-space: nowrap; }}
+  .todo li .do {{ color: var(--ink-soft); }}
+  .todo pre {{ margin: 8px 0 0; padding: 10px 12px; overflow-x: auto; background: var(--surface-2); border-radius: var(--radius); font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 12px; white-space: pre-wrap; word-break: break-all; }}
 </style>
 </head>
 <body>
@@ -60,6 +68,8 @@
     <div style="--stripe: var(--dup)"><div class="n">{counts[decide]}</div><div class="k">decide first</div></div>
     <div style="--stripe: var(--ink-faint)"><div class="n">{counts[stale]}</div><div class="k">stale / take over</div></div>
   </div>
+
+  {todo}
 
   {body}
 

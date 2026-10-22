@@ -65,16 +65,6 @@ LANES = {
 # n: (lane, verdict-chip-text, chip-class, finding, action)
 V = {
     # ---- merge lane -------------------------------------------------------
-    11672: (
-        "merge",
-        "approved",
-        "crash",
-        "Crash 9277 (2 reactions): <code>UnicodeEncodeError</code> in <code>BaseReporter.writeln</code> "
-        "when stdout cannot encode a message (Windows cp1252, non-Latin comment). chrikrah approved on "
-        "22 October; run released the same day: 43/43 green, full coverage, primer only astropy noise. "
-        "You have a pending (unsubmitted) review on it.",
-        "Submit your review and merge; backport to 4.1.x.",
-    ),
     11640: (
         "merge",
         "approved",
@@ -382,15 +372,6 @@ V = {
         "copy never appears.",
         "Approve the run, then review.",
     ),
-    11682: (
-        "approve",
-        "held",
-        "confirmed",
-        "New, 72 lines by soodoku for issue 11681 (bug): <code>ignore-comments</code> of "
-        "<code>duplicate-code</code> cuts lines at a <code>#</code> inside a string; now uses "
-        "tokenize.",
-        "Approve the run, then review.",
-    ),
     11667: (
         "approve",
         "held",
@@ -679,6 +660,26 @@ V = {
         "Retrigger. The size needs a primer run before review.",
     ),
     # ---- author's move ----------------------------------------------------
+    11672: (
+        "author",
+        "changes",
+        "crash",
+        "Crash 9277 (2 reactions): <code>UnicodeEncodeError</code> when stdout cannot encode a "
+        "message. Green, chrikrah approved, but you requested changes on 22 October: the 9277 "
+        "traceback goes through colorama's <code>AnsiToWin32</code> wrapper in "
+        "<code>ColorizedTextReporter</code>, which this PR may not fix; plus a fragment rewording.",
+        "Wait for the author's answer on the colorama path.",
+    ),
+    11682: (
+        "author",
+        "red",
+        "confirmed",
+        "72 lines by soodoku for issue 11681 (bug): <code>ignore-comments</code> of "
+        "<code>duplicate-code</code> cut lines at a <code>#</code> inside a string; now uses "
+        "<code>tokenize</code>. Run released 22 October: the spelling check fails on "
+        "<code>Tokenizing</code> / <code>tokenized</code>; tests still running.",
+        "Wait for the spelling fix (or add the words to the dictionary).",
+    ),
     11715: (
         "author",
         "red",
@@ -1218,6 +1219,57 @@ for lane in LANE_ORDER:
         )
     body.append("</tbody></table></div></section>")
 
+# "To do now": the few items worth acting on today, in priority order. A held
+# run is only worth approving for a crash, a bug, a High priority item or an
+# issue with at least two reactions; the rest of the approve lane can wait.
+TODO_REVIEW = 8
+TODO_APPROVE = 8
+APPROVE_LOOP = (
+    'for pr in {numbers}; do sha=$(gh pr view "$pr" --repo pylint-dev/pylint --json headRefOid '
+    "--jq .headRefOid); gh api \"repos/pylint-dev/pylint/actions/runs?head_sha=$sha&amp;"
+    "status=action_required\" --jq '.workflow_runs[].id' | xargs -I{{}} gh api -X POST "
+    '"repos/pylint-dev/pylint/actions/runs/{{}}/approve"; done'
+)
+
+
+def lane_members(lane: str) -> list:
+    return sorted((n for n in rows if V.get(n, (None,))[0] == lane), key=priority)
+
+
+def worth_a_run(n: int) -> bool:
+    category, not_high, minus_reactions, _ = priority(n)
+    return category <= 1 or not not_high or minus_reactions <= -2
+
+
+def todo_item(n: int) -> str:
+    return (
+        f'<li><a href="https://github.com/pylint-dev/pylint/pull/{n}">#{n}</a> '
+        f'<span class="k">{E(category_name(n))}</span>{E(rows[n]["t"])} '
+        f'<span class="do">— {V[n][4]}</span></li>'
+    )
+
+
+todo_approve = [
+    n
+    for n in lane_members("approve")
+    if rows[n]["ci"] == "awaiting-approval" and worth_a_run(n)
+][:TODO_APPROVE]
+todo = ['<section class="todo"><h2>To do now</h2>']
+for title, items in (
+    ("1. Merge", lane_members("merge")),
+    ("2. Review", lane_members("review")[:TODO_REVIEW]),
+    ("3. Approve the run", todo_approve),
+    ("4. Decide (crash or bug)", [n for n in lane_members("decide") if priority(n)[0] <= 1]),
+):
+    if not items:
+        continue
+    todo.append(f"<h3>{title}</h3><ol>")
+    todo.extend(todo_item(n) for n in items)
+    todo.append("</ol>")
+    if items is todo_approve:
+        todo.append(f"<pre>{APPROVE_LOOP.format(numbers=' '.join(map(str, items)))}</pre>")
+todo.append("</section>")
+
 n_open = DATA["open_total"]
 n_own = DATA["open_own"]
 n_bot = sum(1 for r in rows.values() if r["a"].startswith("app/"))
@@ -1243,6 +1295,7 @@ page = (
         n_conflict=n_conflict,
         snapshot=DATA["snapshot"],
         snapshot_long=__import__("datetime").date.fromisoformat(DATA["snapshot"]).strftime("%-d %B %Y"),
+        todo="".join(todo),
         body="".join(body),
     )
 )
