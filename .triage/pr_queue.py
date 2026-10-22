@@ -85,15 +85,15 @@ V = {
         "Merge after DudeNr33, or rerun the cancelled job and merge.",
     ),
     # ---- review now -------------------------------------------------------
-    11703: (
+    11711: (
         "review",
         "ready",
         "confirmed",
-        "Issue 11701 (bug, reproduced on 4.1.3): with <code>--jobs</code> above 1, every message of a "
-        "<code>--load-plugins</code> checker is emitted twice. The author fixed the spelling and added "
-        "two commits on 22 October (track checkers of a plugin that then fails to import; check the "
-        "messages a worker emits). Green, full coverage, primer only noise.",
-        "Review; backport candidate.",
+        "New, 144 lines by fly1d for issue 22 (pyreverse bug, Minor, 1 reaction): "
+        "<code>pyreverse --class Target a.py b.py</code> dies with <code>ValueError</code> instead of "
+        "asking for a qualified class name; unknown modules/classes also gave tracebacks. Now an error "
+        "on stderr, exit 1. Green, primer clean.",
+        "Review.",
     ),
     11663: (
         "review",
@@ -325,6 +325,26 @@ V = {
         "Add skip news, then review with DudeNr33.",
     ),
     # ---- approve the workflow run ----------------------------------------
+    11714: (
+        "approve",
+        "held",
+        "confirmed",
+        "New, 23 lines by nk-batman21 for their issue 11713 (FP, reproduced on 4.1.3): "
+        "<code>bad-string-format-type</code> on <code>\"%-*s %d\" % (width, name, count)</code>: a "
+        "<code>*</code> width takes its own argument, so every later argument was checked against the "
+        "wrong type. Also catches the real mismatches it used to miss.",
+        "Approve the run, then review; backport candidate.",
+    ),
+    11717: (
+        "approve",
+        "held",
+        "feature",
+        "New, 224 lines by anyingiit (AI-generated, \"requested by winshyon\") for issue 7534 "
+        "(enhancement, Help wanted, 0 reactions): optional extension "
+        "<code>non-standard-exit-argument-names</code> (C3801) for <code>__exit__</code> / "
+        "<code>__aexit__</code> parameters not named <code>exc_type, exc_value, traceback</code>.",
+        "Low priority.",
+    ),
     11697: (
         "approve",
         "held",
@@ -659,6 +679,15 @@ V = {
         "Retrigger. The size needs a primer run before review.",
     ),
     # ---- author's move ----------------------------------------------------
+    11715: (
+        "author",
+        "red",
+        "confirmed",
+        "New, 127 lines by fly1d for issue 9160 (FP, 0 reactions): <code>import-private-name</code> on "
+        "<code>from _sibling import Public</code> when <code>_sibling.py</code> sits next to the file. "
+        "Only the spelling check fails (<code>initializers</code> in a comment); primer only noise.",
+        "Wait for the one-word fix, then review.",
+    ),
     11675: (
         "author",
         "changes",
@@ -744,14 +773,6 @@ V = {
         "4.2.0. You asked for an error on a non-boolean value (<code>exit-zero = \"maybe\"</code>), an "
         "INI test, an <code>errors-only = false</code> test, and to reuse #10903's functional config "
         "tests with a Co-authored-by trailer.",
-        "Waiting on the author.",
-    ),
-    11557: (
-        "author",
-        "waiting",
-        "confirmed",
-        "You requested changes on 4 October: fix pre-commit and add coverage. Issue 10737, "
-        "generated-doc backslash escaping.",
         "Waiting on the author.",
     ),
     11370: (

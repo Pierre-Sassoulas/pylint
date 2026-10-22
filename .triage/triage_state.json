@@ -217,10 +217,10 @@
       "ts": "2026-05-12T10:37:49.587298+00:00"
     },
     "10737": {
-      "verdict": "DESIGN",
-      "note": "Docs bug: backslashes don't render in some auto-generated .rst pages. Partial PR exists (#10736). Documentation cleanup.",
-      "session": 1,
-      "ts": "2026-05-12T10:37:49.613042+00:00"
+      "verdict": "FIXED",
+      "note": "Fixed by PR 11557 (merged 2026-10-22, backported to 4.1.x as 11712): ships in 4.1.4.",
+      "session": 20,
+      "ts": "2026-10-22T20:02:03.936273+00:00"
     },
     "10731": {
       "verdict": "REPRO",
@@ -6409,10 +6409,10 @@
       "ts": "2026-10-22T11:45:29.104302+00:00"
     },
     "11701": {
-      "verdict": "REPRO",
-      "note": "Reproduced on 4.1.3: --load-plugins=pylint.extensions.overlapping_exceptions with -j2 prints every overlapping-except twice. _registered_dynamic_plugin_checkers is snapshotted before command-line plugins load, so workers register a second copy. Fix in PR 11703 (same author), run held.",
-      "session": 19,
-      "ts": "2026-10-22T09:50:08.437684+00:00"
+      "verdict": "FIXED",
+      "note": "Fixed by PR 11703 (merged 2026-10-22, backported to 4.1.x as 11716): ships in 4.1.4.",
+      "session": 20,
+      "ts": "2026-10-22T20:02:03.936273+00:00"
     },
     "11705": {
       "verdict": "EXTDEP",
@@ -6449,6 +6449,12 @@
       "note": "Docs clarified by PR 11710 (merged 2026-10-22, 'Refs', so the issue stays open): logging-format-style sets the style pylint expects in logging calls, it does not change runtime formatting. Can be closed. Earlier: Docs gap confirmed on main 75bb6994c: logging-format-style=new makes logging-too-many-args treat {} as placeholders, but stdlib logging only formats with % at runtime. Option docs should say new is for non-stdlib loggers. Good first issue.",
       "session": 20,
       "ts": "2026-10-22T14:15:37.000086+00:00"
+    },
+    "11713": {
+      "verdict": "REPRO",
+      "note": "Reproduced on 4.1.3: print(\"%-*s %d\" % (width, name, count)) gives E1307 bad-string-format-type (str vs d) though it runs fine; parse_format_string gives * width/precision no positional slot. Fix in PR 11714 (same author), run held.",
+      "session": 20,
+      "ts": "2026-10-22T20:02:03.936273+00:00"
     }
   },
   "session_count": 10
