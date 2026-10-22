@@ -1,7 +1,7 @@
 {
  "snapshot": "2026-10-22",
  "owner": "Pierre-Sassoulas",
- "open_total": 139,
+ "open_total": 137,
  "open_own": 22,
  "prs": [
   {
@@ -330,37 +330,6 @@
    "lastcom": [
     "DudeNr33",
     "2025-04-14"
-   ]
-  },
-  {
-   "n": 10507,
-   "a": "Aearsears",
-   "t": "Update `invalid-envvar-default` to `flag os.environ.get`",
-   "draft": false,
-   "size": 238,
-   "files": 9,
-   "created": "2025-08-19",
-   "updated": "2026-10-16",
-   "labels": [
-    "False Negative 🦋"
-   ],
-   "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
-   "ci": "green",
-   "citot": 43,
-   "cifail": 0,
-   "nrev": 0,
-   "mrev": [],
-   "links": [
-    [
-     10092,
-     "",
-     ""
-    ]
-   ],
-   "lastcom": [
-    "github-actions",
-    "2026-10-16"
    ]
   },
   {
@@ -900,7 +869,7 @@
     "pyreverse"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "green",
    "citot": 54,
    "cifail": 0,
@@ -935,7 +904,7 @@
     "High priority"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "UNKNOWN",
+   "merge": "CONFLICTING",
    "ci": "green",
    "citot": 50,
    "cifail": 0,
@@ -968,7 +937,7 @@
     "Enhancement ✨"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "awaiting-approval",
    "citot": 2,
    "cifail": 0,
@@ -1000,7 +969,7 @@
     "duplicate-code"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "not-run",
    "citot": 5,
    "cifail": 0,
@@ -1033,7 +1002,7 @@
     "False Negative 🦋"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "UNKNOWN",
+   "merge": "CONFLICTING",
    "ci": "not-run",
    "citot": 2,
    "cifail": 0,
@@ -1060,7 +1029,7 @@
     "False Positive 🦟"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "not-run",
    "citot": 2,
    "cifail": 0,
@@ -1094,7 +1063,7 @@
     "python 3.12"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "not-run",
    "citot": 5,
    "cifail": 0,
@@ -1125,7 +1094,7 @@
     "False Positive 🦟"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "not-run",
    "citot": 4,
    "cifail": 0,
@@ -1156,7 +1125,7 @@
     "False Positive 🦟"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "failing",
    "citot": 50,
    "cifail": 1,
@@ -1190,7 +1159,7 @@
     "C: invalid-name"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "not-run",
    "citot": 4,
    "cifail": 0,
@@ -1222,7 +1191,7 @@
     "False Positive 🦟"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "green",
    "citot": 7,
    "cifail": 0,
@@ -1253,8 +1222,8 @@
     "Skip news :mute:"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
-   "ci": "awaiting-approval",
+   "merge": "MERGEABLE",
+   "ci": "not-run",
    "citot": 2,
    "cifail": 0,
    "nrev": 2,
@@ -1281,7 +1250,7 @@
     "Optional Checkers"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "green",
    "citot": 51,
    "cifail": 0,
@@ -2221,7 +2190,7 @@
     "False Negative 🦋"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "awaiting-approval",
    "citot": 4,
    "cifail": 0,
@@ -2472,7 +2441,7 @@
     "pyreverse"
    ],
    "rd": "APPROVED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "green",
    "citot": 59,
    "cifail": 0,
@@ -2690,32 +2659,6 @@
    ]
   },
   {
-   "n": 11652,
-   "a": "kaidenwang0309-hub",
-   "t": "Corrected ungrouped-imports example by removing superfluous import",
-   "draft": false,
-   "size": 8,
-   "files": 2,
-   "created": "2026-10-12",
-   "updated": "2026-10-22",
-   "labels": [
-    "Documentation :green_book:",
-    "Skip news :mute:"
-   ],
-   "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
-   "ci": "failing",
-   "citot": 29,
-   "cifail": 1,
-   "nrev": 0,
-   "mrev": [],
-   "links": [],
-   "lastcom": [
-    "codecov",
-    "2026-10-12"
-   ]
-  },
-  {
    "n": 11654,
    "a": "agustin18",
    "t": "Fix false-negative signature-differs with keyword-only arguments (#5270)",
@@ -2761,7 +2704,7 @@
     "pyi"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "awaiting-approval",
    "citot": 5,
    "cifail": 0,
@@ -2951,8 +2894,8 @@
    ],
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "running",
-   "citot": 32,
+   "ci": "green",
+   "citot": 46,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -2964,8 +2907,8 @@
     ]
    ],
    "lastcom": [
-    "-",
-    "-"
+    "github-actions",
+    "2026-10-22"
    ]
   },
   {
@@ -3008,7 +2951,7 @@
     "False Positive 🦟"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "awaiting-approval",
    "citot": 5,
    "cifail": 0,
@@ -3105,11 +3048,13 @@
    ],
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "running",
+   "ci": "green",
    "citot": 48,
    "cifail": 0,
-   "nrev": 1,
-   "mrev": [],
+   "nrev": 2,
+   "mrev": [
+    "Pierre-Sassoulas"
+   ],
    "links": [
     [
      9277,
@@ -3650,8 +3595,8 @@
    ],
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "running",
-   "citot": 29,
+   "ci": "green",
+   "citot": 43,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -4382,7 +4327,8 @@
    "comments": 0,
    "labels": [
     "Bug :beetle:",
-    "pyreverse"
+    "pyreverse",
+    "Work in progress"
    ],
    "number": 9237,
    "reactions": 0,
@@ -4738,21 +4684,6 @@
    "state": "open",
    "state_reason": null,
    "title": "Class 'str' has no '__value__' member on PEP 695 TypeAliasType"
-  },
-  {
-   "comments": 4,
-   "labels": [
-    "Help wanted 🙏",
-    "Good first issue",
-    "False Negative 🦋",
-    "Hacktoberfest",
-    "Needs PR"
-   ],
-   "number": 10092,
-   "reactions": 0,
-   "state": "open",
-   "state_reason": null,
-   "title": "Question: Is there a reason that `invalid-envvar-default` only checks `os.getenv`, not `os.environ.get`"
   },
   {
    "comments": 0,

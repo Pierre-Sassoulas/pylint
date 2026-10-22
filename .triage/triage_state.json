@@ -733,10 +733,10 @@
       "ts": "2026-05-12T10:56:15.005327+00:00"
     },
     "10092": {
-      "verdict": "DESIGN",
-      "note": "Q/Enhancement: invalid-envvar-default only checks os.getenv defaults, should it also cover os.environ.get? Good-first-issue.",
-      "session": 2,
-      "ts": "2026-05-12T10:56:15.027196+00:00"
+      "verdict": "FIXED",
+      "note": "Fixed by PR 10507 (merged 2026-10-22): invalid-envvar-default now also checks os.environ.get. Ships in 4.2.0 (no backport label).",
+      "session": 20,
+      "ts": "2026-10-22T14:15:37.000086+00:00"
     },
     "10091": {
       "verdict": "REPRO",
@@ -6445,10 +6445,10 @@
       "verdict": "REPRO"
     },
     "11702": {
-      "note": "Docs gap confirmed on main 75bb6994c: logging-format-style=new makes logging-too-many-args treat {} as placeholders, but stdlib logging only formats with % at runtime. Option docs should say new is for non-stdlib loggers. Good first issue.",
+      "verdict": "FIXED",
+      "note": "Docs clarified by PR 11710 (merged 2026-10-22, 'Refs', so the issue stays open): logging-format-style sets the style pylint expects in logging calls, it does not change runtime formatting. Can be closed. Earlier: Docs gap confirmed on main 75bb6994c: logging-format-style=new makes logging-too-many-args treat {} as placeholders, but stdlib logging only formats with % at runtime. Option docs should say new is for non-stdlib loggers. Good first issue.",
       "session": 20,
-      "ts": "2026-10-22T12:40:02.592503+00:00",
-      "verdict": "REPRO"
+      "ts": "2026-10-22T14:15:37.000086+00:00"
     }
   },
   "session_count": 10

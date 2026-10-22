@@ -71,8 +71,9 @@ V = {
         "crash",
         "Crash 9277 (2 reactions): <code>UnicodeEncodeError</code> in <code>BaseReporter.writeln</code> "
         "when stdout cannot encode a message (Windows cp1252, non-Latin comment). chrikrah approved on "
-        "22 October; run released the same day: 43/43 green, full coverage, primer only astropy noise.",
-        "Merge; backport to 4.1.x.",
+        "22 October; run released the same day: 43/43 green, full coverage, primer only astropy noise. "
+        "You have a pending (unsubmitted) review on it.",
+        "Submit your review and merge; backport to 4.1.x.",
     ),
     11640: (
         "merge",
@@ -83,25 +84,28 @@ V = {
         "one cancelled job.",
         "Merge after DudeNr33, or rerun the cancelled job and merge.",
     ),
-    10507: (
-        "merge",
-        "yours",
-        "confirmed",
-        "<code>invalid-envvar-default</code> extended to <code>os.environ.get</code>. You pushed 3 "
-        "commits on 16 October (merge main, find the call by inference, accept a non-string default "
-        "passed straight to <code>bool()</code>). 43/43 green; primer adds one ansible true "
-        "positive (<code>bool</code> default).",
-        "Merge, or ask a second maintainer since the last commits are yours.",
-    ),
-    11652: (
-        "merge",
-        "docs",
-        "confirmed",
-        "3-line doc fix by kaidenwang0309-hub: removes a superfluous import from the "
-        "<code>ungrouped-imports</code> example. Only the changelog check is red.",
-        "Add the skip news label and merge.",
-    ),
     # ---- review now -------------------------------------------------------
+    11703: (
+        "review",
+        "ready",
+        "confirmed",
+        "Issue 11701 (bug, reproduced on 4.1.3): with <code>--jobs</code> above 1, every message of a "
+        "<code>--load-plugins</code> checker is emitted twice. The author fixed the spelling and added "
+        "two commits on 22 October (track checkers of a plugin that then fails to import; check the "
+        "messages a worker emits). Green, full coverage, primer only noise.",
+        "Review; backport candidate.",
+    ),
+    11663: (
+        "review",
+        "ready",
+        "confirmed",
+        "219 lines by wesleybl for issue 11651 (FP): <code>no-self-argument</code>, "
+        "<code>no-method-argument</code> and others on <code>zope.interface.Interface</code> "
+        "subclasses, whose base type is not a subclass of <code>type</code>. Green, full coverage, "
+        "primer only pandas noise. Triage on 13 October said the fix belongs in an astroid brain, "
+        "not in the checkers.",
+        "Review with that in mind: checker-side special case or astroid brain.",
+    ),
     11698: (
         "review",
         "ready",
@@ -366,15 +370,6 @@ V = {
         "<code>duplicate-code</code> cuts lines at a <code>#</code> inside a string; now uses "
         "tokenize.",
         "Approve the run, then review.",
-    ),
-    11663: (
-        "approve",
-        "held",
-        "confirmed",
-        "New, 219 lines by wesleybl for issue 11651 (FP, untriaged): <code>no-self-argument</code>, "
-        "<code>no-method-argument</code> and others on <code>zope.interface.Interface</code> "
-        "subclasses, whose base type is not a subclass of <code>type</code>.",
-        "Approve the run; triage 11651 with it.",
     ),
     11667: (
         "approve",
@@ -673,15 +668,6 @@ V = {
         "on 22 October: check more before trying the pool so a one-CPU machine does not create an "
         "executor for nothing (+15 to +40 ms).",
         "Wait for the author.",
-    ),
-    11703: (
-        "author",
-        "red",
-        "confirmed",
-        "Issue 11701 (bug, reproduced on 4.1.3): with <code>--jobs</code> above 1, every message of a "
-        "<code>--load-plugins</code> checker is emitted twice. 42/43: only the spelling check fails "
-        "on <code>deregister</code> in a test docstring. Full coverage; primer only noise.",
-        "Ask for the one-word fix (or add it to the dictionary); review meanwhile, backport candidate.",
     ),
     11641: (
         "author",
