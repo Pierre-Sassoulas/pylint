@@ -6419,6 +6419,36 @@
       "note": "Crash inside pylint-pytest: its fixture checker calls pytest.main in visit_module, which fails with ModuleNotFoundError: No module named 'platformdirs.pytest_plugin' (a stale pytest11 entry point in the user's environment) and is wrapped as AstroidError. Not a pylint or astroid bug; belongs to pylint-pytest / the environment.",
       "session": 19,
       "ts": "2026-10-22T09:50:08.437684+00:00"
+    },
+    "11674": {
+      "note": "Reproduced on main 75bb6994c by making os.sysconf('SC_SEM_NSEMS_MAX') raise PermissionError: --jobs=2 crashes in check_parallel when ProcessPoolExecutor() runs _check_system_limits. Fix in PR 11675 (backport 4.1.4).",
+      "session": 20,
+      "ts": "2026-10-22T12:40:02.592503+00:00",
+      "verdict": "REPRO"
+    },
+    "11677": {
+      "note": "Feature request: ignore-local-names option for duplicate-code (match blocks that differ only by consistently renamed locals). Nothing to reproduce; PR 11678 implements it, needs a decision.",
+      "session": 20,
+      "ts": "2026-10-22T12:40:02.592503+00:00",
+      "verdict": "DESIGN"
+    },
+    "11679": {
+      "note": "Reproduced on main 75bb6994c: three identical files give 'Similar lines in 2 files' (symilar and R0801), the third copy is dropped by the break in Symilar._compute_sims. Fix in PR 11680.",
+      "session": 20,
+      "ts": "2026-10-22T12:40:02.592503+00:00",
+      "verdict": "REPRO"
+    },
+    "11681": {
+      "note": "Reproduced on main 75bb6994c: with ignore-comments, COLOR_n = \"#ff000n\" vs \"#00ff0n\" are reported as 6 similar lines because line.split('#', 1) cuts strings. Fix in PR 11682 (tokenize).",
+      "session": 20,
+      "ts": "2026-10-22T12:40:02.592503+00:00",
+      "verdict": "REPRO"
+    },
+    "11702": {
+      "note": "Docs gap confirmed on main 75bb6994c: logging-format-style=new makes logging-too-many-args treat {} as placeholders, but stdlib logging only formats with % at runtime. Option docs should say new is for non-stdlib loggers. Good first issue.",
+      "session": 20,
+      "ts": "2026-10-22T12:40:02.592503+00:00",
+      "verdict": "REPRO"
     }
   },
   "session_count": 10

@@ -1110,6 +1110,50 @@ def issue_cell(links: list) -> str:
     return "".join(out)
 
 
+# Category first, then High priority, then reactions on the open linked
+# issues, then the most recently updated. Read from the PR labels, falling
+# back to the labels of its linked issues.
+CATEGORIES = ("Crash", "performance", "Bug", "False Positive", "False Negative", "Enhancement")
+
+
+def priority(n: int) -> tuple:
+    r = rows[n]
+    linked = [issues.get(number, {}) for number, _state, _labels in r["links"]]
+    labels = list(r["labels"])
+    for info in linked:
+        labels.extend(info.get("labels", []))
+    found = {c for c in CATEGORIES for name in labels if name.startswith(c)}
+    # Many false-positive issues also carry "Bug": the FP/FN label is the
+    # more precise kind, so "Bug" only counts when neither is present.
+    if found & {"False Positive", "False Negative"}:
+        found.discard("Bug")
+    category = min((CATEGORIES.index(c) for c in found), default=len(CATEGORIES))
+    # Crash and performance share the top rank.
+    category = max(category - 1, 0)
+    high = any(name.startswith("High priority") for name in labels)
+    reactions = sum(
+        info.get("reactions", 0) for info in linked if info.get("state") == "open"
+    )
+    return (category, not high, -reactions, "".join(chr(0x10FFFF - ord(c)) for c in r["updated"]))
+
+
+# PRs whose new tests were run with the source files reset to main (they must
+# fail) and with the PR merged into main (they must pass): n -> date checked.
+TESTED = {
+    n: "2026-10-22"
+    for n in (
+        11648, 11654, 11655, 11657, 11659, 11660, 11661, 11666, 11667, 11670,
+        11672, 11673, 11675, 11676, 11678, 11680, 11682, 11683, 11687, 11690,
+        11691, 11692, 11693, 11694, 11695, 11697, 11698, 11703, 11704, 11708,
+    )
+}
+
+
+def category_name(n: int) -> str:
+    rank = priority(n)[0]
+    return ("crash / perf", "bug", "false positive", "false negative", "enhancement", "other")[rank]
+
+
 CI_WORDS = {
     "green": ("all green", "no"),
     "failing": ("red", "yes"),
@@ -1122,7 +1166,7 @@ body = []
 for lane in LANE_ORDER:
     label, stripe, rubric = LANES[lane]
     members = [n for n in rows if V.get(n, (None,))[0] == lane]
-    members.sort(key=lambda n: rows[n]["updated"], reverse=True)
+    members.sort(key=priority)
     body.append(
         f'<section class="lane" data-lane="{lane}">'
         f'<h2 style="--stripe: {stripe}">{E(label)} <span class="count">{len(members)}</span></h2>'
@@ -1142,6 +1186,11 @@ for lane in LANE_ORDER:
             else ""
         )
         draft = '<span class="lab">draft</span>' if r["draft"] else ""
+        tested = (
+            f'<span class="repro no">tests fail on main, pass with PR ({TESTED[n]})</span>'
+            if n in TESTED
+            else ""
+        )
         reviewers = ", ".join(r["mrev"]) if r["mrev"] else "none"
         body.append(
             "<tr>"
@@ -1149,8 +1198,10 @@ for lane in LANE_ORDER:
             f'<span class="date">{E(r["a"])}</span>'
             f'<span class="date">{E(r["created"])} → {E(r["updated"])}</span></td>'
             f'<td class="what"><span class="t">{E(r["t"])}</span>'
-            f'<span class="msg">{r["size"]} lines · {r["files"]} files</span>{draft}{conflict}</td>'
+            f'<span class="msg">{r["size"]} lines · {r["files"]} files</span>{draft}{conflict}'
+            f'<span class="lab">{E(category_name(n))}</span></td>'
             f'<td class="verdict"><span class="chip {chip_cls}">{E(chip)}</span>'
+            f"{tested}"
             f'<span class="repro {ci_dot}">CI {ci_word}{fails}</span>'
             f'<span class="repro na">reviewed by {E(reviewers)}</span>'
             f'{issue_cell(r["links"])}</td>'

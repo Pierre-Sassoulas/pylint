@@ -1,7 +1,7 @@
 {
  "snapshot": "2026-10-22",
  "owner": "Pierre-Sassoulas",
- "open_total": 140,
+ "open_total": 139,
  "open_own": 22,
  "prs": [
   {
@@ -20,7 +20,7 @@
     "Needs take over 🛎️"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "CONFLICTING",
    "ci": "not-run",
    "citot": 0,
    "cifail": 0,
@@ -49,7 +49,7 @@
     "Needs take over 🛎️"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "UNKNOWN",
+   "merge": "CONFLICTING",
    "ci": "not-run",
    "citot": 2,
    "cifail": 0,
@@ -82,7 +82,7 @@
     "Needs take over 🛎️"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "CONFLICTING",
    "ci": "not-run",
    "citot": 2,
    "cifail": 0,
@@ -114,7 +114,7 @@
     "Needs take over 🛎️"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "UNKNOWN",
+   "merge": "CONFLICTING",
    "ci": "not-run",
    "citot": 0,
    "cifail": 0,
@@ -148,7 +148,7 @@
     "Needs take over 🛎️"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "not-run",
    "citot": 0,
    "cifail": 0,
@@ -178,7 +178,7 @@
     "Needs take over 🛎️"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "CONFLICTING",
    "ci": "not-run",
    "citot": 0,
    "cifail": 0,
@@ -205,7 +205,7 @@
     "Needs decision :lock:"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "UNKNOWN",
+   "merge": "CONFLICTING",
    "ci": "not-run",
    "citot": 2,
    "cifail": 0,
@@ -241,7 +241,7 @@
     "Skip news :mute:"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "CONFLICTING",
    "ci": "not-run",
    "citot": 2,
    "cifail": 0,
@@ -273,7 +273,7 @@
     "False Negative 🦋"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "CONFLICTING",
    "ci": "not-run",
    "citot": 0,
    "cifail": 0,
@@ -306,7 +306,7 @@
     "backport maintenance/4.1.x"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "not-run",
    "citot": 2,
    "cifail": 0,
@@ -345,7 +345,7 @@
     "False Negative 🦋"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "green",
    "citot": 43,
    "cifail": 0,
@@ -378,7 +378,7 @@
     "Needs decision :lock:"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "CONFLICTING",
    "ci": "failing",
    "citot": 48,
    "cifail": 1,
@@ -406,7 +406,7 @@
     "Enhancement ✨"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "failing",
    "citot": 46,
    "cifail": 4,
@@ -443,7 +443,7 @@
     "Needs decision :lock:"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "UNKNOWN",
+   "merge": "CONFLICTING",
    "ci": "failing",
    "citot": 48,
    "cifail": 6,
@@ -476,7 +476,7 @@
     "Enhancement ✨"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "green",
    "citot": 44,
    "cifail": 0,
@@ -511,7 +511,7 @@
     "Documentation :green_book:"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "UNKNOWN",
+   "merge": "CONFLICTING",
    "ci": "failing",
    "citot": 46,
    "cifail": 1,
@@ -547,7 +547,7 @@
     "Needs decision :lock:"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "failing",
    "citot": 40,
    "cifail": 8,
@@ -579,8 +579,8 @@
     "Documentation :green_book:"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
-   "ci": "awaiting-approval",
+   "merge": "MERGEABLE",
+   "ci": "not-run",
    "citot": 4,
    "cifail": 0,
    "nrev": 1,
@@ -612,7 +612,7 @@
     "tests"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "CONFLICTING",
    "ci": "not-run",
    "citot": 3,
    "cifail": 0,
@@ -644,7 +644,7 @@
     "Skip news :mute:"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "CONFLICTING",
    "ci": "awaiting-approval",
    "citot": 2,
    "cifail": 0,
@@ -669,7 +669,7 @@
     "Blocked 🚧"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "failing",
    "citot": 40,
    "cifail": 11,
@@ -703,7 +703,7 @@
     "Crash 💥"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "not-run",
    "citot": 5,
    "cifail": 0,
@@ -736,7 +736,7 @@
     "backport maintenance/4.1.x"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "UNKNOWN",
+   "merge": "CONFLICTING",
    "ci": "not-run",
    "citot": 2,
    "cifail": 0,
@@ -770,7 +770,7 @@
     "backport maintenance/4.1.x"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "green",
    "citot": 49,
    "cifail": 0,
@@ -804,7 +804,7 @@
     "tests"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "awaiting-approval",
    "citot": 53,
    "cifail": 0,
@@ -837,8 +837,8 @@
     "False Negative 🦋"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
-   "ci": "awaiting-approval",
+   "merge": "MERGEABLE",
+   "ci": "not-run",
    "citot": 4,
    "cifail": 0,
    "nrev": 0,
@@ -868,7 +868,7 @@
     "Enhancement ✨"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "CONFLICTING",
    "ci": "failing",
    "citot": 46,
    "cifail": 3,
@@ -900,7 +900,7 @@
     "pyreverse"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "green",
    "citot": 54,
    "cifail": 0,
@@ -935,7 +935,7 @@
     "High priority"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "UNKNOWN",
+   "merge": "CONFLICTING",
    "ci": "green",
    "citot": 50,
    "cifail": 0,
@@ -968,7 +968,7 @@
     "Enhancement ✨"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "awaiting-approval",
    "citot": 2,
    "cifail": 0,
@@ -1000,7 +1000,7 @@
     "duplicate-code"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "not-run",
    "citot": 5,
    "cifail": 0,
@@ -1033,7 +1033,7 @@
     "False Negative 🦋"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "UNKNOWN",
+   "merge": "CONFLICTING",
    "ci": "not-run",
    "citot": 2,
    "cifail": 0,
@@ -1060,7 +1060,7 @@
     "False Positive 🦟"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "not-run",
    "citot": 2,
    "cifail": 0,
@@ -1094,8 +1094,8 @@
     "python 3.12"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
-   "ci": "awaiting-approval",
+   "merge": "MERGEABLE",
+   "ci": "not-run",
    "citot": 5,
    "cifail": 0,
    "nrev": 0,
@@ -1125,8 +1125,8 @@
     "False Positive 🦟"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
-   "ci": "awaiting-approval",
+   "merge": "MERGEABLE",
+   "ci": "not-run",
    "citot": 4,
    "cifail": 0,
    "nrev": 0,
@@ -1156,10 +1156,10 @@
     "False Positive 🦟"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
-   "ci": "awaiting-approval",
+   "merge": "MERGEABLE",
+   "ci": "failing",
    "citot": 50,
-   "cifail": 0,
+   "cifail": 1,
    "nrev": 1,
    "mrev": [
     "DanielNoord"
@@ -1190,8 +1190,8 @@
     "C: invalid-name"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
-   "ci": "awaiting-approval",
+   "merge": "MERGEABLE",
+   "ci": "not-run",
    "citot": 4,
    "cifail": 0,
    "nrev": 0,
@@ -1222,7 +1222,7 @@
     "False Positive 🦟"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "green",
    "citot": 7,
    "cifail": 0,
@@ -1253,7 +1253,7 @@
     "Skip news :mute:"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "awaiting-approval",
    "citot": 2,
    "cifail": 0,
@@ -1281,8 +1281,8 @@
     "Optional Checkers"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
-   "ci": "awaiting-approval",
+   "merge": "MERGEABLE",
+   "ci": "green",
    "citot": 51,
    "cifail": 0,
    "nrev": 0,
@@ -1312,10 +1312,10 @@
     "False Positive 🦟"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
-   "ci": "awaiting-approval",
+   "merge": "MERGEABLE",
+   "ci": "failing",
    "citot": 50,
-   "cifail": 0,
+   "cifail": 1,
    "nrev": 0,
    "mrev": [],
    "links": [
@@ -1344,7 +1344,7 @@
     "backport maintenance/4.1.x"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "green",
    "citot": 52,
    "cifail": 0,
@@ -1377,10 +1377,10 @@
     "False Negative 🦋"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
-   "ci": "awaiting-approval",
+   "merge": "MERGEABLE",
+   "ci": "failing",
    "citot": 49,
-   "cifail": 0,
+   "cifail": 2,
    "nrev": 0,
    "mrev": [],
    "links": [
@@ -1409,7 +1409,7 @@
     "enum"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "awaiting-approval",
    "citot": 4,
    "cifail": 0,
@@ -1441,7 +1441,7 @@
     "backport maintenance/4.1.x"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "green",
    "citot": 43,
    "cifail": 0,
@@ -1469,8 +1469,8 @@
     "False Positive 🦟"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
-   "ci": "awaiting-approval",
+   "merge": "CONFLICTING",
+   "ci": "not-run",
    "citot": 3,
    "cifail": 0,
    "nrev": 0,
@@ -1502,7 +1502,7 @@
     "False Positive 🦟"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "CONFLICTING",
    "ci": "not-run",
    "citot": 5,
    "cifail": 0,
@@ -1535,7 +1535,7 @@
     "backport maintenance/4.1.x"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "green",
    "citot": 55,
    "cifail": 0,
@@ -1598,7 +1598,7 @@
     "Lib specific 💅"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "awaiting-approval",
    "citot": 4,
    "cifail": 0,
@@ -1663,7 +1663,7 @@
     "False Positive 🦟"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "awaiting-approval",
    "citot": 5,
    "cifail": 0,
@@ -1694,7 +1694,7 @@
     "Enhancement ✨"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "awaiting-approval",
    "citot": 4,
    "cifail": 0,
@@ -1729,7 +1729,7 @@
     "enum"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "green",
    "citot": 48,
    "cifail": 0,
@@ -1761,7 +1761,7 @@
     "Configuration"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "failing",
    "citot": 48,
    "cifail": 1,
@@ -1859,7 +1859,7 @@
     "Documentation :green_book:"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "green",
    "citot": 28,
    "cifail": 0,
@@ -1892,7 +1892,7 @@
     "False Positive 🦟"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "awaiting-approval",
    "citot": 2,
    "cifail": 0,
@@ -1924,7 +1924,7 @@
     "Maintenance"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "awaiting-approval",
    "citot": 8,
    "cifail": 0,
@@ -1955,7 +1955,7 @@
     "False Positive 🦟"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "green",
    "citot": 51,
    "cifail": 0,
@@ -1981,7 +1981,7 @@
     "backport maintenance/4.1.x"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "failing",
    "citot": 53,
    "cifail": 1,
@@ -2015,7 +2015,7 @@
     "False Positive 🦟"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "green",
    "citot": 52,
    "cifail": 0,
@@ -2046,7 +2046,7 @@
     "Enhancement ✨"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "CONFLICTING",
    "ci": "awaiting-approval",
    "citot": 2,
    "cifail": 0,
@@ -2072,7 +2072,7 @@
     "py-version"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "failing",
    "citot": 52,
    "cifail": 1,
@@ -2104,7 +2104,7 @@
     "dataclasses"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "awaiting-approval",
    "citot": 4,
    "cifail": 0,
@@ -2135,10 +2135,10 @@
     "False Negative 🦋"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
-   "ci": "awaiting-approval",
+   "merge": "CONFLICTING",
+   "ci": "failing",
    "citot": 43,
-   "cifail": 0,
+   "cifail": 13,
    "nrev": 1,
    "mrev": [],
    "links": [
@@ -2194,7 +2194,7 @@
     "backport maintenance/4.1.x"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "green",
    "citot": 43,
    "cifail": 0,
@@ -2221,7 +2221,7 @@
     "False Negative 🦋"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "awaiting-approval",
    "citot": 4,
    "cifail": 0,
@@ -2252,7 +2252,7 @@
     "False Positive 🦟"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "awaiting-approval",
    "citot": 4,
    "cifail": 0,
@@ -2284,7 +2284,7 @@
     "Skip news :mute:"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "green",
    "citot": 48,
    "cifail": 0,
@@ -2346,7 +2346,7 @@
     "C: Pragma's"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "green",
    "citot": 53,
    "cifail": 0,
@@ -2378,7 +2378,7 @@
     "False Positive 🦟"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "awaiting-approval",
    "citot": 4,
    "cifail": 0,
@@ -2409,7 +2409,7 @@
     "False Positive 🦟"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "awaiting-approval",
    "citot": 3,
    "cifail": 0,
@@ -2440,7 +2440,7 @@
     "False Positive 🦟"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "awaiting-approval",
    "citot": 3,
    "cifail": 0,
@@ -2472,7 +2472,7 @@
     "pyreverse"
    ],
    "rd": "APPROVED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "green",
    "citot": 59,
    "cifail": 0,
@@ -2505,7 +2505,7 @@
     "False Positive 🦟"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "failing",
    "citot": 43,
    "cifail": 1,
@@ -2538,7 +2538,7 @@
     "False Positive 🦟"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "green",
    "citot": 43,
    "cifail": 0,
@@ -2571,7 +2571,7 @@
     "False Positive 🦟"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "green",
    "citot": 43,
    "cifail": 0,
@@ -2604,7 +2604,7 @@
     "Enhancement ✨"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "awaiting-approval",
    "citot": 2,
    "cifail": 0,
@@ -2633,7 +2633,7 @@
    "updated": "2026-10-12",
    "labels": [],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "green",
    "citot": 44,
    "cifail": 0,
@@ -2665,7 +2665,7 @@
     "backport maintenance/4.1.x"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "green",
    "citot": 43,
    "cifail": 0,
@@ -2696,7 +2696,7 @@
    "updated": "2026-10-17",
    "labels": [],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "failing",
    "citot": 25,
    "cifail": 1,
@@ -2719,7 +2719,7 @@
    "updated": "2026-10-13",
    "labels": [],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "green",
    "citot": 44,
    "cifail": 0,
@@ -2748,7 +2748,7 @@
    "updated": "2026-10-13",
    "labels": [],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "awaiting-approval",
    "citot": 3,
    "cifail": 0,
@@ -2777,7 +2777,7 @@
    "updated": "2026-10-13",
    "labels": [],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "awaiting-approval",
    "citot": 3,
    "cifail": 0,
@@ -2829,7 +2829,7 @@
    "updated": "2026-10-18",
    "labels": [],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "green",
    "citot": 43,
    "cifail": 0,
@@ -2890,7 +2890,7 @@
     "Needs astroid update"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "green",
    "citot": 48,
    "cifail": 0,
@@ -2918,12 +2918,15 @@
    "size": 219,
    "files": 8,
    "created": "2026-10-14",
-   "updated": "2026-10-15",
-   "labels": [],
+   "updated": "2026-10-22",
+   "labels": [
+    "False Positive 🦟",
+    "backport maintenance/4.1.x"
+   ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
-   "ci": "awaiting-approval",
-   "citot": 2,
+   "merge": "MERGEABLE",
+   "ci": "running",
+   "citot": 27,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -2953,7 +2956,7 @@
     "pyreverse"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "failing",
    "citot": 50,
    "cifail": 3,
@@ -2976,7 +2979,7 @@
    "updated": "2026-10-15",
    "labels": [],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "awaiting-approval",
    "citot": 3,
    "cifail": 0,
@@ -3002,12 +3005,15 @@
    "size": 142,
    "files": 4,
    "created": "2026-10-15",
-   "updated": "2026-10-15",
-   "labels": [],
+   "updated": "2026-10-22",
+   "labels": [
+    "False Positive 🦟",
+    "Match case"
+   ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "awaiting-approval",
-   "citot": 3,
+   "citot": 5,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -3031,12 +3037,15 @@
    "size": 77,
    "files": 3,
    "created": "2026-10-16",
-   "updated": "2026-10-17",
-   "labels": [],
+   "updated": "2026-10-22",
+   "labels": [
+    "Import system",
+    "False Positive 🦟"
+   ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "awaiting-approval",
-   "citot": 3,
+   "citot": 5,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -3061,11 +3070,14 @@
    "files": 3,
    "created": "2026-10-17",
    "updated": "2026-10-22",
-   "labels": [],
+   "labels": [
+    "Crash 💥",
+    "backport maintenance/4.1.x"
+   ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "green",
-   "citot": 44,
+   "citot": 46,
    "cifail": 0,
    "nrev": 1,
    "mrev": [],
@@ -3089,12 +3101,14 @@
    "size": 59,
    "files": 4,
    "created": "2026-10-17",
-   "updated": "2026-10-17",
-   "labels": [],
+   "updated": "2026-10-22",
+   "labels": [
+    "False Negative 🦋"
+   ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "awaiting-approval",
-   "citot": 3,
+   "citot": 4,
    "cifail": 0,
    "nrev": 1,
    "mrev": [],
@@ -3121,13 +3135,14 @@
    "updated": "2026-10-22",
    "labels": [
     "Bug :beetle:",
+    "Crash 💥",
     "multiprocessing",
     "backport maintenance/4.1.x"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "green",
-   "citot": 47,
+   "citot": 48,
    "cifail": 0,
    "nrev": 1,
    "mrev": [
@@ -3153,12 +3168,15 @@
    "size": 58,
    "files": 4,
    "created": "2026-10-17",
-   "updated": "2026-10-18",
-   "labels": [],
+   "updated": "2026-10-22",
+   "labels": [
+    "Crash 💥",
+    "backport maintenance/4.1.x"
+   ],
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
    "ci": "green",
-   "citot": 43,
+   "citot": 47,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -3176,12 +3194,16 @@
    "size": 513,
    "files": 7,
    "created": "2026-10-18",
-   "updated": "2026-10-18",
-   "labels": [],
+   "updated": "2026-10-22",
+   "labels": [
+    "Enhancement ✨",
+    "duplicate-code",
+    "Needs decision :lock:"
+   ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "awaiting-approval",
-   "citot": 3,
+   "citot": 6,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -3205,12 +3227,15 @@
    "size": 93,
    "files": 4,
    "created": "2026-10-18",
-   "updated": "2026-10-18",
-   "labels": [],
+   "updated": "2026-10-22",
+   "labels": [
+    "Bug :beetle:",
+    "duplicate-code"
+   ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "awaiting-approval",
-   "citot": 3,
+   "citot": 5,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -3234,12 +3259,15 @@
    "size": 72,
    "files": 3,
    "created": "2026-10-18",
-   "updated": "2026-10-18",
-   "labels": [],
+   "updated": "2026-10-22",
+   "labels": [
+    "Bug :beetle:",
+    "duplicate-code"
+   ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "awaiting-approval",
-   "citot": 3,
+   "citot": 5,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -3263,12 +3291,14 @@
    "size": 18,
    "files": 3,
    "created": "2026-10-18",
-   "updated": "2026-10-18",
-   "labels": [],
+   "updated": "2026-10-22",
+   "labels": [
+    "False Positive 🦟"
+   ],
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "green",
-   "citot": 44,
+   "ci": "running",
+   "citot": 46,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -3292,12 +3322,14 @@
    "size": 193,
    "files": 9,
    "created": "2026-10-18",
-   "updated": "2026-10-18",
-   "labels": [],
+   "updated": "2026-10-22",
+   "labels": [
+    "False Negative 🦋"
+   ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "awaiting-approval",
-   "citot": 3,
+   "citot": 4,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -3321,12 +3353,17 @@
    "size": 24,
    "files": 3,
    "created": "2026-10-18",
-   "updated": "2026-10-18",
-   "labels": [],
+   "updated": "2026-10-22",
+   "labels": [
+    "Control flow",
+    "Regression",
+    "False Positive 🦟",
+    "backport maintenance/4.1.x"
+   ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
-   "ci": "green",
-   "citot": 43,
+   "merge": "MERGEABLE",
+   "ci": "running",
+   "citot": 51,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -3350,12 +3387,15 @@
    "size": 49,
    "files": 6,
    "created": "2026-10-19",
-   "updated": "2026-10-19",
-   "labels": [],
+   "updated": "2026-10-22",
+   "labels": [
+    "False Positive 🦟",
+    "C: invalid-name"
+   ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "awaiting-approval",
-   "citot": 3,
+   "citot": 5,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -3379,12 +3419,16 @@
    "size": 101,
    "files": 6,
    "created": "2026-10-19",
-   "updated": "2026-10-19",
-   "labels": [],
+   "updated": "2026-10-22",
+   "labels": [
+    "typing",
+    "False Positive 🦟",
+    "C: arguments-differ"
+   ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "awaiting-approval",
-   "citot": 2,
+   "citot": 5,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -3408,12 +3452,17 @@
    "size": 63,
    "files": 5,
    "created": "2026-10-19",
-   "updated": "2026-10-19",
-   "labels": [],
+   "updated": "2026-10-22",
+   "labels": [
+    "Control flow",
+    "Regression",
+    "False Positive 🦟",
+    "backport maintenance/4.1.x"
+   ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
-   "ci": "green",
-   "citot": 43,
+   "merge": "MERGEABLE",
+   "ci": "running",
+   "citot": 51,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -3437,12 +3486,15 @@
    "size": 25,
    "files": 3,
    "created": "2026-10-19",
-   "updated": "2026-10-19",
-   "labels": [],
+   "updated": "2026-10-22",
+   "labels": [
+    "False Positive 🦟",
+    "C: undefined-variable"
+   ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
-   "ci": "green",
-   "citot": 44,
+   "merge": "MERGEABLE",
+   "ci": "running",
+   "citot": 48,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -3466,12 +3518,15 @@
    "size": 30,
    "files": 3,
    "created": "2026-10-19",
-   "updated": "2026-10-19",
-   "labels": [],
+   "updated": "2026-10-22",
+   "labels": [
+    "Import system",
+    "False Positive 🦟"
+   ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
-   "ci": "green",
-   "citot": 43,
+   "merge": "MERGEABLE",
+   "ci": "running",
+   "citot": 47,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -3495,12 +3550,15 @@
    "size": 43,
    "files": 3,
    "created": "2026-10-20",
-   "updated": "2026-10-20",
-   "labels": [],
+   "updated": "2026-10-22",
+   "labels": [
+    "typing",
+    "False Positive 🦟"
+   ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "awaiting-approval",
-   "citot": 3,
+   "citot": 5,
    "cifail": 0,
    "nrev": 1,
    "mrev": [],
@@ -3525,11 +3583,14 @@
    "files": 4,
    "created": "2026-10-20",
    "updated": "2026-10-22",
-   "labels": [],
+   "labels": [
+    "Decorators",
+    "False Positive 🦟"
+   ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "green",
-   "citot": 44,
+   "citot": 46,
    "cifail": 0,
    "nrev": 1,
    "mrev": [],
@@ -3550,7 +3611,7 @@
    "a": "summeriver13",
    "t": "Fix duplicate messages from --load-plugins checkers with --jobs > 1",
    "draft": false,
-   "size": 51,
+   "size": 100,
    "files": 4,
    "created": "2026-10-20",
    "updated": "2026-10-22",
@@ -3560,9 +3621,9 @@
    ],
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "failing",
-   "citot": 45,
-   "cifail": 1,
+   "ci": "awaiting-approval",
+   "citot": 2,
+   "cifail": 0,
    "nrev": 0,
    "mrev": [],
    "links": [
@@ -3585,12 +3646,14 @@
    "size": 32,
    "files": 4,
    "created": "2026-10-21",
-   "updated": "2026-10-21",
-   "labels": [],
+   "updated": "2026-10-22",
+   "labels": [
+    "False Negative 🦋"
+   ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "awaiting-approval",
-   "citot": 3,
+   "citot": 4,
    "cifail": 0,
    "nrev": 1,
    "mrev": [],
@@ -3615,11 +3678,13 @@
    "files": 5,
    "created": "2026-10-22",
    "updated": "2026-10-22",
-   "labels": [],
+   "labels": [
+    "Enhancement ✨"
+   ],
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
    "ci": "awaiting-approval",
-   "citot": 3,
+   "citot": 4,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -3630,29 +3695,6 @@
      ""
     ]
    ],
-   "lastcom": [
-    "-",
-    "-"
-   ]
-  },
-  {
-   "n": 11709,
-   "a": "app/pylint-backport",
-   "t": "[Backport maintenance/4.1.x] Include plugins from the command line in the generated config",
-   "draft": false,
-   "size": 104,
-   "files": 3,
-   "created": "2026-10-22",
-   "updated": "2026-10-22",
-   "labels": [],
-   "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
-   "ci": "running",
-   "citot": 16,
-   "cifail": 0,
-   "nrev": 0,
-   "mrev": [],
-   "links": [],
    "lastcom": [
     "-",
     "-"
@@ -3671,6 +3713,7 @@
     "Hacktoberfest"
    ],
    "number": 618,
+   "reactions": 132,
    "state": "open",
    "state_reason": null,
    "title": "Add different configuration for different sub directories"
@@ -3684,6 +3727,7 @@
     "Hacktoberfest"
    ],
    "number": 2368,
+   "reactions": 1,
    "state": "open",
    "state_reason": null,
    "title": "``duplicate-code`` are always counted on the last module checked"
@@ -3695,6 +3739,7 @@
     "Needs PR"
    ],
    "number": 2583,
+   "reactions": 0,
    "state": "open",
    "state_reason": null,
    "title": "No warning for unused import"
@@ -3706,6 +3751,7 @@
     "Needs PR"
    ],
    "number": 2589,
+   "reactions": 0,
    "state": "open",
    "state_reason": null,
    "title": "redefined-outer-name when importing subpackage of package which is already imported in outer scope"
@@ -3717,6 +3763,7 @@
     "Needs PR"
    ],
    "number": 2647,
+   "reactions": 0,
    "state": "open",
    "state_reason": null,
    "title": "Pylint gets confused by functools.singledispatch and assumes wrong return types of its registered functions."
@@ -3730,6 +3777,7 @@
     "False Positive 🦟"
    ],
    "number": 3484,
+   "reactions": 3,
    "state": "open",
    "state_reason": null,
    "title": "using-constant-test triggers on a property when using unknown property decorators"
@@ -3741,6 +3789,7 @@
     "Needs specification :closed_lock_with_key:"
    ],
    "number": 3512,
+   "reactions": 5,
    "state": "open",
    "state_reason": null,
    "title": "Disable certain messages by default"
@@ -3754,6 +3803,7 @@
     "Needs PR"
    ],
    "number": 3732,
+   "reactions": 16,
    "state": "open",
    "state_reason": null,
    "title": "do not report too-few-public-methods for `attr.s`, `attr.dataclass`, `typing.NamedTuple` and similar. "
@@ -3766,6 +3816,7 @@
     "Needs PR"
    ],
    "number": 3745,
+   "reactions": 0,
    "state": "open",
    "state_reason": null,
    "title": "False positive method-hidden in overridden methods"
@@ -3778,6 +3829,7 @@
     "Needs PR"
    ],
    "number": 3748,
+   "reactions": 1,
    "state": "open",
    "state_reason": null,
    "title": "`import-self` false positive when importing non-existing module from current package"
@@ -3789,6 +3841,7 @@
     "Needs PR"
    ],
    "number": 3808,
+   "reactions": 0,
    "state": "open",
    "state_reason": null,
    "title": "False positive ``unnecessary-lambda`` for function that are not pure (like datetime or timedelta)"
@@ -3803,6 +3856,7 @@
     "Needs PR"
    ],
    "number": 3853,
+   "reactions": 22,
    "state": "open",
    "state_reason": null,
    "title": "Have a way to require type annotations"
@@ -3817,6 +3871,7 @@
     "Needs PR"
    ],
    "number": 3945,
+   "reactions": 0,
    "state": "open",
    "state_reason": null,
    "title": "Inline disable comments conflicts with ``--disable=W`` CLI argument"
@@ -3829,6 +3884,7 @@
     "Needs PR"
    ],
    "number": 4070,
+   "reactions": 4,
    "state": "open",
    "state_reason": null,
    "title": "False positive no-member for NamedTuple._replace()"
@@ -3840,6 +3896,7 @@
     "Needs PR"
    ],
    "number": 4993,
+   "reactions": 2,
    "state": "open",
    "state_reason": null,
    "title": "Incorrect report \"unused-import\" when assigning to class attribute with the same name as the imported module."
@@ -3852,6 +3909,7 @@
     "Needs PR"
    ],
    "number": 5270,
+   "reactions": 0,
    "state": "open",
    "state_reason": null,
    "title": "False-negative `signature-differs` with kw-only args"
@@ -3866,6 +3924,7 @@
     "Needs PR"
    ],
    "number": 5363,
+   "reactions": 0,
    "state": "open",
    "state_reason": null,
    "title": "False positive ``subprocess-run-check`` when passing check = True by kwargs"
@@ -3881,6 +3940,7 @@
     "Needs PR"
    ],
    "number": 5471,
+   "reactions": 1,
    "state": "open",
    "state_reason": "reopened",
    "title": "Warn if module dunders are below imports"
@@ -3895,6 +3955,7 @@
     "Needs PR"
    ],
    "number": 5493,
+   "reactions": 6,
    "state": "open",
    "state_reason": null,
    "title": "SARIF output format for pylint ?"
@@ -3907,6 +3968,7 @@
     "Needs PR"
    ],
    "number": 5701,
+   "reactions": 58,
    "state": "open",
    "state_reason": "reopened",
    "title": "Should  ``pylint`` be equivalent to ``pylint .`` ?"
@@ -3919,6 +3981,7 @@
     "C: arguments-differ"
    ],
    "number": 5793,
+   "reactions": 9,
    "state": "open",
    "state_reason": null,
    "title": "arguments-differ: number of parameters was some number ... and is now the same number in overridden ..."
@@ -3930,6 +3993,7 @@
     "Needs PR"
    ],
    "number": 6085,
+   "reactions": 1,
    "state": "open",
    "state_reason": null,
    "title": "``bad-format-character`` false negative on ``.format()`` and f-strings"
@@ -3945,6 +4009,7 @@
     "Needs PR"
    ],
    "number": 6163,
+   "reactions": 0,
    "state": "open",
    "state_reason": null,
    "title": "``bad-string-format-type``: only works on old-style string formatting and can't infer values"
@@ -3956,6 +4021,7 @@
     "Needs PR"
    ],
    "number": 6856,
+   "reactions": 0,
    "state": "open",
    "state_reason": null,
    "title": "False negative ``repeated-keyword`` for builtin functions"
@@ -3968,6 +4034,7 @@
     "Needs PR"
    ],
    "number": 7213,
+   "reactions": 0,
    "state": "open",
    "state_reason": null,
    "title": "[R0801] Similarities false positive on abstract classes"
@@ -3979,6 +4046,7 @@
     "Needs PR"
    ],
    "number": 7351,
+   "reactions": 1,
    "state": "open",
    "state_reason": null,
    "title": "False positive C2801 (unnecessary-dunder-call) with unittest.mock.call"
@@ -3991,6 +4059,7 @@
     "Match case"
    ],
    "number": 7470,
+   "reactions": 1,
    "state": "open",
    "state_reason": null,
    "title": "False positive with match/case for `function-redefined`"
@@ -4005,6 +4074,7 @@
     "Needs PR"
    ],
    "number": 7538,
+   "reactions": 0,
    "state": "open",
    "state_reason": null,
    "title": "False positive `used-before-assignment` with walrus operator inside binary operation"
@@ -4016,6 +4086,7 @@
     "Needs PR"
    ],
    "number": 7548,
+   "reactions": 0,
    "state": "open",
    "state_reason": null,
    "title": "unused-import false positive for names in string argument to typing.cast"
@@ -4031,6 +4102,7 @@
     "Needs PR"
    ],
    "number": 7572,
+   "reactions": 0,
    "state": "open",
    "state_reason": null,
    "title": "Add dark mode to pyreverse"
@@ -4042,6 +4114,7 @@
     "pyreverse"
    ],
    "number": 8046,
+   "reactions": 0,
    "state": "open",
    "state_reason": null,
    "title": "Pyreverse: Duplicated class variables"
@@ -4054,6 +4127,7 @@
     "Needs PR"
    ],
    "number": 8145,
+   "reactions": 2,
    "state": "open",
    "state_reason": null,
    "title": "`undefined-variable` false positive when method returns instance type when the class is inside a function "
@@ -4065,6 +4139,7 @@
     "Needs PR"
    ],
    "number": 8196,
+   "reactions": 0,
    "state": "open",
    "state_reason": null,
    "title": "Docs - ``too-many-locals`` - message description is not helpful"
@@ -4076,6 +4151,7 @@
     "Needs PR"
    ],
    "number": 8224,
+   "reactions": 0,
    "state": "open",
    "state_reason": null,
    "title": "consider-using-f-string is triggered in a functional context"
@@ -4089,6 +4165,7 @@
     "Needs PR"
    ],
    "number": 8460,
+   "reactions": 0,
    "state": "open",
    "state_reason": null,
    "title": "Pylint does not respect false values for boolean config options in toml files"
@@ -4102,6 +4179,7 @@
     "direct parentage assumption"
    ],
    "number": 8567,
+   "reactions": 0,
    "state": "open",
    "state_reason": null,
    "title": "False-positive unreachable code"
@@ -4113,6 +4191,7 @@
     "Needs PR"
    ],
    "number": 8577,
+   "reactions": 0,
    "state": "open",
    "state_reason": null,
    "title": "`unnecessary-comprehension` false positive"
@@ -4124,6 +4203,7 @@
     "False Positive 🦟"
    ],
    "number": 8628,
+   "reactions": 0,
    "state": "open",
    "state_reason": null,
    "title": "missing-param-doc W9015 false positive for typing.Union"
@@ -4135,6 +4215,7 @@
     "Needs PR"
    ],
    "number": 8680,
+   "reactions": 1,
    "state": "open",
    "state_reason": null,
    "title": "missing-parentheses-for-call-in-test not raised as expected"
@@ -4146,6 +4227,7 @@
     "Needs PR"
    ],
    "number": 8900,
+   "reactions": 0,
    "state": "open",
    "state_reason": null,
    "title": "False positive attribute-defined-outside-init when setting variant field"
@@ -4157,6 +4239,7 @@
     "Needs PR"
    ],
    "number": 8912,
+   "reactions": 0,
    "state": "open",
    "state_reason": null,
    "title": "Fix all_options.rst"
@@ -4168,6 +4251,7 @@
     "Needs astroid update"
    ],
    "number": 8968,
+   "reactions": 1,
    "state": "open",
    "state_reason": null,
    "title": "W1404:  implicit-str-concat is not working with f strings  "
@@ -4180,6 +4264,7 @@
     "Needs PR"
    ],
    "number": 9013,
+   "reactions": 1,
    "state": "open",
    "state_reason": null,
    "title": "E0110 False positive when using attrs.field"
@@ -4191,6 +4276,7 @@
     "Needs PR"
    ],
    "number": 9054,
+   "reactions": 0,
    "state": "open",
    "state_reason": null,
    "title": "Undeserved unexpected-line-ending-format on Windows"
@@ -4204,6 +4290,7 @@
     "Needs PR"
    ],
    "number": 9063,
+   "reactions": 0,
    "state": "open",
    "state_reason": null,
    "title": "Add randomization to test suite to find test isolation problems"
@@ -4216,6 +4303,7 @@
     "Needs PR"
    ],
    "number": 9090,
+   "reactions": 1,
    "state": "open",
    "state_reason": null,
    "title": "Pydantic Field(alias=) is not recognized by Pylint, warns E1123 unexpected-keyword-arg"
@@ -4230,6 +4318,7 @@
     "macOS"
    ],
    "number": 9168,
+   "reactions": 0,
    "state": "open",
    "state_reason": null,
    "title": "Inconsistent behavior with circular import on MacOS"
@@ -4243,6 +4332,7 @@
     "Needs PR"
    ],
    "number": 9187,
+   "reactions": 0,
    "state": "open",
    "state_reason": null,
    "title": "--recursive option does not find .py files in sub-directories of packages"
@@ -4254,6 +4344,7 @@
     "Needs PR"
    ],
    "number": 9192,
+   "reactions": 0,
    "state": "open",
    "state_reason": null,
    "title": "False negative for `modified-iterating-list` when list variable is not defined inline"
@@ -4265,6 +4356,7 @@
     "pyreverse"
    ],
    "number": 9237,
+   "reactions": 0,
    "state": "open",
    "state_reason": null,
    "title": "Pyreverse produces a class diagram even when there are no classes in the source code"
@@ -4277,6 +4369,7 @@
     "Good first issue"
    ],
    "number": 9267,
+   "reactions": 0,
    "state": "closed",
    "state_reason": "completed",
    "title": "Pyreverse: Duplicate arrows when class attribute is assigned more than once"
@@ -4288,6 +4381,7 @@
     "Needs investigation 🔬"
    ],
    "number": 9277,
+   "reactions": 2,
    "state": "open",
    "state_reason": null,
    "title": "Crash - on windows - pylint crashed with a ``AstroidError`` - UnicodeEncodeError: 'charmap' codec can't encode characters in position"
@@ -4299,6 +4393,7 @@
     "Needs PR"
    ],
    "number": 9418,
+   "reactions": 0,
    "state": "open",
    "state_reason": null,
    "title": "too-many-try-statements should exclude `pass` statements if required by Python"
@@ -4312,6 +4407,7 @@
     "C: arguments-differ"
    ],
    "number": 9424,
+   "reactions": 0,
    "state": "open",
    "state_reason": null,
    "title": "False positive: overriding a generic `ParamSpec` method triggers `arguments-differ` (W0221)"
@@ -4323,6 +4419,7 @@
     "Needs PR"
    ],
    "number": 9517,
+   "reactions": 0,
    "state": "open",
    "state_reason": null,
    "title": "Missing timeout for requests.Session object?"
@@ -4334,6 +4431,7 @@
     "Needs PR"
    ],
    "number": 9519,
+   "reactions": 0,
    "state": "open",
    "state_reason": null,
    "title": "[too-many-function-args] False negative when calling `super().__init__()` with non-self argument"
@@ -4346,6 +4444,7 @@
     "pyi"
    ],
    "number": 9624,
+   "reactions": 1,
    "state": "open",
    "state_reason": null,
    "title": "[unsupported-binary-operation] should become .pyi-conscious"
@@ -4360,6 +4459,7 @@
     "Needs PR"
    ],
    "number": 9641,
+   "reactions": 1,
    "state": "open",
    "state_reason": null,
    "title": "False positive: unused-variable + undefined-variable when using := operator in stacked decorators"
@@ -4372,6 +4472,7 @@
     "Needs PR"
    ],
    "number": 9642,
+   "reactions": 0,
    "state": "open",
    "state_reason": null,
    "title": "[used-before-assignment] False negative for name defined inside loop that never runs"
@@ -4386,6 +4487,7 @@
     "C: Pragma's"
    ],
    "number": 9666,
+   "reactions": 0,
    "state": "open",
    "state_reason": null,
    "title": "pylint: disable=invalid-name pragma gets ignored when using ctypes Structure"
@@ -4396,6 +4498,7 @@
     "False Negative 🦋"
    ],
    "number": 9669,
+   "reactions": 0,
    "state": "closed",
    "state_reason": "completed",
    "title": "False negatives for `duplicate-argument-name`"
@@ -4407,6 +4510,7 @@
     "Needs PR"
    ],
    "number": 9688,
+   "reactions": 0,
    "state": "open",
    "state_reason": null,
    "title": "Can't update functional test refs"
@@ -4418,6 +4522,7 @@
     "Needs PR"
    ],
    "number": 9745,
+   "reactions": 0,
    "state": "open",
    "state_reason": null,
    "title": "Pylint is not smart enough when analyzes functions returning coroutine."
@@ -4429,6 +4534,7 @@
     "Work in progress"
    ],
    "number": 9805,
+   "reactions": 0,
    "state": "open",
    "state_reason": null,
    "title": "[pyreverse] Dunder methods in diagrams"
@@ -4443,6 +4549,7 @@
     "Needs PR"
    ],
    "number": 9818,
+   "reactions": 0,
    "state": "open",
    "state_reason": null,
    "title": "`from __future__ import annotations` is 3.7+"
@@ -4455,6 +4562,7 @@
     "Needs PR"
    ],
    "number": 9863,
+   "reactions": 0,
    "state": "open",
    "state_reason": null,
    "title": "Unexpected behavior when dealing with Protocol generics"
@@ -4469,6 +4577,7 @@
     "python 3.12"
    ],
    "number": 9884,
+   "reactions": 6,
    "state": "open",
    "state_reason": null,
    "title": "`redefined-outer-name` (`W0621`) - false positive on 3.12 type aliases"
@@ -4482,6 +4591,7 @@
     "False Positive 🦟"
    ],
    "number": 9905,
+   "reactions": 0,
    "state": "open",
    "state_reason": null,
    "title": "False positive `invalid-overridden-method` when overridding `Enum.value`"
@@ -4494,6 +4604,7 @@
     "Needs PR"
    ],
    "number": 9943,
+   "reactions": 0,
    "state": "open",
    "state_reason": null,
    "title": "Guarantee a deterministic order when processing files for directory arguments."
@@ -4505,6 +4616,7 @@
     "Needs decision :lock:"
    ],
    "number": 9955,
+   "reactions": 0,
    "state": "open",
    "state_reason": null,
    "title": "Alter fallback when `source-root` based package path discovery when a source root containing the module directory is not found"
@@ -4518,6 +4630,7 @@
     "False Positive 🦟"
    ],
    "number": 9986,
+   "reactions": 0,
    "state": "open",
    "state_reason": null,
    "title": "False positive `unbalanced-dict-unpacking`"
@@ -4530,6 +4643,7 @@
     "False Positive 🦟"
    ],
    "number": 10025,
+   "reactions": 0,
    "state": "open",
    "state_reason": null,
    "title": "Rerunning pylint on the same code can produce inconsistent `import-self` warnings"
@@ -4541,6 +4655,7 @@
     "Needs PR"
    ],
    "number": 10042,
+   "reactions": 0,
    "state": "open",
    "state_reason": null,
    "title": "False positive on not-callable when inheriting from `typing.IO`"
@@ -4552,6 +4667,7 @@
     "Needs PR"
    ],
    "number": 10050,
+   "reactions": 0,
    "state": "open",
    "state_reason": null,
    "title": "unsupported-assignment-operation false positive"
@@ -4563,6 +4679,7 @@
     "Needs PR"
    ],
    "number": 10080,
+   "reactions": 0,
    "state": "open",
    "state_reason": null,
    "title": "generator causing false positive using-constant-test"
@@ -4575,6 +4692,7 @@
     "Needs PR"
    ],
    "number": 10084,
+   "reactions": 0,
    "state": "open",
    "state_reason": null,
    "title": "False negative ``superfluous-parens`` when around two conditional and an ``and``"
@@ -4587,6 +4705,7 @@
     "python 3.12"
    ],
    "number": 10091,
+   "reactions": 0,
    "state": "open",
    "state_reason": null,
    "title": "Class 'str' has no '__value__' member on PEP 695 TypeAliasType"
@@ -4601,6 +4720,7 @@
     "Needs PR"
    ],
    "number": 10092,
+   "reactions": 0,
    "state": "open",
    "state_reason": null,
    "title": "Question: Is there a reason that `invalid-envvar-default` only checks `os.getenv`, not `os.environ.get`"
@@ -4612,6 +4732,7 @@
     "Needs PR"
    ],
    "number": 10187,
+   "reactions": 0,
    "state": "open",
    "state_reason": null,
    "title": "Spellchecker doesn't ignore labels and types in autodoc docstrings"
@@ -4623,6 +4744,7 @@
     "Needs PR"
    ],
    "number": 10237,
+   "reactions": 0,
    "state": "open",
    "state_reason": null,
    "title": "False negative `differing-type-doc` for Google-style docstring"
@@ -4635,6 +4757,7 @@
     "namespace-package"
    ],
    "number": 10278,
+   "reactions": 0,
    "state": "open",
    "state_reason": null,
    "title": "\"ImportError: Unable to find module\" when using implicit namespaces when they already exist in site-packages"
@@ -4647,6 +4770,7 @@
     "Needs decision :lock:"
    ],
    "number": 10281,
+   "reactions": 0,
    "state": "open",
    "state_reason": null,
    "title": "Expand to ``use-implicit-booleaness-not-len`` to catch `len(iterable) == 0` and `>0`"
@@ -4660,6 +4784,7 @@
     "Hacktoberfest"
    ],
    "number": 10563,
+   "reactions": 1,
    "state": "open",
    "state_reason": null,
    "title": "Add sphinx references to pylint messages"
@@ -4672,6 +4797,7 @@
     "Needs PR"
    ],
    "number": 10602,
+   "reactions": 0,
    "state": "open",
    "state_reason": null,
    "title": "False positives on generic pydantic models"
@@ -4683,6 +4809,7 @@
     "Needs PR"
    ],
    "number": 10731,
+   "reactions": 0,
    "state": "open",
    "state_reason": null,
    "title": "False Negative ``no-value-for-parameter`` for instances used inside of a class"
@@ -4694,6 +4821,7 @@
     "Needs PR"
    ],
    "number": 10737,
+   "reactions": 1,
    "state": "open",
    "state_reason": null,
    "title": "Backslashes don't properly render in docs"
@@ -4707,6 +4835,7 @@
     "False Positive 🦟"
    ],
    "number": 10784,
+   "reactions": 0,
    "state": "open",
    "state_reason": null,
    "title": "Type narrowing fails due to unrelated instance assignment"
@@ -4718,6 +4847,7 @@
     "Needs decision :lock:"
    ],
    "number": 10792,
+   "reactions": 0,
    "state": "open",
    "state_reason": null,
    "title": "Add check for redundant exception message when using 'raise ... from' (W0720)"
@@ -4728,6 +4858,7 @@
     "Crash 💥"
    ],
    "number": 10813,
+   "reactions": 2,
    "state": "open",
    "state_reason": null,
    "title": "Improper handling of log message format bytestrings"
@@ -4740,6 +4871,7 @@
     "False Positive 🦟"
    ],
    "number": 10827,
+   "reactions": 0,
    "state": "open",
    "state_reason": null,
    "title": "False positive unused-import and unused-wildcard-import"
@@ -4750,6 +4882,7 @@
     "tests"
    ],
    "number": 10844,
+   "reactions": 0,
    "state": "open",
    "state_reason": null,
    "title": "test_functional.py --update-functional-output deletes files for other Python versions"
@@ -4761,6 +4894,7 @@
     "Needs PR"
    ],
    "number": 11053,
+   "reactions": 0,
    "state": "closed",
    "state_reason": "completed",
    "title": "AttributeError: 'TypeVar' object has no attribute 'pytype'"
@@ -4772,6 +4906,7 @@
     "Needs astroid update"
    ],
    "number": 11115,
+   "reactions": 0,
    "state": "open",
    "state_reason": null,
    "title": "False positive used-before-assignment (E0601) for PEP 695 type-parameter bound forward-referencing a later-defined class"
@@ -4782,6 +4917,7 @@
     "Needs triage :inbox_tray:"
    ],
    "number": 11169,
+   "reactions": 0,
    "state": "closed",
    "state_reason": "duplicate",
    "title": "Accept redefined outer name for type variable"
@@ -4793,6 +4929,7 @@
     "Needs PR"
    ],
    "number": 11202,
+   "reactions": 0,
    "state": "open",
    "state_reason": null,
    "title": "Incorrect/Missing inference for slash-joining `pathlib` paths -> Missing diagnostics"
@@ -4804,6 +4941,7 @@
     "Needs PR"
    ],
    "number": 11353,
+   "reactions": 0,
    "state": "open",
    "state_reason": null,
    "title": "False positive `reimported` related to import alias to avoid name clash"
@@ -4815,6 +4953,7 @@
     "Needs PR"
    ],
    "number": 11412,
+   "reactions": 0,
    "state": "open",
    "state_reason": null,
    "title": "Wrong inference for generators"
@@ -4826,6 +4965,7 @@
     "enum"
    ],
    "number": 11413,
+   "reactions": 0,
    "state": "open",
    "state_reason": null,
    "title": "False positive no-member for annotated Enum _value_"
@@ -4838,6 +4978,7 @@
     "Maintenance"
    ],
    "number": 11524,
+   "reactions": 0,
    "state": "open",
    "state_reason": null,
    "title": "Align helper type annotations with their actual AST values"
@@ -4850,6 +4991,7 @@
     "C: undefined-variable"
    ],
    "number": 11647,
+   "reactions": 0,
    "state": "open",
    "state_reason": null,
    "title": "False-positive `undefined-variable` with `:=` and blank type annotation"
@@ -4857,17 +4999,23 @@
   {
    "comments": 1,
    "labels": [
-    "Needs triage :inbox_tray:"
+    "False Positive 🦟",
+    "Needs PR"
    ],
    "number": 11651,
+   "reactions": 0,
    "state": "open",
    "state_reason": null,
    "title": "False positives for zope.interface interfaces (no-self-argument, no-method-argument, inherit-non-class, arguments-differ, too-many-ancestors)"
   },
   {
    "comments": 0,
-   "labels": [],
+   "labels": [
+    "False Positive 🦟",
+    "C: Pragma's"
+   ],
    "number": 11656,
+   "reactions": 0,
    "state": "open",
    "state_reason": null,
    "title": "useless-suppression reported for deprecated-* messages that should be exempt"
@@ -4877,33 +5025,48 @@
    "labels": [
     "Bug :beetle:",
     "Work in progress",
+    "Crash 💥",
     "multiprocessing"
    ],
    "number": 11674,
+   "reactions": 0,
    "state": "open",
    "state_reason": null,
    "title": "Crash with --jobs > 1 when ProcessPoolExecutor cannot be created (PermissionError on SC_SEM_NSEMS_MAX)"
   },
   {
    "comments": 0,
-   "labels": [],
+   "labels": [
+    "Enhancement ✨",
+    "duplicate-code",
+    "Needs decision :lock:"
+   ],
    "number": 11677,
+   "reactions": 0,
    "state": "open",
    "state_reason": null,
    "title": "Option for duplicate-code to match blocks that differ only in local variable names"
   },
   {
    "comments": 0,
-   "labels": [],
+   "labels": [
+    "Bug :beetle:",
+    "duplicate-code"
+   ],
    "number": 11679,
+   "reactions": 0,
    "state": "open",
    "state_reason": null,
    "title": "duplicate-code drops every copy of a block after the first two"
   },
   {
    "comments": 0,
-   "labels": [],
+   "labels": [
+    "Bug :beetle:",
+    "duplicate-code"
+   ],
    "number": 11681,
+   "reactions": 0,
    "state": "open",
    "state_reason": null,
    "title": "duplicate-code's ignore-comments truncates strings that contain #"
@@ -4914,6 +5077,7 @@
     "Enhancement ✨"
    ],
    "number": 11688,
+   "reactions": 0,
    "state": "open",
    "state_reason": null,
    "title": "Default `py-version` to `requires-python` from `pyproject.toml`"
@@ -4924,9 +5088,22 @@
     "Bug :beetle:"
    ],
    "number": 11701,
+   "reactions": 0,
    "state": "open",
    "state_reason": null,
    "title": "--jobs > 1 duplicates every message emitted by a --load-plugins checker"
+  },
+  {
+   "comments": 0,
+   "labels": [
+    "Good first issue",
+    "Documentation :green_book:"
+   ],
+   "number": 11702,
+   "reactions": 0,
+   "state": "open",
+   "state_reason": null,
+   "title": "Clarification about `--logging-format-style` (old/new) in documentation"
   }
  ]
 }

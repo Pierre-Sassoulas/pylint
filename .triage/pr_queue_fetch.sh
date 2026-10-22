@@ -51,7 +51,7 @@ jq -r '[.[] | select(.author.login != "'"$OWNER"'") | .closingIssuesReferences[]
 : >"$TMP/issues.ndjson"
 while read -r n; do
   gh api "repos/$REPO/issues/$n" \
-    --jq '{number, title, state, state_reason, labels: [.labels[].name], comments}' \
+    --jq '{number, title, state, state_reason, labels: [.labels[].name], comments, reactions: .reactions.total_count}' \
     >>"$TMP/issues.ndjson"
 done <"$TMP/linked.txt"
 jq -s '.' "$TMP/issues.ndjson" >"$TMP/issues.json"
