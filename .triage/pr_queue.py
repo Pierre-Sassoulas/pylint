@@ -65,18 +65,6 @@ LANES = {
 # n: (lane, verdict-chip-text, chip-class, finding, action)
 V = {
     # ---- merge lane -------------------------------------------------------
-    11650: (
-        "merge",
-        "approved",
-        "crash",
-        "Crash 10278: <code>ImportError: Unable to find module</code> when an implicit namespace "
-        "package also exists in site-packages or shadows a stdlib package like <code>email/</code>. "
-        "41/41 green, primer clean, chrikrah approved. You asked on 19 October whether "
-        "<code>is_namespace()</code> should be fixed in astroid instead; the author answered the same "
-        "day: it is conservative on purpose (astroid 1756, pylint 7365) and only sees the module "
-        "name, so a fix there needs a path-aware API. Offers to open the astroid issue.",
-        "Accept the answer and merge (backport to 4.1.x), asking for the astroid issue as follow-up.",
-    ),
     11640: (
         "merge",
         "approved",
@@ -105,6 +93,16 @@ V = {
         "Add the skip news label and merge.",
     ),
     # ---- review now -------------------------------------------------------
+    11675: (
+        "review",
+        "crash",
+        "crash",
+        "48 lines by elupus for crash 11674: <code>--jobs</code> above 1 crashes with "
+        "<code>PermissionError</code> when <code>ProcessPoolExecutor</code> cannot be created "
+        "(sandbox without semaphores); falls back to one process like the existing import check. "
+        "Run approved 22 October: 44/44 green, full coverage, primer only astropy noise.",
+        "Review first; backport candidate.",
+    ),
     11676: (
         "review",
         "crash",
@@ -115,6 +113,17 @@ V = {
         "1</code>. Reproduced on main; the earlier fix for closed issue 11286 missed this target. "
         "Green, full coverage, primer only the usual astropy noise.",
         "Review first; backport candidate.",
+    ),
+    11700: (
+        "review",
+        "ready",
+        "confirmed",
+        "108 lines by manoj-1407 for issue 11699 (bug, reproduced on 4.1.3, still Needs triage): "
+        "<code>--generate-toml-config</code>/<code>--generate-rcfile</code> write the options of "
+        "<code>--load-plugins</code> plugins but not <code>load-plugins</code>, so pylint rejects its "
+        "own output. Appends loaded dynamic plugins to <code>config.load_plugins</code>; 5 tests. "
+        "44/44 green, full coverage, primer only astropy noise.",
+        "Review; label 11699 as Bug.",
     ),
     11690: (
         "review",
@@ -286,15 +295,35 @@ V = {
         "Add skip news, then review with DudeNr33.",
     ),
     # ---- approve the workflow run ----------------------------------------
-    11700: (
+    11672: (
+        "approve",
+        "held",
+        "crash",
+        "67 lines by VedantBhayani for crash 9277 (2 reactions): <code>UnicodeEncodeError</code> in "
+        "<code>BaseReporter.writeln</code> when stdout cannot encode a message, e.g. Windows cp1252 "
+        "with a non-Latin comment. chrikrah approved on 22 October (retry with the stream's own "
+        "encoding, checked on cp1252); the run is still held, so no CI yet.",
+        "Approve the run, then merge if green; backport candidate.",
+    ),
+    11703: (
         "approve",
         "held",
         "confirmed",
-        "New, 108 lines by manoj-1407 for new issue 11699 (bug, same author, Needs triage): "
-        "<code>--generate-toml-config</code>/<code>--generate-rcfile</code> write the options of "
-        "<code>--load-plugins</code> plugins but not <code>load-plugins</code>, so pylint rejects its "
-        "own output. Appends loaded dynamic plugins to <code>config.load_plugins</code>; 5 tests.",
-        "Approve the run; triage 11699 (reproduces as described).",
+        "New, 51 lines by summeriver13 for issue 11701 (bug, same author, reproduced on 4.1.3): with "
+        "<code>--jobs</code> above 1, every message of a <code>--load-plugins</code> checker is "
+        "emitted twice (and counted twice in the score): the dynamic-plugin set was snapshotted "
+        "before the command-line plugins loaded, so workers registered a second copy.",
+        "Approve the run, then review; backport candidate.",
+    ),
+    11615: (
+        "approve",
+        "held",
+        "confirmed",
+        "Issue 10137 (bug, 3 reactions, milestone 4.1.4): <code>__Init__.py</code> with different "
+        "capitalization is linted as a module on Windows. The whole-path fix from #11668 is now on "
+        "this branch (<code>809157d</code>, <code>93fc234</code>, 21 October) and #11668 is closed; "
+        "the new head's six runs are held. Previous head was 52/52 green.",
+        "Approve the run, then review (your changes requested still standing).",
     ),
     11698: (
         "approve",
@@ -313,24 +342,15 @@ V = {
         "Sphinx <code>:param Union[str, int] name:</code>; the regex refused a space after a comma.",
         "Approve the run.",
     ),
-    11672: (
+    11704: (
         "approve",
         "held",
-        "crash",
-        "New, 67 lines by VedantBhayani for crash 9277 (2 reactions): "
-        "<code>UnicodeEncodeError</code> in <code>BaseReporter.writeln</code> when stdout cannot "
-        "encode a message, e.g. Windows cp1252 with a non-Latin comment.",
-        "Approve the run, then review: crash, backport candidate.",
-    ),
-    11675: (
-        "approve",
-        "held",
-        "crash",
-        "New, 48 lines by elupus for crash 11674 (filed the same minute): <code>--jobs</code> above "
-        "1 crashes with <code>PermissionError</code> when <code>ProcessPoolExecutor</code> cannot "
-        "be created (sandbox without semaphores); falls back to one process like the existing "
-        "import check.",
-        "Approve the run, then review.",
+        "confirmed",
+        "New, 32 lines by mehdimirzafaruk for issue 6856 (FN, 0 reactions): "
+        "<code>repeated-keyword</code> skipped built-ins like <code>print(end=\"!\", "
+        "**{\"end\": \"?\"})</code>, because the check came after the early return for callees "
+        "without argument information. Moves the check up.",
+        "Low priority: approve with the next batch.",
     ),
     11644: (
         "approve",
@@ -455,15 +475,6 @@ V = {
         "Milestone 4.1.4.",
         "Approve the run, then re-review.",
     ),
-    11584: (
-        "approve",
-        "held",
-        "confirmed",
-        "Issue 7997 (FP): <code>dict-init-mutate</code> when the later assignment reads the "
-        "dictionary being built. Rebased on 13 October as you asked (the old red was the primer "
-        "lookup flake); the run waits for approval. Milestone 4.1.4, backport label.",
-        "Approve the run, then review.",
-    ),
     11657: (
         "approve",
         "held",
@@ -491,15 +502,6 @@ V = {
         "<code>test_package_expansion_order</code>; the run waits for approval. Astroid #3384 (cache "
         "of budget-truncated inference) targets the inference side of the same symptom (11582).",
         "Approve the run; compare with astroid #3384.",
-    ),
-    11493: (
-        "approve",
-        "held",
-        "confirmed",
-        "Issue 9134 (FP): <code>used-before-assignment</code> for names shadowed by a later method. "
-        "The author fixed the class-inside-function FP you found (<code>late_bound_module_name</code> "
-        "test) on 13 October; the run waits for approval. Milestone 4.1.4.",
-        "Approve the run, then re-review.",
     ),
     11641: (
         "approve",
@@ -773,15 +775,6 @@ V = {
         "generated-doc backslash escaping.",
         "Waiting on the author.",
     ),
-    11552: (
-        "author",
-        "waiting",
-        "feature",
-        "10 lines documenting how to point <code>--init-hook</code> at a virtualenv's site-packages "
-        "(issue 9974). You requested changes on 3 October: that is not what <code>init-hook</code> is "
-        "for; launch pylint from the virtualenv instead.",
-        "Waiting on the author; closing is reasonable if the docs would teach the wrong workflow.",
-    ),
     11370: (
         "author",
         "waiting",
@@ -878,24 +871,18 @@ V = {
         "Ask for a rebase onto #11011, keeping only the package-root fix.",
     ),
     # ---- decide first -----------------------------------------------------
-    11668: (
+    11650: (
         "decide",
-        "dup",
-        "confirmed",
-        "126 lines by summeriver13 for issue 10137, competing with #11615. Since 19 October the same "
-        "commit also sits on #11615's branch as ningkexin96/pylint#1; the author keeps this open only "
-        "as the fallback vehicle. Run held.",
-        "Close once #11615 takes the fix.",
-    ),
-    11615: (
-        "decide",
-        "dup",
-        "confirmed",
-        "Issue 10137 (bug, 3 reactions): <code>__Init__.py</code> with different capitalization is "
-        "linted as a module on Windows. 52/52 green, milestone 4.1.4. On 19 October both authors "
-        "converged: ningkexin96 reproduced the directory-case and duplicate-input gaps on Windows "
-        "and summeriver13 opened the whole-path fix as ningkexin96/pylint#1 on top of this branch.",
-        "Tell ningkexin96 to merge their PR 1 into this branch, then review; close #11668.",
+        "approved",
+        "crash",
+        "Crash 10278: <code>ImportError: Unable to find module</code> when an implicit namespace "
+        "package also exists in site-packages or shadows a stdlib package. 41/41 green, primer "
+        "clean, chrikrah approved, milestone 4.1.4. On 20 October the author corrected their answer "
+        "to your astroid question: a path-aware <code>is_namespace(modname, path=None)</code> is "
+        "about six lines in astroid, keeps the 1756 guard and fixes 10278. Asks which you prefer: "
+        "astroid PR, or this pylint fix shipped in a patch release meanwhile.",
+        "Answer: both (merge this for 4.1.4, astroid PR for the real fix, revert here once pinned), "
+        "or astroid only.",
     ),
     11678: (
         "decide",

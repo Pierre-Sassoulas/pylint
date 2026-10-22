@@ -1,8 +1,8 @@
 {
- "snapshot": "2026-10-20",
+ "snapshot": "2026-10-22",
  "owner": "Pierre-Sassoulas",
- "open_total": 142,
- "open_own": 23,
+ "open_total": 139,
+ "open_own": 22,
  "prs": [
   {
    "n": 5401,
@@ -401,7 +401,7 @@
    "size": 70,
    "files": 8,
    "created": "2025-10-05",
-   "updated": "2026-10-19",
+   "updated": "2026-10-22",
    "labels": [
     "Enhancement ✨"
    ],
@@ -511,7 +511,7 @@
     "Documentation :green_book:"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "CONFLICTING",
+   "merge": "UNKNOWN",
    "ci": "failing",
    "citot": 46,
    "cifail": 1,
@@ -935,7 +935,7 @@
     "High priority"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "CONFLICTING",
+   "merge": "UNKNOWN",
    "ci": "green",
    "citot": 50,
    "cifail": 0,
@@ -1441,7 +1441,7 @@
     "backport maintenance/4.1.x"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "awaiting-approval",
    "citot": 2,
    "cifail": 0,
@@ -1598,7 +1598,7 @@
     "Lib specific 💅"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "awaiting-approval",
    "citot": 4,
    "cifail": 0,
@@ -1846,40 +1846,6 @@
    ]
   },
   {
-   "n": 11493,
-   "a": "jadhavgaurav",
-   "t": "Fix used-before-assignment false positive for names shadowed by a later method",
-   "draft": false,
-   "size": 213,
-   "files": 4,
-   "created": "2026-09-29",
-   "updated": "2026-10-13",
-   "labels": [
-    "False Positive 🦟",
-    "backport maintenance/4.1.x"
-   ],
-   "rd": "CHANGES_REQUESTED",
-   "merge": "UNKNOWN",
-   "ci": "awaiting-approval",
-   "citot": 2,
-   "cifail": 0,
-   "nrev": 2,
-   "mrev": [
-    "Pierre-Sassoulas"
-   ],
-   "links": [
-    [
-     9134,
-     "",
-     ""
-    ]
-   ],
-   "lastcom": [
-    "jadhavgaurav",
-    "2026-10-13"
-   ]
-  },
-  {
    "n": 11502,
    "a": "nightcityblade",
    "t": "Show actual defaults for message-control options",
@@ -2002,40 +1968,6 @@
    ]
   },
   {
-   "n": 11552,
-   "a": "Hashimlokasher",
-   "t": "Document how to point --init-hook at a virtualenv's site-packages",
-   "draft": false,
-   "size": 10,
-   "files": 2,
-   "created": "2026-10-03",
-   "updated": "2026-10-03",
-   "labels": [
-    "Documentation :green_book:",
-    "Skip news :mute:"
-   ],
-   "rd": "CHANGES_REQUESTED",
-   "merge": "UNKNOWN",
-   "ci": "awaiting-approval",
-   "citot": 5,
-   "cifail": 0,
-   "nrev": 1,
-   "mrev": [
-    "Pierre-Sassoulas"
-   ],
-   "links": [
-    [
-     9974,
-     "",
-     ""
-    ]
-   ],
-   "lastcom": [
-    "-",
-    "-"
-   ]
-  },
-  {
    "n": 11557,
    "a": "dchaudhari7177",
    "t": "Escape backslashes in the generated reST documentation",
@@ -2077,7 +2009,7 @@
    "size": 153,
    "files": 3,
    "created": "2026-10-04",
-   "updated": "2026-10-08",
+   "updated": "2026-10-21",
    "labels": [
     "typing",
     "False Positive 🦟"
@@ -2156,40 +2088,6 @@
    "lastcom": [
     "nightcityblade",
     "2026-10-09"
-   ]
-  },
-  {
-   "n": 11584,
-   "a": "mottopanikeiku",
-   "t": "Fix false positive `dict-init-mutate` for dictionary references",
-   "draft": false,
-   "size": 51,
-   "files": 4,
-   "created": "2026-10-06",
-   "updated": "2026-10-14",
-   "labels": [
-    "False Positive 🦟",
-    "backport maintenance/4.1.x"
-   ],
-   "rd": "CHANGES_REQUESTED",
-   "merge": "UNKNOWN",
-   "ci": "awaiting-approval",
-   "citot": 2,
-   "cifail": 0,
-   "nrev": 1,
-   "mrev": [
-    "Pierre-Sassoulas"
-   ],
-   "links": [
-    [
-     7997,
-     "",
-     ""
-    ]
-   ],
-   "lastcom": [
-    "mottopanikeiku",
-    "2026-10-13"
    ]
   },
   {
@@ -2285,10 +2183,10 @@
    "a": "ningkexin96",
    "t": "Fix Windows initializer path classification",
    "draft": false,
-   "size": 104,
+   "size": 271,
    "files": 4,
    "created": "2026-10-09",
-   "updated": "2026-10-19",
+   "updated": "2026-10-21",
    "labels": [
     "Bug :beetle:",
     "Needs reproduction :mag:",
@@ -2297,8 +2195,8 @@
    ],
    "rd": "CHANGES_REQUESTED",
    "merge": "UNKNOWN",
-   "ci": "green",
-   "citot": 52,
+   "ci": "awaiting-approval",
+   "citot": 2,
    "cifail": 0,
    "nrev": 1,
    "mrev": [
@@ -2307,7 +2205,7 @@
    "links": [],
    "lastcom": [
     "summeriver13",
-    "2026-10-19"
+    "2026-10-21"
    ]
   },
   {
@@ -2761,7 +2659,7 @@
    "size": 64,
    "files": 3,
    "created": "2026-10-12",
-   "updated": "2026-10-19",
+   "updated": "2026-10-20",
    "labels": [
     "Crash 💥",
     "backport maintenance/4.1.x"
@@ -2784,7 +2682,7 @@
    ],
    "lastcom": [
     "summeriver13",
-    "2026-10-19"
+    "2026-10-20"
    ]
   },
   {
@@ -3126,35 +3024,6 @@
    ]
   },
   {
-   "n": 11668,
-   "a": "summeriver13",
-   "t": "Fix module name and duplicate linting for differently cased paths",
-   "draft": false,
-   "size": 188,
-   "files": 3,
-   "created": "2026-10-15",
-   "updated": "2026-10-19",
-   "labels": [],
-   "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
-   "ci": "awaiting-approval",
-   "citot": 2,
-   "cifail": 0,
-   "nrev": 0,
-   "mrev": [],
-   "links": [
-    [
-     10137,
-     "",
-     ""
-    ]
-   ],
-   "lastcom": [
-    "summeriver13",
-    "2026-10-19"
-   ]
-  },
-  {
    "n": 11670,
    "a": "abdull-ah-med",
    "t": "Avoid shadowing warnings for equivalent module imports",
@@ -3191,14 +3060,14 @@
    "size": 67,
    "files": 3,
    "created": "2026-10-17",
-   "updated": "2026-10-17",
+   "updated": "2026-10-22",
    "labels": [],
    "rd": "REVIEW_REQUIRED",
    "merge": "UNKNOWN",
    "ci": "awaiting-approval",
    "citot": 3,
    "cifail": 0,
-   "nrev": 0,
+   "nrev": 1,
    "mrev": [],
    "links": [
     [
@@ -3249,12 +3118,12 @@
    "size": 48,
    "files": 3,
    "created": "2026-10-17",
-   "updated": "2026-10-17",
+   "updated": "2026-10-22",
    "labels": [],
    "rd": "REVIEW_REQUIRED",
    "merge": "UNKNOWN",
-   "ci": "awaiting-approval",
-   "citot": 3,
+   "ci": "green",
+   "citot": 44,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -3266,8 +3135,8 @@
     ]
    ],
    "lastcom": [
-    "-",
-    "-"
+    "github-actions",
+    "2026-10-22"
    ]
   },
   {
@@ -3681,15 +3550,73 @@
    "updated": "2026-10-20",
    "labels": [],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
-   "ci": "awaiting-approval",
-   "citot": 3,
+   "merge": "UNKNOWN",
+   "ci": "green",
+   "citot": 44,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
    "links": [
     [
      11699,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "github-actions",
+    "2026-10-20"
+   ]
+  },
+  {
+   "n": 11703,
+   "a": "summeriver13",
+   "t": "Fix duplicate messages from --load-plugins checkers with --jobs > 1",
+   "draft": false,
+   "size": 51,
+   "files": 4,
+   "created": "2026-10-20",
+   "updated": "2026-10-20",
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "merge": "UNKNOWN",
+   "ci": "awaiting-approval",
+   "citot": 2,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [
+    [
+     11701,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "-",
+    "-"
+   ]
+  },
+  {
+   "n": 11704,
+   "a": "mehdimirzafaruk",
+   "t": "Emit `repeated-keyword` for calls to built-in functions",
+   "draft": false,
+   "size": 32,
+   "files": 4,
+   "created": "2026-10-21",
+   "updated": "2026-10-21",
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "awaiting-approval",
+   "citot": 3,
+   "cifail": 0,
+   "nrev": 1,
+   "mrev": [],
+   "links": [
+    [
+     6856,
      "",
      ""
     ]
@@ -3991,6 +3918,17 @@
    "title": "``bad-string-format-type``: only works on old-style string formatting and can't infer values"
   },
   {
+   "comments": 0,
+   "labels": [
+    "False Negative 🦋",
+    "Needs PR"
+   ],
+   "number": 6856,
+   "state": "open",
+   "state_reason": null,
+   "title": "False negative ``repeated-keyword`` for builtin functions"
+  },
+  {
    "comments": 6,
    "labels": [
     "Bug :beetle:",
@@ -4064,17 +4002,6 @@
    "state": "open",
    "state_reason": null,
    "title": "Add dark mode to pyreverse"
-  },
-  {
-   "comments": 4,
-   "labels": [
-    "False Positive 🦟",
-    "Needs PR"
-   ],
-   "number": 7997,
-   "state": "open",
-   "state_reason": null,
-   "title": "False Positive `dict-init-mutate` when dict assignment references dict"
   },
   {
    "comments": 4,
@@ -4260,18 +4187,6 @@
    "state": "open",
    "state_reason": null,
    "title": "Pydantic Field(alias=) is not recognized by Pylint, warns E1123 unexpected-keyword-arg"
-  },
-  {
-   "comments": 2,
-   "labels": [
-    "False Positive 🦟",
-    "C: used-before-assignment",
-    "Needs PR"
-   ],
-   "number": 9134,
-   "state": "open",
-   "state_reason": null,
-   "title": "Pylint false report for used-before-assignment"
   },
   {
    "comments": 1,
@@ -4552,17 +4467,6 @@
    "title": "Alter fallback when `source-root` based package path discovery when a source root containing the module directory is not found"
   },
   {
-   "comments": 2,
-   "labels": [
-    "Documentation :green_book:",
-    "Needs PR"
-   ],
-   "number": 9974,
-   "state": "open",
-   "state_reason": null,
-   "title": "Document how to configure the location of site packages in pylint "
-  },
-  {
    "comments": 0,
    "labels": [
     "Bug :beetle:",
@@ -4657,19 +4561,6 @@
    "state": "open",
    "state_reason": null,
    "title": "Question: Is there a reason that `invalid-envvar-default` only checks `os.getenv`, not `os.environ.get`"
-  },
-  {
-   "comments": 1,
-   "labels": [
-    "Bug :beetle:",
-    "performance",
-    "Windows 🪟",
-    "Needs PR"
-   ],
-   "number": 10137,
-   "state": "open",
-   "state_reason": null,
-   "title": "recursion error on windows when running pylint with a path to an `__init__.py` file with a lambda and an import, when the file path is specified with different capitalization"
   },
   {
    "comments": 0,
@@ -4989,6 +4880,14 @@
    "state": "open",
    "state_reason": null,
    "title": "`--generate-toml-config` and `--generate-rcfile` leave out plugins given with `--load-plugins`"
+  },
+  {
+   "comments": 0,
+   "labels": [],
+   "number": 11701,
+   "state": "open",
+   "state_reason": null,
+   "title": "--jobs > 1 duplicates every message emitted by a --load-plugins checker"
   }
  ]
 }

@@ -1999,10 +1999,10 @@
       "ts": "2026-09-16T00:00:00+00:00"
     },
     "9134": {
-      "verdict": "DESIGN",
-      "note": "used-before-assignment false positive. Spec/PR.",
-      "session": 3,
-      "ts": "2026-05-12T11:13:35.015425+00:00"
+      "verdict": "FIXED",
+      "note": "Fixed by PR 11493 (merged 2026-10-21, backported to 4.1.x as 11707): ships in 4.1.4.",
+      "session": 19,
+      "ts": "2026-10-22T09:50:08.437684+00:00"
     },
     "9130": {
       "verdict": "DESIGN",
@@ -3073,10 +3073,10 @@
       "ts": "2026-05-12T11:37:35.860861+00:00"
     },
     "7997": {
-      "verdict": "REPRO",
-      "note": "Confirmed C3401 dict-init-mutate false positive: 'counts[key] = ... counts.get(key, 0)' references the dict itself, cannot be moved into the initializer.",
-      "session": 4,
-      "ts": "2026-05-12T11:29:31.333345+00:00"
+      "verdict": "FIXED",
+      "note": "Fixed by PR 11584 (merged 2026-10-21, backported to 4.1.x as 11706): ships in 4.1.4.",
+      "session": 19,
+      "ts": "2026-10-22T09:50:08.437684+00:00"
     },
     "7995": {
       "verdict": "DESIGN",
@@ -6401,6 +6401,24 @@
       "note": "Reproduced on main 1a60ec190: useless-suppression on a disable of deprecated-method, while cyclic-import on the next function stays exempt. INCOMPATIBLE_WITH_USELESS_SUPPRESSION still lists the pre-2.15 ids (W0402, W1505, W1511-W1513) instead of W4901-W4905. Fix in PR 11657 (run held).",
       "session": 18,
       "ts": "2026-10-14T09:13:13.278684+00:00"
+    },
+    "11699": {
+      "verdict": "REPRO",
+      "note": "Reproduced on 4.1.3: pylint --load-plugins=pylint.extensions.mccabe --generate-toml-config writes max-complexity but leaves load-plugins commented out, so the file is rejected as is. Fix in PR 11700 (same author), green.",
+      "session": 19,
+      "ts": "2026-10-22T09:50:08.437684+00:00"
+    },
+    "11701": {
+      "verdict": "REPRO",
+      "note": "Reproduced on 4.1.3: --load-plugins=pylint.extensions.overlapping_exceptions with -j2 prints every overlapping-except twice. _registered_dynamic_plugin_checkers is snapshotted before command-line plugins load, so workers register a second copy. Fix in PR 11703 (same author), run held.",
+      "session": 19,
+      "ts": "2026-10-22T09:50:08.437684+00:00"
+    },
+    "11705": {
+      "verdict": "EXTDEP",
+      "note": "Crash inside pylint-pytest: its fixture checker calls pytest.main in visit_module, which fails with ModuleNotFoundError: No module named 'platformdirs.pytest_plugin' (a stale pytest11 entry point in the user's environment) and is wrapped as AstroidError. Not a pylint or astroid bug; belongs to pylint-pytest / the environment.",
+      "session": 19,
+      "ts": "2026-10-22T09:50:08.437684+00:00"
     }
   },
   "session_count": 10
