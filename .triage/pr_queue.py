@@ -282,6 +282,16 @@ V = {
         "Add skip news, then review with DudeNr33.",
     ),
     # ---- approve the workflow run ----------------------------------------
+    11723: (
+        "approve",
+        "held",
+        "confirmed",
+        "New, 9 lines by Pushkar-Shahi for issue 11702 (docs): follow-up to the merged #11710, says in "
+        "the <code>logging-format-style</code> help that stdlib <code>logging</code> only formats with "
+        "<code>%</code>, so <code>new</code> is for third-party loggers. That is the gap the 22 October "
+        "triage of 11702 named.",
+        "Approve the run and merge; it closes 11702.",
+    ),
     11714: (
         "review",
         "ready",
@@ -825,16 +835,6 @@ V = {
         "Ask for a rebase onto #11011, keeping only the package-root fix.",
     ),
     # ---- decide first -----------------------------------------------------
-    11721: (
-        "decide",
-        "dup",
-        "confirmed",
-        "New, 97 lines by Richard-ylt for issue 11681 (bug, duplicate-code): an AST-based way to "
-        "keep a <code>#</code> inside a string from being taken for a comment. Same issue as "
-        "soodoku's #11682 (tokenize-based, opened 3 days earlier, red only on spelling). Run held.",
-        "Pick one: #11682 is first and only needs a spelling fix; close this one unless its "
-        "approach is better.",
-    ),
     11650: (
         "decide",
         "approved",
@@ -1308,115 +1308,49 @@ for title, items in (
     if items is todo_approve:
         todo.append(f"<pre>{APPROVE_LOOP.format(numbers=' '.join(map(str, items)))}</pre>")
 
-# Astroid: the same ranking over astroid_queue_data.json (astroid_queue_fetch.py).
-# Kinds come from the PR labels plus those of the astroid issues it closes and
-# the pylint issues it names; reactions count on all of those.
+# Astroid: the ranking and lanes of astroid_queue.py (which also renders
+# astroid.html), so both pages always agree. Only the lanes needing you now
+# are listed here, limited to the items worth your time.
 ASTROID_FILE = HERE / "astroid_queue_data.json"
 if ASTROID_FILE.exists():
+    import astroid_queue
+
     ASTROID = json.loads(ASTROID_FILE.read_text())
-    ASTROID_NOTES = {
-        # n: (step, action, note) for what the data cannot tell; step is one of
-        # "merge", "review", "approve", "ping", "skip".
-    }
+    prs = sorted(ASTROID["prs"], key=astroid_queue.priority)
 
-    def astroid_priority(p: dict) -> tuple:
-        labels = list(p["labels"])
-        for linked in p["links"]:
-            labels.extend(linked["labels"])
-        names = [name.lower() for name in labels]
-        found = set()
-        for rank, keys in enumerate(
-            (("crash", "performance"), ("bug",), ("false positive",), ("false negative",), ("enhancement", "brain"))
-        ):
-            if any(key in name for key in keys for name in names):
-                found.add(rank)
-        if found & {2, 3}:
-            found.discard(1)
-        category = min(found, default=5)
-        high = any(name.startswith("high priority") for name in names)
-        reactions = sum(linked["reactions"] for linked in p["links"] if linked["state"] == "open")
-        return (category, not high, -reactions, "".join(chr(0x10FFFF - ord(c)) for c in p["updated"]))
-
-    def astroid_item(p: dict, action: str) -> str:
-        category, not_high, minus_reactions, _ = astroid_priority(p)
-        refs = [
-            linked["ref"].replace("pylint-dev/", "")
-            for linked in p["links"]
-            if linked["state"] == "open" and linked["reactions"]
-        ]
-        extra = []
-        if p["milestone"]:
-            extra.append(f"milestone {p['milestone']}")
-        if p["rd"] == "APPROVED":
-            extra.append("approved")
-        elif p["rd"] == "CHANGES_REQUESTED":
-            extra.append("changes requested")
-        extra.append(f"{p['size']} lines")
-        note = ASTROID_NOTES.get(p["n"], (None, None, ""))[2]
-        if note:
-            extra.append(note)
+    def astroid_item(p: dict) -> str:
+        category = astroid_queue.priority(p)[0]
         return (
             f'<li><a href="https://github.com/pylint-dev/astroid/pull/{p["n"]}">astroid #{p["n"]}</a> '
             f'<span class="k">{E(KIND_NAMES[category])}</span>{E(p["t"])} '
-            f'<span class="do">— {action}</span>'
-            f'<span class="why">Why here: {why(category, not not_high, -minus_reactions, refs, p["ci"], extra)}</span>'
+            f'<span class="do">— {astroid_queue.LANES[astroid_queue.lane(p)][3]}</span>'
+            f'<span class="why">Why here: {E(astroid_queue.why(p))}</span>'
             "</li>"
         )
 
-    def astroid_step(p: dict) -> str:
-        if p["n"] in ASTROID_NOTES:
-            return ASTROID_NOTES[p["n"]][0]
-        if p["a"] == "app/pylint-backport":
-            return "merge"
-        if p["draft"]:
-            return "skip"
-        category, not_high, minus_reactions, _ = astroid_priority(p)
-        worth = category <= 1 or not not_high or minus_reactions <= -2
-        if p["a"] == OWNER:
-            # Your own: only worth a reviewer ping when it unblocks something.
-            return "ping" if worth or p["milestone"] else "skip"
-        if p["ci"] == "green" and p["rd"] == "APPROVED":
-            return "merge"
-        if p["ci"] == "green" and p["rd"] != "CHANGES_REQUESTED":
-            return "review" if worth else "skip"
-        if p["ci"] == "awaiting-approval":
-            return "approve" if worth else "skip"
-        return "skip"
-
-    OWNER = DATA["owner"]
-    steps: dict = {"merge": [], "review": [], "approve": [], "ping": []}
-    for p in sorted(ASTROID["prs"], key=astroid_priority):
-        step = astroid_step(p)
-        if step in steps:
-            steps[step].append(p)
-    default_action = {
-        "merge": "Merge.",
-        "review": "Review.",
-        "approve": "Approve the run, then review.",
-        "ping": "Ask another maintainer for a review.",
-    }
     todo.append(
         f'<h3>5. Astroid <span class="count">snapshot {E(ASTROID["snapshot"])}</span></h3>'
         '<p class="rubric">Same ranking. A fix in astroid reaches pylint users only after an astroid '
         "release and a bump of pylint's minimum astroid version, so a crash or bug fix there weighs as "
-        "much as one in pylint. Your own pull requests are listed when they unblock something "
-        "(crash, bug, performance, reactions or a milestone) and only need a second maintainer.</p>"
+        "much as one in pylint. Contributor patches are listed when they are a crash, a bug, High "
+        "priority or have two reactions; your own when they also carry a milestone. The full list is "
+        'on the <a href="astroid.html">astroid queue</a>.</p>'
     )
-    for step, title, limit in (
-        ("merge", "Merge", 8),
-        ("review", "Review (contributors, green)", 8),
-        ("approve", "Approve the run", 8),
-        ("ping", "Yours, waiting on a reviewer", 10),
+    for key, title, limit, keep in (
+        ("backport", "Backports", 8, lambda p: True),
+        ("merge", "Merge", 8, lambda p: True),
+        ("review", "Review (contributors, green)", 8, astroid_queue.worth),
+        ("approve", "Approve the run", 8, astroid_queue.worth),
+        ("ping", "Yours, waiting on a reviewer", 10, lambda p: astroid_queue.worth(p) or bool(p["milestone"])),
     ):
-        if not steps[step]:
+        items = [p for p in prs if astroid_queue.lane(p) == key and keep(p)][:limit]
+        if not items:
             continue
         todo.append(f"<h4>{title}</h4><ol>")
-        for p in steps[step][:limit]:
-            action = ASTROID_NOTES.get(p["n"], (None, default_action[step]))[1] or default_action[step]
-            todo.append(astroid_item(p, action))
+        todo.extend(astroid_item(p) for p in items)
         todo.append("</ol>")
-        if step == "approve":
-            numbers = " ".join(str(p["n"]) for p in steps[step][:limit])
+        if key == "approve":
+            numbers = " ".join(str(p["n"]) for p in items)
             todo.append(
                 "<pre>"
                 + APPROVE_LOOP.format(numbers=numbers).replace("pylint-dev/pylint", "pylint-dev/astroid")
