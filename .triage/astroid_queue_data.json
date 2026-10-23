@@ -2291,6 +2291,32 @@
    "ci": "green",
    "cifail": 0,
    "links": []
+  },
+  {
+   "n": 3441,
+   "a": "LJimmy007",
+   "t": "Continue applying transforms after a None return",
+   "draft": false,
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 91,
+   "created": "2026-10-23",
+   "updated": "2026-10-23",
+   "ci": "awaiting-approval",
+   "cifail": 0,
+   "links": [
+    {
+     "ref": "pylint-dev/astroid#809",
+     "title": "Next transformer not called if previous transformer returns `None`.",
+     "state": "open",
+     "labels": [
+      "Bug 🪳"
+     ],
+     "reactions": 0,
+     "pr": false
+    }
+   ]
   }
  ]
 }

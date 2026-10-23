@@ -93,16 +93,6 @@ V = {
         "not in the checkers.",
         "Review with that in mind: checker-side special case or astroid brain.",
     ),
-    11698: (
-        "review",
-        "ready",
-        "confirmed",
-        "96 lines by mehdimirzafaruk for issue 3484 (FP, 3 reactions): <code>using-constant-test</code> "
-        "on <code>if self.cached:</code> when the method has an unknown or class decorator "
-        "(third-party <code>cached_property</code>). 43/43 green, full coverage. Primer removes 5 real "
-        "FPs (django <code>views/generic/base.py</code> x3, home-assistant x2); rest is noise.",
-        "Review.",
-    ),
     11615: (
         "review",
         "ready",
@@ -282,6 +272,15 @@ V = {
         "Add skip news, then review with DudeNr33.",
     ),
     # ---- approve the workflow run ----------------------------------------
+    11725: (
+        "approve",
+        "held",
+        "confirmed",
+        "New, 250 lines by LJimmy007 for issue 8221 (FN, 0 reactions): <code>cell-var-from-loop</code> "
+        "skipped generator expressions saved in a loop and consumed later. Separates a genexp's lazy "
+        "body from its eager first iterable.",
+        "Approve with the next batch.",
+    ),
     11723: (
         "approve",
         "held",
@@ -336,13 +335,6 @@ V = {
         "**{\"end\": \"?\"})</code>, because the check came after the early return for callees "
         "without argument information. Moves the check up.",
         "Low priority: approve with the next batch.",
-    ),
-    11680: (
-        "review",
-        "ready",
-        "confirmed",
-        'New, 93 lines by soodoku for issue 11679 (bug, filed the same minute): <code>duplicate-code</code> reports a block copied into three files as one pair; the third copy never appears. Run released 22 October: green, primer only noise.',
-        'Review.',
     ),
     11667: (
         "review",
@@ -623,6 +615,16 @@ V = {
         "Retrigger. The size needs a primer run before review.",
     ),
     # ---- author's move ----------------------------------------------------
+    11680: (
+        "author",
+        "changes",
+        "confirmed",
+        "93 lines by soodoku for issue 11679 (bug): <code>duplicate-code</code> reported a block copied "
+        "into three files as one pair. Green. You requested changes on 23 October: two suggestions "
+        "(one-pass grouping in <code>symilar.py</code>) you could not push yourself, the branch "
+        "belongs to an organization.",
+        "Wait for the author to apply the two suggestions, then merge.",
+    ),
     11672: (
         "author",
         "changes",

@@ -5263,10 +5263,10 @@
       "ts": "2026-05-12T12:32:55.364896+00:00"
     },
     "3484": {
-      "verdict": "EXTDEP",
-      "note": "Needs cached_property lib for unknown property decorator.",
-      "session": 8,
-      "ts": "2026-05-12T12:32:55.401442+00:00"
+      "verdict": "FIXED",
+      "note": "Fixed by PR 11698 (merged 2026-10-23, backported to 4.1.x as 11724): using-constant-test skips methods with unknown or class decorators. Ships in 4.1.4.",
+      "session": 20,
+      "ts": "2026-10-23T14:26:28.214022+00:00"
     },
     "3471": {
       "verdict": "DESIGN",
