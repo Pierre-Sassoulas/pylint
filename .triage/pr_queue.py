@@ -124,12 +124,14 @@ V = {
     ),
     11417: (
         "review",
-        "ready",
+        "yours",
         "confirmed",
-        "For and With checkers did not run on <code>async for</code> / <code>async with</code>. "
-        "Milestone 4.1.4, backport label. 43/43 green; primer adds 3 home-assistant "
-        "<code>too-many-nested-blocks</code> on <code>async for</code>, the intended new hits.",
-        "Re-review (your changes requested still standing); backport.",
+        "For and With checkers did not run on <code>async for</code> / <code>async with</code>. You "
+        "pushed 2 commits on 23 October (type comments in <code>unused-import</code>, "
+        "<code>redefined-loop-name</code> extension), relabelled it FP + FN and moved it to 4.2.0 "
+        "without backport. CI running. Previous head: green, primer +3 intended "
+        "<code>too-many-nested-blocks</code> in home-assistant.",
+        "Merge once green, or ask a second maintainer since the last commits are yours.",
     ),
     11690: (
         "review",
@@ -844,6 +846,16 @@ V = {
         "Ask for a rebase onto #11011, keeping only the package-root fix.",
     ),
     # ---- decide first -----------------------------------------------------
+    11721: (
+        "decide",
+        "dup",
+        "confirmed",
+        "New, 97 lines by Richard-ylt for issue 11681 (bug, duplicate-code): an AST-based way to "
+        "keep a <code>#</code> inside a string from being taken for a comment. Same issue as "
+        "soodoku's #11682 (tokenize-based, opened 3 days earlier, red only on spelling). Run held.",
+        "Pick one: #11682 is first and only needs a spelling fix; close this one unless its "
+        "approach is better.",
+    ),
     11650: (
         "decide",
         "approved",

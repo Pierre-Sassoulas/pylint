@@ -2054,9 +2054,9 @@
    "labels": [],
    "rd": "REVIEW_REQUIRED",
    "milestone": "",
-   "size": 86,
+   "size": 87,
    "created": "2026-10-22",
-   "updated": "2026-10-22",
+   "updated": "2026-10-23",
    "ci": "awaiting-approval",
    "cifail": 0,
    "links": [
@@ -2081,9 +2081,9 @@
    "labels": [],
    "rd": "REVIEW_REQUIRED",
    "milestone": "",
-   "size": 52,
+   "size": 53,
    "created": "2026-10-22",
-   "updated": "2026-10-22",
+   "updated": "2026-10-23",
    "ci": "awaiting-approval",
    "cifail": 0,
    "links": [
