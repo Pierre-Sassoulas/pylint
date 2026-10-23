@@ -74,7 +74,8 @@ def main() -> None:
     cache: dict = {}
     rows = []
     for pr in sorted(prs, key=lambda p: p["number"]):
-        if pr["author"]["login"].startswith("app/"):
+        # Dependency bumps are skipped; backports need a maintainer to merge.
+        if pr["author"]["login"].startswith("app/") and pr["author"]["login"] != "app/pylint-backport":
             continue
         n = pr["number"]
         runs = gh("pr", "view", str(n), "--repo", REPO, "--json", "statusCheckRollup")[

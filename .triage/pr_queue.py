@@ -1277,6 +1277,26 @@ todo = [
     "negative, enhancement; then High priority; then reactions on the open linked issues. A held run "
     "is only listed for a crash, a bug, High priority or two reactions.</p>"
 ]
+# Backports come first: the fix is already reviewed on main, and the patch
+# release only ships what got merged on the maintenance branch. The bot's PRs
+# have no verdict and are not in any lane, so they are listed from the data.
+backports = sorted(n for n, r in rows.items() if r["a"] == "app/pylint-backport")
+if backports:
+    todo.append("<h3>0. Backports</h3><ol>")
+    for n in backports:
+        r = rows[n]
+        action = {
+            "green": "Approve and merge.",
+            "awaiting-approval": "Approve the run, then merge.",
+            "failing": "Look at the failure: a conflict with the maintenance branch or a missing earlier backport.",
+        }.get(r["ci"], "Merge once CI is green.")
+        todo.append(
+            f'<li><a href="https://github.com/pylint-dev/pylint/pull/{n}">#{n}</a> '
+            f'<span class="k">backport</span>{E(r["t"])} <span class="do">— {action}</span>'
+            f'<span class="why">Why here: the fix is merged on main and only reaches users in the next '
+            f"patch release once this is merged · CI {CI_WORDS[r['ci']][0]} · opened {E(r['created'])}</span></li>"
+        )
+    todo.append("</ol>")
 for title, items in (
     ("1. Merge", lane_members("merge")),
     ("2. Review", lane_members("review")[:TODO_REVIEW]),
@@ -1355,6 +1375,8 @@ if ASTROID_FILE.exists():
     def astroid_step(p: dict) -> str:
         if p["n"] in ASTROID_NOTES:
             return ASTROID_NOTES[p["n"]][0]
+        if p["a"] == "app/pylint-backport":
+            return "merge"
         if p["draft"]:
             return "skip"
         category, not_high, minus_reactions, _ = astroid_priority(p)
