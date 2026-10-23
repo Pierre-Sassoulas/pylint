@@ -257,7 +257,10 @@
      "ref": "pylint-dev/astroid#2766",
      "title": "packages are not recognized as packages if `__init__.py` as it should since python 3.3",
      "state": "open",
-     "labels": [],
+     "labels": [
+      "Bug 🪳",
+      "Needs investigation 🔬"
+     ],
      "reactions": 1,
      "pr": false
     }
@@ -1031,7 +1034,9 @@
      "ref": "pylint-dev/astroid#3337",
      "title": "Align inference annotations with supported inputs and stored values",
      "state": "open",
-     "labels": [],
+     "labels": [
+      "Maintenance"
+     ],
      "reactions": 0,
      "pr": false
     }
@@ -1238,12 +1243,15 @@
    "a": "devanshranjan10",
    "t": "Don't use an Uninferable base for typing.Tuple / typing.Callable",
    "draft": false,
-   "labels": [],
+   "labels": [
+    "Bug 🪳",
+    "Brain 🧠"
+   ],
    "rd": "REVIEW_REQUIRED",
    "milestone": "",
    "size": 34,
    "created": "2026-10-09",
-   "updated": "2026-10-10",
+   "updated": "2026-10-23",
    "ci": "green",
    "cifail": 0,
    "links": [
@@ -1251,7 +1259,9 @@
      "ref": "pylint-dev/astroid#3366",
      "title": "`TypeError: 'UninferableBase' object is not iterable` when checking ancestors",
      "state": "open",
-     "labels": [],
+     "labels": [
+      "Crash 💥"
+     ],
      "reactions": 0,
      "pr": false
     }
@@ -1279,12 +1289,14 @@
    "a": "nabhan06",
    "t": "fix _is_property crash on methods proxying a Lambda or Uninferable",
    "draft": false,
-   "labels": [],
+   "labels": [
+    "Crash 💥"
+   ],
    "rd": "REVIEW_REQUIRED",
    "milestone": "",
    "size": 43,
    "created": "2026-10-09",
-   "updated": "2026-10-10",
+   "updated": "2026-10-23",
    "ci": "green",
    "cifail": 0,
    "links": [
@@ -1306,12 +1318,15 @@
    "a": "ump45nose",
    "t": "Bind the class to a metaclass method when its metaclass node is rebuilt",
    "draft": false,
-   "labels": [],
+   "labels": [
+    "Bug 🪳",
+    "inference"
+   ],
    "rd": "REVIEW_REQUIRED",
    "milestone": "",
    "size": 48,
    "created": "2026-10-09",
-   "updated": "2026-10-13",
+   "updated": "2026-10-23",
    "ci": "green",
    "cifail": 0,
    "links": [
@@ -1333,12 +1348,15 @@
    "a": "ozenyunus35",
    "t": "Fix inference of built-in in-place operators on mutable instances",
    "draft": false,
-   "labels": [],
+   "labels": [
+    "Bug 🪳",
+    "inference"
+   ],
    "rd": "REVIEW_REQUIRED",
    "milestone": "",
    "size": 182,
    "created": "2026-10-09",
-   "updated": "2026-10-19",
+   "updated": "2026-10-23",
    "ci": "awaiting-approval",
    "cifail": 0,
    "links": [
@@ -1377,12 +1395,15 @@
    "a": "RizgarOzan",
    "t": "Infer a type statement's name as a TypeAliasType instance",
    "draft": false,
-   "labels": [],
+   "labels": [
+    "Enhancement ✨",
+    "python 3.12"
+   ],
    "rd": "CHANGES_REQUESTED",
    "milestone": "4.4.0",
    "size": 147,
    "created": "2026-10-11",
-   "updated": "2026-10-12",
+   "updated": "2026-10-23",
    "ci": "awaiting-approval",
    "cifail": 0,
    "links": [
@@ -1405,12 +1426,15 @@
    "a": "Shaisolaris",
    "t": "Keep operand order for int and bool constant operations",
    "draft": false,
-   "labels": [],
+   "labels": [
+    "Bug 🪳",
+    "inference"
+   ],
    "rd": "REVIEW_REQUIRED",
    "milestone": "",
    "size": 92,
    "created": "2026-10-12",
-   "updated": "2026-10-12",
+   "updated": "2026-10-23",
    "ci": "awaiting-approval",
    "cifail": 0,
    "links": [
@@ -1418,7 +1442,10 @@
      "ref": "pylint-dev/astroid#3376",
      "title": "Binary operations between an int and a bool are inferred with the operands swapped",
      "state": "open",
-     "labels": [],
+     "labels": [
+      "Bug 🪳",
+      "inference"
+     ],
      "reactions": 0,
      "pr": false
     }
@@ -1429,12 +1456,15 @@
    "a": "nabhan06",
    "t": "Fix crash inferring a nested starred target over an opaque element",
    "draft": false,
-   "labels": [],
+   "labels": [
+    "Crash 💥",
+    "inference"
+   ],
    "rd": "REVIEW_REQUIRED",
    "milestone": "",
    "size": 48,
    "created": "2026-10-12",
-   "updated": "2026-10-12",
+   "updated": "2026-10-23",
    "ci": "green",
    "cifail": 0,
    "links": [
@@ -1442,7 +1472,10 @@
      "ref": "pylint-dev/astroid#3378",
      "title": "Uncaught TypeError inferring a starred name nested in a for-loop target",
      "state": "open",
-     "labels": [],
+     "labels": [
+      "inference",
+      "Crash 💥"
+     ],
      "reactions": 0,
      "pr": false
     }
@@ -1453,12 +1486,15 @@
    "a": "xiehuanyi",
    "t": "Infer the last matching dictionary entry on subscription",
    "draft": false,
-   "labels": [],
+   "labels": [
+    "Bug 🪳",
+    "inference"
+   ],
    "rd": "REVIEW_REQUIRED",
    "milestone": "",
    "size": 54,
    "created": "2026-10-12",
-   "updated": "2026-10-12",
+   "updated": "2026-10-23",
    "ci": "awaiting-approval",
    "cifail": 0,
    "links": []
@@ -1468,12 +1504,15 @@
    "a": "xiehuanyi",
    "t": "Honor explicit default values in dict.fromkeys inference",
    "draft": false,
-   "labels": [],
+   "labels": [
+    "Bug 🪳",
+    "Brain 🧠"
+   ],
    "rd": "REVIEW_REQUIRED",
    "milestone": "",
    "size": 82,
    "created": "2026-10-12",
-   "updated": "2026-10-12",
+   "updated": "2026-10-23",
    "ci": "awaiting-approval",
    "cifail": 0,
    "links": []
@@ -1483,12 +1522,15 @@
    "a": "xiehuanyi",
    "t": "Infer distinct values when calculating literal collection lengths",
    "draft": false,
-   "labels": [],
+   "labels": [
+    "Bug 🪳",
+    "inference"
+   ],
    "rd": "REVIEW_REQUIRED",
    "milestone": "",
    "size": 98,
    "created": "2026-10-12",
-   "updated": "2026-10-21",
+   "updated": "2026-10-23",
    "ci": "awaiting-approval",
    "cifail": 0,
    "links": []
@@ -1498,12 +1540,15 @@
    "a": "haigou-web",
    "t": "Fix order-dependent inference caused by caching budget-truncated results",
    "draft": false,
-   "labels": [],
+   "labels": [
+    "Bug 🪳",
+    "inference"
+   ],
    "rd": "REVIEW_REQUIRED",
    "milestone": "",
    "size": 59,
    "created": "2026-10-12",
-   "updated": "2026-10-22",
+   "updated": "2026-10-23",
    "ci": "awaiting-approval",
    "cifail": 0,
    "links": [
@@ -1523,7 +1568,10 @@
      "ref": "pylint-dev/astroid#3383",
      "title": "Inference cache stores results truncated by the inference budget, making inference order-dependent",
      "state": "open",
-     "labels": [],
+     "labels": [
+      "Bug 🪳",
+      "inference"
+     ],
      "reactions": 0,
      "pr": false
     }
@@ -1534,12 +1582,15 @@
    "a": "xiehuanyi",
    "t": "Preserve unknown elements during container inference",
    "draft": false,
-   "labels": [],
+   "labels": [
+    "Bug 🪳",
+    "inference"
+   ],
    "rd": "REVIEW_REQUIRED",
    "milestone": "",
    "size": 82,
    "created": "2026-10-12",
-   "updated": "2026-10-12",
+   "updated": "2026-10-23",
    "ci": "awaiting-approval",
    "cifail": 0,
    "links": []
@@ -1647,12 +1698,15 @@
    "a": "ansh-rohilla",
    "t": "Fix crash in infer_typing_alias on non-int _alias() argument (#3389)",
    "draft": false,
-   "labels": [],
+   "labels": [
+    "Brain 🧠",
+    "Crash 💥"
+   ],
    "rd": "REVIEW_REQUIRED",
    "milestone": "",
    "size": 54,
    "created": "2026-10-13",
-   "updated": "2026-10-13",
+   "updated": "2026-10-23",
    "ci": "awaiting-approval",
    "cifail": 0,
    "links": [
@@ -1660,7 +1714,10 @@
      "ref": "pylint-dev/astroid#3389",
      "title": "Crash in infer_typing_alias on non-int _alias() second argument",
      "state": "open",
-     "labels": [],
+     "labels": [
+      "Brain 🧠",
+      "Crash 💥"
+     ],
      "reactions": 0,
      "pr": false
     }
@@ -1702,12 +1759,15 @@
    "a": "Aryan007-dev",
    "t": "Keep an instance apart from its class when deduplicating inference results",
    "draft": false,
-   "labels": [],
+   "labels": [
+    "Bug 🪳",
+    "inference"
+   ],
    "rd": "REVIEW_REQUIRED",
    "milestone": "",
    "size": 36,
    "created": "2026-10-14",
-   "updated": "2026-10-14",
+   "updated": "2026-10-23",
    "ci": "awaiting-approval",
    "cifail": 0,
    "links": [
@@ -1764,12 +1824,15 @@
    "a": "yw-7777",
    "t": "Add static inference for orjson dumps and loads",
    "draft": true,
-   "labels": [],
+   "labels": [
+    "Enhancement ✨",
+    "Brain 🧠"
+   ],
    "rd": "REVIEW_REQUIRED",
    "milestone": "",
    "size": 113,
    "created": "2026-10-14",
-   "updated": "2026-10-14",
+   "updated": "2026-10-23",
    "ci": "awaiting-approval",
    "cifail": 0,
    "links": [
@@ -1792,12 +1855,14 @@
    "a": "Boulea7",
    "t": "Close source streams when reading fails",
    "draft": false,
-   "labels": [],
+   "labels": [
+    "Bug 🪳"
+   ],
    "rd": "REVIEW_REQUIRED",
    "milestone": "",
    "size": 90,
    "created": "2026-10-15",
-   "updated": "2026-10-15",
+   "updated": "2026-10-23",
    "ci": "green",
    "cifail": 0,
    "links": [
@@ -1805,7 +1870,9 @@
      "ref": "pylint-dev/astroid#3404",
      "title": "Source file remains open after a decoding error",
      "state": "open",
-     "labels": [],
+     "labels": [
+      "Bug 🪳"
+     ],
      "reactions": 0,
      "pr": false
     }
@@ -1816,12 +1883,15 @@
    "a": "Boulea7",
    "t": "Fix exception group exceptions tuple inference",
    "draft": false,
-   "labels": [],
+   "labels": [
+    "Bug 🪳",
+    "inference"
+   ],
    "rd": "REVIEW_REQUIRED",
    "milestone": "",
    "size": 45,
    "created": "2026-10-15",
-   "updated": "2026-10-15",
+   "updated": "2026-10-23",
    "ci": "green",
    "cifail": 0,
    "links": [
@@ -1829,7 +1899,10 @@
      "ref": "pylint-dev/astroid#3406",
      "title": "ExceptionGroup.exceptions is inferred as an empty tuple",
      "state": "open",
-     "labels": [],
+     "labels": [
+      "Bug 🪳",
+      "inference"
+     ],
      "reactions": 0,
      "pr": false
     }
@@ -1840,12 +1913,15 @@
    "a": "b84330808",
    "t": "Include fields of an init=False dataclass base in a subclass's __init__",
    "draft": false,
-   "labels": [],
+   "labels": [
+    "Bug 🪳",
+    "dataclasses"
+   ],
    "rd": "REVIEW_REQUIRED",
    "milestone": "",
    "size": 123,
    "created": "2026-10-19",
-   "updated": "2026-10-19",
+   "updated": "2026-10-23",
    "ci": "awaiting-approval",
    "cifail": 0,
    "links": [
@@ -1868,12 +1944,15 @@
    "a": "b84330808",
    "t": "Build the __class_getitem__ of PEP 695 classes without transforms",
    "draft": false,
-   "labels": [],
+   "labels": [
+    "Enhancement ✨",
+    "python 3.12"
+   ],
    "rd": "REVIEW_REQUIRED",
    "milestone": "",
    "size": 45,
    "created": "2026-10-19",
-   "updated": "2026-10-19",
+   "updated": "2026-10-23",
    "ci": "awaiting-approval",
    "cifail": 0,
    "links": [
@@ -2051,7 +2130,10 @@
    "a": "dchaudhari7177",
    "t": "Drop a dataclass field a middle base makes init=False from subclass inits",
    "draft": false,
-   "labels": [],
+   "labels": [
+    "Bug 🪳",
+    "dataclasses"
+   ],
    "rd": "REVIEW_REQUIRED",
    "milestone": "",
    "size": 87,
@@ -2078,7 +2160,11 @@
    "a": "dchaudhari7177",
    "t": "Give every dataclass a __dataclass_fields__ class attribute",
    "draft": false,
-   "labels": [],
+   "labels": [
+    "Enhancement ✨",
+    "Brain 🧠",
+    "dataclasses"
+   ],
    "rd": "REVIEW_REQUIRED",
    "milestone": "",
    "size": 53,
@@ -2105,12 +2191,15 @@
    "a": "nk-batman21",
    "t": "Keep parentheses around a conditional expression in a comprehension in as_string",
    "draft": false,
-   "labels": [],
+   "labels": [
+    "Bug 🪳",
+    "ast"
+   ],
    "rd": "REVIEW_REQUIRED",
    "milestone": "",
    "size": 51,
    "created": "2026-10-22",
-   "updated": "2026-10-22",
+   "updated": "2026-10-23",
    "ci": "awaiting-approval",
    "cifail": 0,
    "links": []
@@ -2120,12 +2209,14 @@
    "a": "skyon0522-ai",
    "t": "Respect search paths in ZIP module lookup",
    "draft": false,
-   "labels": [],
+   "labels": [
+    "Bug 🪳"
+   ],
    "rd": "REVIEW_REQUIRED",
    "milestone": "",
    "size": 92,
    "created": "2026-10-22",
-   "updated": "2026-10-22",
+   "updated": "2026-10-23",
    "ci": "awaiting-approval",
    "cifail": 0,
    "links": []
@@ -2135,12 +2226,15 @@
    "a": "skyon0522-ai",
    "t": "Keep user-defined sample calls out of random inference",
    "draft": false,
-   "labels": [],
+   "labels": [
+    "Bug 🪳",
+    "Brain 🧠"
+   ],
    "rd": "REVIEW_REQUIRED",
    "milestone": "",
    "size": 69,
    "created": "2026-10-22",
-   "updated": "2026-10-22",
+   "updated": "2026-10-23",
    "ci": "awaiting-approval",
    "cifail": 0,
    "links": []
@@ -2150,12 +2244,15 @@
    "a": "skyon0522-ai",
    "t": "Infer next calls for ordinary user iterator methods",
    "draft": false,
-   "labels": [],
+   "labels": [
+    "Enhancement ✨",
+    "inference"
+   ],
    "rd": "REVIEW_REQUIRED",
    "milestone": "",
    "size": 222,
    "created": "2026-10-22",
-   "updated": "2026-10-22",
+   "updated": "2026-10-23",
    "ci": "awaiting-approval",
    "cifail": 0,
    "links": []
@@ -2165,12 +2262,15 @@
    "a": "skyon0522-ai",
    "t": "Preserve unknown results from augmented assignments",
    "draft": false,
-   "labels": [],
+   "labels": [
+    "Bug 🪳",
+    "inference"
+   ],
    "rd": "REVIEW_REQUIRED",
    "milestone": "",
    "size": 30,
    "created": "2026-10-22",
-   "updated": "2026-10-22",
+   "updated": "2026-10-23",
    "ci": "awaiting-approval",
    "cifail": 0,
    "links": []
@@ -2180,7 +2280,9 @@
    "a": "emmanuel-ferdman",
    "t": "Fix cache invalidation when preferring stubs",
    "draft": false,
-   "labels": [],
+   "labels": [
+    "Bug 🪳"
+   ],
    "rd": "REVIEW_REQUIRED",
    "milestone": "",
    "size": 99,

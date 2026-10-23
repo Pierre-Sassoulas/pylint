@@ -5101,10 +5101,10 @@
       "ts": "2026-05-12T12:32:54.476719+00:00"
     },
     "3732": {
-      "verdict": "DESIGN",
-      "note": "Enhancement: don't report too-few-public-methods for attrs/dataclass. Hacktoberfest, high priority.",
-      "session": 8,
-      "ts": "2026-05-12T12:32:54.515471+00:00"
+      "verdict": "FIXED",
+      "note": "Fixed by PR 11644 (merged 2026-10-23): too-few-public-methods skips attr.s / attr.dataclass and other attrs decorators. Ships in 4.2.0 (no backport label).",
+      "session": 20,
+      "ts": "2026-10-23T08:44:30.133062+00:00"
     },
     "3728": {
       "verdict": "REPRO",

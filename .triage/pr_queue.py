@@ -103,16 +103,6 @@ V = {
         "FPs (django <code>views/generic/base.py</code> x3, home-assistant x2); rest is noise.",
         "Review.",
     ),
-    11644: (
-        "review",
-        "ready",
-        "confirmed",
-        "Issue 3732 (FP, 16 reactions, High priority): <code>too-few-public-methods</code> on "
-        "<code>attr.s</code> / <code>attr.dataclass</code> classes. Rebased onto "
-        "<code>is_module_member</code> with a <code>level</code> check (touches your helper). 43/43 "
-        "green, full coverage; primer removes 7 ansible + several home-assistant FPs.",
-        "Re-review the <code>level</code> change to <code>is_module_member</code>, then merge.",
-    ),
     11615: (
         "review",
         "ready",
@@ -121,17 +111,6 @@ V = {
         "capitalization is linted as a module on Windows. Now carries the whole-path fix from the "
         "closed #11668. 43/43 green; primer only the usual astropy/django/music21 noise.",
         "Re-review (your changes requested still standing); backport.",
-    ),
-    11417: (
-        "review",
-        "yours",
-        "confirmed",
-        "For and With checkers did not run on <code>async for</code> / <code>async with</code>. You "
-        "pushed 2 commits on 23 October (type comments in <code>unused-import</code>, "
-        "<code>redefined-loop-name</code> extension), relabelled it FP + FN and moved it to 4.2.0 "
-        "without backport. CI running. Previous head: green, primer +3 intended "
-        "<code>too-many-nested-blocks</code> in home-assistant.",
-        "Merge once green, or ask a second maintainer since the last commits are yours.",
     ),
     11690: (
         "review",
