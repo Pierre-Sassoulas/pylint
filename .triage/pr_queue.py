@@ -66,13 +66,13 @@ LANES = {
 V = {
     # ---- merge lane -------------------------------------------------------
     11640: (
-        "merge",
+        "author",
         "approved",
         "confirmed",
         "Issue 9237 (pyreverse bug): an empty module still wrote a <code>classes</code> diagram "
         "holding only the header. You approved on 11 October and asked DudeNr33 to confirm. 53 green, "
-        "one cancelled job.",
-        "Merge after DudeNr33, or rerun the cancelled job and merge.",
+        "one cancelled job. Waiting on DudeNr33, not on you.",
+        "Wait for DudeNr33's review.",
     ),
     # ---- review now -------------------------------------------------------
     11711: (
@@ -1063,6 +1063,21 @@ extra = sorted(n for n in V if n not in rows)
 assert not missing, f"no verdict for {missing}"
 assert not extra, f"verdict for a closed PR: {extra}"
 
+
+# A PR labelled "Needs review" waits on another maintainer: nothing you can
+# do about it, so it sits with the ones waiting on their author.
+WAITING_ON_SOMEONE_ELSE = "Needs review"
+
+
+def lane_of(n: int) -> str | None:
+    lane = V.get(n, (None,))[0]
+    if lane in ("merge", "review", "approve") and any(
+        label.startswith(WAITING_ON_SOMEONE_ELSE) for label in rows[n]["labels"]
+    ):
+        return "author"
+    return lane
+
+
 E = html.escape
 
 
@@ -1145,7 +1160,7 @@ CI_WORDS = {
 body = []
 for lane in LANE_ORDER:
     label, stripe, rubric = LANES[lane]
-    members = [n for n in rows if V.get(n, (None,))[0] == lane]
+    members = [n for n in rows if lane_of(n) == lane]
     members.sort(key=priority)
     body.append(
         f'<section class="lane" data-lane="{lane}">'
@@ -1205,7 +1220,7 @@ APPROVE_LOOP = (
 
 
 def lane_members(lane: str) -> list:
-    return sorted((n for n in rows if V.get(n, (None,))[0] == lane), key=priority)
+    return sorted((n for n in rows if lane_of(n) == lane), key=priority)
 
 
 def worth_a_run(n: int) -> bool:
@@ -1400,7 +1415,7 @@ n_open = DATA["open_total"]
 n_own = DATA["open_own"]
 n_bot = sum(1 for r in rows.values() if r["a"].startswith("app/"))
 counts = {
-    lane: sum(1 for n in rows if V.get(n, (None,))[0] == lane) for lane in LANE_ORDER
+    lane: sum(1 for n in rows if lane_of(n) == lane) for lane in LANE_ORDER
 }
 n_silent = sum(1 for n, r in rows.items() if n in V and r["lastcom"][0] == "-")
 n_conflict = sum(1 for n, r in rows.items() if n in V and r["merge"] == "CONFLICTING")
