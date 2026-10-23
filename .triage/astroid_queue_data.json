@@ -1,0 +1,2194 @@
+{
+ "snapshot": "2026-10-23",
+ "prs": [
+  {
+   "n": 2965,
+   "a": "mbyrnepr2",
+   "t": "Return the ``FunctionDef`` node when a call is made to a decorated function.",
+   "draft": true,
+   "labels": [
+    "Enhancement ✨",
+    "Work in progress",
+    "inference",
+    "decorators"
+   ],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 39,
+   "created": "2026-02-16",
+   "updated": "2026-10-08",
+   "ci": "failing",
+   "cifail": 14,
+   "links": [
+    {
+     "ref": "pylint-dev/pylint#10848",
+     "title": "pylint does not honor decorator return type when using @ syntax",
+     "state": "open",
+     "labels": [
+      "Decorators",
+      "Duplicate 🐫"
+     ],
+     "reactions": 0,
+     "pr": false
+    }
+   ]
+  },
+  {
+   "n": 3046,
+   "a": "oreiche",
+   "t": "Use exact signatures for GObject introspection bindings",
+   "draft": false,
+   "labels": [
+    "Enhancement ✨",
+    "topic-performance",
+    "Brain 🧠"
+   ],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 193,
+   "created": "2026-05-07",
+   "updated": "2026-06-06",
+   "ci": "failing",
+   "cifail": 2,
+   "links": []
+  },
+  {
+   "n": 3048,
+   "a": "Pierre-Sassoulas",
+   "t": "Performance: cache ClassDef.ancestors() transitive walk",
+   "draft": false,
+   "labels": [
+    "topic-performance"
+   ],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "4.4.0",
+   "size": 197,
+   "created": "2026-05-10",
+   "updated": "2026-10-21",
+   "ci": "failing",
+   "cifail": 1,
+   "links": [
+    {
+     "ref": "pylint-dev/astroid#1115",
+     "title": "Astroid calls to ancestors are uncached and slow for templates and generics in ``ClassDef.ancestors``",
+     "state": "open",
+     "labels": [
+      "topic-performance"
+     ],
+     "reactions": 0,
+     "pr": false
+    }
+   ]
+  },
+  {
+   "n": 3069,
+   "a": "Pierre-Sassoulas",
+   "t": "perf: load brain plugins lazily, only when their target module is imported",
+   "draft": true,
+   "labels": [
+    "topic-performance"
+   ],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 297,
+   "created": "2026-05-20",
+   "updated": "2026-10-21",
+   "ci": "failing",
+   "cifail": 1,
+   "links": []
+  },
+  {
+   "n": 3081,
+   "a": "Pierre-Sassoulas",
+   "t": "tests: add regression tests for already-fixed but unguarded issues",
+   "draft": true,
+   "labels": [
+    "Work in progress",
+    "Maintenance",
+    "Skip news :mute:"
+   ],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 317,
+   "created": "2026-05-24",
+   "updated": "2026-10-21",
+   "ci": "green",
+   "cifail": 0,
+   "links": [
+    {
+     "ref": "pylint-dev/astroid#186",
+     "title": "Check for Starred when checking the number of arguments passed to functions",
+     "state": "open",
+     "labels": [
+      "Bug 🪳"
+     ],
+     "reactions": 0,
+     "pr": false
+    }
+   ]
+  },
+  {
+   "n": 3119,
+   "a": "Pierre-Sassoulas",
+   "t": "Give PEP 695 type parameters their own scope",
+   "draft": false,
+   "labels": [
+    "Enhancement ✨"
+   ],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "4.4.0",
+   "size": 433,
+   "created": "2026-06-28",
+   "updated": "2026-10-21",
+   "ci": "green",
+   "cifail": 0,
+   "links": [
+    {
+     "ref": "pylint-dev/pylint#11115",
+     "title": "False positive used-before-assignment (E0601) for PEP 695 type-parameter bound forward-referencing a later-defined class",
+     "state": "open",
+     "labels": [
+      "False Positive 🦟",
+      "Needs astroid update"
+     ],
+     "reactions": 0,
+     "pr": false
+    }
+   ]
+  },
+  {
+   "n": 3120,
+   "a": "Pierre-Sassoulas",
+   "t": "Add inference for t-strings",
+   "draft": true,
+   "labels": [
+    "Enhancement ✨"
+   ],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "4.4.0",
+   "size": 354,
+   "created": "2026-06-28",
+   "updated": "2026-10-22",
+   "ci": "green",
+   "cifail": 0,
+   "links": [
+    {
+     "ref": "pylint-dev/astroid#2789",
+     "title": "TemplateString: Proper inference similar to JoinedStr._infer and additional tests for the as_string()",
+     "state": "open",
+     "labels": [
+      "python 3.14"
+     ],
+     "reactions": 2,
+     "pr": false
+    }
+   ]
+  },
+  {
+   "n": 3161,
+   "a": "rosset",
+   "t": "Fix build in Python 3.15 with OpenSSL 4.0 (old TLS protocols removed)",
+   "draft": false,
+   "labels": [
+    "Brain 🧠",
+    "Maintenance",
+    "python 3.15"
+   ],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 28,
+   "created": "2026-07-28",
+   "updated": "2026-10-08",
+   "ci": "failing",
+   "cifail": 2,
+   "links": []
+  },
+  {
+   "n": 3166,
+   "a": "Pierre-Sassoulas",
+   "t": "Performance: cache ClassDef._find_metaclass() per node",
+   "draft": false,
+   "labels": [
+    "topic-performance"
+   ],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "4.4.0",
+   "size": 94,
+   "created": "2026-07-30",
+   "updated": "2026-10-21",
+   "ci": "green",
+   "cifail": 0,
+   "links": []
+  },
+  {
+   "n": 3167,
+   "a": "Pierre-Sassoulas",
+   "t": "Performance: collapse 19 builtin transforms into a single Call dispatcher",
+   "draft": false,
+   "labels": [
+    "topic-performance"
+   ],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "4.4.0",
+   "size": 221,
+   "created": "2026-07-30",
+   "updated": "2026-10-21",
+   "ci": "green",
+   "cifail": 0,
+   "links": []
+  },
+  {
+   "n": 3178,
+   "a": "TheGreatApollyon",
+   "t": "Fix relative import resolution in namespace packages",
+   "draft": false,
+   "labels": [
+    "Work in progress"
+   ],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 121,
+   "created": "2026-07-31",
+   "updated": "2026-08-17",
+   "ci": "failing",
+   "cifail": 2,
+   "links": [
+    {
+     "ref": "pylint-dev/astroid#2766",
+     "title": "packages are not recognized as packages if `__init__.py` as it should since python 3.3",
+     "state": "open",
+     "labels": [],
+     "reactions": 1,
+     "pr": false
+    }
+   ]
+  },
+  {
+   "n": 3182,
+   "a": "TheGreatApollyon",
+   "t": "Fix inference of loop variable unpacking with names in iterables",
+   "draft": false,
+   "labels": [
+    "Work in progress"
+   ],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 122,
+   "created": "2026-07-31",
+   "updated": "2026-09-05",
+   "ci": "failing",
+   "cifail": 1,
+   "links": [
+    {
+     "ref": "pylint-dev/pylint#10472",
+     "title": "False positive no-member",
+     "state": "open",
+     "labels": [
+      "False Positive 🦟",
+      "Needs PR"
+     ],
+     "reactions": 0,
+     "pr": false
+    }
+   ]
+  },
+  {
+   "n": 3183,
+   "a": "TheGreatApollyon",
+   "t": "Do not infer factory-decorated functions as properties",
+   "draft": false,
+   "labels": [
+    "Work in progress"
+   ],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 63,
+   "created": "2026-07-31",
+   "updated": "2026-09-07",
+   "ci": "failing",
+   "cifail": 1,
+   "links": [
+    {
+     "ref": "pylint-dev/astroid#2632",
+     "title": "Incorrect inference of decorated function",
+     "state": "open",
+     "labels": [
+      "Bug 🪳",
+      "inference",
+      "Needs PR",
+      "decorators"
+     ],
+     "reactions": 1,
+     "pr": false
+    }
+   ]
+  },
+  {
+   "n": 3202,
+   "a": "Genny-oo",
+   "t": "Fix incorrect type inference for enum.auto() in IntEnum members",
+   "draft": false,
+   "labels": [
+    "Bug 🪳"
+   ],
+   "rd": "CHANGES_REQUESTED",
+   "milestone": "",
+   "size": 42,
+   "created": "2026-08-05",
+   "updated": "2026-09-06",
+   "ci": "green",
+   "cifail": 0,
+   "links": [
+    {
+     "ref": "pylint-dev/astroid#1847",
+     "title": "Using auto enum values provides incorrect type",
+     "state": "open",
+     "labels": [
+      "Bug 🪳",
+      "Brain 🧠"
+     ],
+     "reactions": 0,
+     "pr": false
+    }
+   ]
+  },
+  {
+   "n": 3205,
+   "a": "Eljees",
+   "t": "Infer None for the fset of a property without a setter",
+   "draft": false,
+   "labels": [
+    "Bug 🪳"
+   ],
+   "rd": "CHANGES_REQUESTED",
+   "milestone": "",
+   "size": 109,
+   "created": "2026-08-06",
+   "updated": "2026-09-21",
+   "ci": "green",
+   "cifail": 0,
+   "links": [
+    {
+     "ref": "pylint-dev/pylint#8739",
+     "title": "Unfound astroid.exceptions.InferenceError causes a crash",
+     "state": "open",
+     "labels": [
+      "Astroid",
+      "Crash 💥",
+      "Needs PR"
+     ],
+     "reactions": 0,
+     "pr": false
+    }
+   ]
+  },
+  {
+   "n": 3211,
+   "a": "teddytennant",
+   "t": "Do not infer a shadowed builtin as the builtin",
+   "draft": false,
+   "labels": [
+    "Bug 🪳",
+    "backport maintenance/4.3.x"
+   ],
+   "rd": "CHANGES_REQUESTED",
+   "milestone": "4.4.0",
+   "size": 664,
+   "created": "2026-08-08",
+   "updated": "2026-10-12",
+   "ci": "green",
+   "cifail": 0,
+   "links": [
+    {
+     "ref": "pylint-dev/pylint#10994",
+     "title": "False positives when 'type' builtin is overwritten",
+     "state": "open",
+     "labels": [
+      "Bug :beetle:",
+      "inference",
+      "False Positive 🦟"
+     ],
+     "reactions": 0,
+     "pr": false
+    }
+   ]
+  },
+  {
+   "n": 3219,
+   "a": "Pierre-Sassoulas",
+   "t": "Infer the classes re-exported from C accelerator modules",
+   "draft": true,
+   "labels": [
+    "Enhancement ✨"
+   ],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "4.4.0",
+   "size": 143,
+   "created": "2026-08-11",
+   "updated": "2026-10-21",
+   "ci": "failing",
+   "cifail": 9,
+   "links": []
+  },
+  {
+   "n": 3220,
+   "a": "AG0708",
+   "t": "Infer recent dict and list subscript assignments",
+   "draft": false,
+   "labels": [
+    "Bug 🪳"
+   ],
+   "rd": "CHANGES_REQUESTED",
+   "milestone": "",
+   "size": 431,
+   "created": "2026-08-12",
+   "updated": "2026-08-21",
+   "ci": "green",
+   "cifail": 0,
+   "links": [
+    {
+     "ref": "pylint-dev/pylint#10050",
+     "title": "unsupported-assignment-operation false positive",
+     "state": "open",
+     "labels": [
+      "False Positive 🦟",
+      "Needs PR"
+     ],
+     "reactions": 0,
+     "pr": false
+    }
+   ]
+  },
+  {
+   "n": 3222,
+   "a": "kdelay",
+   "t": "Keep the annotations of *args and **kwargs in as_string output",
+   "draft": false,
+   "labels": [
+    "Enhancement ✨",
+    "Needs review 🔍"
+   ],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "4.4.0",
+   "size": 37,
+   "created": "2026-08-15",
+   "updated": "2026-09-02",
+   "ci": "green",
+   "cifail": 0,
+   "links": []
+  },
+  {
+   "n": 3239,
+   "a": "nikonikolov",
+   "t": "Fix as_string() dropping parentheses around a comparison that is the left operand of another comparison",
+   "draft": false,
+   "labels": [
+    "Bug 🪳",
+    "ast"
+   ],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 44,
+   "created": "2026-08-19",
+   "updated": "2026-10-08",
+   "ci": "green",
+   "cifail": 0,
+   "links": []
+  },
+  {
+   "n": 3256,
+   "a": "nabhan06",
+   "t": "guard mock-class reconstruction in infer_enum_class",
+   "draft": false,
+   "labels": [
+    "Brain 🧠",
+    "Crash 💥"
+   ],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 48,
+   "created": "2026-08-27",
+   "updated": "2026-10-08",
+   "ci": "green",
+   "cifail": 0,
+   "links": []
+  },
+  {
+   "n": 3271,
+   "a": "kdelay",
+   "t": "Do not infer int() as a constant the call would not return",
+   "draft": false,
+   "labels": [
+    "Bug 🪳",
+    "Brain 🧠",
+    "inference"
+   ],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 83,
+   "created": "2026-09-07",
+   "updated": "2026-10-08",
+   "ci": "green",
+   "cifail": 0,
+   "links": []
+  },
+  {
+   "n": 3276,
+   "a": "mokashang",
+   "t": "Honor metaclass __bool__/__len__ in ClassDef.bool_value",
+   "draft": false,
+   "labels": [
+    "Bug 🪳",
+    "inference"
+   ],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 157,
+   "created": "2026-09-08",
+   "updated": "2026-10-08",
+   "ci": "failing",
+   "cifail": 1,
+   "links": [
+    {
+     "ref": "pylint-dev/astroid#183",
+     "title": "Support falsey classes for bool_value",
+     "state": "open",
+     "labels": [
+      "Bug 🪳",
+      "inference"
+     ],
+     "reactions": 0,
+     "pr": false
+    }
+   ]
+  },
+  {
+   "n": 3282,
+   "a": "Pierre-Sassoulas",
+   "t": "Do not let the failed-import cache pin caller stacks",
+   "draft": true,
+   "labels": [
+    "Work in progress",
+    "topic-performance"
+   ],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 53,
+   "created": "2026-09-13",
+   "updated": "2026-10-21",
+   "ci": "green",
+   "cifail": 0,
+   "links": []
+  },
+  {
+   "n": 3283,
+   "a": "Pierre-Sassoulas",
+   "t": "Infer names served by a PEP 562 module level ``__getattr__``",
+   "draft": true,
+   "labels": [
+    "Enhancement ✨"
+   ],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 174,
+   "created": "2026-09-13",
+   "updated": "2026-10-21",
+   "ci": "failing",
+   "cifail": 3,
+   "links": [
+    {
+     "ref": "pylint-dev/pylint#4300",
+     "title": "Imports from module using PEP 562's __getattr__ should not raise E0611",
+     "state": "open",
+     "labels": [
+      "Enhancement ✨",
+      "Astroid",
+      "High effort 🏋",
+      "Needs PR"
+     ],
+     "reactions": 2,
+     "pr": false
+    }
+   ]
+  },
+  {
+   "n": 3288,
+   "a": "kdelay",
+   "t": "Do not treat a bare annotation in an enum body as a member",
+   "draft": false,
+   "labels": [
+    "Bug 🪳",
+    "Brain 🧠"
+   ],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 99,
+   "created": "2026-09-15",
+   "updated": "2026-10-08",
+   "ci": "green",
+   "cifail": 0,
+   "links": [
+    {
+     "ref": "pylint-dev/pylint#11413",
+     "title": "False positive no-member for annotated Enum _value_",
+     "state": "open",
+     "labels": [
+      "False Positive 🦟",
+      "enum"
+     ],
+     "reactions": 0,
+     "pr": false
+    }
+   ]
+  },
+  {
+   "n": 3295,
+   "a": "Eljees",
+   "t": "Infer re.compile() as an instance of re.Pattern",
+   "draft": false,
+   "labels": [
+    "Enhancement ✨",
+    "Brain 🧠"
+   ],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 74,
+   "created": "2026-09-21",
+   "updated": "2026-10-08",
+   "ci": "failing",
+   "cifail": 10,
+   "links": [
+    {
+     "ref": "pylint-dev/astroid#520",
+     "title": "re.compile inference returns incorrect result",
+     "state": "open",
+     "labels": [
+      "Bug 🪳"
+     ],
+     "reactions": 0,
+     "pr": false
+    }
+   ]
+  },
+  {
+   "n": 3298,
+   "a": "Pierre-Sassoulas",
+   "t": "Numpy 1x/2x support",
+   "draft": true,
+   "labels": [
+    "Maintenance"
+   ],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "4.4.0",
+   "size": 486,
+   "created": "2026-09-22",
+   "updated": "2026-10-21",
+   "ci": "green",
+   "cifail": 0,
+   "links": []
+  },
+  {
+   "n": 3299,
+   "a": "dchaudhari7177",
+   "t": "Add a brain for numpy.dtypes",
+   "draft": false,
+   "labels": [
+    "Brain 🧠"
+   ],
+   "rd": "CHANGES_REQUESTED",
+   "milestone": "4.4.0",
+   "size": 207,
+   "created": "2026-09-23",
+   "updated": "2026-10-22",
+   "ci": "green",
+   "cifail": 0,
+   "links": [
+    {
+     "ref": "pylint-dev/astroid#3289",
+     "title": "Missing brain for numpy.dtypes (e.g. StringDType)",
+     "state": "open",
+     "labels": [
+      "Brain 🧠"
+     ],
+     "reactions": 0,
+     "pr": false
+    },
+    {
+     "ref": "pylint-dev/pylint#9956",
+     "title": "False-positive E1101 (no-member) for `numpy.dtypes.StringDType`",
+     "state": "open",
+     "labels": [
+      "False Positive 🦟",
+      "Lib specific 💅",
+      "Needs PR"
+     ],
+     "reactions": 0,
+     "pr": false
+    }
+   ]
+  },
+  {
+   "n": 3300,
+   "a": "Pierre-Sassoulas",
+   "t": "Make the C3 merge linear in the size of the merged sequences",
+   "draft": true,
+   "labels": [
+    "topic-performance"
+   ],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 76,
+   "created": "2026-09-23",
+   "updated": "2026-10-21",
+   "ci": "failing",
+   "cifail": 1,
+   "links": []
+  },
+  {
+   "n": 3321,
+   "a": "jadhavgaurav",
+   "t": "Infer a partial of an async generator function as an async generator",
+   "draft": false,
+   "labels": [
+    "Bug 🪳",
+    "Brain 🧠"
+   ],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 74,
+   "created": "2026-09-29",
+   "updated": "2026-10-08",
+   "ci": "awaiting-approval",
+   "cifail": 0,
+   "links": [
+    {
+     "ref": "pylint-dev/pylint#9439",
+     "title": "False positive not-an-iterable on partial async iterator",
+     "state": "open",
+     "labels": [
+      "False Positive 🦟",
+      "Needs PR"
+     ],
+     "reactions": 0,
+     "pr": false
+    }
+   ]
+  },
+  {
+   "n": 3322,
+   "a": "jadhavgaurav",
+   "t": "Infer TypedDict to a single class",
+   "draft": false,
+   "labels": [
+    "Bug 🪳",
+    "Brain 🧠"
+   ],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 91,
+   "created": "2026-09-29",
+   "updated": "2026-10-08",
+   "ci": "awaiting-approval",
+   "cifail": 0,
+   "links": [
+    {
+     "ref": "pylint-dev/pylint#9222",
+     "title": "False positive `duplicate-bases` with `TypedDict`",
+     "state": "open",
+     "labels": [
+      "False Positive 🦟",
+      "Needs PR"
+     ],
+     "reactions": 0,
+     "pr": false
+    }
+   ]
+  },
+  {
+   "n": 3323,
+   "a": "jadhavgaurav",
+   "t": "Infer the values of `yield from` in FunctionDef.infer_yield_result",
+   "draft": false,
+   "labels": [
+    "Enhancement ✨",
+    "inference"
+   ],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 184,
+   "created": "2026-09-29",
+   "updated": "2026-10-08",
+   "ci": "awaiting-approval",
+   "cifail": 0,
+   "links": [
+    {
+     "ref": "pylint-dev/pylint#9252",
+     "title": "Incorrect type detected when @contextmanager uses a subgenerator",
+     "state": "open",
+     "labels": [
+      "False Positive 🦟",
+      "Needs PR"
+     ],
+     "reactions": 1,
+     "pr": false
+    }
+   ]
+  },
+  {
+   "n": 3324,
+   "a": "kali834x",
+   "t": "parenthesize await and unpacking operands in as_string",
+   "draft": false,
+   "labels": [
+    "Bug 🪳",
+    "ast"
+   ],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 50,
+   "created": "2026-09-29",
+   "updated": "2026-10-08",
+   "ci": "failing",
+   "cifail": 1,
+   "links": []
+  },
+  {
+   "n": 3325,
+   "a": "kali834x",
+   "t": "avoid importing parent packages in ImportlibFinder.find_module",
+   "draft": false,
+   "labels": [
+    "Bug 🪳"
+   ],
+   "rd": "CHANGES_REQUESTED",
+   "milestone": "",
+   "size": 83,
+   "created": "2026-09-29",
+   "updated": "2026-10-12",
+   "ci": "green",
+   "cifail": 0,
+   "links": []
+  },
+  {
+   "n": 3327,
+   "a": "dchaudhari7177",
+   "t": "Do not infer numpy.unravel_index as a one-element tuple",
+   "draft": false,
+   "labels": [
+    "Bug 🪳",
+    "Brain 🧠"
+   ],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 27,
+   "created": "2026-09-30",
+   "updated": "2026-10-08",
+   "ci": "awaiting-approval",
+   "cifail": 0,
+   "links": [
+    {
+     "ref": "pylint-dev/pylint#10440",
+     "title": "FP unbalanced-tuple-unpacking with np.unravel_index",
+     "state": "open",
+     "labels": [
+      "False Positive 🦟",
+      "Lib specific 💅",
+      "Needs PR"
+     ],
+     "reactions": 0,
+     "pr": false
+    }
+   ]
+  },
+  {
+   "n": 3328,
+   "a": "dchaudhari7177",
+   "t": "Infer numpy members imported with `from numpy import`",
+   "draft": false,
+   "labels": [
+    "Bug 🪳",
+    "Brain 🧠"
+   ],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 60,
+   "created": "2026-09-30",
+   "updated": "2026-10-08",
+   "ci": "awaiting-approval",
+   "cifail": 0,
+   "links": [
+    {
+     "ref": "pylint-dev/pylint#10312",
+     "title": "False positive E1126 when using np.newaxis with np.where",
+     "state": "open",
+     "labels": [
+      "Needs astroid Brain 🧠",
+      "False Positive 🦟",
+      "Lib specific 💅"
+     ],
+     "reactions": 0,
+     "pr": false
+    }
+   ]
+  },
+  {
+   "n": 3329,
+   "a": "nabhan06",
+   "t": "skip non-name assign targets in namedtuple/enum inference",
+   "draft": false,
+   "labels": [
+    "Brain 🧠",
+    "Crash 💥",
+    "T: NamedTuple"
+   ],
+   "rd": "CHANGES_REQUESTED",
+   "milestone": "4.4.0",
+   "size": 47,
+   "created": "2026-09-30",
+   "updated": "2026-10-09",
+   "ci": "failing",
+   "cifail": 1,
+   "links": [
+    {
+     "ref": "pylint-dev/astroid#3257",
+     "title": "`AttributeError: 'AssignAttr' object has no attribute 'name'` in namedtuple brain",
+     "state": "open",
+     "labels": [
+      "Crash 💥"
+     ],
+     "reactions": 0,
+     "pr": false
+    }
+   ]
+  },
+  {
+   "n": 3332,
+   "a": "nabhan06",
+   "t": "guard empty tuple enum member in infer_func_form",
+   "draft": false,
+   "labels": [
+    "Brain 🧠",
+    "Crash 💥"
+   ],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 17,
+   "created": "2026-10-01",
+   "updated": "2026-10-08",
+   "ci": "green",
+   "cifail": 0,
+   "links": []
+  },
+  {
+   "n": 3335,
+   "a": "SAY-5",
+   "t": "Preserve all instance subscription inference results",
+   "draft": false,
+   "labels": [
+    "Bug 🪳",
+    "Brain 🧠",
+    "inference"
+   ],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 151,
+   "created": "2026-10-01",
+   "updated": "2026-10-18",
+   "ci": "failing",
+   "cifail": 8,
+   "links": [
+    {
+     "ref": "pylint-dev/astroid#1335",
+     "title": "Only first __getitem__ inference result is used",
+     "state": "open",
+     "labels": [
+      "Bug 🪳",
+      "Help wanted 🙏",
+      "inference"
+     ],
+     "reactions": 0,
+     "pr": false
+    }
+   ]
+  },
+  {
+   "n": 3340,
+   "a": "aipd506",
+   "t": "Align inference type annotations with supported inputs and stored values (#3337)",
+   "draft": false,
+   "labels": [
+    "Maintenance"
+   ],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 79,
+   "created": "2026-10-03",
+   "updated": "2026-10-08",
+   "ci": "awaiting-approval",
+   "cifail": 0,
+   "links": [
+    {
+     "ref": "pylint-dev/astroid#3337",
+     "title": "Align inference annotations with supported inputs and stored values",
+     "state": "open",
+     "labels": [],
+     "reactions": 0,
+     "pr": false
+    }
+   ]
+  },
+  {
+   "n": 3343,
+   "a": "Boulea7",
+   "t": "Preserve caller context when inferring forwarded arguments",
+   "draft": false,
+   "labels": [
+    "Bug 🪳",
+    "inference"
+   ],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 136,
+   "created": "2026-10-03",
+   "updated": "2026-10-08",
+   "ci": "green",
+   "cifail": 0,
+   "links": []
+  },
+  {
+   "n": 3345,
+   "a": "aipd506",
+   "t": "Avoid inheriting dataclass fields with init=False into subclass init",
+   "draft": false,
+   "labels": [
+    "Bug 🪳",
+    "Brain 🧠",
+    "dataclasses"
+   ],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 62,
+   "created": "2026-10-04",
+   "updated": "2026-10-08",
+   "ci": "awaiting-approval",
+   "cifail": 0,
+   "links": [
+    {
+     "ref": "pylint-dev/pylint#9518",
+     "title": "False positive for missing-kwoa (E1125) on inherited dataclasses with kw_only=True",
+     "state": "open",
+     "labels": [
+      "Bug :beetle:",
+      "False Positive 🦟",
+      "dataclasses"
+     ],
+     "reactions": 0,
+     "pr": false
+    }
+   ]
+  },
+  {
+   "n": 3351,
+   "a": "pylaterreur",
+   "t": "Infer class attributes assigned through the class",
+   "draft": false,
+   "labels": [
+    "Enhancement ✨"
+   ],
+   "rd": "CHANGES_REQUESTED",
+   "milestone": "4.4.0",
+   "size": 191,
+   "created": "2026-10-05",
+   "updated": "2026-10-16",
+   "ci": "green",
+   "cifail": 0,
+   "links": [
+    {
+     "ref": "pylint-dev/pylint#3045",
+     "title": "false positive: unsupported-membership-test",
+     "state": "open",
+     "labels": [
+      "Control flow",
+      "False Positive 🦟",
+      "Needs PR"
+     ],
+     "reactions": 2,
+     "pr": false
+    },
+    {
+     "ref": "pylint-dev/pylint#9250",
+     "title": "Assignments to class attributes inside `__init__()` are not inferred",
+     "state": "open",
+     "labels": [
+      "Enhancement ✨",
+      "Astroid",
+      "Needs PR"
+     ],
+     "reactions": 0,
+     "pr": false
+    },
+    {
+     "ref": "pylint-dev/pylint#9809",
+     "title": "False positive for optional class attribute",
+     "state": "open",
+     "labels": [
+      "Bug :beetle:",
+      "Control flow",
+      "inference",
+      "False Positive 🦟"
+     ],
+     "reactions": 0,
+     "pr": false
+    },
+    {
+     "ref": "pylint-dev/pylint#10082",
+     "title": "E1136/E1137 false positives",
+     "state": "open",
+     "labels": [
+      "False Positive 🦟",
+      "Lib specific 💅",
+      "Needs PR"
+     ],
+     "reactions": 1,
+     "pr": false
+    }
+   ]
+  },
+  {
+   "n": 3352,
+   "a": "segoon",
+   "t": "Fall back when the namedtuple factory cannot be inferred",
+   "draft": false,
+   "labels": [
+    "Crash 💥",
+    "backport maintenance/4.3.x"
+   ],
+   "rd": "CHANGES_REQUESTED",
+   "milestone": "4.4.1",
+   "size": 46,
+   "created": "2026-10-05",
+   "updated": "2026-10-08",
+   "ci": "green",
+   "cifail": 0,
+   "links": []
+  },
+  {
+   "n": 3358,
+   "a": "charan-rathore",
+   "t": "Mark factory class attribute calls as uncertain inference (#3210)",
+   "draft": false,
+   "labels": [
+    "Bug 🪳",
+    "inference"
+   ],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 130,
+   "created": "2026-10-06",
+   "updated": "2026-10-08",
+   "ci": "awaiting-approval",
+   "cifail": 0,
+   "links": [
+    {
+     "ref": "pylint-dev/astroid#3210",
+     "title": "Attribute assigned through an overridable factory class attribute infers to the base class (new no-member false positives in the pylint primer)",
+     "state": "open",
+     "labels": [
+      "Bug 🪳"
+     ],
+     "reactions": 0,
+     "pr": false
+    }
+   ]
+  },
+  {
+   "n": 3360,
+   "a": "Aryan007-dev",
+   "t": "Exclude dunder and sunder names from Enum members",
+   "draft": false,
+   "labels": [
+    "Bug 🪳",
+    "Brain 🧠"
+   ],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 83,
+   "created": "2026-10-07",
+   "updated": "2026-10-14",
+   "ci": "awaiting-approval",
+   "cifail": 0,
+   "links": [
+    {
+     "ref": "pylint-dev/pylint#9839",
+     "title": "E0238 false positive when defining __slots__ in IntEnum class",
+     "state": "open",
+     "labels": [
+      "Bug :beetle:",
+      "Needs astroid Brain 🧠",
+      "False Positive 🦟",
+      "py-version"
+     ],
+     "reactions": 0,
+     "pr": false
+    }
+   ]
+  },
+  {
+   "n": 3367,
+   "a": "devanshranjan10",
+   "t": "Don't use an Uninferable base for typing.Tuple / typing.Callable",
+   "draft": false,
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 34,
+   "created": "2026-10-09",
+   "updated": "2026-10-10",
+   "ci": "green",
+   "cifail": 0,
+   "links": [
+    {
+     "ref": "pylint-dev/astroid#3366",
+     "title": "`TypeError: 'UninferableBase' object is not iterable` when checking ancestors",
+     "state": "open",
+     "labels": [],
+     "reactions": 0,
+     "pr": false
+    }
+   ]
+  },
+  {
+   "n": 3369,
+   "a": "Pierre-Sassoulas",
+   "t": "Narrow inferred values after guard statements",
+   "draft": true,
+   "labels": [
+    "Enhancement ✨"
+   ],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 554,
+   "created": "2026-10-09",
+   "updated": "2026-10-22",
+   "ci": "failing",
+   "cifail": 1,
+   "links": []
+  },
+  {
+   "n": 3370,
+   "a": "nabhan06",
+   "t": "fix _is_property crash on methods proxying a Lambda or Uninferable",
+   "draft": false,
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 43,
+   "created": "2026-10-09",
+   "updated": "2026-10-10",
+   "ci": "green",
+   "cifail": 0,
+   "links": [
+    {
+     "ref": "pylint-dev/pylint#10345",
+     "title": "Crash `TypeError: 'UninferableBase' object is not iterable` - [astroid-error]",
+     "state": "open",
+     "labels": [
+      "Crash 💥",
+      "Needs investigation 🔬"
+     ],
+     "reactions": 0,
+     "pr": false
+    }
+   ]
+  },
+  {
+   "n": 3371,
+   "a": "ump45nose",
+   "t": "Bind the class to a metaclass method when its metaclass node is rebuilt",
+   "draft": false,
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 48,
+   "created": "2026-10-09",
+   "updated": "2026-10-13",
+   "ci": "green",
+   "cifail": 0,
+   "links": [
+    {
+     "ref": "pylint-dev/pylint#10042",
+     "title": "False positive on not-callable when inheriting from `typing.IO`",
+     "state": "open",
+     "labels": [
+      "False Positive 🦟",
+      "Needs PR"
+     ],
+     "reactions": 0,
+     "pr": false
+    }
+   ]
+  },
+  {
+   "n": 3372,
+   "a": "ozenyunus35",
+   "t": "Fix inference of built-in in-place operators on mutable instances",
+   "draft": false,
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 182,
+   "created": "2026-10-09",
+   "updated": "2026-10-19",
+   "ci": "awaiting-approval",
+   "cifail": 0,
+   "links": [
+    {
+     "ref": "pylint-dev/pylint#10031",
+     "title": "False-positive E1101 (no-member) inheriting from `set[int]`",
+     "state": "open",
+     "labels": [
+      "False Positive 🦟",
+      "Needs PR"
+     ],
+     "reactions": 0,
+     "pr": false
+    }
+   ]
+  },
+  {
+   "n": 3373,
+   "a": "Pierre-Sassoulas",
+   "t": "Give ``Slice`` a name attribute, and make sure all nodes have name attributes",
+   "draft": false,
+   "labels": [
+    "Enhancement ✨"
+   ],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "4.4.0",
+   "size": 117,
+   "created": "2026-10-10",
+   "updated": "2026-10-21",
+   "ci": "green",
+   "cifail": 0,
+   "links": []
+  },
+  {
+   "n": 3374,
+   "a": "RizgarOzan",
+   "t": "Infer a type statement's name as a TypeAliasType instance",
+   "draft": false,
+   "labels": [],
+   "rd": "CHANGES_REQUESTED",
+   "milestone": "4.4.0",
+   "size": 147,
+   "created": "2026-10-11",
+   "updated": "2026-10-12",
+   "ci": "awaiting-approval",
+   "cifail": 0,
+   "links": [
+    {
+     "ref": "pylint-dev/pylint#10091",
+     "title": "Class 'str' has no '__value__' member on PEP 695 TypeAliasType",
+     "state": "open",
+     "labels": [
+      "False Positive 🦟",
+      "Needs PR",
+      "python 3.12"
+     ],
+     "reactions": 0,
+     "pr": false
+    }
+   ]
+  },
+  {
+   "n": 3377,
+   "a": "Shaisolaris",
+   "t": "Keep operand order for int and bool constant operations",
+   "draft": false,
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 92,
+   "created": "2026-10-12",
+   "updated": "2026-10-12",
+   "ci": "awaiting-approval",
+   "cifail": 0,
+   "links": [
+    {
+     "ref": "pylint-dev/astroid#3376",
+     "title": "Binary operations between an int and a bool are inferred with the operands swapped",
+     "state": "open",
+     "labels": [],
+     "reactions": 0,
+     "pr": false
+    }
+   ]
+  },
+  {
+   "n": 3379,
+   "a": "nabhan06",
+   "t": "Fix crash inferring a nested starred target over an opaque element",
+   "draft": false,
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 48,
+   "created": "2026-10-12",
+   "updated": "2026-10-12",
+   "ci": "green",
+   "cifail": 0,
+   "links": [
+    {
+     "ref": "pylint-dev/astroid#3378",
+     "title": "Uncaught TypeError inferring a starred name nested in a for-loop target",
+     "state": "open",
+     "labels": [],
+     "reactions": 0,
+     "pr": false
+    }
+   ]
+  },
+  {
+   "n": 3380,
+   "a": "xiehuanyi",
+   "t": "Infer the last matching dictionary entry on subscription",
+   "draft": false,
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 54,
+   "created": "2026-10-12",
+   "updated": "2026-10-12",
+   "ci": "awaiting-approval",
+   "cifail": 0,
+   "links": []
+  },
+  {
+   "n": 3381,
+   "a": "xiehuanyi",
+   "t": "Honor explicit default values in dict.fromkeys inference",
+   "draft": false,
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 82,
+   "created": "2026-10-12",
+   "updated": "2026-10-12",
+   "ci": "awaiting-approval",
+   "cifail": 0,
+   "links": []
+  },
+  {
+   "n": 3382,
+   "a": "xiehuanyi",
+   "t": "Infer distinct values when calculating literal collection lengths",
+   "draft": false,
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 98,
+   "created": "2026-10-12",
+   "updated": "2026-10-21",
+   "ci": "awaiting-approval",
+   "cifail": 0,
+   "links": []
+  },
+  {
+   "n": 3384,
+   "a": "haigou-web",
+   "t": "Fix order-dependent inference caused by caching budget-truncated results",
+   "draft": false,
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 59,
+   "created": "2026-10-12",
+   "updated": "2026-10-22",
+   "ci": "awaiting-approval",
+   "cifail": 0,
+   "links": [
+    {
+     "ref": "pylint-dev/pylint#11582",
+     "title": "Output varies based on file order",
+     "state": "open",
+     "labels": [
+      "Bug :beetle:",
+      "Astroid",
+      "inference"
+     ],
+     "reactions": 0,
+     "pr": false
+    },
+    {
+     "ref": "pylint-dev/astroid#3383",
+     "title": "Inference cache stores results truncated by the inference budget, making inference order-dependent",
+     "state": "open",
+     "labels": [],
+     "reactions": 0,
+     "pr": false
+    }
+   ]
+  },
+  {
+   "n": 3385,
+   "a": "xiehuanyi",
+   "t": "Preserve unknown elements during container inference",
+   "draft": false,
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 82,
+   "created": "2026-10-12",
+   "updated": "2026-10-12",
+   "ci": "awaiting-approval",
+   "cifail": 0,
+   "links": []
+  },
+  {
+   "n": 3387,
+   "a": "Pierre-Sassoulas",
+   "t": "Conditional assignments constraints in inference (x not inferred to None in ``if x is None: x = 1``)",
+   "draft": false,
+   "labels": [
+    "Enhancement ✨"
+   ],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "4.4.0",
+   "size": 778,
+   "created": "2026-10-13",
+   "updated": "2026-10-22",
+   "ci": "failing",
+   "cifail": 1,
+   "links": [
+    {
+     "ref": "pylint-dev/pylint#2855",
+     "title": "Classvar[Optional[Tuple]] must be unpacked",
+     "state": "open",
+     "labels": [
+      "Enhancement ✨",
+      "Control flow",
+      "typing",
+      "Needs PR"
+     ],
+     "reactions": 1,
+     "pr": false
+    },
+    {
+     "ref": "pylint-dev/pylint#3045",
+     "title": "false positive: unsupported-membership-test",
+     "state": "open",
+     "labels": [
+      "Control flow",
+      "False Positive 🦟",
+      "Needs PR"
+     ],
+     "reactions": 2,
+     "pr": false
+    },
+    {
+     "ref": "pylint-dev/pylint#4121",
+     "title": "False positive: unsupported-membership-test with Singleton",
+     "state": "open",
+     "labels": [
+      "Bug :beetle:",
+      "Control flow",
+      "False Positive 🦟"
+     ],
+     "reactions": 0,
+     "pr": false
+    },
+    {
+     "ref": "pylint-dev/pylint#5085",
+     "title": "Negation and None",
+     "state": "open",
+     "labels": [
+      "Control flow",
+      "False Positive 🦟",
+      "Needs PR"
+     ],
+     "reactions": 3,
+     "pr": false
+    }
+   ]
+  },
+  {
+   "n": 3388,
+   "a": "Pierre-Sassoulas",
+   "t": "Constraint property result",
+   "draft": true,
+   "labels": [
+    "Enhancement ✨"
+   ],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 148,
+   "created": "2026-10-13",
+   "updated": "2026-10-22",
+   "ci": "green",
+   "cifail": 0,
+   "links": [
+    {
+     "ref": "pylint-dev/pylint#10471",
+     "title": "Property union type inference issue: E1102 not-callable false positive",
+     "state": "open",
+     "labels": [
+      "Astroid",
+      "Control flow",
+      "False Positive 🦟",
+      "Needs astroid update"
+     ],
+     "reactions": 0,
+     "pr": false
+    }
+   ]
+  },
+  {
+   "n": 3390,
+   "a": "ansh-rohilla",
+   "t": "Fix crash in infer_typing_alias on non-int _alias() argument (#3389)",
+   "draft": false,
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 54,
+   "created": "2026-10-13",
+   "updated": "2026-10-13",
+   "ci": "awaiting-approval",
+   "cifail": 0,
+   "links": [
+    {
+     "ref": "pylint-dev/astroid#3389",
+     "title": "Crash in infer_typing_alias on non-int _alias() second argument",
+     "state": "open",
+     "labels": [],
+     "reactions": 0,
+     "pr": false
+    }
+   ]
+  },
+  {
+   "n": 3392,
+   "a": "Pierre-Sassoulas",
+   "t": "Take the len constraints into account during inference",
+   "draft": true,
+   "labels": [
+    "Enhancement ✨"
+   ],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 215,
+   "created": "2026-10-13",
+   "updated": "2026-10-22",
+   "ci": "green",
+   "cifail": 0,
+   "links": [
+    {
+     "ref": "pylint-dev/pylint#9986",
+     "title": "False positive `unbalanced-dict-unpacking`",
+     "state": "open",
+     "labels": [
+      "Bug :beetle:",
+      "Control flow",
+      "Regression",
+      "False Positive 🦟"
+     ],
+     "reactions": 0,
+     "pr": false
+    }
+   ]
+  },
+  {
+   "n": 3400,
+   "a": "Aryan007-dev",
+   "t": "Keep an instance apart from its class when deduplicating inference results",
+   "draft": false,
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 36,
+   "created": "2026-10-14",
+   "updated": "2026-10-14",
+   "ci": "awaiting-approval",
+   "cifail": 0,
+   "links": [
+    {
+     "ref": "pylint-dev/pylint#9846",
+     "title": "False positives with imported variable that shadows class",
+     "state": "open",
+     "labels": [
+      "Bug :beetle:",
+      "inference",
+      "False Positive 🦟"
+     ],
+     "reactions": 0,
+     "pr": false
+    }
+   ]
+  },
+  {
+   "n": 3401,
+   "a": "Pierre-Sassoulas",
+   "t": "Take conditions that use an assignment expression into account during inference",
+   "draft": false,
+   "labels": [
+    "Enhancement ✨"
+   ],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 148,
+   "created": "2026-10-14",
+   "updated": "2026-10-22",
+   "ci": "green",
+   "cifail": 0,
+   "links": []
+  },
+  {
+   "n": 3402,
+   "a": "Pierre-Sassoulas",
+   "t": "Take conditions in while loop into account during inference",
+   "draft": true,
+   "labels": [
+    "Enhancement ✨"
+   ],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 131,
+   "created": "2026-10-14",
+   "updated": "2026-10-22",
+   "ci": "green",
+   "cifail": 0,
+   "links": []
+  },
+  {
+   "n": 3403,
+   "a": "yw-7777",
+   "t": "Add static inference for orjson dumps and loads",
+   "draft": true,
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 113,
+   "created": "2026-10-14",
+   "updated": "2026-10-14",
+   "ci": "awaiting-approval",
+   "cifail": 0,
+   "links": [
+    {
+     "ref": "pylint-dev/pylint#9762",
+     "title": "E1101: Module 'orjson' has no 'dumps' member (no-member)",
+     "state": "open",
+     "labels": [
+      "False Positive 🦟",
+      "Lib specific 💅",
+      "Needs PR"
+     ],
+     "reactions": 2,
+     "pr": false
+    }
+   ]
+  },
+  {
+   "n": 3405,
+   "a": "Boulea7",
+   "t": "Close source streams when reading fails",
+   "draft": false,
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 90,
+   "created": "2026-10-15",
+   "updated": "2026-10-15",
+   "ci": "green",
+   "cifail": 0,
+   "links": [
+    {
+     "ref": "pylint-dev/astroid#3404",
+     "title": "Source file remains open after a decoding error",
+     "state": "open",
+     "labels": [],
+     "reactions": 0,
+     "pr": false
+    }
+   ]
+  },
+  {
+   "n": 3407,
+   "a": "Boulea7",
+   "t": "Fix exception group exceptions tuple inference",
+   "draft": false,
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 45,
+   "created": "2026-10-15",
+   "updated": "2026-10-15",
+   "ci": "green",
+   "cifail": 0,
+   "links": [
+    {
+     "ref": "pylint-dev/astroid#3406",
+     "title": "ExceptionGroup.exceptions is inferred as an empty tuple",
+     "state": "open",
+     "labels": [],
+     "reactions": 0,
+     "pr": false
+    }
+   ]
+  },
+  {
+   "n": 3409,
+   "a": "b84330808",
+   "t": "Include fields of an init=False dataclass base in a subclass's __init__",
+   "draft": false,
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 123,
+   "created": "2026-10-19",
+   "updated": "2026-10-19",
+   "ci": "awaiting-approval",
+   "cifail": 0,
+   "links": [
+    {
+     "ref": "pylint-dev/pylint#9389",
+     "title": "False-positive E1121 when using dataclass with init=False",
+     "state": "open",
+     "labels": [
+      "Bug :beetle:",
+      "False Positive 🦟",
+      "dataclasses"
+     ],
+     "reactions": 0,
+     "pr": false
+    }
+   ]
+  },
+  {
+   "n": 3410,
+   "a": "b84330808",
+   "t": "Build the __class_getitem__ of PEP 695 classes without transforms",
+   "draft": false,
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 45,
+   "created": "2026-10-19",
+   "updated": "2026-10-19",
+   "ci": "awaiting-approval",
+   "cifail": 0,
+   "links": [
+    {
+     "ref": "pylint-dev/pylint#10352",
+     "title": "Empty transform plugin leads to false-positive missing-function-docstring issues",
+     "state": "open",
+     "labels": [
+      "False Positive 🦟"
+     ],
+     "reactions": 0,
+     "pr": false
+    }
+   ]
+  },
+  {
+   "n": 3412,
+   "a": "Pierre-Sassoulas",
+   "t": "[pyright] Make transform and inference tip protocols positional-only",
+   "draft": false,
+   "labels": [
+    "Maintenance",
+    "Skip news :mute:"
+   ],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 40,
+   "created": "2026-10-19",
+   "updated": "2026-10-21",
+   "ci": "green",
+   "cifail": 0,
+   "links": []
+  },
+  {
+   "n": 3419,
+   "a": "Pierre-Sassoulas",
+   "t": "Fix __doc__ and __annotations__ of lambdas in the object model",
+   "draft": false,
+   "labels": [
+    "Bug 🪳"
+   ],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 30,
+   "created": "2026-10-19",
+   "updated": "2026-10-21",
+   "ci": "green",
+   "cifail": 0,
+   "links": []
+  },
+  {
+   "n": 3423,
+   "a": "Pierre-Sassoulas",
+   "t": "Prepare pyright strict checks for unused imports and private usage",
+   "draft": false,
+   "labels": [
+    "Maintenance",
+    "Skip news :mute:"
+   ],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 192,
+   "created": "2026-10-20",
+   "updated": "2026-10-21",
+   "ci": "green",
+   "cifail": 0,
+   "links": []
+  },
+  {
+   "n": 3426,
+   "a": "Pierre-Sassoulas",
+   "t": "Raise a type error in object_len for a __len__ that cannot be called",
+   "draft": false,
+   "labels": [
+    "Bug 🪳"
+   ],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "4.4.0",
+   "size": 27,
+   "created": "2026-10-22",
+   "updated": "2026-10-22",
+   "ci": "green",
+   "cifail": 0,
+   "links": []
+  },
+  {
+   "n": 3427,
+   "a": "Pierre-Sassoulas",
+   "t": "Give comprehension scopes a name so qname() does not crash",
+   "draft": false,
+   "labels": [
+    "Bug 🪳"
+   ],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "4.4.0",
+   "size": 39,
+   "created": "2026-10-22",
+   "updated": "2026-10-22",
+   "ci": "green",
+   "cifail": 0,
+   "links": []
+  },
+  {
+   "n": 3428,
+   "a": "Pierre-Sassoulas",
+   "t": "Stop exposing __get__ on generators",
+   "draft": false,
+   "labels": [
+    "Bug 🪳"
+   ],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "4.4.0",
+   "size": 27,
+   "created": "2026-10-22",
+   "updated": "2026-10-22",
+   "ci": "green",
+   "cifail": 0,
+   "links": []
+  },
+  {
+   "n": 3429,
+   "a": "Pierre-Sassoulas",
+   "t": "Do not crash when inferring the call of a type subclass without a caller",
+   "draft": false,
+   "labels": [
+    "Bug 🪳"
+   ],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "4.4.0",
+   "size": 23,
+   "created": "2026-10-22",
+   "updated": "2026-10-22",
+   "ci": "green",
+   "cifail": 0,
+   "links": []
+  },
+  {
+   "n": 3430,
+   "a": "Pierre-Sassoulas",
+   "t": "Make ClassDef.has_dynamic_getattr() always return a bool",
+   "draft": false,
+   "labels": [
+    "Bug 🪳"
+   ],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "4.4.0",
+   "size": 25,
+   "created": "2026-10-22",
+   "updated": "2026-10-22",
+   "ci": "green",
+   "cifail": 0,
+   "links": []
+  },
+  {
+   "n": 3431,
+   "a": "Pierre-Sassoulas",
+   "t": "[refactor] Use match case instead of isinstance calls when the readability is better",
+   "draft": false,
+   "labels": [
+    "Maintenance",
+    "Blocked 🚧",
+    "Skip news :mute:"
+   ],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 376,
+   "created": "2026-10-22",
+   "updated": "2026-10-22",
+   "ci": "failing",
+   "cifail": 2,
+   "links": []
+  },
+  {
+   "n": 3432,
+   "a": "dchaudhari7177",
+   "t": "Drop a dataclass field a middle base makes init=False from subclass inits",
+   "draft": false,
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 86,
+   "created": "2026-10-22",
+   "updated": "2026-10-22",
+   "ci": "awaiting-approval",
+   "cifail": 0,
+   "links": [
+    {
+     "ref": "pylint-dev/pylint#10056",
+     "title": "Second order inheritance of dataclasses with default values/`init=False` causes `E1120 no-value-for-parameter`",
+     "state": "open",
+     "labels": [
+      "False Positive 🦟",
+      "dataclasses"
+     ],
+     "reactions": 0,
+     "pr": false
+    }
+   ]
+  },
+  {
+   "n": 3433,
+   "a": "dchaudhari7177",
+   "t": "Give every dataclass a __dataclass_fields__ class attribute",
+   "draft": false,
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 52,
+   "created": "2026-10-22",
+   "updated": "2026-10-22",
+   "ci": "awaiting-approval",
+   "cifail": 0,
+   "links": [
+    {
+     "ref": "pylint-dev/pylint#9183",
+     "title": "False positive: Class has no '__dataclass_fields__' member (no-member)",
+     "state": "open",
+     "labels": [
+      "False Positive 🦟",
+      "dataclasses"
+     ],
+     "reactions": 0,
+     "pr": false
+    }
+   ]
+  },
+  {
+   "n": 3434,
+   "a": "nk-batman21",
+   "t": "Keep parentheses around a conditional expression in a comprehension in as_string",
+   "draft": false,
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 51,
+   "created": "2026-10-22",
+   "updated": "2026-10-22",
+   "ci": "awaiting-approval",
+   "cifail": 0,
+   "links": []
+  },
+  {
+   "n": 3435,
+   "a": "skyon0522-ai",
+   "t": "Respect search paths in ZIP module lookup",
+   "draft": false,
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 92,
+   "created": "2026-10-22",
+   "updated": "2026-10-22",
+   "ci": "awaiting-approval",
+   "cifail": 0,
+   "links": []
+  },
+  {
+   "n": 3436,
+   "a": "skyon0522-ai",
+   "t": "Keep user-defined sample calls out of random inference",
+   "draft": false,
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 69,
+   "created": "2026-10-22",
+   "updated": "2026-10-22",
+   "ci": "awaiting-approval",
+   "cifail": 0,
+   "links": []
+  },
+  {
+   "n": 3437,
+   "a": "skyon0522-ai",
+   "t": "Infer next calls for ordinary user iterator methods",
+   "draft": false,
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 222,
+   "created": "2026-10-22",
+   "updated": "2026-10-22",
+   "ci": "awaiting-approval",
+   "cifail": 0,
+   "links": []
+  },
+  {
+   "n": 3438,
+   "a": "skyon0522-ai",
+   "t": "Preserve unknown results from augmented assignments",
+   "draft": false,
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 30,
+   "created": "2026-10-22",
+   "updated": "2026-10-22",
+   "ci": "awaiting-approval",
+   "cifail": 0,
+   "links": []
+  },
+  {
+   "n": 3439,
+   "a": "emmanuel-ferdman",
+   "t": "Fix cache invalidation when preferring stubs",
+   "draft": false,
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 99,
+   "created": "2026-10-23",
+   "updated": "2026-10-23",
+   "ci": "green",
+   "cifail": 0,
+   "links": []
+  }
+ ]
+}

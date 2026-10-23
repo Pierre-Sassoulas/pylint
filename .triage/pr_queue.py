@@ -76,14 +76,11 @@ V = {
     ),
     # ---- review now -------------------------------------------------------
     11711: (
-        "review",
-        "ready",
+        "author",
+        "changes",
         "confirmed",
-        "New, 144 lines by fly1d for issue 22 (pyreverse bug, Minor, 1 reaction): "
-        "<code>pyreverse --class Target a.py b.py</code> dies with <code>ValueError</code> instead of "
-        "asking for a qualified class name; unknown modules/classes also gave tracebacks. Now an error "
-        "on stderr, exit 1. Green, primer clean.",
-        "Review.",
+        'New, 144 lines by fly1d for issue 22 (pyreverse bug, Minor, 1 reaction): <code>pyreverse --class Target a.py b.py</code> dies with <code>ValueError</code> instead of asking for a qualified class name; unknown modules/classes also gave tracebacks. Now an error on stderr, exit 1. Green, primer clean. You requested changes on 22 October: a target resolving to a non-class still warns, writes an empty diagram and exits 0; keep the warning only for Uninferable.',
+        'Wait for the author.',
     ),
     11663: (
         "review",
@@ -133,17 +130,6 @@ V = {
         "Milestone 4.1.4, backport label. 43/43 green; primer adds 3 home-assistant "
         "<code>too-many-nested-blocks</code> on <code>async for</code>, the intended new hits.",
         "Re-review (your changes requested still standing); backport.",
-    ),
-    11676: (
-        "review",
-        "crash",
-        "crash",
-        "New, 58 lines by udsy19: <code>AttributeError: 'Subscript' object has no attribute "
-        "'name'</code> in <code>use-maxsplit-arg</code> when a loop holding "
-        "<code>text.split(',')[i]</code> also does <code>seq[i] += 1</code> or <code>obj.attr = "
-        "1</code>. Reproduced on main; the earlier fix for closed issue 11286 missed this target. "
-        "Green, full coverage, primer only the usual astropy noise.",
-        "Review first; backport candidate.",
     ),
     11690: (
         "review",
@@ -316,14 +302,11 @@ V = {
     ),
     # ---- approve the workflow run ----------------------------------------
     11714: (
-        "approve",
-        "held",
+        "review",
+        "ready",
         "confirmed",
-        "New, 23 lines by nk-batman21 for their issue 11713 (FP, reproduced on 4.1.3): "
-        "<code>bad-string-format-type</code> on <code>\"%-*s %d\" % (width, name, count)</code>: a "
-        "<code>*</code> width takes its own argument, so every later argument was checked against the "
-        "wrong type. Also catches the real mismatches it used to miss.",
-        "Approve the run, then review; backport candidate.",
+        'New, 23 lines by nk-batman21 for their issue 11713 (FP, reproduced on 4.1.3): <code>bad-string-format-type</code> on <code>"%-*s %d" % (width, name, count)</code>: a <code>*</code> width takes its own argument, so every later argument was checked against the wrong type. Also catches the real mismatches it used to miss. Run released 22 October: green, primer only noise.',
+        'Review.',
     ),
     11717: (
         "approve",
@@ -364,22 +347,18 @@ V = {
         "Low priority: approve with the next batch.",
     ),
     11680: (
-        "approve",
-        "held",
+        "review",
+        "ready",
         "confirmed",
-        "New, 93 lines by soodoku for issue 11679 (bug, filed the same minute): "
-        "<code>duplicate-code</code> reports a block copied into three files as one pair; the third "
-        "copy never appears.",
-        "Approve the run, then review.",
+        'New, 93 lines by soodoku for issue 11679 (bug, filed the same minute): <code>duplicate-code</code> reports a block copied into three files as one pair; the third copy never appears. Run released 22 October: green, primer only noise.',
+        'Review.',
     ),
     11667: (
-        "approve",
-        "held",
+        "review",
+        "ready",
         "confirmed",
-        "New, 142 lines by summeriver13 for issue 7470 (FP, 1 reaction, re-confirmed by a user on "
-        "14 October): <code>function-redefined</code> for a function defined in two "
-        "<code>case</code> branches of one <code>match</code>.",
-        "Approve the run, then review.",
+        'New, 142 lines by summeriver13 for issue 7470 (FP, 1 reaction, re-confirmed by a user on 14 October): <code>function-redefined</code> for a function defined in two <code>case</code> branches of one <code>match</code>. Run released 22 October: green, primer clean.',
+        'Review.',
     ),
     11666: (
         "approve",
@@ -446,13 +425,11 @@ V = {
         "Approve the run; it unblocks the autofix branch stacked on it.",
     ),
     11657: (
-        "approve",
-        "held",
+        "review",
+        "ready",
         "confirmed",
-        "New, 26 lines by adityasinha-ghub for issue 11656 (FP): <code>useless-suppression</code> on "
-        "disabled <code>deprecated-*</code> messages, because the exemption list still holds their "
-        "pre-#6693 ids (W0402, W1505, W1511-W1513) instead of W4901-W4905. Run waits for approval.",
-        "Approve the run; small bug fix, backport candidate.",
+        'New, 26 lines by adityasinha-ghub for issue 11656 (FP): <code>useless-suppression</code> on disabled <code>deprecated-*</code> messages, because the exemption list still holds their pre-#6693 ids (W0402, W1505, W1511-W1513) instead of W4901-W4905. Run waits for approval. Run released 22 October: green; primer removes 20 astropy useless-suppression hits on deprecated-* disables, the intended fix.',
+        'Review.',
     ),
     11659: (
         "approve",
@@ -474,13 +451,11 @@ V = {
         "Approve the run; compare with astroid #3384.",
     ),
     11655: (
-        "approve",
-        "held",
+        "review",
+        "ready",
         "confirmed",
-        "New, 44 lines by Cherith1222 for issue 9624 (FP, 1 reaction): "
-        "<code>unsupported-binary-operation</code> on PEP 604 unions like <code>int | None</code> in "
-        "<code>.pyi</code> stubs, which never run.",
-        "Approve the run, then review.",
+        'New, 44 lines by Cherith1222 for issue 9624 (FP, 1 reaction): <code>unsupported-binary-operation</code> on PEP 604 unions like <code>int | None</code> in <code>.pyi</code> stubs, which never run. Run released 22 October: green, primer only noise.',
+        'Review.',
     ),
     11646: (
         "approve",
@@ -501,14 +476,11 @@ V = {
         "Approve the run, then review.",
     ),
     11630: (
-        "approve",
-        "held",
+        "review",
+        "ready",
         "confirmed",
-        "New, 38 lines by DariusHQ for issue 7351 (FP, 1 reaction): "
-        "<code>unnecessary-dunder-call</code> on <code>mock.call.method.__setitem__(1, 2)</code>, "
-        "which describes an expected mock call. Walks the attribute/call chain looking for "
-        "<code>unittest.mock._Call</code>.",
-        "Approve the run, then review.",
+        'New, 38 lines by DariusHQ for issue 7351 (FP, 1 reaction): <code>unnecessary-dunder-call</code> on <code>mock.call.method.__setitem__(1, 2)</code>, which describes an expected mock call. Walks the attribute/call chain looking for <code>unittest.mock._Call</code>. Run released 22 October: green, primer clean.',
+        'Review.',
     ),
     11629: (
         "approve",
@@ -1241,11 +1213,39 @@ def worth_a_run(n: int) -> bool:
     return category <= 1 or not not_high or minus_reactions <= -2
 
 
+KIND_NAMES = ("crash / perf", "bug", "false positive", "false negative", "enhancement", "other")
+
+
+def why(category: int, high: bool, reactions: int, refs: list, ci: str, extra: list) -> str:
+    """The reasons behind an item's place, in the order the ranking uses them."""
+    parts = [KIND_NAMES[category]]
+    if high:
+        parts.append("High priority")
+    if reactions:
+        parts.append(f"{reactions} reaction{'s' * (reactions > 1)} on {', '.join(refs)}")
+    parts.append(f"CI {CI_WORDS[ci][0]}")
+    parts.extend(extra)
+    return " · ".join(parts)
+
+
 def todo_item(n: int) -> str:
+    r = rows[n]
+    category, not_high, minus_reactions, _ = priority(n)
+    refs = [
+        f"#{number}"
+        for number, _s, _l in r["links"]
+        if issues.get(number, {}).get("state") == "open"
+        and issues.get(number, {}).get("reactions")
+    ]
+    extra = [f"reviewed by {', '.join(r['mrev'])}"] if r["mrev"] else []
+    if n in TESTED:
+        extra.append("tests fail on main, pass with the PR")
     return (
         f'<li><a href="https://github.com/pylint-dev/pylint/pull/{n}">#{n}</a> '
-        f'<span class="k">{E(category_name(n))}</span>{E(rows[n]["t"])} '
-        f'<span class="do">— {V[n][4]}</span></li>'
+        f'<span class="k">{E(category_name(n))}</span>{E(r["t"])} '
+        f'<span class="do">— {V[n][4]}</span>'
+        f'<span class="why">Why here: {why(category, not not_high, -minus_reactions, refs, r["ci"], extra)}</span>'
+        "</li>"
     )
 
 
@@ -1254,7 +1254,14 @@ todo_approve = [
     for n in lane_members("approve")
     if rows[n]["ci"] == "awaiting-approval" and worth_a_run(n)
 ][:TODO_APPROVE]
-todo = ['<section class="todo"><h2>To do now</h2>']
+todo = [
+    '<section class="todo"><h2>To do now</h2>'
+    '<p class="rubric">Ordered by what unblocks a release or a user first: merges cost one click and ship '
+    "fixes, reviews of green pull requests come next, then runs worth releasing, then decisions. Inside "
+    "each step the order is the lanes' ranking: crash or performance, bug, false positive, false "
+    "negative, enhancement; then High priority; then reactions on the open linked issues. A held run "
+    "is only listed for a crash, a bug, High priority or two reactions.</p>"
+]
 for title, items in (
     ("1. Merge", lane_members("merge")),
     ("2. Review", lane_members("review")[:TODO_REVIEW]),
@@ -1262,12 +1269,131 @@ for title, items in (
     ("4. Decide (crash or bug)", [n for n in lane_members("decide") if priority(n)[0] <= 1]),
 ):
     if not items:
+        if items is todo_approve:
+            todo.append(
+                f"<h3>{title}</h3><p class=\"rubric\">Nothing worth a run today: every held pull "
+                "request is a false positive, false negative or enhancement with fewer than two "
+                "reactions.</p>"
+            )
         continue
     todo.append(f"<h3>{title}</h3><ol>")
     todo.extend(todo_item(n) for n in items)
     todo.append("</ol>")
     if items is todo_approve:
         todo.append(f"<pre>{APPROVE_LOOP.format(numbers=' '.join(map(str, items)))}</pre>")
+
+# Astroid: the same ranking over astroid_queue_data.json (astroid_queue_fetch.py).
+# Kinds come from the PR labels plus those of the astroid issues it closes and
+# the pylint issues it names; reactions count on all of those.
+ASTROID_FILE = HERE / "astroid_queue_data.json"
+if ASTROID_FILE.exists():
+    ASTROID = json.loads(ASTROID_FILE.read_text())
+    ASTROID_NOTES = {
+        # n: (step, action, note) for what the data cannot tell; step is one of
+        # "merge", "review", "approve", "ping", "skip".
+    }
+
+    def astroid_priority(p: dict) -> tuple:
+        labels = list(p["labels"])
+        for linked in p["links"]:
+            labels.extend(linked["labels"])
+        names = [name.lower() for name in labels]
+        found = set()
+        for rank, keys in enumerate(
+            (("crash", "performance"), ("bug",), ("false positive",), ("false negative",), ("enhancement", "brain"))
+        ):
+            if any(key in name for key in keys for name in names):
+                found.add(rank)
+        if found & {2, 3}:
+            found.discard(1)
+        category = min(found, default=5)
+        high = any(name.startswith("high priority") for name in names)
+        reactions = sum(linked["reactions"] for linked in p["links"] if linked["state"] == "open")
+        return (category, not high, -reactions, "".join(chr(0x10FFFF - ord(c)) for c in p["updated"]))
+
+    def astroid_item(p: dict, action: str) -> str:
+        category, not_high, minus_reactions, _ = astroid_priority(p)
+        refs = [
+            linked["ref"].replace("pylint-dev/", "")
+            for linked in p["links"]
+            if linked["state"] == "open" and linked["reactions"]
+        ]
+        extra = []
+        if p["milestone"]:
+            extra.append(f"milestone {p['milestone']}")
+        if p["rd"] == "APPROVED":
+            extra.append("approved")
+        elif p["rd"] == "CHANGES_REQUESTED":
+            extra.append("changes requested")
+        extra.append(f"{p['size']} lines")
+        note = ASTROID_NOTES.get(p["n"], (None, None, ""))[2]
+        if note:
+            extra.append(note)
+        return (
+            f'<li><a href="https://github.com/pylint-dev/astroid/pull/{p["n"]}">astroid #{p["n"]}</a> '
+            f'<span class="k">{E(KIND_NAMES[category])}</span>{E(p["t"])} '
+            f'<span class="do">— {action}</span>'
+            f'<span class="why">Why here: {why(category, not not_high, -minus_reactions, refs, p["ci"], extra)}</span>'
+            "</li>"
+        )
+
+    def astroid_step(p: dict) -> str:
+        if p["n"] in ASTROID_NOTES:
+            return ASTROID_NOTES[p["n"]][0]
+        if p["draft"]:
+            return "skip"
+        category, not_high, minus_reactions, _ = astroid_priority(p)
+        worth = category <= 1 or not not_high or minus_reactions <= -2
+        if p["a"] == OWNER:
+            # Your own: only worth a reviewer ping when it unblocks something.
+            return "ping" if worth or p["milestone"] else "skip"
+        if p["ci"] == "green" and p["rd"] == "APPROVED":
+            return "merge"
+        if p["ci"] == "green" and p["rd"] != "CHANGES_REQUESTED":
+            return "review" if worth else "skip"
+        if p["ci"] == "awaiting-approval":
+            return "approve" if worth else "skip"
+        return "skip"
+
+    OWNER = DATA["owner"]
+    steps: dict = {"merge": [], "review": [], "approve": [], "ping": []}
+    for p in sorted(ASTROID["prs"], key=astroid_priority):
+        step = astroid_step(p)
+        if step in steps:
+            steps[step].append(p)
+    default_action = {
+        "merge": "Merge.",
+        "review": "Review.",
+        "approve": "Approve the run, then review.",
+        "ping": "Ask another maintainer for a review.",
+    }
+    todo.append(
+        f'<h3>5. Astroid <span class="count">snapshot {E(ASTROID["snapshot"])}</span></h3>'
+        '<p class="rubric">Same ranking. A fix in astroid reaches pylint users only after an astroid '
+        "release and a bump of pylint's minimum astroid version, so a crash or bug fix there weighs as "
+        "much as one in pylint. Your own pull requests are listed when they unblock something "
+        "(crash, bug, performance, reactions or a milestone) and only need a second maintainer.</p>"
+    )
+    for step, title, limit in (
+        ("merge", "Merge", 8),
+        ("review", "Review (contributors, green)", 8),
+        ("approve", "Approve the run", 8),
+        ("ping", "Yours, waiting on a reviewer", 10),
+    ):
+        if not steps[step]:
+            continue
+        todo.append(f"<h4>{title}</h4><ol>")
+        for p in steps[step][:limit]:
+            action = ASTROID_NOTES.get(p["n"], (None, default_action[step]))[1] or default_action[step]
+            todo.append(astroid_item(p, action))
+        todo.append("</ol>")
+        if step == "approve":
+            numbers = " ".join(str(p["n"]) for p in steps[step][:limit])
+            todo.append(
+                "<pre>"
+                + APPROVE_LOOP.format(numbers=numbers).replace("pylint-dev/pylint", "pylint-dev/astroid")
+                + "</pre>"
+            )
 todo.append("</section>")
 
 n_open = DATA["open_total"]

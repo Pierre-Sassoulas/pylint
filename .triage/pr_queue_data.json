@@ -1,5 +1,5 @@
 {
- "snapshot": "2026-10-22",
+ "snapshot": "2026-10-23",
  "owner": "Pierre-Sassoulas",
  "open_total": 139,
  "open_own": 22,
@@ -20,7 +20,7 @@
     "Needs take over 🛎️"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "CONFLICTING",
+   "merge": "UNKNOWN",
    "ci": "not-run",
    "citot": 0,
    "cifail": 0,
@@ -49,7 +49,7 @@
     "Needs take over 🛎️"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "CONFLICTING",
+   "merge": "UNKNOWN",
    "ci": "not-run",
    "citot": 2,
    "cifail": 0,
@@ -82,7 +82,7 @@
     "Needs take over 🛎️"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "CONFLICTING",
+   "merge": "UNKNOWN",
    "ci": "not-run",
    "citot": 2,
    "cifail": 0,
@@ -114,7 +114,7 @@
     "Needs take over 🛎️"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "CONFLICTING",
+   "merge": "UNKNOWN",
    "ci": "not-run",
    "citot": 0,
    "cifail": 0,
@@ -148,7 +148,7 @@
     "Needs take over 🛎️"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "not-run",
    "citot": 0,
    "cifail": 0,
@@ -178,7 +178,7 @@
     "Needs take over 🛎️"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "CONFLICTING",
+   "merge": "UNKNOWN",
    "ci": "not-run",
    "citot": 0,
    "cifail": 0,
@@ -205,7 +205,7 @@
     "Needs decision :lock:"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "CONFLICTING",
+   "merge": "UNKNOWN",
    "ci": "not-run",
    "citot": 2,
    "cifail": 0,
@@ -241,7 +241,7 @@
     "Skip news :mute:"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "CONFLICTING",
+   "merge": "UNKNOWN",
    "ci": "not-run",
    "citot": 2,
    "cifail": 0,
@@ -273,7 +273,7 @@
     "False Negative 🦋"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "CONFLICTING",
+   "merge": "UNKNOWN",
    "ci": "not-run",
    "citot": 0,
    "cifail": 0,
@@ -306,7 +306,7 @@
     "backport maintenance/4.1.x"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "not-run",
    "citot": 2,
    "cifail": 0,
@@ -347,7 +347,7 @@
     "Needs decision :lock:"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "CONFLICTING",
+   "merge": "UNKNOWN",
    "ci": "failing",
    "citot": 48,
    "cifail": 1,
@@ -370,7 +370,7 @@
    "size": 70,
    "files": 8,
    "created": "2025-10-05",
-   "updated": "2026-10-22",
+   "updated": "2026-10-23",
    "labels": [
     "Enhancement ✨"
    ],
@@ -412,7 +412,7 @@
     "Needs decision :lock:"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "CONFLICTING",
+   "merge": "UNKNOWN",
    "ci": "failing",
    "citot": 48,
    "cifail": 6,
@@ -445,7 +445,7 @@
     "Enhancement ✨"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "green",
    "citot": 44,
    "cifail": 0,
@@ -480,7 +480,7 @@
     "Documentation :green_book:"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "CONFLICTING",
+   "merge": "UNKNOWN",
    "ci": "failing",
    "citot": 46,
    "cifail": 1,
@@ -516,7 +516,7 @@
     "Needs decision :lock:"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "failing",
    "citot": 40,
    "cifail": 8,
@@ -548,7 +548,7 @@
     "Documentation :green_book:"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "not-run",
    "citot": 4,
    "cifail": 0,
@@ -581,7 +581,7 @@
     "tests"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "CONFLICTING",
+   "merge": "UNKNOWN",
    "ci": "not-run",
    "citot": 3,
    "cifail": 0,
@@ -613,7 +613,7 @@
     "Skip news :mute:"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "CONFLICTING",
+   "merge": "UNKNOWN",
    "ci": "awaiting-approval",
    "citot": 2,
    "cifail": 0,
@@ -705,7 +705,7 @@
     "backport maintenance/4.1.x"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "CONFLICTING",
+   "merge": "UNKNOWN",
    "ci": "not-run",
    "citot": 2,
    "cifail": 0,
@@ -739,7 +739,7 @@
     "backport maintenance/4.1.x"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "green",
    "citot": 49,
    "cifail": 0,
@@ -773,7 +773,7 @@
     "tests"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "awaiting-approval",
    "citot": 53,
    "cifail": 0,
@@ -806,7 +806,7 @@
     "False Negative 🦋"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "not-run",
    "citot": 4,
    "cifail": 0,
@@ -837,7 +837,7 @@
     "Enhancement ✨"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "CONFLICTING",
+   "merge": "UNKNOWN",
    "ci": "failing",
    "citot": 46,
    "cifail": 3,
@@ -869,7 +869,7 @@
     "pyreverse"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "green",
    "citot": 54,
    "cifail": 0,
@@ -937,7 +937,7 @@
     "Enhancement ✨"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "awaiting-approval",
    "citot": 2,
    "cifail": 0,
@@ -969,7 +969,7 @@
     "duplicate-code"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "not-run",
    "citot": 5,
    "cifail": 0,
@@ -1029,7 +1029,7 @@
     "False Positive 🦟"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "not-run",
    "citot": 2,
    "cifail": 0,
@@ -1063,7 +1063,7 @@
     "python 3.12"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "not-run",
    "citot": 5,
    "cifail": 0,
@@ -1125,7 +1125,7 @@
     "False Positive 🦟"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "failing",
    "citot": 50,
    "cifail": 1,
@@ -1159,7 +1159,7 @@
     "C: invalid-name"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "not-run",
    "citot": 4,
    "cifail": 0,
@@ -1191,7 +1191,7 @@
     "False Positive 🦟"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "green",
    "citot": 7,
    "cifail": 0,
@@ -1222,7 +1222,7 @@
     "Skip news :mute:"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "not-run",
    "citot": 2,
    "cifail": 0,
@@ -1250,7 +1250,7 @@
     "Optional Checkers"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "green",
    "citot": 51,
    "cifail": 0,
@@ -1281,7 +1281,7 @@
     "False Positive 🦟"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "failing",
    "citot": 50,
    "cifail": 1,
@@ -1313,7 +1313,7 @@
     "backport maintenance/4.1.x"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "green",
    "citot": 52,
    "cifail": 0,
@@ -1346,7 +1346,7 @@
     "False Negative 🦋"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "failing",
    "citot": 49,
    "cifail": 2,
@@ -1378,7 +1378,7 @@
     "enum"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "awaiting-approval",
    "citot": 4,
    "cifail": 0,
@@ -1410,7 +1410,7 @@
     "backport maintenance/4.1.x"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "green",
    "citot": 43,
    "cifail": 0,
@@ -1438,7 +1438,7 @@
     "False Positive 🦟"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "CONFLICTING",
+   "merge": "UNKNOWN",
    "ci": "not-run",
    "citot": 3,
    "cifail": 0,
@@ -1471,7 +1471,7 @@
     "False Positive 🦟"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "CONFLICTING",
+   "merge": "UNKNOWN",
    "ci": "not-run",
    "citot": 5,
    "cifail": 0,
@@ -1504,7 +1504,7 @@
     "backport maintenance/4.1.x"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "green",
    "citot": 55,
    "cifail": 0,
@@ -1632,7 +1632,7 @@
     "False Positive 🦟"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "not-run",
    "citot": 5,
    "cifail": 0,
@@ -1721,19 +1721,19 @@
    "a": "wufangyong973",
    "t": "fix(config): honor false value for valueless options in config files",
    "draft": false,
-   "size": 74,
-   "files": 3,
+   "size": 9527,
+   "files": 26,
    "created": "2026-09-26",
-   "updated": "2026-10-04",
+   "updated": "2026-10-22",
    "labels": [
     "Bug :beetle:",
     "Configuration"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "MERGEABLE",
-   "ci": "failing",
-   "citot": 48,
-   "cifail": 1,
+   "merge": "CONFLICTING",
+   "ci": "not-run",
+   "citot": 2,
+   "cifail": 0,
    "nrev": 2,
    "mrev": [
     "Pierre-Sassoulas"
@@ -1828,7 +1828,7 @@
     "Documentation :green_book:"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "CONFLICTING",
+   "merge": "UNKNOWN",
    "ci": "green",
    "citot": 28,
    "cifail": 0,
@@ -1861,7 +1861,7 @@
     "False Positive 🦟"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "awaiting-approval",
    "citot": 2,
    "cifail": 0,
@@ -1893,7 +1893,7 @@
     "Maintenance"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "awaiting-approval",
    "citot": 8,
    "cifail": 0,
@@ -1924,7 +1924,7 @@
     "False Positive 🦟"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "green",
    "citot": 51,
    "cifail": 0,
@@ -1981,7 +1981,7 @@
     "Enhancement ✨"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "CONFLICTING",
+   "merge": "UNKNOWN",
    "ci": "awaiting-approval",
    "citot": 2,
    "cifail": 0,
@@ -2007,7 +2007,7 @@
     "py-version"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "failing",
    "citot": 52,
    "cifail": 1,
@@ -2039,7 +2039,7 @@
     "dataclasses"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "awaiting-approval",
    "citot": 4,
    "cifail": 0,
@@ -2070,7 +2070,7 @@
     "False Negative 🦋"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "CONFLICTING",
+   "merge": "UNKNOWN",
    "ci": "failing",
    "citot": 43,
    "cifail": 13,
@@ -2129,7 +2129,7 @@
     "backport maintenance/4.1.x"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "green",
    "citot": 43,
    "cifail": 0,
@@ -2187,7 +2187,7 @@
     "False Positive 🦟"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "awaiting-approval",
    "citot": 4,
    "cifail": 0,
@@ -2219,7 +2219,7 @@
     "Skip news :mute:"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "green",
    "citot": 48,
    "cifail": 0,
@@ -2313,7 +2313,7 @@
     "False Positive 🦟"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "awaiting-approval",
    "citot": 4,
    "cifail": 0,
@@ -2339,14 +2339,14 @@
    "size": 39,
    "files": 4,
    "created": "2026-10-10",
-   "updated": "2026-10-10",
+   "updated": "2026-10-22",
    "labels": [
     "False Positive 🦟"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
-   "ci": "running",
-   "citot": 34,
+   "merge": "UNKNOWN",
+   "ci": "green",
+   "citot": 50,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -2358,8 +2358,8 @@
     ]
    ],
    "lastcom": [
-    "-",
-    "-"
+    "codecov",
+    "2026-10-22"
    ]
   },
   {
@@ -2375,7 +2375,7 @@
     "False Positive 🦟"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "awaiting-approval",
    "citot": 3,
    "cifail": 0,
@@ -2407,7 +2407,7 @@
     "pyreverse"
    ],
    "rd": "APPROVED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "green",
    "citot": 59,
    "cifail": 0,
@@ -2440,7 +2440,7 @@
     "False Positive 🦟"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "failing",
    "citot": 43,
    "cifail": 1,
@@ -2473,7 +2473,7 @@
     "False Positive 🦟"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "green",
    "citot": 43,
    "cifail": 0,
@@ -2539,7 +2539,7 @@
     "Enhancement ✨"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "awaiting-approval",
    "citot": 2,
    "cifail": 0,
@@ -2604,7 +2604,7 @@
     "backport maintenance/4.1.x"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "green",
    "citot": 43,
    "cifail": 0,
@@ -2670,9 +2670,9 @@
     "pyi"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
-   "ci": "running",
-   "citot": 34,
+   "merge": "UNKNOWN",
+   "ci": "green",
+   "citot": 48,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -2684,8 +2684,8 @@
     ]
    ],
    "lastcom": [
-    "-",
-    "-"
+    "github-actions",
+    "2026-10-22"
    ]
   },
   {
@@ -2703,8 +2703,8 @@
    ],
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "running",
-   "citot": 33,
+   "ci": "green",
+   "citot": 48,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -2716,8 +2716,8 @@
     ]
    ],
    "lastcom": [
-    "-",
-    "-"
+    "github-actions",
+    "2026-10-22"
    ]
   },
   {
@@ -2891,7 +2891,7 @@
     "pyreverse"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "failing",
    "citot": 50,
    "cifail": 3,
@@ -2917,7 +2917,7 @@
     "False Positive 🦟"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "awaiting-approval",
    "citot": 5,
    "cifail": 0,
@@ -2949,9 +2949,9 @@
     "Match case"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
-   "ci": "running",
-   "citot": 34,
+   "merge": "UNKNOWN",
+   "ci": "green",
+   "citot": 48,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -2963,8 +2963,8 @@
     ]
    ],
    "lastcom": [
-    "-",
-    "-"
+    "codecov",
+    "2026-10-22"
    ]
   },
   {
@@ -2981,7 +2981,7 @@
     "False Positive 🦟"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "awaiting-approval",
    "citot": 5,
    "cifail": 0,
@@ -3080,7 +3080,7 @@
     "backport maintenance/4.1.x"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "green",
    "citot": 48,
    "cifail": 0,
@@ -3101,32 +3101,6 @@
    ]
   },
   {
-   "n": 11676,
-   "a": "udsy19",
-   "t": "Fix crash in use-maxsplit-arg on non-name loop assignment targets",
-   "draft": false,
-   "size": 58,
-   "files": 4,
-   "created": "2026-10-17",
-   "updated": "2026-10-22",
-   "labels": [
-    "Crash 💥",
-    "backport maintenance/4.1.x"
-   ],
-   "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
-   "ci": "green",
-   "citot": 47,
-   "cifail": 0,
-   "nrev": 0,
-   "mrev": [],
-   "links": [],
-   "lastcom": [
-    "github-actions",
-    "2026-10-18"
-   ]
-  },
-  {
    "n": 11678,
    "a": "soodoku",
    "t": "Add ``ignore-local-names`` option to the similarities checker",
@@ -3141,7 +3115,7 @@
     "Needs decision :lock:"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "awaiting-approval",
    "citot": 6,
    "cifail": 0,
@@ -3173,9 +3147,9 @@
     "duplicate-code"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
-   "ci": "running",
-   "citot": 38,
+   "merge": "UNKNOWN",
+   "ci": "green",
+   "citot": 48,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -3187,8 +3161,8 @@
     ]
    ],
    "lastcom": [
-    "-",
-    "-"
+    "github-actions",
+    "2026-10-22"
    ]
   },
   {
@@ -3206,9 +3180,9 @@
    ],
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "running",
-   "citot": 34,
-   "cifail": 0,
+   "ci": "failing",
+   "citot": 48,
+   "cifail": 1,
    "nrev": 0,
    "mrev": [],
    "links": [
@@ -3219,8 +3193,8 @@
     ]
    ],
    "lastcom": [
-    "-",
-    "-"
+    "github-actions",
+    "2026-10-22"
    ]
   },
   {
@@ -3267,7 +3241,7 @@
     "False Negative 🦋"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "awaiting-approval",
    "citot": 4,
    "cifail": 0,
@@ -3333,7 +3307,7 @@
     "C: invalid-name"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "awaiting-approval",
    "citot": 5,
    "cifail": 0,
@@ -3366,7 +3340,7 @@
     "C: arguments-differ"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "awaiting-approval",
    "citot": 5,
    "cifail": 0,
@@ -3590,7 +3564,7 @@
     "Enhancement ✨"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "awaiting-approval",
    "citot": 4,
    "cifail": 0,
@@ -3622,13 +3596,15 @@
     "pyreverse",
     "backport maintenance/4.1.x"
    ],
-   "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "rd": "CHANGES_REQUESTED",
+   "merge": "UNKNOWN",
    "ci": "green",
    "citot": 54,
    "cifail": 0,
-   "nrev": 0,
-   "mrev": [],
+   "nrev": 1,
+   "mrev": [
+    "Pierre-Sassoulas"
+   ],
    "links": [
     [
      22,
@@ -3653,8 +3629,8 @@
    "labels": [],
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "running",
-   "citot": 26,
+   "ci": "green",
+   "citot": 44,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -3666,8 +3642,8 @@
     ]
    ],
    "lastcom": [
-    "-",
-    "-"
+    "github-actions",
+    "2026-10-22"
    ]
   },
   {
@@ -3710,7 +3686,7 @@
    "updated": "2026-10-22",
    "labels": [],
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "awaiting-approval",
    "citot": 3,
    "cifail": 0,
@@ -3726,6 +3702,29 @@
    "lastcom": [
     "-",
     "-"
+   ]
+  },
+  {
+   "n": 11720,
+   "a": "app/pylint-backport",
+   "t": "[Backport maintenance/4.1.x] Fix crash in use-maxsplit-arg on non-name loop assignment targets",
+   "draft": false,
+   "size": 79,
+   "files": 4,
+   "created": "2026-10-22",
+   "updated": "2026-10-22",
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "green",
+   "citot": 26,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [],
+   "lastcom": [
+    "codecov",
+    "2026-10-22"
    ]
   }
  ],
@@ -5038,7 +5037,7 @@
    "title": "False-positive `undefined-variable` with `:=` and blank type annotation"
   },
   {
-   "comments": 2,
+   "comments": 4,
    "labels": [
     "False Positive 🦟",
     "Needs astroid update",
@@ -5102,7 +5101,7 @@
    "title": "duplicate-code drops every copy of a block after the first two"
   },
   {
-   "comments": 0,
+   "comments": 1,
    "labels": [
     "Bug :beetle:",
     "duplicate-code"
