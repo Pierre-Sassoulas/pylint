@@ -1,5 +1,5 @@
 {
- "snapshot": "2026-10-23",
+ "snapshot": "2026-10-24",
  "prs": [
   {
    "n": 2965,
@@ -1921,7 +1921,7 @@
    "milestone": "",
    "size": 123,
    "created": "2026-10-19",
-   "updated": "2026-10-23",
+   "updated": "2026-10-24",
    "ci": "awaiting-approval",
    "cifail": 0,
    "links": [
@@ -2297,7 +2297,9 @@
    "a": "LJimmy007",
    "t": "Continue applying transforms after a None return",
    "draft": false,
-   "labels": [],
+   "labels": [
+    "Bug 🪳"
+   ],
    "rd": "REVIEW_REQUIRED",
    "milestone": "",
    "size": 91,
@@ -2312,6 +2314,67 @@
      "state": "open",
      "labels": [
       "Bug 🪳"
+     ],
+     "reactions": 0,
+     "pr": false
+    }
+   ]
+  },
+  {
+   "n": 3442,
+   "a": "wesleybl",
+   "t": "Fix inference for class statements whose base type is not a subclass of type",
+   "draft": false,
+   "labels": [
+    "Bug 🪳",
+    "inference"
+   ],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 307,
+   "created": "2026-10-23",
+   "updated": "2026-10-23",
+   "ci": "awaiting-approval",
+   "cifail": 0,
+   "links": [
+    {
+     "ref": "pylint-dev/pylint#11651",
+     "title": "False positives for zope.interface interfaces (no-self-argument, no-method-argument, inherit-non-class, arguments-differ, too-many-ancestors)",
+     "state": "open",
+     "labels": [
+      "False Positive 🦟",
+      "Needs astroid update",
+      "Needs PR"
+     ],
+     "reactions": 0,
+     "pr": false
+    }
+   ]
+  },
+  {
+   "n": 3443,
+   "a": "Parsiffall1",
+   "t": "Infer every value of a context manager's first yield",
+   "draft": false,
+   "labels": [
+    "Bug 🪳",
+    "inference"
+   ],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 57,
+   "created": "2026-10-23",
+   "updated": "2026-10-23",
+   "ci": "awaiting-approval",
+   "cifail": 0,
+   "links": [
+    {
+     "ref": "pylint-dev/astroid#3440",
+     "title": "Context manager inference keeps only the first inferred yield value",
+     "state": "open",
+     "labels": [
+      "Bug 🪳",
+      "inference"
      ],
      "reactions": 0,
      "pr": false

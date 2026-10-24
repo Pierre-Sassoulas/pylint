@@ -83,15 +83,15 @@ V = {
         'Wait for the author.',
     ),
     11663: (
-        "review",
-        "ready",
+        "author",
+        "astroid",
         "confirmed",
         "219 lines by wesleybl for issue 11651 (FP): <code>no-self-argument</code>, "
         "<code>no-method-argument</code> and others on <code>zope.interface.Interface</code> "
-        "subclasses, whose base type is not a subclass of <code>type</code>. Green, full coverage, "
-        "primer only pandas noise. Triage on 13 October said the fix belongs in an astroid brain, "
-        "not in the checkers.",
-        "Review with that in mind: checker-side special case or astroid brain.",
+        "subclasses, whose base type is not a subclass of <code>type</code>. On 23 October the "
+        "author moved the fix to astroid #3442 (a class statement infers to the factory's result); "
+        "this PR now waits on that one and on an astroid release.",
+        "Review astroid #3442 first; this PR then shrinks to tests or closes.",
     ),
     11615: (
         "review",
@@ -224,8 +224,8 @@ V = {
         "review",
         "approach",
         "confirmed",
-        "48/48 green, 153 lines for issue 10602. Works around astroid's "
-        "<code>ClassDef.ancestors()</code> skipping a subscripted generic base "
+        "Green, 153 lines for issue 10602, reworked 24 October (complexity split, full coverage). "
+        "Works around astroid's <code>ClassDef.ancestors()</code> skipping a subscripted generic base "
         "(<code>GenericModel[int]</code>) inside pylint. The primer removes home-assistant "
         "<code>too-few-public-methods</code> false positives.",
         "Decide whether the fix belongs in astroid's <code>ancestors()</code> instead, then review.",
@@ -272,6 +272,48 @@ V = {
         "Add skip news, then review with DudeNr33.",
     ),
     # ---- approve the workflow run ----------------------------------------
+    11728: (
+        "review",
+        "ready",
+        "confirmed",
+        "New, 60 lines by dchaudhari7177 for issue 9517 (FN): <code>missing-timeout</code> ignored "
+        "<code>requests.Session().get(...)</code>. Only adds the eight "
+        "<code>requests.sessions.Session</code> methods to the <code>timeout-methods</code> default, "
+        "as the review of the stale #9526 suggested; no checker logic. Green; new test fails on main.",
+        "Review (mirrors in examples/ and all-options.rst included) and merge.",
+    ),
+    11727: (
+        "approve",
+        "held",
+        "confirmed",
+        "New, 89 lines by VamikaSinghal for issue 5508 (FP, 1 reaction): <code>cell-var-from-loop</code> "
+        "on <code>sorted(xs, key=lambda x: d[k])</code> inside a loop. Exempts a lambda passed to a "
+        "callee inferring to <code>sorted</code>/<code>min</code>/<code>max</code>/<code>list.sort</code> "
+        "(<code>EAGER_CALLABLE_CONSUMERS</code>); <code>register(callback=lambda: i)</code> still "
+        "flagged. New test fails on main, passes with the PR. Touches the same function as #11725.",
+        "Approve with the next batch; review after #11725 to avoid a conflict.",
+    ),
+    11726: (
+        "approve",
+        "held",
+        "confirmed",
+        "New, 89 lines by soodoku for issue 9937 (bug): <code>duplicate-code</code> printed the snippet of "
+        "a random copy (set ordered by <code>id()</code>), so the message changed between runs when "
+        "copies differ in ignored lines. Iterates copies sorted, like <code>symilar</code> already does. "
+        "New test (6 hash seeds) fails on main, passes with the PR. Stacks on the same code as #11680.",
+        "Approve the run; merge after #11680.",
+    ),
+    11730: (
+        "author",
+        "red",
+        "confirmed",
+        "New, 41 lines by dchaudhari7177, test only, for issue 10784 (FP): <code>no-member</code> on "
+        "<code>stmt.src</code> after <code>isinstance(stmt, Assignment) and ...</code> when another "
+        "function assigns <code>[ConditionalJump()]</code> to the attribute. The PR says main is fixed; "
+        "it is not: the new line 134 still emits E1101 on main (checked locally with astroid 4.3.4) and "
+        "every CI test job fails on it.",
+        "Ask the author to fix the bug instead, or close; 10784 stays open.",
+    ),
     11725: (
         "approve",
         "held",
@@ -616,14 +658,14 @@ V = {
     ),
     # ---- author's move ----------------------------------------------------
     11680: (
-        "author",
-        "changes",
+        "approve",
+        "held",
         "confirmed",
         "93 lines by soodoku for issue 11679 (bug): <code>duplicate-code</code> reported a block copied "
-        "into three files as one pair. Green. You requested changes on 23 October: two suggestions "
-        "(one-pass grouping in <code>symilar.py</code>) you could not push yourself, the branch "
-        "belongs to an organization.",
-        "Wait for the author to apply the two suggestions, then merge.",
+        "into three files as one pair. You approved on 23 October, then asked for two suggestions "
+        "(one-pass grouping, changelog wording); the author pushed them at 16:15 the same day. The run "
+        "for that commit is held. Milestone 4.2.0 (duplicates stat goes up).",
+        "Approve the run, check the two suggestions landed, merge.",
     ),
     11672: (
         "author",
@@ -636,14 +678,14 @@ V = {
         "Wait for the author's answer on the colorama path.",
     ),
     11682: (
-        "author",
-        "red",
+        "review",
+        "ready",
         "confirmed",
         "72 lines by soodoku for issue 11681 (bug): <code>ignore-comments</code> of "
         "<code>duplicate-code</code> cut lines at a <code>#</code> inside a string; now uses "
-        "<code>tokenize</code>. Run released 22 October: the spelling check fails on "
-        "<code>Tokenizing</code> / <code>tokenized</code>; tests still running.",
-        "Wait for the spelling fix (or add the words to the dictionary).",
+        "<code>tokenize</code>. Spelling fixed on 23 October (rewording, no dictionary change); full CI "
+        "green, primer only astropy noise. You put it in 4.1.4.",
+        "Review and merge for 4.1.4.",
     ),
     11715: (
         "author",
@@ -861,15 +903,14 @@ V = {
         "Decide whether the option is wanted before reading 513 lines.",
     ),
     11648: (
-        "decide",
-        "dup",
+        "author",
+        "changes",
         "confirmed",
-        "New, 104 lines by agustin18 for issue 11647 (FP): <code>undefined-variable</code> on a "
-        "walrus in a comprehension condition after a bare <code>x: int</code> annotation. Duplicates "
-        "your #11649 (opened 4 hours later, written earlier). This one rewrites the line-order test "
-        "for every comparison inside a comprehension; yours only exempts a <code>NamedExpr</code> in "
-        "the condition and keeps the self-referencing TP.",
-        "Close in favour of #11649, or credit the author.",
+        "104 lines by agustin18 for issue 11647 (FP): <code>undefined-variable</code> on a "
+        "walrus in a comprehension condition after a bare <code>x: int</code> annotation. Green. "
+        "Decided 24 October: kept over your #11649; you asked the author to add the "
+        "short-circuit test case from #11649 and credit you in git.",
+        "Wait for the short-circuit test, then merge and close #11649.",
     ),
     11601: (
         "decide",
@@ -1135,6 +1176,7 @@ TESTED = {
         11691, 11692, 11693, 11694, 11695, 11697, 11698, 11703, 11704, 11708,
     )
 }
+TESTED.update({n: "2026-10-24" for n in (11726, 11727, 11728)})
 
 
 def category_name(n: int) -> str:
