@@ -948,7 +948,7 @@
    "milestone": "4.4.0",
    "size": 47,
    "created": "2026-09-30",
-   "updated": "2026-10-09",
+   "updated": "2026-10-24",
    "ci": "failing",
    "cifail": 1,
    "links": [
@@ -2386,7 +2386,10 @@
    "a": "LindseyZ1205",
    "t": "Add the ssl `OP_*` and `VERIFY_*` constants missing from the ssl brain",
    "draft": false,
-   "labels": [],
+   "labels": [
+    "Bug 🪳",
+    "Brain 🧠"
+   ],
    "rd": "REVIEW_REQUIRED",
    "milestone": "",
    "size": 59,

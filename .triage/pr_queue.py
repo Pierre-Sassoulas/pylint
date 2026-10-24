@@ -272,6 +272,28 @@ V = {
         "Add skip news, then review with DudeNr33.",
     ),
     # ---- approve the workflow run ----------------------------------------
+    11736: (
+        "decide",
+        "dup",
+        "duplicate",
+        "New, 49 lines by summeriver13 for issue 11734 (FP): <code>undefined-variable</code> on "
+        "<code>def clone(self) -&gt; Local</code> in a class local to a function, with deferred "
+        "annotations. Same bug as 8145 (mbyrnepr2 said so on 11734), already fixed by #11694 (agustin18, "
+        "25 lines, green, in review). #11694 widens the guard in <code>_check_consumer</code> that this PR "
+        "names as the root cause; this one adds a second skip before the final message instead.",
+        "Merge #11694 and close this as a duplicate (its test file could move over).",
+    ),
+    11735: (
+        "author",
+        "red",
+        "confirmed",
+        "New, 51 lines by summeriver13 for issue 8880 (FP, 0 reactions): <code>redefined-outer-name</code> "
+        "in <code>demo.py</code> pointing at <code>demo.x = ...</code> in another linted file, only with "
+        "<code>-j 1</code>. astroid puts that <code>AssignAttr</code> in <code>demo</code>'s locals; the fix "
+        "keeps only definitions whose root is the module itself. New test_self test fails on main, passes "
+        "with the PR. Tests green; codecov patch 70% (2 lines and 1 branch of the rewritten loop uncovered).",
+        "Wait for the coverage fix, then review.",
+    ),
     11733: (
         "approve",
         "held",
@@ -934,14 +956,15 @@ V = {
         "Decide whether the option is wanted before reading 513 lines.",
     ),
     11648: (
-        "author",
-        "changes",
+        "merge",
+        "ready",
         "confirmed",
         "104 lines by agustin18 for issue 11647 (FP): <code>undefined-variable</code> on a "
-        "walrus in a comprehension condition after a bare <code>x: int</code> annotation. Green. "
-        "Decided 24 October: kept over your #11649; you asked the author to add the "
-        "short-circuit test case from #11649 and credit you in git.",
-        "Wait for the short-circuit test, then merge and close #11649.",
+        "walrus in a comprehension condition after a bare <code>x: int</code> annotation. Kept over your "
+        "#11649; on 24 October the author added its short-circuit cases (<code>or</code>, <code>and</code>, "
+        "conditional expression) with you as co-author. 43/43 green; primer removes a home-assistant "
+        "<code>undefined-variable</code> false positive.",
+        "Approve, merge, close #11649.",
     ),
     11601: (
         "decide",
@@ -1208,7 +1231,7 @@ TESTED = {
     )
 }
 TESTED.update({n: "2026-10-24" for n in (11726, 11727, 11728)})
-TESTED.update({n: "2026-10-24" for n in (11731, 11732, 11733)})
+TESTED.update({n: "2026-10-24" for n in (11731, 11732, 11733, 11735)})
 
 
 def category_name(n: int) -> str:

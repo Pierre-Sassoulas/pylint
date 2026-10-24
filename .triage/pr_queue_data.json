@@ -1,7 +1,7 @@
 {
  "snapshot": "2026-10-24",
  "owner": "Pierre-Sassoulas",
- "open_total": 145,
+ "open_total": 147,
  "open_own": 23,
  "prs": [
   {
@@ -2501,7 +2501,7 @@
    "a": "agustin18",
    "t": "Fix false positive undefined-variable for walrus in comprehension with blank type annotation (#11647)",
    "draft": false,
-   "size": 105,
+   "size": 228,
    "files": 4,
    "created": "2026-10-12",
    "updated": "2026-10-24",
@@ -2513,7 +2513,7 @@
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
    "ci": "green",
-   "citot": 50,
+   "citot": 43,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -2525,7 +2525,7 @@
     ]
    ],
    "lastcom": [
-    "Pierre-Sassoulas",
+    "github-actions",
     "2026-10-24"
    ]
   },
@@ -3534,7 +3534,7 @@
    "size": 23,
    "files": 4,
    "created": "2026-10-22",
-   "updated": "2026-10-23",
+   "updated": "2026-10-24",
    "labels": [
     "False Positive 🦟"
    ],
@@ -3553,8 +3553,8 @@
     ]
    ],
    "lastcom": [
-    "github-actions",
-    "2026-10-22"
+    "agustin18",
+    "2026-10-24"
    ]
   },
   {
@@ -3819,11 +3819,13 @@
    "files": 6,
    "created": "2026-10-24",
    "updated": "2026-10-24",
-   "labels": [],
+   "labels": [
+    "False Positive 🦟"
+   ],
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
    "ci": "awaiting-approval",
-   "citot": 2,
+   "citot": 3,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -3848,11 +3850,13 @@
    "files": 3,
    "created": "2026-10-24",
    "updated": "2026-10-24",
-   "labels": [],
+   "labels": [
+    "False Positive 🦟"
+   ],
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
    "ci": "green",
-   "citot": 43,
+   "citot": 45,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -3871,11 +3875,13 @@
    "files": 4,
    "created": "2026-10-24",
    "updated": "2026-10-24",
-   "labels": [],
+   "labels": [
+    "False Positive 🦟"
+   ],
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
    "ci": "awaiting-approval",
-   "citot": 2,
+   "citot": 3,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -3883,6 +3889,64 @@
    "lastcom": [
     "-",
     "-"
+   ]
+  },
+  {
+   "n": 11735,
+   "a": "summeriver13",
+   "t": "Fix false positive for redefined-outer-name across modules",
+   "draft": false,
+   "size": 51,
+   "files": 5,
+   "created": "2026-10-24",
+   "updated": "2026-10-24",
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "failing",
+   "citot": 43,
+   "cifail": 1,
+   "nrev": 0,
+   "mrev": [],
+   "links": [
+    [
+     8880,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "github-actions",
+    "2026-10-24"
+   ]
+  },
+  {
+   "n": 11736,
+   "a": "summeriver13",
+   "t": "Fix false positive for undefined-variable in deferred annotations",
+   "draft": false,
+   "size": 49,
+   "files": 4,
+   "created": "2026-10-24",
+   "updated": "2026-10-24",
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "green",
+   "citot": 44,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [
+    [
+     11734,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "github-actions",
+    "2026-10-24"
    ]
   }
  ],
@@ -4429,6 +4493,18 @@
    "state": "open",
    "state_reason": null,
    "title": "missing-parentheses-for-call-in-test not raised as expected"
+  },
+  {
+   "comments": 1,
+   "labels": [
+    "multiprocessing",
+    "Needs PR"
+   ],
+   "number": 8880,
+   "reactions": 0,
+   "state": "open",
+   "state_reason": null,
+   "title": "Redefined outer name not detected across modules when parallelization used"
   },
   {
    "comments": 2,
@@ -5326,6 +5402,19 @@
    "state": "open",
    "state_reason": null,
    "title": "False positive `bad-string-format-type` after a `*` width or precision"
+  },
+  {
+   "comments": 2,
+   "labels": [
+    "typing",
+    "False Positive 🦟",
+    "C: undefined-variable"
+   ],
+   "number": 11734,
+   "reactions": 0,
+   "state": "open",
+   "state_reason": null,
+   "title": "False-positive `undefined-variable` in type annotation"
   }
  ]
 }
