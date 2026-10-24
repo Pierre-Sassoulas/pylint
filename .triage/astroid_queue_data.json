@@ -1248,10 +1248,10 @@
     "Brain 🧠"
    ],
    "rd": "REVIEW_REQUIRED",
-   "milestone": "",
+   "milestone": "4.4.0",
    "size": 34,
    "created": "2026-10-09",
-   "updated": "2026-10-23",
+   "updated": "2026-10-24",
    "ci": "green",
    "cifail": 0,
    "links": [
@@ -2333,7 +2333,7 @@
    "milestone": "",
    "size": 307,
    "created": "2026-10-23",
-   "updated": "2026-10-23",
+   "updated": "2026-10-24",
    "ci": "awaiting-approval",
    "cifail": 0,
    "links": [
@@ -2364,7 +2364,7 @@
    "milestone": "",
    "size": 57,
    "created": "2026-10-23",
-   "updated": "2026-10-23",
+   "updated": "2026-10-24",
    "ci": "awaiting-approval",
    "cifail": 0,
    "links": [
@@ -2380,6 +2380,21 @@
      "pr": false
     }
    ]
+  },
+  {
+   "n": 3444,
+   "a": "LindseyZ1205",
+   "t": "Add the ssl `OP_*` and `VERIFY_*` constants missing from the ssl brain",
+   "draft": false,
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 59,
+   "created": "2026-10-24",
+   "updated": "2026-10-24",
+   "ci": "awaiting-approval",
+   "cifail": 0,
+   "links": []
   }
  ]
 }

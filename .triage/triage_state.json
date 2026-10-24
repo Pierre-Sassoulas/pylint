@@ -6455,6 +6455,12 @@
       "note": "Reproduced on 4.1.3: print(\"%-*s %d\" % (width, name, count)) gives E1307 bad-string-format-type (str vs d) though it runs fine; parse_format_string gives * width/precision no positional slot. Fix in PR 11714 (same author), run held.",
       "session": 20,
       "ts": "2026-10-22T20:02:03.936273+00:00"
+    },
+    "11734": {
+      "verdict": "DUP",
+      "note": "Two cases. Nested class (def func(): class X: def other(self) -> X) is issue 8145: still E0602 on main and 4.1.3 under Python 3.14, gone with PR 11694 (fixes 8145). Module-level class Y: no message on main or 4.1.3 under 3.14 with the default py-version; E0602 only with py-version below 3.14, where the annotation really is evaluated at def time, so likely the reporter's configured py-version. Ask, then close as dup of 8145.",
+      "session": 21,
+      "ts": "2026-10-24T17:05:38.155206+00:00"
     }
   },
   "session_count": 10

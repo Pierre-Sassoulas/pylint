@@ -272,6 +272,36 @@ V = {
         "Add skip news, then review with DudeNr33.",
     ),
     # ---- approve the workflow run ----------------------------------------
+    11733: (
+        "approve",
+        "held",
+        "confirmed",
+        "New, 47 lines by LindseyZ1205, no issue (FP in the unreleased <code>looping-through-iterator</code>, "
+        "your #10570): a parameter named like a module-level iterator (<code>def f(rows): for ... for row in "
+        "rows</code>) was taken for that iterator. Seeds the function scope with <code>argnames()</code> as "
+        "safe; rebinding a parameter to an iterator still reports. New test fails on main, passes with the PR.",
+        "Approve the run and review before 4.2.0 ships the checker.",
+    ),
+    11732: (
+        "decide",
+        "example",
+        "feature",
+        "New, 72 lines by emmanuel-ferdman, no issue: skips <code>method-hidden</code> when "
+        "<code>safe_infer</code> of the method gives an <code>objects.Property</code> (a decorator astroid "
+        "infers as a property). Green. The only test patches inference in a unit test; no real-world "
+        "decorator shown. Test fails on main, passes with the PR.",
+        "Ask for a real decorator that hits this (and a functional test) before reviewing.",
+    ),
+    11731: (
+        "approve",
+        "held",
+        "confirmed",
+        "New, 240 lines by hector2394 for issue 10055 (FP, 0 reactions): <code>cell-var-from-loop</code> on "
+        "a generator of lambdas consumed by one <code>for</code> loop that calls each lambda at once. Narrow "
+        "escape rules (single binding and use, no deferred read). Tests fail on main, pass with the PR. Third "
+        "open <code>cell-var-from-loop</code> PR in <code>variables.py</code> with #11725 and #11727.",
+        "Hold; review after #11725 and #11727, the three touch the same function.",
+    ),
     11728: (
         "review",
         "ready",
@@ -294,14 +324,15 @@ V = {
         "Approve with the next batch; review after #11725 to avoid a conflict.",
     ),
     11726: (
-        "approve",
-        "held",
+        "author",
+        "red",
         "confirmed",
-        "New, 89 lines by soodoku for issue 9937 (bug): <code>duplicate-code</code> printed the snippet of "
-        "a random copy (set ordered by <code>id()</code>), so the message changed between runs when "
-        "copies differ in ignored lines. Iterates copies sorted, like <code>symilar</code> already does. "
-        "New test (6 hash seeds) fails on main, passes with the PR. Stacks on the same code as #11680.",
-        "Approve the run; merge after #11680.",
+        "89 lines by soodoku for issue 9937 (bug): <code>duplicate-code</code> printed the snippet of a "
+        "random copy (set ordered by <code>id()</code>), so the message changed between runs. The fix is "
+        "right (iterate copies sorted, as <code>symilar</code> does), but the new test spawns "
+        "<code>python -m pylint</code> under six hash seeds and gets an empty stdout on all 7 CI test "
+        "jobs; it only passed in a clean local venv. Primer: no effect.",
+        "Ask the author to make the subprocess test robust (check stderr, pass an rcfile) or drop it.",
     ),
     11730: (
         "author",
@@ -658,14 +689,14 @@ V = {
     ),
     # ---- author's move ----------------------------------------------------
     11680: (
-        "approve",
-        "held",
+        "merge",
+        "approved",
         "confirmed",
         "93 lines by soodoku for issue 11679 (bug): <code>duplicate-code</code> reported a block copied "
-        "into three files as one pair. You approved on 23 October, then asked for two suggestions "
-        "(one-pass grouping, changelog wording); the author pushed them at 16:15 the same day. The run "
-        "for that commit is held. Milestone 4.2.0 (duplicates stat goes up).",
-        "Approve the run, check the two suggestions landed, merge.",
+        "into three files as one pair. Your two suggestions (one-pass grouping, changelog wording) were "
+        "applied on 23 October; the run you released is green and the primer shows no effect. Your "
+        "standing review is still \"changes requested\". Milestone 4.2.0.",
+        "Check the two suggestions, approve, merge.",
     ),
     11672: (
         "author",
@@ -1177,6 +1208,7 @@ TESTED = {
     )
 }
 TESTED.update({n: "2026-10-24" for n in (11726, 11727, 11728)})
+TESTED.update({n: "2026-10-24" for n in (11731, 11732, 11733)})
 
 
 def category_name(n: int) -> str:
