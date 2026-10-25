@@ -298,15 +298,15 @@ V = {
         "Merge #11694 (passes this PR's whole test file) and close this as a duplicate.",
     ),
     11735: (
-        "author",
-        "red",
+        "review",
+        "ready",
         "confirmed",
-        "New, 51 lines by summeriver13 for issue 8880 (FP, 0 reactions): <code>redefined-outer-name</code> "
+        "51 lines by summeriver13 for issue 8880 (FP, 0 reactions): <code>redefined-outer-name</code> "
         "in <code>demo.py</code> pointing at <code>demo.x = ...</code> in another linted file, only with "
         "<code>-j 1</code>. astroid puts that <code>AssignAttr</code> in <code>demo</code>'s locals; the fix "
-        "keeps only definitions whose root is the module itself. New test_self test fails on main, passes "
-        "with the PR. Tests green; codecov patch 70% (2 lines and 1 branch of the rewritten loop uncovered).",
-        "Wait for the coverage fix, then review.",
+        "keeps only definitions whose root is the module itself. Test fails on main, passes with the PR. "
+        "Force-pushed 25 October: full CI and codecov green, primer no effect.",
+        "Review.",
     ),
     11733: (
         "approve",
@@ -319,14 +319,16 @@ V = {
         "Approve the run and review before 4.2.0 ships the checker.",
     ),
     11732: (
-        "decide",
-        "example",
+        "review",
+        "ready",
         "feature",
-        "New, 72 lines by emmanuel-ferdman, no issue: skips <code>method-hidden</code> when "
-        "<code>safe_infer</code> of the method gives an <code>objects.Property</code> (a decorator astroid "
-        "infers as a property). Green. The only test patches inference in a unit test; no real-world "
-        "decorator shown. Test fails on main, passes with the PR.",
-        "Ask for a real decorator that hits this (and a functional test) before reviewing.",
+        "72 lines by emmanuel-ferdman, no issue: skips <code>method-hidden</code> when "
+        "<code>safe_infer</code> of the method gives an <code>objects.Property</code>. The primer shows the "
+        "real case: 10 django false positives on a <code>@cached_property</code> "
+        "(<code>django.utils.functional</code>) that <code>__init__</code> assigns, e.g. "
+        "<code>BaseExpression.output_field</code>. Green; test fails on main, passes with the PR, but it is "
+        "a unit test that patches inference.",
+        "Review; ask for a functional test with a <code>cached_property</code>-style descriptor.",
     ),
     11731: (
         "approve",
@@ -945,7 +947,8 @@ V = {
         "clean, chrikrah approved, milestone 4.1.4. On 20 October the author corrected their answer "
         "to your astroid question: a path-aware <code>is_namespace(modname, path=None)</code> is "
         "about six lines in astroid, keeps the 1756 guard and fixes 10278. Asks which you prefer: "
-        "astroid PR, or this pylint fix shipped in a patch release meanwhile.",
+        "astroid PR, or this pylint fix shipped in a patch release meanwhile. Pinged again 25 October: "
+        "prototype done, ready to open the astroid PR and keep this one as the 4.1.4 carrier.",
         "Answer: both (merge this for 4.1.4, astroid PR for the real fix, revert here once pinned), "
         "or astroid only.",
     ),
@@ -966,9 +969,9 @@ V = {
         "104 lines by agustin18 for issue 11647 (FP): <code>undefined-variable</code> on a walrus in a "
         "comprehension condition after a bare <code>x: int</code> annotation. On 25 October you pushed "
         "failing tests for reads in an earlier condition plus the <code>_is_assigned_in_comprehension_condition</code> "
-        "guard from #11649 (closed), approved, set the 4.1.x backport label, and said you merge once the "
-        "primer is okay.",
-        "Merge when the primer comment is clean; the bot opens the 4.1.x backport.",
+        "guard from #11649 (closed) and approved. Primer done: removes one home-assistant false positive, "
+        "nothing added. 4.1.x backport label set.",
+        "Merge; the bot opens the 4.1.x backport.",
     ),
     11601: (
         "decide",
@@ -1203,6 +1206,60 @@ def issue_cell(links: list) -> str:
 CATEGORIES = ("Crash", "performance", "Bug", "False Positive", "False Negative", "Enhancement")
 
 
+# Impact measured by the primer (primer_effect_fetch.py): messages the PR
+# removes from or adds to real projects. An item found in the comments of
+# NOISE_PRS or more PRs is primer noise (astropy ndarray.mask, music21 "id",
+# pandas line moves) and does not count; "changed" items are moves or wording.
+NOISE_PRS = 3
+PRIMER_FILE = HERE / "primer_effect.json"
+PRIMER = json.loads(PRIMER_FILE.read_text()) if PRIMER_FILE.exists() else {}
+_seen: dict = {}
+for _effect in PRIMER.values():
+    for _item in {tuple(i) for i in _effect["items"]}:
+        _seen[_item] = _seen.get(_item, 0) + 1
+NOISE = {item for item, count in _seen.items() if count >= NOISE_PRS}
+
+
+def primer(n: int) -> dict | None:
+    """Non-noise primer effect of a PR: counts and projects per direction."""
+    effect = PRIMER.get(str(n))
+    if effect is None:
+        return None
+    out: dict = {"date": effect["date"], "added": {}, "removed": {}}
+    for item in effect["items"]:
+        project, kind, _symbol, _message = item
+        if kind in ("added", "removed") and tuple(item) not in NOISE:
+            out[kind][project] = out[kind].get(project, 0) + 1
+    return out
+
+
+def impact(n: int, category: int) -> int:
+    """Messages fixed on real code: removed ones for a fix, added for a false negative."""
+    effect = primer(n)
+    if effect is None:
+        return 0
+    # Net: a fix that also adds messages may be trading one false positive
+    # for another, or the primer ran on a base far behind main.
+    wanted, unwanted = ("added", "removed") if category == 3 else ("removed", "added")
+    net = sum(effect[wanted].values()) - sum(effect[unwanted].values())
+    return max(net, 0) if category <= 3 else 0
+
+
+def primer_words(n: int) -> str:
+    effect = primer(n)
+    if effect is None:
+        return ""
+    if not effect["added"] and not effect["removed"]:
+        return f"primer: no effect beyond noise ({effect['date']})"
+    parts = []
+    for kind, sign in (("removed", "−"), ("added", "+")):
+        if effect[kind]:
+            total = sum(effect[kind].values())
+            where = ", ".join(f"{p} {c}" for p, c in sorted(effect[kind].items(), key=lambda x: -x[1]))
+            parts.append(f"{sign}{total} ({where})")
+    return f"primer: {' '.join(parts)} ({effect['date']})"
+
+
 def priority(n: int) -> tuple:
     r = rows[n]
     linked = [issues.get(number, {}) for number, _state, _labels in r["links"]]
@@ -1221,7 +1278,15 @@ def priority(n: int) -> tuple:
     reactions = sum(
         info.get("reactions", 0) for info in linked if info.get("state") == "open"
     )
-    return (category, not high, -reactions, "".join(chr(0x10FFFF - ord(c)) for c in r["updated"]))
+    # Impact inside a category: one reaction is one user who hit it, one
+    # primer message is one hit in a real project's code; both count alike.
+    return (
+        category,
+        not high,
+        -(reactions + impact(n, category)),
+        -reactions,
+        "".join(chr(0x10FFFF - ord(c)) for c in r["updated"]),
+    )
 
 
 # PRs whose new tests were run with the source files reset to main (they must
@@ -1292,7 +1357,8 @@ for lane in LANE_ORDER:
             f'<span class="lab">{E(category_name(n))}</span></td>'
             f'<td class="verdict"><span class="chip {chip_cls}">{E(chip)}</span>'
             f"{tested}"
-            f'<span class="repro {ci_dot}">CI {ci_word}{fails}</span>'
+            + (f'<span class="repro na">{E(primer_words(n))}</span>' if primer_words(n) else "")
+            + f'<span class="repro {ci_dot}">CI {ci_word}{fails}</span>'
             f'<span class="repro na">reviewed by {E(reviewers)}</span>'
             f'{issue_cell(r["links"])}</td>'
             f'<td class="finding">{finding}</td>'
@@ -1319,7 +1385,7 @@ def lane_members(lane: str) -> list:
 
 
 def worth_a_run(n: int) -> bool:
-    category, not_high, minus_reactions, _ = priority(n)
+    category, not_high, _score, minus_reactions, _ = priority(n)
     return category <= 1 or not not_high or minus_reactions <= -2
 
 
@@ -1340,7 +1406,7 @@ def why(category: int, high: bool, reactions: int, refs: list, ci: str, extra: l
 
 def todo_item(n: int) -> str:
     r = rows[n]
-    category, not_high, minus_reactions, _ = priority(n)
+    category, not_high, _score, minus_reactions, _ = priority(n)
     refs = [
         f"#{number}"
         for number, _s, _l in r["links"]
@@ -1350,6 +1416,8 @@ def todo_item(n: int) -> str:
     extra = [f"reviewed by {', '.join(r['mrev'])}"] if r["mrev"] else []
     if n in TESTED:
         extra.append("tests fail on main, pass with the PR")
+    if primer_words(n):
+        extra.append(primer_words(n))
     return (
         f'<li><a href="https://github.com/pylint-dev/pylint/pull/{n}">#{n}</a> '
         f'<span class="k">{E(category_name(n))}</span>{E(r["t"])} '
@@ -1369,8 +1437,11 @@ todo = [
     '<p class="rubric">Ordered by what unblocks a release or a user first: merges cost one click and ship '
     "fixes, reviews of green pull requests come next, then runs worth releasing, then decisions. Inside "
     "each step the order is the lanes' ranking: crash or performance, bug, false positive, false "
-    "negative, enhancement; then High priority; then reactions on the open linked issues. A held run "
-    "is only listed for a crash, a bug, High priority or two reactions.</p>"
+    "negative, enhancement; then High priority; then impact: reactions on the open linked issues plus "
+    "the net messages the primer says a fix removes from real projects (adds, for a false negative), "
+    "one point each, leaving out items that show up in three or more pull requests' primer comments, which "
+    "are noise. "
+    "A held run is only listed for a crash, a bug, High priority or two reactions.</p>"
 ]
 # Backports come first: the fix is already reviewed on main, and the patch
 # release only ships what got merged on the maintenance branch. The bot's PRs

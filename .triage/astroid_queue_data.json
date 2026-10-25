@@ -655,11 +655,11 @@
    ],
    "rd": "REVIEW_REQUIRED",
    "milestone": "",
-   "size": 817,
+   "size": 933,
    "created": "2026-09-21",
    "updated": "2026-10-25",
-   "ci": "failing",
-   "cifail": 1,
+   "ci": "green",
+   "cifail": 0,
    "links": [
     {
      "ref": "pylint-dev/astroid#520",
