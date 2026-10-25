@@ -275,6 +275,21 @@ V = {
         "Add skip news, then review with DudeNr33.",
     ),
     # ---- approve the workflow run ----------------------------------------
+    11740: (
+        "approve",
+        "held",
+        "confirmed",
+        "New, 151 lines by Enesuygurs for issue 157 (FN, 0 reactions, Needs PR): a name bound by "
+        "<code>except E as exc:</code> is deleted when the handler ends, but once <code>exc</code> was "
+        "used (before the <code>try</code> or inside the handler) a later <code>if exc is not None:</code> "
+        "is not reported. New <code>_check_name_deleted_by_except_handler</code> in the already-consumed "
+        "branch: same block after the <code>try</code>, no rebinding after the handler, handler not ending "
+        "in raise/return/break/continue; <code>possibly-used-before-assignment</code> if bound before the "
+        "<code>try</code>, else <code>used-before-assignment</code>. Test fails on main, passes with the PR. "
+        "Line-number based (<code>tolineno &lt; lineno</code>), so the primer is what tells whether it "
+        "adds false positives.",
+        "Approve the run; review once the primer is in.",
+    ),
     11737: (
         "approve",
         "held",
@@ -948,9 +963,11 @@ V = {
         "to your astroid question: a path-aware <code>is_namespace(modname, path=None)</code> is "
         "about six lines in astroid, keeps the 1756 guard and fixes 10278. Asks which you prefer: "
         "astroid PR, or this pylint fix shipped in a patch release meanwhile. Pinged again 25 October: "
-        "prototype done, ready to open the astroid PR and keep this one as the 4.1.4 carrier.",
-        "Answer: both (merge this for 4.1.4, astroid PR for the real fix, revert here once pinned), "
-        "or astroid only.",
+        "prototype done. Same day the author opened astroid #3445 (70 lines, path-aware "
+        "<code>is_namespace(modname, path)</code> used by <code>check_modpath_has_init</code>): its test "
+        "fails on astroid main and passes with it, rest of the astroid suite green locally; run held.",
+        "Approve and review astroid #3445 (crash, top of the astroid queue), then answer: merge this "
+        "for 4.1.4 meanwhile, or wait for the astroid release.",
     ),
     11678: (
         "decide",
@@ -961,17 +978,6 @@ V = {
         "differ only by renamed locals. One of 3 issue+PR pairs this account opened within 9 "
         "minutes on 18 October; the issue carries measurements.",
         "Decide whether the option is wanted before reading 513 lines.",
-    ),
-    11648: (
-        "merge",
-        "approved",
-        "confirmed",
-        "104 lines by agustin18 for issue 11647 (FP): <code>undefined-variable</code> on a walrus in a "
-        "comprehension condition after a bare <code>x: int</code> annotation. On 25 October you pushed "
-        "failing tests for reads in an earlier condition plus the <code>_is_assigned_in_comprehension_condition</code> "
-        "guard from #11649 (closed) and approved. Primer done: removes one home-assistant false positive, "
-        "nothing added. 4.1.x backport label set.",
-        "Merge; the bot opens the 4.1.x backport.",
     ),
     11601: (
         "decide",
@@ -1301,7 +1307,7 @@ TESTED = {
 }
 TESTED.update({n: "2026-10-24" for n in (11726, 11727, 11728)})
 TESTED.update({n: "2026-10-24" for n in (11731, 11732, 11733, 11735)})
-TESTED.update({n: "2026-10-25" for n in (11737,)})
+TESTED.update({n: "2026-10-25" for n in (11737, 11740)})
 
 
 def category_name(n: int) -> str:

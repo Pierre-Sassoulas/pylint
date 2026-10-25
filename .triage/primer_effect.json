@@ -13628,36 +13628,14 @@
   ],
   "commit": "24dfce8ba"
  },
- "11648": {
-  "date": "2026-10-25",
-  "added": 0,
-  "removed": 1,
-  "changed": 0,
-  "projects": {
-   "home-assistant": {
-    "added": 0,
-    "removed": 1,
-    "changed": 0
-   }
-  },
-  "items": [
-   [
-    "home-assistant",
-    "removed",
-    "undefined-variable",
-    "*Undefined variable 'hk_data'*"
-   ]
-  ],
-  "commit": "ab960f7f3"
- },
  "11650": {
-  "date": "2026-10-15",
+  "date": "2026-10-25",
   "added": 0,
   "removed": 0,
   "changed": 0,
   "projects": {},
   "items": [],
-  "commit": "c307f8134"
+  "commit": "f2e76be38"
  },
  "11654": {
   "date": "2026-10-13",

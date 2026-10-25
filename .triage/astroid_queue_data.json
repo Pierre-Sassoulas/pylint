@@ -2398,6 +2398,34 @@
    "ci": "awaiting-approval",
    "cifail": 0,
    "links": []
+  },
+  {
+   "n": 3445,
+   "a": "summeriver13",
+   "t": "Accept a search path in is_namespace()",
+   "draft": false,
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 70,
+   "created": "2026-10-25",
+   "updated": "2026-10-25",
+   "ci": "awaiting-approval",
+   "cifail": 0,
+   "links": [
+    {
+     "ref": "pylint-dev/pylint#10278",
+     "title": "\"ImportError: Unable to find module\" when using implicit namespaces when they already exist in site-packages",
+     "state": "open",
+     "labels": [
+      "Crash 💥",
+      "Import system",
+      "namespace-package"
+     ],
+     "reactions": 0,
+     "pr": false
+    }
+   ]
   }
  ]
 }
