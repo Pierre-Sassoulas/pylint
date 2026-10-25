@@ -135,10 +135,12 @@ V = {
         "review",
         "ready",
         "confirmed",
-        "New, 25 lines by agustin18 for issue 8145 (FP, 2 reactions): <code>undefined-variable</code> "
+        "25 lines by agustin18 for issue 8145 (FP, 2 reactions): <code>undefined-variable</code> "
         "on <code>def meth(self) -&gt; Foo</code> in a class defined inside a function, with "
-        "postponed annotations. Green, primer only astropy noise.",
-        "Review.",
+        "postponed annotations. Green, primer only astropy noise. You are reviewing it (25 October). "
+        "It also passes the whole functional test of the duplicate #11736 (local class OK, nested "
+        "<code>Inner</code>, <code>self.Parameter</code> and <code>Unknown</code> still flagged).",
+        "Finish the review; consider taking #11736's test file, then close #11736.",
     ),
     11695: (
         "review",
@@ -208,8 +210,9 @@ V = {
         "ready",
         "confirmed",
         "Issue 9641 (FP): <code>used-before-assignment</code> for a walrus bound in one decorator and "
-        "used in a later stacked decorator. Functional test now, 43/43 green.",
-        "Review.",
+        "used in a later stacked decorator. Functional tests you asked for are in, 43/43 green; the "
+        "author asked for a re-review on 24 October.",
+        "Re-review.",
     ),
     11624: (
         "review",
@@ -272,6 +275,17 @@ V = {
         "Add skip news, then review with DudeNr33.",
     ),
     # ---- approve the workflow run ----------------------------------------
+    11737: (
+        "approve",
+        "held",
+        "feature",
+        "New, 65 lines by kurupashwin482-web for issue 11718 (enhancement, Needs PR): "
+        "<code>broad-exception-caught</code> on <code>with contextlib.suppress(Exception):</code>. New "
+        "<code>visit_with</code>; test fails on main, passes with the PR. Gaps: no <code>async with</code> "
+        "counterpart (the rule your #11722 enforces), no <code>only_required_for_messages</code>, and the "
+        "fragment is typed <code>new_check</code> for an extension of an existing message.",
+        "Low priority; when you get to it, ask for the async visitor and a feature/false_negative fragment.",
+    ),
     11736: (
         "decide",
         "dup",
@@ -281,7 +295,7 @@ V = {
         "annotations. Same bug as 8145 (mbyrnepr2 said so on 11734), already fixed by #11694 (agustin18, "
         "25 lines, green, in review). #11694 widens the guard in <code>_check_consumer</code> that this PR "
         "names as the root cause; this one adds a second skip before the final message instead.",
-        "Merge #11694 and close this as a duplicate (its test file could move over).",
+        "Merge #11694 (passes this PR's whole test file) and close this as a duplicate.",
     ),
     11735: (
         "author",
@@ -387,11 +401,11 @@ V = {
         "Approve the run and merge; it closes 11702.",
     ),
     11714: (
-        "review",
-        "ready",
+        "approve",
+        "held",
         "confirmed",
-        'New, 23 lines by nk-batman21 for their issue 11713 (FP, reproduced on 4.1.3): <code>bad-string-format-type</code> on <code>"%-*s %d" % (width, name, count)</code>: a <code>*</code> width takes its own argument, so every later argument was checked against the wrong type. Also catches the real mismatches it used to miss. Run released 22 October: green, primer only noise.',
-        'Review.',
+        'New, 23 lines by nk-batman21 for their issue 11713 (FP, reproduced on 4.1.3): <code>bad-string-format-type</code> on <code>"%-*s %d" % (width, name, count)</code>: a <code>*</code> width takes its own argument, so every later argument was checked against the wrong type. Also catches the real mismatches it used to miss. On 25 October added the <code>"%*.*f"</code> case agustin18 asked for, which re-held the run. Primer only noise.',
+        'Approve the run, then review.',
     ),
     11717: (
         "approve",
@@ -710,16 +724,6 @@ V = {
         "Retrigger. The size needs a primer run before review.",
     ),
     # ---- author's move ----------------------------------------------------
-    11680: (
-        "merge",
-        "approved",
-        "confirmed",
-        "93 lines by soodoku for issue 11679 (bug): <code>duplicate-code</code> reported a block copied "
-        "into three files as one pair. Your two suggestions (one-pass grouping, changelog wording) were "
-        "applied on 23 October; the run you released is green and the primer shows no effect. Your "
-        "standing review is still \"changes requested\". Milestone 4.2.0.",
-        "Check the two suggestions, approve, merge.",
-    ),
     11672: (
         "author",
         "changes",
@@ -957,14 +961,14 @@ V = {
     ),
     11648: (
         "merge",
-        "ready",
+        "approved",
         "confirmed",
-        "104 lines by agustin18 for issue 11647 (FP): <code>undefined-variable</code> on a "
-        "walrus in a comprehension condition after a bare <code>x: int</code> annotation. Kept over your "
-        "#11649; on 24 October the author added its short-circuit cases (<code>or</code>, <code>and</code>, "
-        "conditional expression) with you as co-author. 43/43 green; primer removes a home-assistant "
-        "<code>undefined-variable</code> false positive.",
-        "Approve, merge, close #11649.",
+        "104 lines by agustin18 for issue 11647 (FP): <code>undefined-variable</code> on a walrus in a "
+        "comprehension condition after a bare <code>x: int</code> annotation. On 25 October you pushed "
+        "failing tests for reads in an earlier condition plus the <code>_is_assigned_in_comprehension_condition</code> "
+        "guard from #11649 (closed), approved, set the 4.1.x backport label, and said you merge once the "
+        "primer is okay.",
+        "Merge when the primer comment is clean; the bot opens the 4.1.x backport.",
     ),
     11601: (
         "decide",
@@ -1232,6 +1236,7 @@ TESTED = {
 }
 TESTED.update({n: "2026-10-24" for n in (11726, 11727, 11728)})
 TESTED.update({n: "2026-10-24" for n in (11731, 11732, 11733, 11735)})
+TESTED.update({n: "2026-10-25" for n in (11737,)})
 
 
 def category_name(n: int) -> str:

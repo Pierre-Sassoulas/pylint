@@ -1,5 +1,5 @@
 {
- "snapshot": "2026-10-24",
+ "snapshot": "2026-10-25",
  "prs": [
   {
    "n": 2965,
@@ -655,11 +655,11 @@
    ],
    "rd": "REVIEW_REQUIRED",
    "milestone": "",
-   "size": 74,
+   "size": 817,
    "created": "2026-09-21",
-   "updated": "2026-10-08",
+   "updated": "2026-10-25",
    "ci": "failing",
-   "cifail": 10,
+   "cifail": 1,
    "links": [
     {
      "ref": "pylint-dev/astroid#520",
