@@ -795,15 +795,15 @@ V = {
         "Ask for the one-word fix; then re-review.",
     ),
     11579: (
-        "author",
-        "blocked",
+        "decide",
+        "design",
         "feature",
         "Enhancement: flag calls in default arguments, extending "
-        "<code>dangerous-default-value</code>. On 25 October chrikrah confirmed both 16 October blockers "
-        "are fixed (docs, <code>object()</code>/<code>complex()</code>/<code>range()</code>), but the fixed "
-        "allow-list takes typer from 1 to 80 messages, and asked whether the author will make the list "
-        "extensible as you asked.",
-        "Waiting on the author.",
+        "<code>dangerous-default-value</code>. chrikrah confirmed the 16 October blockers fixed, but the "
+        "fixed allow-list takes typer from 1 to 80 messages. On 26 October the author asked how to go on: "
+        "bring back the <code>allowed-default-calls</code> option they removed, or make the check an "
+        "optional extension.",
+        "Answer: you asked for an extensible list, so the option (or an extension) is your call.",
     ),
     11662: (
         "author",

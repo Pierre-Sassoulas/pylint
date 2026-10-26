@@ -1055,7 +1055,7 @@
    "milestone": "",
    "size": 136,
    "created": "2026-10-03",
-   "updated": "2026-10-08",
+   "updated": "2026-10-26",
    "ci": "green",
    "cifail": 0,
    "links": []
@@ -1862,7 +1862,7 @@
    "milestone": "",
    "size": 90,
    "created": "2026-10-15",
-   "updated": "2026-10-23",
+   "updated": "2026-10-26",
    "ci": "green",
    "cifail": 0,
    "links": [
@@ -1891,7 +1891,7 @@
    "milestone": "",
    "size": 45,
    "created": "2026-10-15",
-   "updated": "2026-10-23",
+   "updated": "2026-10-26",
    "ci": "green",
    "cifail": 0,
    "links": [
@@ -2425,6 +2425,35 @@
       "namespace-package"
      ],
      "reactions": 0,
+     "pr": false
+    }
+   ]
+  },
+  {
+   "n": 3446,
+   "a": "0xrutabaga",
+   "t": "Infer PEP 604 unions of classes with an explicit metaclass",
+   "draft": false,
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 95,
+   "created": "2026-10-26",
+   "updated": "2026-10-26",
+   "ci": "awaiting-approval",
+   "cifail": 0,
+   "links": [
+    {
+     "ref": "pylint-dev/pylint#9488",
+     "title": "Unexpected keyword argument for Generic dataclass with ABC bounded TypeVar",
+     "state": "open",
+     "labels": [
+      "Bug :beetle:",
+      "typing",
+      "False Positive 🦟",
+      "dataclasses"
+     ],
+     "reactions": 3,
      "pr": false
     }
    ]
