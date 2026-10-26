@@ -1,8 +1,8 @@
 {
- "snapshot": "2026-10-25",
+ "snapshot": "2026-10-26",
  "owner": "Pierre-Sassoulas",
- "open_total": 146,
- "open_own": 22,
+ "open_total": 144,
+ "open_own": 21,
  "prs": [
   {
    "n": 5401,
@@ -370,12 +370,12 @@
    "size": 70,
    "files": 8,
    "created": "2025-10-05",
-   "updated": "2026-10-25",
+   "updated": "2026-10-26",
    "labels": [
     "Enhancement ✨"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "failing",
    "citot": 46,
    "cifail": 4,
@@ -1029,7 +1029,7 @@
     "False Positive 🦟"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "not-run",
    "citot": 2,
    "cifail": 0,
@@ -1532,7 +1532,7 @@
    "size": 71,
    "files": 3,
    "created": "2026-09-17",
-   "updated": "2026-10-24",
+   "updated": "2026-10-25",
    "labels": [
     "False Positive 🦟",
     "Lib specific 💅"
@@ -1552,8 +1552,8 @@
     ]
    ],
    "lastcom": [
-    "agustin18",
-    "2026-10-23"
+    "Rayan-and-beyond",
+    "2026-10-25"
    ]
   },
   {
@@ -1947,7 +1947,7 @@
    "size": 214,
    "files": 9,
    "created": "2026-10-05",
-   "updated": "2026-10-16",
+   "updated": "2026-10-25",
    "labels": [
     "Enhancement ✨"
    ],
@@ -1956,7 +1956,7 @@
    "ci": "awaiting-approval",
    "citot": 2,
    "cifail": 0,
-   "nrev": 2,
+   "nrev": 3,
    "mrev": [],
    "links": [],
    "lastcom": [
@@ -2284,7 +2284,7 @@
     "False Positive 🦟"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "awaiting-approval",
    "citot": 4,
    "cifail": 0,
@@ -2315,7 +2315,7 @@
     "False Positive 🦟"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "green",
    "citot": 50,
    "cifail": 0,
@@ -2346,7 +2346,7 @@
     "False Positive 🦟"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "awaiting-approval",
    "citot": 3,
    "cifail": 0,
@@ -2379,7 +2379,7 @@
     "Needs review 🔍"
    ],
    "rd": "APPROVED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "awaiting-approval",
    "citot": 60,
    "cifail": 0,
@@ -2412,7 +2412,7 @@
     "False Positive 🦟"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "failing",
    "citot": 43,
    "cifail": 1,
@@ -2445,7 +2445,7 @@
     "False Positive 🦟"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "green",
    "citot": 43,
    "cifail": 0,
@@ -2478,7 +2478,7 @@
     "Enhancement ✨"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "awaiting-approval",
    "citot": 2,
    "cifail": 0,
@@ -2497,40 +2497,6 @@
    ]
   },
   {
-   "n": 11650,
-   "a": "summeriver13",
-   "t": "Fix module expansion crash when a namespace package also exists in site-packages",
-   "draft": false,
-   "size": 67,
-   "files": 3,
-   "created": "2026-10-12",
-   "updated": "2026-10-25",
-   "labels": [
-    "Crash 💥",
-    "backport maintenance/4.1.x"
-   ],
-   "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
-   "ci": "green",
-   "citot": 43,
-   "cifail": 0,
-   "nrev": 3,
-   "mrev": [
-    "Pierre-Sassoulas"
-   ],
-   "links": [
-    [
-     10278,
-     "",
-     ""
-    ]
-   ],
-   "lastcom": [
-    "github-actions",
-    "2026-10-25"
-   ]
-  },
-  {
    "n": 11654,
    "a": "agustin18",
    "t": "Fix false-negative signature-differs with keyword-only arguments (#5270)",
@@ -2544,7 +2510,7 @@
     "C: arguments-differ"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "green",
    "citot": 48,
    "cifail": 0,
@@ -2576,7 +2542,7 @@
     "pyi"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "green",
    "citot": 48,
    "cifail": 0,
@@ -2640,7 +2606,7 @@
     "False Positive 🦟"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "awaiting-approval",
    "citot": 4,
    "cifail": 0,
@@ -2666,7 +2632,7 @@
     "C: used-before-assignment"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "green",
    "citot": 47,
    "cifail": 0,
@@ -2731,7 +2697,7 @@
     "Needs astroid update"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "green",
    "citot": 48,
    "cifail": 0,
@@ -2765,7 +2731,7 @@
     "Needs astroid update"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "CONFLICTING",
    "ci": "green",
    "citot": 46,
    "cifail": 0,
@@ -2797,7 +2763,7 @@
     "pyreverse"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "failing",
    "citot": 50,
    "cifail": 3,
@@ -2823,7 +2789,7 @@
     "False Positive 🦟"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "awaiting-approval",
    "citot": 5,
    "cifail": 0,
@@ -2855,7 +2821,7 @@
     "Match case"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "green",
    "citot": 48,
    "cifail": 0,
@@ -2887,7 +2853,7 @@
     "False Positive 🦟"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "awaiting-approval",
    "citot": 5,
    "cifail": 0,
@@ -2919,7 +2885,7 @@
     "backport maintenance/4.1.x"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "green",
    "citot": 48,
    "cifail": 0,
@@ -2986,7 +2952,7 @@
     "backport maintenance/4.1.x"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "green",
    "citot": 48,
    "cifail": 0,
@@ -3021,7 +2987,7 @@
     "Needs decision :lock:"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "CONFLICTING",
    "ci": "awaiting-approval",
    "citot": 6,
    "cifail": 0,
@@ -3053,7 +3019,7 @@
     "duplicate-code"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "CONFLICTING",
    "ci": "green",
    "citot": 43,
    "cifail": 0,
@@ -3115,7 +3081,7 @@
     "False Negative 🦋"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "awaiting-approval",
    "citot": 4,
    "cifail": 0,
@@ -3149,7 +3115,7 @@
     "backport maintenance/4.1.x"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "green",
    "citot": 51,
    "cifail": 0,
@@ -3181,7 +3147,7 @@
     "C: invalid-name"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "awaiting-approval",
    "citot": 5,
    "cifail": 0,
@@ -3214,7 +3180,7 @@
     "C: arguments-differ"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "awaiting-approval",
    "citot": 5,
    "cifail": 0,
@@ -3248,7 +3214,7 @@
     "backport maintenance/4.1.x"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "green",
    "citot": 51,
    "cifail": 0,
@@ -3280,7 +3246,7 @@
     "C: undefined-variable"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "green",
    "citot": 48,
    "cifail": 0,
@@ -3312,7 +3278,7 @@
     "False Positive 🦟"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "green",
    "citot": 47,
    "cifail": 0,
@@ -3406,7 +3372,7 @@
     "Enhancement ✨"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "awaiting-approval",
    "citot": 4,
    "cifail": 0,
@@ -3429,19 +3395,19 @@
    "a": "fly1d",
    "t": "Report invalid Pyreverse class targets without a traceback",
    "draft": false,
-   "size": 144,
+   "size": 238,
    "files": 5,
    "created": "2026-10-22",
-   "updated": "2026-10-22",
+   "updated": "2026-10-26",
    "labels": [
     "Bug :beetle:",
     "pyreverse",
     "backport maintenance/4.1.x"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "green",
-   "citot": 54,
+   "citot": 44,
    "cifail": 0,
    "nrev": 1,
    "mrev": [
@@ -3456,7 +3422,7 @@
    ],
    "lastcom": [
     "github-actions",
-    "2026-10-22"
+    "2026-10-26"
    ]
   },
   {
@@ -3472,7 +3438,7 @@
     "False Positive 🦟"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "awaiting-approval",
    "citot": 2,
    "cifail": 0,
@@ -3498,15 +3464,15 @@
    "size": 127,
    "files": 3,
    "created": "2026-10-22",
-   "updated": "2026-10-23",
+   "updated": "2026-10-26",
    "labels": [
     "False Positive 🦟"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
-   "ci": "failing",
-   "citot": 46,
-   "cifail": 1,
+   "merge": "MERGEABLE",
+   "ci": "green",
+   "citot": 43,
+   "cifail": 0,
    "nrev": 0,
    "mrev": [],
    "links": [
@@ -3518,7 +3484,7 @@
    ],
    "lastcom": [
     "github-actions",
-    "2026-10-22"
+    "2026-10-26"
    ]
   },
   {
@@ -3535,7 +3501,7 @@
     "Optional Checkers"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "awaiting-approval",
    "citot": 5,
    "cifail": 0,
@@ -3629,7 +3595,7 @@
     "duplicate-code"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "failing",
    "citot": 40,
    "cifail": 7,
@@ -3655,16 +3621,16 @@
    "size": 103,
    "files": 4,
    "created": "2026-10-23",
-   "updated": "2026-10-24",
+   "updated": "2026-10-25",
    "labels": [
     "False Positive 🦟"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "awaiting-approval",
    "citot": 4,
    "cifail": 0,
-   "nrev": 1,
+   "nrev": 2,
    "mrev": [],
    "links": [
     [
@@ -3691,7 +3657,7 @@
     "False Negative 🦋"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "green",
    "citot": 46,
    "cifail": 0,
@@ -3723,7 +3689,7 @@
     "Skip news :mute:"
    ],
    "rd": "CHANGES_REQUESTED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "failing",
    "citot": 24,
    "cifail": 8,
@@ -3756,7 +3722,7 @@
     "False Positive 🦟"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "awaiting-approval",
    "citot": 3,
    "cifail": 0,
@@ -3787,7 +3753,7 @@
     "False Positive 🦟"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "green",
    "citot": 45,
    "cifail": 0,
@@ -3812,7 +3778,7 @@
     "False Positive 🦟"
    ],
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "awaiting-approval",
    "citot": 3,
    "cifail": 0,
@@ -3928,11 +3894,13 @@
    "files": 4,
    "created": "2026-10-25",
    "updated": "2026-10-25",
-   "labels": [],
+   "labels": [
+    "False Negative 🦋"
+   ],
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
    "ci": "awaiting-approval",
-   "citot": 3,
+   "citot": 4,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -5070,19 +5038,6 @@
    "state": "open",
    "state_reason": null,
    "title": "False negative `differing-type-doc` for Google-style docstring"
-  },
-  {
-   "comments": 0,
-   "labels": [
-    "Crash 💥",
-    "Import system",
-    "namespace-package"
-   ],
-   "number": 10278,
-   "reactions": 0,
-   "state": "open",
-   "state_reason": null,
-   "title": "\"ImportError: Unable to find module\" when using implicit namespaces when they already exist in site-packages"
   },
   {
    "comments": 25,

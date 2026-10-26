@@ -1,5 +1,5 @@
 {
- "snapshot": "2026-10-25",
+ "snapshot": "2026-10-26",
  "prs": [
   {
    "n": 2965,
@@ -760,7 +760,7 @@
    "milestone": "",
    "size": 74,
    "created": "2026-09-29",
-   "updated": "2026-10-08",
+   "updated": "2026-10-26",
    "ci": "awaiting-approval",
    "cifail": 0,
    "links": [
@@ -790,7 +790,7 @@
    "milestone": "",
    "size": 91,
    "created": "2026-09-29",
-   "updated": "2026-10-08",
+   "updated": "2026-10-26",
    "ci": "awaiting-approval",
    "cifail": 0,
    "links": [
@@ -820,7 +820,7 @@
    "milestone": "",
    "size": 184,
    "created": "2026-09-29",
-   "updated": "2026-10-08",
+   "updated": "2026-10-26",
    "ci": "awaiting-approval",
    "cifail": 0,
    "links": [
@@ -2404,19 +2404,21 @@
    "a": "summeriver13",
    "t": "Accept a search path in is_namespace()",
    "draft": false,
-   "labels": [],
+   "labels": [
+    "Bug 🪳"
+   ],
    "rd": "REVIEW_REQUIRED",
-   "milestone": "",
+   "milestone": "4.4.0",
    "size": 70,
    "created": "2026-10-25",
    "updated": "2026-10-25",
-   "ci": "awaiting-approval",
+   "ci": "green",
    "cifail": 0,
    "links": [
     {
      "ref": "pylint-dev/pylint#10278",
      "title": "\"ImportError: Unable to find module\" when using implicit namespaces when they already exist in site-packages",
-     "state": "open",
+     "state": "closed",
      "labels": [
       "Crash 💥",
       "Import system",

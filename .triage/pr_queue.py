@@ -76,11 +76,11 @@ V = {
     ),
     # ---- review now -------------------------------------------------------
     11711: (
-        "author",
-        "changes",
+        "review",
+        "ready",
         "confirmed",
-        'New, 144 lines by fly1d for issue 22 (pyreverse bug, Minor, 1 reaction): <code>pyreverse --class Target a.py b.py</code> dies with <code>ValueError</code> instead of asking for a qualified class name; unknown modules/classes also gave tracebacks. Now an error on stderr, exit 1. Green, primer clean. You requested changes on 22 October: a target resolving to a non-class still warns, writes an empty diagram and exits 0; keep the warning only for Uninferable.',
-        'Wait for the author.',
+        'New, 238 lines by fly1d for issue 22 (pyreverse bug, Minor, 1 reaction): <code>pyreverse --class Target a.py b.py</code> dies with <code>ValueError</code> instead of asking for a qualified class name; unknown modules/classes also gave tracebacks. Now an error on stderr, exit 1. On 26 October the author answered your change request ("Reject non-class Pyreverse targets"): a target resolving to a module value or an instance is now an error too, with <code>test_nonclass_target</code> cases. Its tests fail on main (20) and pass with the PR; primer only pandas noise; CI rerunning.',
+        'Re-review and dismiss your change request.',
     ),
     11663: (
         "author",
@@ -366,15 +366,16 @@ V = {
         "Review (mirrors in examples/ and all-options.rst included) and merge.",
     ),
     11727: (
-        "approve",
-        "held",
+        "author",
+        "changes",
         "confirmed",
         "New, 89 lines by VamikaSinghal for issue 5508 (FP, 1 reaction): <code>cell-var-from-loop</code> "
-        "on <code>sorted(xs, key=lambda x: d[k])</code> inside a loop. Exempts a lambda passed to a "
-        "callee inferring to <code>sorted</code>/<code>min</code>/<code>max</code>/<code>list.sort</code> "
-        "(<code>EAGER_CALLABLE_CONSUMERS</code>); <code>register(callback=lambda: i)</code> still "
-        "flagged. New test fails on main, passes with the PR. Touches the same function as #11725.",
-        "Approve with the next batch; review after #11725 to avoid a conflict.",
+        "on <code>sorted(xs, key=lambda x: d[k])</code> inside a loop. Exempts a lambda passed to "
+        "<code>sorted</code>/<code>min</code>/<code>max</code>/<code>list.sort</code>. Test fails on main, "
+        "passes with the PR. chrikrah blocked on 25 October: <code>min</code>/<code>max</code> return the "
+        "lambda itself (positionally too, not only via <code>default=</code>), so it escapes the loop "
+        "without W0640.",
+        "Wait for the author.",
     ),
     11726: (
         "author",
@@ -633,9 +634,10 @@ V = {
         "approve",
         "held",
         "feature",
-        "The author pushed an attrs abstract-property fix on 3 October, so a run is now waiting for "
-        "approval. 57 lines teaching <code>abstract-class-instantiated</code> about attrs fields; the "
-        "issue was classed as library-specific.",
+        "57 lines teaching <code>abstract-class-instantiated</code> about attrs fields; the issue was "
+        "classed as library-specific. On 25 October the author added the aliased <code>@a.define</code> + "
+        "<code>a.field()</code> and classic <code>@attr.s</code> + <code>attr.ib()</code> cases agustin18 "
+        "asked for; the run waits for approval.",
         "Decide whether attrs support belongs in core, then approve the run.",
     ),
     11525: (
@@ -757,18 +759,21 @@ V = {
         "confirmed",
         "72 lines by soodoku for issue 11681 (bug): <code>ignore-comments</code> of "
         "<code>duplicate-code</code> cut lines at a <code>#</code> inside a string; now uses "
-        "<code>tokenize</code>. Spelling fixed on 23 October (rewording, no dictionary change); full CI "
-        "green, primer only astropy noise. You put it in 4.1.4.",
-        "Review and merge for 4.1.4.",
+        "<code>tokenize</code>. Full CI green, primer only astropy noise, you put it in 4.1.4. Now conflicts "
+        "with main in <code>tests/checkers/unittest_symilar.py</code> (since #11680, all copies); "
+        "<code>symilar.py</code> itself merges cleanly.",
+        "Review; ask for a rebase (test file only), then merge for 4.1.4.",
     ),
     11715: (
-        "author",
-        "red",
+        "review",
+        "ready",
         "confirmed",
         "New, 127 lines by fly1d for issue 9160 (FP, 0 reactions): <code>import-private-name</code> on "
         "<code>from _sibling import Public</code> when <code>_sibling.py</code> sits next to the file. "
-        "Only the spelling check fails (<code>initializers</code> in a comment); primer only noise.",
-        "Wait for the one-word fix, then review.",
+        "Spelling fixed 26 October, CI green. Tests fail on main (8), pass with the PR. Primer removes 3 "
+        "pytest messages (<code>_SubTest</code>, <code>_subtest_msg_sentinel</code> imported from a sibling "
+        "<code>_pytest</code> module).",
+        "Review.",
     ),
     11675: (
         "author",
@@ -794,9 +799,10 @@ V = {
         "blocked",
         "feature",
         "Enhancement: flag calls in default arguments, extending "
-        "<code>dangerous-default-value</code>. chrikrah blocked on 16 October: the docs still name "
-        "the deleted <code>allowed-default-calls</code> option, and <code>object()</code>, "
-        "<code>complex()</code>, <code>range()</code> now raise W0102.",
+        "<code>dangerous-default-value</code>. On 25 October chrikrah confirmed both 16 October blockers "
+        "are fixed (docs, <code>object()</code>/<code>complex()</code>/<code>range()</code>), but the fixed "
+        "allow-list takes typer from 1 to 80 messages, and asked whether the author will make the list "
+        "extensible as you asked.",
         "Waiting on the author.",
     ),
     11662: (
@@ -953,22 +959,6 @@ V = {
         "Ask for a rebase onto #11011, keeping only the package-root fix.",
     ),
     # ---- decide first -----------------------------------------------------
-    11650: (
-        "decide",
-        "approved",
-        "crash",
-        "Crash 10278: <code>ImportError: Unable to find module</code> when an implicit namespace "
-        "package also exists in site-packages or shadows a stdlib package. 41/41 green, primer "
-        "clean, chrikrah approved, milestone 4.1.4. On 20 October the author corrected their answer "
-        "to your astroid question: a path-aware <code>is_namespace(modname, path=None)</code> is "
-        "about six lines in astroid, keeps the 1756 guard and fixes 10278. Asks which you prefer: "
-        "astroid PR, or this pylint fix shipped in a patch release meanwhile. Pinged again 25 October: "
-        "prototype done. Same day the author opened astroid #3445 (70 lines, path-aware "
-        "<code>is_namespace(modname, path)</code> used by <code>check_modpath_has_init</code>): its test "
-        "fails on astroid main and passes with it, rest of the astroid suite green locally; run held.",
-        "Approve and review astroid #3445 (crash, top of the astroid queue), then answer: merge this "
-        "for 4.1.4 meanwhile, or wait for the astroid release.",
-    ),
     11678: (
         "decide",
         "design",
@@ -1308,6 +1298,7 @@ TESTED = {
 TESTED.update({n: "2026-10-24" for n in (11726, 11727, 11728)})
 TESTED.update({n: "2026-10-24" for n in (11731, 11732, 11733, 11735)})
 TESTED.update({n: "2026-10-25" for n in (11737, 11740)})
+TESTED.update({n: "2026-10-26" for n in (11711, 11715)})
 
 
 def category_name(n: int) -> str:
