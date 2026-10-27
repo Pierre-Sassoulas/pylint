@@ -75,13 +75,6 @@ V = {
         "Wait for DudeNr33's review.",
     ),
     # ---- review now -------------------------------------------------------
-    11711: (
-        "review",
-        "ready",
-        "confirmed",
-        'New, 238 lines by fly1d for issue 22 (pyreverse bug, Minor, 1 reaction): <code>pyreverse --class Target a.py b.py</code> dies with <code>ValueError</code> instead of asking for a qualified class name; unknown modules/classes also gave tracebacks. Now an error on stderr, exit 1. On 26 October the author answered your change request ("Reject non-class Pyreverse targets"): a target resolving to a module value or an instance is now an error too, with <code>test_nonclass_target</code> cases. Its tests fail on main (20) and pass with the PR; primer only pandas noise; CI rerunning.',
-        'Re-review and dismiss your change request.',
-    ),
     11663: (
         "author",
         "astroid",
@@ -184,8 +177,8 @@ V = {
         "ready",
         "confirmed",
         "Issue 7572 (enhancement, Good first issue): pyreverse <code>--theme</code> option for "
-        "dark-mode diagrams, 971 lines. The author fixed the R0801 duplicate-code on 13 October; 52 "
-        "green, one cancelled. Last changes requested by you on 7 October.",
+        "dark-mode diagrams, 971 lines. The author fixed the R0801 duplicate-code on 13 October and "
+        "pinged you and DudeNr33 on 27 October: all green. Last changes requested by you on 7 October.",
         "Re-review (large); DudeNr33 also requested changes before.",
     ),
     11621: (
@@ -275,6 +268,41 @@ V = {
         "Add skip news, then review with DudeNr33.",
     ),
     # ---- approve the workflow run ----------------------------------------
+    11744: (
+        "review",
+        "ready",
+        "confirmed",
+        "New, 200 lines by fly1d for issue 7003 (<em>Regression</em>, Needs PR): arguments after "
+        "<code>--</code> still went through option handling, so <code>pylint -- -example.py</code> "
+        "rejected the file and <code>pylint -- --version</code> printed the version. <code>Run</code> now "
+        "splits at the first <code>--</code> and hands the rest to <code>_config_initialization</code> as "
+        "<code>positional_args</code>, appended after option parsing (globbing and the <code>files</code> "
+        "override unchanged). 23 cases in <code>tests/config/test_argument_separator.py</code>. CI green, "
+        "primer no effect. Not run locally (untrusted code, sandbox refused).",
+        "Review: regression fix, small core change in <code>run.py</code>.",
+    ),
+    11746: (
+        "approve",
+        "held",
+        "confirmed",
+        "New, 15 lines by InnoxCodes for issue 8831 (FP, 0 reactions): <code>unused-import</code> on "
+        "<code>Literal</code> used only in a string annotation <code>\"int | Literal[True]\"</code>. "
+        "<code>_store_type_annotation_node</code> now recurses into both sides of a <code>BinOp</code>; "
+        "test adds <code>\"Decimal | Literal[True]\"</code> to the existing functional file. Looks right.",
+        "Approve the run; quick review after.",
+    ),
+    11743: (
+        "review",
+        "ready",
+        "feature",
+        "New, 188 lines by fly1d for issue 5092 (<em>Documentation</em>, 1 reaction): with no Enchant "
+        "dictionary installed, <code>--spelling-dict=en_US</code> fails with an empty list of valid "
+        "choices; now says no dictionaries are available and to check pyenchant. Adds a custom "
+        "<code>_SpellingDictionaryAction</code> and widens <code>_Argument.action</code> typing to "
+        "<code>type[argparse.Action]</code>. CI green, primer no effect. A lot of machinery for one "
+        "error message.",
+        "Low priority; ask whether a plain check in the checker's <code>open()</code> would do.",
+    ),
     11740: (
         "approve",
         "held",
@@ -378,15 +406,14 @@ V = {
         "Wait for the author.",
     ),
     11726: (
-        "author",
-        "red",
+        "review",
+        "ready",
         "confirmed",
-        "89 lines by soodoku for issue 9937 (bug): <code>duplicate-code</code> printed the snippet of a "
-        "random copy (set ordered by <code>id()</code>), so the message changed between runs. The fix is "
-        "right (iterate copies sorted, as <code>symilar</code> does), but the new test spawns "
-        "<code>python -m pylint</code> under six hash seeds and gets an empty stdout on all 7 CI test "
-        "jobs; it only passed in a clean local venv. Primer: no effect.",
-        "Ask the author to make the subprocess test robust (check stderr, pass an rcfile) or drop it.",
+        "94 lines by soodoku for issue 9937 (bug): <code>duplicate-code</code> printed the snippet of a "
+        "random copy (set ordered by <code>id()</code>), so the message changed between runs. Fix iterates "
+        "copies sorted, as <code>symilar</code> does. On 27 October the author isolated the "
+        "six-hash-seed subprocess test from the source checkout: all CI jobs green now, primer no effect.",
+        "Review; check the subprocess test is worth its runtime.",
     ),
     11730: (
         "author",
@@ -454,14 +481,15 @@ V = {
         "Low priority: approve with the next batch.",
     ),
     11704: (
-        "approve",
-        "held",
+        "review",
+        "ready",
         "confirmed",
-        "New, 32 lines by mehdimirzafaruk for issue 6856 (FN, 0 reactions): "
+        "53 lines by mehdimirzafaruk for issue 6856 (FN, 0 reactions): "
         "<code>repeated-keyword</code> skipped built-ins like <code>print(end=\"!\", "
         "**{\"end\": \"?\"})</code>, because the check came after the early return for callees "
-        "without argument information. Moves the check up.",
-        "Low priority: approve with the next batch.",
+        "without argument information. Moves the check up; on 27 October also reports a key repeated "
+        "inside one <code>**{...}</code> mapping. Run approved: CI green, primer no effect.",
+        "Review (low priority).",
     ),
     11667: (
         "review",
@@ -754,15 +782,14 @@ V = {
         "Wait for the author's answer on the colorama path.",
     ),
     11682: (
-        "review",
-        "ready",
+        "author",
+        "changes",
         "confirmed",
         "72 lines by soodoku for issue 11681 (bug): <code>ignore-comments</code> of "
         "<code>duplicate-code</code> cut lines at a <code>#</code> inside a string; now uses "
-        "<code>tokenize</code>. Full CI green, primer only astropy noise, you put it in 4.1.4. Now conflicts "
-        "with main in <code>tests/checkers/unittest_symilar.py</code> (since #11680, all copies); "
-        "<code>symilar.py</code> itself merges cleanly.",
-        "Review; ask for a rebase (test file only), then merge for 4.1.4.",
+        "<code>tokenize</code>. Green, primer only noise, milestone 4.1.4. On 27 October you asked for "
+        "a rebase: conflict in <code>tests/checkers/unittest_symilar.py</code> since #11680.",
+        "Wait for the rebase, then merge for 4.1.4.",
     ),
     11715: (
         "review",

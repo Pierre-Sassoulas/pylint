@@ -1,5 +1,5 @@
 {
- "snapshot": "2026-10-26",
+ "snapshot": "2026-10-27",
  "prs": [
   {
    "n": 2965,
@@ -2364,7 +2364,7 @@
    "milestone": "",
    "size": 57,
    "created": "2026-10-23",
-   "updated": "2026-10-24",
+   "updated": "2026-10-27",
    "ci": "awaiting-approval",
    "cifail": 0,
    "links": [
@@ -2434,12 +2434,14 @@
    "a": "0xrutabaga",
    "t": "Infer PEP 604 unions of classes with an explicit metaclass",
    "draft": false,
-   "labels": [],
+   "labels": [
+    "Bug 🪳"
+   ],
    "rd": "REVIEW_REQUIRED",
    "milestone": "",
    "size": 95,
    "created": "2026-10-26",
-   "updated": "2026-10-26",
+   "updated": "2026-10-27",
    "ci": "awaiting-approval",
    "cifail": 0,
    "links": [
@@ -2457,6 +2459,49 @@
      "pr": false
     }
    ]
+  },
+  {
+   "n": 3448,
+   "a": "kali834x",
+   "t": "avoid importing setuptools when resolving distutils submodules",
+   "draft": false,
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 90,
+   "created": "2026-10-27",
+   "updated": "2026-10-27",
+   "ci": "green",
+   "cifail": 0,
+   "links": [
+    {
+     "ref": "pylint-dev/pylint#5645",
+     "title": "[2.12.x] false positives: no-name-in-module, import-error",
+     "state": "closed",
+     "labels": [
+      "Regression",
+      "False Positive 🦟",
+      "Needs astroid update"
+     ],
+     "reactions": 0,
+     "pr": false
+    }
+   ]
+  },
+  {
+   "n": 3449,
+   "a": "kali834x",
+   "t": "only import gi in brain_gi when it resolves to an installed library",
+   "draft": false,
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 154,
+   "created": "2026-10-27",
+   "updated": "2026-10-27",
+   "ci": "green",
+   "cifail": 0,
+   "links": []
   }
  ]
 }
