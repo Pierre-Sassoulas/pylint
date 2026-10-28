@@ -268,6 +268,37 @@ V = {
         "Add skip news, then review with DudeNr33.",
     ),
     # ---- approve the workflow run ----------------------------------------
+    11747: (
+        "approve",
+        "held",
+        "confirmed",
+        "New, 59 lines by InnoxCodes for issue 7720 (FP, regression since 2.6): <code>undefined-variable</code> "
+        "on a class decorator whose name the class body also defines. Class decorators are evaluated in "
+        "the enclosing scope; new <code>utils.is_class_decorator_name</code> makes the class consumer skip "
+        "them. Not run locally.",
+        "Approve the run, then review.",
+    ),
+    11748: (
+        "approve",
+        "held",
+        "confirmed",
+        "New, 38 lines by InnoxCodes for issue 9223 (FP, <em>Needs investigation</em>): "
+        "<code>unused-import</code> when the only use is in the string value of "
+        "<code>Alias: TypeAlias = \"Foo | None\"</code>. Adds "
+        "<code>is_node_in_explicit_type_alias_value</code> next to the annotation-context check. Not run "
+        "locally.",
+        "Approve the run, then review.",
+    ),
+    11749: (
+        "approve",
+        "held",
+        "confirmed",
+        "New, 29 lines by InnoxCodes for issue 9689 (FP): <code>used-before-assignment</code> when the "
+        "<code>nonlocal</code> declaration sits inside a <code>try</code>/<code>while</code> block, because "
+        "only <code>frame.body</code> was scanned. Now <code>nodes_of_class(nodes.Nonlocal)</code> skipping "
+        "nested functions, lambdas and classes. Not run locally.",
+        "Approve the run, then review.",
+    ),
     11744: (
         "review",
         "ready",
@@ -328,28 +359,6 @@ V = {
         "counterpart (the rule your #11722 enforces), no <code>only_required_for_messages</code>, and the "
         "fragment is typed <code>new_check</code> for an extension of an existing message.",
         "Low priority; when you get to it, ask for the async visitor and a feature/false_negative fragment.",
-    ),
-    11736: (
-        "decide",
-        "dup",
-        "duplicate",
-        "New, 49 lines by summeriver13 for issue 11734 (FP): <code>undefined-variable</code> on "
-        "<code>def clone(self) -&gt; Local</code> in a class local to a function, with deferred "
-        "annotations. Same bug as 8145 (mbyrnepr2 said so on 11734), already fixed by #11694 (agustin18, "
-        "25 lines, green, in review). #11694 widens the guard in <code>_check_consumer</code> that this PR "
-        "names as the root cause; this one adds a second skip before the final message instead.",
-        "Merge #11694 (passes this PR's whole test file) and close this as a duplicate.",
-    ),
-    11735: (
-        "review",
-        "ready",
-        "confirmed",
-        "51 lines by summeriver13 for issue 8880 (FP, 0 reactions): <code>redefined-outer-name</code> "
-        "in <code>demo.py</code> pointing at <code>demo.x = ...</code> in another linted file, only with "
-        "<code>-j 1</code>. astroid puts that <code>AssignAttr</code> in <code>demo</code>'s locals; the fix "
-        "keeps only definitions whose root is the module itself. Test fails on main, passes with the PR. "
-        "Force-pushed 25 October: full CI and codecov green, primer no effect.",
-        "Review.",
     ),
     11733: (
         "approve",
@@ -490,22 +499,6 @@ V = {
         "without argument information. Moves the check up; on 27 October also reports a key repeated "
         "inside one <code>**{...}</code> mapping. Run approved: CI green, primer no effect.",
         "Review (low priority).",
-    ),
-    11667: (
-        "review",
-        "ready",
-        "confirmed",
-        'New, 142 lines by summeriver13 for issue 7470 (FP, 1 reaction, re-confirmed by a user on 14 October): <code>function-redefined</code> for a function defined in two <code>case</code> branches of one <code>match</code>. Run released 22 October: green, primer clean.',
-        'Review.',
-    ),
-    11666: (
-        "approve",
-        "held",
-        "confirmed",
-        "New, 54 lines by summeriver13 for issue 10827 (FP): <code>unused-wildcard-import</code> "
-        "for names the module's <code>__all__</code> excludes, and <code>from . import *</code> "
-        "reported as an unused <code>*</code>.",
-        "Approve the run, then review.",
     ),
     11670: (
         "approve",
@@ -782,14 +775,17 @@ V = {
         "Wait for the author's answer on the colorama path.",
     ),
     11682: (
-        "author",
-        "changes",
+        "merge",
+        "approved",
         "confirmed",
         "72 lines by soodoku for issue 11681 (bug): <code>ignore-comments</code> of "
         "<code>duplicate-code</code> cut lines at a <code>#</code> inside a string; now uses "
-        "<code>tokenize</code>. Green, primer only noise, milestone 4.1.4. On 27 October you asked for "
-        "a rebase: conflict in <code>tests/checkers/unittest_symilar.py</code> since #11680.",
-        "Wait for the rebase, then merge for 4.1.4.",
+        "<code>tokenize</code>. Milestone 4.1.4. Rebased on 27 October as you asked (kept both test "
+        "blocks at the end of <code>unittest_symilar.py</code>); CI green. The new primer reports 5 "
+        "django <code>invalid-name</code> (<code>DEBUG</code>, <code>ALLOWED_HOSTS</code>...): the PR only "
+        "touches <code>symilar.py</code>, and the author ran invalid-name over django with main and the "
+        "branch: identical. Baseline drift.",
+        "Dismiss your change request and merge for 4.1.4.",
     ),
     11715: (
         "review",

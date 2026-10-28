@@ -13984,15 +13984,6 @@
   "items": [],
   "commit": "25499ea09"
  },
- "11667": {
-  "date": "2026-10-22",
-  "added": 0,
-  "removed": 0,
-  "changed": 0,
-  "projects": {},
-  "items": [],
-  "commit": "6ca7b8abe"
- },
  "11671": {
   "date": "2026-10-17",
   "added": 1,
@@ -14236,26 +14227,61 @@
   "commit": "789a9d43d"
  },
  "11682": {
-  "date": "2026-10-24",
-  "added": 0,
-  "removed": 1,
-  "changed": 0,
+  "date": "2026-10-27",
+  "added": 5,
+  "removed": 0,
+  "changed": 1,
   "projects": {
-   "astropy": {
-    "added": 0,
-    "removed": 1,
+   "django": {
+    "added": 5,
+    "removed": 0,
     "changed": 0
+   },
+   "pandas": {
+    "added": 0,
+    "removed": 0,
+    "changed": 1
    }
   },
   "items": [
    [
-    "astropy",
-    "removed",
-    "no-member",
-    "*Instance of 'ndarray' has no 'mask' member*"
+    "django",
+    "added",
+    "invalid-name",
+    "*Attribute name \"MIGRATION_MODULES\" doesn't conform to snake_case naming style*"
+   ],
+   [
+    "django",
+    "added",
+    "invalid-name",
+    "*Attribute name \"ALLOWED_HOSTS\" doesn't conform to snake_case naming style*"
+   ],
+   [
+    "django",
+    "added",
+    "invalid-name",
+    "*Attribute name \"DEBUG\" doesn't conform to snake_case naming style*"
+   ],
+   [
+    "django",
+    "added",
+    "invalid-name",
+    "*Attribute name \"MAILERS\" doesn't conform to snake_case naming style*"
+   ],
+   [
+    "django",
+    "added",
+    "invalid-name",
+    "*Attribute name \"EMAIL_BACKEND\" doesn't conform to snake_case naming style*"
+   ],
+   [
+    "pandas",
+    "changed",
+    "redefined-variable-type",
+    "Moved from `505:16`-`505:47` to `507:16`-`507:43`."
    ]
   ],
-  "commit": "1e011cfed"
+  "commit": "0b7e2ef31"
  },
  "11683": {
   "date": "2026-10-18",
@@ -16389,37 +16415,6 @@
    ]
   ],
   "commit": "b3d6774d2"
- },
- "11735": {
-  "date": "2026-10-25",
-  "added": 0,
-  "removed": 0,
-  "changed": 0,
-  "projects": {},
-  "items": [],
-  "commit": "6c145753a"
- },
- "11736": {
-  "date": "2026-10-24",
-  "added": 0,
-  "removed": 0,
-  "changed": 1,
-  "projects": {
-   "pandas": {
-    "added": 0,
-    "removed": 0,
-    "changed": 1
-   }
-  },
-  "items": [
-   [
-    "pandas",
-    "changed",
-    "redefined-variable-type",
-    "Moved from `505:16`-`505:47` to `507:16`-`507:43`."
-   ]
-  ],
-  "commit": "542ab4ae0"
  },
  "11743": {
   "date": "2026-10-27",

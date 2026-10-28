@@ -1,5 +1,5 @@
 {
- "snapshot": "2026-10-27",
+ "snapshot": "2026-10-28",
  "prs": [
   {
    "n": 2965,
@@ -867,7 +867,7 @@
    "milestone": "",
    "size": 83,
    "created": "2026-09-29",
-   "updated": "2026-10-12",
+   "updated": "2026-10-28",
    "ci": "green",
    "cifail": 0,
    "links": []
@@ -2400,36 +2400,6 @@
    "links": []
   },
   {
-   "n": 3445,
-   "a": "summeriver13",
-   "t": "Accept a search path in is_namespace()",
-   "draft": false,
-   "labels": [
-    "Bug 🪳"
-   ],
-   "rd": "REVIEW_REQUIRED",
-   "milestone": "4.4.0",
-   "size": 70,
-   "created": "2026-10-25",
-   "updated": "2026-10-25",
-   "ci": "green",
-   "cifail": 0,
-   "links": [
-    {
-     "ref": "pylint-dev/pylint#10278",
-     "title": "\"ImportError: Unable to find module\" when using implicit namespaces when they already exist in site-packages",
-     "state": "closed",
-     "labels": [
-      "Crash 💥",
-      "Import system",
-      "namespace-package"
-     ],
-     "reactions": 0,
-     "pr": false
-    }
-   ]
-  },
-  {
    "n": 3446,
    "a": "0xrutabaga",
    "t": "Infer PEP 604 unions of classes with an explicit metaclass",
@@ -2465,12 +2435,14 @@
    "a": "kali834x",
    "t": "avoid importing setuptools when resolving distutils submodules",
    "draft": false,
-   "labels": [],
+   "labels": [
+    "Bug 🪳"
+   ],
    "rd": "REVIEW_REQUIRED",
    "milestone": "",
    "size": 90,
    "created": "2026-10-27",
-   "updated": "2026-10-27",
+   "updated": "2026-10-28",
    "ci": "green",
    "cifail": 0,
    "links": [
@@ -2493,14 +2465,32 @@
    "a": "kali834x",
    "t": "only import gi in brain_gi when it resolves to an installed library",
    "draft": false,
-   "labels": [],
+   "labels": [
+    "Bug 🪳",
+    "Brain 🧠"
+   ],
    "rd": "REVIEW_REQUIRED",
    "milestone": "",
    "size": 154,
    "created": "2026-10-27",
-   "updated": "2026-10-27",
+   "updated": "2026-10-28",
    "ci": "green",
    "cifail": 0,
+   "links": []
+  },
+  {
+   "n": 3450,
+   "a": "kali834x",
+   "t": "stop resolving submodules as top-level modules in ImportlibFinder.find_module",
+   "draft": false,
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 23,
+   "created": "2026-10-28",
+   "updated": "2026-10-28",
+   "ci": "failing",
+   "cifail": 7,
    "links": []
   }
  ]
