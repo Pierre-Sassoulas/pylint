@@ -5,7 +5,7 @@ astroid==4.3.4   # Pinned to a specific version for tests
 dill @ git+https://github.com/uqfoundation/dill@2308ffb0d0c605b9c050fa4c9fd5793d65c67022 ; python_version>='3.15'
 typing-extensions~=4.15
 py~=1.11.0
-pytest>=8.4,<10.0
+pytest>=8.4,<9.2  # pytest-benchmark 5.3.0 breaks on 9.2, ionelmc/pytest-benchmark#321
 pytest-benchmark~=5.1
 pytest-timeout~=2.4
 pytest-remaster~=0.1.0
