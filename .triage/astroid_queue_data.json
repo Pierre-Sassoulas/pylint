@@ -1,5 +1,5 @@
 {
- "snapshot": "2026-10-28",
+ "snapshot": "2026-10-29",
  "prs": [
   {
    "n": 2965,
@@ -2483,7 +2483,9 @@
    "a": "kali834x",
    "t": "stop resolving submodules as top-level modules in ImportlibFinder.find_module",
    "draft": false,
-   "labels": [],
+   "labels": [
+    "Bug 🪳"
+   ],
    "rd": "REVIEW_REQUIRED",
    "milestone": "",
    "size": 23,
@@ -2492,6 +2494,33 @@
    "ci": "failing",
    "cifail": 7,
    "links": []
+  },
+  {
+   "n": 3452,
+   "a": "Anandb71",
+   "t": "Infer names unpacked from generators in for loops, and add a brain for os.walk()",
+   "draft": false,
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 382,
+   "created": "2026-10-29",
+   "updated": "2026-10-29",
+   "ci": "awaiting-approval",
+   "cifail": 0,
+   "links": [
+    {
+     "ref": "pylint-dev/pylint#9192",
+     "title": "False negative for `modified-iterating-list` when list variable is not defined inline",
+     "state": "open",
+     "labels": [
+      "False Negative 🦋",
+      "Needs PR"
+     ],
+     "reactions": 0,
+     "pr": false
+    }
+   ]
   }
  ]
 }

@@ -1,7 +1,7 @@
 {
- "snapshot": "2026-10-28",
+ "snapshot": "2026-10-29",
  "owner": "Pierre-Sassoulas",
- "open_total": 146,
+ "open_total": 151,
  "open_own": 21,
  "prs": [
   {
@@ -2691,7 +2691,7 @@
    "size": 153,
    "files": 4,
    "created": "2026-10-14",
-   "updated": "2026-10-14",
+   "updated": "2026-10-29",
    "labels": [
     "Blocked 🚧",
     "Needs astroid update"
@@ -2713,8 +2713,8 @@
     ]
    ],
    "lastcom": [
-    "github-actions",
-    "2026-10-14"
+    "Anandb71",
+    "2026-10-29"
    ]
   },
   {
@@ -3886,11 +3886,13 @@
    "files": 5,
    "created": "2026-10-28",
    "updated": "2026-10-28",
-   "labels": [],
+   "labels": [
+    "False Positive 🦟"
+   ],
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
    "ci": "awaiting-approval",
-   "citot": 3,
+   "citot": 4,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -3915,11 +3917,13 @@
    "files": 5,
    "created": "2026-10-28",
    "updated": "2026-10-28",
-   "labels": [],
+   "labels": [
+    "False Positive 🦟"
+   ],
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
    "ci": "awaiting-approval",
-   "citot": 3,
+   "citot": 4,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -3944,6 +3948,85 @@
    "files": 5,
    "created": "2026-10-28",
    "updated": "2026-10-28",
+   "labels": [
+    "False Positive 🦟"
+   ],
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "awaiting-approval",
+   "citot": 4,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [
+    [
+     9689,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "-",
+    "-"
+   ]
+  },
+  {
+   "n": 11751,
+   "a": "chrikrah",
+   "t": "Flag the \"U\" open mode in bad-open-mode for py-version 3.11 and later",
+   "draft": false,
+   "size": 50,
+   "files": 7,
+   "created": "2026-10-28",
+   "updated": "2026-10-28",
+   "labels": [
+    "False Negative 🦋"
+   ],
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "failing",
+   "citot": 45,
+   "cifail": 1,
+   "nrev": 0,
+   "mrev": [],
+   "links": [],
+   "lastcom": [
+    "github-actions",
+    "2026-10-28"
+   ]
+  },
+  {
+   "n": 11752,
+   "a": "udsy19",
+   "t": "Fix consider-using-sys-exit for exit/quit bound in an enclosing scope",
+   "draft": false,
+   "size": 80,
+   "files": 4,
+   "created": "2026-10-29",
+   "updated": "2026-10-29",
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "green",
+   "citot": 43,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [],
+   "lastcom": [
+    "github-actions",
+    "2026-10-29"
+   ]
+  },
+  {
+   "n": 11753,
+   "a": "thisisshivamtiwari",
+   "t": "Fix false positive unused-wildcard-import for names left out of `__all__`",
+   "draft": false,
+   "size": 20,
+   "files": 5,
+   "created": "2026-10-29",
+   "updated": "2026-10-29",
    "labels": [],
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
@@ -3954,7 +4037,65 @@
    "mrev": [],
    "links": [
     [
-     9689,
+     10827,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "-",
+    "-"
+   ]
+  },
+  {
+   "n": 11754,
+   "a": "thisisshivamtiwari",
+   "t": "Recommend `is` in the comparison-with-callable documentation",
+   "draft": false,
+   "size": 15,
+   "files": 1,
+   "created": "2026-10-29",
+   "updated": "2026-10-29",
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "awaiting-approval",
+   "citot": 3,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [
+    [
+     7724,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "-",
+    "-"
+   ]
+  },
+  {
+   "n": 11755,
+   "a": "Jah-yee",
+   "t": "Fix incorrect unnecessary-lambda documentation example",
+   "draft": false,
+   "size": 13,
+   "files": 3,
+   "created": "2026-10-29",
+   "updated": "2026-10-29",
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "awaiting-approval",
+   "citot": 3,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [
+    [
+     9317,
      "",
      ""
     ]
@@ -4410,6 +4551,18 @@
    "title": "undefined-variable regression since 2.6.0"
   },
   {
+   "comments": 9,
+   "labels": [
+    "Documentation :green_book:",
+    "Needs PR"
+   ],
+   "number": 7724,
+   "reactions": 1,
+   "state": "open",
+   "state_reason": "reopened",
+   "title": "Doc why `is` is superior to `==` in `comparison-with-callable` when comparing two callables"
+  },
+  {
    "comments": 4,
    "labels": [
     "Enhancement ✨",
@@ -4737,6 +4890,21 @@
    "state": "open",
    "state_reason": null,
    "title": "Crash - on windows - pylint crashed with a ``AstroidError`` - UnicodeEncodeError: 'charmap' codec can't encode characters in position"
+  },
+  {
+   "comments": 2,
+   "labels": [
+    "Help wanted 🙏",
+    "Good first issue",
+    "Documentation :green_book:",
+    "Needs investigation 🔬",
+    "Hacktoberfest"
+   ],
+   "number": 9317,
+   "reactions": 0,
+   "state": "open",
+   "state_reason": null,
+   "title": "Incorrect Recommendation for unnecessary-lambda"
   },
   {
    "comments": 2,
@@ -5212,6 +5380,19 @@
    "state": "open",
    "state_reason": null,
    "title": "Improper handling of log message format bytestrings"
+  },
+  {
+   "comments": 3,
+   "labels": [
+    "Bug :beetle:",
+    "Import system",
+    "False Positive 🦟"
+   ],
+   "number": 10827,
+   "reactions": 0,
+   "state": "open",
+   "state_reason": null,
+   "title": "False positive unused-import and unused-wildcard-import"
   },
   {
    "comments": 0,

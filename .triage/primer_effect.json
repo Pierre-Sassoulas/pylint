@@ -16433,5 +16433,213 @@
   "projects": {},
   "items": [],
   "commit": "30341a070"
+ },
+ "11751": {
+  "date": "2026-10-28",
+  "added": 6,
+  "removed": 3,
+  "changed": 4,
+  "projects": {
+   "astropy": {
+    "added": 0,
+    "removed": 2,
+    "changed": 4
+   },
+   "django": {
+    "added": 5,
+    "removed": 0,
+    "changed": 0
+   },
+   "music21": {
+    "added": 1,
+    "removed": 1,
+    "changed": 0
+   }
+  },
+  "items": [
+   [
+    "astropy",
+    "changed",
+    "too-many-ancestors",
+    "message: `Too many ancestors (22/7)` → `Too many ancestors (23/7)`"
+   ],
+   [
+    "astropy",
+    "changed",
+    "too-many-ancestors",
+    "message: `Too many ancestors (27/7)` → `Too many ancestors (28/7)`"
+   ],
+   [
+    "astropy",
+    "changed",
+    "too-many-ancestors",
+    "message: `Too many ancestors (23/7)` → `Too many ancestors (22/7)`"
+   ],
+   [
+    "astropy",
+    "changed",
+    "too-many-ancestors",
+    "message: `Too many ancestors (28/7)` → `Too many ancestors (27/7)`"
+   ],
+   [
+    "astropy",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'lineno' defined outside __init__*"
+   ],
+   [
+    "astropy",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'lexpos' defined outside __init__*"
+   ],
+   [
+    "django",
+    "added",
+    "invalid-name",
+    "*Attribute name \"MIGRATION_MODULES\" doesn't conform to snake_case naming style*"
+   ],
+   [
+    "django",
+    "added",
+    "invalid-name",
+    "*Attribute name \"ALLOWED_HOSTS\" doesn't conform to snake_case naming style*"
+   ],
+   [
+    "django",
+    "added",
+    "invalid-name",
+    "*Attribute name \"DEBUG\" doesn't conform to snake_case naming style*"
+   ],
+   [
+    "django",
+    "added",
+    "invalid-name",
+    "*Attribute name \"MAILERS\" doesn't conform to snake_case naming style*"
+   ],
+   [
+    "django",
+    "added",
+    "invalid-name",
+    "*Attribute name \"EMAIL_BACKEND\" doesn't conform to snake_case naming style*"
+   ],
+   [
+    "music21",
+    "added",
+    "invalid-name",
+    "*Attribute name \"id\" doesn't conform to '[a-z_][A-Za-z0-9_]{2,30}$' pattern*"
+   ],
+   [
+    "music21",
+    "removed",
+    "invalid-name",
+    "*Attribute name \"id\" doesn't conform to '[a-z_][A-Za-z0-9_]{2,30}$' pattern*"
+   ]
+  ],
+  "commit": "d496e27f7"
+ },
+ "11752": {
+  "date": "2026-10-29",
+  "added": 6,
+  "removed": 3,
+  "changed": 4,
+  "projects": {
+   "astropy": {
+    "added": 0,
+    "removed": 2,
+    "changed": 4
+   },
+   "django": {
+    "added": 5,
+    "removed": 0,
+    "changed": 0
+   },
+   "music21": {
+    "added": 1,
+    "removed": 1,
+    "changed": 0
+   }
+  },
+  "items": [
+   [
+    "astropy",
+    "changed",
+    "too-many-ancestors",
+    "message: `Too many ancestors (22/7)` → `Too many ancestors (23/7)`"
+   ],
+   [
+    "astropy",
+    "changed",
+    "too-many-ancestors",
+    "message: `Too many ancestors (27/7)` → `Too many ancestors (28/7)`"
+   ],
+   [
+    "astropy",
+    "changed",
+    "too-many-ancestors",
+    "message: `Too many ancestors (23/7)` → `Too many ancestors (22/7)`"
+   ],
+   [
+    "astropy",
+    "changed",
+    "too-many-ancestors",
+    "message: `Too many ancestors (28/7)` → `Too many ancestors (27/7)`"
+   ],
+   [
+    "astropy",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'lineno' defined outside __init__*"
+   ],
+   [
+    "astropy",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'lexpos' defined outside __init__*"
+   ],
+   [
+    "django",
+    "added",
+    "invalid-name",
+    "*Attribute name \"MIGRATION_MODULES\" doesn't conform to snake_case naming style*"
+   ],
+   [
+    "django",
+    "added",
+    "invalid-name",
+    "*Attribute name \"ALLOWED_HOSTS\" doesn't conform to snake_case naming style*"
+   ],
+   [
+    "django",
+    "added",
+    "invalid-name",
+    "*Attribute name \"DEBUG\" doesn't conform to snake_case naming style*"
+   ],
+   [
+    "django",
+    "added",
+    "invalid-name",
+    "*Attribute name \"MAILERS\" doesn't conform to snake_case naming style*"
+   ],
+   [
+    "django",
+    "added",
+    "invalid-name",
+    "*Attribute name \"EMAIL_BACKEND\" doesn't conform to snake_case naming style*"
+   ],
+   [
+    "music21",
+    "added",
+    "invalid-name",
+    "*Attribute name \"id\" doesn't conform to '[a-z_][A-Za-z0-9_]{2,30}$' pattern*"
+   ],
+   [
+    "music21",
+    "removed",
+    "invalid-name",
+    "*Attribute name \"id\" doesn't conform to '[a-z_][A-Za-z0-9_]{2,30}$' pattern*"
+   ]
+  ],
+  "commit": "cd058cc2f"
  }
 }

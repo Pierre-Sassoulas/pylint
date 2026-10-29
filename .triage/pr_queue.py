@@ -268,6 +268,57 @@ V = {
         "Add skip news, then review with DudeNr33.",
     ),
     # ---- approve the workflow run ----------------------------------------
+    11751: (
+        "author",
+        "red",
+        "confirmed",
+        "50 lines by chrikrah, no issue (FN): <code>bad-open-mode</code> accepts <code>open(path, \"rU\")</code>, "
+        "which raises <code>ValueError</code> since Python 3.11; <code>U</code> now allowed only when "
+        "<code>py-version</code> is below 3.11. Only the documentation job is red: the message help changed, "
+        "so <code>doc/user_guide/checkers/features.rst</code> needs regenerating (<code>tox -e docs</code>). "
+        "Primer: only the django/astropy/music21 baseline drift shared with #11752.",
+        "Wait for the regenerated features.rst, then review.",
+    ),
+    11752: (
+        "review",
+        "ready",
+        "confirmed",
+        "New, 80 lines by udsy19, no issue (FP): <code>consider-using-sys-exit</code> on <code>exit()</code> "
+        "in a nested function when an enclosing function did <code>from sys import exit</code>; and an "
+        "imported <code>exit</code> hid calls to the builtin <code>quit</code>. Replaces "
+        "<code>_has_exit_in_scope</code> (current scope + module only) with <code>func.lookup(name)</code> "
+        "and reports only when it resolves to builtins. CI green; primer only baseline drift. Not run locally.",
+        "Review (small, clean use of lookup).",
+    ),
+    11753: (
+        "approve",
+        "held",
+        "confirmed",
+        "New, 20 lines by thisisshivamtiwari for issue 10827 (FP), the issue of the deleted #11666: "
+        "<code>unused-wildcard-import</code> / <code>unused-import</code> for names a "
+        "<code>from module import *</code> never binds because <code>__all__</code> leaves them out "
+        "(astroid puts every public name in locals). Skips them with the existing "
+        "<code>_wildcard_import_binds()</code>. Not run locally.",
+        "Approve the run, then review.",
+    ),
+    11754: (
+        "approve",
+        "docs",
+        "feature",
+        "New, 15 lines by thisisshivamtiwari for issue 7724 (docs): <code>comparison-with-callable</code> page "
+        "gains a details section: compare callables with <code>is</code>; bound methods need "
+        "<code>__func__</code>.",
+        "Approve the run; quick read.",
+    ),
+    11755: (
+        "approve",
+        "docs",
+        "feature",
+        "New, 13 lines by Jah-yee for issue 9317 (docs): the <code>unnecessary-lambda</code> pandas example "
+        "used <code>df.apply(str)</code>, which is not equivalent on a DataFrame (applies per column); now "
+        "<code>df[\"a\"].apply(str)</code>. Adds a <code>.other</code> fragment a docs-only change does not need.",
+        "Approve the run; ask to drop the fragment.",
+    ),
     11747: (
         "approve",
         "held",
@@ -832,10 +883,12 @@ V = {
         "author",
         "astroid",
         "confirmed",
-        "New, 120 lines by Anandb71 for issue 9192 (FN): <code>modified-iterating-list</code> missed "
-        "lists astroid cannot infer. You requested on 14 October that astroid infers better instead "
-        "of pylint accepting inference failure; labelled Blocked / Needs astroid update.",
-        "Waiting on an astroid fix.",
+        "120 lines by Anandb71 for issue 9192 (FN): <code>modified-iterating-list</code> missed "
+        "lists astroid cannot infer. After your 14 October review the author moved the fix to astroid "
+        "#3452 (29 October, 382 lines: names unpacked from generators in <code>for</code> loops, plus an "
+        "<code>os.walk()</code> brain); with it, pylint main reports #9192's snippet and Django's pre-fix "
+        "<code>compilemessages.py</code> with no checker change. This PR then shrinks to a functional test.",
+        "Approve and review astroid #3452 first.",
     ),
     11424: (
         "author",
