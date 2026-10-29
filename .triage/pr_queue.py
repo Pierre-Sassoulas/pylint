@@ -131,9 +131,9 @@ V = {
         "25 lines by agustin18 for issue 8145 (FP, 2 reactions): <code>undefined-variable</code> "
         "on <code>def meth(self) -&gt; Foo</code> in a class defined inside a function, with "
         "postponed annotations. Green, primer only astropy noise. You are reviewing it (25 October). "
-        "It also passes the whole functional test of the duplicate #11736 (local class OK, nested "
-        "<code>Inner</code>, <code>self.Parameter</code> and <code>Unknown</code> still flagged).",
-        "Finish the review; consider taking #11736's test file, then close #11736.",
+        "It also passed the whole functional test of #11736 (gone with its deleted account). A third PR "
+        "for the same bug, #11759, opened on 29 October.",
+        "Finish the review; close #11759 as a duplicate.",
     ),
     11695: (
         "review",
@@ -268,6 +268,37 @@ V = {
         "Add skip news, then review with DudeNr33.",
     ),
     # ---- approve the workflow run ----------------------------------------
+    11759: (
+        "decide",
+        "dup",
+        "duplicate",
+        "New, 56 lines by ansh-rohilla for issues 8145 and 11734: <code>undefined-variable</code> on a "
+        "self-referencing annotation in a class nested in a function, with postponed annotations. Third PR "
+        "for this bug: #11694 (agustin18, green, you are reviewing it) already fixes it in the same "
+        "<code>_check_consumer</code> guard.",
+        "Close as a duplicate of #11694.",
+    ),
+    11760: (
+        "decide",
+        "design",
+        "feature",
+        "New, 413 lines by HoBoIs: a checker for decompression bombs (<code>zipfile</code> "
+        "<code>extract</code>/<code>extractall</code> without size checks). 12 jobs red. You requested "
+        "changes on 29 October: the home-assistant primer hit is a false positive, and telling every "
+        "possible size check apart is hopeless. The author answers that the zipfile docs warn against "
+        "<code>extractall</code> and offers another heuristic.",
+        "Decide: close (security linters like bandit cover it) or an optional extension at most.",
+    ),
+    11761: (
+        "approve",
+        "held",
+        "confirmed",
+        "New, 15 lines by chrikrah, no issue (FN): <code>deprecated-method</code> for "
+        "<code>PurePath.as_uri()</code>, deprecated in Python 3.14 (removal in 3.19). Added to the 3.14 "
+        "set of <code>DEPRECATED_METHODS</code>; <code>Path(...).as_uri()</code> stays quiet and is "
+        "pinned in the test.",
+        "Approve the run; quick review.",
+    ),
     11751: (
         "author",
         "red",
@@ -370,8 +401,9 @@ V = {
         "New, 15 lines by InnoxCodes for issue 8831 (FP, 0 reactions): <code>unused-import</code> on "
         "<code>Literal</code> used only in a string annotation <code>\"int | Literal[True]\"</code>. "
         "<code>_store_type_annotation_node</code> now recurses into both sides of a <code>BinOp</code>; "
-        "test adds <code>\"Decimal | Literal[True]\"</code> to the existing functional file. Looks right.",
-        "Approve the run; quick review after.",
+        "test adds <code>\"Decimal | Literal[True]\"</code> to the existing functional file. Looks right. chrikrah approved on 29 October (old <code>variables.py</code> reports all three new "
+        "imports); the CI run still waits for approval.",
+        "Approve the run; merge if green.",
     ),
     11743: (
         "review",
@@ -876,8 +908,9 @@ V = {
         "<code>dangerous-default-value</code>. chrikrah confirmed the 16 October blockers fixed, but the "
         "fixed allow-list takes typer from 1 to 80 messages. On 26 October the author asked how to go on: "
         "bring back the <code>allowed-default-calls</code> option they removed, or make the check an "
-        "optional extension.",
-        "Answer: you asked for an extensible list, so the option (or an extension) is your call.",
+        "optional extension. On 29 October they agreed to make the list configurable and asked "
+        "whether that means a new command line option.",
+        "Answer: yes, an option (e.g. <code>allowed-default-calls</code>) is how a list is made extensible.",
     ),
     11662: (
         "author",

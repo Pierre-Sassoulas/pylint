@@ -1,7 +1,7 @@
 {
  "snapshot": "2026-10-29",
  "owner": "Pierre-Sassoulas",
- "open_total": 151,
+ "open_total": 154,
  "open_own": 21,
  "prs": [
   {
@@ -370,7 +370,7 @@
    "size": 70,
    "files": 8,
    "created": "2025-10-05",
-   "updated": "2026-10-28",
+   "updated": "2026-10-29",
    "labels": [
     "Enhancement ✨"
    ],
@@ -1947,7 +1947,7 @@
    "size": 214,
    "files": 9,
    "created": "2026-10-05",
-   "updated": "2026-10-28",
+   "updated": "2026-10-29",
    "labels": [
     "Enhancement ✨"
    ],
@@ -1961,7 +1961,7 @@
    "links": [],
    "lastcom": [
     "tanquetav",
-    "2026-10-26"
+    "2026-10-29"
    ]
   },
   {
@@ -3854,7 +3854,7 @@
    "size": 15,
    "files": 3,
    "created": "2026-10-27",
-   "updated": "2026-10-28",
+   "updated": "2026-10-29",
    "labels": [
     "False Positive 🦟"
    ],
@@ -3863,7 +3863,7 @@
    "ci": "awaiting-approval",
    "citot": 4,
    "cifail": 0,
-   "nrev": 0,
+   "nrev": 1,
    "mrev": [],
    "links": [
     [
@@ -4004,11 +4004,13 @@
    "files": 4,
    "created": "2026-10-29",
    "updated": "2026-10-29",
-   "labels": [],
+   "labels": [
+    "False Positive 🦟"
+   ],
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
    "ci": "green",
-   "citot": 43,
+   "citot": 45,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -4027,11 +4029,13 @@
    "files": 5,
    "created": "2026-10-29",
    "updated": "2026-10-29",
-   "labels": [],
+   "labels": [
+    "False Positive 🦟"
+   ],
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
    "ci": "awaiting-approval",
-   "citot": 3,
+   "citot": 4,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -4056,11 +4060,13 @@
    "files": 1,
    "created": "2026-10-29",
    "updated": "2026-10-29",
-   "labels": [],
+   "labels": [
+    "Documentation :green_book:"
+   ],
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
    "ci": "awaiting-approval",
-   "citot": 3,
+   "citot": 4,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -4085,11 +4091,13 @@
    "files": 3,
    "created": "2026-10-29",
    "updated": "2026-10-29",
-   "labels": [],
+   "labels": [
+    "Documentation :green_book:"
+   ],
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
    "ci": "awaiting-approval",
-   "citot": 3,
+   "citot": 4,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -4100,6 +4108,91 @@
      ""
     ]
    ],
+   "lastcom": [
+    "-",
+    "-"
+   ]
+  },
+  {
+   "n": 11759,
+   "a": "ansh-rohilla",
+   "t": "Fix false-positive undefined-variable for nested class in type annotation",
+   "draft": false,
+   "size": 56,
+   "files": 4,
+   "created": "2026-10-29",
+   "updated": "2026-10-29",
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "awaiting-approval",
+   "citot": 3,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [
+    [
+     8145,
+     "",
+     ""
+    ],
+    [
+     11734,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "-",
+    "-"
+   ]
+  },
+  {
+   "n": 11760,
+   "a": "HoBoIs",
+   "t": "New checker for decompression bomb detection",
+   "draft": false,
+   "size": 413,
+   "files": 7,
+   "created": "2026-10-29",
+   "updated": "2026-10-29",
+   "labels": [
+    "Enhancement ✨",
+    "Needs decision :lock:"
+   ],
+   "rd": "CHANGES_REQUESTED",
+   "merge": "MERGEABLE",
+   "ci": "failing",
+   "citot": 41,
+   "cifail": 12,
+   "nrev": 1,
+   "mrev": [
+    "Pierre-Sassoulas"
+   ],
+   "links": [],
+   "lastcom": [
+    "HoBoIs",
+    "2026-10-29"
+   ]
+  },
+  {
+   "n": 11761,
+   "a": "chrikrah",
+   "t": "Flag pathlib.PurePath.as_uri as deprecated for py-version 3.14 and later",
+   "draft": false,
+   "size": 15,
+   "files": 5,
+   "created": "2026-10-29",
+   "updated": "2026-10-29",
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "awaiting-approval",
+   "citot": 1,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [],
    "lastcom": [
     "-",
     "-"
@@ -5610,6 +5703,19 @@
    "state": "open",
    "state_reason": null,
    "title": "Expanding `broad-exception-caught` to contextlib.suppress"
+  },
+  {
+   "comments": 2,
+   "labels": [
+    "typing",
+    "False Positive 🦟",
+    "C: undefined-variable"
+   ],
+   "number": 11734,
+   "reactions": 0,
+   "state": "open",
+   "state_reason": null,
+   "title": "False-positive `undefined-variable` in type annotation"
   }
  ]
 }

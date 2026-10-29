@@ -16641,5 +16641,149 @@
    ]
   ],
   "commit": "cd058cc2f"
+ },
+ "11760": {
+  "date": "2026-10-29",
+  "added": 10,
+  "removed": 3,
+  "changed": 5,
+  "projects": {
+   "astropy": {
+    "added": 0,
+    "removed": 2,
+    "changed": 4
+   },
+   "django": {
+    "added": 5,
+    "removed": 0,
+    "changed": 0
+   },
+   "home-assistant": {
+    "added": 1,
+    "removed": 0,
+    "changed": 0
+   },
+   "music21": {
+    "added": 4,
+    "removed": 1,
+    "changed": 0
+   },
+   "pandas": {
+    "added": 0,
+    "removed": 0,
+    "changed": 1
+   }
+  },
+  "items": [
+   [
+    "astropy",
+    "changed",
+    "too-many-ancestors",
+    "message: `Too many ancestors (22/7)` → `Too many ancestors (23/7)`"
+   ],
+   [
+    "astropy",
+    "changed",
+    "too-many-ancestors",
+    "message: `Too many ancestors (27/7)` → `Too many ancestors (28/7)`"
+   ],
+   [
+    "astropy",
+    "changed",
+    "too-many-ancestors",
+    "message: `Too many ancestors (23/7)` → `Too many ancestors (22/7)`"
+   ],
+   [
+    "astropy",
+    "changed",
+    "too-many-ancestors",
+    "message: `Too many ancestors (28/7)` → `Too many ancestors (27/7)`"
+   ],
+   [
+    "astropy",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'lineno' defined outside __init__*"
+   ],
+   [
+    "astropy",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'lexpos' defined outside __init__*"
+   ],
+   [
+    "django",
+    "added",
+    "invalid-name",
+    "*Attribute name \"MIGRATION_MODULES\" doesn't conform to snake_case naming style*"
+   ],
+   [
+    "django",
+    "added",
+    "invalid-name",
+    "*Attribute name \"ALLOWED_HOSTS\" doesn't conform to snake_case naming style*"
+   ],
+   [
+    "django",
+    "added",
+    "invalid-name",
+    "*Attribute name \"DEBUG\" doesn't conform to snake_case naming style*"
+   ],
+   [
+    "django",
+    "added",
+    "invalid-name",
+    "*Attribute name \"MAILERS\" doesn't conform to snake_case naming style*"
+   ],
+   [
+    "django",
+    "added",
+    "invalid-name",
+    "*Attribute name \"EMAIL_BACKEND\" doesn't conform to snake_case naming style*"
+   ],
+   [
+    "home-assistant",
+    "added",
+    "decompression-bomb",
+    "*Unsafe decompression from the archive, don't use extractall*"
+   ],
+   [
+    "music21",
+    "added",
+    "invalid-name",
+    "*Attribute name \"id\" doesn't conform to '[a-z_][A-Za-z0-9_]{2,30}$' pattern*"
+   ],
+   [
+    "music21",
+    "added",
+    "decompression-bomb",
+    "*Unsafe decompression from the archive, filesize is not checked files are not counted*"
+   ],
+   [
+    "music21",
+    "added",
+    "decompression-bomb",
+    "*Unsafe decompression from the archive, filesize is not checked files are not counted*"
+   ],
+   [
+    "music21",
+    "added",
+    "decompression-bomb",
+    "*Unsafe decompression from the archive, filesize is not checked files are not counted*"
+   ],
+   [
+    "music21",
+    "removed",
+    "invalid-name",
+    "*Attribute name \"id\" doesn't conform to '[a-z_][A-Za-z0-9_]{2,30}$' pattern*"
+   ],
+   [
+    "pandas",
+    "changed",
+    "redefined-variable-type",
+    "Moved from `505:16`-`505:47` to `507:16`-`507:43`."
+   ]
+  ],
+  "commit": "f7fb8ce51"
  }
 }

@@ -761,7 +761,7 @@
    "size": 74,
    "created": "2026-09-29",
    "updated": "2026-10-26",
-   "ci": "awaiting-approval",
+   "ci": "green",
    "cifail": 0,
    "links": [
     {
@@ -791,7 +791,7 @@
    "size": 91,
    "created": "2026-09-29",
    "updated": "2026-10-26",
-   "ci": "awaiting-approval",
+   "ci": "green",
    "cifail": 0,
    "links": [
     {
@@ -821,7 +821,7 @@
    "size": 184,
    "created": "2026-09-29",
    "updated": "2026-10-26",
-   "ci": "awaiting-approval",
+   "ci": "green",
    "cifail": 0,
    "links": [
     {
@@ -2500,7 +2500,10 @@
    "a": "Anandb71",
    "t": "Infer names unpacked from generators in for loops, and add a brain for os.walk()",
    "draft": false,
-   "labels": [],
+   "labels": [
+    "Enhancement ✨",
+    "Brain 🧠"
+   ],
    "rd": "REVIEW_REQUIRED",
    "milestone": "",
    "size": 382,
@@ -2517,6 +2520,102 @@
       "False Negative 🦋",
       "Needs PR"
      ],
+     "reactions": 0,
+     "pr": false
+    }
+   ]
+  },
+  {
+   "n": 3454,
+   "a": "rahul05ranjan",
+   "t": "Expand PEP 604 unions in isinstance()/issubclass() classinfo",
+   "draft": false,
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 119,
+   "created": "2026-10-29",
+   "updated": "2026-10-29",
+   "ci": "awaiting-approval",
+   "cifail": 0,
+   "links": [
+    {
+     "ref": "pylint-dev/astroid#3453",
+     "title": "isinstance() / issubclass() with a PEP 604 union classinfo (e.g. int | str) always infers False; narrowing discards all values",
+     "state": "open",
+     "labels": [],
+     "reactions": 0,
+     "pr": false
+    }
+   ]
+  },
+  {
+   "n": 3455,
+   "a": "YashG1836",
+   "t": "Support functions decorated with enum.member",
+   "draft": false,
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 201,
+   "created": "2026-10-29",
+   "updated": "2026-10-29",
+   "ci": "awaiting-approval",
+   "cifail": 0,
+   "links": [
+    {
+     "ref": "pylint-dev/pylint#11756",
+     "title": "False positives on enum members created with `enum.member` (no-self-argument, no-member, invalid-unary-operand-type)",
+     "state": "open",
+     "labels": [],
+     "reactions": 0,
+     "pr": false
+    }
+   ]
+  },
+  {
+   "n": 3456,
+   "a": "YashG1836",
+   "t": "Support functools.Placeholder in partial",
+   "draft": false,
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 108,
+   "created": "2026-10-29",
+   "updated": "2026-10-29",
+   "ci": "awaiting-approval",
+   "cifail": 0,
+   "links": [
+    {
+     "ref": "pylint-dev/pylint#11757",
+     "title": "False positives with `functools.Placeholder` in `partial` (redundant-keyword-arg, too-many-function-args)",
+     "state": "open",
+     "labels": [],
+     "reactions": 0,
+     "pr": false
+    }
+   ]
+  },
+  {
+   "n": 3457,
+   "a": "YashG1836",
+   "t": "Keep the NamedTuple inference of a generic NamedTuple with type parameters",
+   "draft": false,
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 44,
+   "created": "2026-10-29",
+   "updated": "2026-10-29",
+   "ci": "awaiting-approval",
+   "cifail": 0,
+   "links": [
+    {
+     "ref": "pylint-dev/pylint#11758",
+     "title": "False positives on a generic `NamedTuple` written with PEP 695 type parameters (no-member, unsubscriptable-object, unbalanced-tuple-unpacking)",
+     "state": "open",
+     "labels": [],
      "reactions": 0,
      "pr": false
     }
