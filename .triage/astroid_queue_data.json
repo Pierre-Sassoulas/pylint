@@ -2530,7 +2530,9 @@
    "a": "rahul05ranjan",
    "t": "Expand PEP 604 unions in isinstance()/issubclass() classinfo",
    "draft": false,
-   "labels": [],
+   "labels": [
+    "Bug 🪳"
+   ],
    "rd": "REVIEW_REQUIRED",
    "milestone": "",
    "size": 119,
@@ -2543,7 +2545,9 @@
      "ref": "pylint-dev/astroid#3453",
      "title": "isinstance() / issubclass() with a PEP 604 union classinfo (e.g. int | str) always infers False; narrowing discards all values",
      "state": "open",
-     "labels": [],
+     "labels": [
+      "Bug 🪳"
+     ],
      "reactions": 0,
      "pr": false
     }
@@ -2554,7 +2558,10 @@
    "a": "YashG1836",
    "t": "Support functions decorated with enum.member",
    "draft": false,
-   "labels": [],
+   "labels": [
+    "Bug 🪳",
+    "Brain 🧠"
+   ],
    "rd": "REVIEW_REQUIRED",
    "milestone": "",
    "size": 201,
@@ -2567,7 +2574,10 @@
      "ref": "pylint-dev/pylint#11756",
      "title": "False positives on enum members created with `enum.member` (no-self-argument, no-member, invalid-unary-operand-type)",
      "state": "open",
-     "labels": [],
+     "labels": [
+      "False Positive 🦟",
+      "Needs astroid update"
+     ],
      "reactions": 0,
      "pr": false
     }
@@ -2578,7 +2588,10 @@
    "a": "YashG1836",
    "t": "Support functools.Placeholder in partial",
    "draft": false,
-   "labels": [],
+   "labels": [
+    "Bug 🪳",
+    "Brain 🧠"
+   ],
    "rd": "REVIEW_REQUIRED",
    "milestone": "",
    "size": 108,
@@ -2591,7 +2604,11 @@
      "ref": "pylint-dev/pylint#11757",
      "title": "False positives with `functools.Placeholder` in `partial` (redundant-keyword-arg, too-many-function-args)",
      "state": "open",
-     "labels": [],
+     "labels": [
+      "False Positive 🦟",
+      "Needs astroid update",
+      "python 3.14"
+     ],
      "reactions": 0,
      "pr": false
     }
@@ -2602,7 +2619,9 @@
    "a": "YashG1836",
    "t": "Keep the NamedTuple inference of a generic NamedTuple with type parameters",
    "draft": false,
-   "labels": [],
+   "labels": [
+    "Bug 🪳"
+   ],
    "rd": "REVIEW_REQUIRED",
    "milestone": "",
    "size": 44,
@@ -2615,7 +2634,10 @@
      "ref": "pylint-dev/pylint#11758",
      "title": "False positives on a generic `NamedTuple` written with PEP 695 type parameters (no-member, unsubscriptable-object, unbalanced-tuple-unpacking)",
      "state": "open",
-     "labels": [],
+     "labels": [
+      "False Positive 🦟",
+      "Needs astroid update"
+     ],
      "reactions": 0,
      "pr": false
     }
