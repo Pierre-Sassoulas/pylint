@@ -2672,6 +2672,34 @@
      "pr": false
     }
    ]
+  },
+  {
+   "n": 3458,
+   "a": "0xrutabaga",
+   "t": "Reuse one synthetic class per typing subscript target",
+   "draft": false,
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 60,
+   "created": "2026-10-30",
+   "updated": "2026-10-30",
+   "ci": "awaiting-approval",
+   "cifail": 0,
+   "links": [
+    {
+     "ref": "pylint-dev/pylint#9874",
+     "title": "False positive: `duplicate-bases` when using advanced-alchemy repository classes",
+     "state": "open",
+     "labels": [
+      "False Positive 🦟",
+      "Lib specific 💅",
+      "Needs PR"
+     ],
+     "reactions": 0,
+     "pr": false
+    }
+   ]
   }
  ]
 }

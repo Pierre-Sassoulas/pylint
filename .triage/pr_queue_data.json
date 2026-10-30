@@ -1,7 +1,7 @@
 {
  "snapshot": "2026-10-30",
  "owner": "Pierre-Sassoulas",
- "open_total": 160,
+ "open_total": 161,
  "open_own": 21,
  "prs": [
   {
@@ -4341,11 +4341,13 @@
    "files": 5,
    "created": "2026-10-30",
    "updated": "2026-10-30",
-   "labels": [],
+   "labels": [
+    "False Negative 🦋"
+   ],
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
    "ci": "awaiting-approval",
-   "citot": 3,
+   "citot": 4,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -4370,17 +4372,48 @@
    "files": 8,
    "created": "2026-10-30",
    "updated": "2026-10-30",
-   "labels": [],
+   "labels": [
+    "False Negative 🦋"
+   ],
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
    "ci": "awaiting-approval",
-   "citot": 3,
+   "citot": 4,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
    "links": [
     [
      11765,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "-",
+    "-"
+   ]
+  },
+  {
+   "n": 11768,
+   "a": "Redoubts",
+   "t": "Fix cross-module instance attribute naming diagnostics",
+   "draft": false,
+   "size": 126,
+   "files": 3,
+   "created": "2026-10-30",
+   "updated": "2026-10-30",
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "awaiting-approval",
+   "citot": 2,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [
+    [
+     11767,
      "",
      ""
     ]
@@ -5936,7 +5969,9 @@
   },
   {
    "comments": 0,
-   "labels": [],
+   "labels": [
+    "False Negative 🦋"
+   ],
    "number": 11763,
    "reactions": 0,
    "state": "open",
@@ -5945,12 +5980,25 @@
   },
   {
    "comments": 0,
-   "labels": [],
+   "labels": [
+    "False Negative 🦋"
+   ],
    "number": 11765,
    "reactions": 0,
    "state": "open",
    "state_reason": null,
    "title": "deprecated-method / deprecated-class never report glob.glob0, glob.glob1 and typing._UnionGenericAlias"
+  },
+  {
+   "comments": 0,
+   "labels": [
+    "Needs triage :inbox_tray:"
+   ],
+   "number": 11767,
+   "reactions": 0,
+   "state": "open",
+   "state_reason": null,
+   "title": "Instance attribute naming warnings depend on which modules are linted together"
   }
  ]
 }

@@ -268,6 +268,20 @@ V = {
         "Add skip news, then review with DudeNr33.",
     ),
     # ---- approve the workflow run ----------------------------------------
+    11768: (
+        "approve",
+        "held",
+        "confirmed",
+        "New, 126 lines by Redoubts for their own issue 11767 (FP, filed the same day): <code>invalid-name</code> on "
+        "<code>record.FieldName = ...</code> in <code>consumer.py</code> when <code>model.py</code> (defining "
+        "<code>Record</code>) is linted in the same <code>-j1</code> run; nothing with either file alone or with "
+        "<code>-j2</code>, and the inline <code>disable</code> is ignored because the message is raised while "
+        "linting <code>model.py</code>. Reproduced on main. Same astroid cause as #11735 (issue 8880): the "
+        "foreign <code>AssignAttr</code> lands in <code>Record.instance_attrs</code>. Fix keeps only nodes whose "
+        "<code>root()</code> is the class's module. Unit test covers -j1/-j2 and both file orders. Not run locally.",
+        "Approve the run, then review together with #11735 (same filter, two checkers).",
+    ),
+
     11766: (
         'approve',
         'held',
