@@ -131,7 +131,7 @@ V = {
         "25 lines by agustin18 for issue 8145 (FP, 2 reactions): <code>undefined-variable</code> "
         "on <code>def meth(self) -&gt; Foo</code> in a class defined inside a function, with "
         "postponed annotations. Green, primer only astropy noise. You are reviewing it (25 October). "
-        "It also passed the whole functional test of #11736 (gone with its deleted account). A third PR "
+        "It also passed the whole functional test of #11736 (its account is back). A third PR "
         "for the same bug, #11759, opened on 29 October.",
         "Finish the review; close #11759 as a duplicate.",
     ),
@@ -268,6 +268,58 @@ V = {
         "Add skip news, then review with DudeNr33.",
     ),
     # ---- approve the workflow run ----------------------------------------
+    11766: (
+        'approve',
+        'held',
+        'confirmed',
+        'New, 36 lines by YashG1836 for issue 11765 (FN): <code>glob.glob0</code> / <code>glob.glob1</code> sat in <code>DEPRECATED_CLASSES</code> with a module prefix, and <code>typing._UnionGenericAlias</code> had a stray leading dot, so none could ever match. Moves the glob pair to <code>DEPRECATED_METHODS</code> 3.13 and drops the dot. Confirmed in the source. Not run locally.',
+        'Approve the run, then review with #11764 (same table, will conflict lightly).',
+    ),
+
+    11764: (
+        'approve',
+        'held',
+        'confirmed',
+        'New, 36 lines by YashG1836 for issue 11763 (FN): <code>deprecated-class</code> drops the classes of a module listed under two Python versions (<code>typing</code>, <code>asyncio</code>, <code>importlib.abc</code>, <code>ast</code>, <code>webbrowser</code>), because <code>dict.update</code> replaces the older set. Fix merges the sets with <code>setdefault(...).update</code>. Bug confirmed in the source; test runs on 3.14 only. Not run locally.',
+        'Approve the run, then review (2-line fix).',
+    ),
+
+    11736: (
+        'decide',
+        'dup',
+        'duplicate',
+        "49 lines by summeriver13 for issue 11734 (FP): <code>undefined-variable</code> on <code>def clone(self) -&gt; Local</code> in a class local to a function, with deferred annotations. Back after the account deletion. Same bug as 8145: #11694 (agustin18, green, in your review) fixes it in the guard this PR names as the root cause, and passes this PR's whole test file. #11759 is a third copy.",
+        'Merge #11694, then close this and #11759 as duplicates.',
+    ),
+
+    11735: (
+        "review",
+        "ready",
+        "confirmed",
+        "51 lines by summeriver13 for issue 8880 (FP, 0 reactions): <code>redefined-outer-name</code> "
+        "in <code>demo.py</code> pointing at <code>demo.x = ...</code> in another linted file, only with "
+        "<code>-j 1</code>. astroid puts that <code>AssignAttr</code> in <code>demo</code>'s locals; the fix "
+        "keeps only definitions whose root is the module itself. Test fails on main, passes with the PR. "
+        "Force-pushed 25 October: full CI and codecov green, primer no effect.",
+        "Review.",
+    ),
+
+    11667: (
+        "review",
+        "ready",
+        "confirmed",
+        'New, 142 lines by summeriver13 for issue 7470 (FP, 1 reaction, re-confirmed by a user on 14 October): <code>function-redefined</code> for a function defined in two <code>case</code> branches of one <code>match</code>. Run released 22 October: green, primer clean.',
+        'Review.',
+    ),
+
+    11666: (
+        'approve',
+        'held',
+        'confirmed',
+        "54 lines by summeriver13 for issue 10827 (FP): <code>unused-wildcard-import</code> for names the module's <code>__all__</code> excludes, and <code>from . import *</code> reported as an unused <code>*</code>. The account is back (30 October), so this PR is open again, now beside #11753 (20 lines, same issue, opened while this one 404ed). This one came first and also covers <code>from . import *</code>.",
+        'Approve the run; keep this one, close #11753 as a duplicate, credit both in the review.',
+    ),
+
     11759: (
         "decide",
         "dup",
@@ -322,15 +374,11 @@ V = {
         "Review (small, clean use of lookup).",
     ),
     11753: (
-        "approve",
-        "held",
-        "confirmed",
-        "New, 20 lines by thisisshivamtiwari for issue 10827 (FP), the issue of the deleted #11666: "
-        "<code>unused-wildcard-import</code> / <code>unused-import</code> for names a "
-        "<code>from module import *</code> never binds because <code>__all__</code> leaves them out "
-        "(astroid puts every public name in locals). Skips them with the existing "
-        "<code>_wildcard_import_binds()</code>. Not run locally.",
-        "Approve the run, then review.",
+        'decide',
+        'dup',
+        'duplicate',
+        '20 lines by thisisshivamtiwari for issue 10827 (FP): <code>unused-wildcard-import</code> / <code>unused-import</code> for names <code>__all__</code> leaves out of <code>from module import *</code>. Opened while #11666 was gone with its deleted account; that account is back, and #11666 came first and covers more (<code>from . import *</code>). Not run locally.',
+        'Close as a duplicate of #11666, with thanks; or keep this one if #11666 stalls.',
     ),
     11754: (
         "approve",

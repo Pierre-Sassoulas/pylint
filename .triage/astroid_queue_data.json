@@ -1,5 +1,5 @@
 {
- "snapshot": "2026-10-29",
+ "snapshot": "2026-10-30",
  "prs": [
   {
    "n": 2965,
@@ -653,11 +653,11 @@
     "Enhancement ✨",
     "Brain 🧠"
    ],
-   "rd": "REVIEW_REQUIRED",
+   "rd": "CHANGES_REQUESTED",
    "milestone": "",
    "size": 933,
    "created": "2026-09-21",
-   "updated": "2026-10-25",
+   "updated": "2026-10-30",
    "ci": "green",
    "cifail": 0,
    "links": [
@@ -886,7 +886,7 @@
    "size": 27,
    "created": "2026-09-30",
    "updated": "2026-10-08",
-   "ci": "awaiting-approval",
+   "ci": "green",
    "cifail": 0,
    "links": [
     {
@@ -917,7 +917,7 @@
    "size": 60,
    "created": "2026-09-30",
    "updated": "2026-10-08",
-   "ci": "awaiting-approval",
+   "ci": "green",
    "cifail": 0,
    "links": [
     {
@@ -2398,6 +2398,36 @@
    "ci": "awaiting-approval",
    "cifail": 0,
    "links": []
+  },
+  {
+   "n": 3445,
+   "a": "summeriver13",
+   "t": "Accept a search path in is_namespace()",
+   "draft": false,
+   "labels": [
+    "Bug 🪳"
+   ],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "4.4.0",
+   "size": 70,
+   "created": "2026-10-25",
+   "updated": "2026-10-25",
+   "ci": "green",
+   "cifail": 0,
+   "links": [
+    {
+     "ref": "pylint-dev/pylint#10278",
+     "title": "\"ImportError: Unable to find module\" when using implicit namespaces when they already exist in site-packages",
+     "state": "closed",
+     "labels": [
+      "Crash 💥",
+      "Import system",
+      "namespace-package"
+     ],
+     "reactions": 0,
+     "pr": false
+    }
+   ]
   },
   {
    "n": 3446,

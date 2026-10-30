@@ -1,7 +1,7 @@
 {
- "snapshot": "2026-10-29",
+ "snapshot": "2026-10-30",
  "owner": "Pierre-Sassoulas",
- "open_total": 154,
+ "open_total": 160,
  "open_own": 21,
  "prs": [
   {
@@ -370,7 +370,7 @@
    "size": 70,
    "files": 8,
    "created": "2025-10-05",
-   "updated": "2026-10-29",
+   "updated": "2026-10-30",
    "labels": [
     "Enhancement ✨"
    ],
@@ -2776,6 +2776,70 @@
    ]
   },
   {
+   "n": 11666,
+   "a": "summeriver13",
+   "t": "Fix unused-wildcard-import false positive for names excluded by __all__",
+   "draft": false,
+   "size": 54,
+   "files": 8,
+   "created": "2026-10-15",
+   "updated": "2026-10-22",
+   "labels": [
+    "Import system",
+    "False Positive 🦟"
+   ],
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "awaiting-approval",
+   "citot": 5,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [
+    [
+     10827,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "-",
+    "-"
+   ]
+  },
+  {
+   "n": 11667,
+   "a": "summeriver13",
+   "t": "Fix function-redefined false positive in match cases",
+   "draft": false,
+   "size": 142,
+   "files": 4,
+   "created": "2026-10-15",
+   "updated": "2026-10-22",
+   "labels": [
+    "False Positive 🦟",
+    "Match case"
+   ],
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "green",
+   "citot": 48,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [
+    [
+     7470,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "codecov",
+    "2026-10-22"
+   ]
+  },
+  {
    "n": 11670,
    "a": "abdull-ah-med",
    "t": "Avoid shadowing warnings for equivalent module imports",
@@ -3694,6 +3758,70 @@
    ]
   },
   {
+   "n": 11735,
+   "a": "summeriver13",
+   "t": "Fix false positive for redefined-outer-name across modules",
+   "draft": false,
+   "size": 51,
+   "files": 5,
+   "created": "2026-10-24",
+   "updated": "2026-10-25",
+   "labels": [
+    "False Positive 🦟",
+    "multiprocessing"
+   ],
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "green",
+   "citot": 43,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [
+    [
+     8880,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "github-actions",
+    "2026-10-25"
+   ]
+  },
+  {
+   "n": 11736,
+   "a": "summeriver13",
+   "t": "Fix false positive for undefined-variable in deferred annotations",
+   "draft": false,
+   "size": 49,
+   "files": 4,
+   "created": "2026-10-24",
+   "updated": "2026-10-25",
+   "labels": [
+    "False Positive 🦟",
+    "C: undefined-variable"
+   ],
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "green",
+   "citot": 48,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [
+    [
+     11734,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "github-actions",
+    "2026-10-24"
+   ]
+  },
+  {
    "n": 11737,
    "a": "kurupashwin482-web",
    "t": "Extend broad-exception-caught to contextlib.suppress",
@@ -4129,7 +4257,7 @@
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
    "ci": "awaiting-approval",
-   "citot": 3,
+   "citot": 5,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -4194,11 +4322,69 @@
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
    "ci": "awaiting-approval",
-   "citot": 1,
+   "citot": 3,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
    "links": [],
+   "lastcom": [
+    "-",
+    "-"
+   ]
+  },
+  {
+   "n": 11764,
+   "a": "YashG1836",
+   "t": "Fix deprecated-class losing classes of modules listed for several versions",
+   "draft": false,
+   "size": 36,
+   "files": 5,
+   "created": "2026-10-30",
+   "updated": "2026-10-30",
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "awaiting-approval",
+   "citot": 3,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [
+    [
+     11763,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "-",
+    "-"
+   ]
+  },
+  {
+   "n": 11766,
+   "a": "YashG1836",
+   "t": "Fix deprecation entries that could never match (glob.glob0, glob.glob1, typing._UnionGenericAlias)",
+   "draft": false,
+   "size": 36,
+   "files": 8,
+   "created": "2026-10-30",
+   "updated": "2026-10-30",
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "awaiting-approval",
+   "citot": 3,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [
+    [
+     11765,
+     "",
+     ""
+    ]
+   ],
    "lastcom": [
     "-",
     "-"
@@ -4580,6 +4766,19 @@
    "title": "False positive C2801 (unnecessary-dunder-call) with unittest.mock.call"
   },
   {
+   "comments": 2,
+   "labels": [
+    "Control flow",
+    "False Positive 🦟",
+    "Match case"
+   ],
+   "number": 7470,
+   "reactions": 1,
+   "state": "open",
+   "state_reason": null,
+   "title": "False positive with match/case for `function-redefined`"
+  },
+  {
    "comments": 6,
    "labels": [
     "Enhancement ✨",
@@ -4798,6 +4997,18 @@
    "state": "open",
    "state_reason": null,
    "title": "unused-import false positive when using type union in annotations"
+  },
+  {
+   "comments": 1,
+   "labels": [
+    "multiprocessing",
+    "Needs PR"
+   ],
+   "number": 8880,
+   "reactions": 0,
+   "state": "open",
+   "state_reason": null,
+   "title": "Redefined outer name not detected across modules when parallelization used"
   },
   {
    "comments": 2,
@@ -5722,6 +5933,24 @@
    "state": "open",
    "state_reason": null,
    "title": "False-positive `undefined-variable` in type annotation"
+  },
+  {
+   "comments": 0,
+   "labels": [],
+   "number": 11763,
+   "reactions": 0,
+   "state": "open",
+   "state_reason": null,
+   "title": "deprecated-class misses classes when a module is listed for more than one Python version"
+  },
+  {
+   "comments": 0,
+   "labels": [],
+   "number": 11765,
+   "reactions": 0,
+   "state": "open",
+   "state_reason": null,
+   "title": "deprecated-method / deprecated-class never report glob.glob0, glob.glob1 and typing._UnionGenericAlias"
   }
  ]
 }

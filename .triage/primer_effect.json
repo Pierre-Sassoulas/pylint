@@ -13984,6 +13984,15 @@
   "items": [],
   "commit": "25499ea09"
  },
+ "11667": {
+  "date": "2026-10-22",
+  "added": 0,
+  "removed": 0,
+  "changed": 0,
+  "projects": {},
+  "items": [],
+  "commit": "6ca7b8abe"
+ },
  "11671": {
   "date": "2026-10-17",
   "added": 1,
@@ -16415,6 +16424,37 @@
    ]
   ],
   "commit": "b3d6774d2"
+ },
+ "11735": {
+  "date": "2026-10-25",
+  "added": 0,
+  "removed": 0,
+  "changed": 0,
+  "projects": {},
+  "items": [],
+  "commit": "6c145753a"
+ },
+ "11736": {
+  "date": "2026-10-24",
+  "added": 0,
+  "removed": 0,
+  "changed": 1,
+  "projects": {
+   "pandas": {
+    "added": 0,
+    "removed": 0,
+    "changed": 1
+   }
+  },
+  "items": [
+   [
+    "pandas",
+    "changed",
+    "redefined-variable-type",
+    "Moved from `505:16`-`505:47` to `507:16`-`507:43`."
+   ]
+  ],
+  "commit": "542ab4ae0"
  },
  "11743": {
   "date": "2026-10-27",
