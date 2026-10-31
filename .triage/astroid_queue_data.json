@@ -1851,34 +1851,6 @@
    ]
   },
   {
-   "n": 3405,
-   "a": "Boulea7",
-   "t": "Close source streams when reading fails",
-   "draft": false,
-   "labels": [
-    "Bug 🪳"
-   ],
-   "rd": "REVIEW_REQUIRED",
-   "milestone": "",
-   "size": 90,
-   "created": "2026-10-15",
-   "updated": "2026-10-26",
-   "ci": "green",
-   "cifail": 0,
-   "links": [
-    {
-     "ref": "pylint-dev/astroid#3404",
-     "title": "Source file remains open after a decoding error",
-     "state": "open",
-     "labels": [
-      "Bug 🪳"
-     ],
-     "reactions": 0,
-     "pr": false
-    }
-   ]
-  },
-  {
    "n": 3407,
    "a": "Boulea7",
    "t": "Fix exception group exceptions tuple inference",
@@ -2698,32 +2670,6 @@
       "False Positive 🦟",
       "Lib specific 💅",
       "Needs PR"
-     ],
-     "reactions": 0,
-     "pr": false
-    }
-   ]
-  },
-  {
-   "n": 3459,
-   "a": "OKAN-SOFTWARE",
-   "t": "fix(builder): close source stream after decoding error (#3404)",
-   "draft": false,
-   "labels": [],
-   "rd": "REVIEW_REQUIRED",
-   "milestone": "",
-   "size": 33,
-   "created": "2026-10-31",
-   "updated": "2026-10-31",
-   "ci": "failing",
-   "cifail": 9,
-   "links": [
-    {
-     "ref": "pylint-dev/astroid#3404",
-     "title": "Source file remains open after a decoding error",
-     "state": "open",
-     "labels": [
-      "Bug 🪳"
      ],
      "reactions": 0,
      "pr": false

@@ -268,6 +268,14 @@ V = {
         "Add skip news, then review with DudeNr33.",
     ),
     # ---- approve the workflow run ----------------------------------------
+    11770: (
+        'author',
+        'coverage',
+        'confirmed',
+        'New, 69 lines by inchang-ing for issue 11769 (FP, filed by cdce8p on 31 October): <code>used-before-assignment</code> on <code>str(var) if (var := 2) else None</code> nested in a dict value inside another dict. Adds a recursive <code>_value_may_use_and_assign()</code> that walks dicts, containers and calls looking for an <code>IfExp</code>. CI green except <code>codecov/patch</code>: some match arms (lambda, call with attribute target) have no test. Primer only noise (astropy ancestors, django/music21 <code>invalid-name</code>). Docstring is split mid-sentence. Related to 7538 and 8486, which may want the same generic fix rather than more shape cases.',
+        'Wait for the author to cover the missing arms; then review whether a generic "walrus in the IfExp test" rule beats the shape list.',
+    ),
+
     11768: (
         "approve",
         "held",
@@ -675,13 +683,11 @@ V = {
         "Approve the run, then review.",
     ),
     11673: (
-        "approve",
-        "held",
-        "confirmed",
-        "New, 59 lines by mehdimirzafaruk for issue 8680 (FN, 1 reaction): "
-        "<code>missing-parentheses-for-call-in-test</code> missed methods, as in <code>if "
-        "self.is_on:</code>.",
-        "Approve the run, then review.",
+        'approve',
+        'held',
+        'confirmed',
+        '59 lines by mehdimirzafaruk for issue 8680 (FN, 1 reaction): <code>missing-parentheses-for-call-in-test</code> missed methods, as in <code>if self.is_on:</code>. The author asked on 31 October whether the approach still fits; the run was never approved.',
+        'Approve the run, then review and answer the author.',
     ),
     11687: (
         "approve",
