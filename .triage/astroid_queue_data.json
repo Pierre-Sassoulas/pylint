@@ -1,5 +1,5 @@
 {
- "snapshot": "2026-10-30",
+ "snapshot": "2026-10-31",
  "prs": [
   {
    "n": 2965,
@@ -657,7 +657,7 @@
    "milestone": "",
    "size": 933,
    "created": "2026-09-21",
-   "updated": "2026-10-30",
+   "updated": "2026-10-31",
    "ci": "green",
    "cifail": 0,
    "links": [
@@ -1432,9 +1432,9 @@
    ],
    "rd": "REVIEW_REQUIRED",
    "milestone": "",
-   "size": 92,
+   "size": 9542,
    "created": "2026-10-12",
-   "updated": "2026-10-23",
+   "updated": "2026-10-31",
    "ci": "awaiting-approval",
    "cifail": 0,
    "links": [
@@ -2678,12 +2678,15 @@
    "a": "0xrutabaga",
    "t": "Reuse one synthetic class per typing subscript target",
    "draft": false,
-   "labels": [],
+   "labels": [
+    "Bug 🪳",
+    "Brain 🧠"
+   ],
    "rd": "REVIEW_REQUIRED",
    "milestone": "",
    "size": 60,
    "created": "2026-10-30",
-   "updated": "2026-10-30",
+   "updated": "2026-10-31",
    "ci": "awaiting-approval",
    "cifail": 0,
    "links": [
@@ -2695,6 +2698,32 @@
       "False Positive 🦟",
       "Lib specific 💅",
       "Needs PR"
+     ],
+     "reactions": 0,
+     "pr": false
+    }
+   ]
+  },
+  {
+   "n": 3459,
+   "a": "OKAN-SOFTWARE",
+   "t": "fix(builder): close source stream after decoding error (#3404)",
+   "draft": false,
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 33,
+   "created": "2026-10-31",
+   "updated": "2026-10-31",
+   "ci": "failing",
+   "cifail": 9,
+   "links": [
+    {
+     "ref": "pylint-dev/astroid#3404",
+     "title": "Source file remains open after a decoding error",
+     "state": "open",
+     "labels": [
+      "Bug 🪳"
      ],
      "reactions": 0,
      "pr": false
