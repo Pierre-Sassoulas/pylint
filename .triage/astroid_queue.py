@@ -13,6 +13,9 @@ import json
 import pathlib
 
 HERE = pathlib.Path(__file__).resolve().parent
+# Authors with a PR merged before LLM-written code was common (trusted_fetch.py).
+TRUSTED_FILE = HERE / "trusted.json"
+TRUSTED = {login for login, date in json.loads(TRUSTED_FILE.read_text()).items() if date} if TRUSTED_FILE.exists() else set()
 OWNER = "Pierre-Sassoulas"
 E = html.escape
 KIND_NAMES = ("crash / perf", "bug", "false positive", "false negative", "enhancement", "other")
@@ -87,12 +90,19 @@ def priority(p: dict) -> tuple:
     category = min(found, default=len(KIND_KEYS))
     high = any(name.startswith("high priority") for name in names)
     reactions = sum(linked["reactions"] for linked in p["links"] if linked["state"] == "open")
-    return (category, not high, -reactions, "".join(chr(0x10FFFF - ord(c)) for c in p["updated"]))
+    # A trusted contributor's PR goes first: it costs far less to review.
+    return (
+        p["a"] not in TRUSTED,
+        category,
+        not high,
+        -reactions,
+        "".join(chr(0x10FFFF - ord(c)) for c in p["updated"]),
+    )
 
 
 def worth(p: dict) -> bool:
     """Worth a maintainer's time now: crash, bug, High priority or two reactions."""
-    category, not_high, minus_reactions, _ = priority(p)
+    _untrusted, category, not_high, minus_reactions, _ = priority(p)
     return category <= 1 or not not_high or minus_reactions <= -2
 
 
@@ -115,8 +125,10 @@ def lane(p: dict) -> str:
 
 
 def why(p: dict) -> str:
-    category, not_high, minus_reactions, _ = priority(p)
+    untrusted, category, not_high, minus_reactions, _ = priority(p)
     parts = [KIND_NAMES[category]]
+    if not untrusted:
+        parts.insert(0, "trusted contributor")
     if not not_high:
         parts.append("High priority")
     if minus_reactions:
@@ -172,7 +184,7 @@ def main() -> None:
             body.append(
                 "<tr>"
                 f'<td class="id"><a href="https://github.com/pylint-dev/astroid/pull/{p["n"]}">#{p["n"]}</a>'
-                f'<span class="date">{E(p["a"])}</span>'
+                f'<span class="date">{E(p["a"])}{" · trusted" if p["a"] in TRUSTED else ""}</span>'
                 f'<span class="date">{E(p["created"])} → {E(p["updated"])}</span></td>'
                 f'<td class="what"><span class="t">{E(p["t"])}</span>'
                 f'<span class="msg">{" · ".join(E(label) for label in p["labels"]) or "no label"}</span></td>'

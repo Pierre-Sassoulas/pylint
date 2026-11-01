@@ -1397,6 +1397,9 @@ CATEGORIES = ("Crash", "performance", "Bug", "False Positive", "False Negative",
 # pandas line moves) and does not count; "changed" items are moves or wording.
 NOISE_PRS = 3
 PRIMER_FILE = HERE / "primer_effect.json"
+# Authors with a PR merged before LLM-written code was common (trusted_fetch.py).
+TRUSTED_FILE = HERE / "trusted.json"
+TRUSTED = {login for login, date in json.loads(TRUSTED_FILE.read_text()).items() if date} if TRUSTED_FILE.exists() else set()
 PRIMER = json.loads(PRIMER_FILE.read_text()) if PRIMER_FILE.exists() else {}
 _seen: dict = {}
 for _effect in PRIMER.values():
@@ -1465,7 +1468,9 @@ def priority(n: int) -> tuple:
     )
     # Impact inside a category: one reaction is one user who hit it, one
     # primer message is one hit in a real project's code; both count alike.
+    # A trusted contributor's PR goes first: it costs far less to review.
     return (
+        r["a"] not in TRUSTED,
         category,
         not high,
         -(reactions + impact(n, category)),
@@ -1491,7 +1496,7 @@ TESTED.update({n: "2026-10-26" for n in (11711, 11715)})
 
 
 def category_name(n: int) -> str:
-    rank = priority(n)[0]
+    rank = priority(n)[1]
     return ("crash / perf", "bug", "false positive", "false negative", "enhancement", "other")[rank]
 
 
@@ -1536,7 +1541,7 @@ for lane in LANE_ORDER:
         body.append(
             "<tr>"
             f'<td class="id"><a href="https://github.com/pylint-dev/pylint/pull/{n}">#{n}</a>'
-            f'<span class="date">{E(r["a"])}</span>'
+            f'<span class="date">{E(r["a"])}{" · trusted" if r["a"] in TRUSTED else ""}</span>'
             f'<span class="date">{E(r["created"])} → {E(r["updated"])}</span></td>'
             f'<td class="what"><span class="t">{E(r["t"])}</span>'
             f'<span class="msg">{r["size"]} lines · {r["files"]} files</span>{draft}{conflict}'
@@ -1571,7 +1576,7 @@ def lane_members(lane: str) -> list:
 
 
 def worth_a_run(n: int) -> bool:
-    category, not_high, _score, minus_reactions, _ = priority(n)
+    _untrusted, category, not_high, _score, minus_reactions, _ = priority(n)
     return category <= 1 or not not_high or minus_reactions <= -2
 
 
@@ -1592,7 +1597,7 @@ def why(category: int, high: bool, reactions: int, refs: list, ci: str, extra: l
 
 def todo_item(n: int) -> str:
     r = rows[n]
-    category, not_high, _score, minus_reactions, _ = priority(n)
+    _untrusted, category, not_high, _score, minus_reactions, _ = priority(n)
     refs = [
         f"#{number}"
         for number, _s, _l in r["links"]
@@ -1600,6 +1605,8 @@ def todo_item(n: int) -> str:
         and issues.get(number, {}).get("reactions")
     ]
     extra = [f"reviewed by {', '.join(r['mrev'])}"] if r["mrev"] else []
+    if r["a"] in TRUSTED:
+        extra.insert(0, f"trusted contributor ({r['a']})")
     if n in TESTED:
         extra.append("tests fail on main, pass with the PR")
     if primer_words(n):
@@ -1653,7 +1660,7 @@ for title, items in (
     ("1. Merge", lane_members("merge")),
     ("2. Review", lane_members("review")[:TODO_REVIEW]),
     ("3. Approve the run", todo_approve),
-    ("4. Decide (crash or bug)", [n for n in lane_members("decide") if priority(n)[0] <= 1]),
+    ("4. Decide (crash or bug)", [n for n in lane_members("decide") if priority(n)[1] <= 1]),
 ):
     if not items:
         if items is todo_approve:
@@ -1680,7 +1687,7 @@ if ASTROID_FILE.exists():
     prs = sorted(ASTROID["prs"], key=astroid_queue.priority)
 
     def astroid_item(p: dict) -> str:
-        category = astroid_queue.priority(p)[0]
+        category = astroid_queue.priority(p)[1]
         return (
             f'<li><a href="https://github.com/pylint-dev/astroid/pull/{p["n"]}">astroid #{p["n"]}</a> '
             f'<span class="k">{E(KIND_NAMES[category])}</span>{E(p["t"])} '
