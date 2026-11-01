@@ -87,13 +87,11 @@ V = {
         "Review astroid #3442 first; this PR then shrinks to tests or closes.",
     ),
     11615: (
-        "review",
-        "ready",
-        "confirmed",
-        "Issue 10137 (bug, 3 reactions, milestone 4.1.4): <code>__Init__.py</code> with different "
-        "capitalization is linted as a module on Windows. Now carries the whole-path fix from the "
-        "closed #11668. 43/43 green; primer only the usual astropy/django/music21 noise.",
-        "Re-review (your changes requested still standing); backport.",
+        'approve',
+        'held',
+        'confirmed',
+        'Issue 10137 (bug, 3 reactions, milestone 4.1.4): <code>__Init__.py</code> with different capitalization is linted as a module on Windows. Carries the whole-path fix from the closed #11668. New commit 1 November gates the case-insensitive canonicalization behind a Windows check, so Linux/macOS behaviour is unchanged. Previous head 43/43 green; your changes requested (human-verified on Windows?) still stands.',
+        'Approve the run; re-review, backport.',
     ),
     11690: (
         "review",
@@ -268,6 +266,22 @@ V = {
         "Add skip news, then review with DudeNr33.",
     ),
     # ---- approve the workflow run ----------------------------------------
+    11772: (
+        'merge',
+        'skip-news',
+        'feature',
+        'New, 2+/8- by scop: <code>try: d.pop(k) except KeyError: pass</code> to <code>d.pop(k, None)</code> in symilar and <code>set.remove</code> to <code>discard</code> in docparams. Behaviour unchanged. Only red: changelog check.',
+        'Add the skip-news label, then merge.',
+    ),
+
+    11771: (
+        'review',
+        'ready',
+        'confirmed',
+        'New, 15 lines by udsy19 (no issue, FP): <code>nested-min-max</code> suggests <code>max(0, -5, 1, key=abs)</code> for <code>max(0, max(-5, 1), key=abs)</code>, which returns -5 instead of 1: the outer <code>key=</code> would also apply to the lifted arguments. Skips any outer keyword (covers <code>**kwargs</code>; <code>default=</code> is already a TypeError with several positionals). Reverses the guard line #11131 added on purpose, rightly. Green.',
+        'Review and merge (small, provably correct).',
+    ),
+
     11770: (
         'author',
         'coverage',
@@ -960,13 +974,11 @@ V = {
         "Wait for the author.",
     ),
     11641: (
-        "author",
-        "red",
-        "confirmed",
-        "Issue 10025 (FP): <code>import-self</code> when an extensionless script has the same "
-        "basename as an importable module. 42/43: only the spelling check fails on "
-        "<code>extensionless</code> in a docstring. Primer only noise.",
-        "Ask for the one-word fix; then re-review.",
+        'approve',
+        'held',
+        'confirmed',
+        'Issue 10025 (FP): <code>import-self</code> when an extensionless script has the same basename as an importable module. New commit 1 November answers your changes requested: the unit test is now functional tests. The previous red was the spelling check on <code>extensionless</code>; the word is still in the diff, so check whether it moved out of the docstring. Primer only noise.',
+        'Approve the run; re-review if green, else ask for the spelling fix.',
     ),
     11579: (
         "decide",

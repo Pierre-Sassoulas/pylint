@@ -1,7 +1,7 @@
 {
- "snapshot": "2026-10-31",
+ "snapshot": "2026-11-01",
  "owner": "Pierre-Sassoulas",
- "open_total": 162,
+ "open_total": 164,
  "open_own": 21,
  "prs": [
   {
@@ -370,7 +370,7 @@
    "size": 70,
    "files": 8,
    "created": "2025-10-05",
-   "updated": "2026-10-30",
+   "updated": "2026-11-01",
    "labels": [
     "Enhancement ✨"
    ],
@@ -2089,10 +2089,10 @@
    "a": "ningkexin96",
    "t": "Fix Windows initializer path classification",
    "draft": false,
-   "size": 271,
+   "size": 277,
    "files": 4,
    "created": "2026-10-09",
-   "updated": "2026-10-23",
+   "updated": "2026-11-01",
    "labels": [
     "Bug :beetle:",
     "Needs reproduction :mag:",
@@ -2101,8 +2101,8 @@
    ],
    "rd": "CHANGES_REQUESTED",
    "merge": "MERGEABLE",
-   "ci": "green",
-   "citot": 44,
+   "ci": "awaiting-approval",
+   "citot": 2,
    "cifail": 0,
    "nrev": 1,
    "mrev": [
@@ -2404,18 +2404,18 @@
    "a": "ningkexin96",
    "t": "Fix import-self for scripts sharing an importable module name",
    "draft": false,
-   "size": 93,
-   "files": 15,
+   "size": 60,
+   "files": 14,
    "created": "2026-10-11",
-   "updated": "2026-10-22",
+   "updated": "2026-11-01",
    "labels": [
     "False Positive 🦟"
    ],
    "rd": "CHANGES_REQUESTED",
    "merge": "MERGEABLE",
-   "ci": "failing",
-   "citot": 43,
-   "cifail": 1,
+   "ci": "awaiting-approval",
+   "citot": 2,
+   "cifail": 0,
    "nrev": 1,
    "mrev": [
     "Pierre-Sassoulas"
@@ -4449,6 +4449,52 @@
      ""
     ]
    ],
+   "lastcom": [
+    "github-actions",
+    "2026-10-31"
+   ]
+  },
+  {
+   "n": 11771,
+   "a": "udsy19",
+   "t": "Fix nested-min-max false positive when the outer call has a keyword",
+   "draft": false,
+   "size": 27,
+   "files": 4,
+   "created": "2026-10-31",
+   "updated": "2026-10-31",
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "green",
+   "citot": 43,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [],
+   "lastcom": [
+    "github-actions",
+    "2026-10-31"
+   ]
+  },
+  {
+   "n": 11772,
+   "a": "scop",
+   "t": "Simplify dict and set removals",
+   "draft": false,
+   "size": 10,
+   "files": 2,
+   "created": "2026-10-31",
+   "updated": "2026-10-31",
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "failing",
+   "citot": 44,
+   "cifail": 1,
+   "nrev": 0,
+   "mrev": [],
+   "links": [],
    "lastcom": [
     "github-actions",
     "2026-10-31"
