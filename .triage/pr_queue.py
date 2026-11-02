@@ -87,11 +87,11 @@ V = {
         "Review astroid #3442 first; this PR then shrinks to tests or closes.",
     ),
     11615: (
-        'approve',
-        'held',
+        'author',
+        'red',
         'confirmed',
-        'Issue 10137 (bug, 3 reactions, milestone 4.1.4): <code>__Init__.py</code> with different capitalization is linted as a module on Windows. New commit 1 November limits the case-insensitive canonicalization to Windows. Answer to your "checked by a human on Windows?": summeriver13 (not the author) reports native Windows, Python 3.14.7, both new tests ran and passed, <code>main</code> reproduces the bug. That is the account that was hidden last week, so take it as a second machine\'s run, not as human verification.',
-        'Approve the run; if green, decide whether that Windows run is enough, then backport.',
+        'Issue 10137 (bug, 3 reactions, milestone 4.1.4): <code>__Init__.py</code> with different capitalization is linted as a module on Windows. Run approved 2 November: 40/41, only <code>pylint</code> spelling fails on <code>canonicalization</code>, <code>filesystem</code>, <code>lookups</code> in a new docstring. Codecov 100%, primer only noise. summeriver13 (not the author; also ran it on Windows) opened ningkexin96/pylint#2 against the PR branch to reword the docstring.',
+        'Wait for the author to take the spelling fix; then re-review and backport for 4.1.4.',
     ),
     11690: (
         "review",
@@ -300,17 +300,11 @@ V = {
     ),
 
     11768: (
-        "approve",
-        "held",
-        "confirmed",
-        "New, 126 lines by Redoubts for their own issue 11767 (FP, filed the same day): <code>invalid-name</code> on "
-        "<code>record.FieldName = ...</code> in <code>consumer.py</code> when <code>model.py</code> (defining "
-        "<code>Record</code>) is linted in the same <code>-j1</code> run; nothing with either file alone or with "
-        "<code>-j2</code>, and the inline <code>disable</code> is ignored because the message is raised while "
-        "linting <code>model.py</code>. Reproduced on main. Same astroid cause as #11735 (issue 8880): the "
-        "foreign <code>AssignAttr</code> lands in <code>Record.instance_attrs</code>. Fix keeps only nodes whose "
-        "<code>root()</code> is the class's module. Unit test covers -j1/-j2 and both file orders. Not run locally.",
-        "Approve the run, then review together with #11735 (same filter, two checkers).",
+        'review',
+        'ready',
+        'confirmed',
+        "Trusted (Redoubts, first merged PR 2021). 126 lines for their issue 11767 (FP): <code>invalid-name</code> on <code>record.FieldName = ...</code> in <code>consumer.py</code> when <code>model.py</code> (defining <code>Record</code>) is in the same <code>-j1</code> run, and the inline <code>disable</code> is ignored. Reproduced on main. Same astroid cause as #11735: the foreign <code>AssignAttr</code> lands in <code>Record.instance_attrs</code>; the fix keeps nodes whose <code>root()</code> is the class's module. Run approved 2 November: 42/42 green, codecov 100%. Primer removes cross-module names: django <code>SQL_KEYWORD</code>, astropy <code>standardID</code> and two <code>disallowed-name</code> <code>foo</code>, music21 <code>ps</code>. It also lacks the django +5 <code>invalid-name</code> (<code>DEBUG</code>, <code>ALLOWED_HOSTS</code>...) that #11615 got the same hour, which fits that drift being this bug.",
+        'Review and merge (with #11735, same filter in another checker).',
     ),
 
     11766: (

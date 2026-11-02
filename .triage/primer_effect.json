@@ -11569,15 +11569,15 @@
   "commit": "637beb547"
  },
  "11615": {
-  "date": "2026-10-22",
-  "added": 7,
+  "date": "2026-11-02",
+  "added": 6,
   "removed": 3,
-  "changed": 2,
+  "changed": 4,
   "projects": {
    "astropy": {
-    "added": 1,
+    "added": 0,
     "removed": 2,
-    "changed": 2
+    "changed": 4
    },
    "django": {
     "added": 5,
@@ -11595,19 +11595,25 @@
     "astropy",
     "changed",
     "too-many-ancestors",
-    "message: `Too many ancestors (23/7)` → `Too many ancestors (24/7)`"
+    "message: `Too many ancestors (22/7)` → `Too many ancestors (23/7)`"
    ],
    [
     "astropy",
     "changed",
     "too-many-ancestors",
-    "message: `Too many ancestors (28/7)` → `Too many ancestors (29/7)`"
+    "message: `Too many ancestors (27/7)` → `Too many ancestors (28/7)`"
    ],
    [
     "astropy",
-    "added",
-    "no-member",
-    "*Instance of 'ndarray' has no 'mask' member*"
+    "changed",
+    "too-many-ancestors",
+    "message: `Too many ancestors (23/7)` → `Too many ancestors (22/7)`"
+   ],
+   [
+    "astropy",
+    "changed",
+    "too-many-ancestors",
+    "message: `Too many ancestors (28/7)` → `Too many ancestors (27/7)`"
    ],
    [
     "astropy",
@@ -11620,6 +11626,12 @@
     "removed",
     "attribute-defined-outside-init",
     "*Attribute 'lexpos' defined outside __init__*"
+   ],
+   [
+    "django",
+    "added",
+    "invalid-name",
+    "*Attribute name \"MIGRATION_MODULES\" doesn't conform to snake_case naming style*"
    ],
    [
     "django",
@@ -11646,12 +11658,6 @@
     "*Attribute name \"EMAIL_BACKEND\" doesn't conform to snake_case naming style*"
    ],
    [
-    "django",
-    "added",
-    "invalid-name",
-    "*Attribute name \"MIGRATION_MODULES\" doesn't conform to snake_case naming style*"
-   ],
-   [
     "music21",
     "added",
     "invalid-name",
@@ -11664,7 +11670,7 @@
     "*Attribute name \"id\" doesn't conform to '[a-z_][A-Za-z0-9_]{2,30}$' pattern*"
    ]
   ],
-  "commit": "93fc234e5"
+  "commit": "756cb1d59"
  },
  "11618": {
   "date": "2026-10-10",
@@ -16834,6 +16840,110 @@
    ]
   ],
   "commit": "f7fb8ce51"
+ },
+ "11768": {
+  "date": "2026-11-02",
+  "added": 1,
+  "removed": 8,
+  "changed": 4,
+  "projects": {
+   "astropy": {
+    "added": 0,
+    "removed": 5,
+    "changed": 4
+   },
+   "django": {
+    "added": 0,
+    "removed": 1,
+    "changed": 0
+   },
+   "music21": {
+    "added": 1,
+    "removed": 2,
+    "changed": 0
+   }
+  },
+  "items": [
+   [
+    "astropy",
+    "changed",
+    "too-many-ancestors",
+    "message: `Too many ancestors (22/7)` → `Too many ancestors (23/7)`"
+   ],
+   [
+    "astropy",
+    "changed",
+    "too-many-ancestors",
+    "message: `Too many ancestors (27/7)` → `Too many ancestors (28/7)`"
+   ],
+   [
+    "astropy",
+    "changed",
+    "too-many-ancestors",
+    "message: `Too many ancestors (23/7)` → `Too many ancestors (22/7)`"
+   ],
+   [
+    "astropy",
+    "changed",
+    "too-many-ancestors",
+    "message: `Too many ancestors (28/7)` → `Too many ancestors (27/7)`"
+   ],
+   [
+    "astropy",
+    "removed",
+    "invalid-name",
+    "*Attribute name \"standardID\" doesn't conform to snake_case naming style*"
+   ],
+   [
+    "astropy",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'lineno' defined outside __init__*"
+   ],
+   [
+    "astropy",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'lexpos' defined outside __init__*"
+   ],
+   [
+    "astropy",
+    "removed",
+    "disallowed-name",
+    "*Disallowed name \"foo\"*"
+   ],
+   [
+    "astropy",
+    "removed",
+    "disallowed-name",
+    "*Disallowed name \"foo\"*"
+   ],
+   [
+    "django",
+    "removed",
+    "invalid-name",
+    "*Attribute name \"SQL_KEYWORD\" doesn't conform to snake_case naming style*"
+   ],
+   [
+    "music21",
+    "added",
+    "invalid-name",
+    "*Attribute name \"id\" doesn't conform to '[a-z_][A-Za-z0-9_]{2,30}$' pattern*"
+   ],
+   [
+    "music21",
+    "removed",
+    "invalid-name",
+    "*Attribute name \"ps\" doesn't conform to '[a-z_][A-Za-z0-9_]{2,30}$' pattern*"
+   ],
+   [
+    "music21",
+    "removed",
+    "invalid-name",
+    "*Attribute name \"id\" doesn't conform to '[a-z_][A-Za-z0-9_]{2,30}$' pattern*"
+   ]
+  ],
+  "commit": "3c651405e"
  },
  "11770": {
   "date": "2026-10-31",

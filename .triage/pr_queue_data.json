@@ -1,7 +1,7 @@
 {
   "snapshot": "2026-11-02",
   "owner": "Pierre-Sassoulas",
-  "open_total": 165,
+  "open_total": 164,
   "open_own": 21,
   "prs": [
     {
@@ -2092,7 +2092,7 @@
       "size": 277,
       "files": 4,
       "created": "2026-10-09",
-      "updated": "2026-11-01",
+      "updated": "2026-11-02",
       "labels": [
         "Bug :beetle:",
         "Needs reproduction :mag:",
@@ -2101,9 +2101,9 @@
       ],
       "rd": "CHANGES_REQUESTED",
       "merge": "MERGEABLE",
-      "ci": "awaiting-approval",
-      "citot": 2,
-      "cifail": 0,
+      "ci": "failing",
+      "citot": 43,
+      "cifail": 1,
       "nrev": 1,
       "mrev": [
         "Pierre-Sassoulas"
@@ -2111,7 +2111,7 @@
       "links": [],
       "lastcom": [
         "summeriver13",
-        "2026-11-01"
+        "2026-11-02"
       ]
     },
     {
@@ -2987,7 +2987,7 @@
         "Needs decision :lock:"
       ],
       "rd": "REVIEW_REQUIRED",
-      "merge": "CONFLICTING",
+      "merge": "MERGEABLE",
       "ci": "failing",
       "citot": 43,
       "cifail": 1,
@@ -3947,34 +3947,6 @@
       ]
     },
     {
-      "n": 11745,
-      "a": "app/pylint-backport",
-      "t": "[Backport maintenance/4.1.x] Report invalid Pyreverse class targets without a traceback",
-      "draft": false,
-      "size": 348,
-      "files": 5,
-      "created": "2026-10-27",
-      "updated": "2026-10-27",
-      "labels": [
-        "Bug :beetle:",
-        "pyreverse"
-      ],
-      "rd": "APPROVED",
-      "merge": "MERGEABLE",
-      "ci": "failing",
-      "citot": 21,
-      "cifail": 5,
-      "nrev": 1,
-      "mrev": [
-        "Pierre-Sassoulas"
-      ],
-      "links": [],
-      "lastcom": [
-        "-",
-        "-"
-      ]
-    },
-    {
       "n": 11746,
       "a": "InnoxCodes",
       "t": "Fix unused-import for names used in a union inside a string annotation",
@@ -4402,14 +4374,14 @@
       "size": 126,
       "files": 3,
       "created": "2026-10-30",
-      "updated": "2026-10-31",
+      "updated": "2026-11-02",
       "labels": [
         "False Positive 🦟"
       ],
       "rd": "REVIEW_REQUIRED",
       "merge": "MERGEABLE",
-      "ci": "awaiting-approval",
-      "citot": 3,
+      "ci": "green",
+      "citot": 45,
       "cifail": 0,
       "nrev": 0,
       "mrev": [],
@@ -4421,8 +4393,8 @@
         ]
       ],
       "lastcom": [
-        "-",
-        "-"
+        "github-actions",
+        "2026-11-02"
       ]
     },
     {
@@ -4490,7 +4462,7 @@
       "size": 201,
       "files": 4,
       "created": "2026-11-01",
-      "updated": "2026-11-01",
+      "updated": "2026-11-02",
       "labels": [
         "False Negative 🦋",
         "dataclasses"
@@ -4498,7 +4470,7 @@
       "rd": "REVIEW_REQUIRED",
       "merge": "MERGEABLE",
       "ci": "awaiting-approval",
-      "citot": 3,
+      "citot": 5,
       "cifail": 0,
       "nrev": 0,
       "mrev": [],
@@ -4531,7 +4503,7 @@
       "rd": "REVIEW_REQUIRED",
       "merge": "MERGEABLE",
       "ci": "awaiting-approval",
-      "citot": 3,
+      "citot": 6,
       "cifail": 0,
       "nrev": 0,
       "mrev": [],
