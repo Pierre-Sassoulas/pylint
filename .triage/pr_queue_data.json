@@ -4491,7 +4491,10 @@
       "files": 4,
       "created": "2026-11-01",
       "updated": "2026-11-01",
-      "labels": [],
+      "labels": [
+        "False Negative 🦋",
+        "dataclasses"
+      ],
       "rd": "REVIEW_REQUIRED",
       "merge": "MERGEABLE",
       "ci": "awaiting-approval",
@@ -4520,7 +4523,11 @@
       "files": 4,
       "created": "2026-11-02",
       "updated": "2026-11-02",
-      "labels": [],
+      "labels": [
+        "False Positive 🦟",
+        "C: used-before-assignment",
+        "C: undefined-variable"
+      ],
       "rd": "REVIEW_REQUIRED",
       "merge": "MERGEABLE",
       "ci": "awaiting-approval",
