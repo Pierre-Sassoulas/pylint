@@ -90,8 +90,8 @@ V = {
         'approve',
         'held',
         'confirmed',
-        'Issue 10137 (bug, 3 reactions, milestone 4.1.4): <code>__Init__.py</code> with different capitalization is linted as a module on Windows. Carries the whole-path fix from the closed #11668. New commit 1 November gates the case-insensitive canonicalization behind a Windows check, so Linux/macOS behaviour is unchanged. Previous head 43/43 green; your changes requested (human-verified on Windows?) still stands.',
-        'Approve the run; re-review, backport.',
+        'Issue 10137 (bug, 3 reactions, milestone 4.1.4): <code>__Init__.py</code> with different capitalization is linted as a module on Windows. New commit 1 November limits the case-insensitive canonicalization to Windows. Answer to your "checked by a human on Windows?": summeriver13 (not the author) reports native Windows, Python 3.14.7, both new tests ran and passed, <code>main</code> reproduces the bug. That is the account that was hidden last week, so take it as a second machine\'s run, not as human verification.',
+        'Approve the run; if green, decide whether that Windows run is enough, then backport.',
     ),
     11690: (
         "review",
@@ -266,13 +266,22 @@ V = {
         "Add skip news, then review with DudeNr33.",
     ),
     # ---- approve the workflow run ----------------------------------------
-    11772: (
-        'merge',
-        'skip-news',
-        'feature',
-        'New, 2+/8- by scop: <code>try: d.pop(k) except KeyError: pass</code> to <code>d.pop(k, None)</code> in symilar and <code>set.remove</code> to <code>discard</code> in docparams. Behaviour unchanged. Only red: changelog check.',
-        'Add the skip-news label, then merge.',
+    11775: (
+        'approve',
+        'held',
+        'confirmed',
+        'New, 282 lines by TohruSu (first PR) for issue 9633 (FP, Needs PR): <code>undefined-variable</code> / <code>used-before-assignment</code> after <code>if "name" not in globals(): name = ...</code>, which binds <code>name</code> on every path. Part 1 (recognise that guard, at module level or with <code>global</code>, no <code>del</code>) fits the issue. Part 2 changes which message a name assigned in one <code>if</code> branch gets (<code>possibly-used-before-assignment</code> instead of <code>undefined-variable</code>): a separate behaviour change that should be its own PR. Not run locally.',
+        'Approve the run; ask to split part 2 out before reviewing.',
     ),
+
+    11773: (
+        'approve',
+        'held',
+        'confirmed',
+        'New, 195 lines by Thanatos9404 (first PR) for issue 7790 (FN, Needs PR): <code>self.x = 1</code> in <code>__init__</code> of a <code>@dataclass(slots=True)</code> class raises <code>AttributeError</code> at runtime and pylint says nothing. Emits <code>assigning-non-slot</code>, taking the fields (minus <code>ClassVar</code>) as slots and giving up when an ancestor has no slots. Only <code>dataclass(...)</code> by name, so <code>pydantic.dataclasses</code> and similar stay silent. Not run locally.',
+        'Approve the run, then review.',
+    ),
+
 
     11771: (
         'review',
@@ -1149,14 +1158,11 @@ V = {
     ),
     # ---- decide first -----------------------------------------------------
     11678: (
-        "decide",
-        "design",
-        "feature",
-        "New, 513 lines by soodoku for issue 11677 (filed the same minute): an "
-        "<code>ignore-local-names</code> option so <code>duplicate-code</code> matches blocks that "
-        "differ only by renamed locals. One of 3 issue+PR pairs this account opened within 9 "
-        "minutes on 18 October; the issue carries measurements.",
-        "Decide whether the option is wanted before reading 513 lines.",
+        'decide',
+        'design',
+        'feature',
+        '513 lines by soodoku for issue 11677 (filed the same minute): an <code>ignore-local-names</code> option so <code>duplicate-code</code> matches blocks that differ only by renamed locals. One of 3 issue+PR pairs this account opened within 9 minutes on 18 October. Pushed 2 November: primer no effect, <code>codecov/patch</code> red (5 lines), and it now conflicts with main (#11680/#11682 touched symilar).',
+        'Decide whether the option is wanted before reading 513 lines.',
     ),
     11601: (
         "decide",

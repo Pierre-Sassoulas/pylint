@@ -1,7 +1,7 @@
 {
-  "snapshot": "2026-11-01",
+  "snapshot": "2026-11-02",
   "owner": "Pierre-Sassoulas",
-  "open_total": 164,
+  "open_total": 165,
   "open_own": 21,
   "prs": [
     {
@@ -370,7 +370,7 @@
       "size": 70,
       "files": 8,
       "created": "2025-10-05",
-      "updated": "2026-11-01",
+      "updated": "2026-11-02",
       "labels": [
         "Enhancement ✨"
       ],
@@ -1692,10 +1692,10 @@
       "a": "wufangyong973",
       "t": "fix(config): honor false value for valueless options in config files",
       "draft": false,
-      "size": 9527,
+      "size": 9519,
       "files": 26,
       "created": "2026-09-26",
-      "updated": "2026-10-22",
+      "updated": "2026-11-02",
       "labels": [
         "Bug :beetle:",
         "Configuration"
@@ -1865,7 +1865,7 @@
       ],
       "rd": "REVIEW_REQUIRED",
       "merge": "MERGEABLE",
-      "ci": "awaiting-approval",
+      "ci": "green",
       "citot": 8,
       "cifail": 0,
       "nrev": 0,
@@ -2110,8 +2110,8 @@
       ],
       "links": [],
       "lastcom": [
-        "github-actions",
-        "2026-10-22"
+        "summeriver13",
+        "2026-11-01"
       ]
     },
     {
@@ -2977,10 +2977,10 @@
       "a": "soodoku",
       "t": "Add ``ignore-local-names`` option to the similarities checker",
       "draft": false,
-      "size": 513,
+      "size": 670,
       "files": 7,
       "created": "2026-10-18",
-      "updated": "2026-10-22",
+      "updated": "2026-11-02",
       "labels": [
         "Enhancement ✨",
         "duplicate-code",
@@ -2988,9 +2988,9 @@
       ],
       "rd": "REVIEW_REQUIRED",
       "merge": "CONFLICTING",
-      "ci": "awaiting-approval",
-      "citot": 6,
-      "cifail": 0,
+      "ci": "failing",
+      "citot": 43,
+      "cifail": 1,
       "nrev": 0,
       "mrev": [],
       "links": [
@@ -3001,8 +3001,8 @@
         ]
       ],
       "lastcom": [
-        "-",
-        "-"
+        "github-actions",
+        "2026-11-02"
       ]
     },
     {
@@ -4433,7 +4433,7 @@
       "size": 70,
       "files": 3,
       "created": "2026-10-31",
-      "updated": "2026-10-31",
+      "updated": "2026-11-01",
       "labels": [
         "False Positive 🦟",
         "Assignment expression"
@@ -4441,7 +4441,7 @@
       "rd": "REVIEW_REQUIRED",
       "merge": "MERGEABLE",
       "ci": "failing",
-      "citot": 43,
+      "citot": 47,
       "cifail": 1,
       "nrev": 0,
       "mrev": [],
@@ -4465,14 +4465,14 @@
       "size": 27,
       "files": 4,
       "created": "2026-10-31",
-      "updated": "2026-10-31",
+      "updated": "2026-11-01",
       "labels": [
         "False Positive 🦟"
       ],
       "rd": "REVIEW_REQUIRED",
       "merge": "MERGEABLE",
       "ci": "green",
-      "citot": 43,
+      "citot": 45,
       "cifail": 0,
       "nrev": 0,
       "mrev": [],
@@ -4483,29 +4483,61 @@
       ]
     },
     {
-      "n": 11772,
-      "a": "scop",
-      "t": "Simplify dict and set removals",
+      "n": 11773,
+      "a": "Thanatos9404",
+      "t": "Emit `assigning-non-slot` for `@dataclass(slots=True)` classes",
       "draft": false,
-      "size": 10,
-      "files": 2,
-      "created": "2026-10-31",
-      "updated": "2026-10-31",
-      "labels": [
-        "Maintenance",
-        "Skip news :mute:"
-      ],
+      "size": 201,
+      "files": 4,
+      "created": "2026-11-01",
+      "updated": "2026-11-01",
+      "labels": [],
       "rd": "REVIEW_REQUIRED",
       "merge": "MERGEABLE",
-      "ci": "failing",
-      "citot": 44,
-      "cifail": 1,
+      "ci": "awaiting-approval",
+      "citot": 3,
+      "cifail": 0,
       "nrev": 0,
       "mrev": [],
-      "links": [],
+      "links": [
+        [
+          7790,
+          "",
+          ""
+        ]
+      ],
       "lastcom": [
-        "github-actions",
-        "2026-10-31"
+        "-",
+        "-"
+      ]
+    },
+    {
+      "n": 11775,
+      "a": "TohruSu",
+      "t": "Fix false positives for a global assigned under if \"name\" not in globals()",
+      "draft": false,
+      "size": 288,
+      "files": 4,
+      "created": "2026-11-02",
+      "updated": "2026-11-02",
+      "labels": [],
+      "rd": "REVIEW_REQUIRED",
+      "merge": "MERGEABLE",
+      "ci": "awaiting-approval",
+      "citot": 3,
+      "cifail": 0,
+      "nrev": 0,
+      "mrev": [],
+      "links": [
+        [
+          9633,
+          "",
+          ""
+        ]
+      ],
+      "lastcom": [
+        "-",
+        "-"
       ]
     }
   ],
@@ -4979,6 +5011,18 @@
       "title": "Doc why `is` is superior to `==` in `comparison-with-callable` when comparing two callables"
     },
     {
+      "comments": 0,
+      "labels": [
+        "False Negative 🦋",
+        "Needs PR"
+      ],
+      "number": 7790,
+      "reactions": 0,
+      "state": "open",
+      "state_reason": null,
+      "title": "False negative ``no-member`` for ``@dataclass(slots=...)``"
+    },
+    {
       "comments": 4,
       "labels": [
         "Enhancement ✨",
@@ -5396,6 +5440,20 @@
       "state": "open",
       "state_reason": null,
       "title": "[unsupported-binary-operation] should become .pyi-conscious"
+    },
+    {
+      "comments": 0,
+      "labels": [
+        "False Positive 🦟",
+        "C: used-before-assignment",
+        "C: undefined-variable",
+        "Needs PR"
+      ],
+      "number": 9633,
+      "reactions": 0,
+      "state": "open",
+      "state_reason": null,
+      "title": "undefined-variable/possibly-used-before-assignment/used-before-assignment false positives for global"
     },
     {
       "comments": 0,

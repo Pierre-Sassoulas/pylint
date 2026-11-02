@@ -1,5 +1,5 @@
 {
- "snapshot": "2026-11-01",
+ "snapshot": "2026-11-02",
  "prs": [
   {
    "n": 2965,
@@ -1027,7 +1027,7 @@
    "size": 79,
    "created": "2026-10-03",
    "updated": "2026-10-08",
-   "ci": "awaiting-approval",
+   "ci": "green",
    "cifail": 0,
    "links": [
     {
@@ -1605,9 +1605,9 @@
    ],
    "rd": "REVIEW_REQUIRED",
    "milestone": "4.4.0",
-   "size": 778,
+   "size": 808,
    "created": "2026-10-13",
-   "updated": "2026-10-22",
+   "updated": "2026-11-01",
    "ci": "failing",
    "cifail": 1,
    "links": [
