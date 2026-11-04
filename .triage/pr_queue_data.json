@@ -1,7 +1,7 @@
 {
-  "snapshot": "2026-11-02",
+  "snapshot": "2026-11-04",
   "owner": "Pierre-Sassoulas",
-  "open_total": 164,
+  "open_total": 168,
   "open_own": 21,
   "prs": [
     {
@@ -299,7 +299,7 @@
       "size": 121,
       "files": 3,
       "created": "2025-04-09",
-      "updated": "2026-10-28",
+      "updated": "2026-11-04",
       "labels": [
         "Bug :beetle:",
         "pyreverse",
@@ -440,7 +440,7 @@
       "size": 891,
       "files": 17,
       "created": "2025-11-16",
-      "updated": "2026-10-26",
+      "updated": "2026-11-04",
       "labels": [
         "Enhancement ✨"
       ],
@@ -666,7 +666,7 @@
       "size": 23,
       "files": 4,
       "created": "2026-06-17",
-      "updated": "2026-10-02",
+      "updated": "2026-11-02",
       "labels": [
         "Blocked 🚧",
         "Crash 💥"
@@ -863,15 +863,15 @@
       "size": 1123,
       "files": 54,
       "created": "2026-07-28",
-      "updated": "2026-10-27",
+      "updated": "2026-11-03",
       "labels": [
         "Enhancement ✨",
         "pyreverse"
       ],
       "rd": "CHANGES_REQUESTED",
-      "merge": "CONFLICTING",
-      "ci": "green",
-      "citot": 54,
+      "merge": "MERGEABLE",
+      "ci": "awaiting-approval",
+      "citot": 2,
       "cifail": 0,
       "nrev": 9,
       "mrev": [
@@ -1307,7 +1307,7 @@
       "size": 45,
       "files": 4,
       "created": "2026-09-10",
-      "updated": "2026-10-10",
+      "updated": "2026-11-02",
       "labels": [
         "False Positive 🦟",
         "backport maintenance/4.1.x"
@@ -1947,7 +1947,7 @@
       "size": 214,
       "files": 9,
       "created": "2026-10-05",
-      "updated": "2026-10-29",
+      "updated": "2026-11-02",
       "labels": [
         "Enhancement ✨"
       ],
@@ -1956,7 +1956,7 @@
       "ci": "awaiting-approval",
       "citot": 2,
       "cifail": 0,
-      "nrev": 4,
+      "nrev": 5,
       "mrev": [],
       "links": [],
       "lastcom": [
@@ -2437,18 +2437,18 @@
       "a": "agustin18",
       "t": "Fix false positive used-before-assignment for walrus in stacked decorators (#9641)",
       "draft": false,
-      "size": 120,
-      "files": 5,
+      "size": 152,
+      "files": 6,
       "created": "2026-10-11",
-      "updated": "2026-10-24",
+      "updated": "2026-11-04",
       "labels": [
         "False Positive 🦟"
       ],
       "rd": "CHANGES_REQUESTED",
       "merge": "MERGEABLE",
-      "ci": "green",
+      "ci": "failing",
       "citot": 43,
-      "cifail": 0,
+      "cifail": 1,
       "nrev": 1,
       "mrev": [
         "Pierre-Sassoulas"
@@ -2461,8 +2461,8 @@
         ]
       ],
       "lastcom": [
-        "agustin18",
-        "2026-10-24"
+        "github-actions",
+        "2026-11-04"
       ]
     },
     {
@@ -2879,7 +2879,7 @@
       "size": 67,
       "files": 3,
       "created": "2026-10-17",
-      "updated": "2026-10-22",
+      "updated": "2026-11-02",
       "labels": [
         "Crash 💥",
         "backport maintenance/4.1.x"
@@ -2944,7 +2944,7 @@
       "size": 48,
       "files": 3,
       "created": "2026-10-17",
-      "updated": "2026-10-22",
+      "updated": "2026-11-02",
       "labels": [
         "Bug :beetle:",
         "Crash 💥",
@@ -3013,7 +3013,7 @@
       "size": 72,
       "files": 3,
       "created": "2026-10-18",
-      "updated": "2026-10-27",
+      "updated": "2026-11-02",
       "labels": [
         "Bug :beetle:",
         "duplicate-code"
@@ -3109,7 +3109,7 @@
       "size": 24,
       "files": 3,
       "created": "2026-10-18",
-      "updated": "2026-10-22",
+      "updated": "2026-11-02",
       "labels": [
         "Control flow",
         "Regression",
@@ -4128,7 +4128,7 @@
       "size": 20,
       "files": 5,
       "created": "2026-10-29",
-      "updated": "2026-10-29",
+      "updated": "2026-11-02",
       "labels": [
         "False Positive 🦟"
       ],
@@ -4137,7 +4137,7 @@
       "ci": "awaiting-approval",
       "citot": 4,
       "cifail": 0,
-      "nrev": 0,
+      "nrev": 1,
       "mrev": [],
       "links": [
         [
@@ -4517,6 +4517,116 @@
       "lastcom": [
         "-",
         "-"
+      ]
+    },
+    {
+      "n": 11776,
+      "a": "Sachit23",
+      "t": "Fix nested-min-max suggestions for unknown iterables",
+      "draft": true,
+      "size": 36,
+      "files": 4,
+      "created": "2026-11-02",
+      "updated": "2026-11-02",
+      "labels": [],
+      "rd": "REVIEW_REQUIRED",
+      "merge": "MERGEABLE",
+      "ci": "awaiting-approval",
+      "citot": 3,
+      "cifail": 0,
+      "nrev": 0,
+      "mrev": [],
+      "links": [
+        [
+          9923,
+          "",
+          ""
+        ]
+      ],
+      "lastcom": [
+        "-",
+        "-"
+      ]
+    },
+    {
+      "n": 11778,
+      "a": "denysherych3",
+      "t": "Fix false positive `reimported` for aliased relative imports",
+      "draft": false,
+      "size": 27,
+      "files": 4,
+      "created": "2026-11-03",
+      "updated": "2026-11-03",
+      "labels": [],
+      "rd": "REVIEW_REQUIRED",
+      "merge": "MERGEABLE",
+      "ci": "awaiting-approval",
+      "citot": 3,
+      "cifail": 0,
+      "nrev": 0,
+      "mrev": [],
+      "links": [
+        [
+          11353,
+          "",
+          ""
+        ]
+      ],
+      "lastcom": [
+        "-",
+        "-"
+      ]
+    },
+    {
+      "n": 11779,
+      "a": "Parsiffall1",
+      "t": "Fix false positive too-many-function-args for a function called through a class-level dict",
+      "draft": false,
+      "size": 37,
+      "files": 4,
+      "created": "2026-11-03",
+      "updated": "2026-11-03",
+      "labels": [],
+      "rd": "REVIEW_REQUIRED",
+      "merge": "MERGEABLE",
+      "ci": "awaiting-approval",
+      "citot": 3,
+      "cifail": 0,
+      "nrev": 0,
+      "mrev": [],
+      "links": [
+        [
+          9239,
+          "",
+          ""
+        ]
+      ],
+      "lastcom": [
+        "-",
+        "-"
+      ]
+    },
+    {
+      "n": 11780,
+      "a": "udsy19",
+      "t": "Fix consider-using-augmented-assign false positive on chained assignments",
+      "draft": false,
+      "size": 12,
+      "files": 3,
+      "created": "2026-11-03",
+      "updated": "2026-11-03",
+      "labels": [],
+      "rd": "REVIEW_REQUIRED",
+      "merge": "MERGEABLE",
+      "ci": "green",
+      "citot": 43,
+      "cifail": 0,
+      "nrev": 0,
+      "mrev": [],
+      "links": [],
+      "lastcom": [
+        "github-actions",
+        "2026-11-03"
       ]
     }
   ],
@@ -5318,6 +5428,18 @@
       "title": "Pyreverse produces a class diagram even when there are no classes in the source code"
     },
     {
+      "comments": 0,
+      "labels": [
+        "False Positive 🦟",
+        "Needs PR"
+      ],
+      "number": 9239,
+      "reactions": 0,
+      "state": "open",
+      "state_reason": null,
+      "title": "False Positive on E1121 for Usage of Self"
+    },
+    {
       "comments": 2,
       "labels": [
         "Bug :beetle:",
@@ -5593,6 +5715,19 @@
       "state": "open",
       "state_reason": null,
       "title": "False positive `invalid-overridden-method` when overridding `Enum.value`"
+    },
+    {
+      "comments": 4,
+      "labels": [
+        "Enhancement ✨",
+        "Documentation :green_book:",
+        "Needs PR"
+      ],
+      "number": 9923,
+      "reactions": 0,
+      "state": "open",
+      "state_reason": null,
+      "title": "Spurious W3301: min(value, min(iterable)) does not do the same thing as min(value, iterable)"
     },
     {
       "comments": 0,

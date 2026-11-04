@@ -197,13 +197,13 @@ V = {
         "Review.",
     ),
     11645: (
-        "review",
-        "ready",
+        "author",
+        "coverage",
         "confirmed",
-        "Issue 9641 (FP): <code>used-before-assignment</code> for a walrus bound in one decorator and "
-        "used in a later stacked decorator. Functional tests you asked for are in, 43/43 green; the "
-        "author asked for a re-review on 24 October.",
-        "Re-review.",
+        "Issue 9641 (FP): <code>used-before-assignment</code> for a walrus bound in one decorator and used in a later "
+        "stacked decorator. New commit 4 November (\"Cover source-order fallback\") still leaves "
+        "<code>codecov/patch</code> red; the rest is green.",
+        "Wait for the author to cover the fallback (or drop it); then re-review.",
     ),
     11624: (
         "review",
@@ -266,6 +266,38 @@ V = {
         "Add skip news, then review with DudeNr33.",
     ),
     # ---- approve the workflow run ----------------------------------------
+    11776: (
+        'decide',
+        'design',
+        'feature',
+        'New, 36 lines by Sachit23 (first PR) for issue 9923 (Enhancement + Documentation): <code>nested-min-max</code> suggests <code>min(lo, hi, elements)</code> for <code>min(lo, hi, min(elements))</code>, which compares a list with ints. Suppresses the message when the inner call has one argument that cannot be safely splatted. You wrote on the issue (October 2025) that it needs a better suggestion such as <code>min(lo, hi, *elements)</code>; zackw answered that splatting a huge generator is bad. This PR takes the suppress route, and turns <code>max(3, max(max(MATRIX)))</code> silent.',
+        'Decide: suppress (this PR) or suggest the splat for known-small iterables; then review.',
+    ),
+
+    11780: (
+        'review',
+        'ready',
+        'confirmed',
+        'New, 12 lines by udsy19 (no issue, FP): <code>consider-using-augmented-assign</code> on <code>x = y = x + 1</code>; an augmented assignment takes one target, and <code>x += 1</code> drops the assignment to <code>y</code>. Skips chained assignments (also fixes the order dependence: <code>y = x = x + 1</code> was not flagged). Green.',
+        'Review and merge (small).',
+    ),
+
+    11779: (
+        'approve',
+        'held',
+        'confirmed',
+        'New, 37 lines by Parsiffall1 for issue 9239 (FP): <code>too-many-function-args</code> on <code>self.handlers["handle"](self, 1)</code>, a function taken from a class-level dict and called with explicit <code>self</code>. A bare <code>FunctionDef</code> is never bound, so <code>_determine_callable</code> now counts no implicit <code>self</code>; that replaces the old special case for calls inside the class body (removed). The whole functional suite will tell whether the removal is safe. Not run locally.',
+        'Approve the run, then review.',
+    ),
+
+    11778: (
+        'approve',
+        'held',
+        'confirmed',
+        'New, 27 lines by denysherych3 (first PR) for issue 11353 (FP): <code>reimported</code> for <code>from . import json as my_json</code> next to <code>import json</code>, because the empty relative base made the name a bare <code>json</code>. Resolves the relative base to its absolute name with <code>get_import_name</code>. Second PR for this issue: #11377 (rzaman8677, 15 lines, CI never ran) skips every relative import instead, which would also hide a real reimport (<code>import pkg.mod</code> then <code>from . import mod</code> inside <code>pkg</code>). This one is the more precise. Not run locally.',
+        'Approve the run; prefer this over #11377 and close that one, crediting it.',
+    ),
+
     11775: (
         'approve',
         'held',
@@ -300,11 +332,11 @@ V = {
     ),
 
     11768: (
-        'review',
-        'ready',
-        'confirmed',
-        "Trusted (Redoubts, first merged PR 2021). 126 lines for their issue 11767 (FP): <code>invalid-name</code> on <code>record.FieldName = ...</code> in <code>consumer.py</code> when <code>model.py</code> (defining <code>Record</code>) is in the same <code>-j1</code> run, and the inline <code>disable</code> is ignored. Reproduced on main. Same astroid cause as #11735: the foreign <code>AssignAttr</code> lands in <code>Record.instance_attrs</code>; the fix keeps nodes whose <code>root()</code> is the class's module. Run approved 2 November: 42/42 green, codecov 100%. Primer removes cross-module names: django <code>SQL_KEYWORD</code>, astropy <code>standardID</code> and two <code>disallowed-name</code> <code>foo</code>, music21 <code>ps</code>. It also lacks the django +5 <code>invalid-name</code> (<code>DEBUG</code>, <code>ALLOWED_HOSTS</code>...) that #11615 got the same hour, which fits that drift being this bug.",
-        'Review and merge (with #11735, same filter in another checker).',
+        'decide',
+        'dup',
+        'duplicate',
+        "Trusted (Redoubts, first merged PR 2021). 126 lines for their issue 11767 (FP): <code>invalid-name</code> on <code>record.FieldName = ...</code> in <code>consumer.py</code> when <code>model.py</code> is in the same <code>-j1</code> run, inline <code>disable</code> ignored. Green, codecov 100%, primer removes real cross-module names (django <code>SQL_KEYWORD</code>, astropy <code>standardID</code>, music21 <code>ps</code>). Same fix as #11691 (b84330808, issue 9666, opened earlier, run still held): both keep only <code>instance_attrs</code> nodes whose <code>root()</code> is the class's module; #11691 also covers <code>non-ascii-name</code>. Issue 11767 = 9666.",
+        "Pick one: merge this (trusted, green) and ask it to add non-ascii-name, crediting #11691; or approve #11691's run and close this. Close 11767 as a duplicate of 9666 either way.",
     ),
 
     11766: (
@@ -416,8 +448,8 @@ V = {
         'decide',
         'dup',
         'duplicate',
-        '20 lines by thisisshivamtiwari for issue 10827 (FP): <code>unused-wildcard-import</code> / <code>unused-import</code> for names <code>__all__</code> leaves out of <code>from module import *</code>. Opened while #11666 was gone with its deleted account; that account is back, and #11666 came first and covers more (<code>from . import *</code>). Not run locally.',
-        'Close as a duplicate of #11666, with thanks; or keep this one if #11666 stalls.',
+        '20 lines by thisisshivamtiwari for issue 10827 (FP): <code>unused-wildcard-import</code> / <code>unused-import</code> for names <code>__all__</code> leaves out of <code>from module import *</code>. Duplicate of #11666 (first, also covers <code>from . import *</code>). chrikrah approved on 2 November but found a blocking false negative: an unused <code>import os</code> after <code>from os.path import *</code> goes silent. Check #11666 for the same hole.',
+        "Close as a duplicate of #11666, and pass chrikrah's case on to #11666.",
     ),
     11754: (
         "approve",
@@ -680,14 +712,11 @@ V = {
         "Approve the run, then review.",
     ),
     11691: (
-        "approve",
-        "held",
-        "confirmed",
-        "New this morning, 49 lines by b84330808 for issue 9666 (FP): <code>invalid-name</code> "
-        "ignores a module-level disable when <code>self._srv_status.field = ...</code> is assigned "
-        "on a ctypes <code>Structure</code> defined in another module (astroid adds the attribute "
-        "there, so the message lands in the other file).",
-        "Approve the run, then review.",
+        'decide',
+        'dup',
+        'duplicate',
+        '49 lines by b84330808 for issue 9666 (FP): <code>invalid-name</code> ignores a module-level disable when <code>self._srv_status.field = ...</code> is assigned on a ctypes <code>Structure</code> defined in another module. Same fix as #11768 (trusted, green, issue 11767 = this bug), opened first, and also filters <code>non-ascii-name</code>. Run never approved.',
+        'Decide together with #11768 (see there).',
     ),
     11692: (
         "approve",
@@ -855,11 +884,11 @@ V = {
         "Re-run the failed primer jobs, then review.",
     ),
     11377: (
-        "retrigger",
-        "no ci",
-        "unrepro",
-        "15 lines, the smallest open PR here, and it has sat since 3 September with no test workflow at all.",
-        "Push the button that starts CI, then review — it should be a ten-minute read.",
+        'decide',
+        'dup',
+        'duplicate',
+        '15 lines by rzaman8677 for issue 11353 (FP, <code>reimported</code> on <code>from . import json</code> next to <code>import json</code>), CI never ran since 3 September. Skips the comparison for any relative import, so it would also hide a real reimport through a relative path. #11778 (2 November) resolves the absolute name instead.',
+        'Close in favour of #11778 once that is green, with thanks.',
     ),
     11376: (
         "retrigger",

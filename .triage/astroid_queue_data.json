@@ -1,5 +1,5 @@
 {
- "snapshot": "2026-11-02",
+ "snapshot": "2026-11-04",
  "prs": [
   {
    "n": 2965,
@@ -1075,7 +1075,7 @@
    "size": 62,
    "created": "2026-10-04",
    "updated": "2026-10-08",
-   "ci": "awaiting-approval",
+   "ci": "green",
    "cifail": 0,
    "links": [
     {
@@ -1415,36 +1415,6 @@
       "False Positive 🦟",
       "Needs PR",
       "python 3.12"
-     ],
-     "reactions": 0,
-     "pr": false
-    }
-   ]
-  },
-  {
-   "n": 3377,
-   "a": "Shaisolaris",
-   "t": "Keep operand order for int and bool constant operations",
-   "draft": false,
-   "labels": [
-    "Bug 🪳",
-    "inference"
-   ],
-   "rd": "REVIEW_REQUIRED",
-   "milestone": "",
-   "size": 9542,
-   "created": "2026-10-12",
-   "updated": "2026-10-31",
-   "ci": "awaiting-approval",
-   "cifail": 0,
-   "links": [
-    {
-     "ref": "pylint-dev/astroid#3376",
-     "title": "Binary operations between an int and a bool are inferred with the operands swapped",
-     "state": "open",
-     "labels": [
-      "Bug 🪳",
-      "inference"
      ],
      "reactions": 0,
      "pr": false
@@ -2336,7 +2306,7 @@
    "milestone": "",
    "size": 57,
    "created": "2026-10-23",
-   "updated": "2026-10-31",
+   "updated": "2026-11-03",
    "ci": "awaiting-approval",
    "cifail": 0,
    "links": [
@@ -2672,6 +2642,61 @@
       "Needs PR"
      ],
      "reactions": 0,
+     "pr": false
+    }
+   ]
+  },
+  {
+   "n": 3461,
+   "a": "mmporong",
+   "t": "Apply !s, !r and !a conversions when inferring f-strings",
+   "draft": false,
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 38,
+   "created": "2026-11-03",
+   "updated": "2026-11-03",
+   "ci": "awaiting-approval",
+   "cifail": 0,
+   "links": []
+  },
+  {
+   "n": 3462,
+   "a": "PDGGK",
+   "t": "Infer ``cls`` as Uninferable in a classmethod defined outside a class",
+   "draft": false,
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 86,
+   "created": "2026-11-03",
+   "updated": "2026-11-03",
+   "ci": "awaiting-approval",
+   "cifail": 0,
+   "links": [
+    {
+     "ref": "pylint-dev/pylint#7487",
+     "title": "False positive: `no-member` when inner function uses the `@classmethod` decorator",
+     "state": "open",
+     "labels": [
+      "False Positive 🦟",
+      "Hacktoberfest",
+      "Needs PR"
+     ],
+     "reactions": 0,
+     "pr": false
+    },
+    {
+     "ref": "pylint-dev/pylint#8755",
+     "title": "Recursive defining a function with classmethod decorator triggers crashing",
+     "state": "closed",
+     "labels": [
+      "Astroid",
+      "Crash 💥",
+      "Needs PR"
+     ],
+     "reactions": 1,
      "pr": false
     }
    ]

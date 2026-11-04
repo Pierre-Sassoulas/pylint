@@ -11775,26 +11775,13 @@
   "commit": "64279fbf5"
  },
  "11645": {
-  "date": "2026-10-12",
+  "date": "2026-11-04",
   "added": 0,
-  "removed": 1,
+  "removed": 0,
   "changed": 0,
-  "projects": {
-   "astropy": {
-    "added": 0,
-    "removed": 1,
-    "changed": 0
-   }
-  },
-  "items": [
-   [
-    "astropy",
-    "removed",
-    "no-member",
-    "*Instance of 'ndarray' has no 'mask' member*"
-   ]
-  ],
-  "commit": "df0820d78"
+  "projects": {},
+  "items": [],
+  "commit": "a063e8cf1"
  },
  "11646": {
   "date": "2026-10-11",
@@ -17152,5 +17139,27 @@
    ]
   ],
   "commit": "9125b0d4e"
+ },
+ "11780": {
+  "date": "2026-11-03",
+  "added": 0,
+  "removed": 1,
+  "changed": 0,
+  "projects": {
+   "music21": {
+    "added": 0,
+    "removed": 1,
+    "changed": 0
+   }
+  },
+  "items": [
+   [
+    "music21",
+    "removed",
+    "consider-using-augmented-assign",
+    "*Use '+=' to do an augmented assign directly*"
+   ]
+  ],
+  "commit": "f2c7ed3f6"
  }
 }
