@@ -13,6 +13,7 @@ from __future__ import annotations
 import html
 import json
 import pathlib
+import re
 
 HERE = pathlib.Path(__file__).resolve().parent
 DATA = json.loads((HERE / "pr_queue_data.json").read_text())
@@ -87,11 +88,11 @@ V = {
         "Review astroid #3442 first; this PR then shrinks to tests or closes.",
     ),
     11615: (
-        'author',
-        'red',
+        'approve',
+        'held',
         'confirmed',
-        'Issue 10137 (bug, 3 reactions, milestone 4.1.4): <code>__Init__.py</code> with different capitalization is linted as a module on Windows. Run approved 2 November: 40/41, only <code>pylint</code> spelling fails on <code>canonicalization</code>, <code>filesystem</code>, <code>lookups</code> in a new docstring. Codecov 100%, primer only noise. summeriver13 (not the author; also ran it on Windows) opened ningkexin96/pylint#2 against the PR branch to reword the docstring.',
-        'Wait for the author to take the spelling fix; then re-review and backport for 4.1.4.',
+        "Issue 10137 (bug, 3 reactions, now milestone 4.1.5): <code>__Init__.py</code> with different capitalization is linted as a module on Windows. The 2 November run was 40/41, only <code>pylint</code> spelling red on three words in a new docstring. summeriver13's fix (ningkexin96/pylint#2) was merged into the branch on 5 November as 2ddc28a: docstring only, logic unchanged. Its six runs are held again.",
+        'Approve the run; if green, review and backport (now 4.1.5).',
     ),
     11690: (
         "review",
@@ -266,6 +267,27 @@ V = {
         "Add skip news, then review with DudeNr33.",
     ),
     # ---- approve the workflow run ----------------------------------------
+    11785: (
+        'decide',
+        'dup',
+        'duplicate',
+        'New, 14 lines by Jah-yee for issue 11702 (docs, <em>Good first issue</em>): says in the <code>logging-format-style</code> help that stdlib <code>logging</code> always formats with <code>%</code>. Same change, same three files as #11723 (Pushkar-Shahi, opened 23 October, run held), which is already linked to the issue.',
+        "Close as a duplicate of #11723 and approve that one's run instead.",
+    ),
+    11784: (
+        'decide',
+        'design',
+        'feature',
+        'New, 43 lines by inchang-ing for issue 11783 (filed 5 November, <em>Needs triage</em>): <code>def f(): pass</code> gives <code>too-many-statements (2/1)</code>. By design the counter starts at 1 for the <code>def</code> itself, so every function is one over its body. The PR only special-cases a body that is a sole <code>pass</code> (seed 0), so <code>def f(): pass</code> counts 1 but <code>def f(): return 1</code> still counts 2: inconsistent. Green.',
+        'Decide: close the issue as working as intended (the def counts, document it), or stop counting the def everywhere (shifts every count by one, primer + changelog). Either way the sole-pass special case should not land.',
+    ),
+    11782: (
+        'approve',
+        'held',
+        'confirmed',
+        'New, 20 lines by unaltolga for issue 9405 (FN, <em>Needs PR</em>): <code>no-member</code> is skipped under <code>if enabled:</code> when <code>enabled = False</code> then maybe <code>True</code>, because the false-branch guard (#4764) only looks at the first inferred value. One-line fix, the one jacobtylerwalls proposed on the issue: <code>safe_infer(parent.test, compare_constants=True)</code>. Only PR for the issue. Not run locally.',
+        'Approve the run; the primer will show whether more no-member comes back (expected: true positives only).',
+    ),
     11776: (
         'decide',
         'design',
@@ -324,18 +346,18 @@ V = {
     ),
 
     11770: (
-        'author',
-        'coverage',
+        'review',
+        'green',
         'confirmed',
-        'New, 69 lines by inchang-ing for issue 11769 (FP, filed by cdce8p on 31 October): <code>used-before-assignment</code> on <code>str(var) if (var := 2) else None</code> nested in a dict value inside another dict. Adds a recursive <code>_value_may_use_and_assign()</code> that walks dicts, containers and calls looking for an <code>IfExp</code>. CI green except <code>codecov/patch</code>: some match arms (lambda, call with attribute target) have no test. Primer only noise (astropy ancestors, django/music21 <code>invalid-name</code>). Docstring is split mid-sentence. Related to 7538 and 8486, which may want the same generic fix rather than more shape cases.',
-        'Wait for the author to cover the missing arms; then review whether a generic "walrus in the IfExp test" rule beats the shape list.',
+        '69 → 150 lines by inchang-ing for issue 11769 (FP, filed by cdce8p): <code>used-before-assignment</code> on <code>str(var) if (var := 2) else None</code> nested in a dict value inside another dict. The 5 November rewrite answers the coverage and shape worries: <code>_value_may_use_and_assign()</code> now only accepts an <code>IfExp</code> whose test is a walrus on the same name in the same scope, reached through literal containers only (no lambda, call or short-circuit). Seven new negative tests (unrelated conditional, other name, lambda, <code>or</code>, read in the test, conditional binding). CI green incl. codecov, primer no effect.',
+        'Review: the rule is now narrow and well-tested; merge if the helper reads clearly enough.',
     ),
 
     11768: (
         'decide',
         'dup',
         'duplicate',
-        "Trusted (Redoubts, first merged PR 2021). 126 lines for their issue 11767 (FP): <code>invalid-name</code> on <code>record.FieldName = ...</code> in <code>consumer.py</code> when <code>model.py</code> is in the same <code>-j1</code> run, inline <code>disable</code> ignored. Green, codecov 100%, primer removes real cross-module names (django <code>SQL_KEYWORD</code>, astropy <code>standardID</code>, music21 <code>ps</code>). Same fix as #11691 (b84330808, issue 9666, opened earlier, run still held): both keep only <code>instance_attrs</code> nodes whose <code>root()</code> is the class's module; #11691 also covers <code>non-ascii-name</code>. Issue 11767 = 9666.",
+        "Trusted (Redoubts, first merged PR 2021). 126 lines for their issue 11767 (FP): <code>invalid-name</code> on <code>record.FieldName = ...</code> in <code>consumer.py</code> when <code>model.py</code> is in the same <code>-j1</code> run, inline <code>disable</code> ignored. Green, codecov 100%, primer removes real cross-module names (django <code>SQL_KEYWORD</code>, astropy <code>standardID</code>, music21 <code>ps</code>). Same fix as #11691 (b84330808, issue 9666, opened earlier, run still held): both keep only <code>instance_attrs</code> nodes whose <code>root()</code> is the class's module; #11691 also covers <code>non-ascii-name</code>. Issue 11767 = 9666. chrikrah approved on 5 November after checking the new tests fail on the base checker.",
         "Pick one: merge this (trusted, green) and ask it to add non-ascii-name, crediting #11691; or approve #11691's run and close this. Close 11767 as a duplicate of 9666 either way.",
     ),
 
@@ -343,7 +365,7 @@ V = {
         'approve',
         'held',
         'confirmed',
-        'New, 36 lines by YashG1836 for issue 11765 (FN): <code>glob.glob0</code> / <code>glob.glob1</code> sat in <code>DEPRECATED_CLASSES</code> with a module prefix, and <code>typing._UnionGenericAlias</code> had a stray leading dot, so none could ever match. Moves the glob pair to <code>DEPRECATED_METHODS</code> 3.13 and drops the dot. Confirmed in the source. Not run locally.',
+        'New, 36 lines by YashG1836 for issue 11765 (FN): <code>glob.glob0</code> / <code>glob.glob1</code> sat in <code>DEPRECATED_CLASSES</code> with a module prefix, and <code>typing._UnionGenericAlias</code> had a stray leading dot, so none could ever match. Moves the glob pair to <code>DEPRECATED_METHODS</code> 3.13 and drops the dot. Confirmed in the source. Not run locally. chrikrah approved on 5 November: both new tests fail on the base table, and it merges cleanly with #11764 in either order.',
         'Approve the run, then review with #11764 (same table, will conflict lightly).',
     ),
 
@@ -977,12 +999,12 @@ V = {
         "confirmed",
         "72 lines by soodoku for issue 11681 (bug): <code>ignore-comments</code> of "
         "<code>duplicate-code</code> cut lines at a <code>#</code> inside a string; now uses "
-        "<code>tokenize</code>. Milestone 4.1.4. Rebased on 27 October as you asked (kept both test "
+        "<code>tokenize</code>. Milestone 4.1.5 (moved from 4.1.4 on 2 November). Rebased on 27 October as you asked (kept both test "
         "blocks at the end of <code>unittest_symilar.py</code>); CI green. The new primer reports 5 "
         "django <code>invalid-name</code> (<code>DEBUG</code>, <code>ALLOWED_HOSTS</code>...): the PR only "
         "touches <code>symilar.py</code>, and the author ran invalid-name over django with main and the "
         "branch: identical. Baseline drift.",
-        "Dismiss your change request and merge for 4.1.4.",
+        "Dismiss your change request and merge for 4.1.5.",
     ),
     11715: (
         "review",
@@ -1081,7 +1103,7 @@ V = {
         "The one PR kept for issue 8460 (#10903 and #11540 closed in its favour, 4 October). Milestone "
         "4.2.0. You asked for an error on a non-boolean value (<code>exit-zero = \"maybe\"</code>), an "
         "INI test, an <code>errors-only = false</code> test, and to reuse #10903's functional config "
-        "tests with a Co-authored-by trailer.",
+        "tests with a Co-authored-by trailer. Force-pushed on 5 November, still conflicting, none of the asks answered yet.",
         "Waiting on the author.",
     ),
     11370: (
@@ -1684,6 +1706,19 @@ if backports:
             f'<span class="why">Why here: the fix is merged on main and only reaches users in the next '
             f"patch release once this is merged · CI {CI_WORDS[r['ci']][0]} · opened {E(r['created'])}</span></li>"
         )
+    todo.append("</ol>")
+# The open pull requests of the next patch milestone come next: the release
+# waits on them, whatever their lane or category.
+patch_milestones = sorted(
+    {r.get("milestone", "") for r in rows.values() if re.fullmatch(r"\d+\.\d+\.[1-9]\d*", r.get("milestone", ""))},
+    key=lambda title: tuple(map(int, title.split("."))),
+)
+if patch_milestones:
+    release = patch_milestones[0]
+    todo.append(f"<h3>0. Last items of {E(release)}</h3><ol>")
+    todo.extend(
+        todo_item(n) for n in sorted((n for n, r in rows.items() if r.get("milestone") == release and n in V), key=priority)
+    )
     todo.append("</ol>")
 for title, items in (
     ("1. Merge", lane_members("merge")),

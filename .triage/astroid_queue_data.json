@@ -1,5 +1,5 @@
 {
- "snapshot": "2026-11-04",
+ "snapshot": "2026-11-05",
  "prs": [
   {
    "n": 2965,
@@ -111,7 +111,7 @@
    "milestone": "",
    "size": 317,
    "created": "2026-05-24",
-   "updated": "2026-10-21",
+   "updated": "2026-11-05",
    "ci": "green",
    "cifail": 0,
    "links": [
@@ -139,7 +139,7 @@
    "milestone": "4.4.0",
    "size": 433,
    "created": "2026-06-28",
-   "updated": "2026-10-21",
+   "updated": "2026-11-05",
    "ci": "green",
    "cifail": 0,
    "links": [
@@ -475,7 +475,7 @@
    "milestone": "4.4.0",
    "size": 37,
    "created": "2026-08-15",
-   "updated": "2026-09-02",
+   "updated": "2026-11-05",
    "ci": "green",
    "cifail": 0,
    "links": []
@@ -1191,7 +1191,7 @@
    "size": 130,
    "created": "2026-10-06",
    "updated": "2026-10-08",
-   "ci": "awaiting-approval",
+   "ci": "green",
    "cifail": 0,
    "links": [
     {
@@ -2304,9 +2304,9 @@
    ],
    "rd": "REVIEW_REQUIRED",
    "milestone": "",
-   "size": 57,
+   "size": 83,
    "created": "2026-10-23",
-   "updated": "2026-11-03",
+   "updated": "2026-11-05",
    "ci": "awaiting-approval",
    "cifail": 0,
    "links": [
@@ -2538,7 +2538,7 @@
    "milestone": "",
    "size": 201,
    "created": "2026-10-29",
-   "updated": "2026-10-29",
+   "updated": "2026-11-05",
    "ci": "awaiting-approval",
    "cifail": 0,
    "links": [
@@ -2651,12 +2651,15 @@
    "a": "mmporong",
    "t": "Apply !s, !r and !a conversions when inferring f-strings",
    "draft": false,
-   "labels": [],
+   "labels": [
+    "Bug 🪳",
+    "inference"
+   ],
    "rd": "REVIEW_REQUIRED",
    "milestone": "",
    "size": 38,
    "created": "2026-11-03",
-   "updated": "2026-11-03",
+   "updated": "2026-11-05",
    "ci": "awaiting-approval",
    "cifail": 0,
    "links": []
@@ -2666,12 +2669,16 @@
    "a": "PDGGK",
    "t": "Infer ``cls`` as Uninferable in a classmethod defined outside a class",
    "draft": false,
-   "labels": [],
+   "labels": [
+    "Bug 🪳",
+    "inference",
+    "decorators"
+   ],
    "rd": "REVIEW_REQUIRED",
    "milestone": "",
    "size": 86,
    "created": "2026-11-03",
-   "updated": "2026-11-03",
+   "updated": "2026-11-05",
    "ci": "awaiting-approval",
    "cifail": 0,
    "links": [
@@ -2697,6 +2704,32 @@
       "Needs PR"
      ],
      "reactions": 1,
+     "pr": false
+    }
+   ]
+  },
+  {
+   "n": 3463,
+   "a": "Nani-2007-code",
+   "t": "Support PEP 604 union types in isinstance and issubclass inference (#3453)",
+   "draft": false,
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 120,
+   "created": "2026-11-04",
+   "updated": "2026-11-04",
+   "ci": "awaiting-approval",
+   "cifail": 0,
+   "links": [
+    {
+     "ref": "pylint-dev/astroid#3453",
+     "title": "isinstance() / issubclass() with a PEP 604 union classinfo (e.g. int | str) always infers False; narrowing discards all values",
+     "state": "open",
+     "labels": [
+      "Bug 🪳"
+     ],
+     "reactions": 0,
      "pr": false
     }
    ]

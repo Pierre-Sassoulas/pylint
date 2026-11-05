@@ -22,7 +22,7 @@ retry() {
   return 1
 }
 
-retry base.json number,author,title,createdAt,updatedAt,isDraft,labels,additions,deletions,changedFiles,reviewDecision,mergeable,headRefName,headRefOid,url
+retry base.json number,author,title,createdAt,updatedAt,isDraft,labels,additions,deletions,changedFiles,reviewDecision,mergeable,headRefName,headRefOid,url,milestone
 retry revs.json number,reviews
 # statusCheckRollup for all open pull requests at once times out (HTTP 504), so the
 # check runs are fetched one pull request at a time.
@@ -103,6 +103,7 @@ for number, pr in sorted(base.items()):
             "created": pr["createdAt"][:10],
             "updated": pr["updatedAt"][:10],
             "labels": [label["name"] for label in pr["labels"]],
+            "milestone": (pr.get("milestone") or {}).get("title", ""),
             "rd": pr["reviewDecision"] or "NONE",
             "merge": pr["mergeable"],
             "ci": state,
