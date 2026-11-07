@@ -1,7 +1,7 @@
 {
- "snapshot": "2026-11-05",
+ "snapshot": "2026-11-07",
  "owner": "Pierre-Sassoulas",
- "open_total": 171,
+ "open_total": 173,
  "open_own": 21,
  "prs": [
   {
@@ -204,7 +204,7 @@
    "size": 31,
    "files": 2,
    "created": "2024-07-16",
-   "updated": "2026-11-04",
+   "updated": "2026-11-07",
    "labels": [
     "Documentation :green_book:",
     "Skip news :mute:",
@@ -389,8 +389,8 @@
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
    "ci": "failing",
-   "citot": 46,
-   "cifail": 4,
+   "citot": 6,
+   "cifail": 2,
    "nrev": 6,
    "mrev": [
     "DanielNoord",
@@ -798,9 +798,9 @@
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "awaiting-approval",
+   "ci": "failing",
    "citot": 53,
-   "cifail": 0,
+   "cifail": 1,
    "nrev": 2,
    "mrev": [
     "DanielNoord"
@@ -1740,41 +1740,6 @@
    ]
   },
   {
-   "n": 11469,
-   "a": "wufangyong973",
-   "t": "fix(config): honor false value for valueless options in config files",
-   "draft": false,
-   "size": 9522,
-   "files": 27,
-   "created": "2026-09-26",
-   "updated": "2026-11-05",
-   "labels": [
-    "Bug :beetle:",
-    "Configuration"
-   ],
-   "milestone": "4.2.0",
-   "rd": "CHANGES_REQUESTED",
-   "merge": "CONFLICTING",
-   "ci": "not-run",
-   "citot": 2,
-   "cifail": 0,
-   "nrev": 2,
-   "mrev": [
-    "Pierre-Sassoulas"
-   ],
-   "links": [
-    [
-     8460,
-     "",
-     ""
-    ]
-   ],
-   "lastcom": [
-    "github-actions",
-    "2026-10-04"
-   ]
-  },
-  {
    "n": 11475,
    "a": "udsy19",
    "t": "Fix import-self false positive for a name missing from the current package",
@@ -1848,7 +1813,7 @@
    "size": 45,
    "files": 3,
    "created": "2026-09-30",
-   "updated": "2026-10-18",
+   "updated": "2026-11-07",
    "labels": [
     "Bug :beetle:",
     "Documentation :green_book:"
@@ -2287,7 +2252,7 @@
    "size": 121,
    "files": 10,
    "created": "2026-10-10",
-   "updated": "2026-10-12",
+   "updated": "2026-11-06",
    "labels": [
     "False Negative 🦋",
     "python 3.14"
@@ -2513,19 +2478,19 @@
    "a": "agustin18",
    "t": "Fix false positive used-before-assignment for walrus in stacked decorators (#9641)",
    "draft": false,
-   "size": 152,
+   "size": 202,
    "files": 6,
    "created": "2026-10-11",
-   "updated": "2026-11-04",
+   "updated": "2026-11-07",
    "labels": [
     "False Positive 🦟"
    ],
    "milestone": "",
    "rd": "CHANGES_REQUESTED",
    "merge": "MERGEABLE",
-   "ci": "failing",
+   "ci": "green",
    "citot": 43,
-   "cifail": 1,
+   "cifail": 0,
    "nrev": 1,
    "mrev": [
     "Pierre-Sassoulas"
@@ -2539,7 +2504,7 @@
    ],
    "lastcom": [
     "github-actions",
-    "2026-11-04"
+    "2026-11-07"
    ]
   },
   {
@@ -3442,7 +3407,7 @@
    "size": 53,
    "files": 4,
    "created": "2026-10-21",
-   "updated": "2026-10-27",
+   "updated": "2026-11-06",
    "labels": [
     "False Negative 🦋"
    ],
@@ -3452,7 +3417,7 @@
    "ci": "green",
    "citot": 43,
    "cifail": 0,
-   "nrev": 1,
+   "nrev": 2,
    "mrev": [],
    "links": [
     [
@@ -3799,7 +3764,7 @@
    "size": 240,
    "files": 6,
    "created": "2026-10-24",
-   "updated": "2026-10-24",
+   "updated": "2026-11-07",
    "labels": [
     "False Positive 🦟"
    ],
@@ -3819,8 +3784,8 @@
     ]
    ],
    "lastcom": [
-    "-",
-    "-"
+    "hector2394",
+    "2026-11-07"
    ]
   },
   {
@@ -4322,7 +4287,7 @@
    "size": 13,
    "files": 3,
    "created": "2026-10-29",
-   "updated": "2026-10-29",
+   "updated": "2026-11-07",
    "labels": [
     "Documentation :green_book:"
    ],
@@ -4330,7 +4295,7 @@
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
    "ci": "awaiting-approval",
-   "citot": 4,
+   "citot": 2,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -4793,7 +4758,7 @@
    "size": 21,
    "files": 4,
    "created": "2026-11-05",
-   "updated": "2026-11-05",
+   "updated": "2026-11-07",
    "labels": [],
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
@@ -4801,7 +4766,7 @@
    "ci": "awaiting-approval",
    "citot": 3,
    "cifail": 0,
-   "nrev": 0,
+   "nrev": 1,
    "mrev": [],
    "links": [],
    "lastcom": [
@@ -4858,6 +4823,96 @@
    "nrev": 0,
    "mrev": [],
    "links": [],
+   "lastcom": [
+    "-",
+    "-"
+   ]
+  },
+  {
+   "n": 11788,
+   "a": "kennywu411-dev",
+   "t": "Fix used-before-assignment instead of possibly-used-before-assignment when the name is assigned again later",
+   "draft": false,
+   "size": 81,
+   "files": 5,
+   "created": "2026-11-07",
+   "updated": "2026-11-07",
+   "labels": [],
+   "milestone": "",
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "awaiting-approval",
+   "citot": 3,
+   "cifail": 0,
+   "nrev": 1,
+   "mrev": [],
+   "links": [
+    [
+     10195,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "-",
+    "-"
+   ]
+  },
+  {
+   "n": 11789,
+   "a": "Julfried",
+   "t": "Fix Pyreverse inheritance links in flat packages",
+   "draft": false,
+   "size": 485,
+   "files": 24,
+   "created": "2026-11-07",
+   "updated": "2026-11-07",
+   "labels": [],
+   "milestone": "",
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "green",
+   "citot": 45,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [
+    [
+     7686,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "github-actions",
+    "2026-11-07"
+   ]
+  },
+  {
+   "n": 11790,
+   "a": "vidigoat",
+   "t": "Fix false positive `expression-not-assigned` for a conditional expression that calls on every branch",
+   "draft": false,
+   "size": 42,
+   "files": 4,
+   "created": "2026-11-07",
+   "updated": "2026-11-07",
+   "labels": [],
+   "milestone": "",
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "awaiting-approval",
+   "citot": 3,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [
+    [
+     8129,
+     "",
+     ""
+    ]
+   ],
    "lastcom": [
     "-",
     "-"
@@ -5309,6 +5364,18 @@
    "title": "Add dark mode to pyreverse"
   },
   {
+   "comments": 5,
+   "labels": [
+    "pyreverse",
+    "Needs PR"
+   ],
+   "number": 7686,
+   "reactions": 0,
+   "state": "open",
+   "state_reason": null,
+   "title": "`pyreverse` does not show inheritance relation when using a flat folder"
+  },
+  {
    "comments": 4,
    "labels": [
     "Decorators",
@@ -5356,6 +5423,18 @@
    "state": "open",
    "state_reason": null,
    "title": "Pyreverse: Duplicated class variables"
+  },
+  {
+   "comments": 18,
+   "labels": [
+    "False Positive 🦟",
+    "Needs PR"
+   ],
+   "number": 8129,
+   "reactions": 0,
+   "state": "open",
+   "state_reason": "reopened",
+   "title": "False positive ``expression-not-assigned`` when calling functions with no return inside ternary expression"
   },
   {
    "comments": 1,
@@ -5406,20 +5485,6 @@
    "state": "open",
    "state_reason": null,
    "title": "consider-using-f-string is triggered in a functional context"
-  },
-  {
-   "comments": 7,
-   "labels": [
-    "Configuration",
-    "Good first issue",
-    "Hacktoberfest",
-    "Needs PR"
-   ],
-   "number": 8460,
-   "reactions": 0,
-   "state": "open",
-   "state_reason": null,
-   "title": "Pylint does not respect false values for boolean config options in toml files"
   },
   {
    "comments": 3,
@@ -6113,6 +6178,20 @@
    "state": "open",
    "state_reason": null,
    "title": "Spellchecker doesn't ignore labels and types in autodoc docstrings"
+  },
+  {
+   "comments": 5,
+   "labels": [
+    "Control flow",
+    "False Positive 🦟",
+    "C: used-before-assignment",
+    "Needs design proposal :lock:"
+   ],
+   "number": 10195,
+   "reactions": 0,
+   "state": "open",
+   "state_reason": null,
+   "title": "False positive `used-before-assignment`"
   },
   {
    "comments": 10,

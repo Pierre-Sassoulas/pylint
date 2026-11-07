@@ -198,13 +198,11 @@ V = {
         "Review.",
     ),
     11645: (
-        "author",
-        "coverage",
-        "confirmed",
-        "Issue 9641 (FP): <code>used-before-assignment</code> for a walrus bound in one decorator and used in a later "
-        "stacked decorator. New commit 4 November (\"Cover source-order fallback\") still leaves "
-        "<code>codecov/patch</code> red; the rest is green.",
-        "Wait for the author to cover the fallback (or drop it); then re-review.",
+        'review',
+        'green',
+        'confirmed',
+        'Issue 9641 (FP): <code>used-before-assignment</code> for a walrus bound in one decorator and used in a later stacked decorator. 7 November: a commit covering the decorator fallback branches and a merge of main. Now all green including <code>codecov/patch</code>; primer no effect.',
+        'Review: coverage was the only blocker.',
     ),
     11624: (
         "review",
@@ -267,6 +265,27 @@ V = {
         "Add skip news, then review with DudeNr33.",
     ),
     # ---- approve the workflow run ----------------------------------------
+    11790: (
+        'approve',
+        'held',
+        'confirmed',
+        'New, 42 lines by vidigoat for issue 8129 (FP, <em>Needs PR</em>): <code>expression-not-assigned</code> on <code>f1() if test else f2()</code> as a statement. New <code>_is_call_await_or_yield()</code> accepts an <code>IfExp</code> whose every branch is a call, an <code>await</code> or a <code>yield</code>. Small, matches the issue discussion. Only PR. Not run locally.',
+        'Approve the run, then review.',
+    ),
+    11789: (
+        'review',
+        'green',
+        'confirmed',
+        "New, 485 lines by Julfried (19 merged pyreverse PRs since 2024) for issue 7686 (bug, <em>Needs PR</em>): pyreverse drops inheritance links in a flat folder with bare imports. Stacked on Julfried's #11664 (directory-based pyreverse tests) and carries its commits until that merges; the fix itself is in <code>diadefslib.py</code> / <code>diagrams.py</code>. Green. The 2024 test-only PR #9693 shows the same case.",
+        'Review #11664 first, then this after its rebase (with DudeNr33).',
+    ),
+    11788: (
+        'approve',
+        'held',
+        'confirmed',
+        "New, 81 lines by kennywu411-dev for issue 10195 (FP, regression since 3.2 per SpecLad's bisect to the commit that added E0606; labelled <em>Needs design proposal</em>): <code>if c: v = 1</code> then <code>print(v)</code> then <code>v = n</code> gives a definite <code>used-before-assignment</code> because the later assignment hides the earlier conditional one. Now reports <code>possibly-used-before-assignment</code> when an uncertain definition comes before the use (compared by line and column). Only PR for the issue. Not run locally.",
+        'Approve the run; check the primer for E0601 → E0606 moves, and that the position comparison holds for loops.',
+    ),
     11785: (
         'decide',
         'dup',
@@ -285,7 +304,7 @@ V = {
         'approve',
         'held',
         'confirmed',
-        'New, 20 lines by unaltolga for issue 9405 (FN, <em>Needs PR</em>): <code>no-member</code> is skipped under <code>if enabled:</code> when <code>enabled = False</code> then maybe <code>True</code>, because the false-branch guard (#4764) only looks at the first inferred value. One-line fix, the one jacobtylerwalls proposed on the issue: <code>safe_infer(parent.test, compare_constants=True)</code>. Only PR for the issue. Not run locally.',
+        'New, 20 lines by unaltolga for issue 9405 (FN, <em>Needs PR</em>): <code>no-member</code> is skipped under <code>if enabled:</code> when <code>enabled = False</code> then maybe <code>True</code>, because the false-branch guard (#4764) only looks at the first inferred value. One-line fix, the one jacobtylerwalls proposed on the issue: <code>safe_infer(parent.test, compare_constants=True)</code>. Only PR for the issue. Not run locally. chrikrah approved on 7 November (non-blocking: no test for a flag that is False on both branches).',
         'Approve the run; the primer will show whether more no-member comes back (expected: true positives only).',
     ),
     11776: (
@@ -488,7 +507,7 @@ V = {
         "feature",
         "New, 13 lines by Jah-yee for issue 9317 (docs): the <code>unnecessary-lambda</code> pandas example "
         "used <code>df.apply(str)</code>, which is not equivalent on a DataFrame (applies per column); now "
-        "<code>df[\"a\"].apply(str)</code>. Adds a <code>.other</code> fragment a docs-only change does not need.",
+        "<code>df[\"a\"].apply(str)</code>. Adds a <code>.other</code> fragment a docs-only change does not need. Force-pushed on 7 November, run held again.",
         "Approve the run; ask to drop the fragment.",
     ),
     11747: (
@@ -613,7 +632,7 @@ V = {
         "New, 240 lines by hector2394 for issue 10055 (FP, 0 reactions): <code>cell-var-from-loop</code> on "
         "a generator of lambdas consumed by one <code>for</code> loop that calls each lambda at once. Narrow "
         "escape rules (single binding and use, no deferred read). Tests fail on main, pass with the PR. Third "
-        "open <code>cell-var-from-loop</code> PR in <code>variables.py</code> with #11725 and #11727.",
+        "open <code>cell-var-from-loop</code> PR in <code>variables.py</code> with #11725 and #11727. The author pinged you on 7 November.",
         "Hold; review after #11725 and #11727, the three touch the same function.",
     ),
     11728: (
@@ -721,7 +740,7 @@ V = {
         "<code>repeated-keyword</code> skipped built-ins like <code>print(end=\"!\", "
         "**{\"end\": \"?\"})</code>, because the check came after the early return for callees "
         "without argument information. Moves the check up; on 27 October also reports a key repeated "
-        "inside one <code>**{...}</code> mapping. Run approved: CI green, primer no effect.",
+        "inside one <code>**{...}</code> mapping. Run approved: CI green, primer no effect. chrikrah approved on 6 November after checking the tests fail on the base checker.",
         "Review (low priority).",
     ),
     11670: (
@@ -1094,16 +1113,6 @@ V = {
         "<code>codecov/project</code> red. Your local review: the 4 primer hits are true positives; an "
         "<code>__all__</code> false positive and a one-line <code>import a.x, a.y</code> false negative "
         "remain.",
-        "Waiting on the author.",
-    ),
-    11469: (
-        "author",
-        "waiting",
-        "confirmed",
-        "The one PR kept for issue 8460 (#10903 and #11540 closed in its favour, 4 October). Milestone "
-        "4.2.0. You asked for an error on a non-boolean value (<code>exit-zero = \"maybe\"</code>), an "
-        "INI test, an <code>errors-only = false</code> test, and to reuse #10903's functional config "
-        "tests with a Co-authored-by trailer. Force-pushed on 5 November, still conflicting, none of the asks answered yet.",
         "Waiting on the author.",
     ),
     11370: (

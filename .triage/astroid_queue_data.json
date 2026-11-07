@@ -1,5 +1,5 @@
 {
- "snapshot": "2026-11-05",
+ "snapshot": "2026-11-07",
  "prs": [
   {
    "n": 2965,
@@ -111,7 +111,7 @@
    "milestone": "",
    "size": 317,
    "created": "2026-05-24",
-   "updated": "2026-11-05",
+   "updated": "2026-11-06",
    "ci": "green",
    "cifail": 0,
    "links": [
@@ -139,7 +139,7 @@
    "milestone": "4.4.0",
    "size": 433,
    "created": "2026-06-28",
-   "updated": "2026-11-05",
+   "updated": "2026-11-06",
    "ci": "green",
    "cifail": 0,
    "links": [
@@ -475,7 +475,7 @@
    "milestone": "4.4.0",
    "size": 37,
    "created": "2026-08-15",
-   "updated": "2026-11-05",
+   "updated": "2026-11-07",
    "ci": "green",
    "cifail": 0,
    "links": []
@@ -1104,14 +1104,14 @@
    "milestone": "4.4.0",
    "size": 191,
    "created": "2026-10-05",
-   "updated": "2026-10-16",
+   "updated": "2026-11-07",
    "ci": "green",
    "cifail": 0,
    "links": [
     {
      "ref": "pylint-dev/pylint#3045",
      "title": "false positive: unsupported-membership-test",
-     "state": "open",
+     "state": "closed",
      "labels": [
       "Control flow",
       "False Positive 🦟",
@@ -1564,73 +1564,6 @@
    "ci": "awaiting-approval",
    "cifail": 0,
    "links": []
-  },
-  {
-   "n": 3387,
-   "a": "Pierre-Sassoulas",
-   "t": "Conditional assignments constraints in inference (x not inferred to None in ``if x is None: x = 1``)",
-   "draft": false,
-   "labels": [
-    "Enhancement ✨"
-   ],
-   "rd": "REVIEW_REQUIRED",
-   "milestone": "4.4.0",
-   "size": 808,
-   "created": "2026-10-13",
-   "updated": "2026-11-01",
-   "ci": "failing",
-   "cifail": 1,
-   "links": [
-    {
-     "ref": "pylint-dev/pylint#2855",
-     "title": "Classvar[Optional[Tuple]] must be unpacked",
-     "state": "open",
-     "labels": [
-      "Enhancement ✨",
-      "Control flow",
-      "typing",
-      "Needs PR"
-     ],
-     "reactions": 1,
-     "pr": false
-    },
-    {
-     "ref": "pylint-dev/pylint#3045",
-     "title": "false positive: unsupported-membership-test",
-     "state": "open",
-     "labels": [
-      "Control flow",
-      "False Positive 🦟",
-      "Needs PR"
-     ],
-     "reactions": 2,
-     "pr": false
-    },
-    {
-     "ref": "pylint-dev/pylint#4121",
-     "title": "False positive: unsupported-membership-test with Singleton",
-     "state": "open",
-     "labels": [
-      "Bug :beetle:",
-      "Control flow",
-      "False Positive 🦟"
-     ],
-     "reactions": 0,
-     "pr": false
-    },
-    {
-     "ref": "pylint-dev/pylint#5085",
-     "title": "Negation and None",
-     "state": "open",
-     "labels": [
-      "Control flow",
-      "False Positive 🦟",
-      "Needs PR"
-     ],
-     "reactions": 3,
-     "pr": false
-    }
-   ]
   },
   {
    "n": 3388,
@@ -2306,7 +2239,7 @@
    "milestone": "",
    "size": 83,
    "created": "2026-10-23",
-   "updated": "2026-11-05",
+   "updated": "2026-11-07",
    "ci": "awaiting-approval",
    "cifail": 0,
    "links": [
@@ -2733,6 +2666,21 @@
      "pr": false
     }
    ]
+  },
+  {
+   "n": 3465,
+   "a": "kennywu411-dev",
+   "t": "Keep operand order when inferring a reflected binary operation on a constant",
+   "draft": false,
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 50,
+   "created": "2026-11-07",
+   "updated": "2026-11-07",
+   "ci": "awaiting-approval",
+   "cifail": 0,
+   "links": []
   }
  ]
 }
