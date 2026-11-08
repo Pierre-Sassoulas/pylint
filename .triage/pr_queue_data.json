@@ -4759,7 +4759,9 @@
    "files": 4,
    "created": "2026-11-05",
    "updated": "2026-11-07",
-   "labels": [],
+   "labels": [
+    "False Negative 🦋"
+   ],
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
@@ -4783,7 +4785,10 @@
    "files": 4,
    "created": "2026-11-05",
    "updated": "2026-11-05",
-   "labels": [],
+   "labels": [
+    "False Positive 🦟",
+    "Needs decision :lock:"
+   ],
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
@@ -4813,7 +4818,10 @@
    "files": 3,
    "created": "2026-11-05",
    "updated": "2026-11-05",
-   "labels": [],
+   "labels": [
+    "Documentation :green_book:",
+    "Duplicate 🐫"
+   ],
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
@@ -4837,7 +4845,11 @@
    "files": 5,
    "created": "2026-11-07",
    "updated": "2026-11-07",
-   "labels": [],
+   "labels": [
+    "Control flow",
+    "False Positive 🦟",
+    "C: used-before-assignment"
+   ],
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
@@ -4867,7 +4879,10 @@
    "files": 24,
    "created": "2026-11-07",
    "updated": "2026-11-07",
-   "labels": [],
+   "labels": [
+    "Bug :beetle:",
+    "pyreverse"
+   ],
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
@@ -4897,7 +4912,9 @@
    "files": 4,
    "created": "2026-11-07",
    "updated": "2026-11-07",
-   "labels": [],
+   "labels": [
+    "False Positive 🦟"
+   ],
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",

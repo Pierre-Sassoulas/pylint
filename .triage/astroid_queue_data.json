@@ -1,5 +1,5 @@
 {
- "snapshot": "2026-11-07",
+ "snapshot": "2026-11-08",
  "prs": [
   {
    "n": 2965,
@@ -2646,12 +2646,15 @@
    "a": "Nani-2007-code",
    "t": "Support PEP 604 union types in isinstance and issubclass inference (#3453)",
    "draft": false,
-   "labels": [],
+   "labels": [
+    "Bug 🪳",
+    "Duplicate 🐫"
+   ],
    "rd": "REVIEW_REQUIRED",
    "milestone": "",
    "size": 120,
    "created": "2026-11-04",
-   "updated": "2026-11-04",
+   "updated": "2026-11-08",
    "ci": "awaiting-approval",
    "cifail": 0,
    "links": [
@@ -2672,15 +2675,46 @@
    "a": "kennywu411-dev",
    "t": "Keep operand order when inferring a reflected binary operation on a constant",
    "draft": false,
-   "labels": [],
+   "labels": [
+    "Bug 🪳",
+    "inference"
+   ],
    "rd": "REVIEW_REQUIRED",
    "milestone": "",
    "size": 50,
    "created": "2026-11-07",
-   "updated": "2026-11-07",
+   "updated": "2026-11-08",
    "ci": "awaiting-approval",
    "cifail": 0,
    "links": []
+  },
+  {
+   "n": 3466,
+   "a": "RClaudiuM",
+   "t": "Treat names imported in an enum class body as members",
+   "draft": false,
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 108,
+   "created": "2026-11-07",
+   "updated": "2026-11-07",
+   "ci": "awaiting-approval",
+   "cifail": 0,
+   "links": [
+    {
+     "ref": "pylint-dev/pylint#10951",
+     "title": "pylint does not recognise `from ... import` inside an `IntEnum` class body as producing enum members. It infers the members as `int` instead of `LogLevel`, causing a spurious `E1101: Instance of 'int' has no 'value' member (no-member)` error.",
+     "state": "open",
+     "labels": [
+      "Astroid",
+      "False Positive 🦟",
+      "enum"
+     ],
+     "reactions": 1,
+     "pr": false
+    }
+   ]
   }
  ]
 }
