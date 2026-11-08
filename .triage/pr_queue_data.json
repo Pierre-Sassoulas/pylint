@@ -1,7 +1,7 @@
 {
  "snapshot": "2026-11-07",
  "owner": "Pierre-Sassoulas",
- "open_total": 173,
+ "open_total": 172,
  "open_own": 21,
  "prs": [
   {
@@ -4807,33 +4807,6 @@
    "lastcom": [
     "github-actions",
     "2026-11-05"
-   ]
-  },
-  {
-   "n": 11785,
-   "a": "Jah-yee",
-   "t": "Clarify that --logging-format-style only affects Pylint's own checks",
-   "draft": false,
-   "size": 14,
-   "files": 3,
-   "created": "2026-11-05",
-   "updated": "2026-11-05",
-   "labels": [
-    "Documentation :green_book:",
-    "Duplicate 🐫"
-   ],
-   "milestone": "",
-   "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
-   "ci": "awaiting-approval",
-   "citot": 3,
-   "cifail": 0,
-   "nrev": 0,
-   "mrev": [],
-   "links": [],
-   "lastcom": [
-    "-",
-    "-"
    ]
   },
   {

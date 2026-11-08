@@ -286,13 +286,6 @@ V = {
         "New, 81 lines by kennywu411-dev for issue 10195 (FP, regression since 3.2 per SpecLad's bisect to the commit that added E0606; labelled <em>Needs design proposal</em>): <code>if c: v = 1</code> then <code>print(v)</code> then <code>v = n</code> gives a definite <code>used-before-assignment</code> because the later assignment hides the earlier conditional one. Now reports <code>possibly-used-before-assignment</code> when an uncertain definition comes before the use (compared by line and column). Only PR for the issue. Not run locally.",
         'Approve the run; check the primer for E0601 → E0606 moves, and that the position comparison holds for loops.',
     ),
-    11785: (
-        'decide',
-        'dup',
-        'duplicate',
-        'New, 14 lines by Jah-yee for issue 11702 (docs, <em>Good first issue</em>): says in the <code>logging-format-style</code> help that stdlib <code>logging</code> always formats with <code>%</code>. Same change, same three files as #11723 (Pushkar-Shahi, opened 23 October, run held), which is already linked to the issue.',
-        "Close as a duplicate of #11723 and approve that one's run instead.",
-    ),
     11784: (
         'decide',
         'design',
