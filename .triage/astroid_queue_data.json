@@ -2693,12 +2693,15 @@
    "a": "RClaudiuM",
    "t": "Treat names imported in an enum class body as members",
    "draft": false,
-   "labels": [],
+   "labels": [
+    "Bug 🪳",
+    "Brain 🧠"
+   ],
    "rd": "REVIEW_REQUIRED",
    "milestone": "",
    "size": 108,
    "created": "2026-11-07",
-   "updated": "2026-11-07",
+   "updated": "2026-11-08",
    "ci": "awaiting-approval",
    "cifail": 0,
    "links": [
