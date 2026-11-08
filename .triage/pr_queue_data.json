@@ -1,7 +1,7 @@
 {
  "snapshot": "2026-11-07",
  "owner": "Pierre-Sassoulas",
- "open_total": 172,
+ "open_total": 171,
  "open_own": 21,
  "prs": [
   {
@@ -4213,38 +4213,6 @@
    "lastcom": [
     "github-actions",
     "2026-10-29"
-   ]
-  },
-  {
-   "n": 11753,
-   "a": "thisisshivamtiwari",
-   "t": "Fix false positive unused-wildcard-import for names left out of `__all__`",
-   "draft": false,
-   "size": 20,
-   "files": 5,
-   "created": "2026-10-29",
-   "updated": "2026-11-02",
-   "labels": [
-    "False Positive 🦟"
-   ],
-   "milestone": "",
-   "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
-   "ci": "awaiting-approval",
-   "citot": 4,
-   "cifail": 0,
-   "nrev": 1,
-   "mrev": [],
-   "links": [
-    [
-     10827,
-     "",
-     ""
-    ]
-   ],
-   "lastcom": [
-    "-",
-    "-"
    ]
   },
   {

@@ -422,7 +422,7 @@ V = {
         'held',
         'confirmed',
         "54 lines by summeriver13 for issue 10827 (FP): <code>unused-wildcard-import</code> for names the module's <code>__all__</code> excludes, and <code>from . import *</code> reported as an unused <code>*</code>. The account is back (30 October), so this PR is open again, now beside #11753 (20 lines, same issue, opened while this one 404ed). This one came first and also covers <code>from . import *</code>.",
-        'Approve the run; keep this one, close #11753 as a duplicate, credit both in the review.',
+        'Run approved 8 November (#11753 closed as its duplicate). Review once green; check the case chrikrah found on #11753: an unused <code>import os</code> after <code>from os.path import *</code> must still be reported.',
     ),
 
     11759: (
@@ -477,13 +477,6 @@ V = {
         "<code>_has_exit_in_scope</code> (current scope + module only) with <code>func.lookup(name)</code> "
         "and reports only when it resolves to builtins. CI green; primer only baseline drift. Not run locally.",
         "Review (small, clean use of lookup).",
-    ),
-    11753: (
-        'decide',
-        'dup',
-        'duplicate',
-        '20 lines by thisisshivamtiwari for issue 10827 (FP): <code>unused-wildcard-import</code> / <code>unused-import</code> for names <code>__all__</code> leaves out of <code>from module import *</code>. Duplicate of #11666 (first, also covers <code>from . import *</code>). chrikrah approved on 2 November but found a blocking false negative: an unused <code>import os</code> after <code>from os.path import *</code> goes silent. Check #11666 for the same hole.',
-        "Close as a duplicate of #11666, and pass chrikrah's case on to #11666.",
     ),
     11754: (
         "approve",
