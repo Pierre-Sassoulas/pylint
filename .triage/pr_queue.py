@@ -264,7 +264,7 @@ V = {
         'running',
         'confirmed',
         'New (8 November), 5 code lines by ayyan-bhatti (first PR) for issue 11791 (FP, filed by chrikrah the same day): <code>bad-dunder-name</code> on <code>__prepare__</code>, <code>__mro_entries__</code> (all versions), <code>__buffer__</code> / <code>__release_buffer__</code> (3.12) and <code>__replace__</code> (3.13). Adds them to <code>EXTRA_DUNDER_METHODS</code> with the version gates, tests at py-version 3.11 and 3.13. Same shape as #8619 and #10977, both backported. Only PR. Not run locally; diff read: constants + tests only.',
-        'Run approved 8 November (6 runs); then review; backport for 4.1.4 (issue 11791 is on the 4.1.4 milestone).',
+        'Run approved 8 November (6 runs); then review; backport for 4.1.5.',
     ),
     11790: (
         'review',
