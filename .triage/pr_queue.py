@@ -67,13 +67,11 @@ LANES = {
 V = {
     # ---- merge lane -------------------------------------------------------
     11640: (
-        "author",
-        "approved",
-        "confirmed",
-        "Issue 9237 (pyreverse bug): an empty module still wrote a <code>classes</code> diagram "
-        "holding only the header. You approved on 11 October and asked DudeNr33 to confirm. 53 green, "
-        "one cancelled job. Waiting on DudeNr33, not on you.",
-        "Wait for DudeNr33's review.",
+        'author',
+        'changes',
+        'confirmed',
+        'Issue 9237 (pyreverse bug): an empty module still wrote a <code>classes</code> diagram holding only the header. You approved on 11 October and asked DudeNr33 to confirm. 53 green, one cancelled job. Waiting on DudeNr33, not on you. 8 November: DudeNr33 requested changes: test <code>diagram.objects</code> instead, since <code>pyreverse --max-depth 0 a.py b.py</code> on two empty files writes an empty <code>packages.mmd</code> too.',
+        "Wait for the author to apply DudeNr33's suggestion.",
     ),
     # ---- review now -------------------------------------------------------
     11663: (
@@ -88,11 +86,11 @@ V = {
         "Review astroid #3442 first; this PR then shrinks to tests or closes.",
     ),
     11615: (
-        'approve',
-        'running',
+        'review',
+        'green',
         'confirmed',
-        "Issue 10137 (bug, 3 reactions, now milestone 4.1.5): <code>__Init__.py</code> with different capitalization is linted as a module on Windows. The 2 November run was 40/41, only <code>pylint</code> spelling red on three words in a new docstring. summeriver13's fix (ningkexin96/pylint#2) was merged into the branch on 5 November as 2ddc28a: docstring only, logic unchanged. Its six runs are held again.",
-        'Run approved 8 November; CI is backed up (about 75 runs queued), so results are still pending. Then: review and backport (now 4.1.5).',
+        "Issue 10137 (bug, 3 reactions, now milestone 4.1.5): <code>__Init__.py</code> with different capitalization is linted as a module on Windows. The 2 November run was 40/41, only <code>pylint</code> spelling red on three words in a new docstring. summeriver13's fix (ningkexin96/pylint#2) was merged into the branch on 5 November as 2ddc28a: docstring only, logic unchanged. Its six runs are held again. 8 November: the approved run finished 43/43 green, primer no effect.",
+        'Review and backport (4.1.5).',
     ),
     11690: (
         "review",
@@ -172,13 +170,11 @@ V = {
         "Review.",
     ),
     11205: (
-        "review",
-        "ready",
-        "confirmed",
-        "Issue 7572 (enhancement, Good first issue): pyreverse <code>--theme</code> option for "
-        "dark-mode diagrams, 971 lines. The author fixed the R0801 duplicate-code on 13 October and "
-        "pinged you and DudeNr33 on 27 October: all green. Last changes requested by you on 7 October.",
-        "Re-review (large); DudeNr33 also requested changes before.",
+        'approve',
+        'held',
+        'confirmed',
+        'Issue 7572 (enhancement, Good first issue): pyreverse <code>--theme</code> option for dark-mode diagrams, 971 lines. The author fixed the R0801 duplicate-code on 13 October and pinged you and DudeNr33 on 27 October: all green. Last changes requested by you on 7 October. 3 November: the author merged main; that run is held, so the old green no longer counts.',
+        'Approve the run, then re-review (large; DudeNr33 also requested changes before).',
     ),
     11621: (
         "review",
@@ -256,21 +252,26 @@ V = {
         "Review. Clean primer, confirmed issue.",
     ),
     11664: (
-        "review",
-        "tests",
-        "feature",
-        "New, 426 lines by Julfried: directory-based pyreverse functional tests (regular and "
-        "namespace packages), sharing the config parsing with the single-file tests. Only the "
-        "changelog check is red.",
-        "Add skip news, then review with DudeNr33.",
+        'author',
+        'changes',
+        'feature',
+        'New, 426 lines by Julfried: directory-based pyreverse functional tests (regular and namespace packages), sharing the config parsing with the single-file tests. Only the changelog check is red. 8 November: DudeNr33 requested changes (split a test with/without config, reword the <code>.rc</code> paragraph, explain <code>packages</code> vs <code>package_diagrams</code> dirs). Pyreverse primer no effect.',
+        'Wait for Julfried; #11789 follows it.',
     ),
     # ---- approve the workflow run ----------------------------------------
-    11790: (
+    11793: (
         'approve',
         'running',
         'confirmed',
-        'New, 42 lines by vidigoat for issue 8129 (FP, <em>Needs PR</em>): <code>expression-not-assigned</code> on <code>f1() if test else f2()</code> as a statement. New <code>_is_call_await_or_yield()</code> accepts an <code>IfExp</code> whose every branch is a call, an <code>await</code> or a <code>yield</code>. Small, matches the issue discussion. Only PR. Not run locally.',
-        'Run approved 8 November; CI is backed up (about 75 runs queued), so results are still pending. Then: review.',
+        'New (8 November), 5 code lines by ayyan-bhatti (first PR) for issue 11791 (FP, filed by chrikrah the same day): <code>bad-dunder-name</code> on <code>__prepare__</code>, <code>__mro_entries__</code> (all versions), <code>__buffer__</code> / <code>__release_buffer__</code> (3.12) and <code>__replace__</code> (3.13). Adds them to <code>EXTRA_DUNDER_METHODS</code> with the version gates, tests at py-version 3.11 and 3.13. Same shape as #8619 and #10977, both backported. Only PR. Not run locally; diff read: constants + tests only.',
+        'Run approved 8 November (6 runs); then review, backport candidate (4.1.5).',
+    ),
+    11790: (
+        'review',
+        'green',
+        'confirmed',
+        "New, 42 lines by vidigoat for issue 8129 (FP, <em>Needs PR</em>): <code>expression-not-assigned</code> on <code>f1() if test else f2()</code> as a statement. New <code>_is_call_await_or_yield()</code> accepts an <code>IfExp</code> whose every branch is a call, an <code>await</code> or a <code>yield</code>. Small, matches the issue discussion. Only PR. Not run locally. 8 November: 46 green; primer removes the one sentry <code>expression-not-assigned</code> on <code>a.append(x) if c else a.append(y)</code>, the issue's exact case.",
+        'Review.',
     ),
     11789: (
         'review',
@@ -280,11 +281,11 @@ V = {
         'Review #11664 first, then this after its rebase (with DudeNr33).',
     ),
     11788: (
-        'approve',
-        'running',
+        'review',
+        'green',
         'confirmed',
-        "New, 81 lines by kennywu411-dev for issue 10195 (FP, regression since 3.2 per SpecLad's bisect to the commit that added E0606; labelled <em>Needs design proposal</em>): <code>if c: v = 1</code> then <code>print(v)</code> then <code>v = n</code> gives a definite <code>used-before-assignment</code> because the later assignment hides the earlier conditional one. Now reports <code>possibly-used-before-assignment</code> when an uncertain definition comes before the use (compared by line and column). Only PR for the issue. Not run locally. chrikrah approved again on 8 November after 7819617, which restores E0601 for a shadowed builtin read before any binding; only the issue's conditional case moves to E0606.",
-        'Run approved 8 November; CI is backed up (about 75 runs queued), so results are still pending. Then: check the primer for E0601 → E0606 moves, and that the position comparison holds for loops.',
+        "New, 81 lines by kennywu411-dev for issue 10195 (FP, regression since 3.2 per SpecLad's bisect to the commit that added E0606; labelled <em>Needs design proposal</em>): <code>if c: v = 1</code> then <code>print(v)</code> then <code>v = n</code> gives a definite <code>used-before-assignment</code> because the later assignment hides the earlier conditional one. Now reports <code>possibly-used-before-assignment</code> when an uncertain definition comes before the use (compared by line and column). Only PR for the issue. Not run locally. chrikrah approved again on 8 November after 7819617, which restores E0601 for a shadowed builtin read before any binding; only the issue's conditional case moves to E0606. 8 November: 49 green. Primer: E0601 → E0606 on ansible <code>rpm_key.py</code> (<code>keyid</code> set in an if/elif chain, then normalised and reassigned), astropy, home-assistant and pandas: all the issue's shape, no new message.",
+        'Review; check the position comparison holds for loops.',
     ),
     11784: (
         'decide',
@@ -297,8 +298,8 @@ V = {
         'approve',
         'running',
         'confirmed',
-        'New, 20 lines by unaltolga for issue 9405 (FN, <em>Needs PR</em>): <code>no-member</code> is skipped under <code>if enabled:</code> when <code>enabled = False</code> then maybe <code>True</code>, because the false-branch guard (#4764) only looks at the first inferred value. One-line fix, the one jacobtylerwalls proposed on the issue: <code>safe_infer(parent.test, compare_constants=True)</code>. Only PR for the issue. Not run locally. chrikrah approved on 7 November (non-blocking: no test for a flag that is False on both branches).',
-        'Run approved 8 November; CI is backed up (about 75 runs queued), so results are still pending. Then: the primer will show whether more no-member comes back (expected: true positives only).',
+        'New, 20 lines by unaltolga for issue 9405 (FN, <em>Needs PR</em>): <code>no-member</code> is skipped under <code>if enabled:</code> when <code>enabled = False</code> then maybe <code>True</code>, because the false-branch guard (#4764) only looks at the first inferred value. One-line fix, the one jacobtylerwalls proposed on the issue: <code>safe_infer(parent.test, compare_constants=True)</code>. Only PR for the issue. Not run locally. chrikrah approved on 7 November (non-blocking: no test for a flag that is False on both branches). 8 November: d5a2696 adds the <code>both_false</code> test chrikrah asked for. The author traced the 9 new primer <code>no-member</code> (django <code>Style.WARNING</code>, ansible <code>C.YAML_FILENAME_EXTENSIONS</code>, astropy <code>u.adu</code>) to members made at runtime by <code>setattr</code>/<code>globals()</code>, already reported elsewhere in the same files on main: expected FN-fix fallout, not new FPs. The new push holds the run again.',
+        'Run approved 8 November (6 runs); review once green.',
     ),
     11776: (
         'decide',
@@ -317,35 +318,35 @@ V = {
     ),
 
     11779: (
-        'approve',
-        'running',
+        'review',
+        'green',
         'confirmed',
-        'New, 37 lines by Parsiffall1 for issue 9239 (FP): <code>too-many-function-args</code> on <code>self.handlers["handle"](self, 1)</code>, a function taken from a class-level dict and called with explicit <code>self</code>. A bare <code>FunctionDef</code> is never bound, so <code>_determine_callable</code> now counts no implicit <code>self</code>; that replaces the old special case for calls inside the class body (removed). The whole functional suite will tell whether the removal is safe. Not run locally.',
-        'Run approved 8 November; CI is backed up (about 75 runs queued), so results are still pending. Then: review.',
+        'New, 37 lines by Parsiffall1 for issue 9239 (FP): <code>too-many-function-args</code> on <code>self.handlers["handle"](self, 1)</code>, a function taken from a class-level dict and called with explicit <code>self</code>. A bare <code>FunctionDef</code> is never bound, so <code>_determine_callable</code> now counts no implicit <code>self</code>; that replaces the old special case for calls inside the class body (removed). The whole functional suite will tell whether the removal is safe. Not run locally. 8 November: 46 green, full suite passes with the old special case removed, primer no effect.',
+        'Review.',
     ),
 
     11778: (
-        'approve',
-        'running',
+        'retrigger',
+        'rerun',
         'confirmed',
-        'New, 27 lines by denysherych3 (first PR) for issue 11353 (FP): <code>reimported</code> for <code>from . import json as my_json</code> next to <code>import json</code>, because the empty relative base made the name a bare <code>json</code>. Resolves the relative base to its absolute name with <code>get_import_name</code>. Second PR for this issue: #11377 (rzaman8677, 15 lines, CI never ran) skips every relative import instead, which would also hide a real reimport (<code>import pkg.mod</code> then <code>from . import mod</code> inside <code>pkg</code>). This one is the more precise. Not run locally.',
-        'Run approved 8 November; CI is backed up (about 75 runs queued), so results are still pending. Then: rerun CodeQL (failed downloading its bundle, HTTP 504, unrelated), then review; close #11377 in its favour.',
+        'New, 27 lines by denysherych3 (first PR) for issue 11353 (FP): <code>reimported</code> for <code>from . import json as my_json</code> next to <code>import json</code>, because the empty relative base made the name a bare <code>json</code>. Resolves the relative base to its absolute name with <code>get_import_name</code>. Second PR for this issue: #11377 (rzaman8677, 15 lines, CI never ran) skips every relative import instead, which would also hide a real reimport (<code>import pkg.mod</code> then <code>from . import mod</code> inside <code>pkg</code>). This one is the more precise. Not run locally. 8 November: 42 green; only CodeQL <code>Analyze (python)</code> red (bundle download HTTP 504, infra). Primer removes 3 flask <code>reimported</code> on <code>import typing as t</code> next to <code>from . import typing as ft</code> (flask\'s own <code>flask/typing.py</code>): true FPs, the issue\'s exact case.',
+        'Rerun CodeQL, review; close #11377 in its favour.',
     ),
 
     11775: (
-        'approve',
-        'running',
+        'author',
+        'split',
         'confirmed',
-        'New, 282 lines by TohruSu (first PR) for issue 9633 (FP, Needs PR): <code>undefined-variable</code> / <code>used-before-assignment</code> after <code>if "name" not in globals(): name = ...</code>, which binds <code>name</code> on every path. Part 1 (recognise that guard, at module level or with <code>global</code>, no <code>del</code>) fits the issue. Part 2 changes which message a name assigned in one <code>if</code> branch gets (<code>possibly-used-before-assignment</code> instead of <code>undefined-variable</code>): a separate behaviour change that should be its own PR. Not run locally. 8 November: new commit 6094235 counts a one-branch definition only when it comes before the use (same position check as #11788), after chrikrah\'s two counter-examples; both now report what main reports.',
-        'Run approved 8 November; CI is backed up (about 75 runs queued), so results are still pending. Then: ask to split part 2 out before reviewing.',
+        'New, 282 lines by TohruSu (first PR) for issue 9633 (FP, Needs PR): <code>undefined-variable</code> / <code>used-before-assignment</code> after <code>if "name" not in globals(): name = ...</code>, which binds <code>name</code> on every path. Part 1 (recognise that guard, at module level or with <code>global</code>, no <code>del</code>) fits the issue. Part 2 changes which message a name assigned in one <code>if</code> branch gets (<code>possibly-used-before-assignment</code> instead of <code>undefined-variable</code>): a separate behaviour change that should be its own PR. Not run locally. 8 November: new commit 6094235 counts a one-branch definition only when it comes before the use (same position check as #11788), after chrikrah\'s two counter-examples; both now report what main reports. 8 November: 43 green. Primer: ansible/astropy <code>undefined-variable</code> → <code>possibly-used-before-assignment</code> plus E0601 → E0606 moves, all from part 2, none from the <code>globals()</code> guard.',
+        'Ask to split part 2 (message change) out; part 1 alone then reviews quickly.',
     ),
 
     11773: (
-        'approve',
-        'running',
+        'review',
+        'green',
         'confirmed',
-        'New, 195 lines by Thanatos9404 (first PR) for issue 7790 (FN, Needs PR): <code>self.x = 1</code> in <code>__init__</code> of a <code>@dataclass(slots=True)</code> class raises <code>AttributeError</code> at runtime and pylint says nothing. Emits <code>assigning-non-slot</code>, taking the fields (minus <code>ClassVar</code>) as slots and giving up when an ancestor has no slots. Only <code>dataclass(...)</code> by name, so <code>pydantic.dataclasses</code> and similar stay silent. Not run locally.',
-        'Run approved 8 November; CI is backed up (about 75 runs queued), so results are still pending. Then: review.',
+        'New, 195 lines by Thanatos9404 (first PR) for issue 7790 (FN, Needs PR): <code>self.x = 1</code> in <code>__init__</code> of a <code>@dataclass(slots=True)</code> class raises <code>AttributeError</code> at runtime and pylint says nothing. Emits <code>assigning-non-slot</code>, taking the fields (minus <code>ClassVar</code>) as slots and giving up when an ancestor has no slots. Only <code>dataclass(...)</code> by name, so <code>pydantic.dataclasses</code> and similar stay silent. Not run locally. 8 November: 48 green, primer only the pandas position noise.',
+        'Review.',
     ),
 
 
@@ -374,19 +375,19 @@ V = {
     ),
 
     11766: (
-        'approve',
-        'running',
+        'review',
+        'green',
         'confirmed',
-        'New, 36 lines by YashG1836 for issue 11765 (FN): <code>glob.glob0</code> / <code>glob.glob1</code> sat in <code>DEPRECATED_CLASSES</code> with a module prefix, and <code>typing._UnionGenericAlias</code> had a stray leading dot, so none could ever match. Moves the glob pair to <code>DEPRECATED_METHODS</code> 3.13 and drops the dot. Confirmed in the source. Not run locally. chrikrah approved on 5 November: both new tests fail on the base table, and it merges cleanly with #11764 in either order.',
-        'Run approved 8 November; CI is backed up (about 75 runs queued), so results are still pending. Then: review with #11764 (same table, will conflict lightly).',
+        'New, 36 lines by YashG1836 for issue 11765 (FN): <code>glob.glob0</code> / <code>glob.glob1</code> sat in <code>DEPRECATED_CLASSES</code> with a module prefix, and <code>typing._UnionGenericAlias</code> had a stray leading dot, so none could ever match. Moves the glob pair to <code>DEPRECATED_METHODS</code> 3.13 and drops the dot. Confirmed in the source. Not run locally. chrikrah approved on 5 November: both new tests fail on the base table, and it merges cleanly with #11764 in either order. 8 November: 46 green, primer only astropy noise.',
+        'Review with #11764 (same table).',
     ),
 
     11764: (
-        'approve',
-        'running',
+        'review',
+        'green',
         'confirmed',
-        'New, 36 lines by YashG1836 for issue 11763 (FN): <code>deprecated-class</code> drops the classes of a module listed under two Python versions (<code>typing</code>, <code>asyncio</code>, <code>importlib.abc</code>, <code>ast</code>, <code>webbrowser</code>), because <code>dict.update</code> replaces the older set. Fix merges the sets with <code>setdefault(...).update</code>. Bug confirmed in the source; test runs on 3.14 only. Not run locally.',
-        'Run approved 8 November; CI is backed up (about 75 runs queued), so results are still pending. Then: review (2-line fix).',
+        'New, 36 lines by YashG1836 for issue 11763 (FN): <code>deprecated-class</code> drops the classes of a module listed under two Python versions (<code>typing</code>, <code>asyncio</code>, <code>importlib.abc</code>, <code>ast</code>, <code>webbrowser</code>), because <code>dict.update</code> replaces the older set. Fix merges the sets with <code>setdefault(...).update</code>. Bug confirmed in the source; test runs on 3.14 only. Not run locally. 8 November: 46 green, primer only astropy noise.',
+        'Review (2-line fix), then #11766.',
     ),
 
     11736: (
@@ -418,11 +419,11 @@ V = {
     ),
 
     11666: (
-        'approve',
-        'held',
+        'review',
+        'green',
         'confirmed',
-        "54 lines by summeriver13 for issue 10827 (FP): <code>unused-wildcard-import</code> for names the module's <code>__all__</code> excludes, and <code>from . import *</code> reported as an unused <code>*</code>. The account is back (30 October), so this PR is open again, now beside #11753 (20 lines, same issue, opened while this one 404ed). This one came first and also covers <code>from . import *</code>.",
-        'Run approved 8 November (#11753 closed as its duplicate). Review once green; check the case chrikrah found on #11753: an unused <code>import os</code> after <code>from os.path import *</code> must still be reported.',
+        "54 lines by summeriver13 for issue 10827 (FP): <code>unused-wildcard-import</code> for names the module's <code>__all__</code> excludes, and <code>from . import *</code> reported as an unused <code>*</code>. The account is back (30 October), so this PR is open again, now beside #11753 (20 lines, same issue, opened while this one 404ed). This one came first and also covers <code>from . import *</code>. 8 November: 48 green, primer only astropy noise.",
+        "Review; check chrikrah's case from #11753 (unused <code>import os</code> after <code>from os.path import *</code> still reported).",
     ),
 
     11759: (
@@ -541,15 +542,11 @@ V = {
         "Review: regression fix, small core change in <code>run.py</code>.",
     ),
     11746: (
-        "approve",
-        'running',
-        "confirmed",
-        "New, 15 lines by InnoxCodes for issue 8831 (FP, 0 reactions): <code>unused-import</code> on "
-        "<code>Literal</code> used only in a string annotation <code>\"int | Literal[True]\"</code>. "
-        "<code>_store_type_annotation_node</code> now recurses into both sides of a <code>BinOp</code>; "
-        "test adds <code>\"Decimal | Literal[True]\"</code> to the existing functional file. Looks right. chrikrah approved on 29 October (old <code>variables.py</code> reports all three new "
-        "imports); the CI run still waits for approval.",
-        'Run approved 8 November; CI is backed up (about 75 runs queued), so results are still pending. Then: merge if green.',
+        'merge',
+        'approved',
+        'confirmed',
+        'New, 15 lines by InnoxCodes for issue 8831 (FP, 0 reactions): <code>unused-import</code> on <code>Literal</code> used only in a string annotation <code>"int | Literal[True]"</code>. <code>_store_type_annotation_node</code> now recurses into both sides of a <code>BinOp</code>; test adds <code>"Decimal | Literal[True]"</code> to the existing functional file. Looks right. chrikrah approved on 29 October (old <code>variables.py</code> reports all three new imports); the CI run still waits for approval. 8 November: 46 green, primer removes the ansible <code>unused-import</code> FP (<code>urls.py</code>); the django <code>invalid-name</code> lines are base drift (same as #11693).',
+        'Merge.',
     ),
     11743: (
         "review",
@@ -674,14 +671,11 @@ V = {
         "Approve with the next batch.",
     ),
     11723: (
-        "approve",
-        'running',
-        "confirmed",
-        "New, 9 lines by Pushkar-Shahi for issue 11702 (docs): follow-up to the merged #11710, says in "
-        "the <code>logging-format-style</code> help that stdlib <code>logging</code> only formats with "
-        "<code>%</code>, so <code>new</code> is for third-party loggers. That is the gap the 22 October "
-        "triage of 11702 named.",
-        'Run approved 8 November; CI is backed up (about 75 runs queued), so results are still pending. Then: and merge; it closes 11702.',
+        'review',
+        'green',
+        'confirmed',
+        'New, 9 lines by Pushkar-Shahi for issue 11702 (docs): follow-up to the merged #11710, says in the <code>logging-format-style</code> help that stdlib <code>logging</code> only formats with <code>%</code>, so <code>new</code> is for third-party loggers. That is the gap the 22 October triage of 11702 named. 8 November: 46 green.',
+        'Read the 9 lines and merge; closes 11702.',
     ),
     11714: (
         "approve",
@@ -756,11 +750,11 @@ V = {
         "Approve the run, then review.",
     ),
     11673: (
-        'approve',
-        'running',
+        'review',
+        'green',
         'confirmed',
-        '59 lines by mehdimirzafaruk for issue 8680 (FN, 1 reaction): <code>missing-parentheses-for-call-in-test</code> missed methods, as in <code>if self.is_on:</code>. The author asked on 31 October whether the approach still fits; the run was never approved.',
-        'Run approved 8 November; CI is backed up (about 75 runs queued), so results are still pending. Then: review and answer the author.',
+        '59 lines by mehdimirzafaruk for issue 8680 (FN, 1 reaction): <code>missing-parentheses-for-call-in-test</code> missed methods, as in <code>if self.is_on:</code>. The author asked on 31 October whether the approach still fits; the run was never approved. 8 November: 46 green, primer only astropy noise.',
+        "Review and answer the author's 31 October question.",
     ),
     11687: (
         "approve",
@@ -1033,11 +1027,11 @@ V = {
         "Wait for the author.",
     ),
     11641: (
-        'approve',
-        'running',
+        'author',
+        'spelling',
         'confirmed',
-        'Issue 10025 (FP): <code>import-self</code> when an extensionless script has the same basename as an importable module. New commit 1 November answers your changes requested: the unit test is now functional tests. The previous red was the spelling check on <code>extensionless</code>; the word is still in the diff, so check whether it moved out of the docstring. Primer only noise.',
-        'Run approved 8 November; CI is backed up (about 75 runs queued), so results are still pending. Then: re-review if green, else ask for the spelling fix.',
+        'Issue 10025 (FP): <code>import-self</code> when an extensionless script has the same basename as an importable module. New commit 1 November answers your changes requested: the unit test is now functional tests. The previous red was the spelling check on <code>extensionless</code>; the word is still in the diff, so check whether it moved out of the docstring. Primer only noise. 8 November: 42/43, only <code>pylint</code> red: spelling of <code>extensionless</code> in the new <code>test_functional</code> docstring.',
+        'Ask for the spelling fix (or add the word to the custom dict on main).',
     ),
     11579: (
         "decide",

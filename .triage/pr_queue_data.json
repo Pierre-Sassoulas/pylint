@@ -1,7 +1,7 @@
 {
  "snapshot": "2026-11-08",
  "owner": "Pierre-Sassoulas",
- "open_total": 171,
+ "open_total": 172,
  "open_own": 21,
  "prs": [
   {
@@ -427,8 +427,8 @@
    "rd": "CHANGES_REQUESTED",
    "merge": "CONFLICTING",
    "ci": "failing",
-   "citot": 48,
-   "cifail": 6,
+   "citot": 8,
+   "cifail": 3,
    "nrev": 7,
    "mrev": [
     "Pierre-Sassoulas"
@@ -2122,7 +2122,7 @@
    "size": 275,
    "files": 4,
    "created": "2026-10-09",
-   "updated": "2026-11-05",
+   "updated": "2026-11-08",
    "labels": [
     "Bug :beetle:",
     "Needs reproduction :mag:",
@@ -2132,8 +2132,8 @@
    "milestone": "4.1.5",
    "rd": "CHANGES_REQUESTED",
    "merge": "MERGEABLE",
-   "ci": "running",
-   "citot": 41,
+   "ci": "green",
+   "citot": 43,
    "cifail": 0,
    "nrev": 1,
    "mrev": [
@@ -2141,8 +2141,8 @@
    ],
    "links": [],
    "lastcom": [
-    "summeriver13",
-    "2026-11-05"
+    "github-actions",
+    "2026-11-08"
    ]
   },
   {
@@ -2192,7 +2192,7 @@
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "awaiting-approval",
+   "ci": "not-run",
    "citot": 4,
    "cifail": 0,
    "nrev": 0,
@@ -2411,20 +2411,21 @@
    "size": 84,
    "files": 6,
    "created": "2026-10-11",
-   "updated": "2026-10-23",
+   "updated": "2026-11-08",
    "labels": [
     "Bug :beetle:",
     "pyreverse",
     "Needs review 🔍"
    ],
    "milestone": "",
-   "rd": "APPROVED",
+   "rd": "CHANGES_REQUESTED",
    "merge": "MERGEABLE",
    "ci": "awaiting-approval",
    "citot": 60,
    "cifail": 0,
-   "nrev": 1,
+   "nrev": 2,
    "mrev": [
+    "DudeNr33",
     "Pierre-Sassoulas"
    ],
    "links": [
@@ -2447,16 +2448,16 @@
    "size": 60,
    "files": 14,
    "created": "2026-10-11",
-   "updated": "2026-11-01",
+   "updated": "2026-11-08",
    "labels": [
     "False Positive 🦟"
    ],
    "milestone": "",
    "rd": "CHANGES_REQUESTED",
    "merge": "MERGEABLE",
-   "ci": "running",
-   "citot": 25,
-   "cifail": 0,
+   "ci": "failing",
+   "citot": 43,
+   "cifail": 1,
    "nrev": 1,
    "mrev": [
     "Pierre-Sassoulas"
@@ -2470,7 +2471,7 @@
    ],
    "lastcom": [
     "github-actions",
-    "2026-10-22"
+    "2026-11-08"
    ]
   },
   {
@@ -2808,23 +2809,26 @@
    "size": 426,
    "files": 19,
    "created": "2026-10-14",
-   "updated": "2026-10-16",
+   "updated": "2026-11-08",
    "labels": [
     "Enhancement ✨",
-    "pyreverse"
+    "pyreverse",
+    "Skip news :mute:"
    ],
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
    "ci": "failing",
-   "citot": 50,
+   "citot": 53,
    "cifail": 3,
-   "nrev": 0,
-   "mrev": [],
+   "nrev": 1,
+   "mrev": [
+    "DudeNr33"
+   ],
    "links": [],
    "lastcom": [
     "github-actions",
-    "2026-10-14"
+    "2026-11-08"
    ]
   },
   {
@@ -2835,7 +2839,7 @@
    "size": 54,
    "files": 8,
    "created": "2026-10-15",
-   "updated": "2026-10-22",
+   "updated": "2026-11-08",
    "labels": [
     "Import system",
     "False Positive 🦟"
@@ -2843,8 +2847,8 @@
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "running",
-   "citot": 30,
+   "ci": "green",
+   "citot": 48,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -2856,8 +2860,8 @@
     ]
    ],
    "lastcom": [
-    "-",
-    "-"
+    "github-actions",
+    "2026-11-08"
    ]
   },
   {
@@ -2969,15 +2973,15 @@
    "size": 59,
    "files": 4,
    "created": "2026-10-17",
-   "updated": "2026-10-31",
+   "updated": "2026-11-08",
    "labels": [
     "False Negative 🦋"
    ],
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "running",
-   "citot": 28,
+   "ci": "green",
+   "citot": 46,
    "cifail": 0,
    "nrev": 1,
    "mrev": [],
@@ -2989,8 +2993,8 @@
     ]
    ],
    "lastcom": [
-    "mehdimirzafaruk",
-    "2026-10-31"
+    "github-actions",
+    "2026-11-08"
    ]
   },
   {
@@ -3568,15 +3572,15 @@
    "size": 9,
    "files": 3,
    "created": "2026-10-23",
-   "updated": "2026-10-23",
+   "updated": "2026-11-08",
    "labels": [
     "Documentation :green_book:"
    ],
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "running",
-   "citot": 28,
+   "ci": "green",
+   "citot": 46,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -3588,8 +3592,8 @@
     ]
    ],
    "lastcom": [
-    "-",
-    "-"
+    "github-actions",
+    "2026-11-08"
    ]
   },
   {
@@ -4043,15 +4047,15 @@
    "size": 15,
    "files": 3,
    "created": "2026-10-27",
-   "updated": "2026-10-29",
+   "updated": "2026-11-08",
    "labels": [
     "False Positive 🦟"
    ],
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "running",
-   "citot": 28,
+   "ci": "green",
+   "citot": 46,
    "cifail": 0,
    "nrev": 1,
    "mrev": [],
@@ -4063,8 +4067,8 @@
     ]
    ],
    "lastcom": [
-    "-",
-    "-"
+    "github-actions",
+    "2026-11-08"
    ]
   },
   {
@@ -4381,15 +4385,15 @@
    "size": 36,
    "files": 5,
    "created": "2026-10-30",
-   "updated": "2026-10-30",
+   "updated": "2026-11-08",
    "labels": [
     "False Negative 🦋"
    ],
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "running",
-   "citot": 31,
+   "ci": "green",
+   "citot": 46,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -4401,8 +4405,8 @@
     ]
    ],
    "lastcom": [
-    "-",
-    "-"
+    "github-actions",
+    "2026-11-08"
    ]
   },
   {
@@ -4413,15 +4417,15 @@
    "size": 36,
    "files": 8,
    "created": "2026-10-30",
-   "updated": "2026-11-05",
+   "updated": "2026-11-08",
    "labels": [
     "False Negative 🦋"
    ],
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "running",
-   "citot": 28,
+   "ci": "green",
+   "citot": 46,
    "cifail": 0,
    "nrev": 1,
    "mrev": [],
@@ -4433,8 +4437,8 @@
     ]
    ],
    "lastcom": [
-    "-",
-    "-"
+    "github-actions",
+    "2026-11-08"
    ]
   },
   {
@@ -4536,7 +4540,7 @@
    "size": 201,
    "files": 4,
    "created": "2026-11-01",
-   "updated": "2026-11-02",
+   "updated": "2026-11-08",
    "labels": [
     "False Negative 🦋",
     "dataclasses"
@@ -4544,8 +4548,8 @@
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "running",
-   "citot": 34,
+   "ci": "green",
+   "citot": 48,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -4557,8 +4561,8 @@
     ]
    ],
    "lastcom": [
-    "-",
-    "-"
+    "codecov",
+    "2026-11-08"
    ]
   },
   {
@@ -4578,8 +4582,8 @@
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "running",
-   "citot": 29,
+   "ci": "green",
+   "citot": 43,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -4591,7 +4595,7 @@
     ]
    ],
    "lastcom": [
-    "TohruSu",
+    "github-actions",
     "2026-11-08"
    ]
   },
@@ -4636,15 +4640,15 @@
    "size": 27,
    "files": 4,
    "created": "2026-11-03",
-   "updated": "2026-11-05",
+   "updated": "2026-11-08",
    "labels": [
     "False Positive 🦟"
    ],
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "running",
-   "citot": 36,
+   "ci": "failing",
+   "citot": 45,
    "cifail": 1,
    "nrev": 0,
    "mrev": [],
@@ -4656,8 +4660,8 @@
     ]
    ],
    "lastcom": [
-    "-",
-    "-"
+    "codecov",
+    "2026-11-08"
    ]
   },
   {
@@ -4668,15 +4672,15 @@
    "size": 37,
    "files": 4,
    "created": "2026-11-03",
-   "updated": "2026-11-05",
+   "updated": "2026-11-08",
    "labels": [
     "False Positive 🦟"
    ],
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "running",
-   "citot": 37,
+   "ci": "green",
+   "citot": 46,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -4688,8 +4692,8 @@
     ]
    ],
    "lastcom": [
-    "-",
-    "-"
+    "codecov",
+    "2026-11-08"
    ]
   },
   {
@@ -4723,7 +4727,7 @@
    "a": "unaltolga",
    "t": "Report no-member behind an if whose test can be false or true",
    "draft": false,
-   "size": 21,
+   "size": 30,
    "files": 4,
    "created": "2026-11-05",
    "updated": "2026-11-08",
@@ -4733,15 +4737,15 @@
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "running",
-   "citot": 32,
+   "ci": "awaiting-approval",
+   "citot": 2,
    "cifail": 0,
    "nrev": 1,
    "mrev": [],
    "links": [],
    "lastcom": [
-    "-",
-    "-"
+    "unaltolga",
+    "2026-11-08"
    ]
   },
   {
@@ -4794,8 +4798,8 @@
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "running",
-   "citot": 40,
+   "ci": "green",
+   "citot": 49,
    "cifail": 0,
    "nrev": 2,
    "mrev": [],
@@ -4807,8 +4811,8 @@
     ]
    ],
    "lastcom": [
-    "kennywu411-dev",
-    "2026-11-07"
+    "codecov",
+    "2026-11-08"
    ]
   },
   {
@@ -4859,14 +4863,44 @@
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "running",
-   "citot": 32,
+   "ci": "green",
+   "citot": 46,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
    "links": [
     [
      8129,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "github-actions",
+    "2026-11-08"
+   ]
+  },
+  {
+   "n": 11793,
+   "a": "ayyan-bhatti",
+   "t": "Fix bad-dunder-name false positives for __prepare__, __mro_entries__, __buffer__, __release_buffer__ and __replace__",
+   "draft": false,
+   "size": 72,
+   "files": 7,
+   "created": "2026-11-08",
+   "updated": "2026-11-08",
+   "labels": [],
+   "milestone": "",
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "awaiting-approval",
+   "citot": 3,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [
+    [
+     11791,
      "",
      ""
     ]
@@ -6551,6 +6585,15 @@
    "state": "open",
    "state_reason": null,
    "title": "Option max-statements counts statements as one too many."
+  },
+  {
+   "comments": 0,
+   "labels": [],
+   "number": 11791,
+   "reactions": 0,
+   "state": "open",
+   "state_reason": null,
+   "title": "`bad-dunder-name` reports `__prepare__`, `__mro_entries__`, `__buffer__`, `__release_buffer__` and `__replace__`"
   }
  ]
 }

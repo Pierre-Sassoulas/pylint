@@ -11560,7 +11560,61 @@
   "commit": "637beb547"
  },
  "11615": {
-  "date": "2026-11-02",
+  "date": "2026-11-08",
+  "added": 0,
+  "removed": 0,
+  "changed": 0,
+  "projects": {},
+  "items": [],
+  "commit": "2ddc28afa"
+ },
+ "11618": {
+  "date": "2026-10-10",
+  "added": 0,
+  "removed": 0,
+  "changed": 0,
+  "projects": {},
+  "items": [],
+  "commit": "f078a8d0e"
+ },
+ "11621": {
+  "date": "2026-10-12",
+  "added": 0,
+  "removed": 0,
+  "changed": 0,
+  "projects": {},
+  "items": [],
+  "commit": "3132cae71"
+ },
+ "11624": {
+  "date": "2026-10-10",
+  "added": 0,
+  "removed": 0,
+  "changed": 0,
+  "projects": {},
+  "items": [],
+  "commit": "0ec3c691b"
+ },
+ "11630": {
+  "date": "2026-10-22",
+  "added": 0,
+  "removed": 0,
+  "changed": 0,
+  "projects": {},
+  "items": [],
+  "commit": "469f4d22c"
+ },
+ "11640": {
+  "date": "2026-10-11",
+  "added": 0,
+  "removed": 0,
+  "changed": 0,
+  "projects": {},
+  "items": [],
+  "commit": "6f3c655c2"
+ },
+ "11641": {
+  "date": "2026-11-08",
   "added": 6,
   "removed": 3,
   "changed": 4,
@@ -11661,109 +11715,7 @@
     "*Attribute name \"id\" doesn't conform to '[a-z_][A-Za-z0-9_]{2,30}$' pattern*"
    ]
   ],
-  "commit": "756cb1d59"
- },
- "11618": {
-  "date": "2026-10-10",
-  "added": 0,
-  "removed": 0,
-  "changed": 0,
-  "projects": {},
-  "items": [],
-  "commit": "f078a8d0e"
- },
- "11621": {
-  "date": "2026-10-12",
-  "added": 0,
-  "removed": 0,
-  "changed": 0,
-  "projects": {},
-  "items": [],
-  "commit": "3132cae71"
- },
- "11624": {
-  "date": "2026-10-10",
-  "added": 0,
-  "removed": 0,
-  "changed": 0,
-  "projects": {},
-  "items": [],
-  "commit": "0ec3c691b"
- },
- "11630": {
-  "date": "2026-10-22",
-  "added": 0,
-  "removed": 0,
-  "changed": 0,
-  "projects": {},
-  "items": [],
-  "commit": "469f4d22c"
- },
- "11640": {
-  "date": "2026-10-11",
-  "added": 0,
-  "removed": 0,
-  "changed": 0,
-  "projects": {},
-  "items": [],
-  "commit": "6f3c655c2"
- },
- "11641": {
-  "date": "2026-10-22",
-  "added": 1,
-  "removed": 3,
-  "changed": 2,
-  "projects": {
-   "astropy": {
-    "added": 0,
-    "removed": 2,
-    "changed": 2
-   },
-   "music21": {
-    "added": 1,
-    "removed": 1,
-    "changed": 0
-   }
-  },
-  "items": [
-   [
-    "astropy",
-    "changed",
-    "too-many-ancestors",
-    "message: `Too many ancestors (23/7)` → `Too many ancestors (24/7)`"
-   ],
-   [
-    "astropy",
-    "changed",
-    "too-many-ancestors",
-    "message: `Too many ancestors (28/7)` → `Too many ancestors (29/7)`"
-   ],
-   [
-    "astropy",
-    "removed",
-    "attribute-defined-outside-init",
-    "*Attribute 'lineno' defined outside __init__*"
-   ],
-   [
-    "astropy",
-    "removed",
-    "attribute-defined-outside-init",
-    "*Attribute 'lexpos' defined outside __init__*"
-   ],
-   [
-    "music21",
-    "added",
-    "invalid-name",
-    "*Attribute name \"id\" doesn't conform to '[a-z_][A-Za-z0-9_]{2,30}$' pattern*"
-   ],
-   [
-    "music21",
-    "removed",
-    "invalid-name",
-    "*Attribute name \"id\" doesn't conform to '[a-z_][A-Za-z0-9_]{2,30}$' pattern*"
-   ]
-  ],
-  "commit": "64279fbf5"
+  "commit": "d49baeb12"
  },
  "11645": {
   "date": "2026-11-07",
@@ -13960,13 +13912,117 @@
   "commit": "241723733"
  },
  "11664": {
-  "date": "2026-10-14",
+  "date": "2026-11-08",
   "added": 0,
   "removed": 0,
   "changed": 0,
   "projects": {},
   "items": [],
   "commit": "25499ea09"
+ },
+ "11666": {
+  "date": "2026-11-08",
+  "added": 6,
+  "removed": 3,
+  "changed": 4,
+  "projects": {
+   "astropy": {
+    "added": 0,
+    "removed": 2,
+    "changed": 4
+   },
+   "django": {
+    "added": 5,
+    "removed": 0,
+    "changed": 0
+   },
+   "music21": {
+    "added": 1,
+    "removed": 1,
+    "changed": 0
+   }
+  },
+  "items": [
+   [
+    "astropy",
+    "changed",
+    "too-many-ancestors",
+    "message: `Too many ancestors (22/7)` → `Too many ancestors (23/7)`"
+   ],
+   [
+    "astropy",
+    "changed",
+    "too-many-ancestors",
+    "message: `Too many ancestors (27/7)` → `Too many ancestors (28/7)`"
+   ],
+   [
+    "astropy",
+    "changed",
+    "too-many-ancestors",
+    "message: `Too many ancestors (23/7)` → `Too many ancestors (22/7)`"
+   ],
+   [
+    "astropy",
+    "changed",
+    "too-many-ancestors",
+    "message: `Too many ancestors (28/7)` → `Too many ancestors (27/7)`"
+   ],
+   [
+    "astropy",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'lineno' defined outside __init__*"
+   ],
+   [
+    "astropy",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'lexpos' defined outside __init__*"
+   ],
+   [
+    "django",
+    "added",
+    "invalid-name",
+    "*Attribute name \"MIGRATION_MODULES\" doesn't conform to snake_case naming style*"
+   ],
+   [
+    "django",
+    "added",
+    "invalid-name",
+    "*Attribute name \"ALLOWED_HOSTS\" doesn't conform to snake_case naming style*"
+   ],
+   [
+    "django",
+    "added",
+    "invalid-name",
+    "*Attribute name \"DEBUG\" doesn't conform to snake_case naming style*"
+   ],
+   [
+    "django",
+    "added",
+    "invalid-name",
+    "*Attribute name \"MAILERS\" doesn't conform to snake_case naming style*"
+   ],
+   [
+    "django",
+    "added",
+    "invalid-name",
+    "*Attribute name \"EMAIL_BACKEND\" doesn't conform to snake_case naming style*"
+   ],
+   [
+    "music21",
+    "added",
+    "invalid-name",
+    "*Attribute name \"id\" doesn't conform to '[a-z_][A-Za-z0-9_]{2,30}$' pattern*"
+   ],
+   [
+    "music21",
+    "removed",
+    "invalid-name",
+    "*Attribute name \"id\" doesn't conform to '[a-z_][A-Za-z0-9_]{2,30}$' pattern*"
+   ]
+  ],
+  "commit": "3cf911738"
  },
  "11667": {
   "date": "2026-10-22",
@@ -14155,6 +14211,815 @@
    ]
   ],
   "commit": "d809131a7"
+ },
+ "11673": {
+  "date": "2026-11-08",
+  "added": 121,
+  "removed": 3,
+  "changed": 4,
+  "projects": {
+   "astropy": {
+    "added": 3,
+    "removed": 2,
+    "changed": 4
+   },
+   "django": {
+    "added": 8,
+    "removed": 0,
+    "changed": 0
+   },
+   "home-assistant": {
+    "added": 69,
+    "removed": 0,
+    "changed": 0
+   },
+   "music21": {
+    "added": 1,
+    "removed": 1,
+    "changed": 0
+   },
+   "pandas": {
+    "added": 31,
+    "removed": 0,
+    "changed": 0
+   },
+   "sentry": {
+    "added": 9,
+    "removed": 0,
+    "changed": 0
+   }
+  },
+  "items": [
+   [
+    "astropy",
+    "changed",
+    "too-many-ancestors",
+    "message: `Too many ancestors (22/7)` → `Too many ancestors (23/7)`"
+   ],
+   [
+    "astropy",
+    "changed",
+    "too-many-ancestors",
+    "message: `Too many ancestors (27/7)` → `Too many ancestors (28/7)`"
+   ],
+   [
+    "astropy",
+    "changed",
+    "too-many-ancestors",
+    "message: `Too many ancestors (23/7)` → `Too many ancestors (22/7)`"
+   ],
+   [
+    "astropy",
+    "changed",
+    "too-many-ancestors",
+    "message: `Too many ancestors (28/7)` → `Too many ancestors (27/7)`"
+   ],
+   [
+    "astropy",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "astropy",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "astropy",
+    "added",
+    "no-member",
+    "*Instance of 'ndarray' has no 'mask' member*"
+   ],
+   [
+    "astropy",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'lineno' defined outside __init__*"
+   ],
+   [
+    "astropy",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'lexpos' defined outside __init__*"
+   ],
+   [
+    "django",
+    "added",
+    "invalid-name",
+    "*Attribute name \"MIGRATION_MODULES\" doesn't conform to snake_case naming style*"
+   ],
+   [
+    "django",
+    "added",
+    "invalid-name",
+    "*Attribute name \"ALLOWED_HOSTS\" doesn't conform to snake_case naming style*"
+   ],
+   [
+    "django",
+    "added",
+    "invalid-name",
+    "*Attribute name \"DEBUG\" doesn't conform to snake_case naming style*"
+   ],
+   [
+    "django",
+    "added",
+    "invalid-name",
+    "*Attribute name \"MAILERS\" doesn't conform to snake_case naming style*"
+   ],
+   [
+    "django",
+    "added",
+    "invalid-name",
+    "*Attribute name \"EMAIL_BACKEND\" doesn't conform to snake_case naming style*"
+   ],
+   [
+    "django",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "django",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "django",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "home-assistant",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "home-assistant",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "home-assistant",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "home-assistant",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "home-assistant",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "home-assistant",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "home-assistant",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "home-assistant",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "home-assistant",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "home-assistant",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "home-assistant",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "home-assistant",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "home-assistant",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "home-assistant",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "home-assistant",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "home-assistant",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "home-assistant",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "home-assistant",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "home-assistant",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "home-assistant",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "home-assistant",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "home-assistant",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "home-assistant",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "home-assistant",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "home-assistant",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "home-assistant",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "home-assistant",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "home-assistant",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "home-assistant",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "home-assistant",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "home-assistant",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "home-assistant",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "home-assistant",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "home-assistant",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "home-assistant",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "home-assistant",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "home-assistant",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "home-assistant",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "home-assistant",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "home-assistant",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "home-assistant",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "home-assistant",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "home-assistant",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "home-assistant",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "home-assistant",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "home-assistant",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "home-assistant",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "home-assistant",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "home-assistant",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "home-assistant",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "home-assistant",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "home-assistant",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "home-assistant",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "home-assistant",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "home-assistant",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "home-assistant",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "home-assistant",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "home-assistant",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "home-assistant",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "home-assistant",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "home-assistant",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "home-assistant",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "home-assistant",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "home-assistant",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "home-assistant",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "home-assistant",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "home-assistant",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "home-assistant",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "home-assistant",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "music21",
+    "added",
+    "invalid-name",
+    "*Attribute name \"id\" doesn't conform to '[a-z_][A-Za-z0-9_]{2,30}$' pattern*"
+   ],
+   [
+    "music21",
+    "removed",
+    "invalid-name",
+    "*Attribute name \"id\" doesn't conform to '[a-z_][A-Za-z0-9_]{2,30}$' pattern*"
+   ],
+   [
+    "pandas",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "pandas",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "pandas",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "pandas",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "pandas",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "pandas",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "pandas",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "pandas",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "pandas",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "pandas",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "pandas",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "pandas",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "pandas",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "pandas",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "pandas",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "pandas",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "pandas",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "pandas",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "pandas",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "pandas",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "pandas",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "pandas",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "pandas",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "pandas",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "pandas",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "pandas",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "pandas",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "pandas",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "pandas",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "pandas",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "pandas",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "sentry",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "sentry",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "sentry",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "sentry",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "sentry",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "sentry",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "sentry",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "sentry",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ],
+   [
+    "sentry",
+    "added",
+    "missing-parentheses-for-call-in-test",
+    "*Using a conditional statement with potentially wrong function or method call due to missing parentheses*"
+   ]
+  ],
+  "commit": "d703cff26"
  },
  "11675": {
   "date": "2026-10-22",
@@ -16210,6 +17075,110 @@
   ],
   "commit": "3eb44e780"
  },
+ "11723": {
+  "date": "2026-11-08",
+  "added": 6,
+  "removed": 3,
+  "changed": 4,
+  "projects": {
+   "astropy": {
+    "added": 0,
+    "removed": 2,
+    "changed": 4
+   },
+   "django": {
+    "added": 5,
+    "removed": 0,
+    "changed": 0
+   },
+   "music21": {
+    "added": 1,
+    "removed": 1,
+    "changed": 0
+   }
+  },
+  "items": [
+   [
+    "astropy",
+    "changed",
+    "too-many-ancestors",
+    "message: `Too many ancestors (22/7)` → `Too many ancestors (23/7)`"
+   ],
+   [
+    "astropy",
+    "changed",
+    "too-many-ancestors",
+    "message: `Too many ancestors (27/7)` → `Too many ancestors (28/7)`"
+   ],
+   [
+    "astropy",
+    "changed",
+    "too-many-ancestors",
+    "message: `Too many ancestors (23/7)` → `Too many ancestors (22/7)`"
+   ],
+   [
+    "astropy",
+    "changed",
+    "too-many-ancestors",
+    "message: `Too many ancestors (28/7)` → `Too many ancestors (27/7)`"
+   ],
+   [
+    "astropy",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'lineno' defined outside __init__*"
+   ],
+   [
+    "astropy",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'lexpos' defined outside __init__*"
+   ],
+   [
+    "django",
+    "added",
+    "invalid-name",
+    "*Attribute name \"MIGRATION_MODULES\" doesn't conform to snake_case naming style*"
+   ],
+   [
+    "django",
+    "added",
+    "invalid-name",
+    "*Attribute name \"ALLOWED_HOSTS\" doesn't conform to snake_case naming style*"
+   ],
+   [
+    "django",
+    "added",
+    "invalid-name",
+    "*Attribute name \"DEBUG\" doesn't conform to snake_case naming style*"
+   ],
+   [
+    "django",
+    "added",
+    "invalid-name",
+    "*Attribute name \"MAILERS\" doesn't conform to snake_case naming style*"
+   ],
+   [
+    "django",
+    "added",
+    "invalid-name",
+    "*Attribute name \"EMAIL_BACKEND\" doesn't conform to snake_case naming style*"
+   ],
+   [
+    "music21",
+    "added",
+    "invalid-name",
+    "*Attribute name \"id\" doesn't conform to '[a-z_][A-Za-z0-9_]{2,30}$' pattern*"
+   ],
+   [
+    "music21",
+    "removed",
+    "invalid-name",
+    "*Attribute name \"id\" doesn't conform to '[a-z_][A-Za-z0-9_]{2,30}$' pattern*"
+   ]
+  ],
+  "commit": "be56e9bce"
+ },
  "11726": {
   "date": "2026-10-27",
   "added": 0,
@@ -16466,6 +17435,115 @@
   "projects": {},
   "items": [],
   "commit": "30341a070"
+ },
+ "11746": {
+  "date": "2026-11-08",
+  "added": 6,
+  "removed": 3,
+  "changed": 4,
+  "projects": {
+   "ansible": {
+    "added": 0,
+    "removed": 0,
+    "changed": 0
+   },
+   "astropy": {
+    "added": 0,
+    "removed": 2,
+    "changed": 4
+   },
+   "django": {
+    "added": 5,
+    "removed": 0,
+    "changed": 0
+   },
+   "music21": {
+    "added": 1,
+    "removed": 1,
+    "changed": 0
+   }
+  },
+  "items": [
+   [
+    "astropy",
+    "changed",
+    "too-many-ancestors",
+    "message: `Too many ancestors (22/7)` → `Too many ancestors (23/7)`"
+   ],
+   [
+    "astropy",
+    "changed",
+    "too-many-ancestors",
+    "message: `Too many ancestors (27/7)` → `Too many ancestors (28/7)`"
+   ],
+   [
+    "astropy",
+    "changed",
+    "too-many-ancestors",
+    "message: `Too many ancestors (23/7)` → `Too many ancestors (22/7)`"
+   ],
+   [
+    "astropy",
+    "changed",
+    "too-many-ancestors",
+    "message: `Too many ancestors (28/7)` → `Too many ancestors (27/7)`"
+   ],
+   [
+    "astropy",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'lineno' defined outside __init__*"
+   ],
+   [
+    "astropy",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'lexpos' defined outside __init__*"
+   ],
+   [
+    "django",
+    "added",
+    "invalid-name",
+    "*Attribute name \"MIGRATION_MODULES\" doesn't conform to snake_case naming style*"
+   ],
+   [
+    "django",
+    "added",
+    "invalid-name",
+    "*Attribute name \"ALLOWED_HOSTS\" doesn't conform to snake_case naming style*"
+   ],
+   [
+    "django",
+    "added",
+    "invalid-name",
+    "*Attribute name \"DEBUG\" doesn't conform to snake_case naming style*"
+   ],
+   [
+    "django",
+    "added",
+    "invalid-name",
+    "*Attribute name \"MAILERS\" doesn't conform to snake_case naming style*"
+   ],
+   [
+    "django",
+    "added",
+    "invalid-name",
+    "*Attribute name \"EMAIL_BACKEND\" doesn't conform to snake_case naming style*"
+   ],
+   [
+    "music21",
+    "added",
+    "invalid-name",
+    "*Attribute name \"id\" doesn't conform to '[a-z_][A-Za-z0-9_]{2,30}$' pattern*"
+   ],
+   [
+    "music21",
+    "removed",
+    "invalid-name",
+    "*Attribute name \"id\" doesn't conform to '[a-z_][A-Za-z0-9_]{2,30}$' pattern*"
+   ]
+  ],
+  "commit": "c7206cc28"
  },
  "11751": {
   "date": "2026-10-28",
@@ -16819,6 +17897,214 @@
   ],
   "commit": "f7fb8ce51"
  },
+ "11764": {
+  "date": "2026-11-08",
+  "added": 6,
+  "removed": 3,
+  "changed": 4,
+  "projects": {
+   "astropy": {
+    "added": 0,
+    "removed": 2,
+    "changed": 4
+   },
+   "django": {
+    "added": 5,
+    "removed": 0,
+    "changed": 0
+   },
+   "music21": {
+    "added": 1,
+    "removed": 1,
+    "changed": 0
+   }
+  },
+  "items": [
+   [
+    "astropy",
+    "changed",
+    "too-many-ancestors",
+    "message: `Too many ancestors (22/7)` → `Too many ancestors (23/7)`"
+   ],
+   [
+    "astropy",
+    "changed",
+    "too-many-ancestors",
+    "message: `Too many ancestors (27/7)` → `Too many ancestors (28/7)`"
+   ],
+   [
+    "astropy",
+    "changed",
+    "too-many-ancestors",
+    "message: `Too many ancestors (23/7)` → `Too many ancestors (22/7)`"
+   ],
+   [
+    "astropy",
+    "changed",
+    "too-many-ancestors",
+    "message: `Too many ancestors (28/7)` → `Too many ancestors (27/7)`"
+   ],
+   [
+    "astropy",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'lineno' defined outside __init__*"
+   ],
+   [
+    "astropy",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'lexpos' defined outside __init__*"
+   ],
+   [
+    "django",
+    "added",
+    "invalid-name",
+    "*Attribute name \"MIGRATION_MODULES\" doesn't conform to snake_case naming style*"
+   ],
+   [
+    "django",
+    "added",
+    "invalid-name",
+    "*Attribute name \"ALLOWED_HOSTS\" doesn't conform to snake_case naming style*"
+   ],
+   [
+    "django",
+    "added",
+    "invalid-name",
+    "*Attribute name \"DEBUG\" doesn't conform to snake_case naming style*"
+   ],
+   [
+    "django",
+    "added",
+    "invalid-name",
+    "*Attribute name \"MAILERS\" doesn't conform to snake_case naming style*"
+   ],
+   [
+    "django",
+    "added",
+    "invalid-name",
+    "*Attribute name \"EMAIL_BACKEND\" doesn't conform to snake_case naming style*"
+   ],
+   [
+    "music21",
+    "added",
+    "invalid-name",
+    "*Attribute name \"id\" doesn't conform to '[a-z_][A-Za-z0-9_]{2,30}$' pattern*"
+   ],
+   [
+    "music21",
+    "removed",
+    "invalid-name",
+    "*Attribute name \"id\" doesn't conform to '[a-z_][A-Za-z0-9_]{2,30}$' pattern*"
+   ]
+  ],
+  "commit": "729831091"
+ },
+ "11766": {
+  "date": "2026-11-08",
+  "added": 6,
+  "removed": 3,
+  "changed": 4,
+  "projects": {
+   "astropy": {
+    "added": 0,
+    "removed": 2,
+    "changed": 4
+   },
+   "django": {
+    "added": 5,
+    "removed": 0,
+    "changed": 0
+   },
+   "music21": {
+    "added": 1,
+    "removed": 1,
+    "changed": 0
+   }
+  },
+  "items": [
+   [
+    "astropy",
+    "changed",
+    "too-many-ancestors",
+    "message: `Too many ancestors (22/7)` → `Too many ancestors (23/7)`"
+   ],
+   [
+    "astropy",
+    "changed",
+    "too-many-ancestors",
+    "message: `Too many ancestors (27/7)` → `Too many ancestors (28/7)`"
+   ],
+   [
+    "astropy",
+    "changed",
+    "too-many-ancestors",
+    "message: `Too many ancestors (23/7)` → `Too many ancestors (22/7)`"
+   ],
+   [
+    "astropy",
+    "changed",
+    "too-many-ancestors",
+    "message: `Too many ancestors (28/7)` → `Too many ancestors (27/7)`"
+   ],
+   [
+    "astropy",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'lineno' defined outside __init__*"
+   ],
+   [
+    "astropy",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'lexpos' defined outside __init__*"
+   ],
+   [
+    "django",
+    "added",
+    "invalid-name",
+    "*Attribute name \"MIGRATION_MODULES\" doesn't conform to snake_case naming style*"
+   ],
+   [
+    "django",
+    "added",
+    "invalid-name",
+    "*Attribute name \"ALLOWED_HOSTS\" doesn't conform to snake_case naming style*"
+   ],
+   [
+    "django",
+    "added",
+    "invalid-name",
+    "*Attribute name \"DEBUG\" doesn't conform to snake_case naming style*"
+   ],
+   [
+    "django",
+    "added",
+    "invalid-name",
+    "*Attribute name \"MAILERS\" doesn't conform to snake_case naming style*"
+   ],
+   [
+    "django",
+    "added",
+    "invalid-name",
+    "*Attribute name \"EMAIL_BACKEND\" doesn't conform to snake_case naming style*"
+   ],
+   [
+    "music21",
+    "added",
+    "invalid-name",
+    "*Attribute name \"id\" doesn't conform to '[a-z_][A-Za-z0-9_]{2,30}$' pattern*"
+   ],
+   [
+    "music21",
+    "removed",
+    "invalid-name",
+    "*Attribute name \"id\" doesn't conform to '[a-z_][A-Za-z0-9_]{2,30}$' pattern*"
+   ]
+  ],
+  "commit": "9af0eb000"
+ },
  "11768": {
   "date": "2026-11-02",
   "added": 1,
@@ -17036,6 +18322,185 @@
   ],
   "commit": "9125b0d4e"
  },
+ "11773": {
+  "date": "2026-11-08",
+  "added": 0,
+  "removed": 0,
+  "changed": 1,
+  "projects": {
+   "pandas": {
+    "added": 0,
+    "removed": 0,
+    "changed": 1
+   }
+  },
+  "items": [
+   [
+    "pandas",
+    "changed",
+    "redefined-variable-type",
+    "Moved from `505:16`-`505:47` to `507:16`-`507:43`."
+   ]
+  ],
+  "commit": "84c463a6a"
+ },
+ "11775": {
+  "date": "2026-11-08",
+  "added": 3,
+  "removed": 3,
+  "changed": 6,
+  "projects": {
+   "ansible": {
+    "added": 1,
+    "removed": 1,
+    "changed": 1
+   },
+   "astropy": {
+    "added": 1,
+    "removed": 1,
+    "changed": 1
+   },
+   "home-assistant": {
+    "added": 1,
+    "removed": 1,
+    "changed": 1
+   },
+   "pandas": {
+    "added": 0,
+    "removed": 0,
+    "changed": 3
+   }
+  },
+  "items": [
+   [
+    "ansible",
+    "changed",
+    "possibly-used-before-assignment",
+    "confidence: `HIGH` → `CONTROL_FLOW`"
+   ],
+   [
+    "ansible",
+    "added",
+    "possibly-used-before-assignment",
+    "*Possibly using variable 'offset' before assignment*"
+   ],
+   [
+    "ansible",
+    "removed",
+    "undefined-variable",
+    "*Undefined variable 'offset'*"
+   ],
+   [
+    "astropy",
+    "changed",
+    "possibly-used-before-assignment",
+    "confidence: `HIGH` → `CONTROL_FLOW`"
+   ],
+   [
+    "astropy",
+    "added",
+    "possibly-used-before-assignment",
+    "*Possibly using variable 'spacing' before assignment*"
+   ],
+   [
+    "astropy",
+    "removed",
+    "undefined-variable",
+    "*Undefined variable 'spacing'*"
+   ],
+   [
+    "home-assistant",
+    "changed",
+    "possibly-used-before-assignment",
+    "confidence: `HIGH` → `CONTROL_FLOW`"
+   ],
+   [
+    "home-assistant",
+    "added",
+    "possibly-used-before-assignment",
+    "*Possibly using variable 'other_sources' before assignment*"
+   ],
+   [
+    "home-assistant",
+    "removed",
+    "undefined-variable",
+    "*Undefined variable 'other_sources'*"
+   ],
+   [
+    "pandas",
+    "changed",
+    "redefined-variable-type",
+    "Moved from `505:16`-`505:47` to `507:16`-`507:43`."
+   ],
+   [
+    "pandas",
+    "changed",
+    "possibly-used-before-assignment",
+    "confidence: `HIGH` → `CONTROL_FLOW`"
+   ],
+   [
+    "pandas",
+    "changed",
+    "possibly-used-before-assignment",
+    "confidence: `HIGH` → `CONTROL_FLOW`"
+   ]
+  ],
+  "commit": "6094235d0"
+ },
+ "11778": {
+  "date": "2026-11-08",
+  "added": 0,
+  "removed": 3,
+  "changed": 1,
+  "projects": {
+   "flask": {
+    "added": 0,
+    "removed": 3,
+    "changed": 0
+   },
+   "pandas": {
+    "added": 0,
+    "removed": 0,
+    "changed": 1
+   }
+  },
+  "items": [
+   [
+    "flask",
+    "removed",
+    "reimported",
+    "*Reimport 'typing' (imported line 3)*"
+   ],
+   [
+    "flask",
+    "removed",
+    "reimported",
+    "*Reimport 'typing' (imported line 7)*"
+   ],
+   [
+    "flask",
+    "removed",
+    "reimported",
+    "*Reimport 'typing' (imported line 4)*"
+   ],
+   [
+    "pandas",
+    "changed",
+    "redefined-variable-type",
+    "Moved from `505:16`-`505:47` to `507:16`-`507:43`."
+   ]
+  ],
+  "commit": "0314d1549"
+ },
+ "11779": {
+  "date": "2026-11-08",
+  "added": 0,
+  "removed": 0,
+  "changed": 0,
+  "projects": {},
+  "items": [],
+  "commit": "04e22ddc9"
+ },
  "11780": {
   "date": "2026-11-03",
   "added": 0,
@@ -17058,6 +18523,86 @@
   ],
   "commit": "f2c7ed3f6"
  },
+ "11782": {
+  "date": "2026-11-08",
+  "added": 9,
+  "removed": 0,
+  "changed": 0,
+  "projects": {
+   "ansible": {
+    "added": 2,
+    "removed": 0,
+    "changed": 0
+   },
+   "astropy": {
+    "added": 1,
+    "removed": 0,
+    "changed": 0
+   },
+   "django": {
+    "added": 6,
+    "removed": 0,
+    "changed": 0
+   }
+  },
+  "items": [
+   [
+    "ansible",
+    "added",
+    "no-member",
+    "*Module 'ansible.constants' has no 'YAML_FILENAME_EXTENSIONS' member*"
+   ],
+   [
+    "ansible",
+    "added",
+    "no-member",
+    "*Module 'ansible.constants' has no 'YAML_FILENAME_EXTENSIONS' member*"
+   ],
+   [
+    "astropy",
+    "added",
+    "no-member",
+    "*Module 'astropy.units' has no 'adu' member*"
+   ],
+   [
+    "django",
+    "added",
+    "no-member",
+    "*Instance of 'Style' has no 'WARNING' member*"
+   ],
+   [
+    "django",
+    "added",
+    "no-member",
+    "*Instance of 'Style' has no 'MIGRATE_HEADING' member*"
+   ],
+   [
+    "django",
+    "added",
+    "no-member",
+    "*Instance of 'Style' has no 'WARNING' member*"
+   ],
+   [
+    "django",
+    "added",
+    "no-member",
+    "*Instance of 'Style' has no 'MIGRATE_HEADING' member*"
+   ],
+   [
+    "django",
+    "added",
+    "no-member",
+    "*Instance of 'Style' has no 'WARNING' member*"
+   ],
+   [
+    "django",
+    "added",
+    "no-member",
+    "*Instance of 'Style' has no 'WARNING' member*"
+   ]
+  ],
+  "commit": "3f278c324"
+ },
  "11784": {
   "date": "2026-11-05",
   "added": 0,
@@ -17067,6 +18612,73 @@
   "items": [],
   "commit": "4198fd1f5"
  },
+ "11788": {
+  "date": "2026-11-08",
+  "added": 0,
+  "removed": 0,
+  "changed": 6,
+  "projects": {
+   "ansible": {
+    "added": 0,
+    "removed": 0,
+    "changed": 1
+   },
+   "astropy": {
+    "added": 0,
+    "removed": 0,
+    "changed": 1
+   },
+   "home-assistant": {
+    "added": 0,
+    "removed": 0,
+    "changed": 1
+   },
+   "pandas": {
+    "added": 0,
+    "removed": 0,
+    "changed": 3
+   }
+  },
+  "items": [
+   [
+    "ansible",
+    "changed",
+    "possibly-used-before-assignment",
+    "confidence: `HIGH` → `CONTROL_FLOW`"
+   ],
+   [
+    "astropy",
+    "changed",
+    "possibly-used-before-assignment",
+    "confidence: `HIGH` → `CONTROL_FLOW`"
+   ],
+   [
+    "home-assistant",
+    "changed",
+    "possibly-used-before-assignment",
+    "confidence: `HIGH` → `CONTROL_FLOW`"
+   ],
+   [
+    "pandas",
+    "changed",
+    "redefined-variable-type",
+    "Moved from `505:16`-`505:47` to `507:16`-`507:43`."
+   ],
+   [
+    "pandas",
+    "changed",
+    "possibly-used-before-assignment",
+    "confidence: `HIGH` → `CONTROL_FLOW`"
+   ],
+   [
+    "pandas",
+    "changed",
+    "possibly-used-before-assignment",
+    "confidence: `HIGH` → `CONTROL_FLOW`"
+   ]
+  ],
+  "commit": "781961722"
+ },
  "11789": {
   "date": "2026-11-08",
   "added": 0,
@@ -17075,5 +18687,38 @@
   "projects": {},
   "items": [],
   "commit": "917a53c50"
+ },
+ "11790": {
+  "date": "2026-11-08",
+  "added": 0,
+  "removed": 1,
+  "changed": 1,
+  "projects": {
+   "pandas": {
+    "added": 0,
+    "removed": 0,
+    "changed": 1
+   },
+   "sentry": {
+    "added": 0,
+    "removed": 1,
+    "changed": 0
+   }
+  },
+  "items": [
+   [
+    "pandas",
+    "changed",
+    "redefined-variable-type",
+    "Moved from `505:16`-`505:47` to `507:16`-`507:43`."
+   ],
+   [
+    "sentry",
+    "removed",
+    "expression-not-assigned",
+    "*Expression \"compute_func_args.append(data[key]) if idx is None else compute_func_args.append(data[key][idx])\" is assigned to nothing*"
+   ]
+  ],
+  "commit": "776831227"
  }
 }

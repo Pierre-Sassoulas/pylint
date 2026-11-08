@@ -2413,9 +2413,9 @@
    "milestone": "",
    "size": 382,
    "created": "2026-10-29",
-   "updated": "2026-10-29",
-   "ci": "running",
-   "cifail": 0,
+   "updated": "2026-11-08",
+   "ci": "failing",
+   "cifail": 1,
    "links": [
     {
      "ref": "pylint-dev/pylint#9192",
@@ -2442,8 +2442,8 @@
    "milestone": "",
    "size": 119,
    "created": "2026-10-29",
-   "updated": "2026-10-29",
-   "ci": "running",
+   "updated": "2026-11-08",
+   "ci": "green",
    "cifail": 0,
    "links": [
     {
@@ -2561,9 +2561,9 @@
    "milestone": "",
    "size": 60,
    "created": "2026-10-30",
-   "updated": "2026-10-31",
-   "ci": "running",
-   "cifail": 0,
+   "updated": "2026-11-08",
+   "ci": "failing",
+   "cifail": 1,
    "links": [
     {
      "ref": "pylint-dev/pylint#9874",
@@ -2592,8 +2592,8 @@
    "milestone": "",
    "size": 38,
    "created": "2026-11-03",
-   "updated": "2026-11-05",
-   "ci": "running",
+   "updated": "2026-11-08",
+   "ci": "green",
    "cifail": 0,
    "links": []
   },
@@ -2611,9 +2611,9 @@
    "milestone": "",
    "size": 86,
    "created": "2026-11-03",
-   "updated": "2026-11-05",
-   "ci": "running",
-   "cifail": 0,
+   "updated": "2026-11-08",
+   "ci": "failing",
+   "cifail": 1,
    "links": [
     {
      "ref": "pylint-dev/pylint#7487",
@@ -2655,7 +2655,7 @@
    "size": 50,
    "created": "2026-11-07",
    "updated": "2026-11-08",
-   "ci": "running",
+   "ci": "green",
    "cifail": 0,
    "links": []
   },
@@ -2673,7 +2673,7 @@
    "size": 108,
    "created": "2026-11-07",
    "updated": "2026-11-08",
-   "ci": "running",
+   "ci": "green",
    "cifail": 0,
    "links": [
     {
