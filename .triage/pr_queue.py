@@ -89,10 +89,10 @@ V = {
     ),
     11615: (
         'approve',
-        'held',
+        'running',
         'confirmed',
         "Issue 10137 (bug, 3 reactions, now milestone 4.1.5): <code>__Init__.py</code> with different capitalization is linted as a module on Windows. The 2 November run was 40/41, only <code>pylint</code> spelling red on three words in a new docstring. summeriver13's fix (ningkexin96/pylint#2) was merged into the branch on 5 November as 2ddc28a: docstring only, logic unchanged. Its six runs are held again.",
-        'Approve the run; if green, review and backport (now 4.1.5).',
+        'Run approved 8 November; CI is backed up (about 75 runs queued), so results are still pending. Then: review and backport (now 4.1.5).',
     ),
     11690: (
         "review",
@@ -267,10 +267,10 @@ V = {
     # ---- approve the workflow run ----------------------------------------
     11790: (
         'approve',
-        'held',
+        'running',
         'confirmed',
         'New, 42 lines by vidigoat for issue 8129 (FP, <em>Needs PR</em>): <code>expression-not-assigned</code> on <code>f1() if test else f2()</code> as a statement. New <code>_is_call_await_or_yield()</code> accepts an <code>IfExp</code> whose every branch is a call, an <code>await</code> or a <code>yield</code>. Small, matches the issue discussion. Only PR. Not run locally.',
-        'Approve the run, then review.',
+        'Run approved 8 November; CI is backed up (about 75 runs queued), so results are still pending. Then: review.',
     ),
     11789: (
         'review',
@@ -281,10 +281,10 @@ V = {
     ),
     11788: (
         'approve',
-        'held',
+        'running',
         'confirmed',
-        "New, 81 lines by kennywu411-dev for issue 10195 (FP, regression since 3.2 per SpecLad's bisect to the commit that added E0606; labelled <em>Needs design proposal</em>): <code>if c: v = 1</code> then <code>print(v)</code> then <code>v = n</code> gives a definite <code>used-before-assignment</code> because the later assignment hides the earlier conditional one. Now reports <code>possibly-used-before-assignment</code> when an uncertain definition comes before the use (compared by line and column). Only PR for the issue. Not run locally.",
-        'Approve the run; check the primer for E0601 → E0606 moves, and that the position comparison holds for loops.',
+        "New, 81 lines by kennywu411-dev for issue 10195 (FP, regression since 3.2 per SpecLad's bisect to the commit that added E0606; labelled <em>Needs design proposal</em>): <code>if c: v = 1</code> then <code>print(v)</code> then <code>v = n</code> gives a definite <code>used-before-assignment</code> because the later assignment hides the earlier conditional one. Now reports <code>possibly-used-before-assignment</code> when an uncertain definition comes before the use (compared by line and column). Only PR for the issue. Not run locally. chrikrah approved again on 8 November after 7819617, which restores E0601 for a shadowed builtin read before any binding; only the issue's conditional case moves to E0606.",
+        'Run approved 8 November; CI is backed up (about 75 runs queued), so results are still pending. Then: check the primer for E0601 → E0606 moves, and that the position comparison holds for loops.',
     ),
     11784: (
         'decide',
@@ -295,16 +295,16 @@ V = {
     ),
     11782: (
         'approve',
-        'held',
+        'running',
         'confirmed',
         'New, 20 lines by unaltolga for issue 9405 (FN, <em>Needs PR</em>): <code>no-member</code> is skipped under <code>if enabled:</code> when <code>enabled = False</code> then maybe <code>True</code>, because the false-branch guard (#4764) only looks at the first inferred value. One-line fix, the one jacobtylerwalls proposed on the issue: <code>safe_infer(parent.test, compare_constants=True)</code>. Only PR for the issue. Not run locally. chrikrah approved on 7 November (non-blocking: no test for a flag that is False on both branches).',
-        'Approve the run; the primer will show whether more no-member comes back (expected: true positives only).',
+        'Run approved 8 November; CI is backed up (about 75 runs queued), so results are still pending. Then: the primer will show whether more no-member comes back (expected: true positives only).',
     ),
     11776: (
         'decide',
         'design',
         'feature',
-        'New, 36 lines by Sachit23 (first PR) for issue 9923 (Enhancement + Documentation): <code>nested-min-max</code> suggests <code>min(lo, hi, elements)</code> for <code>min(lo, hi, min(elements))</code>, which compares a list with ints. Suppresses the message when the inner call has one argument that cannot be safely splatted. You wrote on the issue (October 2025) that it needs a better suggestion such as <code>min(lo, hi, *elements)</code>; zackw answered that splatting a huge generator is bad. This PR takes the suppress route, and turns <code>max(3, max(max(MATRIX)))</code> silent.',
+        'New, 36 lines by Sachit23 (first PR) for issue 9923 (Enhancement + Documentation): <code>nested-min-max</code> suggests <code>min(lo, hi, elements)</code> for <code>min(lo, hi, min(elements))</code>, which compares a list with ints. Suppresses the message when the inner call has one argument that cannot be safely splatted. You wrote on the issue (October 2025) that it needs a better suggestion such as <code>min(lo, hi, *elements)</code>; zackw answered that splatting a huge generator is bad. This PR takes the suppress route, and turns <code>max(3, max(max(MATRIX)))</code> silent. Marked ready for review on 8 November.',
         'Decide: suppress (this PR) or suggest the splat for known-small iterables; then review.',
     ),
 
@@ -318,34 +318,34 @@ V = {
 
     11779: (
         'approve',
-        'held',
+        'running',
         'confirmed',
         'New, 37 lines by Parsiffall1 for issue 9239 (FP): <code>too-many-function-args</code> on <code>self.handlers["handle"](self, 1)</code>, a function taken from a class-level dict and called with explicit <code>self</code>. A bare <code>FunctionDef</code> is never bound, so <code>_determine_callable</code> now counts no implicit <code>self</code>; that replaces the old special case for calls inside the class body (removed). The whole functional suite will tell whether the removal is safe. Not run locally.',
-        'Approve the run, then review.',
+        'Run approved 8 November; CI is backed up (about 75 runs queued), so results are still pending. Then: review.',
     ),
 
     11778: (
         'approve',
-        'held',
+        'running',
         'confirmed',
         'New, 27 lines by denysherych3 (first PR) for issue 11353 (FP): <code>reimported</code> for <code>from . import json as my_json</code> next to <code>import json</code>, because the empty relative base made the name a bare <code>json</code>. Resolves the relative base to its absolute name with <code>get_import_name</code>. Second PR for this issue: #11377 (rzaman8677, 15 lines, CI never ran) skips every relative import instead, which would also hide a real reimport (<code>import pkg.mod</code> then <code>from . import mod</code> inside <code>pkg</code>). This one is the more precise. Not run locally.',
-        'Approve the run; prefer this over #11377 and close that one, crediting it.',
+        'Run approved 8 November; CI is backed up (about 75 runs queued), so results are still pending. Then: rerun CodeQL (failed downloading its bundle, HTTP 504, unrelated), then review; close #11377 in its favour.',
     ),
 
     11775: (
         'approve',
-        'held',
+        'running',
         'confirmed',
-        'New, 282 lines by TohruSu (first PR) for issue 9633 (FP, Needs PR): <code>undefined-variable</code> / <code>used-before-assignment</code> after <code>if "name" not in globals(): name = ...</code>, which binds <code>name</code> on every path. Part 1 (recognise that guard, at module level or with <code>global</code>, no <code>del</code>) fits the issue. Part 2 changes which message a name assigned in one <code>if</code> branch gets (<code>possibly-used-before-assignment</code> instead of <code>undefined-variable</code>): a separate behaviour change that should be its own PR. Not run locally.',
-        'Approve the run; ask to split part 2 out before reviewing.',
+        'New, 282 lines by TohruSu (first PR) for issue 9633 (FP, Needs PR): <code>undefined-variable</code> / <code>used-before-assignment</code> after <code>if "name" not in globals(): name = ...</code>, which binds <code>name</code> on every path. Part 1 (recognise that guard, at module level or with <code>global</code>, no <code>del</code>) fits the issue. Part 2 changes which message a name assigned in one <code>if</code> branch gets (<code>possibly-used-before-assignment</code> instead of <code>undefined-variable</code>): a separate behaviour change that should be its own PR. Not run locally. 8 November: new commit 6094235 counts a one-branch definition only when it comes before the use (same position check as #11788), after chrikrah\'s two counter-examples; both now report what main reports.',
+        'Run approved 8 November; CI is backed up (about 75 runs queued), so results are still pending. Then: ask to split part 2 out before reviewing.',
     ),
 
     11773: (
         'approve',
-        'held',
+        'running',
         'confirmed',
         'New, 195 lines by Thanatos9404 (first PR) for issue 7790 (FN, Needs PR): <code>self.x = 1</code> in <code>__init__</code> of a <code>@dataclass(slots=True)</code> class raises <code>AttributeError</code> at runtime and pylint says nothing. Emits <code>assigning-non-slot</code>, taking the fields (minus <code>ClassVar</code>) as slots and giving up when an ancestor has no slots. Only <code>dataclass(...)</code> by name, so <code>pydantic.dataclasses</code> and similar stay silent. Not run locally.',
-        'Approve the run, then review.',
+        'Run approved 8 November; CI is backed up (about 75 runs queued), so results are still pending. Then: review.',
     ),
 
 
@@ -375,18 +375,18 @@ V = {
 
     11766: (
         'approve',
-        'held',
+        'running',
         'confirmed',
         'New, 36 lines by YashG1836 for issue 11765 (FN): <code>glob.glob0</code> / <code>glob.glob1</code> sat in <code>DEPRECATED_CLASSES</code> with a module prefix, and <code>typing._UnionGenericAlias</code> had a stray leading dot, so none could ever match. Moves the glob pair to <code>DEPRECATED_METHODS</code> 3.13 and drops the dot. Confirmed in the source. Not run locally. chrikrah approved on 5 November: both new tests fail on the base table, and it merges cleanly with #11764 in either order.',
-        'Approve the run, then review with #11764 (same table, will conflict lightly).',
+        'Run approved 8 November; CI is backed up (about 75 runs queued), so results are still pending. Then: review with #11764 (same table, will conflict lightly).',
     ),
 
     11764: (
         'approve',
-        'held',
+        'running',
         'confirmed',
         'New, 36 lines by YashG1836 for issue 11763 (FN): <code>deprecated-class</code> drops the classes of a module listed under two Python versions (<code>typing</code>, <code>asyncio</code>, <code>importlib.abc</code>, <code>ast</code>, <code>webbrowser</code>), because <code>dict.update</code> replaces the older set. Fix merges the sets with <code>setdefault(...).update</code>. Bug confirmed in the source; test runs on 3.14 only. Not run locally.',
-        'Approve the run, then review (2-line fix).',
+        'Run approved 8 November; CI is backed up (about 75 runs queued), so results are still pending. Then: review (2-line fix).',
     ),
 
     11736: (
@@ -542,14 +542,14 @@ V = {
     ),
     11746: (
         "approve",
-        "held",
+        'running',
         "confirmed",
         "New, 15 lines by InnoxCodes for issue 8831 (FP, 0 reactions): <code>unused-import</code> on "
         "<code>Literal</code> used only in a string annotation <code>\"int | Literal[True]\"</code>. "
         "<code>_store_type_annotation_node</code> now recurses into both sides of a <code>BinOp</code>; "
         "test adds <code>\"Decimal | Literal[True]\"</code> to the existing functional file. Looks right. chrikrah approved on 29 October (old <code>variables.py</code> reports all three new "
         "imports); the CI run still waits for approval.",
-        "Approve the run; merge if green.",
+        'Run approved 8 November; CI is backed up (about 75 runs queued), so results are still pending. Then: merge if green.',
     ),
     11743: (
         "review",
@@ -675,13 +675,13 @@ V = {
     ),
     11723: (
         "approve",
-        "held",
+        'running',
         "confirmed",
         "New, 9 lines by Pushkar-Shahi for issue 11702 (docs): follow-up to the merged #11710, says in "
         "the <code>logging-format-style</code> help that stdlib <code>logging</code> only formats with "
         "<code>%</code>, so <code>new</code> is for third-party loggers. That is the gap the 22 October "
         "triage of 11702 named.",
-        "Approve the run and merge; it closes 11702.",
+        'Run approved 8 November; CI is backed up (about 75 runs queued), so results are still pending. Then: and merge; it closes 11702.',
     ),
     11714: (
         "approve",
@@ -757,10 +757,10 @@ V = {
     ),
     11673: (
         'approve',
-        'held',
+        'running',
         'confirmed',
         '59 lines by mehdimirzafaruk for issue 8680 (FN, 1 reaction): <code>missing-parentheses-for-call-in-test</code> missed methods, as in <code>if self.is_on:</code>. The author asked on 31 October whether the approach still fits; the run was never approved.',
-        'Approve the run, then review and answer the author.',
+        'Run approved 8 November; CI is backed up (about 75 runs queued), so results are still pending. Then: review and answer the author.',
     ),
     11687: (
         "approve",
@@ -1034,10 +1034,10 @@ V = {
     ),
     11641: (
         'approve',
-        'held',
+        'running',
         'confirmed',
         'Issue 10025 (FP): <code>import-self</code> when an extensionless script has the same basename as an importable module. New commit 1 November answers your changes requested: the unit test is now functional tests. The previous red was the spelling check on <code>extensionless</code>; the word is still in the diff, so check whether it moved out of the docstring. Primer only noise.',
-        'Approve the run; re-review if green, else ask for the spelling fix.',
+        'Run approved 8 November; CI is backed up (about 75 runs queued), so results are still pending. Then: re-review if green, else ask for the spelling fix.',
     ),
     11579: (
         "decide",

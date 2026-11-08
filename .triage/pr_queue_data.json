@@ -1,5 +1,5 @@
 {
- "snapshot": "2026-11-07",
+ "snapshot": "2026-11-08",
  "owner": "Pierre-Sassoulas",
  "open_total": 171,
  "open_own": 21,
@@ -204,7 +204,7 @@
    "size": 31,
    "files": 2,
    "created": "2024-07-16",
-   "updated": "2026-11-07",
+   "updated": "2026-11-08",
    "labels": [
     "Documentation :green_book:",
     "Skip news :mute:",
@@ -1855,7 +1855,7 @@
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "awaiting-approval",
+   "ci": "not-run",
    "citot": 2,
    "cifail": 0,
    "nrev": 0,
@@ -2103,7 +2103,7 @@
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "awaiting-approval",
+   "ci": "not-run",
    "citot": 4,
    "cifail": 0,
    "nrev": 0,
@@ -2132,8 +2132,8 @@
    "milestone": "4.1.5",
    "rd": "CHANGES_REQUESTED",
    "merge": "MERGEABLE",
-   "ci": "awaiting-approval",
-   "citot": 2,
+   "ci": "running",
+   "citot": 41,
    "cifail": 0,
    "nrev": 1,
    "mrev": [
@@ -2160,7 +2160,7 @@
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "awaiting-approval",
+   "ci": "not-run",
    "citot": 4,
    "cifail": 0,
    "nrev": 0,
@@ -2454,8 +2454,8 @@
    "milestone": "",
    "rd": "CHANGES_REQUESTED",
    "merge": "MERGEABLE",
-   "ci": "awaiting-approval",
-   "citot": 2,
+   "ci": "running",
+   "citot": 25,
    "cifail": 0,
    "nrev": 1,
    "mrev": [
@@ -2843,8 +2843,8 @@
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "awaiting-approval",
-   "citot": 5,
+   "ci": "running",
+   "citot": 30,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -2976,8 +2976,8 @@
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "awaiting-approval",
-   "citot": 4,
+   "ci": "running",
+   "citot": 28,
    "cifail": 0,
    "nrev": 1,
    "mrev": [],
@@ -3575,8 +3575,8 @@
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "awaiting-approval",
-   "citot": 4,
+   "ci": "running",
+   "citot": 28,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -4050,8 +4050,8 @@
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "awaiting-approval",
-   "citot": 4,
+   "ci": "running",
+   "citot": 28,
    "cifail": 0,
    "nrev": 1,
    "mrev": [],
@@ -4388,8 +4388,8 @@
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "awaiting-approval",
-   "citot": 4,
+   "ci": "running",
+   "citot": 31,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -4420,8 +4420,8 @@
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "awaiting-approval",
-   "citot": 4,
+   "ci": "running",
+   "citot": 28,
    "cifail": 0,
    "nrev": 1,
    "mrev": [],
@@ -4544,8 +4544,8 @@
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "awaiting-approval",
-   "citot": 5,
+   "ci": "running",
+   "citot": 34,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -4566,10 +4566,10 @@
    "a": "TohruSu",
    "t": "Fix false positives for a global assigned under if \"name\" not in globals()",
    "draft": false,
-   "size": 288,
+   "size": 310,
    "files": 4,
    "created": "2026-11-02",
-   "updated": "2026-11-02",
+   "updated": "2026-11-08",
    "labels": [
     "False Positive 🦟",
     "C: used-before-assignment",
@@ -4578,8 +4578,8 @@
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "awaiting-approval",
-   "citot": 6,
+   "ci": "running",
+   "citot": 29,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -4591,19 +4591,19 @@
     ]
    ],
    "lastcom": [
-    "-",
-    "-"
+    "TohruSu",
+    "2026-11-08"
    ]
   },
   {
    "n": 11776,
    "a": "Sachit23",
    "t": "Fix nested-min-max suggestions for unknown iterables",
-   "draft": true,
+   "draft": false,
    "size": 36,
    "files": 4,
    "created": "2026-11-02",
-   "updated": "2026-11-05",
+   "updated": "2026-11-08",
    "labels": [
     "False Positive 🦟",
     "Needs decision :lock:"
@@ -4643,9 +4643,9 @@
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "awaiting-approval",
-   "citot": 4,
-   "cifail": 0,
+   "ci": "running",
+   "citot": 36,
+   "cifail": 1,
    "nrev": 0,
    "mrev": [],
    "links": [
@@ -4675,8 +4675,8 @@
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "awaiting-approval",
-   "citot": 4,
+   "ci": "running",
+   "citot": 37,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -4726,15 +4726,15 @@
    "size": 21,
    "files": 4,
    "created": "2026-11-05",
-   "updated": "2026-11-07",
+   "updated": "2026-11-08",
    "labels": [
     "False Negative 🦋"
    ],
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "awaiting-approval",
-   "citot": 3,
+   "ci": "running",
+   "citot": 32,
    "cifail": 0,
    "nrev": 1,
    "mrev": [],
@@ -4752,7 +4752,7 @@
    "size": 45,
    "files": 4,
    "created": "2026-11-05",
-   "updated": "2026-11-05",
+   "updated": "2026-11-08",
    "labels": [
     "False Positive 🦟",
     "Needs decision :lock:"
@@ -4761,7 +4761,7 @@
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
    "ci": "green",
-   "citot": 44,
+   "citot": 48,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -4782,10 +4782,10 @@
    "a": "kennywu411-dev",
    "t": "Fix used-before-assignment instead of possibly-used-before-assignment when the name is assigned again later",
    "draft": false,
-   "size": 81,
+   "size": 93,
    "files": 5,
    "created": "2026-11-07",
-   "updated": "2026-11-07",
+   "updated": "2026-11-08",
    "labels": [
     "Control flow",
     "False Positive 🦟",
@@ -4794,10 +4794,10 @@
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "awaiting-approval",
-   "citot": 3,
+   "ci": "running",
+   "citot": 40,
    "cifail": 0,
-   "nrev": 1,
+   "nrev": 2,
    "mrev": [],
    "links": [
     [
@@ -4807,8 +4807,8 @@
     ]
    ],
    "lastcom": [
-    "-",
-    "-"
+    "kennywu411-dev",
+    "2026-11-07"
    ]
   },
   {
@@ -4819,7 +4819,7 @@
    "size": 485,
    "files": 24,
    "created": "2026-11-07",
-   "updated": "2026-11-07",
+   "updated": "2026-11-08",
    "labels": [
     "Bug :beetle:",
     "pyreverse"
@@ -4828,7 +4828,7 @@
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
    "ci": "green",
-   "citot": 45,
+   "citot": 51,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -4841,7 +4841,7 @@
    ],
    "lastcom": [
     "github-actions",
-    "2026-11-07"
+    "2026-11-08"
    ]
   },
   {
@@ -4852,15 +4852,15 @@
    "size": 42,
    "files": 4,
    "created": "2026-11-07",
-   "updated": "2026-11-07",
+   "updated": "2026-11-08",
    "labels": [
     "False Positive 🦟"
    ],
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "awaiting-approval",
-   "citot": 3,
+   "ci": "running",
+   "citot": 32,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -6544,7 +6544,7 @@
   {
    "comments": 0,
    "labels": [
-    "Needs triage :inbox_tray:"
+    "Needs decision :lock:"
    ],
    "number": 11783,
    "reactions": 0,

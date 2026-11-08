@@ -2414,7 +2414,7 @@
    "size": 382,
    "created": "2026-10-29",
    "updated": "2026-10-29",
-   "ci": "awaiting-approval",
+   "ci": "running",
    "cifail": 0,
    "links": [
     {
@@ -2443,7 +2443,7 @@
    "size": 119,
    "created": "2026-10-29",
    "updated": "2026-10-29",
-   "ci": "awaiting-approval",
+   "ci": "running",
    "cifail": 0,
    "links": [
     {
@@ -2562,7 +2562,7 @@
    "size": 60,
    "created": "2026-10-30",
    "updated": "2026-10-31",
-   "ci": "awaiting-approval",
+   "ci": "running",
    "cifail": 0,
    "links": [
     {
@@ -2593,7 +2593,7 @@
    "size": 38,
    "created": "2026-11-03",
    "updated": "2026-11-05",
-   "ci": "awaiting-approval",
+   "ci": "running",
    "cifail": 0,
    "links": []
   },
@@ -2612,7 +2612,7 @@
    "size": 86,
    "created": "2026-11-03",
    "updated": "2026-11-05",
-   "ci": "awaiting-approval",
+   "ci": "running",
    "cifail": 0,
    "links": [
     {
@@ -2655,7 +2655,7 @@
    "size": 50,
    "created": "2026-11-07",
    "updated": "2026-11-08",
-   "ci": "awaiting-approval",
+   "ci": "running",
    "cifail": 0,
    "links": []
   },
@@ -2673,7 +2673,7 @@
    "size": 108,
    "created": "2026-11-07",
    "updated": "2026-11-08",
-   "ci": "awaiting-approval",
+   "ci": "running",
    "cifail": 0,
    "links": [
     {
