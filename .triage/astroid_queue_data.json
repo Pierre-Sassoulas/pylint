@@ -2642,35 +2642,6 @@
    ]
   },
   {
-   "n": 3463,
-   "a": "Nani-2007-code",
-   "t": "Support PEP 604 union types in isinstance and issubclass inference (#3453)",
-   "draft": false,
-   "labels": [
-    "Bug 🪳",
-    "Duplicate 🐫"
-   ],
-   "rd": "REVIEW_REQUIRED",
-   "milestone": "",
-   "size": 120,
-   "created": "2026-11-04",
-   "updated": "2026-11-08",
-   "ci": "awaiting-approval",
-   "cifail": 0,
-   "links": [
-    {
-     "ref": "pylint-dev/astroid#3453",
-     "title": "isinstance() / issubclass() with a PEP 604 union classinfo (e.g. int | str) always infers False; narrowing discards all values",
-     "state": "open",
-     "labels": [
-      "Bug 🪳"
-     ],
-     "reactions": 0,
-     "pr": false
-    }
-   ]
-  },
-  {
    "n": 3465,
    "a": "kennywu411-dev",
    "t": "Keep operand order when inferring a reflected binary operation on a constant",
