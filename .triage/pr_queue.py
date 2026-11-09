@@ -260,11 +260,11 @@ V = {
     ),
     # ---- approve the workflow run ----------------------------------------
     11793: (
-        'approve',
-        'running',
+        'review',
+        'green',
         'confirmed',
-        'New (8 November), 5 code lines by ayyan-bhatti (first PR) for issue 11791 (FP, filed by chrikrah the same day): <code>bad-dunder-name</code> on <code>__prepare__</code>, <code>__mro_entries__</code> (all versions), <code>__buffer__</code> / <code>__release_buffer__</code> (3.12) and <code>__replace__</code> (3.13). Adds them to <code>EXTRA_DUNDER_METHODS</code> with the version gates, tests at py-version 3.11 and 3.13. Same shape as #8619 and #10977, both backported. Only PR. Not run locally; diff read: constants + tests only.',
-        'Run approved 8 November (6 runs); then review; backport for 4.1.4 (last items before the release).',
+        'New (8 November), 5 code lines by ayyan-bhatti (first PR) for issue 11791 (FP, filed by chrikrah the same day): <code>bad-dunder-name</code> on <code>__prepare__</code>, <code>__mro_entries__</code> (all versions), <code>__buffer__</code> / <code>__release_buffer__</code> (3.12) and <code>__replace__</code> (3.13). Adds them to <code>EXTRA_DUNDER_METHODS</code> with the version gates, tests at py-version 3.11 and 3.13. Same shape as #8619 and #10977, both backported. Only PR. Not run locally; diff read: constants + tests only. 9 November: 46 green; primer removes 5 <code>bad-dunder-name</code> (ansible <code>__prepare__</code> x2 + <code>__mro_entries__</code>, astropy <code>__prepare__</code>, django <code>__replace__</code>): exactly the fix.',
+        'Review and merge for 4.1.4; backport.',
     ),
     11790: (
         'review',
@@ -295,11 +295,11 @@ V = {
         'Decide: close the issue as working as intended (the def counts, document it), or stop counting the def everywhere (shifts every count by one, primer + changelog). Either way the sole-pass special case should not land.',
     ),
     11782: (
-        'approve',
-        'running',
+        'review',
+        'green',
         'confirmed',
-        'New, 20 lines by unaltolga for issue 9405 (FN, <em>Needs PR</em>): <code>no-member</code> is skipped under <code>if enabled:</code> when <code>enabled = False</code> then maybe <code>True</code>, because the false-branch guard (#4764) only looks at the first inferred value. One-line fix, the one jacobtylerwalls proposed on the issue: <code>safe_infer(parent.test, compare_constants=True)</code>. Only PR for the issue. Not run locally. chrikrah approved on 7 November (non-blocking: no test for a flag that is False on both branches). 8 November: d5a2696 adds the <code>both_false</code> test chrikrah asked for. The author traced the 9 new primer <code>no-member</code> (django <code>Style.WARNING</code>, ansible <code>C.YAML_FILENAME_EXTENSIONS</code>, astropy <code>u.adu</code>) to members made at runtime by <code>setattr</code>/<code>globals()</code>, already reported elsewhere in the same files on main: expected FN-fix fallout, not new FPs. The new push holds the run again.',
-        'Run approved 8 November (6 runs); review once green.',
+        'New, 20 lines by unaltolga for issue 9405 (FN, <em>Needs PR</em>): <code>no-member</code> is skipped under <code>if enabled:</code> when <code>enabled = False</code> then maybe <code>True</code>, because the false-branch guard (#4764) only looks at the first inferred value. One-line fix, the one jacobtylerwalls proposed on the issue: <code>safe_infer(parent.test, compare_constants=True)</code>. Only PR for the issue. Not run locally. chrikrah approved on 7 November (non-blocking: no test for a flag that is False on both branches). 8 November: d5a2696 adds the <code>both_false</code> test chrikrah asked for. The author traced the 9 new primer <code>no-member</code> (django <code>Style.WARNING</code>, ansible <code>C.YAML_FILENAME_EXTENSIONS</code>, astropy <code>u.adu</code>) to members made at runtime by <code>setattr</code>/<code>globals()</code>, already reported elsewhere in the same files on main: expected FN-fix fallout, not new FPs. The new push holds the run again. 9 November: 43 green; primer unchanged (the 9 runtime-member <code>no-member</code> the author explained).',
+        'Review.',
     ),
     11776: (
         'decide',
