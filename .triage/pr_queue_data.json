@@ -1,7 +1,7 @@
 {
- "snapshot": "2026-11-08",
+ "snapshot": "2026-11-10",
  "owner": "Pierre-Sassoulas",
- "open_total": 172,
+ "open_total": 183,
  "open_own": 21,
  "prs": [
   {
@@ -381,7 +381,7 @@
    "size": 70,
    "files": 8,
    "created": "2025-10-05",
-   "updated": "2026-11-05",
+   "updated": "2026-11-09",
    "labels": [
     "Enhancement ✨"
    ],
@@ -426,9 +426,9 @@
    "milestone": "4.2.0",
    "rd": "CHANGES_REQUESTED",
    "merge": "CONFLICTING",
-   "ci": "failing",
-   "citot": 8,
-   "cifail": 3,
+   "ci": "not-run",
+   "citot": 4,
+   "cifail": 0,
    "nrev": 7,
    "mrev": [
     "Pierre-Sassoulas"
@@ -2252,7 +2252,7 @@
    "size": 121,
    "files": 10,
    "created": "2026-10-10",
-   "updated": "2026-11-06",
+   "updated": "2026-11-09",
    "labels": [
     "False Negative 🦋",
     "python 3.14"
@@ -2322,7 +2322,7 @@
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "awaiting-approval",
+   "ci": "not-run",
    "citot": 4,
    "cifail": 0,
    "nrev": 0,
@@ -2386,7 +2386,7 @@
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "awaiting-approval",
+   "ci": "not-run",
    "citot": 3,
    "cifail": 0,
    "nrev": 1,
@@ -2704,10 +2704,10 @@
    "a": "shan3520",
    "t": "Fix `used-before-assignment` false positive for a walrus in a nested conditional test",
    "draft": false,
-   "size": 85,
+   "size": 146,
    "files": 4,
    "created": "2026-10-14",
-   "updated": "2026-10-22",
+   "updated": "2026-11-09",
    "labels": [
     "False Positive 🦟",
     "Assignment expression",
@@ -2717,7 +2717,7 @@
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
    "ci": "green",
-   "citot": 49,
+   "citot": 43,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -2730,7 +2730,7 @@
    ],
    "lastcom": [
     "github-actions",
-    "2026-10-14"
+    "2026-11-09"
    ]
   },
   {
@@ -2839,7 +2839,7 @@
    "size": 54,
    "files": 8,
    "created": "2026-10-15",
-   "updated": "2026-11-08",
+   "updated": "2026-11-09",
    "labels": [
     "Import system",
     "False Positive 🦟"
@@ -2860,8 +2860,8 @@
     ]
    ],
    "lastcom": [
-    "github-actions",
-    "2026-11-08"
+    "summeriver13",
+    "2026-11-09"
    ]
   },
   {
@@ -4227,7 +4227,7 @@
    "size": 15,
    "files": 1,
    "created": "2026-10-29",
-   "updated": "2026-10-29",
+   "updated": "2026-11-10",
    "labels": [
     "Documentation :green_book:"
    ],
@@ -4247,8 +4247,8 @@
     ]
    ],
    "lastcom": [
-    "-",
-    "-"
+    "thisisshivamtiwari",
+    "2026-11-10"
    ]
   },
   {
@@ -4385,7 +4385,7 @@
    "size": 36,
    "files": 5,
    "created": "2026-10-30",
-   "updated": "2026-11-08",
+   "updated": "2026-11-10",
    "labels": [
     "False Negative 🦋"
    ],
@@ -4395,7 +4395,7 @@
    "ci": "green",
    "citot": 46,
    "cifail": 0,
-   "nrev": 0,
+   "nrev": 1,
    "mrev": [],
    "links": [
     [
@@ -4640,7 +4640,7 @@
    "size": 27,
    "files": 4,
    "created": "2026-11-03",
-   "updated": "2026-11-08",
+   "updated": "2026-11-09",
    "labels": [
     "False Positive 🦟"
    ],
@@ -4660,8 +4660,8 @@
     ]
    ],
    "lastcom": [
-    "codecov",
-    "2026-11-08"
+    "denysherych3",
+    "2026-11-09"
    ]
   },
   {
@@ -4730,7 +4730,7 @@
    "size": 30,
    "files": 4,
    "created": "2026-11-05",
-   "updated": "2026-11-08",
+   "updated": "2026-11-09",
    "labels": [
     "False Negative 🦋"
    ],
@@ -4738,13 +4738,13 @@
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
    "ci": "green",
-   "citot": 2,
+   "citot": 43,
    "cifail": 0,
-   "nrev": 1,
+   "nrev": 2,
    "mrev": [],
    "links": [],
    "lastcom": [
-    "unaltolga",
+    "github-actions",
     "2026-11-08"
    ]
   },
@@ -4888,7 +4888,7 @@
    "size": 72,
    "files": 7,
    "created": "2026-11-08",
-   "updated": "2026-11-08",
+   "updated": "2026-11-09",
    "labels": [
     "False Positive 🦟",
     "backport maintenance/4.1.x"
@@ -4897,9 +4897,9 @@
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
    "ci": "green",
-   "citot": 3,
+   "citot": 46,
    "cifail": 0,
-   "nrev": 0,
+   "nrev": 1,
    "mrev": [],
    "links": [
     [
@@ -4908,6 +4908,288 @@
      ""
     ]
    ],
+   "lastcom": [
+    "github-actions",
+    "2026-11-08"
+   ]
+  },
+  {
+   "n": 11794,
+   "a": "lyn1dev",
+   "t": "Report superfluous-parens for nested parentheses after a keyword",
+   "draft": false,
+   "size": 65,
+   "files": 5,
+   "created": "2026-11-09",
+   "updated": "2026-11-09",
+   "labels": [],
+   "milestone": "",
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "awaiting-approval",
+   "citot": 3,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [
+    [
+     5361,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "-",
+    "-"
+   ]
+  },
+  {
+   "n": 11795,
+   "a": "ZainnQureshii",
+   "t": "Correct configuration file discovery documentation",
+   "draft": false,
+   "size": 23,
+   "files": 1,
+   "created": "2026-11-09",
+   "updated": "2026-11-09",
+   "labels": [],
+   "milestone": "",
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "awaiting-approval",
+   "citot": 3,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [],
+   "lastcom": [
+    "-",
+    "-"
+   ]
+  },
+  {
+   "n": 11796,
+   "a": "yxshee",
+   "t": "Emit missing return/yield doc messages once per function",
+   "draft": false,
+   "size": 56,
+   "files": 6,
+   "created": "2026-11-09",
+   "updated": "2026-11-09",
+   "labels": [],
+   "milestone": "",
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "awaiting-approval",
+   "citot": 3,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [
+    [
+     8250,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "-",
+    "-"
+   ]
+  },
+  {
+   "n": 11797,
+   "a": "PDGGK",
+   "t": "Fix undefined-all-variable false positive for a module level __getattr__",
+   "draft": false,
+   "size": 19,
+   "files": 3,
+   "created": "2026-11-09",
+   "updated": "2026-11-09",
+   "labels": [],
+   "milestone": "",
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "awaiting-approval",
+   "citot": 3,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [],
+   "lastcom": [
+    "-",
+    "-"
+   ]
+  },
+  {
+   "n": 11800,
+   "a": "chrikrah",
+   "t": "Complete the list of dunder methods that cannot be async",
+   "draft": false,
+   "size": 60,
+   "files": 3,
+   "created": "2026-11-10",
+   "updated": "2026-11-10",
+   "labels": [],
+   "milestone": "",
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "awaiting-approval",
+   "citot": 3,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [],
+   "lastcom": [
+    "-",
+    "-"
+   ]
+  },
+  {
+   "n": 11801,
+   "a": "zheng-guannan577",
+   "t": "DOC: Document best practices for setting sys.path / PYTHONPATH",
+   "draft": false,
+   "size": 107,
+   "files": 2,
+   "created": "2026-11-10",
+   "updated": "2026-11-10",
+   "labels": [],
+   "milestone": "",
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "awaiting-approval",
+   "citot": 3,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [
+    [
+     9507,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "-",
+    "-"
+   ]
+  },
+  {
+   "n": 11802,
+   "a": "marksmayo",
+   "t": "Only infer special method return values that are checked",
+   "draft": false,
+   "size": 16,
+   "files": 2,
+   "created": "2026-11-10",
+   "updated": "2026-11-10",
+   "labels": [],
+   "milestone": "",
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "awaiting-approval",
+   "citot": 2,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [],
+   "lastcom": [
+    "-",
+    "-"
+   ]
+  },
+  {
+   "n": 11803,
+   "a": "marksmayo",
+   "t": "Avoid walking the same subtree more than once in four checks",
+   "draft": false,
+   "size": 155,
+   "files": 7,
+   "created": "2026-11-10",
+   "updated": "2026-11-10",
+   "labels": [],
+   "milestone": "",
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "awaiting-approval",
+   "citot": 2,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [],
+   "lastcom": [
+    "-",
+    "-"
+   ]
+  },
+  {
+   "n": 11804,
+   "a": "marksmayo",
+   "t": "Put cheap checks before expensive ones in four checks",
+   "draft": false,
+   "size": 62,
+   "files": 6,
+   "created": "2026-11-10",
+   "updated": "2026-11-10",
+   "labels": [],
+   "milestone": "",
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "awaiting-approval",
+   "citot": 2,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [],
+   "lastcom": [
+    "-",
+    "-"
+   ]
+  },
+  {
+   "n": 11805,
+   "a": "marksmayo",
+   "t": "Only treat a nested break as permissive in if-node inference",
+   "draft": false,
+   "size": 40,
+   "files": 3,
+   "created": "2026-11-10",
+   "updated": "2026-11-10",
+   "labels": [],
+   "milestone": "",
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "awaiting-approval",
+   "citot": 3,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [],
+   "lastcom": [
+    "-",
+    "-"
+   ]
+  },
+  {
+   "n": 11806,
+   "a": "marksmayo",
+   "t": "Cache repeated lookups in the imports checker, used-before-assignment and the AST walker",
+   "draft": false,
+   "size": 77,
+   "files": 5,
+   "created": "2026-11-10",
+   "updated": "2026-11-10",
+   "labels": [],
+   "milestone": "",
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "awaiting-approval",
+   "citot": 2,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [],
    "lastcom": [
     "-",
     "-"
@@ -5124,6 +5406,19 @@
    "state": "open",
    "state_reason": null,
    "title": "False-negative `signature-differs` with kw-only args"
+  },
+  {
+   "comments": 6,
+   "labels": [
+    "Enhancement ✨",
+    "Needs investigation 🔬",
+    "False Negative 🦋"
+   ],
+   "number": 5361,
+   "reactions": 0,
+   "state": "open",
+   "state_reason": null,
+   "title": "False negatives `superfluous-parens` with more than one superfluous parenthesis"
   },
   {
    "comments": 2,
@@ -5482,6 +5777,18 @@
    "title": "consider-using-f-string is triggered in a functional context"
   },
   {
+   "comments": 1,
+   "labels": [
+    "Minor 💅",
+    "False Positive 🦟"
+   ],
+   "number": 8250,
+   "reactions": 0,
+   "state": "open",
+   "state_reason": null,
+   "title": "Missing-return-doc returns multiple errors when there are multiple returns in the function"
+  },
+  {
    "comments": 3,
    "labels": [
     "Regression",
@@ -5798,6 +6105,18 @@
    "state": "open",
    "state_reason": null,
    "title": "False positive: overriding a generic `ParamSpec` method triggers `arguments-differ` (W0221)"
+  },
+  {
+   "comments": 3,
+   "labels": [
+    "Documentation :green_book:",
+    "Needs PR"
+   ],
+   "number": 9507,
+   "reactions": 0,
+   "state": "open",
+   "state_reason": null,
+   "title": "Document the setting of the ``sys/PYTHONPATH`` in our doc and on a popular stackoverflow answer"
   },
   {
    "comments": 1,
@@ -6590,8 +6909,10 @@
    "title": "Option max-statements counts statements as one too many."
   },
   {
-   "comments": 0,
-   "labels": [],
+   "comments": 1,
+   "labels": [
+    "False Positive 🦟"
+   ],
    "number": 11791,
    "reactions": 0,
    "state": "open",

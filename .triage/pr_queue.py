@@ -162,12 +162,11 @@ V = {
         "Review.",
     ),
     11661: (
-        "review",
-        "ready",
-        "confirmed",
-        "85 lines by shan3520 for issue 7538 (FP): <code>used-before-assignment</code> when a branch "
-        "of a nested conditional expression uses a name its test binds with a walrus. 43/43 green.",
-        "Review.",
+        'review',
+        'green',
+        'confirmed',
+        '85 lines by shan3520 for issue 7538 (FP): <code>used-before-assignment</code> when a branch of a nested conditional expression uses a name its test binds with a walrus. 43/43 green. 9 November: new commit merging the walrus branches (complexity limit); 43/43 green.',
+        'Review.',
     ),
     11205: (
         'approve',
@@ -259,12 +258,89 @@ V = {
         'Wait for Julfried; #11789 follows it.',
     ),
     # ---- approve the workflow run ----------------------------------------
-    11793: (
-        'review',
-        'green',
+    11802: (
+        'approve',
+        'held',
         'confirmed',
-        'New (8 November), 5 code lines by ayyan-bhatti (first PR) for issue 11791 (FP, filed by chrikrah the same day): <code>bad-dunder-name</code> on <code>__prepare__</code>, <code>__mro_entries__</code> (all versions), <code>__buffer__</code> / <code>__release_buffer__</code> (3.12) and <code>__replace__</code> (3.13). Adds them to <code>EXTRA_DUNDER_METHODS</code> with the version gates, tests at py-version 3.11 and 3.13. Same shape as #8619 and #10977, both backported. Only PR. Not run locally; diff read: constants + tests only. 9 November: 46 green; primer removes 5 <code>bad-dunder-name</code> (ansible <code>__prepare__</code> x2 + <code>__mro_entries__</code>, astropy <code>__prepare__</code>, django <code>__replace__</code>): exactly the fix.',
-        'Review and merge for 4.1.4; backport.',
+        'New (10 November), 12 lines by marksmayo (first PR, one of five performance PRs opened the same morning): <code>SpecialMethodsChecker.visit_functiondef</code> inferred the return value of every method and threw it away unless the name is one of the 12 checked dunders; now it checks the name first. Measured on astroid (31k lines): 2% of methods still inferred, 2.1-2.5% faster, identical messages over 14 seeded runs. Smallest and safest of the five. Not run locally.',
+        'Approve the run; review first of the five (12 lines).',
+    ),
+    11803: (
+        'approve',
+        'held',
+        'confirmed',
+        'New, 155 lines by marksmayo (performance): four checks walked the same subtree several times (<code>visit_assignname</code> reassigned-before/after, <code>leave_functiondef</code> global/nonlocal/comprehension, unused private members per member, <code>BasicErrorChecker</code> global/nonlocal). Each now walks once, same order. 3.7-4.1% faster on astroid, identical messages. New helper <code>is_reassigned_before_or_after_current</code> with unit tests. Not run locally.',
+        'Approve the run; review after #11802 (one commit per check, read them separately).',
+    ),
+    11804: (
+        'approve',
+        'held',
+        'confirmed',
+        'New, 62 lines by marksmayo (performance): cheap test first in four checks: <code>use-list-literal</code> stops rendering every call with <code>as_string()</code>, <code>no-member</code> skips <code>generated-members</code> matching when none are set, <code>bidirectional-unicode</code> skips pure-ASCII lines (UTF-8 only), <code>trailing-comma-tuple</code> compares the token with <code>","</code> first. 3.2-3.3% faster, identical messages; functional tests extended. Not run locally.',
+        'Approve the run; review (check the UTF-16/32 path of the unicode change).',
+    ),
+    11806: (
+        'approve',
+        'held',
+        'confirmed',
+        'New, 77 lines by marksmayo (performance): three caches: <code>get_module_part</code> in the imports checker (reset in <code>open()</code>; this is the cache that never landed in the cyclic-import perf work, about -25% on ansible then), a per-scope <code>frozenset</code> of assigned names for <code>used-before-assignment</code> (<code>lru_cache</code>, cleared with the others), and callbacks per node class in <code>ASTWalker.walk</code>. 1.5-2.5% on astroid; the imports cache should matter more on big import graphs. Caches are where behaviour hides: check the reset points. Not run locally.',
+        'Approve the run; review last of the five (cache lifetimes, parallel mode).',
+    ),
+    11805: (
+        'approve',
+        'held',
+        'feature',
+        'New, 40 lines by marksmayo (no issue, maintenance): <code>nodes_of_class(nodes.Break, nodes.Continue)</code> in <code>_inferred_to_define_name_raise_or_return_for_if_node</code> passes <code>Continue</code> as <code>skip_klass</code>, so only <code>break</code> was ever permissive. The PR keeps that behaviour on purpose (making <code>continue</code> permissive would hide real <code>possibly-used-before-assignment</code>), writes <code>nodes_of_class(nodes.Break)</code> with a comment, and adds tests pinning it. No output change.',
+        'Approve with the batch; add Skip news; quick review.',
+    ),
+    11800: (
+        'approve',
+        'held',
+        'confirmed',
+        'New, 60 lines by chrikrah (active reviewer here) as a follow-up to your unreleased b58ab46 (async dunders in <code>bad-dunder-name</code>): adds six dunders that fail when <code>async</code> (<code>__getstate__</code>, <code>__reduce_ex__</code>, <code>__getnewargs__</code> ...) to <code>ASYNC_INCOMPATIBLE_DUNDER_METHODS</code> and removes <code>__reversed__</code>, which <code>reversed()</code> returns unchanged. Each claim backed by a runtime probe on 3.12/3.13. Unreleased code, so no changelog needed.',
+        'Approve the run; review (your own code, quick).',
+    ),
+    11797: (
+        'approve',
+        'held',
+        'confirmed',
+        'New, 19 lines by PDGGK (no issue): <code>undefined-all-variable</code> on names in <code>__all__</code> served by a module-level PEP 562 <code>__getattr__</code> (lazy re-exports, deprecation shims). Skips the check when the module defines <code>__getattr__</code>. Related to issue 4300 (the same PEP 562 gap for <code>no-name-in-module</code>). Not run locally.',
+        'Approve the run; review (decide whether any <code>__getattr__</code> silences every name, the simple choice).',
+    ),
+    11796: (
+        'approve',
+        'held',
+        'confirmed',
+        'New, 56 lines by yxshee for issue 8250 (FP, Minor): docparams reports <code>missing-return-doc</code> / <code>missing-return-type-doc</code> (and the yield pair) once per <code>return</code>, all on the <code>def</code> line; now once per function. #11792 for the same issue was closed by its author on 8 November. Not run locally.',
+        'Approve the run; review.',
+    ),
+    11794: (
+        'approve',
+        'held',
+        'confirmed',
+        'New, 65 lines by lyn1dev for issue 5361 (FN, enhancement): <code>superfluous-parens</code> missed <code>for ((x)) in items:</code>; now checks the outer pair, still allows tuples and precedence parens. Says AI wrote it. 0 reactions. Not run locally.',
+        'Leave held; approve when the queue is short.',
+    ),
+    11801: (
+        'approve',
+        'docs',
+        'feature',
+        'New, 107 lines by zheng-guannan577 for issue 9507 (docs, Needs PR): how to set <code>sys.path</code> / <code>PYTHONPATH</code> so pylint lints the checkout, not an installed copy (editable install, <code>init-hook</code>, pipx/pre-commit caveats). Doc build checked by the author.',
+        'Read the page; approve the run with the docs batch.',
+    ),
+    11795: (
+        'approve',
+        'docs',
+        'feature',
+        'New, 23 lines by ZainnQureshii (no issue, docs): config-file discovery order in <code>run.rst</code> did not match <code>find_default_config_files()</code> (package <code>pylintrc</code> search comes before ancestor <code>pyproject.toml</code>; all four rc names accepted; any <code>tool.pylint</code> table counts). Claims cite line numbers; verify against the code.',
+        'Check the order against <code>find_default_config_files.py</code>; then merge.',
+    ),
+    11793: (
+        'merge',
+        'approved',
+        'confirmed',
+        'New (8 November), 5 code lines by ayyan-bhatti (first PR) for issue 11791 (FP, filed by chrikrah the same day): <code>bad-dunder-name</code> on <code>__prepare__</code>, <code>__mro_entries__</code> (all versions), <code>__buffer__</code> / <code>__release_buffer__</code> (3.12) and <code>__replace__</code> (3.13). Adds them to <code>EXTRA_DUNDER_METHODS</code> with the version gates, tests at py-version 3.11 and 3.13. Same shape as #8619 and #10977, both backported. Only PR. Not run locally; diff read: constants + tests only. 9 November: 46 green; primer removes 5 <code>bad-dunder-name</code> (ansible <code>__prepare__</code> x2 + <code>__mro_entries__</code>, astropy <code>__prepare__</code>, django <code>__replace__</code>): exactly the fix. 9 November: chrikrah approved (both new tests fail on base <code>constants.py</code>). On 10 November a newcomer asked on issue 11791 to take it; the PR already exists.',
+        'Merge for 4.1.4 and backport; point the newcomer at the PR.',
     ),
     11790: (
         'review',
@@ -295,11 +371,11 @@ V = {
         'Decide: close the issue as working as intended (the def counts, document it), or stop counting the def everywhere (shifts every count by one, primer + changelog). Either way the sole-pass special case should not land.',
     ),
     11782: (
-        'review',
-        'green',
+        'merge',
+        'approved',
         'confirmed',
-        'New, 20 lines by unaltolga for issue 9405 (FN, <em>Needs PR</em>): <code>no-member</code> is skipped under <code>if enabled:</code> when <code>enabled = False</code> then maybe <code>True</code>, because the false-branch guard (#4764) only looks at the first inferred value. One-line fix, the one jacobtylerwalls proposed on the issue: <code>safe_infer(parent.test, compare_constants=True)</code>. Only PR for the issue. Not run locally. chrikrah approved on 7 November (non-blocking: no test for a flag that is False on both branches). 8 November: d5a2696 adds the <code>both_false</code> test chrikrah asked for. The author traced the 9 new primer <code>no-member</code> (django <code>Style.WARNING</code>, ansible <code>C.YAML_FILENAME_EXTENSIONS</code>, astropy <code>u.adu</code>) to members made at runtime by <code>setattr</code>/<code>globals()</code>, already reported elsewhere in the same files on main: expected FN-fix fallout, not new FPs. The new push holds the run again. 9 November: 43 green; primer unchanged (the 9 runtime-member <code>no-member</code> the author explained).',
-        'Review.',
+        'New, 20 lines by unaltolga for issue 9405 (FN, <em>Needs PR</em>): <code>no-member</code> is skipped under <code>if enabled:</code> when <code>enabled = False</code> then maybe <code>True</code>, because the false-branch guard (#4764) only looks at the first inferred value. One-line fix, the one jacobtylerwalls proposed on the issue: <code>safe_infer(parent.test, compare_constants=True)</code>. Only PR for the issue. Not run locally. chrikrah approved on 7 November (non-blocking: no test for a flag that is False on both branches). 8 November: d5a2696 adds the <code>both_false</code> test chrikrah asked for. The author traced the 9 new primer <code>no-member</code> (django <code>Style.WARNING</code>, ansible <code>C.YAML_FILENAME_EXTENSIONS</code>, astropy <code>u.adu</code>) to members made at runtime by <code>setattr</code>/<code>globals()</code>, already reported elsewhere in the same files on main: expected FN-fix fallout, not new FPs. The new push holds the run again. 9 November: 43 green; primer unchanged (the 9 runtime-member <code>no-member</code> the author explained). 9 November: chrikrah approved again: with the guard disabled, the new <code>both_false</code> line fails.',
+        'Merge.',
     ),
     11776: (
         'decide',
@@ -383,11 +459,11 @@ V = {
     ),
 
     11764: (
-        'review',
-        'green',
+        'merge',
+        'approved',
         'confirmed',
-        'New, 36 lines by YashG1836 for issue 11763 (FN): <code>deprecated-class</code> drops the classes of a module listed under two Python versions (<code>typing</code>, <code>asyncio</code>, <code>importlib.abc</code>, <code>ast</code>, <code>webbrowser</code>), because <code>dict.update</code> replaces the older set. Fix merges the sets with <code>setdefault(...).update</code>. Bug confirmed in the source; test runs on 3.14 only. Not run locally. 8 November: 46 green, primer only astropy noise.',
-        'Review (2-line fix), then #11766.',
+        'New, 36 lines by YashG1836 for issue 11763 (FN): <code>deprecated-class</code> drops the classes of a module listed under two Python versions (<code>typing</code>, <code>asyncio</code>, <code>importlib.abc</code>, <code>ast</code>, <code>webbrowser</code>), because <code>dict.update</code> replaces the older set. Fix merges the sets with <code>setdefault(...).update</code>. Bug confirmed in the source; test runs on 3.14 only. Not run locally. 8 November: 46 green, primer only astropy noise. 10 November: chrikrah approved (new test fails on the old <code>update</code>).',
+        'Merge, then rebase/review #11766.',
     ),
 
     11736: (
@@ -422,7 +498,7 @@ V = {
         'review',
         'green',
         'confirmed',
-        "54 lines by summeriver13 for issue 10827 (FP): <code>unused-wildcard-import</code> for names the module's <code>__all__</code> excludes, and <code>from . import *</code> reported as an unused <code>*</code>. The account is back (30 October), so this PR is open again, now beside #11753 (20 lines, same issue, opened while this one 404ed). This one came first and also covers <code>from . import *</code>. 8 November: 48 green, primer only astropy noise.",
+        "54 lines by summeriver13 for issue 10827 (FP): <code>unused-wildcard-import</code> for names the module's <code>__all__</code> excludes, and <code>from . import *</code> reported as an unused <code>*</code>. The account is back (30 October), so this PR is open again, now beside #11753 (20 lines, same issue, opened while this one 404ed). This one came first and also covers <code>from . import *</code>. 8 November: 48 green, primer only astropy noise. 9 November: the author pinged for a review.",
         "Review; check chrikrah's case from #11753 (unused <code>import os</code> after <code>from os.path import *</code> still reported).",
     ),
 
@@ -480,13 +556,11 @@ V = {
         "Review (small, clean use of lookup).",
     ),
     11754: (
-        "approve",
-        "docs",
-        "feature",
-        "New, 15 lines by thisisshivamtiwari for issue 7724 (docs): <code>comparison-with-callable</code> page "
-        "gains a details section: compare callables with <code>is</code>; bound methods need "
-        "<code>__func__</code>.",
-        "Approve the run; quick read.",
+        'approve',
+        'docs',
+        'feature',
+        'New, 15 lines by thisisshivamtiwari for issue 7724 (docs): <code>comparison-with-callable</code> page gains a details section: compare callables with <code>is</code>; bound methods need <code>__func__</code>. 10 November: the author pinged for a review.',
+        'Approve the run; quick read.',
     ),
     11755: (
         "approve",
@@ -597,16 +671,11 @@ V = {
         "Approve the run and review before 4.2.0 ships the checker.",
     ),
     11732: (
-        "review",
-        "ready",
-        "feature",
-        "72 lines by emmanuel-ferdman, no issue: skips <code>method-hidden</code> when "
-        "<code>safe_infer</code> of the method gives an <code>objects.Property</code>. The primer shows the "
-        "real case: 10 django false positives on a <code>@cached_property</code> "
-        "(<code>django.utils.functional</code>) that <code>__init__</code> assigns, e.g. "
-        "<code>BaseExpression.output_field</code>. Green; test fails on main, passes with the PR, but it is "
-        "a unit test that patches inference.",
-        "Review; ask for a functional test with a <code>cached_property</code>-style descriptor.",
+        'review',
+        'asked',
+        'feature',
+        '72 lines by emmanuel-ferdman, no issue: skips <code>method-hidden</code> when <code>safe_infer</code> of the method gives an <code>objects.Property</code>. The primer shows the real case: 10 django false positives on a <code>@cached_property</code> (<code>django.utils.functional</code>) that <code>__init__</code> assigns, e.g. <code>BaseExpression.output_field</code>. Green; test fails on main, passes with the PR, but it is a unit test that patches inference. 10 November: emmanuel-ferdman (20 merged PRs in pylint and astroid since 2025, treated as trusted) asked you for a review of this and of astroid #3439.',
+        'Review now (requested by a trusted contributor); also astroid #3439.',
     ),
     11731: (
         "approve",

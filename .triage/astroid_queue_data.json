@@ -1,5 +1,5 @@
 {
- "snapshot": "2026-11-08",
+ "snapshot": "2026-11-10",
  "prs": [
   {
    "n": 2965,
@@ -1357,7 +1357,7 @@
    "size": 182,
    "created": "2026-10-09",
    "updated": "2026-10-23",
-   "ci": "awaiting-approval",
+   "ci": "green",
    "cifail": 0,
    "links": [
     {
@@ -2160,9 +2160,9 @@
    ],
    "rd": "REVIEW_REQUIRED",
    "milestone": "",
-   "size": 99,
+   "size": 101,
    "created": "2026-10-23",
-   "updated": "2026-10-23",
+   "updated": "2026-11-09",
    "ci": "green",
    "cifail": 0,
    "links": []
@@ -2683,6 +2683,42 @@
      "labels": [
       "Astroid",
       "False Positive 🦟",
+      "enum"
+     ],
+     "reactions": 1,
+     "pr": false
+    }
+   ]
+  },
+  {
+   "n": 3468,
+   "a": "PDGGK",
+   "t": "Do not treat ``enum.nonmember`` values as enum members",
+   "draft": false,
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 69,
+   "created": "2026-11-09",
+   "updated": "2026-11-09",
+   "ci": "awaiting-approval",
+   "cifail": 0,
+   "links": [
+    {
+     "ref": "pylint-dev/astroid#3467",
+     "title": "enum.nonmember() values are listed in __members__, so pylint reports invalid-enum-extension",
+     "state": "open",
+     "labels": [],
+     "reactions": 0,
+     "pr": false
+    },
+    {
+     "ref": "pylint-dev/pylint#6887",
+     "title": "False positives `invalid-enum-extension`",
+     "state": "closed",
+     "labels": [
+      "False Positive 🦟",
+      "Needs astroid update",
       "enum"
      ],
      "reactions": 1,
