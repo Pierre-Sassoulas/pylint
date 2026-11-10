@@ -2695,12 +2695,15 @@
    "a": "PDGGK",
    "t": "Do not treat ``enum.nonmember`` values as enum members",
    "draft": false,
-   "labels": [],
+   "labels": [
+    "Bug 🪳",
+    "Brain 🧠"
+   ],
    "rd": "REVIEW_REQUIRED",
    "milestone": "",
    "size": 69,
    "created": "2026-11-09",
-   "updated": "2026-11-09",
+   "updated": "2026-11-10",
    "ci": "awaiting-approval",
    "cifail": 0,
    "links": [
@@ -2708,7 +2711,10 @@
      "ref": "pylint-dev/astroid#3467",
      "title": "enum.nonmember() values are listed in __members__, so pylint reports invalid-enum-extension",
      "state": "open",
-     "labels": [],
+     "labels": [
+      "Bug 🪳",
+      "Brain 🧠"
+     ],
      "reactions": 0,
      "pr": false
     },
