@@ -18776,5 +18776,165 @@
    ]
   ],
   "commit": "4085b1de7"
+ },
+ "11800": {
+  "date": "2026-11-10",
+  "added": 0,
+  "removed": 0,
+  "changed": 1,
+  "projects": {
+   "pandas": {
+    "added": 0,
+    "removed": 0,
+    "changed": 1
+   }
+  },
+  "items": [
+   [
+    "pandas",
+    "changed",
+    "redefined-variable-type",
+    "Moved from `507:16`-`507:43` to `505:16`-`505:47`."
+   ]
+  ],
+  "commit": "28ca15ec4"
+ },
+ "11802": {
+  "date": "2026-11-10",
+  "added": 3,
+  "removed": 0,
+  "changed": 1,
+  "projects": {
+   "astropy": {
+    "added": 1,
+    "removed": 0,
+    "changed": 0
+   },
+   "home-assistant": {
+    "added": 1,
+    "removed": 0,
+    "changed": 0
+   },
+   "pandas": {
+    "added": 1,
+    "removed": 0,
+    "changed": 1
+   }
+  },
+  "items": [
+   [
+    "astropy",
+    "added",
+    "use-implicit-booleaness-not-comparison",
+    "*\"self.options == []\" can be simplified to \"not self.options\", if it is strictly a sequence, as an empty list is falsey*"
+   ],
+   [
+    "home-assistant",
+    "added",
+    "unsupported-membership-test",
+    "*Value 'self.available_modes' doesn't support membership test*"
+   ],
+   [
+    "pandas",
+    "changed",
+    "redefined-variable-type",
+    "Moved from `507:16`-`507:43` to `505:16`-`505:47`."
+   ],
+   [
+    "pandas",
+    "added",
+    "comparison-with-callable",
+    "*Comparing against a callable, did you omit the parenthesis?*"
+   ]
+  ],
+  "commit": "cefcf4c6b"
+ },
+ "11803": {
+  "date": "2026-11-10",
+  "added": 0,
+  "removed": 0,
+  "changed": 1,
+  "projects": {
+   "pandas": {
+    "added": 0,
+    "removed": 0,
+    "changed": 1
+   }
+  },
+  "items": [
+   [
+    "pandas",
+    "changed",
+    "redefined-variable-type",
+    "Moved from `507:16`-`507:43` to `505:16`-`505:47`."
+   ]
+  ],
+  "commit": "dfc0f42e4"
+ },
+ "11804": {
+  "date": "2026-11-10",
+  "added": 0,
+  "removed": 0,
+  "changed": 1,
+  "projects": {
+   "pandas": {
+    "added": 0,
+    "removed": 0,
+    "changed": 1
+   }
+  },
+  "items": [
+   [
+    "pandas",
+    "changed",
+    "redefined-variable-type",
+    "Moved from `507:16`-`507:43` to `505:16`-`505:47`."
+   ]
+  ],
+  "commit": "fb99a9f03"
+ },
+ "11805": {
+  "date": "2026-11-10",
+  "added": 0,
+  "removed": 0,
+  "changed": 1,
+  "projects": {
+   "pandas": {
+    "added": 0,
+    "removed": 0,
+    "changed": 1
+   }
+  },
+  "items": [
+   [
+    "pandas",
+    "changed",
+    "redefined-variable-type",
+    "Moved from `507:16`-`507:43` to `505:16`-`505:47`."
+   ]
+  ],
+  "commit": "f7a34de3f"
+ },
+ "11806": {
+  "date": "2026-11-10",
+  "added": 0,
+  "removed": 0,
+  "changed": 1,
+  "projects": {
+   "pandas": {
+    "added": 0,
+    "removed": 0,
+    "changed": 1
+   }
+  },
+  "items": [
+   [
+    "pandas",
+    "changed",
+    "redefined-variable-type",
+    "Moved from `507:16`-`507:43` to `505:16`-`505:47`."
+   ]
+  ],
+  "commit": "fedc2a9c7"
  }
 }

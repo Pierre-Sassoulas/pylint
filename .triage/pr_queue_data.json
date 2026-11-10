@@ -1,7 +1,7 @@
 {
  "snapshot": "2026-11-10",
  "owner": "Pierre-Sassoulas",
- "open_total": 183,
+ "open_total": 182,
  "open_own": 21,
  "prs": [
   {
@@ -4220,38 +4220,6 @@
    ]
   },
   {
-   "n": 11754,
-   "a": "thisisshivamtiwari",
-   "t": "Recommend `is` in the comparison-with-callable documentation",
-   "draft": false,
-   "size": 15,
-   "files": 1,
-   "created": "2026-10-29",
-   "updated": "2026-11-10",
-   "labels": [
-    "Documentation :green_book:"
-   ],
-   "milestone": "",
-   "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
-   "ci": "awaiting-approval",
-   "citot": 4,
-   "cifail": 0,
-   "nrev": 0,
-   "mrev": [],
-   "links": [
-    [
-     7724,
-     "",
-     ""
-    ]
-   ],
-   "lastcom": [
-    "thisisshivamtiwari",
-    "2026-11-10"
-   ]
-  },
-  {
    "n": 11755,
    "a": "Jah-yee",
    "t": "Fix incorrect unnecessary-lambda documentation example",
@@ -4921,7 +4889,7 @@
    "size": 65,
    "files": 5,
    "created": "2026-11-09",
-   "updated": "2026-11-09",
+   "updated": "2026-11-10",
    "labels": [
     "False Negative 🦋"
    ],
@@ -4929,7 +4897,7 @@
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
    "ci": "awaiting-approval",
-   "citot": 3,
+   "citot": 4,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -4953,7 +4921,7 @@
    "size": 23,
    "files": 1,
    "created": "2026-11-09",
-   "updated": "2026-11-09",
+   "updated": "2026-11-10",
    "labels": [
     "Documentation :green_book:"
    ],
@@ -4961,7 +4929,7 @@
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
    "ci": "awaiting-approval",
-   "citot": 3,
+   "citot": 4,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -4979,7 +4947,7 @@
    "size": 56,
    "files": 6,
    "created": "2026-11-09",
-   "updated": "2026-11-09",
+   "updated": "2026-11-10",
    "labels": [
     "False Positive 🦟"
    ],
@@ -4987,7 +4955,7 @@
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
    "ci": "awaiting-approval",
-   "citot": 3,
+   "citot": 4,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -5011,7 +4979,7 @@
    "size": 19,
    "files": 3,
    "created": "2026-11-09",
-   "updated": "2026-11-09",
+   "updated": "2026-11-10",
    "labels": [
     "False Positive 🦟"
    ],
@@ -5019,7 +4987,7 @@
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
    "ci": "awaiting-approval",
-   "citot": 3,
+   "citot": 4,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -5046,14 +5014,14 @@
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
    "ci": "running",
-   "citot": 3,
-   "cifail": 0,
+   "citot": 48,
+   "cifail": 1,
    "nrev": 0,
    "mrev": [],
    "links": [],
    "lastcom": [
-    "-",
-    "-"
+    "codecov",
+    "2026-11-10"
    ]
   },
   {
@@ -5072,7 +5040,7 @@
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
    "ci": "awaiting-approval",
-   "citot": 3,
+   "citot": 4,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -5103,15 +5071,15 @@
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "running",
-   "citot": 2,
+   "ci": "green",
+   "citot": 45,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
    "links": [],
    "lastcom": [
-    "-",
-    "-"
+    "codecov",
+    "2026-11-10"
    ]
   },
   {
@@ -5129,15 +5097,15 @@
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "running",
-   "citot": 2,
+   "ci": "green",
+   "citot": 45,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
    "links": [],
    "lastcom": [
-    "-",
-    "-"
+    "github-actions",
+    "2026-11-10"
    ]
   },
   {
@@ -5156,14 +5124,14 @@
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
    "ci": "running",
-   "citot": 2,
+   "citot": 45,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
    "links": [],
    "lastcom": [
-    "-",
-    "-"
+    "codecov",
+    "2026-11-10"
    ]
   },
   {
@@ -5182,15 +5150,15 @@
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "running",
-   "citot": 3,
-   "cifail": 0,
+   "ci": "failing",
+   "citot": 48,
+   "cifail": 1,
    "nrev": 0,
    "mrev": [],
    "links": [],
    "lastcom": [
-    "-",
-    "-"
+    "github-actions",
+    "2026-11-10"
    ]
   },
   {
@@ -5208,15 +5176,15 @@
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "running",
-   "citot": 2,
-   "cifail": 0,
+   "ci": "failing",
+   "citot": 45,
+   "cifail": 1,
    "nrev": 0,
    "mrev": [],
    "links": [],
    "lastcom": [
-    "-",
-    "-"
+    "github-actions",
+    "2026-11-10"
    ]
   }
  ],
@@ -5701,18 +5669,6 @@
    "state": "open",
    "state_reason": null,
    "title": "undefined-variable regression since 2.6.0"
-  },
-  {
-   "comments": 9,
-   "labels": [
-    "Documentation :green_book:",
-    "Needs PR"
-   ],
-   "number": 7724,
-   "reactions": 1,
-   "state": "open",
-   "state_reason": "reopened",
-   "title": "Doc why `is` is superior to `==` in `comparison-with-callable` when comparing two callables"
   },
   {
    "comments": 0,
