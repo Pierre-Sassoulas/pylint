@@ -260,10 +260,10 @@ V = {
     # ---- approve the workflow run ----------------------------------------
     11808: (
         'approve',
-        'held',
+        'running',
         'confirmed',
         'New (12 November), 102 lines by ViktorBystrov72 (first PR) for issue 6444 (false negative, open since 2022): <code>implicit-str-concat</code> only looked at the first pair of literals in a constant, so <code>"first"\\n"second" "third"</code> was never reported. Now walks every adjacent string token pair inside the constant and reports the first same-line pair, on that pair\'s line. Keeps the raw/non-raw exemption and the parenthesized-multiline exemption; seven new functional cases. Says OpenAI Codex assisted, no human review claimed. Diff read 12 November: no CI or config files, no risky calls; the only non-ASCII character is an <code>é</code> in a test string. Watch for: the reported line moves from the start of the constant to the offending pair.',
-        'Approve the runs at 3e5c70bdf (diff read); primer will show whether reported lines move on real code.',
+        'Runs approved 12 November at 3e5c70bdf after a full diff read; then: review, check the primer for moved lines.',
     ),
     11802: (
         'review',
@@ -288,10 +288,10 @@ V = {
     ),
     11806: (
         'approve',
-        'held',
+        'running',
         'confirmed',
         'New, 77 lines by marksmayo (performance): three caches: <code>get_module_part</code> in the imports checker (reset in <code>open()</code>; this is the cache that never landed in the cyclic-import perf work, about -25% on ansible then), a per-scope <code>frozenset</code> of assigned names for <code>used-before-assignment</code> (<code>lru_cache</code>, cleared with the others), and callbacks per node class in <code>ASTWalker.walk</code>. 1.5-2.5% on astroid; the imports cache should matter more on big import graphs. Caches are where behaviour hides: check the reset points. Not run locally. 10 November CI: only the self-lint job is red, spelling hook on <code>pylint/utils/ast_walker.py</code> comment word <code>lowercased</code>; primer only the pandas L505 noise. 10 November evening: the author pushed <code>0426ce904</code>, which only rewords the comment (diff read 12 November); the new runs are held.',
-        'Approve the runs at 0426ce904 (one-line comment change since the reviewed commit), then review last of the five.',
+        'Runs approved 12 November at 0426ce904 (comment-only change since the reviewed commit); then: review last of the five (cache lifetimes, parallel mode).',
     ),
     11805: (
         'review',
@@ -453,7 +453,7 @@ V = {
         'decide',
         'dup',
         'duplicate',
-        'Trusted (Redoubts, first merged PR 2021). 126 lines for their issue 11767 (FP): <code>invalid-name</code> on <code>record.FieldName = ...</code> in <code>consumer.py</code> when <code>model.py</code> is in the same <code>-j1</code> run, inline <code>disable</code> ignored. Green, codecov 100%, primer removes real cross-module names (django <code>SQL_KEYWORD</code>, astropy <code>standardID</code>, music21 <code>ps</code>). Same fix as #11691 (b84330808, issue 9666, opened earlier, run still held): both keep only <code>instance_attrs</code> nodes whose <code>root()</code> is the class\'s module; #11691 also covers <code>non-ascii-name</code>. Issue 11767 = 9666. chrikrah approved on 5 November after checking the new tests fail on the base checker. 10 November: Redoubts pushed <code>210f99ec9</code> ("chrikrah rc"), only a changelog sentence saying names assigned outside the defining module are no longer checked; runs held.',
+        'Trusted (Redoubts, first merged PR 2021). 126 lines for their issue 11767 (FP): <code>invalid-name</code> on <code>record.FieldName = ...</code> in <code>consumer.py</code> when <code>model.py</code> is in the same <code>-j1</code> run, inline <code>disable</code> ignored. Green, codecov 100%, primer removes real cross-module names (django <code>SQL_KEYWORD</code>, astropy <code>standardID</code>, music21 <code>ps</code>). Same fix as #11691 (b84330808, issue 9666, opened earlier, run still held): both keep only <code>instance_attrs</code> nodes whose <code>root()</code> is the class\'s module; #11691 also covers <code>non-ascii-name</code>. Issue 11767 = 9666. chrikrah approved on 5 November after checking the new tests fail on the base checker. 10 November: Redoubts pushed <code>210f99ec9</code> ("chrikrah rc"), only a changelog sentence saying names assigned outside the defining module are no longer checked; runs held. Runs approved 12 November.',
         "Pick one: merge this (trusted, green) and ask it to add non-ascii-name, crediting #11691; or approve #11691's run and close this. Close 11767 as a duplicate of 9666 either way. The new commit's runs are held (changelog-only change, read).",
     ),
 
