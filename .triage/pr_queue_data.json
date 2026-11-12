@@ -1,5 +1,5 @@
 {
- "snapshot": "2026-11-10",
+ "snapshot": "2026-11-12",
  "owner": "Pierre-Sassoulas",
  "open_total": 182,
  "open_own": 21,
@@ -532,7 +532,7 @@
    ],
    "milestone": "4.2.0",
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "failing",
    "citot": 40,
    "cifail": 8,
@@ -889,7 +889,7 @@
    "size": 1123,
    "files": 54,
    "created": "2026-07-28",
-   "updated": "2026-11-03",
+   "updated": "2026-11-11",
    "labels": [
     "Enhancement ✨",
     "pyreverse"
@@ -932,7 +932,7 @@
    ],
    "milestone": "4.2.0",
    "rd": "CHANGES_REQUESTED",
-   "merge": "CONFLICTING",
+   "merge": "UNKNOWN",
    "ci": "green",
    "citot": 50,
    "cifail": 0,
@@ -966,8 +966,8 @@
    ],
    "milestone": "4.2.0",
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
-   "ci": "awaiting-approval",
+   "merge": "UNKNOWN",
+   "ci": "not-run",
    "citot": 2,
    "cifail": 0,
    "nrev": 0,
@@ -2482,7 +2482,7 @@
    "size": 202,
    "files": 6,
    "created": "2026-10-11",
-   "updated": "2026-11-07",
+   "updated": "2026-11-11",
    "labels": [
     "False Positive 🦟"
    ],
@@ -2504,8 +2504,8 @@
     ]
    ],
    "lastcom": [
-    "github-actions",
-    "2026-11-07"
+    "agustin18",
+    "2026-11-11"
    ]
   },
   {
@@ -2523,7 +2523,7 @@
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "awaiting-approval",
+   "ci": "not-run",
    "citot": 2,
    "cifail": 0,
    "nrev": 0,
@@ -3439,11 +3439,11 @@
    "n": 11708,
    "a": "ykakade",
    "t": "Fix coroutine-returning method overrides",
-   "draft": true,
+   "draft": false,
    "size": 152,
    "files": 5,
    "created": "2026-10-22",
-   "updated": "2026-10-22",
+   "updated": "2026-11-10",
    "labels": [
     "Enhancement ✨"
    ],
@@ -4220,38 +4220,6 @@
    ]
   },
   {
-   "n": 11755,
-   "a": "Jah-yee",
-   "t": "Fix incorrect unnecessary-lambda documentation example",
-   "draft": false,
-   "size": 13,
-   "files": 3,
-   "created": "2026-10-29",
-   "updated": "2026-11-07",
-   "labels": [
-    "Documentation :green_book:"
-   ],
-   "milestone": "",
-   "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
-   "ci": "awaiting-approval",
-   "citot": 2,
-   "cifail": 0,
-   "nrev": 0,
-   "mrev": [],
-   "links": [
-    [
-     9317,
-     "",
-     ""
-    ]
-   ],
-   "lastcom": [
-    "-",
-    "-"
-   ]
-  },
-  {
    "n": 11759,
    "a": "ansh-rohilla",
    "t": "Fix false-positive undefined-variable for nested class in type annotation",
@@ -4414,18 +4382,18 @@
    "a": "Redoubts",
    "t": "Fix cross-module instance attribute naming diagnostics",
    "draft": false,
-   "size": 126,
+   "size": 129,
    "files": 3,
    "created": "2026-10-30",
-   "updated": "2026-11-05",
+   "updated": "2026-11-10",
    "labels": [
     "False Positive 🦟"
    ],
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "green",
-   "citot": 45,
+   "ci": "awaiting-approval",
+   "citot": 2,
    "cifail": 0,
    "nrev": 1,
    "mrev": [],
@@ -4721,10 +4689,10 @@
    "a": "inchang-ing",
    "t": "Fix false positive for too-many-statements on empty function bodies",
    "draft": false,
-   "size": 45,
+   "size": 62,
    "files": 4,
    "created": "2026-11-05",
-   "updated": "2026-11-08",
+   "updated": "2026-11-10",
    "labels": [
     "False Positive 🦟",
     "Needs decision :lock:"
@@ -4733,9 +4701,9 @@
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
    "ci": "green",
-   "citot": 48,
+   "citot": 43,
    "cifail": 0,
-   "nrev": 0,
+   "nrev": 1,
    "mrev": [],
    "links": [
     [
@@ -4746,7 +4714,7 @@
    ],
    "lastcom": [
     "github-actions",
-    "2026-11-05"
+    "2026-11-10"
    ]
   },
   {
@@ -5176,15 +5144,45 @@
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "failing",
-   "citot": 45,
-   "cifail": 1,
+   "ci": "awaiting-approval",
+   "citot": 2,
+   "cifail": 0,
    "nrev": 0,
    "mrev": [],
    "links": [],
    "lastcom": [
     "github-actions",
     "2026-11-10"
+   ]
+  },
+  {
+   "n": 11808,
+   "a": "ViktorBystrov72",
+   "t": "Fix implicit string concatenation detection on later lines",
+   "draft": false,
+   "size": 102,
+   "files": 6,
+   "created": "2026-11-12",
+   "updated": "2026-11-12",
+   "labels": [],
+   "milestone": "",
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "awaiting-approval",
+   "citot": 3,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [
+    [
+     6444,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "-",
+    "-"
    ]
   }
  ],
@@ -5524,6 +5522,19 @@
    "state": "open",
    "state_reason": null,
    "title": "``bad-string-format-type``: only works on old-style string formatting and can't infer values"
+  },
+  {
+   "comments": 0,
+   "labels": [
+    "High effort 🏋",
+    "False Negative 🦋",
+    "Needs PR"
+   ],
+   "number": 6444,
+   "reactions": 0,
+   "state": "open",
+   "state_reason": null,
+   "title": "False negative for ``implicit-str-concat`` when it happens on a single line inside a multiline string with ``check-str-concat-over-line-jumps=no``"
   },
   {
    "comments": 0,
@@ -6044,21 +6055,6 @@
    "state": "open",
    "state_reason": null,
    "title": "Crash - on windows - pylint crashed with a ``AstroidError`` - UnicodeEncodeError: 'charmap' codec can't encode characters in position"
-  },
-  {
-   "comments": 2,
-   "labels": [
-    "Help wanted 🙏",
-    "Good first issue",
-    "Documentation :green_book:",
-    "Needs investigation 🔬",
-    "Hacktoberfest"
-   ],
-   "number": 9317,
-   "reactions": 0,
-   "state": "open",
-   "state_reason": null,
-   "title": "Incorrect Recommendation for unnecessary-lambda"
   },
   {
    "comments": 2,

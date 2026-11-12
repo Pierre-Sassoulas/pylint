@@ -1,5 +1,5 @@
 {
- "snapshot": "2026-11-10",
+ "snapshot": "2026-11-12",
  "prs": [
   {
    "n": 2965,
@@ -1404,7 +1404,7 @@
    "size": 147,
    "created": "2026-10-11",
    "updated": "2026-10-23",
-   "ci": "awaiting-approval",
+   "ci": "green",
    "cifail": 0,
    "links": [
     {
@@ -1465,7 +1465,7 @@
    "size": 54,
    "created": "2026-10-12",
    "updated": "2026-10-23",
-   "ci": "awaiting-approval",
+   "ci": "green",
    "cifail": 0,
    "links": []
   },
@@ -1483,7 +1483,7 @@
    "size": 82,
    "created": "2026-10-12",
    "updated": "2026-10-23",
-   "ci": "awaiting-approval",
+   "ci": "green",
    "cifail": 0,
    "links": []
   },
@@ -1516,9 +1516,9 @@
    ],
    "rd": "REVIEW_REQUIRED",
    "milestone": "",
-   "size": 59,
+   "size": 109,
    "created": "2026-10-12",
-   "updated": "2026-10-23",
+   "updated": "2026-11-12",
    "ci": "awaiting-approval",
    "cifail": 0,
    "links": [
@@ -1561,7 +1561,7 @@
    "size": 82,
    "created": "2026-10-12",
    "updated": "2026-10-23",
-   "ci": "awaiting-approval",
+   "ci": "green",
    "cifail": 0,
    "links": []
   },
@@ -1610,7 +1610,7 @@
    "size": 54,
    "created": "2026-10-13",
    "updated": "2026-10-23",
-   "ci": "awaiting-approval",
+   "ci": "green",
    "cifail": 0,
    "links": [
     {
@@ -2728,6 +2728,60 @@
       "enum"
      ],
      "reactions": 1,
+     "pr": false
+    }
+   ]
+  },
+  {
+   "n": 3471,
+   "a": "hakarrr",
+   "t": "Do not bind functools.partial class attributes before Python 3.14",
+   "draft": false,
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 166,
+   "created": "2026-11-11",
+   "updated": "2026-11-11",
+   "ci": "awaiting-approval",
+   "cifail": 0,
+   "links": [
+    {
+     "ref": "pylint-dev/pylint#2271",
+     "title": "False positive for ``redundant-keyword-arg`` in class with ``partial()`` class attribute function",
+     "state": "open",
+     "labels": [
+      "False Positive 🦟",
+      "Needs PR"
+     ],
+     "reactions": 4,
+     "pr": false
+    }
+   ]
+  },
+  {
+   "n": 3472,
+   "a": "ghanashyam03",
+   "t": "Do not cache Uninferable on context inference budget exhaustion",
+   "draft": false,
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 46,
+   "created": "2026-11-12",
+   "updated": "2026-11-12",
+   "ci": "awaiting-approval",
+   "cifail": 0,
+   "links": [
+    {
+     "ref": "pylint-dev/astroid#3464",
+     "title": "Inference budget exhaustion poisons shared cache and causes order-dependent generic E1136 false positives",
+     "state": "open",
+     "labels": [
+      "Bug 🪳",
+      "inference"
+     ],
+     "reactions": 0,
      "pr": false
     }
    ]

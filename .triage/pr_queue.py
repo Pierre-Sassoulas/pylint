@@ -196,8 +196,8 @@ V = {
         'review',
         'green',
         'confirmed',
-        'Issue 9641 (FP): <code>used-before-assignment</code> for a walrus bound in one decorator and used in a later stacked decorator. 7 November: a commit covering the decorator fallback branches and a merge of main. Now all green including <code>codecov/patch</code>; primer no effect.',
-        'Review: coverage was the only blocker.',
+        'Issue 9641 (FP): <code>used-before-assignment</code> for a walrus bound in one decorator and used in a later stacked decorator. 7 November: a commit covering the decorator fallback branches and a merge of main. Now all green including <code>codecov/patch</code>; primer no effect. 10 November: agustin18 asked you directly for another look (tests in, main merged, 43 checks green).',
+        'Re-review now: the author asked you by name and everything is green.',
     ),
     11624: (
         "review",
@@ -258,6 +258,13 @@ V = {
         'Wait for Julfried; #11789 follows it.',
     ),
     # ---- approve the workflow run ----------------------------------------
+    11808: (
+        'approve',
+        'held',
+        'confirmed',
+        'New (12 November), 102 lines by ViktorBystrov72 (first PR) for issue 6444 (false negative, open since 2022): <code>implicit-str-concat</code> only looked at the first pair of literals in a constant, so <code>"first"\\n"second" "third"</code> was never reported. Now walks every adjacent string token pair inside the constant and reports the first same-line pair, on that pair\'s line. Keeps the raw/non-raw exemption and the parenthesized-multiline exemption; seven new functional cases. Says OpenAI Codex assisted, no human review claimed. Diff read 12 November: no CI or config files, no risky calls; the only non-ASCII character is an <code>é</code> in a test string. Watch for: the reported line moves from the start of the constant to the offending pair.',
+        'Approve the runs at 3e5c70bdf (diff read); primer will show whether reported lines move on real code.',
+    ),
     11802: (
         'review',
         'green',
@@ -280,25 +287,25 @@ V = {
         'Review (check the UTF-16/32 path of the unicode change); codecov still pending.',
     ),
     11806: (
-        'author',
-        'spelling',
+        'approve',
+        'held',
         'confirmed',
-        'New, 77 lines by marksmayo (performance): three caches: <code>get_module_part</code> in the imports checker (reset in <code>open()</code>; this is the cache that never landed in the cyclic-import perf work, about -25% on ansible then), a per-scope <code>frozenset</code> of assigned names for <code>used-before-assignment</code> (<code>lru_cache</code>, cleared with the others), and callbacks per node class in <code>ASTWalker.walk</code>. 1.5-2.5% on astroid; the imports cache should matter more on big import graphs. Caches are where behaviour hides: check the reset points. Not run locally. 10 November CI: only the self-lint job is red, spelling hook on <code>pylint/utils/ast_walker.py</code> comment word <code>lowercased</code>; primer only the pandas L505 noise.',
-        'Author: reword <code>lowercased</code> (or add it to the custom dict); then review last of the five (cache lifetimes, parallel mode).',
+        'New, 77 lines by marksmayo (performance): three caches: <code>get_module_part</code> in the imports checker (reset in <code>open()</code>; this is the cache that never landed in the cyclic-import perf work, about -25% on ansible then), a per-scope <code>frozenset</code> of assigned names for <code>used-before-assignment</code> (<code>lru_cache</code>, cleared with the others), and callbacks per node class in <code>ASTWalker.walk</code>. 1.5-2.5% on astroid; the imports cache should matter more on big import graphs. Caches are where behaviour hides: check the reset points. Not run locally. 10 November CI: only the self-lint job is red, spelling hook on <code>pylint/utils/ast_walker.py</code> comment word <code>lowercased</code>; primer only the pandas L505 noise. 10 November evening: the author pushed <code>0426ce904</code>, which only rewords the comment (diff read 12 November); the new runs are held.',
+        'Approve the runs at 0426ce904 (one-line comment change since the reviewed commit), then review last of the five.',
     ),
     11805: (
         'review',
         'green*',
         'feature',
-        'New, 40 lines by marksmayo (no issue, maintenance): <code>nodes_of_class(nodes.Break, nodes.Continue)</code> in <code>_inferred_to_define_name_raise_or_return_for_if_node</code> passes <code>Continue</code> as <code>skip_klass</code>, so only <code>break</code> was ever permissive. The PR keeps that behaviour on purpose (making <code>continue</code> permissive would hide real <code>possibly-used-before-assignment</code>), writes <code>nodes_of_class(nodes.Break)</code> with a comment, and adds tests pinning it. No output change. 10 November CI: everything green except the changelog check, which ran before the <code>Skip news</code> label was added; rerun that one job.',
-        'Rerun the changelog job, then quick review.',
+        'New, 40 lines by marksmayo (no issue, maintenance): <code>nodes_of_class(nodes.Break, nodes.Continue)</code> in <code>_inferred_to_define_name_raise_or_return_for_if_node</code> passes <code>Continue</code> as <code>skip_klass</code>, so only <code>break</code> was ever permissive. The PR keeps that behaviour on purpose (making <code>continue</code> permissive would hide real <code>possibly-used-before-assignment</code>), writes <code>nodes_of_class(nodes.Break)</code> with a comment, and adds tests pinning it. No output change. 10 November CI: everything green except the changelog check, which ran before the <code>Skip news</code> label was added; rerun that one job. 12 November: the rerun failed again because a rerun replays the original <code>opened</code> event, whose label list had no <code>Skip news</code>; the <code>labeled</code> run already skipped the job. The red check is stale, not a real failure.',
+        'Quick review; ignore the stale changelog check (or the author pushes once to clear it).',
     ),
     11800: (
         'review',
         'green*',
         'confirmed',
-        'New, 60 lines by chrikrah (active reviewer here) as a follow-up to your unreleased b58ab46 (async dunders in <code>bad-dunder-name</code>): adds six dunders that fail when <code>async</code> (<code>__getstate__</code>, <code>__reduce_ex__</code>, <code>__getnewargs__</code> ...) to <code>ASYNC_INCOMPATIBLE_DUNDER_METHODS</code> and removes <code>__reversed__</code>, which <code>reversed()</code> returns unchanged. Each claim backed by a runtime probe on 3.12/3.13. Unreleased code, so no changelog needed. 10 November CI: everything green except the changelog check, which ran before the <code>Skip news</code> label was added; rerun that one job.',
-        'Rerun the changelog job, then review (your own code, quick).',
+        'New, 60 lines by chrikrah (active reviewer here) as a follow-up to your unreleased b58ab46 (async dunders in <code>bad-dunder-name</code>): adds six dunders that fail when <code>async</code> (<code>__getstate__</code>, <code>__reduce_ex__</code>, <code>__getnewargs__</code> ...) to <code>ASYNC_INCOMPATIBLE_DUNDER_METHODS</code> and removes <code>__reversed__</code>, which <code>reversed()</code> returns unchanged. Each claim backed by a runtime probe on 3.12/3.13. Unreleased code, so no changelog needed. 10 November CI: everything green except the changelog check, which ran before the <code>Skip news</code> label was added; rerun that one job. 12 November: the rerun failed again because a rerun replays the original <code>opened</code> event, whose label list had no <code>Skip news</code>; the <code>labeled</code> run already skipped the job. The red check is stale, not a real failure.',
+        'Review (your own code, quick); ignore the stale changelog check.',
     ),
     11797: (
         'approve',
@@ -367,7 +374,7 @@ V = {
         'decide',
         'design',
         'feature',
-        'New, 43 lines by inchang-ing for issue 11783 (filed 5 November, <em>Needs triage</em>): <code>def f(): pass</code> gives <code>too-many-statements (2/1)</code>. By design the counter starts at 1 for the <code>def</code> itself, so every function is one over its body. The PR only special-cases a body that is a sole <code>pass</code> (seed 0), so <code>def f(): pass</code> counts 1 but <code>def f(): return 1</code> still counts 2: inconsistent. Green.',
+        'New, 43 lines by inchang-ing for issue 11783 (filed 5 November, <em>Needs triage</em>): <code>def f(): pass</code> gives <code>too-many-statements (2/1)</code>. By design the counter starts at 1 for the <code>def</code> itself, so every function is one over its body. The PR only special-cases a body that is a sole <code>pass</code> (seed 0), so <code>def f(): pass</code> counts 1 but <code>def f(): return 1</code> still counts 2: inconsistent. Green. 10 November: saruk-vedant reviewed (sole <code>...</code> is the same placeholder as <code>pass</code>); inchang-ing addressed it in <code>0fc0729</code>, green, primer no effect.',
         'Decide: close the issue as working as intended (the def counts, document it), or stop counting the def everywhere (shifts every count by one, primer + changelog). Either way the sole-pass special case should not land.',
     ),
     11782: (
@@ -446,8 +453,8 @@ V = {
         'decide',
         'dup',
         'duplicate',
-        "Trusted (Redoubts, first merged PR 2021). 126 lines for their issue 11767 (FP): <code>invalid-name</code> on <code>record.FieldName = ...</code> in <code>consumer.py</code> when <code>model.py</code> is in the same <code>-j1</code> run, inline <code>disable</code> ignored. Green, codecov 100%, primer removes real cross-module names (django <code>SQL_KEYWORD</code>, astropy <code>standardID</code>, music21 <code>ps</code>). Same fix as #11691 (b84330808, issue 9666, opened earlier, run still held): both keep only <code>instance_attrs</code> nodes whose <code>root()</code> is the class's module; #11691 also covers <code>non-ascii-name</code>. Issue 11767 = 9666. chrikrah approved on 5 November after checking the new tests fail on the base checker.",
-        "Pick one: merge this (trusted, green) and ask it to add non-ascii-name, crediting #11691; or approve #11691's run and close this. Close 11767 as a duplicate of 9666 either way.",
+        'Trusted (Redoubts, first merged PR 2021). 126 lines for their issue 11767 (FP): <code>invalid-name</code> on <code>record.FieldName = ...</code> in <code>consumer.py</code> when <code>model.py</code> is in the same <code>-j1</code> run, inline <code>disable</code> ignored. Green, codecov 100%, primer removes real cross-module names (django <code>SQL_KEYWORD</code>, astropy <code>standardID</code>, music21 <code>ps</code>). Same fix as #11691 (b84330808, issue 9666, opened earlier, run still held): both keep only <code>instance_attrs</code> nodes whose <code>root()</code> is the class\'s module; #11691 also covers <code>non-ascii-name</code>. Issue 11767 = 9666. chrikrah approved on 5 November after checking the new tests fail on the base checker. 10 November: Redoubts pushed <code>210f99ec9</code> ("chrikrah rc"), only a changelog sentence saying names assigned outside the defining module are no longer checked; runs held.',
+        "Pick one: merge this (trusted, green) and ask it to add non-ascii-name, crediting #11691; or approve #11691's run and close this. Close 11767 as a duplicate of 9666 either way. The new commit's runs are held (changelog-only change, read).",
     ),
 
     11766: (
@@ -554,15 +561,6 @@ V = {
         "<code>_has_exit_in_scope</code> (current scope + module only) with <code>func.lookup(name)</code> "
         "and reports only when it resolves to builtins. CI green; primer only baseline drift. Not run locally.",
         "Review (small, clean use of lookup).",
-    ),
-    11755: (
-        "approve",
-        "docs",
-        "feature",
-        "New, 13 lines by Jah-yee for issue 9317 (docs): the <code>unnecessary-lambda</code> pandas example "
-        "used <code>df.apply(str)</code>, which is not equivalent on a DataFrame (applies per column); now "
-        "<code>df[\"a\"].apply(str)</code>. Adds a <code>.other</code> fragment a docs-only change does not need. Force-pushed on 7 November, run held again.",
-        "Approve the run; ask to drop the fragment.",
     ),
     11747: (
         "approve",
