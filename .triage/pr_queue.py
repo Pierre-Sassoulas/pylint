@@ -260,17 +260,17 @@ V = {
     # ---- approve the workflow run ----------------------------------------
     11812: (
         'approve',
-        'held',
+        'running',
         'confirmed',
         'New (12 November), 39 lines by marilenaRM (first PR) for their issue 11810 (false negative): adds the Python 3.14 deprecations <code>nturl2path</code> (deprecated-module), <code>tkinter.Variable.trace_variable/trace_vdelete/trace_vinfo</code> (deprecated-method, <code>trace</code> is an alias so reported too) and <code>pdb.Pdb.curframe_locals</code> (deprecated-attribute). Table entries only plus a <code>min_pyver=3.14</code> functional test. Diff read 13 November: no CI or config files, no risky calls, ASCII only. Watch for: the test instantiates <code>tkinter.StringVar()</code>, which only works where Tk is installed; pylint only parses it, so CI should be fine.',
-        "Approve the runs at 736d15c79 (diff read); then a quick review (check each entry against What's New in 3.14).",
+        "Runs approved 13 November at 736d15c79 after a full diff read; then: quick review (check each entry against What's New in 3.14).",
     ),
     11811: (
         'approve',
-        'held',
+        'running',
         'confirmed',
         'New (12 November), 50 lines by mccalpink (first PR) for issue 11809 (FP, opened the same day by e-gebes): in a class body, <code>X: TypeAlias = ...</code> and <code>X = TypeVar/ParamSpec/TypeVarTuple(...)</code> were checked against <code>class-attribute-naming-style</code>. Now the <code>ClassDef</code> branch of <code>visit_assignname</code> checks them against their own styles first, reusing <code>_assigns_typealias</code>/<code>_assigns_typevar</code>, same as module and function scope (#8536). Unannotated <code>Alias = Union[...]</code> unchanged. Functional test with a <code>snake_case</code> rc. Diff read 13 November: no CI or config files, no risky calls, ASCII only.',
-        'Approve the runs at c13d45eeb (diff read), then review: small and mirrors existing module-scope logic.',
+        'Runs approved 13 November at c13d45eeb after a full diff read; then: review: small and mirrors existing module-scope logic.',
     ),
     11808: (
         'review',
