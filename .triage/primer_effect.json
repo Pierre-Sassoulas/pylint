@@ -18926,5 +18926,79 @@
   "projects": {},
   "items": [],
   "commit": "3e5c70bdf"
+ },
+ "11811": {
+  "date": "2026-11-13",
+  "added": 0,
+  "removed": 5,
+  "changed": 0,
+  "projects": {
+   "django": {
+    "added": 0,
+    "removed": 5,
+    "changed": 0
+   }
+  },
+  "items": [
+   [
+    "django",
+    "removed",
+    "invalid-name",
+    "*Attribute name \"MIGRATION_MODULES\" doesn't conform to snake_case naming style*"
+   ],
+   [
+    "django",
+    "removed",
+    "invalid-name",
+    "*Attribute name \"ALLOWED_HOSTS\" doesn't conform to snake_case naming style*"
+   ],
+   [
+    "django",
+    "removed",
+    "invalid-name",
+    "*Attribute name \"DEBUG\" doesn't conform to snake_case naming style*"
+   ],
+   [
+    "django",
+    "removed",
+    "invalid-name",
+    "*Attribute name \"MAILERS\" doesn't conform to snake_case naming style*"
+   ],
+   [
+    "django",
+    "removed",
+    "invalid-name",
+    "*Attribute name \"EMAIL_BACKEND\" doesn't conform to snake_case naming style*"
+   ]
+  ],
+  "commit": "c13d45eeb"
+ },
+ "11812": {
+  "date": "2026-11-13",
+  "added": 0,
+  "removed": 0,
+  "changed": 2,
+  "projects": {
+   "astropy": {
+    "added": 0,
+    "removed": 0,
+    "changed": 2
+   }
+  },
+  "items": [
+   [
+    "astropy",
+    "changed",
+    "too-many-ancestors",
+    "message: `Too many ancestors (23/7)` → `Too many ancestors (22/7)`"
+   ],
+   [
+    "astropy",
+    "changed",
+    "too-many-ancestors",
+    "message: `Too many ancestors (28/7)` → `Too many ancestors (27/7)`"
+   ]
+  ],
+  "commit": "736d15c79"
  }
 }

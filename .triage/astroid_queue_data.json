@@ -1220,7 +1220,7 @@
    "size": 83,
    "created": "2026-10-07",
    "updated": "2026-10-14",
-   "ci": "awaiting-approval",
+   "ci": "green",
    "cifail": 0,
    "links": [
     {
@@ -1671,7 +1671,7 @@
    "size": 36,
    "created": "2026-10-14",
    "updated": "2026-10-23",
-   "ci": "awaiting-approval",
+   "ci": "green",
    "cifail": 0,
    "links": [
     {
@@ -1736,7 +1736,7 @@
    "size": 113,
    "created": "2026-10-14",
    "updated": "2026-10-23",
-   "ci": "awaiting-approval",
+   "ci": "green",
    "cifail": 0,
    "links": [
     {
@@ -2742,7 +2742,7 @@
    "milestone": "",
    "size": 166,
    "created": "2026-11-11",
-   "updated": "2026-11-11",
+   "updated": "2026-11-13",
    "ci": "awaiting-approval",
    "cifail": 0,
    "links": [
@@ -2780,6 +2780,33 @@
      "labels": [
       "Bug 🪳",
       "inference"
+     ],
+     "reactions": 0,
+     "pr": false
+    }
+   ]
+  },
+  {
+   "n": 3473,
+   "a": "vladosskins178",
+   "t": "Pass the inference context to bool_value() in truthiness constraints",
+   "draft": false,
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 37,
+   "created": "2026-11-13",
+   "updated": "2026-11-13",
+   "ci": "awaiting-approval",
+   "cifail": 0,
+   "links": [
+    {
+     "ref": "pylint-dev/pylint#11807",
+     "title": "Pylint gets stuck with red-black-tree-mod",
+     "state": "open",
+     "labels": [
+      "Needs reproduction :mag:",
+      "Crash 💥"
      ],
      "reactions": 0,
      "pr": false
