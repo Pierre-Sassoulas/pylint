@@ -363,13 +363,6 @@ V = {
         'New, 107 lines by zheng-guannan577 for issue 9507 (docs, Needs PR): how to set <code>sys.path</code> / <code>PYTHONPATH</code> so pylint lints the checkout, not an installed copy (editable install, <code>init-hook</code>, pipx/pre-commit caveats). Doc build checked by the author. 13 November read: references all resolve, but (1) it says pylint imports the code it analyses, which is wrong (astroid parses it); (2) it pushes <code>init-hook</code> hard, including a venv <code>site-packages</code> glob one-liner, which runs code from the config file and goes against the config-trust work; (3) it links open PR #9721 from the user guide, which will go stale.',
         'Ask for the three fixes (no import, prefer <code>source-roots</code>/<code>PYTHONPATH</code> over <code>init-hook</code>, drop the #9721 link); then merge.',
     ),
-    11795: (
-        'merge',
-        'verified',
-        'feature',
-        'New, 23 lines by ZainnQureshii (no issue, docs): config-file discovery order in <code>run.rst</code> did not match <code>find_default_config_files()</code> (package <code>pylintrc</code> search comes before ancestor <code>pyproject.toml</code>; all four rc names accepted; any <code>tool.pylint</code> table counts). Claims cite line numbers; verify against the code. 13 November: every claim checked against <code>find_default_config_files.py</code> (package search before the parent <code>pyproject.toml</code> walk, all four rc names, any <code>tool.pylint</code> table, <code>[pylint]</code> or <code>pylint.*</code> sections). Follow-up <code>d792c6a7b</code> also matches the code: package-hierarchy <code>.toml</code> files are taken without a <code>tool.pylint</code> table, and the parent walk stops at the first <code>pyproject.toml</code> even without one. Docs only, runs held.',
-        'Merge (easiest doc PR in the queue); approve the docs run first if the check is required.',
-    ),
     11793: (
         'merge',
         'approved',

@@ -1,7 +1,7 @@
 {
  "snapshot": "2026-11-13",
  "owner": "Pierre-Sassoulas",
- "open_total": 186,
+ "open_total": 185,
  "open_own": 21,
  "prs": [
   {
@@ -4882,33 +4882,6 @@
    ]
   },
   {
-   "n": 11795,
-   "a": "ZainnQureshii",
-   "t": "Correct configuration file discovery documentation",
-   "draft": false,
-   "size": 31,
-   "files": 1,
-   "created": "2026-11-09",
-   "updated": "2026-11-13",
-   "labels": [
-    "Documentation :green_book:",
-    "Skip news :mute:"
-   ],
-   "milestone": "",
-   "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
-   "ci": "awaiting-approval",
-   "citot": 2,
-   "cifail": 0,
-   "nrev": 0,
-   "mrev": [],
-   "links": [],
-   "lastcom": [
-    "-",
-    "-"
-   ]
-  },
-  {
    "n": 11796,
    "a": "yxshee",
    "t": "Emit missing return/yield doc messages once per function",
@@ -5164,7 +5137,7 @@
    "size": 102,
    "files": 6,
    "created": "2026-11-12",
-   "updated": "2026-11-12",
+   "updated": "2026-11-13",
    "labels": [
     "False Negative 🦋"
    ],
@@ -5172,7 +5145,7 @@
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
    "ci": "green",
-   "citot": 44,
+   "citot": 45,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -5205,7 +5178,7 @@
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
    "ci": "green",
-   "citot": 44,
+   "citot": 46,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -5234,11 +5207,11 @@
     "Needs review 🔍",
     "False Negative 🦋"
    ],
-   "milestone": "",
+   "milestone": "4.2.0",
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
    "ci": "green",
-   "citot": 44,
+   "citot": 46,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -5270,7 +5243,7 @@
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
    "ci": "awaiting-approval",
-   "citot": 3,
+   "citot": 4,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -5303,7 +5276,7 @@
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
    "ci": "awaiting-approval",
-   "citot": 3,
+   "citot": 5,
    "cifail": 0,
    "nrev": 1,
    "mrev": [],
@@ -7058,7 +7031,8 @@
   {
    "comments": 1,
    "labels": [
-    "Needs triage :inbox_tray:"
+    "False Positive 🦟",
+    "C: invalid-name"
    ],
    "number": 11809,
    "reactions": 0,
@@ -7069,7 +7043,8 @@
   {
    "comments": 0,
    "labels": [
-    "Needs triage :inbox_tray:"
+    "Work in progress",
+    "False Negative 🦋"
    ],
    "number": 11810,
    "reactions": 0,

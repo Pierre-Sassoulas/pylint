@@ -1374,23 +1374,6 @@
    ]
   },
   {
-   "n": 3373,
-   "a": "Pierre-Sassoulas",
-   "t": "Give ``Slice`` a name attribute, and make sure all nodes have name attributes",
-   "draft": false,
-   "labels": [
-    "Enhancement ✨"
-   ],
-   "rd": "REVIEW_REQUIRED",
-   "milestone": "4.4.0",
-   "size": 117,
-   "created": "2026-10-10",
-   "updated": "2026-10-21",
-   "ci": "green",
-   "cifail": 0,
-   "links": []
-  },
-  {
    "n": 3374,
    "a": "RizgarOzan",
    "t": "Infer a type statement's name as a TypeAliasType instance",
@@ -2737,7 +2720,10 @@
    "a": "hakarrr",
    "t": "Do not bind functools.partial class attributes before Python 3.14",
    "draft": false,
-   "labels": [],
+   "labels": [
+    "Bug 🪳",
+    "Brain 🧠"
+   ],
    "rd": "REVIEW_REQUIRED",
    "milestone": "",
    "size": 166,
@@ -2764,12 +2750,16 @@
    "a": "ghanashyam03",
    "t": "Do not cache Uninferable on context inference budget exhaustion",
    "draft": false,
-   "labels": [],
+   "labels": [
+    "Bug 🪳",
+    "Duplicate 🐫",
+    "inference"
+   ],
    "rd": "REVIEW_REQUIRED",
    "milestone": "",
    "size": 46,
    "created": "2026-11-12",
-   "updated": "2026-11-12",
+   "updated": "2026-11-13",
    "ci": "awaiting-approval",
    "cifail": 0,
    "links": [
@@ -2779,6 +2769,7 @@
      "state": "open",
      "labels": [
       "Bug 🪳",
+      "Duplicate 🐫",
       "inference"
      ],
      "reactions": 0,
@@ -2791,7 +2782,11 @@
    "a": "vladosskins178",
    "t": "Pass the inference context to bool_value() in truthiness constraints",
    "draft": false,
-   "labels": [],
+   "labels": [
+    "Bug 🪳",
+    "Crash 💥",
+    "inference"
+   ],
    "rd": "REVIEW_REQUIRED",
    "milestone": "",
    "size": 37,
