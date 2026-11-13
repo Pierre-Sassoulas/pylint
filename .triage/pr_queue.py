@@ -258,12 +258,26 @@ V = {
         'Wait for Julfried; #11789 follows it.',
     ),
     # ---- approve the workflow run ----------------------------------------
-    11808: (
+    11812: (
         'approve',
-        'running',
+        'held',
         'confirmed',
-        'New (12 November), 102 lines by ViktorBystrov72 (first PR) for issue 6444 (false negative, open since 2022): <code>implicit-str-concat</code> only looked at the first pair of literals in a constant, so <code>"first"\\n"second" "third"</code> was never reported. Now walks every adjacent string token pair inside the constant and reports the first same-line pair, on that pair\'s line. Keeps the raw/non-raw exemption and the parenthesized-multiline exemption; seven new functional cases. Says OpenAI Codex assisted, no human review claimed. Diff read 12 November: no CI or config files, no risky calls; the only non-ASCII character is an <code>é</code> in a test string. Watch for: the reported line moves from the start of the constant to the offending pair.',
-        'Runs approved 12 November at 3e5c70bdf after a full diff read; then: review, check the primer for moved lines.',
+        'New (12 November), 39 lines by marilenaRM (first PR) for their issue 11810 (false negative): adds the Python 3.14 deprecations <code>nturl2path</code> (deprecated-module), <code>tkinter.Variable.trace_variable/trace_vdelete/trace_vinfo</code> (deprecated-method, <code>trace</code> is an alias so reported too) and <code>pdb.Pdb.curframe_locals</code> (deprecated-attribute). Table entries only plus a <code>min_pyver=3.14</code> functional test. Diff read 13 November: no CI or config files, no risky calls, ASCII only. Watch for: the test instantiates <code>tkinter.StringVar()</code>, which only works where Tk is installed; pylint only parses it, so CI should be fine.',
+        "Approve the runs at 736d15c79 (diff read); then a quick review (check each entry against What's New in 3.14).",
+    ),
+    11811: (
+        'approve',
+        'held',
+        'confirmed',
+        'New (12 November), 50 lines by mccalpink (first PR) for issue 11809 (FP, opened the same day by e-gebes): in a class body, <code>X: TypeAlias = ...</code> and <code>X = TypeVar/ParamSpec/TypeVarTuple(...)</code> were checked against <code>class-attribute-naming-style</code>. Now the <code>ClassDef</code> branch of <code>visit_assignname</code> checks them against their own styles first, reusing <code>_assigns_typealias</code>/<code>_assigns_typevar</code>, same as module and function scope (#8536). Unannotated <code>Alias = Union[...]</code> unchanged. Functional test with a <code>snake_case</code> rc. Diff read 13 November: no CI or config files, no risky calls, ASCII only.',
+        'Approve the runs at c13d45eeb (diff read), then review: small and mirrors existing module-scope logic.',
+    ),
+    11808: (
+        'review',
+        'green',
+        'confirmed',
+        'New (12 November), 102 lines by ViktorBystrov72 (first PR) for issue 6444 (false negative, open since 2022): <code>implicit-str-concat</code> only looked at the first pair of literals in a constant, so <code>"first"\\n"second" "third"</code> was never reported. Now walks every adjacent string token pair inside the constant and reports the first same-line pair, on that pair\'s line. Keeps the raw/non-raw exemption and the parenthesized-multiline exemption; seven new functional cases. Says OpenAI Codex assisted, no human review claimed. Diff read 12 November: no CI or config files, no risky calls; the only non-ASCII character is an <code>é</code> in a test string. Watch for: the reported line moves from the start of the constant to the offending pair. 12 November CI: all green, codecov 100%, primer no effect (so no moved lines on real code).',
+        'Review: small, well tested, closes a 2022 false negative.',
     ),
     11802: (
         'review',
@@ -287,11 +301,11 @@ V = {
         'Review (check the UTF-16/32 path of the unicode change); codecov still pending.',
     ),
     11806: (
-        'approve',
-        'running',
+        'review',
+        'green',
         'confirmed',
-        'New, 77 lines by marksmayo (performance): three caches: <code>get_module_part</code> in the imports checker (reset in <code>open()</code>; this is the cache that never landed in the cyclic-import perf work, about -25% on ansible then), a per-scope <code>frozenset</code> of assigned names for <code>used-before-assignment</code> (<code>lru_cache</code>, cleared with the others), and callbacks per node class in <code>ASTWalker.walk</code>. 1.5-2.5% on astroid; the imports cache should matter more on big import graphs. Caches are where behaviour hides: check the reset points. Not run locally. 10 November CI: only the self-lint job is red, spelling hook on <code>pylint/utils/ast_walker.py</code> comment word <code>lowercased</code>; primer only the pandas L505 noise. 10 November evening: the author pushed <code>0426ce904</code>, which only rewords the comment (diff read 12 November); the new runs are held.',
-        'Runs approved 12 November at 0426ce904 (comment-only change since the reviewed commit); then: review last of the five (cache lifetimes, parallel mode).',
+        'New, 77 lines by marksmayo (performance): three caches: <code>get_module_part</code> in the imports checker (reset in <code>open()</code>; this is the cache that never landed in the cyclic-import perf work, about -25% on ansible then), a per-scope <code>frozenset</code> of assigned names for <code>used-before-assignment</code> (<code>lru_cache</code>, cleared with the others), and callbacks per node class in <code>ASTWalker.walk</code>. 1.5-2.5% on astroid; the imports cache should matter more on big import graphs. Caches are where behaviour hides: check the reset points. Not run locally. 10 November CI: only the self-lint job is red, spelling hook on <code>pylint/utils/ast_walker.py</code> comment word <code>lowercased</code>; primer only the pandas L505 noise. 10 November evening: the author pushed <code>0426ce904</code>, which only rewords the comment (diff read 12 November); the new runs are held. 12 November CI: all green, primer no effect.',
+        'Review last of the five (cache lifetimes, reset in open(), parallel mode).',
     ),
     11805: (
         'review',
@@ -453,7 +467,7 @@ V = {
         'decide',
         'dup',
         'duplicate',
-        'Trusted (Redoubts, first merged PR 2021). 126 lines for their issue 11767 (FP): <code>invalid-name</code> on <code>record.FieldName = ...</code> in <code>consumer.py</code> when <code>model.py</code> is in the same <code>-j1</code> run, inline <code>disable</code> ignored. Green, codecov 100%, primer removes real cross-module names (django <code>SQL_KEYWORD</code>, astropy <code>standardID</code>, music21 <code>ps</code>). Same fix as #11691 (b84330808, issue 9666, opened earlier, run still held): both keep only <code>instance_attrs</code> nodes whose <code>root()</code> is the class\'s module; #11691 also covers <code>non-ascii-name</code>. Issue 11767 = 9666. chrikrah approved on 5 November after checking the new tests fail on the base checker. 10 November: Redoubts pushed <code>210f99ec9</code> ("chrikrah rc"), only a changelog sentence saying names assigned outside the defining module are no longer checked; runs held. Runs approved 12 November.',
+        'Trusted (Redoubts, first merged PR 2021). 126 lines for their issue 11767 (FP): <code>invalid-name</code> on <code>record.FieldName = ...</code> in <code>consumer.py</code> when <code>model.py</code> is in the same <code>-j1</code> run, inline <code>disable</code> ignored. Green, codecov 100%, primer removes real cross-module names (django <code>SQL_KEYWORD</code>, astropy <code>standardID</code>, music21 <code>ps</code>). Same fix as #11691 (b84330808, issue 9666, opened earlier, run still held): both keep only <code>instance_attrs</code> nodes whose <code>root()</code> is the class\'s module; #11691 also covers <code>non-ascii-name</code>. Issue 11767 = 9666. chrikrah approved on 5 November after checking the new tests fail on the base checker. 10 November: Redoubts pushed <code>210f99ec9</code> ("chrikrah rc"), only a changelog sentence saying names assigned outside the defining module are no longer checked; runs held. Runs approved 12 November. 12 November CI at 210f99ec9: green; primer adds two astropy <code>too-many-ancestors</code> count changes (23 to 22, 28 to 27) that this naming change cannot cause (astropy file-order noise) plus the expected removed cross-module names.',
         "Pick one: merge this (trusted, green) and ask it to add non-ascii-name, crediting #11691; or approve #11691's run and close this. Close 11767 as a duplicate of 9666 either way. The new commit's runs are held (changelog-only change, read).",
     ),
 

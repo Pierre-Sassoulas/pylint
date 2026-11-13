@@ -18106,40 +18106,28 @@
   "commit": "9af0eb000"
  },
  "11768": {
-  "date": "2026-11-02",
-  "added": 1,
-  "removed": 8,
-  "changed": 4,
+  "date": "2026-11-12",
+  "added": 0,
+  "removed": 10,
+  "changed": 2,
   "projects": {
    "astropy": {
     "added": 0,
-    "removed": 5,
-    "changed": 4
+    "removed": 3,
+    "changed": 2
    },
    "django": {
     "added": 0,
-    "removed": 1,
+    "removed": 6,
     "changed": 0
    },
    "music21": {
-    "added": 1,
-    "removed": 2,
+    "added": 0,
+    "removed": 1,
     "changed": 0
    }
   },
   "items": [
-   [
-    "astropy",
-    "changed",
-    "too-many-ancestors",
-    "message: `Too many ancestors (22/7)` → `Too many ancestors (23/7)`"
-   ],
-   [
-    "astropy",
-    "changed",
-    "too-many-ancestors",
-    "message: `Too many ancestors (27/7)` → `Too many ancestors (28/7)`"
-   ],
    [
     "astropy",
     "changed",
@@ -18155,26 +18143,14 @@
    [
     "astropy",
     "removed",
-    "invalid-name",
-    "*Attribute name \"standardID\" doesn't conform to snake_case naming style*"
-   ],
-   [
-    "astropy",
-    "removed",
-    "attribute-defined-outside-init",
-    "*Attribute 'lineno' defined outside __init__*"
-   ],
-   [
-    "astropy",
-    "removed",
-    "attribute-defined-outside-init",
-    "*Attribute 'lexpos' defined outside __init__*"
-   ],
-   [
-    "astropy",
-    "removed",
     "disallowed-name",
     "*Disallowed name \"foo\"*"
+   ],
+   [
+    "astropy",
+    "removed",
+    "invalid-name",
+    "*Attribute name \"standardID\" doesn't conform to snake_case naming style*"
    ],
    [
     "astropy",
@@ -18189,25 +18165,43 @@
     "*Attribute name \"SQL_KEYWORD\" doesn't conform to snake_case naming style*"
    ],
    [
-    "music21",
-    "added",
+    "django",
+    "removed",
     "invalid-name",
-    "*Attribute name \"id\" doesn't conform to '[a-z_][A-Za-z0-9_]{2,30}$' pattern*"
+    "*Attribute name \"MIGRATION_MODULES\" doesn't conform to snake_case naming style*"
+   ],
+   [
+    "django",
+    "removed",
+    "invalid-name",
+    "*Attribute name \"ALLOWED_HOSTS\" doesn't conform to snake_case naming style*"
+   ],
+   [
+    "django",
+    "removed",
+    "invalid-name",
+    "*Attribute name \"DEBUG\" doesn't conform to snake_case naming style*"
+   ],
+   [
+    "django",
+    "removed",
+    "invalid-name",
+    "*Attribute name \"MAILERS\" doesn't conform to snake_case naming style*"
+   ],
+   [
+    "django",
+    "removed",
+    "invalid-name",
+    "*Attribute name \"EMAIL_BACKEND\" doesn't conform to snake_case naming style*"
    ],
    [
     "music21",
     "removed",
     "invalid-name",
     "*Attribute name \"ps\" doesn't conform to '[a-z_][A-Za-z0-9_]{2,30}$' pattern*"
-   ],
-   [
-    "music21",
-    "removed",
-    "invalid-name",
-    "*Attribute name \"id\" doesn't conform to '[a-z_][A-Za-z0-9_]{2,30}$' pattern*"
    ]
   ],
-  "commit": "3c651405e"
+  "commit": "210f99ec9"
  },
  "11770": {
   "date": "2026-11-05",
@@ -18916,25 +18910,21 @@
   "commit": "f7a34de3f"
  },
  "11806": {
-  "date": "2026-11-10",
+  "date": "2026-11-12",
   "added": 0,
   "removed": 0,
-  "changed": 1,
-  "projects": {
-   "pandas": {
-    "added": 0,
-    "removed": 0,
-    "changed": 1
-   }
-  },
-  "items": [
-   [
-    "pandas",
-    "changed",
-    "redefined-variable-type",
-    "Moved from `507:16`-`507:43` to `505:16`-`505:47`."
-   ]
-  ],
-  "commit": "fedc2a9c7"
+  "changed": 0,
+  "projects": {},
+  "items": [],
+  "commit": "0426ce904"
+ },
+ "11808": {
+  "date": "2026-11-12",
+  "added": 0,
+  "removed": 0,
+  "changed": 0,
+  "projects": {},
+  "items": [],
+  "commit": "3e5c70bdf"
  }
 }

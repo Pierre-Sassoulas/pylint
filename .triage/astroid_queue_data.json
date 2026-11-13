@@ -1,5 +1,5 @@
 {
- "snapshot": "2026-11-12",
+ "snapshot": "2026-11-13",
  "prs": [
   {
    "n": 2965,
@@ -2347,7 +2347,7 @@
    "milestone": "",
    "size": 90,
    "created": "2026-10-27",
-   "updated": "2026-10-28",
+   "updated": "2026-11-12",
    "ci": "green",
    "cifail": 0,
    "links": [
