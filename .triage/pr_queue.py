@@ -102,15 +102,11 @@ V = {
         "Review; backport candidate (regression).",
     ),
     11693: (
-        "review",
-        "ready",
-        "confirmed",
-        "New, 63 lines by agustin18 for issue 8567 (Regression FP): <code>unreachable</code> after "
-        "<code>signal.signal(..., lambda s, f: [print(), sys.exit(1)])</code>; the lambda guard only "
-        "looked at the direct parent. Green, unit + functional tests. Primer: 5 django "
-        "<code>invalid-name</code> on <code>settings.X = ...</code>, unrelated to the change (the "
-        "case #11691 targets).",
-        "Review.",
+        'merge',
+        '4.1.4',
+        'confirmed',
+        'New, 63 lines by agustin18 for issue 8567 (Regression FP): <code>unreachable</code> after <code>signal.signal(..., lambda s, f: [print(), sys.exit(1)])</code>; the lambda guard only looked at the direct parent. Green, unit + functional tests. Primer: 5 django <code>invalid-name</code> on <code>settings.X = ...</code>, unrelated to the change (the case #11691 targets). 14 November: approved; last open item of the 4.1.4 milestone with the backports #11822 (logging bytes crash) and #11819 (method-hidden properties), all three approved with CI running.',
+        'Merge when CI is green, then merge #11822 and #11819 on 4.1.x and cut 4.1.4.',
     ),
     11683: (
         "review",
@@ -258,26 +254,40 @@ V = {
         'Wait for Julfried; #11789 follows it.',
     ),
     # ---- approve the workflow run ----------------------------------------
+    11824: (
+        'approve',
+        'held',
+        'confirmed',
+        'New (14 November), 160 lines by Dio77799 for issue 8501 (false positive): <code>import pkg.sub</code> reported unused when the submodule is only reached through another binding of the package (<code>import pkg as alias; alias.sub</code>, <code>from pkg import mid</code>). Before reporting a dotted import, walks every <code>Name</code> in the scope (the module for top-level imports), follows its attribute chain and checks whether a binding of that name is an import of a parent package. Diff read 14 November: only variables.py and tests, no risky calls, ASCII only. Watch: <code>scope.nodes_of_class(nodes.Name)</code> per unused dotted import is a full-module walk with a <code>lookup</code> per matching name, so cost grows with module size times unused dotted imports; check the benchmark/primer timing.',
+        'Approve the 6 runs at ab8b9a957; review for perf (whole-module walk per candidate) once the primer is in.',
+    ),
+    11816: (
+        'approve',
+        'held',
+        'confirmed',
+        'New (14 November), 115 lines by ychampion for issue 9379 (false negative): a name assigned only in an <code>except</code> whose sibling <code>else</code> does <code>continue</code> is exempt from <code>used-before-assignment</code> inside the loop, but the first in-loop use consumed the name so later uses after the loop were never checked. Now <code>NamesConsumer</code> records the exempting scope and, for a use outside it, restores the name to <code>to_consume</code> for a recheck. Turns the existing <code># https://github.com/pylint-dev/pylint/issues/9379</code> placeholder into an expected message, plus for/while/nested cases. Diff read 14 November: only variables.py and tests, no risky calls, ASCII only. Watch: the restore re-copies <code>node.locals[name]</code>, which could double-report or leak state in other consumers; primer will tell.',
+        'Approve the 6 runs at 0766cc7e2; review after the primer (consumer-state change in variables.py).',
+    ),
+    11815: (
+        'approve',
+        'held',
+        'confirmed',
+        'New (14 November), 4 files by OmkarGowda990 for issue 9317 (docs), replacing the deleted #11755 as Pierre asked ("replace by a clearer one"): drops the <code>unnecessary-lambda</code> pandas example (<code>df.apply(lambda x: str(x))</code>, undefined <code>df</code>, and <code>df.apply(str)</code> stringifies whole columns) for a self-contained <code>list(map(lambda x: str(x), numbers))</code> bad/good pair. No changelog fragment, needs Skip news. Diff read 14 November: doc examples only, ASCII.',
+        'Label Skip news, approve the 4 runs at 9df703922, then a one-minute review (docs only; good example for beginners).',
+    ),
     11814: (
         'approve',
         'held',
         'confirmed',
-        "New (13 November), 170 lines by moelomda (first PR) for issue 8305 (bug): a relative <code>spelling-private-dict-file</code> in a config file followed the working directory, so running from a subdirectory missed the dictionary or created an empty one there. Now <code>_config_initialization</code> resolves it against the config file's directory before CLI options apply; CLI paths stay relative to the working directory. 151-line test file (ini/toml, <code>~</code>, <code>$VAR</code>, empty, CLI override, real Enchant). Diff read 13 November: no CI or config files, no risky calls; tests only set <code>HOME</code>/env in <code>monkeypatch</code>. Design question: special-cases one option; other path options (<code>ignore-paths</code>, <code>source-roots</code>...) have the same cwd problem, and it changes behaviour for configs that relied on the cwd.",
+        "New (13 November), 170 lines by moelomda (first PR) for issue 8305 (bug): a relative <code>spelling-private-dict-file</code> in a config file followed the working directory, so running from a subdirectory missed the dictionary or created an empty one there. Now <code>_config_initialization</code> resolves it against the config file's directory before CLI options apply; CLI paths stay relative to the working directory. 151-line test file (ini/toml, <code>~</code>, <code>$VAR</code>, empty, CLI override, real Enchant). Diff read 13 November: no CI or config files, no risky calls; tests only set <code>HOME</code>/env in <code>monkeypatch</code>. Design question: special-cases one option; other path options (<code>ignore-paths</code>, <code>source-roots</code>...) have the same cwd problem, and it changes behaviour for configs that relied on the cwd. 14 November: still held (the pasted loops broke on line wrapping), head unchanged.",
         'Approve the runs at 943a55857 (diff read); then decide: accept the one-option fix, or ask for a generic resolution of path options from config files.',
     ),
     11813: (
         'approve',
         'held',
         'confirmed',
-        "New (13 November), 251 lines by raghupathi321 (first PR) for issue 5083 (false negative from 2021; earlier PR #5137 closed stale, the 2022 claim expired): <code>useless-parent-delegation</code> now also reports <code>Parent.method(self, ...)</code> when it only forwards to the parent by name. Guards: the first argument must be the method's own receiver, the named parent must be the class the MRO would pick anyway (so a call that deliberately skips an override stays quiet), and bases must be known. Existing tests gain 7 new expected messages (<code>AAAA.__init__(self)</code>-style overrides). Side change: <code>_signature_from_arguments</code> now drops the first argument by position instead of by the name <code>self</code>. Diff read 13 November: no CI or config files, no risky calls, ASCII only. Expect many primer hits: the explicit-parent style is common in older code.",
+        "New (13 November), 251 lines by raghupathi321 (first PR) for issue 5083 (false negative from 2021; earlier PR #5137 closed stale, the 2022 claim expired): <code>useless-parent-delegation</code> now also reports <code>Parent.method(self, ...)</code> when it only forwards to the parent by name. Guards: the first argument must be the method's own receiver, the named parent must be the class the MRO would pick anyway (so a call that deliberately skips an override stays quiet), and bases must be known. Existing tests gain 7 new expected messages (<code>AAAA.__init__(self)</code>-style overrides). Side change: <code>_signature_from_arguments</code> now drops the first argument by position instead of by the name <code>self</code>. Diff read 13 November: no CI or config files, no risky calls, ASCII only. Expect many primer hits: the explicit-parent style is common in older code. 14 November: still held (the pasted loops broke on line wrapping), head unchanged.",
         'Approve the runs at a9e18cca9 (diff read); then read the primer carefully (new messages in old-style code) before reviewing.',
-    ),
-    11812: (
-        'review',
-        'green',
-        'confirmed',
-        'New (12 November), 39 lines by marilenaRM (first PR) for their issue 11810 (false negative): adds the Python 3.14 deprecations <code>nturl2path</code> (deprecated-module), <code>tkinter.Variable.trace_variable/trace_vdelete/trace_vinfo</code> (deprecated-method, <code>trace</code> is an alias so reported too) and <code>pdb.Pdb.curframe_locals</code> (deprecated-attribute). Table entries only plus a <code>min_pyver=3.14</code> functional test. Diff read 13 November: no CI or config files, no risky calls, ASCII only. Watch for: the test instantiates <code>tkinter.StringVar()</code>, which only works where Tk is installed; pylint only parses it, so CI should be fine. 13 November CI: green; primer only the astropy <code>too-many-ancestors</code> count noise also seen on #11768.',
-        "Quick review: check each entry against What's New in 3.14.",
     ),
     11811: (
         'review',
@@ -287,11 +297,11 @@ V = {
         'Review: small, mirrors the module-scope logic; ignore the django primer lines.',
     ),
     11808: (
-        'review',
-        'green',
+        'approve',
+        'held',
         'confirmed',
-        'New (12 November), 102 lines by ViktorBystrov72 (first PR) for issue 6444 (false negative, open since 2022): <code>implicit-str-concat</code> only looked at the first pair of literals in a constant, so <code>"first"\\n"second" "third"</code> was never reported. Now walks every adjacent string token pair inside the constant and reports the first same-line pair, on that pair\'s line. Keeps the raw/non-raw exemption and the parenthesized-multiline exemption; seven new functional cases. Says OpenAI Codex assisted, no human review claimed. Diff read 12 November: no CI or config files, no risky calls; the only non-ASCII character is an <code>é</code> in a test string. Watch for: the reported line moves from the start of the constant to the offending pair. 12 November CI: all green, codecov 100%, primer no effect (so no moved lines on real code).',
-        'Review: small, well tested, closes a 2022 false negative.',
+        'New (12 November), 102 lines by ViktorBystrov72 (first PR) for issue 6444 (false negative, open since 2022): <code>implicit-str-concat</code> only looked at the first pair of literals in a constant, so <code>"first"\\n"second" "third"</code> was never reported. Now walks every adjacent string token pair inside the constant and reports the first same-line pair, on that pair\'s line. Keeps the raw/non-raw exemption and the parenthesized-multiline exemption; seven new functional cases. Says OpenAI Codex assisted, no human review claimed. Diff read 12 November: no CI or config files, no risky calls; the only non-ASCII character is an <code>é</code> in a test string. Watch for: the reported line moves from the start of the constant to the offending pair. 12 November CI: all green, codecov 100%, primer no effect (so no moved lines on real code). 14 November: force-pushed 0a859f5ac at 05:44 UTC, a rebase only (same strings.py blob 357dcc561c0 as the reviewed diff); 6 runs held again.',
+        'Approve the runs at 0a859f5ac (content unchanged), then review: small, well tested, closes a 2022 false negative.',
     ),
     11802: (
         'review',
@@ -362,13 +372,6 @@ V = {
         'feature',
         'New, 107 lines by zheng-guannan577 for issue 9507 (docs, Needs PR): how to set <code>sys.path</code> / <code>PYTHONPATH</code> so pylint lints the checkout, not an installed copy (editable install, <code>init-hook</code>, pipx/pre-commit caveats). Doc build checked by the author. 13 November read: references all resolve, but (1) it says pylint imports the code it analyses, which is wrong (astroid parses it); (2) it pushes <code>init-hook</code> hard, including a venv <code>site-packages</code> glob one-liner, which runs code from the config file and goes against the config-trust work; (3) it links open PR #9721 from the user guide, which will go stale.',
         'Ask for the three fixes (no import, prefer <code>source-roots</code>/<code>PYTHONPATH</code> over <code>init-hook</code>, drop the #9721 link); then merge.',
-    ),
-    11793: (
-        'merge',
-        'approved',
-        'confirmed',
-        'New (8 November), 5 code lines by ayyan-bhatti (first PR) for issue 11791 (FP, filed by chrikrah the same day): <code>bad-dunder-name</code> on <code>__prepare__</code>, <code>__mro_entries__</code> (all versions), <code>__buffer__</code> / <code>__release_buffer__</code> (3.12) and <code>__replace__</code> (3.13). Adds them to <code>EXTRA_DUNDER_METHODS</code> with the version gates, tests at py-version 3.11 and 3.13. Same shape as #8619 and #10977, both backported. Only PR. Not run locally; diff read: constants + tests only. 9 November: 46 green; primer removes 5 <code>bad-dunder-name</code> (ansible <code>__prepare__</code> x2 + <code>__mro_entries__</code>, astropy <code>__prepare__</code>, django <code>__replace__</code>): exactly the fix. 9 November: chrikrah approved (both new tests fail on base <code>constants.py</code>). On 10 November a newcomer asked on issue 11791 to take it; the PR already exists.',
-        'Merge for 4.1.4 and backport; point the newcomer at the PR.',
     ),
     11790: (
         'review',
@@ -682,13 +685,6 @@ V = {
         "safe; rebinding a parameter to an iterator still reports. New test fails on main, passes with the PR.",
         "Approve the run and review before 4.2.0 ships the checker.",
     ),
-    11732: (
-        'review',
-        'asked',
-        'feature',
-        '72 lines by emmanuel-ferdman, no issue: skips <code>method-hidden</code> when <code>safe_infer</code> of the method gives an <code>objects.Property</code>. The primer shows the real case: 10 django false positives on a <code>@cached_property</code> (<code>django.utils.functional</code>) that <code>__init__</code> assigns, e.g. <code>BaseExpression.output_field</code>. Green; test fails on main, passes with the PR, but it is a unit test that patches inference. 10 November: emmanuel-ferdman (20 merged PRs in pylint and astroid since 2025, trusted) asked you for a review of this and of astroid #3439.',
-        'Review now (requested by a trusted contributor); also astroid #3439.',
-    ),
     11731: (
         "approve",
         "held",
@@ -730,17 +726,6 @@ V = {
         "copies sorted, as <code>symilar</code> does. On 27 October the author isolated the "
         "six-hash-seed subprocess test from the source checkout: all CI jobs green now, primer no effect.",
         "Review; check the subprocess test is worth its runtime.",
-    ),
-    11730: (
-        "author",
-        "red",
-        "confirmed",
-        "New, 41 lines by dchaudhari7177, test only, for issue 10784 (FP): <code>no-member</code> on "
-        "<code>stmt.src</code> after <code>isinstance(stmt, Assignment) and ...</code> when another "
-        "function assigns <code>[ConditionalJump()]</code> to the attribute. The PR says main is fixed; "
-        "it is not: the new line 134 still emits E1101 on main (checked locally with astroid 4.3.4) and "
-        "every CI test job fails on it.",
-        "Ask the author to fix the bug instead, or close; 10784 stays open.",
     ),
     11725: (
         "approve",
@@ -870,15 +855,6 @@ V = {
         "nested <code>finally</code> clauses. Same author and walk as #11621 (break/continue in "
         "finally). Run waits for approval.",
         "Approve the run; review together with #11621.",
-    ),
-    11230: (
-        "approve",
-        "held",
-        "confirmed",
-        "Issue 9943 (output depends on file order). New push on 12 October for the failing "
-        "<code>test_package_expansion_order</code>; the run waits for approval. Astroid #3384 (cache "
-        "of budget-truncated inference) targets the inference side of the same symptom (11582).",
-        "Approve the run; compare with astroid #3384.",
     ),
     11655: (
         "review",
@@ -1021,14 +997,6 @@ V = {
         "39 lines, <code>superfluous-parens</code> false negative. Author's last comment is a month old and "
         "unanswered.",
         "Retrigger and answer.",
-    ),
-    11111: (
-        "retrigger",
-        "no ci",
-        "crash",
-        "23 lines against a crash on a non-UTF-8 bytes format string. Carries <em>Blocked</em>, but the "
-        "blocker is not recorded on the PR.",
-        "Retrigger, and write down what it is blocked on — nobody else can tell.",
     ),
     10904: (
         "retrigger",

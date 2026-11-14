@@ -1,5 +1,5 @@
 {
- "snapshot": "2026-11-13",
+ "snapshot": "2026-11-14",
  "prs": [
   {
    "n": 2965,
@@ -61,10 +61,10 @@
     "topic-performance"
    ],
    "rd": "REVIEW_REQUIRED",
-   "milestone": "4.4.0",
+   "milestone": "4.5.0",
    "size": 197,
    "created": "2026-05-10",
-   "updated": "2026-10-21",
+   "updated": "2026-11-14",
    "ci": "failing",
    "cifail": 1,
    "links": [
@@ -98,36 +98,6 @@
    "links": []
   },
   {
-   "n": 3081,
-   "a": "Pierre-Sassoulas",
-   "t": "tests: add regression tests for already-fixed but unguarded issues",
-   "draft": true,
-   "labels": [
-    "Work in progress",
-    "Maintenance",
-    "Skip news :mute:"
-   ],
-   "rd": "REVIEW_REQUIRED",
-   "milestone": "",
-   "size": 317,
-   "created": "2026-05-24",
-   "updated": "2026-11-06",
-   "ci": "green",
-   "cifail": 0,
-   "links": [
-    {
-     "ref": "pylint-dev/astroid#186",
-     "title": "Check for Starred when checking the number of arguments passed to functions",
-     "state": "open",
-     "labels": [
-      "Bug 🪳"
-     ],
-     "reactions": 0,
-     "pr": false
-    }
-   ]
-  },
-  {
    "n": 3119,
    "a": "Pierre-Sassoulas",
    "t": "Give PEP 695 type parameters their own scope",
@@ -136,10 +106,10 @@
     "Enhancement ✨"
    ],
    "rd": "REVIEW_REQUIRED",
-   "milestone": "4.4.0",
+   "milestone": "4.5.0",
    "size": 433,
    "created": "2026-06-28",
-   "updated": "2026-11-06",
+   "updated": "2026-11-14",
    "ci": "green",
    "cifail": 0,
    "links": [
@@ -160,15 +130,15 @@
    "n": 3120,
    "a": "Pierre-Sassoulas",
    "t": "Add inference for t-strings",
-   "draft": true,
+   "draft": false,
    "labels": [
     "Enhancement ✨"
    ],
    "rd": "REVIEW_REQUIRED",
    "milestone": "4.4.0",
-   "size": 354,
+   "size": 494,
    "created": "2026-06-28",
-   "updated": "2026-10-22",
+   "updated": "2026-11-14",
    "ci": "green",
    "cifail": 0,
    "links": [
@@ -212,27 +182,10 @@
     "topic-performance"
    ],
    "rd": "REVIEW_REQUIRED",
-   "milestone": "4.4.0",
+   "milestone": "4.5.0",
    "size": 94,
    "created": "2026-07-30",
-   "updated": "2026-10-21",
-   "ci": "green",
-   "cifail": 0,
-   "links": []
-  },
-  {
-   "n": 3167,
-   "a": "Pierre-Sassoulas",
-   "t": "Performance: collapse 19 builtin transforms into a single Call dispatcher",
-   "draft": false,
-   "labels": [
-    "topic-performance"
-   ],
-   "rd": "REVIEW_REQUIRED",
-   "milestone": "4.4.0",
-   "size": 221,
-   "created": "2026-07-30",
-   "updated": "2026-10-21",
+   "updated": "2026-11-14",
    "ci": "green",
    "cifail": 0,
    "links": []
@@ -395,10 +348,10 @@
     "backport maintenance/4.3.x"
    ],
    "rd": "CHANGES_REQUESTED",
-   "milestone": "4.4.0",
+   "milestone": "4.5.0",
    "size": 664,
    "created": "2026-08-08",
-   "updated": "2026-10-12",
+   "updated": "2026-11-14",
    "ci": "green",
    "cifail": 0,
    "links": [
@@ -425,10 +378,10 @@
     "Enhancement ✨"
    ],
    "rd": "REVIEW_REQUIRED",
-   "milestone": "4.4.0",
+   "milestone": "4.5.0",
    "size": 143,
    "created": "2026-08-11",
-   "updated": "2026-10-21",
+   "updated": "2026-11-14",
    "ci": "failing",
    "cifail": 9,
    "links": []
@@ -472,10 +425,10 @@
     "Needs review 🔍"
    ],
    "rd": "REVIEW_REQUIRED",
-   "milestone": "4.4.0",
+   "milestone": "4.5.0",
    "size": 37,
    "created": "2026-08-15",
-   "updated": "2026-11-07",
+   "updated": "2026-11-14",
    "ci": "green",
    "cifail": 0,
    "links": []
@@ -657,7 +610,7 @@
    "milestone": "",
    "size": 933,
    "created": "2026-09-21",
-   "updated": "2026-10-31",
+   "updated": "2026-11-14",
    "ci": "green",
    "cifail": 0,
    "links": [
@@ -666,7 +619,8 @@
      "title": "re.compile inference returns incorrect result",
      "state": "open",
      "labels": [
-      "Bug 🪳"
+      "Bug 🪳",
+      "Needs PR"
      ],
      "reactions": 0,
      "pr": false
@@ -682,10 +636,10 @@
     "Maintenance"
    ],
    "rd": "REVIEW_REQUIRED",
-   "milestone": "4.4.0",
+   "milestone": "4.5.0",
    "size": 486,
    "created": "2026-09-22",
-   "updated": "2026-10-21",
+   "updated": "2026-11-14",
    "ci": "green",
    "cifail": 0,
    "links": []
@@ -699,10 +653,10 @@
     "Brain 🧠"
    ],
    "rd": "CHANGES_REQUESTED",
-   "milestone": "4.4.0",
+   "milestone": "4.5.0",
    "size": 207,
    "created": "2026-09-23",
-   "updated": "2026-10-22",
+   "updated": "2026-11-14",
    "ci": "green",
    "cifail": 0,
    "links": [
@@ -935,36 +889,6 @@
    ]
   },
   {
-   "n": 3329,
-   "a": "nabhan06",
-   "t": "skip non-name assign targets in namedtuple/enum inference",
-   "draft": false,
-   "labels": [
-    "Brain 🧠",
-    "Crash 💥",
-    "T: NamedTuple"
-   ],
-   "rd": "CHANGES_REQUESTED",
-   "milestone": "4.4.0",
-   "size": 47,
-   "created": "2026-09-30",
-   "updated": "2026-10-24",
-   "ci": "failing",
-   "cifail": 1,
-   "links": [
-    {
-     "ref": "pylint-dev/astroid#3257",
-     "title": "`AttributeError: 'AssignAttr' object has no attribute 'name'` in namedtuple brain",
-     "state": "open",
-     "labels": [
-      "Crash 💥"
-     ],
-     "reactions": 0,
-     "pr": false
-    }
-   ]
-  },
-  {
    "n": 3332,
    "a": "nabhan06",
    "t": "guard empty tuple enum member in infer_func_form",
@@ -1093,73 +1017,6 @@
    ]
   },
   {
-   "n": 3351,
-   "a": "pylaterreur",
-   "t": "Infer class attributes assigned through the class",
-   "draft": false,
-   "labels": [
-    "Enhancement ✨"
-   ],
-   "rd": "CHANGES_REQUESTED",
-   "milestone": "4.4.0",
-   "size": 191,
-   "created": "2026-10-05",
-   "updated": "2026-11-07",
-   "ci": "green",
-   "cifail": 0,
-   "links": [
-    {
-     "ref": "pylint-dev/pylint#3045",
-     "title": "false positive: unsupported-membership-test",
-     "state": "closed",
-     "labels": [
-      "Control flow",
-      "False Positive 🦟",
-      "Needs PR"
-     ],
-     "reactions": 2,
-     "pr": false
-    },
-    {
-     "ref": "pylint-dev/pylint#9250",
-     "title": "Assignments to class attributes inside `__init__()` are not inferred",
-     "state": "open",
-     "labels": [
-      "Enhancement ✨",
-      "Astroid",
-      "Needs PR"
-     ],
-     "reactions": 0,
-     "pr": false
-    },
-    {
-     "ref": "pylint-dev/pylint#9809",
-     "title": "False positive for optional class attribute",
-     "state": "open",
-     "labels": [
-      "Bug :beetle:",
-      "Control flow",
-      "inference",
-      "False Positive 🦟"
-     ],
-     "reactions": 0,
-     "pr": false
-    },
-    {
-     "ref": "pylint-dev/pylint#10082",
-     "title": "E1136/E1137 false positives",
-     "state": "open",
-     "labels": [
-      "False Positive 🦟",
-      "Lib specific 💅",
-      "Needs PR"
-     ],
-     "reactions": 1,
-     "pr": false
-    }
-   ]
-  },
-  {
    "n": 3352,
    "a": "segoon",
    "t": "Fall back when the namedtuple factory cannot be inferred",
@@ -1232,35 +1089,6 @@
       "Needs astroid Brain 🧠",
       "False Positive 🦟",
       "py-version"
-     ],
-     "reactions": 0,
-     "pr": false
-    }
-   ]
-  },
-  {
-   "n": 3367,
-   "a": "devanshranjan10",
-   "t": "Don't use an Uninferable base for typing.Tuple / typing.Callable",
-   "draft": false,
-   "labels": [
-    "Bug 🪳",
-    "Brain 🧠"
-   ],
-   "rd": "REVIEW_REQUIRED",
-   "milestone": "4.4.0",
-   "size": 34,
-   "created": "2026-10-09",
-   "updated": "2026-10-24",
-   "ci": "green",
-   "cifail": 0,
-   "links": [
-    {
-     "ref": "pylint-dev/astroid#3366",
-     "title": "`TypeError: 'UninferableBase' object is not iterable` when checking ancestors",
-     "state": "open",
-     "labels": [
-      "Crash 💥"
      ],
      "reactions": 0,
      "pr": false
@@ -1367,37 +1195,6 @@
      "labels": [
       "False Positive 🦟",
       "Needs PR"
-     ],
-     "reactions": 0,
-     "pr": false
-    }
-   ]
-  },
-  {
-   "n": 3374,
-   "a": "RizgarOzan",
-   "t": "Infer a type statement's name as a TypeAliasType instance",
-   "draft": false,
-   "labels": [
-    "Enhancement ✨",
-    "python 3.12"
-   ],
-   "rd": "CHANGES_REQUESTED",
-   "milestone": "4.4.0",
-   "size": 147,
-   "created": "2026-10-11",
-   "updated": "2026-10-23",
-   "ci": "green",
-   "cifail": 0,
-   "links": [
-    {
-     "ref": "pylint-dev/pylint#10091",
-     "title": "Class 'str' has no '__value__' member on PEP 695 TypeAliasType",
-     "state": "open",
-     "labels": [
-      "False Positive 🦟",
-      "Needs PR",
-      "python 3.12"
      ],
      "reactions": 0,
      "pr": false
@@ -1880,91 +1677,6 @@
    "links": []
   },
   {
-   "n": 3426,
-   "a": "Pierre-Sassoulas",
-   "t": "Raise a type error in object_len for a __len__ that cannot be called",
-   "draft": false,
-   "labels": [
-    "Bug 🪳"
-   ],
-   "rd": "REVIEW_REQUIRED",
-   "milestone": "4.4.0",
-   "size": 27,
-   "created": "2026-10-22",
-   "updated": "2026-10-22",
-   "ci": "green",
-   "cifail": 0,
-   "links": []
-  },
-  {
-   "n": 3427,
-   "a": "Pierre-Sassoulas",
-   "t": "Give comprehension scopes a name so qname() does not crash",
-   "draft": false,
-   "labels": [
-    "Bug 🪳"
-   ],
-   "rd": "REVIEW_REQUIRED",
-   "milestone": "4.4.0",
-   "size": 39,
-   "created": "2026-10-22",
-   "updated": "2026-10-22",
-   "ci": "green",
-   "cifail": 0,
-   "links": []
-  },
-  {
-   "n": 3428,
-   "a": "Pierre-Sassoulas",
-   "t": "Stop exposing __get__ on generators",
-   "draft": false,
-   "labels": [
-    "Bug 🪳"
-   ],
-   "rd": "REVIEW_REQUIRED",
-   "milestone": "4.4.0",
-   "size": 27,
-   "created": "2026-10-22",
-   "updated": "2026-10-22",
-   "ci": "green",
-   "cifail": 0,
-   "links": []
-  },
-  {
-   "n": 3429,
-   "a": "Pierre-Sassoulas",
-   "t": "Do not crash when inferring the call of a type subclass without a caller",
-   "draft": false,
-   "labels": [
-    "Bug 🪳"
-   ],
-   "rd": "REVIEW_REQUIRED",
-   "milestone": "4.4.0",
-   "size": 23,
-   "created": "2026-10-22",
-   "updated": "2026-10-22",
-   "ci": "green",
-   "cifail": 0,
-   "links": []
-  },
-  {
-   "n": 3430,
-   "a": "Pierre-Sassoulas",
-   "t": "Make ClassDef.has_dynamic_getattr() always return a bool",
-   "draft": false,
-   "labels": [
-    "Bug 🪳"
-   ],
-   "rd": "REVIEW_REQUIRED",
-   "milestone": "4.4.0",
-   "size": 25,
-   "created": "2026-10-22",
-   "updated": "2026-10-22",
-   "ci": "green",
-   "cifail": 0,
-   "links": []
-  },
-  {
    "n": 3431,
    "a": "Pierre-Sassoulas",
    "t": "[refactor] Use match case instead of isinstance calls when the readability is better",
@@ -2266,10 +1978,10 @@
     "Bug 🪳"
    ],
    "rd": "REVIEW_REQUIRED",
-   "milestone": "4.4.0",
+   "milestone": "4.5.0",
    "size": 70,
    "created": "2026-10-25",
-   "updated": "2026-10-25",
+   "updated": "2026-11-14",
    "ci": "green",
    "cifail": 0,
    "links": [
@@ -2330,7 +2042,7 @@
    "milestone": "",
    "size": 90,
    "created": "2026-10-27",
-   "updated": "2026-11-12",
+   "updated": "2026-11-14",
    "ci": "green",
    "cifail": 0,
    "links": [
@@ -2778,30 +2490,27 @@
    ]
   },
   {
-   "n": 3473,
-   "a": "vladosskins178",
-   "t": "Pass the inference context to bool_value() in truthiness constraints",
+   "n": 3474,
+   "a": "ychampion",
+   "t": "Return ClassDef from dataclass_transform when __init__ generation is skipped",
    "draft": false,
-   "labels": [
-    "Bug 🪳",
-    "Crash 💥",
-    "inference"
-   ],
+   "labels": [],
    "rd": "REVIEW_REQUIRED",
    "milestone": "",
-   "size": 37,
-   "created": "2026-11-13",
-   "updated": "2026-11-13",
+   "size": 50,
+   "created": "2026-11-14",
+   "updated": "2026-11-14",
    "ci": "awaiting-approval",
    "cifail": 0,
    "links": [
     {
-     "ref": "pylint-dev/pylint#11807",
-     "title": "Pylint gets stuck with red-black-tree-mod",
-     "state": "open",
+     "ref": "pylint-dev/astroid#2317",
+     "title": "A dataclass of type ``enum.Enum`` does not contain the enum ``__members__`` object",
+     "state": "closed",
      "labels": [
-      "Needs reproduction :mag:",
-      "Crash 💥"
+      "Bug 🪳",
+      "Brain 🧠",
+      "dataclasses"
      ],
      "reactions": 0,
      "pr": false

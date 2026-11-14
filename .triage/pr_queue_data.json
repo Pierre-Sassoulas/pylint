@@ -1,8 +1,8 @@
 {
- "snapshot": "2026-11-13",
+ "snapshot": "2026-11-14",
  "owner": "Pierre-Sassoulas",
- "open_total": 185,
- "open_own": 21,
+ "open_total": 187,
+ "open_own": 24,
  "prs": [
   {
    "n": 5401,
@@ -241,13 +241,13 @@
    "size": 120,
    "files": 15,
    "created": "2024-09-25",
-   "updated": "2026-10-18",
+   "updated": "2026-11-14",
    "labels": [
     "Needs review 🔍",
     "Import system",
     "Skip news :mute:"
    ],
-   "milestone": "4.2.0",
+   "milestone": "4.3.0",
    "rd": "REVIEW_REQUIRED",
    "merge": "CONFLICTING",
    "ci": "not-run",
@@ -275,12 +275,12 @@
    "size": 68,
    "files": 3,
    "created": "2025-01-17",
-   "updated": "2026-09-24",
+   "updated": "2026-11-14",
    "labels": [
     "Work in progress",
     "False Negative 🦋"
    ],
-   "milestone": "4.2.0",
+   "milestone": "4.3.0",
    "rd": "REVIEW_REQUIRED",
    "merge": "CONFLICTING",
    "ci": "not-run",
@@ -308,13 +308,13 @@
    "size": 121,
    "files": 3,
    "created": "2025-04-09",
-   "updated": "2026-11-04",
+   "updated": "2026-11-14",
    "labels": [
     "Bug :beetle:",
     "pyreverse",
     "backport maintenance/4.1.x"
    ],
-   "milestone": "4.2.0",
+   "milestone": "4.3.0",
    "rd": "CHANGES_REQUESTED",
    "merge": "CONFLICTING",
    "ci": "not-run",
@@ -350,13 +350,13 @@
    "size": 180,
    "files": 12,
    "created": "2025-09-29",
-   "updated": "2026-09-24",
+   "updated": "2026-11-14",
    "labels": [
     "Enhancement ✨",
     "Optional Checkers",
     "Needs decision :lock:"
    ],
-   "milestone": "4.2.0",
+   "milestone": "4.3.0",
    "rd": "REVIEW_REQUIRED",
    "merge": "CONFLICTING",
    "ci": "failing",
@@ -417,13 +417,13 @@
    "size": 244,
    "files": 6,
    "created": "2025-10-13",
-   "updated": "2026-09-24",
+   "updated": "2026-11-14",
    "labels": [
     "Blocked 🚧",
     "False Negative 🦋",
     "Needs decision :lock:"
    ],
-   "milestone": "4.2.0",
+   "milestone": "4.3.0",
    "rd": "CHANGES_REQUESTED",
    "merge": "CONFLICTING",
    "ci": "not-run",
@@ -453,11 +453,11 @@
    "size": 891,
    "files": 17,
    "created": "2025-11-16",
-   "updated": "2026-11-04",
+   "updated": "2026-11-14",
    "labels": [
     "Enhancement ✨"
    ],
-   "milestone": "4.2.0",
+   "milestone": "4.3.0",
    "rd": "CHANGES_REQUESTED",
    "merge": "MERGEABLE",
    "ci": "green",
@@ -524,13 +524,13 @@
    "size": 253,
    "files": 9,
    "created": "2025-12-29",
-   "updated": "2026-09-24",
+   "updated": "2026-11-14",
    "labels": [
     "Enhancement ✨",
     "Blocked 🚧",
     "Needs decision :lock:"
    ],
-   "milestone": "4.2.0",
+   "milestone": "4.3.0",
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
    "ci": "failing",
@@ -679,39 +679,6 @@
    ]
   },
   {
-   "n": 11111,
-   "a": "sarathfrancis90",
-   "t": "Fix crash in logging checker on a non-UTF-8 bytes format string",
-   "draft": false,
-   "size": 23,
-   "files": 4,
-   "created": "2026-06-17",
-   "updated": "2026-11-02",
-   "labels": [
-    "Blocked 🚧",
-    "Crash 💥"
-   ],
-   "milestone": "4.2.0",
-   "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
-   "ci": "not-run",
-   "citot": 5,
-   "cifail": 0,
-   "nrev": 1,
-   "mrev": [],
-   "links": [
-    [
-     10813,
-     "",
-     ""
-    ]
-   ],
-   "lastcom": [
-    "-",
-    "-"
-   ]
-  },
-  {
    "n": 11132,
    "a": "koteshyelamati",
    "t": "Improve arguments-differ message when parameter totals match",
@@ -719,13 +686,13 @@
    "size": 127,
    "files": 6,
    "created": "2026-07-04",
-   "updated": "2026-09-24",
+   "updated": "2026-11-14",
    "labels": [
     "Bug :beetle:",
     "Waiting on author",
     "backport maintenance/4.1.x"
    ],
-   "milestone": "4.2.0",
+   "milestone": "4.3.0",
    "rd": "CHANGES_REQUESTED",
    "merge": "CONFLICTING",
    "ci": "not-run",
@@ -889,12 +856,12 @@
    "size": 1123,
    "files": 54,
    "created": "2026-07-28",
-   "updated": "2026-11-11",
+   "updated": "2026-11-14",
    "labels": [
     "Enhancement ✨",
     "pyreverse"
    ],
-   "milestone": "4.2.0",
+   "milestone": "4.3.0",
    "rd": "CHANGES_REQUESTED",
    "merge": "MERGEABLE",
    "ci": "awaiting-approval",
@@ -925,12 +892,12 @@
    "size": 229,
    "files": 3,
    "created": "2026-08-03",
-   "updated": "2026-09-24",
+   "updated": "2026-11-14",
    "labels": [
     "Bug :beetle:",
     "High priority"
    ],
-   "milestone": "4.2.0",
+   "milestone": "4.3.0",
    "rd": "CHANGES_REQUESTED",
    "merge": "CONFLICTING",
    "ci": "green",
@@ -950,38 +917,6 @@
    "lastcom": [
     "SaharYaz",
     "2026-08-10"
-   ]
-  },
-  {
-   "n": 11230,
-   "a": "subotac",
-   "t": "Guarantee deterministic recursive file discovery",
-   "draft": false,
-   "size": 44,
-   "files": 3,
-   "created": "2026-08-04",
-   "updated": "2026-10-12",
-   "labels": [
-    "Enhancement ✨"
-   ],
-   "milestone": "4.2.0",
-   "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
-   "ci": "not-run",
-   "citot": 2,
-   "cifail": 0,
-   "nrev": 0,
-   "mrev": [],
-   "links": [
-    [
-     9943,
-     "",
-     ""
-    ]
-   ],
-   "lastcom": [
-    "github-actions",
-    "2026-10-11"
    ]
   },
   {
@@ -1027,11 +962,11 @@
    "size": 112,
    "files": 12,
    "created": "2026-08-09",
-   "updated": "2026-09-24",
+   "updated": "2026-11-14",
    "labels": [
     "False Negative 🦋"
    ],
-   "milestone": "4.2.0",
+   "milestone": "4.3.0",
    "rd": "CHANGES_REQUESTED",
    "merge": "CONFLICTING",
    "ci": "not-run",
@@ -1347,12 +1282,12 @@
    "size": 45,
    "files": 4,
    "created": "2026-09-10",
-   "updated": "2026-11-02",
+   "updated": "2026-11-14",
    "labels": [
     "False Positive 🦟",
     "backport maintenance/4.1.x"
    ],
-   "milestone": "4.2.0",
+   "milestone": "4.3.0",
    "rd": "CHANGES_REQUESTED",
    "merge": "MERGEABLE",
    "ci": "green",
@@ -1679,11 +1614,11 @@
    "size": 85,
    "files": 3,
    "created": "2026-09-23",
-   "updated": "2026-10-23",
+   "updated": "2026-11-14",
    "labels": [
     "Enhancement ✨"
    ],
-   "milestone": "4.2.0",
+   "milestone": "4.3.0",
    "rd": "CHANGES_REQUESTED",
    "merge": "MERGEABLE",
    "ci": "failing",
@@ -2129,7 +2064,7 @@
     "Windows 🪟",
     "backport maintenance/4.1.x"
    ],
-   "milestone": "4.1.5",
+   "milestone": "4.2.1",
    "rd": "CHANGES_REQUESTED",
    "merge": "MERGEABLE",
    "ci": "green",
@@ -2943,7 +2878,7 @@
     "Crash 💥",
     "backport maintenance/4.1.x"
    ],
-   "milestone": "4.1.5",
+   "milestone": "4.2.1",
    "rd": "CHANGES_REQUESTED",
    "merge": "MERGEABLE",
    "ci": "green",
@@ -3012,7 +2947,7 @@
     "multiprocessing",
     "backport maintenance/4.1.x"
    ],
-   "milestone": "4.1.5",
+   "milestone": "4.2.1",
    "rd": "CHANGES_REQUESTED",
    "merge": "MERGEABLE",
    "ci": "green",
@@ -3081,7 +3016,7 @@
     "Bug :beetle:",
     "duplicate-code"
    ],
-   "milestone": "4.1.5",
+   "milestone": "4.2.1",
    "rd": "CHANGES_REQUESTED",
    "merge": "MERGEABLE",
    "ci": "green",
@@ -3182,7 +3117,7 @@
     "False Positive 🦟",
     "backport maintenance/4.1.x"
    ],
-   "milestone": "4.1.5",
+   "milestone": "4.2.1",
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
    "ci": "green",
@@ -3274,10 +3209,10 @@
    "a": "agustin18",
    "t": "Fix false positive unreachable when terminating call is in compound lambda expr (#8567)",
    "draft": false,
-   "size": 63,
+   "size": 75,
    "files": 5,
    "created": "2026-10-19",
-   "updated": "2026-10-22",
+   "updated": "2026-11-14",
    "labels": [
     "Control flow",
     "Regression",
@@ -3285,13 +3220,15 @@
     "backport maintenance/4.1.x"
    ],
    "milestone": "4.1.4",
-   "rd": "REVIEW_REQUIRED",
+   "rd": "APPROVED",
    "merge": "MERGEABLE",
-   "ci": "green",
-   "citot": 51,
+   "ci": "running",
+   "citot": 41,
    "cifail": 0,
-   "nrev": 0,
-   "mrev": [],
+   "nrev": 1,
+   "mrev": [
+    "Pierre-Sassoulas"
+   ],
    "links": [
     [
      8567,
@@ -3726,41 +3663,6 @@
    ]
   },
   {
-   "n": 11730,
-   "a": "dchaudhari7177",
-   "t": "Add a regression test for #10784",
-   "draft": false,
-   "size": 41,
-   "files": 1,
-   "created": "2026-10-24",
-   "updated": "2026-10-24",
-   "labels": [
-    "Maintenance",
-    "Skip news :mute:"
-   ],
-   "milestone": "",
-   "rd": "CHANGES_REQUESTED",
-   "merge": "MERGEABLE",
-   "ci": "failing",
-   "citot": 24,
-   "cifail": 8,
-   "nrev": 1,
-   "mrev": [
-    "Pierre-Sassoulas"
-   ],
-   "links": [
-    [
-     10784,
-     "",
-     ""
-    ]
-   ],
-   "lastcom": [
-    "-",
-    "-"
-   ]
-  },
-  {
    "n": 11731,
    "a": "hector2394",
    "t": "Fix cell-var-from-loop for immediately consumed generator callbacks",
@@ -3790,32 +3692,6 @@
    "lastcom": [
     "hector2394",
     "2026-11-07"
-   ]
-  },
-  {
-   "n": 11732,
-   "a": "emmanuel-ferdman",
-   "t": "Fix method-hidden for inferred properties",
-   "draft": false,
-   "size": 72,
-   "files": 3,
-   "created": "2026-10-24",
-   "updated": "2026-10-24",
-   "labels": [
-    "False Positive 🦟"
-   ],
-   "milestone": "",
-   "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
-   "ci": "green",
-   "citot": 45,
-   "cifail": 0,
-   "nrev": 0,
-   "mrev": [],
-   "links": [],
-   "lastcom": [
-    "github-actions",
-    "2026-10-24"
    ]
   },
   {
@@ -4817,39 +4693,6 @@
    ]
   },
   {
-   "n": 11793,
-   "a": "ayyan-bhatti",
-   "t": "Fix bad-dunder-name false positives for __prepare__, __mro_entries__, __buffer__, __release_buffer__ and __replace__",
-   "draft": false,
-   "size": 72,
-   "files": 7,
-   "created": "2026-11-08",
-   "updated": "2026-11-09",
-   "labels": [
-    "False Positive 🦟",
-    "backport maintenance/4.1.x"
-   ],
-   "milestone": "4.1.4",
-   "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
-   "ci": "green",
-   "citot": 46,
-   "cifail": 0,
-   "nrev": 1,
-   "mrev": [],
-   "links": [
-    [
-     11791,
-     "",
-     ""
-    ]
-   ],
-   "lastcom": [
-    "github-actions",
-    "2026-11-08"
-   ]
-  },
-  {
    "n": 11794,
    "a": "lyn1dev",
    "t": "Report superfluous-parens for nested parentheses after a keyword",
@@ -5137,15 +4980,15 @@
    "size": 102,
    "files": 6,
    "created": "2026-11-12",
-   "updated": "2026-11-13",
+   "updated": "2026-11-14",
    "labels": [
     "False Negative 🦋"
    ],
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "green",
-   "citot": 45,
+   "ci": "awaiting-approval",
+   "citot": 2,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -5185,39 +5028,6 @@
    "links": [
     [
      11809,
-     "",
-     ""
-    ]
-   ],
-   "lastcom": [
-    "github-actions",
-    "2026-11-13"
-   ]
-  },
-  {
-   "n": 11812,
-   "a": "marilenaRM",
-   "t": "Add missing Python 3.14 stdlib deprecations",
-   "draft": false,
-   "size": 39,
-   "files": 6,
-   "created": "2026-11-12",
-   "updated": "2026-11-13",
-   "labels": [
-    "Needs review 🔍",
-    "False Negative 🦋"
-   ],
-   "milestone": "4.2.0",
-   "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
-   "ci": "green",
-   "citot": 46,
-   "cifail": 0,
-   "nrev": 0,
-   "mrev": [],
-   "links": [
-    [
-     11810,
      "",
      ""
     ]
@@ -5283,6 +5093,152 @@
    "links": [
     [
      8305,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "-",
+    "-"
+   ]
+  },
+  {
+   "n": 11815,
+   "a": "OmkarGowda990",
+   "t": "Replace the pandas example of unnecessary-lambda with a map example",
+   "draft": false,
+   "size": 6,
+   "files": 4,
+   "created": "2026-11-13",
+   "updated": "2026-11-13",
+   "labels": [],
+   "milestone": "",
+   "rd": "REVIEW_REQUIRED",
+   "merge": "UNKNOWN",
+   "ci": "awaiting-approval",
+   "citot": 3,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [
+    [
+     9317,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "-",
+    "-"
+   ]
+  },
+  {
+   "n": 11816,
+   "a": "ychampion",
+   "t": "[used-before-assignment] Emit outside loop after else: continue exemption",
+   "draft": false,
+   "size": 122,
+   "files": 4,
+   "created": "2026-11-14",
+   "updated": "2026-11-14",
+   "labels": [],
+   "milestone": "",
+   "rd": "REVIEW_REQUIRED",
+   "merge": "UNKNOWN",
+   "ci": "awaiting-approval",
+   "citot": 3,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [
+    [
+     9379,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "-",
+    "-"
+   ]
+  },
+  {
+   "n": 11819,
+   "a": "app/pylint-backport",
+   "t": "[Backport maintenance/4.1.x] Fix method-hidden for inferred properties",
+   "draft": false,
+   "size": 68,
+   "files": 4,
+   "created": "2026-11-14",
+   "updated": "2026-11-14",
+   "labels": [
+    "False Positive 🦟"
+   ],
+   "milestone": "4.1.4",
+   "rd": "APPROVED",
+   "merge": "MERGEABLE",
+   "ci": "running",
+   "citot": 25,
+   "cifail": 0,
+   "nrev": 1,
+   "mrev": [
+    "Pierre-Sassoulas"
+   ],
+   "links": [],
+   "lastcom": [
+    "-",
+    "-"
+   ]
+  },
+  {
+   "n": 11822,
+   "a": "app/pylint-backport",
+   "t": "[Backport maintenance/4.1.x] Fix crash in logging checker on a non-UTF-8 bytes format string",
+   "draft": false,
+   "size": 24,
+   "files": 4,
+   "created": "2026-11-14",
+   "updated": "2026-11-14",
+   "labels": [
+    "Crash 💥"
+   ],
+   "milestone": "4.1.4",
+   "rd": "APPROVED",
+   "merge": "MERGEABLE",
+   "ci": "running",
+   "citot": 17,
+   "cifail": 0,
+   "nrev": 1,
+   "mrev": [
+    "Pierre-Sassoulas"
+   ],
+   "links": [],
+   "lastcom": [
+    "-",
+    "-"
+   ]
+  },
+  {
+   "n": 11824,
+   "a": "Dio77799",
+   "t": "Fix `unused-import` false positive for a submodule used through an alias of its package",
+   "draft": false,
+   "size": 171,
+   "files": 5,
+   "created": "2026-11-14",
+   "updated": "2026-11-14",
+   "labels": [],
+   "milestone": "",
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "awaiting-approval",
+   "citot": 3,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [
+    [
+     8501,
      "",
      ""
     ]
@@ -5375,6 +5331,33 @@
    "title": "Pylint gets confused by functools.singledispatch and assumes wrong return types of its registered functions."
   },
   {
+   "comments": 1,
+   "labels": [
+    "Enhancement ✨",
+    "Control flow",
+    "typing",
+    "Needs PR"
+   ],
+   "number": 2855,
+   "reactions": 1,
+   "state": "closed",
+   "state_reason": "completed",
+   "title": "Classvar[Optional[Tuple]] must be unpacked"
+  },
+  {
+   "comments": 12,
+   "labels": [
+    "Control flow",
+    "False Positive 🦟",
+    "Needs PR"
+   ],
+   "number": 3045,
+   "reactions": 2,
+   "state": "closed",
+   "state_reason": "completed",
+   "title": "false positive: unsupported-membership-test"
+  },
+  {
    "comments": 69,
    "labels": [
     "Maintenance",
@@ -5385,6 +5368,19 @@
    "state": "open",
    "state_reason": null,
    "title": "Disable certain messages by default"
+  },
+  {
+   "comments": 2,
+   "labels": [
+    "Astroid",
+    "False Positive 🦟",
+    "Needs PR"
+   ],
+   "number": 3586,
+   "reactions": 0,
+   "state": "open",
+   "state_reason": null,
+   "title": "false positive: E1111 assignment-from-no-return when using function name \"lazy\""
   },
   {
    "comments": 0,
@@ -5492,6 +5488,19 @@
    "state": "open",
    "state_reason": null,
    "title": "False negative ``useless-parent-delegation`` when using the old style super/parent lookup"
+  },
+  {
+   "comments": 6,
+   "labels": [
+    "Control flow",
+    "False Positive 🦟",
+    "Needs PR"
+   ],
+   "number": 5085,
+   "reactions": 3,
+   "state": "closed",
+   "state_reason": "completed",
+   "title": "Negation and None"
   },
   {
    "comments": 12,
@@ -5615,6 +5624,21 @@
    "state": "open",
    "state_reason": null,
    "title": "arguments-differ: number of parameters was some number ... and is now the same number in overridden ..."
+  },
+  {
+   "comments": 0,
+   "labels": [
+    "Astroid",
+    "Control flow",
+    "inference",
+    "False Positive 🦟",
+    "Needs PR"
+   ],
+   "number": 6044,
+   "reactions": 0,
+   "state": "open",
+   "state_reason": null,
+   "title": "False positive E1133 Non-iterable value used in an iterating context (not-an-iterable)"
   },
   {
    "comments": 1,
@@ -5815,6 +5839,20 @@
    "title": "False negative ``no-member`` for ``@dataclass(slots=...)``"
   },
   {
+   "comments": 3,
+   "labels": [
+    "Help wanted 🙏",
+    "False Positive 🦟",
+    "Hacktoberfest",
+    "Needs PR"
+   ],
+   "number": 7978,
+   "reactions": 0,
+   "state": "open",
+   "state_reason": "reopened",
+   "title": "Incorrect unsupported-membership-test error on TypedDict"
+  },
+  {
    "comments": 4,
    "labels": [
     "Enhancement ✨",
@@ -5913,6 +5951,41 @@
    "title": "[spelling] Dictionary path is valid only when run from same directory as .pylintrc"
   },
   {
+   "comments": 1,
+   "labels": [
+    "False Positive 🦟"
+   ],
+   "number": 8325,
+   "reactions": 0,
+   "state": "closed",
+   "state_reason": "completed",
+   "title": "false-positive: no-value-for-parameter"
+  },
+  {
+   "comments": 0,
+   "labels": [
+    "Control flow",
+    "False Positive 🦟"
+   ],
+   "number": 8331,
+   "reactions": 0,
+   "state": "open",
+   "state_reason": null,
+   "title": "Incorrect type inferance after a conditional raise"
+  },
+  {
+   "comments": 0,
+   "labels": [
+    "False Positive 🦟",
+    "Needs PR"
+   ],
+   "number": 8501,
+   "reactions": 0,
+   "state": "open",
+   "state_reason": null,
+   "title": "False positive `unused-import` when import is used via a parent module"
+  },
+  {
    "comments": 3,
    "labels": [
     "Regression",
@@ -5961,6 +6034,19 @@
    "state": "open",
    "state_reason": null,
    "title": "missing-parentheses-for-call-in-test not raised as expected"
+  },
+  {
+   "comments": 0,
+   "labels": [
+    "Astroid",
+    "Crash 💥",
+    "Needs PR"
+   ],
+   "number": 8755,
+   "reactions": 1,
+   "state": "closed",
+   "state_reason": "completed",
+   "title": "Recursive defining a function with classmethod decorator triggers crashing"
   },
   {
    "comments": 6,
@@ -6190,6 +6276,46 @@
    "title": "Crash - on windows - pylint crashed with a ``AstroidError`` - UnicodeEncodeError: 'charmap' codec can't encode characters in position"
   },
   {
+   "comments": 5,
+   "labels": [
+    "Help wanted 🙏",
+    "Good first issue",
+    "Documentation :green_book:",
+    "Hacktoberfest",
+    "Needs PR"
+   ],
+   "number": 9317,
+   "reactions": 0,
+   "state": "open",
+   "state_reason": null,
+   "title": "Incorrect Recommendation for unnecessary-lambda"
+  },
+  {
+   "comments": 1,
+   "labels": [
+    "False Negative 🦋",
+    "C: used-before-assignment",
+    "Needs PR"
+   ],
+   "number": 9379,
+   "reactions": 0,
+   "state": "open",
+   "state_reason": null,
+   "title": "[used-before-assignment] False negative for for/if/else/continue pattern"
+  },
+  {
+   "comments": 2,
+   "labels": [
+    "False Positive 🦟",
+    "Needs PR"
+   ],
+   "number": 9410,
+   "reactions": 0,
+   "state": "open",
+   "state_reason": null,
+   "title": "Pylint incorrectly resolving type vs instances"
+  },
+  {
    "comments": 2,
    "labels": [
     "Enhancement ✨",
@@ -6384,6 +6510,20 @@
   {
    "comments": 1,
    "labels": [
+    "Bug :beetle:",
+    "Control flow",
+    "inference",
+    "False Positive 🦟"
+   ],
+   "number": 9809,
+   "reactions": 0,
+   "state": "open",
+   "state_reason": "reopened",
+   "title": "False positive for optional class attribute"
+  },
+  {
+   "comments": 1,
+   "labels": [
     "Enhancement ✨",
     "python 3.7",
     "typing",
@@ -6428,6 +6568,20 @@
    "comments": 0,
    "labels": [
     "Bug :beetle:",
+    "Needs astroid Brain 🧠",
+    "typing",
+    "False Positive 🦟"
+   ],
+   "number": 9885,
+   "reactions": 1,
+   "state": "open",
+   "state_reason": null,
+   "title": "False positive missing member __value__ with type statement and Literal under python 3.12"
+  },
+  {
+   "comments": 0,
+   "labels": [
+    "Bug :beetle:",
     "Checkers",
     "Decorators",
     "False Positive 🦟"
@@ -6463,19 +6617,6 @@
    "state": "open",
    "state_reason": null,
    "title": "Non-deterministic output from the code similarity check"
-  },
-  {
-   "comments": 8,
-   "labels": [
-    "Enhancement ✨",
-    "multiprocessing",
-    "Needs PR"
-   ],
-   "number": 9943,
-   "reactions": 0,
-   "state": "open",
-   "state_reason": null,
-   "title": "Guarantee a deterministic order when processing files for directory arguments."
   },
   {
    "comments": 1,
@@ -6563,6 +6704,19 @@
    "state": "open",
    "state_reason": null,
    "title": "generator causing false positive using-constant-test"
+  },
+  {
+   "comments": 2,
+   "labels": [
+    "False Positive 🦟",
+    "Lib specific 💅",
+    "Needs PR"
+   ],
+   "number": 10082,
+   "reactions": 1,
+   "state": "open",
+   "state_reason": null,
+   "title": "E1136/E1137 false positives"
   },
   {
    "comments": 6,
@@ -6707,17 +6861,6 @@
    "title": "Add check for redundant exception message when using 'raise ... from' (W0720)"
   },
   {
-   "comments": 0,
-   "labels": [
-    "Crash 💥"
-   ],
-   "number": 10813,
-   "reactions": 2,
-   "state": "open",
-   "state_reason": null,
-   "title": "Improper handling of log message format bytestrings"
-  },
-  {
    "comments": 3,
    "labels": [
     "Bug :beetle:",
@@ -6836,6 +6979,19 @@
    "state": "open",
    "state_reason": null,
    "title": "Align helper type annotations with their actual AST values"
+  },
+  {
+   "comments": 0,
+   "labels": [
+    "Astroid",
+    "Crash 💥",
+    "Needs astroid update"
+   ],
+   "number": 11609,
+   "reactions": 0,
+   "state": "open",
+   "state_reason": null,
+   "title": "`AttributeError: 'Slice' object has no attribute 'name'` in class checker"
   },
   {
    "comments": 5,
@@ -7020,17 +7176,6 @@
   {
    "comments": 1,
    "labels": [
-    "False Positive 🦟"
-   ],
-   "number": 11791,
-   "reactions": 0,
-   "state": "open",
-   "state_reason": null,
-   "title": "`bad-dunder-name` reports `__prepare__`, `__mro_entries__`, `__buffer__`, `__release_buffer__` and `__replace__`"
-  },
-  {
-   "comments": 1,
-   "labels": [
     "False Positive 🦟",
     "C: invalid-name"
    ],
@@ -7039,18 +7184,6 @@
    "state": "open",
    "state_reason": null,
    "title": "TypeAlias defined in class scope doesn't respect the typealias naming style"
-  },
-  {
-   "comments": 0,
-   "labels": [
-    "Work in progress",
-    "False Negative 🦋"
-   ],
-   "number": 11810,
-   "reactions": 0,
-   "state": "open",
-   "state_reason": null,
-   "title": "Python 3.14 deprecations not reported: nturl2path, tkinter.Variable.trace_*, pdb.Pdb.curframe_locals"
   }
  ]
 }
