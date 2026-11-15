@@ -2494,28 +2494,19 @@
    "a": "ychampion",
    "t": "Return ClassDef from dataclass_transform when __init__ generation is skipped",
    "draft": false,
-   "labels": [],
+   "labels": [
+    "Bug 🪳",
+    "Brain 🧠",
+    "dataclasses"
+   ],
    "rd": "REVIEW_REQUIRED",
    "milestone": "",
-   "size": 50,
+   "size": 51,
    "created": "2026-11-14",
    "updated": "2026-11-14",
    "ci": "awaiting-approval",
    "cifail": 0,
-   "links": [
-    {
-     "ref": "pylint-dev/astroid#2317",
-     "title": "A dataclass of type ``enum.Enum`` does not contain the enum ``__members__`` object",
-     "state": "closed",
-     "labels": [
-      "Bug 🪳",
-      "Brain 🧠",
-      "dataclasses"
-     ],
-     "reactions": 0,
-     "pr": false
-    }
-   ]
+   "links": []
   }
  ]
 }

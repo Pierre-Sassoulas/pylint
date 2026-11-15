@@ -16748,52 +16748,6 @@
   "items": [],
   "commit": "dc2f111fa"
  },
- "11693": {
-  "date": "2026-10-19",
-  "added": 5,
-  "removed": 0,
-  "changed": 0,
-  "projects": {
-   "django": {
-    "added": 5,
-    "removed": 0,
-    "changed": 0
-   }
-  },
-  "items": [
-   [
-    "django",
-    "added",
-    "invalid-name",
-    "*Attribute name \"ALLOWED_HOSTS\" doesn't conform to snake_case naming style*"
-   ],
-   [
-    "django",
-    "added",
-    "invalid-name",
-    "*Attribute name \"DEBUG\" doesn't conform to snake_case naming style*"
-   ],
-   [
-    "django",
-    "added",
-    "invalid-name",
-    "*Attribute name \"MAILERS\" doesn't conform to snake_case naming style*"
-   ],
-   [
-    "django",
-    "added",
-    "invalid-name",
-    "*Attribute name \"EMAIL_BACKEND\" doesn't conform to snake_case naming style*"
-   ],
-   [
-    "django",
-    "added",
-    "invalid-name",
-    "*Attribute name \"MIGRATION_MODULES\" doesn't conform to snake_case naming style*"
-   ]
-  ],
-  "commit": "4b48d2bbd"
- },
  "11694": {
   "date": "2026-10-19",
   "added": 0,
@@ -18749,5 +18703,99 @@
    ]
   ],
   "commit": "c13d45eeb"
+ },
+ "11821": {
+  "date": "2026-11-14",
+  "added": 0,
+  "removed": 1,
+  "changed": 0,
+  "projects": {
+   "astropy": {
+    "added": 0,
+    "removed": 1,
+    "changed": 0
+   }
+  },
+  "items": [
+   [
+    "astropy",
+    "removed",
+    "no-member",
+    "*Instance of 'ndarray' has no 'mask' member*"
+   ]
+  ],
+  "commit": "a9b57ff41"
+ },
+ "11823": {
+  "date": "2026-11-14",
+  "added": 7,
+  "removed": 0,
+  "changed": 0,
+  "projects": {
+   "astropy": {
+    "added": 1,
+    "removed": 0,
+    "changed": 0
+   },
+   "pytest": {
+    "added": 6,
+    "removed": 0,
+    "changed": 0
+   }
+  },
+  "items": [
+   [
+    "astropy",
+    "added",
+    "no-member",
+    "*Instance of 'ndarray' has no 'mask' member*"
+   ],
+   [
+    "pytest",
+    "added",
+    "deprecated-attribute",
+    "*Using deprecated attribute 'sys.last_type'*"
+   ],
+   [
+    "pytest",
+    "added",
+    "deprecated-attribute",
+    "*Using deprecated attribute 'sys.last_value'*"
+   ],
+   [
+    "pytest",
+    "added",
+    "deprecated-attribute",
+    "*Using deprecated attribute 'sys.last_traceback'*"
+   ],
+   [
+    "pytest",
+    "added",
+    "deprecated-attribute",
+    "*Using deprecated attribute 'sys.last_type'*"
+   ],
+   [
+    "pytest",
+    "added",
+    "deprecated-attribute",
+    "*Using deprecated attribute 'sys.last_value'*"
+   ],
+   [
+    "pytest",
+    "added",
+    "deprecated-attribute",
+    "*Using deprecated attribute 'sys.last_traceback'*"
+   ]
+  ],
+  "commit": "f7d083929"
+ },
+ "11829": {
+  "date": "2026-11-14",
+  "added": 0,
+  "removed": 0,
+  "changed": 0,
+  "projects": {},
+  "items": [],
+  "commit": "c09ebcdd6"
  }
 }

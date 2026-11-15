@@ -1,8 +1,8 @@
 {
- "snapshot": "2026-11-14",
+ "snapshot": "2026-11-15",
  "owner": "Pierre-Sassoulas",
- "open_total": 187,
- "open_own": 24,
+ "open_total": 184,
+ "open_own": 23,
  "prs": [
   {
    "n": 5401,
@@ -3205,43 +3205,6 @@
    ]
   },
   {
-   "n": 11693,
-   "a": "agustin18",
-   "t": "Fix false positive unreachable when terminating call is in compound lambda expr (#8567)",
-   "draft": false,
-   "size": 75,
-   "files": 5,
-   "created": "2026-10-19",
-   "updated": "2026-11-14",
-   "labels": [
-    "Control flow",
-    "Regression",
-    "False Positive 🦟",
-    "backport maintenance/4.1.x"
-   ],
-   "milestone": "4.1.4",
-   "rd": "APPROVED",
-   "merge": "MERGEABLE",
-   "ci": "running",
-   "citot": 41,
-   "cifail": 0,
-   "nrev": 1,
-   "mrev": [
-    "Pierre-Sassoulas"
-   ],
-   "links": [
-    [
-     8567,
-     "",
-     ""
-    ]
-   ],
-   "lastcom": [
-    "github-actions",
-    "2026-10-19"
-   ]
-  },
-  {
    "n": 11694,
    "a": "agustin18",
    "t": "Fix false positive undefined-variable for nested class method return type with postponed annotations (#8145)",
@@ -5110,13 +5073,16 @@
    "size": 6,
    "files": 4,
    "created": "2026-11-13",
-   "updated": "2026-11-13",
-   "labels": [],
+   "updated": "2026-11-14",
+   "labels": [
+    "Documentation :green_book:",
+    "Skip news :mute:"
+   ],
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "awaiting-approval",
-   "citot": 3,
+   "citot": 5,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -5141,12 +5107,16 @@
    "files": 4,
    "created": "2026-11-14",
    "updated": "2026-11-14",
-   "labels": [],
+   "labels": [
+    "Control flow",
+    "False Negative 🦋",
+    "C: used-before-assignment"
+   ],
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "awaiting-approval",
-   "citot": 3,
+   "citot": 6,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -5163,67 +5133,43 @@
    ]
   },
   {
-   "n": 11819,
-   "a": "app/pylint-backport",
-   "t": "[Backport maintenance/4.1.x] Fix method-hidden for inferred properties",
-   "draft": false,
-   "size": 68,
-   "files": 4,
-   "created": "2026-11-14",
-   "updated": "2026-11-14",
-   "labels": [
-    "False Positive 🦟"
-   ],
-   "milestone": "4.1.4",
-   "rd": "APPROVED",
-   "merge": "MERGEABLE",
-   "ci": "running",
-   "citot": 25,
-   "cifail": 0,
-   "nrev": 1,
-   "mrev": [
-    "Pierre-Sassoulas"
-   ],
-   "links": [],
-   "lastcom": [
-    "-",
-    "-"
-   ]
-  },
-  {
-   "n": 11822,
-   "a": "app/pylint-backport",
-   "t": "[Backport maintenance/4.1.x] Fix crash in logging checker on a non-UTF-8 bytes format string",
-   "draft": false,
-   "size": 24,
-   "files": 4,
-   "created": "2026-11-14",
-   "updated": "2026-11-14",
-   "labels": [
-    "Crash 💥"
-   ],
-   "milestone": "4.1.4",
-   "rd": "APPROVED",
-   "merge": "MERGEABLE",
-   "ci": "running",
-   "citot": 17,
-   "cifail": 0,
-   "nrev": 1,
-   "mrev": [
-    "Pierre-Sassoulas"
-   ],
-   "links": [],
-   "lastcom": [
-    "-",
-    "-"
-   ]
-  },
-  {
    "n": 11824,
    "a": "Dio77799",
    "t": "Fix `unused-import` false positive for a submodule used through an alias of its package",
    "draft": false,
    "size": 171,
+   "files": 5,
+   "created": "2026-11-14",
+   "updated": "2026-11-14",
+   "labels": [
+    "False Positive 🦟"
+   ],
+   "milestone": "",
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "awaiting-approval",
+   "citot": 4,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [
+    [
+     8501,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "-",
+    "-"
+   ]
+  },
+  {
+   "n": 11826,
+   "a": "umrndem",
+   "t": "Document checks across multiple modules",
+   "draft": false,
+   "size": 44,
    "files": 5,
    "created": "2026-11-14",
    "updated": "2026-11-14",
@@ -5236,13 +5182,7 @@
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
-   "links": [
-    [
-     8501,
-     "",
-     ""
-    ]
-   ],
+   "links": [],
    "lastcom": [
     "-",
     "-"
@@ -5984,20 +5924,6 @@
    "state": "open",
    "state_reason": null,
    "title": "False positive `unused-import` when import is used via a parent module"
-  },
-  {
-   "comments": 3,
-   "labels": [
-    "Regression",
-    "False Positive 🦟",
-    "Needs PR",
-    "direct parentage assumption"
-   ],
-   "number": 8567,
-   "reactions": 0,
-   "state": "open",
-   "state_reason": null,
-   "title": "False-positive unreachable code"
   },
   {
    "comments": 2,
@@ -6883,18 +6809,6 @@
    "state": "open",
    "state_reason": null,
    "title": "test_functional.py --update-functional-output deletes files for other Python versions"
-  },
-  {
-   "comments": 1,
-   "labels": [
-    "Crash 💥",
-    "Needs PR"
-   ],
-   "number": 11053,
-   "reactions": 0,
-   "state": "closed",
-   "state_reason": "completed",
-   "title": "AttributeError: 'TypeVar' object has no attribute 'pytype'"
   },
   {
    "comments": 1,

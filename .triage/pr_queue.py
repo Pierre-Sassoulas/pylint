@@ -101,13 +101,6 @@ V = {
         "instance attribute or defined in another scope. Green, full coverage, primer clean.",
         "Review; backport candidate (regression).",
     ),
-    11693: (
-        'merge',
-        '4.1.4',
-        'confirmed',
-        'New, 63 lines by agustin18 for issue 8567 (Regression FP): <code>unreachable</code> after <code>signal.signal(..., lambda s, f: [print(), sys.exit(1)])</code>; the lambda guard only looked at the direct parent. Green, unit + functional tests. Primer: 5 django <code>invalid-name</code> on <code>settings.X = ...</code>, unrelated to the change (the case #11691 targets). 14 November: approved; last open item of the 4.1.4 milestone with the backports #11822 (logging bytes crash) and #11819 (method-hidden properties), all three approved with CI running.',
-        'Merge when CI is green, then merge #11822 and #11819 on 4.1.x and cut 4.1.4.',
-    ),
     11683: (
         "review",
         "ready",
@@ -252,6 +245,13 @@ V = {
         'feature',
         'New, 426 lines by Julfried: directory-based pyreverse functional tests (regular and namespace packages), sharing the config parsing with the single-file tests. Only the changelog check is red. 8 November: DudeNr33 requested changes (split a test with/without config, reword the <code>.rc</code> paragraph, explain <code>packages</code> vs <code>package_diagrams</code> dirs). Pyreverse primer no effect.',
         'Wait for Julfried; #11789 follows it.',
+    ),
+    11826: (
+        'review',
+        'docs',
+        'confirmed',
+        'New (14 November), 44 lines by umrndem (first PR) for issue 10143 (question/docs, "List of rules requiring file traversal"): new <code>checks-across-modules</code> section in <code>usage/run.rst</code> listing <code>cyclic-import</code> and <code>duplicate-code</code>, how to run them on the whole package, and how to skip them for changed-file runs, with a clear warning that the list is not exhaustive (inference reads other modules too). Linked from the FAQ and the generated features page (via <code>doc/exts/pylint_features.py</code>). Has an <code>other</code> fragment with Refs. Diff read 14 November: docs only, ASCII. Check: the CI already builds the docs; whether the features-page sentence belongs at the top of every generated page.',
+        'Review: docs only, answers a recurring question; nit the placement of the features-page sentence if needed.',
     ),
     # ---- approve the workflow run ----------------------------------------
     11824: (
