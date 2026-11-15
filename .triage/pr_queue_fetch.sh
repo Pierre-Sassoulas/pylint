@@ -134,4 +134,7 @@ path.write_text(json.dumps(out, indent=1, ensure_ascii=False))
 print(f"{path}: {len(rows)} pull requests, {len(out['issues'])} linked issues")
 PY
 
+# Drop label proposals already applied on GitHub (read-only gh calls).
+python3 "$HERE/proposed_labels.py" --prune >/dev/null
+
 echo "now run: python3 $HERE/pr_queue.py"

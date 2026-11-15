@@ -10,6 +10,8 @@ from __future__ import annotations
 import datetime
 import html
 import json
+
+import proposed_labels
 import pathlib
 
 HERE = pathlib.Path(__file__).resolve().parent
@@ -164,8 +166,19 @@ def links_cell(p: dict) -> str:
     return "<br>".join(out) or '<span style="color:var(--ink-faint)">no linked issue</span>'
 
 
-def main() -> None:
+def load_data() -> dict:
+    """The fetched data, with this pass's proposed labels merged in (categorize, then rank)."""
     data = json.loads((HERE / "astroid_queue_data.json").read_text())
+    for p in data["prs"]:
+        p["labels"] = proposed_labels.merge("astroid", p["n"], p["labels"])
+        for linked in p["links"]:
+            repo, _, number = linked["ref"].partition("#")
+            linked["labels"] = proposed_labels.merge(repo.split("/")[1], int(number), linked["labels"])
+    return data
+
+
+def main() -> None:
+    data = load_data()
     prs = sorted(data["prs"], key=priority)
     members = {key: [p for p in prs if lane(p) == key] for key in LANE_ORDER}
     snapshot = datetime.date.fromisoformat(data["snapshot"]).strftime("%-d %B %Y")

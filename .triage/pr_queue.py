@@ -15,12 +15,23 @@ import json
 import pathlib
 import re
 
+import proposed_labels
+
 HERE = pathlib.Path(__file__).resolve().parent
 DATA = json.loads((HERE / "pr_queue_data.json").read_text())
 OUT = HERE / "pr-queue.html"
 
 rows = {r["n"]: r for r in DATA["prs"]}
 issues = {i["number"]: i for i in DATA["issues"]}
+# Categorize first, prioritize second: labels proposed in this pass but not yet
+# applied on GitHub count in the ranking, and the page lists the commands.
+ON_GITHUB = {n: list(r["labels"]) for n, r in rows.items()} | {
+    n: list(i["labels"]) for n, i in issues.items()
+}
+for _n, _r in rows.items():
+    _r["labels"] = proposed_labels.merge("pylint", _n, _r["labels"])
+for _n, _i in issues.items():
+    _i["labels"] = proposed_labels.merge("pylint", _n, _i["labels"])
 
 # lane key -> (label, stripe var, one-line rubric)
 LANES = {
@@ -1725,6 +1736,24 @@ todo = [
     "are noise. "
     "A held run is only listed for a crash, a bug, High priority or two reactions.</p>"
 ]
+# Step 0: the labels this pass proposes. They already count in the ranking
+# below, so one run both categorizes and prioritizes.
+_astroid_known = {}
+if (HERE / "astroid_queue_data.json").exists():
+    _astroid_known = {
+        p["n"]: p["labels"] for p in json.loads((HERE / "astroid_queue_data.json").read_text())["prs"]
+    }
+_label_cmds = [
+    proposed_labels.command(repo, number, kind, labels)
+    for repo, known in (("pylint", ON_GITHUB), ("astroid", _astroid_known))
+    for number, kind, labels in proposed_labels.pending(repo, known)
+]
+if _label_cmds:
+    todo.append(
+        "<h3>0. Labels to apply</h3><p class=\"rubric\">Proposed in this pass and already counted in "
+        "the ranking below. Run once; the next refresh drops them from this list.</p>"
+        f"<pre>{E(chr(10).join(_label_cmds))}</pre>"
+    )
 # Backports come first: the fix is already reviewed on main, and the patch
 # release only ships what got merged on the maintenance branch. The bot's PRs
 # have no verdict and are not in any lane, so they are listed from the data.
@@ -1785,7 +1814,7 @@ ASTROID_FILE = HERE / "astroid_queue_data.json"
 if ASTROID_FILE.exists():
     import astroid_queue
 
-    ASTROID = json.loads(ASTROID_FILE.read_text())
+    ASTROID = astroid_queue.load_data()
     prs = sorted(ASTROID["prs"], key=astroid_queue.priority)
 
     def astroid_item(p: dict) -> str:
