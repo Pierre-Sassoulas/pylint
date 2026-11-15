@@ -1982,7 +1982,7 @@
     },
     "9151": {
       "verdict": "EXTDEP",
-      "note": "no-member calling classmethod on Annotated type. Needs more context.",
+      "note": "no-member calling classmethod on Annotated type. Needs more context. 2026-11-13: Pierre answered: modify the astroid brain (typing_extensions.Annotated, nested Annotated); waiting on mohsinaliwork686-rgb.",
       "session": 3,
       "ts": "2026-05-12T11:13:34.934852+00:00"
     },

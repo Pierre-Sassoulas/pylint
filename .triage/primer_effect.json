@@ -3450,15 +3450,6 @@
   "items": [],
   "commit": "a5bc435fd"
  },
- "11054": {
-  "date": "2026-05-31",
-  "added": 0,
-  "removed": 0,
-  "changed": 0,
-  "projects": {},
-  "items": [],
-  "commit": "7e130ce4d"
- },
  "11132": {
   "date": "2026-07-04",
   "added": 0,
@@ -18650,13 +18641,13 @@
   "commit": "0426ce904"
  },
  "11808": {
-  "date": "2026-11-12",
+  "date": "2026-11-15",
   "added": 0,
   "removed": 0,
   "changed": 0,
   "projects": {},
   "items": [],
-  "commit": "3e5c70bdf"
+  "commit": "0a859f5ac"
  },
  "11811": {
   "date": "2026-11-13",
@@ -18703,6 +18694,176 @@
    ]
   ],
   "commit": "c13d45eeb"
+ },
+ "11813": {
+  "date": "2026-11-15",
+  "added": 5,
+  "removed": 5,
+  "changed": 2,
+  "projects": {
+   "astropy": {
+    "added": 1,
+    "removed": 0,
+    "changed": 2
+   },
+   "django": {
+    "added": 0,
+    "removed": 5,
+    "changed": 0
+   },
+   "pandas": {
+    "added": 4,
+    "removed": 0,
+    "changed": 0
+   }
+  },
+  "items": [
+   [
+    "astropy",
+    "changed",
+    "too-many-ancestors",
+    "message: `Too many ancestors (23/7)` → `Too many ancestors (22/7)`"
+   ],
+   [
+    "astropy",
+    "changed",
+    "too-many-ancestors",
+    "message: `Too many ancestors (28/7)` → `Too many ancestors (27/7)`"
+   ],
+   [
+    "astropy",
+    "added",
+    "useless-parent-delegation",
+    "*Useless parent or super() delegation in method '__init__'*"
+   ],
+   [
+    "django",
+    "removed",
+    "invalid-name",
+    "*Attribute name \"MIGRATION_MODULES\" doesn't conform to snake_case naming style*"
+   ],
+   [
+    "django",
+    "removed",
+    "invalid-name",
+    "*Attribute name \"ALLOWED_HOSTS\" doesn't conform to snake_case naming style*"
+   ],
+   [
+    "django",
+    "removed",
+    "invalid-name",
+    "*Attribute name \"DEBUG\" doesn't conform to snake_case naming style*"
+   ],
+   [
+    "django",
+    "removed",
+    "invalid-name",
+    "*Attribute name \"MAILERS\" doesn't conform to snake_case naming style*"
+   ],
+   [
+    "django",
+    "removed",
+    "invalid-name",
+    "*Attribute name \"EMAIL_BACKEND\" doesn't conform to snake_case naming style*"
+   ],
+   [
+    "pandas",
+    "added",
+    "useless-parent-delegation",
+    "*Useless parent or super() delegation in method 'cummin'*"
+   ],
+   [
+    "pandas",
+    "added",
+    "useless-parent-delegation",
+    "*Useless parent or super() delegation in method 'cummax'*"
+   ],
+   [
+    "pandas",
+    "added",
+    "useless-parent-delegation",
+    "*Useless parent or super() delegation in method 'cumsum'*"
+   ],
+   [
+    "pandas",
+    "added",
+    "useless-parent-delegation",
+    "*Useless parent or super() delegation in method 'cumprod'*"
+   ]
+  ],
+  "commit": "a9e18cca9"
+ },
+ "11814": {
+  "date": "2026-11-15",
+  "added": 0,
+  "removed": 5,
+  "changed": 2,
+  "projects": {
+   "astropy": {
+    "added": 0,
+    "removed": 0,
+    "changed": 2
+   },
+   "django": {
+    "added": 0,
+    "removed": 5,
+    "changed": 0
+   }
+  },
+  "items": [
+   [
+    "astropy",
+    "changed",
+    "too-many-ancestors",
+    "message: `Too many ancestors (23/7)` → `Too many ancestors (22/7)`"
+   ],
+   [
+    "astropy",
+    "changed",
+    "too-many-ancestors",
+    "message: `Too many ancestors (28/7)` → `Too many ancestors (27/7)`"
+   ],
+   [
+    "django",
+    "removed",
+    "invalid-name",
+    "*Attribute name \"MIGRATION_MODULES\" doesn't conform to snake_case naming style*"
+   ],
+   [
+    "django",
+    "removed",
+    "invalid-name",
+    "*Attribute name \"ALLOWED_HOSTS\" doesn't conform to snake_case naming style*"
+   ],
+   [
+    "django",
+    "removed",
+    "invalid-name",
+    "*Attribute name \"DEBUG\" doesn't conform to snake_case naming style*"
+   ],
+   [
+    "django",
+    "removed",
+    "invalid-name",
+    "*Attribute name \"MAILERS\" doesn't conform to snake_case naming style*"
+   ],
+   [
+    "django",
+    "removed",
+    "invalid-name",
+    "*Attribute name \"EMAIL_BACKEND\" doesn't conform to snake_case naming style*"
+   ]
+  ],
+  "commit": "943a55857"
+ },
+ "11816": {
+  "date": "2026-11-15",
+  "added": 0,
+  "removed": 0,
+  "changed": 0,
+  "projects": {},
+  "items": [],
+  "commit": "0766cc7e2"
  },
  "11821": {
   "date": "2026-11-14",
@@ -18789,13 +18950,43 @@
   ],
   "commit": "f7d083929"
  },
- "11829": {
-  "date": "2026-11-14",
+ "11824": {
+  "date": "2026-11-15",
   "added": 0,
-  "removed": 0,
-  "changed": 0,
-  "projects": {},
-  "items": [],
-  "commit": "c09ebcdd6"
+  "removed": 2,
+  "changed": 1,
+  "projects": {
+   "astropy": {
+    "added": 0,
+    "removed": 2,
+    "changed": 0
+   },
+   "pandas": {
+    "added": 0,
+    "removed": 0,
+    "changed": 1
+   }
+  },
+  "items": [
+   [
+    "astropy",
+    "removed",
+    "no-member",
+    "*Instance of 'ndarray' has no 'mask' member*"
+   ],
+   [
+    "astropy",
+    "removed",
+    "unused-import",
+    "*Unused import pyarrow.csv*"
+   ],
+   [
+    "pandas",
+    "changed",
+    "redefined-variable-type",
+    "Moved from `507:16`-`507:43` to `505:16`-`505:47`."
+   ]
+  ],
+  "commit": "ab8b9a957"
  }
 }

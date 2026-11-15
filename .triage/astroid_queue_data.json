@@ -1,5 +1,5 @@
 {
- "snapshot": "2026-11-14",
+ "snapshot": "2026-11-15",
  "prs": [
   {
    "n": 2965,
@@ -452,24 +452,6 @@
    "links": []
   },
   {
-   "n": 3256,
-   "a": "nabhan06",
-   "t": "guard mock-class reconstruction in infer_enum_class",
-   "draft": false,
-   "labels": [
-    "Brain 🧠",
-    "Crash 💥"
-   ],
-   "rd": "REVIEW_REQUIRED",
-   "milestone": "",
-   "size": 48,
-   "created": "2026-08-27",
-   "updated": "2026-10-08",
-   "ci": "green",
-   "cifail": 0,
-   "links": []
-  },
-  {
    "n": 3271,
    "a": "kdelay",
    "t": "Do not infer int() as a constant the call would not return",
@@ -643,46 +625,6 @@
    "ci": "green",
    "cifail": 0,
    "links": []
-  },
-  {
-   "n": 3299,
-   "a": "dchaudhari7177",
-   "t": "Add a brain for numpy.dtypes",
-   "draft": false,
-   "labels": [
-    "Brain 🧠"
-   ],
-   "rd": "CHANGES_REQUESTED",
-   "milestone": "4.5.0",
-   "size": 207,
-   "created": "2026-09-23",
-   "updated": "2026-11-14",
-   "ci": "green",
-   "cifail": 0,
-   "links": [
-    {
-     "ref": "pylint-dev/astroid#3289",
-     "title": "Missing brain for numpy.dtypes (e.g. StringDType)",
-     "state": "open",
-     "labels": [
-      "Brain 🧠"
-     ],
-     "reactions": 0,
-     "pr": false
-    },
-    {
-     "ref": "pylint-dev/pylint#9956",
-     "title": "False-positive E1101 (no-member) for `numpy.dtypes.StringDType`",
-     "state": "open",
-     "labels": [
-      "False Positive 🦟",
-      "Lib specific 💅",
-      "Needs PR"
-     ],
-     "reactions": 0,
-     "pr": false
-    }
-   ]
   },
   {
    "n": 3300,
@@ -889,24 +831,6 @@
    ]
   },
   {
-   "n": 3332,
-   "a": "nabhan06",
-   "t": "guard empty tuple enum member in infer_func_form",
-   "draft": false,
-   "labels": [
-    "Brain 🧠",
-    "Crash 💥"
-   ],
-   "rd": "REVIEW_REQUIRED",
-   "milestone": "",
-   "size": 17,
-   "created": "2026-10-01",
-   "updated": "2026-10-08",
-   "ci": "green",
-   "cifail": 0,
-   "links": []
-  },
-  {
    "n": 3335,
    "a": "SAY-5",
    "t": "Preserve all instance subscription inference results",
@@ -994,11 +918,11 @@
     "Brain 🧠",
     "dataclasses"
    ],
-   "rd": "REVIEW_REQUIRED",
+   "rd": "CHANGES_REQUESTED",
    "milestone": "",
    "size": 62,
    "created": "2026-10-04",
-   "updated": "2026-10-08",
+   "updated": "2026-11-15",
    "ci": "green",
    "cifail": 0,
    "links": [
@@ -1015,24 +939,6 @@
      "pr": false
     }
    ]
-  },
-  {
-   "n": 3352,
-   "a": "segoon",
-   "t": "Fall back when the namedtuple factory cannot be inferred",
-   "draft": false,
-   "labels": [
-    "Crash 💥",
-    "backport maintenance/4.3.x"
-   ],
-   "rd": "CHANGES_REQUESTED",
-   "milestone": "4.4.1",
-   "size": 46,
-   "created": "2026-10-05",
-   "updated": "2026-10-08",
-   "ci": "green",
-   "cifail": 0,
-   "links": []
   },
   {
    "n": 3358,
@@ -1113,35 +1019,6 @@
    "links": []
   },
   {
-   "n": 3370,
-   "a": "nabhan06",
-   "t": "fix _is_property crash on methods proxying a Lambda or Uninferable",
-   "draft": false,
-   "labels": [
-    "Crash 💥"
-   ],
-   "rd": "REVIEW_REQUIRED",
-   "milestone": "",
-   "size": 43,
-   "created": "2026-10-09",
-   "updated": "2026-10-23",
-   "ci": "green",
-   "cifail": 0,
-   "links": [
-    {
-     "ref": "pylint-dev/pylint#10345",
-     "title": "Crash `TypeError: 'UninferableBase' object is not iterable` - [astroid-error]",
-     "state": "open",
-     "labels": [
-      "Crash 💥",
-      "Needs investigation 🔬"
-     ],
-     "reactions": 0,
-     "pr": false
-    }
-   ]
-  },
-  {
    "n": 3371,
    "a": "ump45nose",
    "t": "Bind the class to a metaclass method when its metaclass node is rebuilt",
@@ -1195,36 +1072,6 @@
      "labels": [
       "False Positive 🦟",
       "Needs PR"
-     ],
-     "reactions": 0,
-     "pr": false
-    }
-   ]
-  },
-  {
-   "n": 3379,
-   "a": "nabhan06",
-   "t": "Fix crash inferring a nested starred target over an opaque element",
-   "draft": false,
-   "labels": [
-    "Crash 💥",
-    "inference"
-   ],
-   "rd": "REVIEW_REQUIRED",
-   "milestone": "",
-   "size": 48,
-   "created": "2026-10-12",
-   "updated": "2026-10-23",
-   "ci": "green",
-   "cifail": 0,
-   "links": [
-    {
-     "ref": "pylint-dev/astroid#3378",
-     "title": "Uncaught TypeError inferring a starred name nested in a for-loop target",
-     "state": "open",
-     "labels": [
-      "inference",
-      "Crash 💥"
      ],
      "reactions": 0,
      "pr": false
@@ -1294,12 +1141,12 @@
     "Bug 🪳",
     "inference"
    ],
-   "rd": "REVIEW_REQUIRED",
-   "milestone": "",
+   "rd": "CHANGES_REQUESTED",
+   "milestone": "4.4.0",
    "size": 109,
    "created": "2026-10-12",
-   "updated": "2026-11-12",
-   "ci": "awaiting-approval",
+   "updated": "2026-11-15",
+   "ci": "green",
    "cifail": 0,
    "links": [
     {
@@ -1370,36 +1217,6 @@
       "Control flow",
       "False Positive 🦟",
       "Needs astroid update"
-     ],
-     "reactions": 0,
-     "pr": false
-    }
-   ]
-  },
-  {
-   "n": 3390,
-   "a": "ansh-rohilla",
-   "t": "Fix crash in infer_typing_alias on non-int _alias() argument (#3389)",
-   "draft": false,
-   "labels": [
-    "Brain 🧠",
-    "Crash 💥"
-   ],
-   "rd": "REVIEW_REQUIRED",
-   "milestone": "",
-   "size": 54,
-   "created": "2026-10-13",
-   "updated": "2026-10-23",
-   "ci": "green",
-   "cifail": 0,
-   "links": [
-    {
-     "ref": "pylint-dev/astroid#3389",
-     "title": "Crash in infer_typing_alias on non-int _alias() second argument",
-     "state": "open",
-     "labels": [
-      "Brain 🧠",
-      "Crash 💥"
      ],
      "reactions": 0,
      "pr": false
@@ -1576,8 +1393,8 @@
    "milestone": "",
    "size": 123,
    "created": "2026-10-19",
-   "updated": "2026-10-24",
-   "ci": "awaiting-approval",
+   "updated": "2026-11-15",
+   "ci": "green",
    "cifail": 0,
    "links": [
     {
@@ -1694,36 +1511,6 @@
    "ci": "failing",
    "cifail": 2,
    "links": []
-  },
-  {
-   "n": 3432,
-   "a": "dchaudhari7177",
-   "t": "Drop a dataclass field a middle base makes init=False from subclass inits",
-   "draft": false,
-   "labels": [
-    "Bug 🪳",
-    "dataclasses"
-   ],
-   "rd": "REVIEW_REQUIRED",
-   "milestone": "",
-   "size": 87,
-   "created": "2026-10-22",
-   "updated": "2026-10-23",
-   "ci": "awaiting-approval",
-   "cifail": 0,
-   "links": [
-    {
-     "ref": "pylint-dev/pylint#10056",
-     "title": "Second order inheritance of dataclasses with default values/`init=False` causes `E1120 no-value-for-parameter`",
-     "state": "open",
-     "labels": [
-      "False Positive 🦟",
-      "dataclasses"
-     ],
-     "reactions": 0,
-     "pr": false
-    }
-   ]
   },
   {
    "n": 3433,
@@ -1854,10 +1641,10 @@
     "Bug 🪳"
    ],
    "rd": "REVIEW_REQUIRED",
-   "milestone": "",
+   "milestone": "4.4.0",
    "size": 101,
    "created": "2026-10-23",
-   "updated": "2026-11-09",
+   "updated": "2026-11-15",
    "ci": "green",
    "cifail": 0,
    "links": []
@@ -1968,36 +1755,6 @@
    "ci": "awaiting-approval",
    "cifail": 0,
    "links": []
-  },
-  {
-   "n": 3445,
-   "a": "summeriver13",
-   "t": "Accept a search path in is_namespace()",
-   "draft": false,
-   "labels": [
-    "Bug 🪳"
-   ],
-   "rd": "REVIEW_REQUIRED",
-   "milestone": "4.5.0",
-   "size": 70,
-   "created": "2026-10-25",
-   "updated": "2026-11-14",
-   "ci": "green",
-   "cifail": 0,
-   "links": [
-    {
-     "ref": "pylint-dev/pylint#10278",
-     "title": "\"ImportError: Unable to find module\" when using implicit namespaces when they already exist in site-packages",
-     "state": "closed",
-     "labels": [
-      "Crash 💥",
-      "Import system",
-      "namespace-package"
-     ],
-     "reactions": 0,
-     "pr": false
-    }
-   ]
   },
   {
    "n": 3446,
@@ -2134,7 +1891,7 @@
     "Bug 🪳"
    ],
    "rd": "REVIEW_REQUIRED",
-   "milestone": "",
+   "milestone": "4.4.0",
    "size": 119,
    "created": "2026-10-29",
    "updated": "2026-11-08",
@@ -2284,11 +2041,11 @@
     "inference"
    ],
    "rd": "REVIEW_REQUIRED",
-   "milestone": "",
-   "size": 38,
+   "milestone": "4.4.0",
+   "size": 47,
    "created": "2026-11-03",
-   "updated": "2026-11-08",
-   "ci": "green",
+   "updated": "2026-11-15",
+   "ci": "awaiting-approval",
    "cifail": 0,
    "links": []
   },
@@ -2364,10 +2121,10 @@
     "Brain 🧠"
    ],
    "rd": "REVIEW_REQUIRED",
-   "milestone": "",
+   "milestone": "4.4.0",
    "size": 108,
    "created": "2026-11-07",
-   "updated": "2026-11-08",
+   "updated": "2026-11-15",
    "ci": "green",
    "cifail": 0,
    "links": [
@@ -2395,7 +2152,7 @@
     "Brain 🧠"
    ],
    "rd": "REVIEW_REQUIRED",
-   "milestone": "",
+   "milestone": "4.4.0",
    "size": 69,
    "created": "2026-11-09",
    "updated": "2026-11-10",
@@ -2437,7 +2194,7 @@
     "Brain 🧠"
    ],
    "rd": "REVIEW_REQUIRED",
-   "milestone": "",
+   "milestone": "4.4.0",
    "size": 166,
    "created": "2026-11-11",
    "updated": "2026-11-13",
@@ -2458,38 +2215,6 @@
    ]
   },
   {
-   "n": 3472,
-   "a": "ghanashyam03",
-   "t": "Do not cache Uninferable on context inference budget exhaustion",
-   "draft": false,
-   "labels": [
-    "Bug 🪳",
-    "Duplicate 🐫",
-    "inference"
-   ],
-   "rd": "REVIEW_REQUIRED",
-   "milestone": "",
-   "size": 46,
-   "created": "2026-11-12",
-   "updated": "2026-11-13",
-   "ci": "awaiting-approval",
-   "cifail": 0,
-   "links": [
-    {
-     "ref": "pylint-dev/astroid#3464",
-     "title": "Inference budget exhaustion poisons shared cache and causes order-dependent generic E1136 false positives",
-     "state": "open",
-     "labels": [
-      "Bug 🪳",
-      "Duplicate 🐫",
-      "inference"
-     ],
-     "reactions": 0,
-     "pr": false
-    }
-   ]
-  },
-  {
    "n": 3474,
    "a": "ychampion",
    "t": "Return ClassDef from dataclass_transform when __init__ generation is skipped",
@@ -2500,13 +2225,40 @@
     "dataclasses"
    ],
    "rd": "REVIEW_REQUIRED",
-   "milestone": "",
+   "milestone": "4.4.0",
    "size": 51,
    "created": "2026-11-14",
-   "updated": "2026-11-14",
-   "ci": "awaiting-approval",
+   "updated": "2026-11-15",
+   "ci": "green",
    "cifail": 0,
    "links": []
+  },
+  {
+   "n": 3476,
+   "a": "hatemadi15",
+   "t": "Infer typing.NamedTuple as a tuple subclass with the namedtuple API",
+   "draft": false,
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "4.4.0",
+   "size": 88,
+   "created": "2026-11-15",
+   "updated": "2026-11-15",
+   "ci": "awaiting-approval",
+   "cifail": 0,
+   "links": [
+    {
+     "ref": "pylint-dev/pylint#7891",
+     "title": "False positive `no-member` when attempting to access `_asdict`, which is a valid `NamedTuple` method, in a subclass of `NamedTuple`",
+     "state": "open",
+     "labels": [
+      "False Positive 🦟",
+      "Needs PR"
+     ],
+     "reactions": 6,
+     "pr": false
+    }
+   ]
   }
  ]
 }

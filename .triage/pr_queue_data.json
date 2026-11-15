@@ -1914,7 +1914,7 @@
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
    "merge": "CONFLICTING",
-   "ci": "awaiting-approval",
+   "ci": "not-run",
    "citot": 2,
    "cifail": 0,
    "nrev": 5,
@@ -4164,7 +4164,7 @@
    "labels": [
     "False Negative 🦋"
    ],
-   "milestone": "",
+   "milestone": "4.2.0",
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
    "ci": "green",
@@ -4196,7 +4196,7 @@
    "labels": [
     "False Negative 🦋"
    ],
-   "milestone": "",
+   "milestone": "4.2.0",
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
    "ci": "green",
@@ -4509,7 +4509,7 @@
    "labels": [
     "False Negative 🦋"
    ],
-   "milestone": "",
+   "milestone": "4.2.0",
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
    "ci": "green",
@@ -4816,7 +4816,7 @@
    "labels": [
     "performance"
    ],
-   "milestone": "",
+   "milestone": "4.2.0",
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
    "ci": "green",
@@ -4842,7 +4842,7 @@
    "labels": [
     "performance"
    ],
-   "milestone": "",
+   "milestone": "4.2.0",
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
    "ci": "green",
@@ -4868,7 +4868,7 @@
    "labels": [
     "performance"
    ],
-   "milestone": "",
+   "milestone": "4.2.0",
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
    "ci": "running",
@@ -4921,7 +4921,7 @@
    "labels": [
     "performance"
    ],
-   "milestone": "",
+   "milestone": "4.2.0",
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
    "ci": "green",
@@ -4943,11 +4943,11 @@
    "size": 102,
    "files": 6,
    "created": "2026-11-12",
-   "updated": "2026-11-14",
+   "updated": "2026-11-15",
    "labels": [
     "False Negative 🦋"
    ],
-   "milestone": "",
+   "milestone": "4.2.0",
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
    "ci": "awaiting-approval",
@@ -4964,7 +4964,7 @@
    ],
    "lastcom": [
     "github-actions",
-    "2026-11-12"
+    "2026-11-15"
    ]
   },
   {
@@ -5008,15 +5008,15 @@
    "size": 278,
    "files": 14,
    "created": "2026-11-13",
-   "updated": "2026-11-13",
+   "updated": "2026-11-15",
    "labels": [
     "False Negative 🦋"
    ],
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "awaiting-approval",
-   "citot": 4,
+   "ci": "green",
+   "citot": 46,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -5028,8 +5028,8 @@
     ]
    ],
    "lastcom": [
-    "-",
-    "-"
+    "github-actions",
+    "2026-11-15"
    ]
   },
   {
@@ -5040,7 +5040,7 @@
    "size": 172,
    "files": 5,
    "created": "2026-11-13",
-   "updated": "2026-11-13",
+   "updated": "2026-11-15",
    "labels": [
     "Bug :beetle:",
     "Configuration"
@@ -5048,8 +5048,8 @@
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "awaiting-approval",
-   "citot": 5,
+   "ci": "green",
+   "citot": 48,
    "cifail": 0,
    "nrev": 1,
    "mrev": [],
@@ -5061,8 +5061,8 @@
     ]
    ],
    "lastcom": [
-    "-",
-    "-"
+    "github-actions",
+    "2026-11-15"
    ]
   },
   {
@@ -5073,7 +5073,7 @@
    "size": 6,
    "files": 4,
    "created": "2026-11-13",
-   "updated": "2026-11-14",
+   "updated": "2026-11-15",
    "labels": [
     "Documentation :green_book:",
     "Skip news :mute:"
@@ -5081,9 +5081,9 @@
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "awaiting-approval",
-   "citot": 5,
-   "cifail": 0,
+   "ci": "failing",
+   "citot": 30,
+   "cifail": 1,
    "nrev": 0,
    "mrev": [],
    "links": [
@@ -5094,8 +5094,8 @@
     ]
    ],
    "lastcom": [
-    "-",
-    "-"
+    "codecov",
+    "2026-11-15"
    ]
   },
   {
@@ -5106,17 +5106,17 @@
    "size": 122,
    "files": 4,
    "created": "2026-11-14",
-   "updated": "2026-11-14",
+   "updated": "2026-11-15",
    "labels": [
     "Control flow",
     "False Negative 🦋",
     "C: used-before-assignment"
    ],
-   "milestone": "",
+   "milestone": "4.2.0",
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "awaiting-approval",
-   "citot": 6,
+   "ci": "green",
+   "citot": 50,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -5128,8 +5128,8 @@
     ]
    ],
    "lastcom": [
-    "-",
-    "-"
+    "github-actions",
+    "2026-11-15"
    ]
   },
   {
@@ -5140,15 +5140,15 @@
    "size": 171,
    "files": 5,
    "created": "2026-11-14",
-   "updated": "2026-11-14",
+   "updated": "2026-11-15",
    "labels": [
     "False Positive 🦟"
    ],
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "awaiting-approval",
-   "citot": 4,
+   "ci": "green",
+   "citot": 46,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -5160,8 +5160,8 @@
     ]
    ],
    "lastcom": [
-    "-",
-    "-"
+    "github-actions",
+    "2026-11-15"
    ]
   },
   {
@@ -5172,20 +5172,22 @@
    "size": 44,
    "files": 5,
    "created": "2026-11-14",
-   "updated": "2026-11-14",
-   "labels": [],
+   "updated": "2026-11-15",
+   "labels": [
+    "Documentation :green_book:"
+   ],
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "awaiting-approval",
-   "citot": 3,
+   "ci": "green",
+   "citot": 28,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
    "links": [],
    "lastcom": [
-    "-",
-    "-"
+    "codecov",
+    "2026-11-15"
    ]
   }
  ],
@@ -7053,12 +7055,12 @@
    "title": "deprecated-method / deprecated-class never report glob.glob0, glob.glob1 and typing._UnionGenericAlias"
   },
   {
-   "comments": 0,
+   "comments": 1,
    "labels": [
     "False Positive 🦟"
    ],
    "number": 11767,
-   "reactions": 0,
+   "reactions": 1,
    "state": "open",
    "state_reason": null,
    "title": "Instance attribute naming warnings depend on which modules are linted together"

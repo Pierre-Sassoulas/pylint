@@ -1,1 +1,13 @@
-{"astroid": {}, "pylint": {}}
+{
+ "astroid": {
+  "3476": {
+   "kind": "pr",
+   "labels": [
+    "Bug 🪳",
+    "Brain 🧠",
+    "T: NamedTuple"
+   ]
+  }
+ },
+ "pylint": {}
+}
