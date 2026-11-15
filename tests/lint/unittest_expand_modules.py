@@ -20,31 +20,50 @@ from pylint.testutils import CheckerTestCase, set_config
 from pylint.typing import MessageDefinitionTuple, ModuleDescriptionDict
 
 
+@pytest.mark.parametrize(
+    ("namespace", "shadowing_package"),
+    [
+        # The names are not used by any other test, since astroid caches the result
+        # of is_namespace() per module name and these are resolved differently here.
+        pytest.param("pylint_shadowed_namespace_10278", "directory", id="directory"),
+        pytest.param(
+            "pylint_shadowed_regular_package_10278",
+            "regular_package",
+            id="regular_package",
+        ),
+        pytest.param("email", None, id="standard_library"),
+    ],
+)
 def test_expand_modules_with_shadowed_namespace_package(
-    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+    namespace: str,
+    shadowing_package: str | None,
 ) -> None:
-    """Expand a namespace package that also exists in site-packages.
+    """Expand a namespace package that also exists in site-packages or the stdlib.
 
     Regression test for https://github.com/pylint-dev/pylint/issues/10278
     """
-    # The name is not used by any other test, since astroid caches the result of
-    # is_namespace() per module name and this one is resolved differently here.
-    namespace = "pylint_shadowed_namespace_10278"
     project = tmp_path / "project"
     subpackage = project / namespace / "subpackage"
     subpackage.mkdir(parents=True)
     (subpackage / "__init__.py").touch()
     (subpackage / "module.py").touch()
-    # is_namespace() from astroid reports "not a namespace package" as soon as one
-    # portion of the package is in site-packages or in the standard library. Fake it
-    # instead of writing into the site-packages of the test environment.
-    shadowing_site_packages = tmp_path / "site-packages"
-    (shadowing_site_packages / namespace).mkdir(parents=True)
     monkeypatch.syspath_prepend(str(project))
-    monkeypatch.syspath_prepend(str(shadowing_site_packages))
-    monkeypatch.setattr(
-        modutils, "EXT_LIB_DIRS", modutils.EXT_LIB_DIRS | {str(shadowing_site_packages)}
-    )
+    if shadowing_package is not None:
+        # is_namespace() from astroid reports "not a namespace package" as soon as
+        # one portion of the package is in site-packages. Fake it instead of writing
+        # into the site-packages of the test environment.
+        shadowing_site_packages = tmp_path / "site-packages"
+        (shadowing_site_packages / namespace).mkdir(parents=True)
+        if shadowing_package == "regular_package":
+            (shadowing_site_packages / namespace / "__init__.py").touch()
+        monkeypatch.syspath_prepend(str(shadowing_site_packages))
+        monkeypatch.setattr(
+            modutils,
+            "EXT_LIB_DIRS",
+            modutils.EXT_LIB_DIRS | {str(shadowing_site_packages)},
+        )
 
     modules, errors = expand_modules([str(subpackage)], [str(project)], [], [], [])
 
