@@ -264,6 +264,13 @@ V = {
         'New (14 November), 44 lines by umrndem (first PR) for issue 10143 (question/docs, "List of rules requiring file traversal"): new <code>checks-across-modules</code> section in <code>usage/run.rst</code> listing <code>cyclic-import</code> and <code>duplicate-code</code>, how to run them on the whole package, and how to skip them for changed-file runs, with a clear warning that the list is not exhaustive (inference reads other modules too). Linked from the FAQ and the generated features page (via <code>doc/exts/pylint_features.py</code>). Has an <code>other</code> fragment with Refs. Diff read 14 November: docs only, ASCII. Check: the CI already builds the docs; whether the features-page sentence belongs at the top of every generated page. 15 November CI at 24de45fc8: green, docs build passes.',
         'Review: docs only, answers a recurring question.',
     ),
+    11833: (
+        'review',
+        'docs',
+        'confirmed',
+        'New (16 November), docs only by aryankinha (refs issue 7100): the <code>cell-var-from-loop</code> bad example printed five <code>Hello, Michael!</code> for six alpha names (wrong count) while its comment talks about <code>Not-A-Name</code>. Now the input ends with <code>Not-A-Name</code>, which the <code>isalpha()</code> filter drops, so the five greetings print <code>Hello, Not-A-Name!</code>, matching the comment (checked by hand). Same input in both good examples, duplicate <code>Terry</code> removed; <code>other</code> fragment. CI not held. Diff read: docs only, ASCII.',
+        'Review and merge: correct, one-minute read.',
+    ),
     # ---- approve the workflow run ----------------------------------------
     11824: (
         'review',
@@ -311,36 +318,29 @@ V = {
         'approve',
         'held',
         'confirmed',
-        'New (12 November), 102 lines by ViktorBystrov72 (first PR) for issue 6444 (false negative, open since 2022): <code>implicit-str-concat</code> only looked at the first pair of literals in a constant, so <code>"first"\\n"second" "third"</code> was never reported. Now walks every adjacent string token pair inside the constant and reports the first same-line pair, on that pair\'s line. Keeps the raw/non-raw exemption and the parenthesized-multiline exemption; seven new functional cases. Says OpenAI Codex assisted, no human review claimed. Diff read 12 November: no CI or config files, no risky calls; the only non-ASCII character is an <code>é</code> in a test string. Watch for: the reported line moves from the start of the constant to the offending pair. 12 November CI: all green, codecov 100%, primer no effect (so no moved lines on real code). 14 November: force-pushed 0a859f5ac at 05:44 UTC, a rebase only (same strings.py blob 357dcc561c0 as the reviewed diff); 6 runs held again. 15 November: runs approved, then rebased again at 7ac2dab78 (11:16 UTC), diff identical to the reviewed one; 6 runs held again.',
-        'Approve the runs at 7ac2dab78 (content unchanged); merge if green (already reviewed). Ask the author to stop rebasing: each push re-holds CI.',
-    ),
-    11802: (
-        'review',
-        'green',
-        'confirmed',
-        'New (10 November), 12 lines by marksmayo (first PR, one of five performance PRs opened the same morning): <code>SpecialMethodsChecker.visit_functiondef</code> inferred the return value of every method and threw it away unless the name is one of the 12 checked dunders; now it checks the name first. Measured on astroid (31k lines): 2% of methods still inferred, 2.1-2.5% faster, identical messages over 14 seeded runs. Smallest and safest of the five. Not run locally. 10 November CI: all green, primer only the known pandas <code>series.py</code> L505 redefined-variable-type move (noise, seen on unrelated PRs).',
-        'Review first of the five (12 lines, smallest).',
+        'New (12 November), 102 lines by ViktorBystrov72 (first PR) for issue 6444 (false negative, open since 2022): <code>implicit-str-concat</code> only looked at the first pair of literals in a constant, so <code>"first"\\n"second" "third"</code> was never reported. Now walks every adjacent string token pair inside the constant and reports the first same-line pair, on that pair\'s line. Keeps the raw/non-raw exemption and the parenthesized-multiline exemption; seven new functional cases. Says OpenAI Codex assisted, no human review claimed. Diff read 12 November: no CI or config files, no risky calls; the only non-ASCII character is an <code>é</code> in a test string. Watch for: the reported line moves from the start of the constant to the offending pair. 12 November CI: all green, codecov 100%, primer no effect (so no moved lines on real code). 14 November: force-pushed 0a859f5ac at 05:44 UTC, a rebase only (same strings.py blob 357dcc561c0 as the reviewed diff); 6 runs held again. 15 November: runs approved, then rebased again at 7ac2dab78 (11:16 UTC), diff identical to the reviewed one; 6 runs held again. 16 November: rebased a third time at f7f9c6f43 (08:15 UTC), diff identical again; 6 runs held again.',
+        'Approve the runs at f7f9c6f43 and merge when green; ask the author to stop rebasing (each push re-holds CI).',
     ),
     11803: (
-        'review',
-        'green',
+        'author',
+        'changes',
         'confirmed',
-        'New, 155 lines by marksmayo (performance): four checks walked the same subtree several times (<code>visit_assignname</code> reassigned-before/after, <code>leave_functiondef</code> global/nonlocal/comprehension, unused private members per member, <code>BasicErrorChecker</code> global/nonlocal). Each now walks once, same order. 3.7-4.1% faster on astroid, identical messages. New helper <code>is_reassigned_before_or_after_current</code> with unit tests. Not run locally. 10 November CI: all green, primer only the known pandas <code>series.py</code> L505 redefined-variable-type move (noise, seen on unrelated PRs).',
-        'Review after #11802 (one commit per check, read them separately).',
+        'New, 155 lines by marksmayo (performance): four checks walked the same subtree several times (<code>visit_assignname</code> reassigned-before/after, <code>leave_functiondef</code> global/nonlocal/comprehension, unused private members per member, <code>BasicErrorChecker</code> global/nonlocal). Each now walks once, same order. 3.7-4.1% faster on astroid, identical messages. New helper <code>is_reassigned_before_or_after_current</code> with unit tests. Not run locally. 10 November CI: all green, primer only the known pandas <code>series.py</code> L505 redefined-variable-type move (noise, seen on unrelated PRs). 15 November: Pierre requested changes: the constant-naming check still walks the module once per module-level name (quadratic, halved), collect line numbers once per scope; the private-member checks still compare every private member against every name; plus a fragment wording suggestion.',
+        'Wait for marksmayo to address the two quadratic leftovers.',
     ),
     11804: (
-        'review',
-        'green',
+        'merge',
+        'approved',
         'confirmed',
-        'New, 62 lines by marksmayo (performance): cheap test first in four checks: <code>use-list-literal</code> stops rendering every call with <code>as_string()</code>, <code>no-member</code> skips <code>generated-members</code> matching when none are set, <code>bidirectional-unicode</code> skips pure-ASCII lines (UTF-8 only), <code>trailing-comma-tuple</code> compares the token with <code>","</code> first. 3.2-3.3% faster, identical messages; functional tests extended. Not run locally. 10 November CI: all green, primer only the known pandas <code>series.py</code> L505 redefined-variable-type move (noise, seen on unrelated PRs).',
-        'Review (check the UTF-16/32 path of the unicode change); codecov still pending.',
+        'New, 62 lines by marksmayo (performance): cheap test first in four checks: <code>use-list-literal</code> stops rendering every call with <code>as_string()</code>, <code>no-member</code> skips <code>generated-members</code> matching when none are set, <code>bidirectional-unicode</code> skips pure-ASCII lines (UTF-8 only), <code>trailing-comma-tuple</code> compares the token with <code>","</code> first. 3.2-3.3% faster, identical messages; functional tests extended. Not run locally. 10 November CI: all green, primer only the known pandas <code>series.py</code> L505 redefined-variable-type move (noise, seen on unrelated PRs). 16 November: Pierre approved then the branch moved: marksmayo added a token pre-filter for trailing commas (d42487ed8) and Pierre pushed 92b337879 (single flag for the trailing-comma check); the approval was dismissed by the push. Runs not held (CI ran). Overlaps Pierre\'s #11832 (linear trailing-comma-tuple): merge one, rebase the other.',
+        'Merge when green (your own last commit, re-approve), then rebase #11832 on it.',
     ),
     11806: (
         'review',
-        'green',
+        'pending',
         'confirmed',
-        'New, 77 lines by marksmayo (performance): three caches: <code>get_module_part</code> in the imports checker (reset in <code>open()</code>; this is the cache that never landed in the cyclic-import perf work, about -25% on ansible then), a per-scope <code>frozenset</code> of assigned names for <code>used-before-assignment</code> (<code>lru_cache</code>, cleared with the others), and callbacks per node class in <code>ASTWalker.walk</code>. 1.5-2.5% on astroid; the imports cache should matter more on big import graphs. Caches are where behaviour hides: check the reset points. Not run locally. 10 November CI: only the self-lint job is red, spelling hook on <code>pylint/utils/ast_walker.py</code> comment word <code>lowercased</code>; primer only the pandas L505 noise. 10 November evening: the author pushed <code>0426ce904</code>, which only rewords the comment (diff read 12 November); the new runs are held. 12 November CI: all green, primer no effect.',
-        'Review last of the five (cache lifetimes, reset in open(), parallel mode).',
+        'New, 77 lines by marksmayo (performance): three caches: <code>get_module_part</code> in the imports checker (reset in <code>open()</code>; this is the cache that never landed in the cyclic-import perf work, about -25% on ansible then), a per-scope <code>frozenset</code> of assigned names for <code>used-before-assignment</code> (<code>lru_cache</code>, cleared with the others), and callbacks per node class in <code>ASTWalker.walk</code>. 1.5-2.5% on astroid; the imports cache should matter more on big import graphs. Caches are where behaviour hides: check the reset points. Not run locally. 10 November CI: only the self-lint job is red, spelling hook on <code>pylint/utils/ast_walker.py</code> comment word <code>lowercased</code>; primer only the pandas L505 noise. 10 November evening: the author pushed <code>0426ce904</code>, which only rewords the comment (diff read 12 November); the new runs are held. 12 November CI: all green, primer no effect. 16 November: Pierre has an unsubmitted (PENDING) review on it.',
+        'Submit your pending review.',
     ),
     11805: (
         'review',
@@ -1818,7 +1818,7 @@ if ASTROID_FILE.exists():
     prs = sorted(ASTROID["prs"], key=astroid_queue.priority)
 
     def astroid_item(p: dict) -> str:
-        category = astroid_queue.priority(p)[1]
+        category = astroid_queue.priority(p)[2]
         return (
             f'<li><a href="https://github.com/pylint-dev/astroid/pull/{p["n"]}">astroid #{p["n"]}</a> '
             f'<span class="k">{E(KIND_NAMES[category])}</span>{E(p["t"])} '

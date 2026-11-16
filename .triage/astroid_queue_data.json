@@ -1,5 +1,5 @@
 {
- "snapshot": "2026-11-15",
+ "snapshot": "2026-11-16",
  "prs": [
   {
    "n": 2965,
@@ -1031,8 +1031,8 @@
    "milestone": "",
    "size": 48,
    "created": "2026-10-09",
-   "updated": "2026-10-23",
-   "ci": "green",
+   "updated": "2026-11-16",
+   "ci": "awaiting-approval",
    "cifail": 0,
    "links": [
     {
@@ -1143,10 +1143,10 @@
    ],
    "rd": "CHANGES_REQUESTED",
    "milestone": "4.4.0",
-   "size": 109,
+   "size": 156,
    "created": "2026-10-12",
-   "updated": "2026-11-15",
-   "ci": "green",
+   "updated": "2026-11-16",
+   "ci": "awaiting-approval",
    "cifail": 0,
    "links": [
     {
@@ -1894,7 +1894,7 @@
    "milestone": "4.4.0",
    "size": 119,
    "created": "2026-10-29",
-   "updated": "2026-11-08",
+   "updated": "2026-11-15",
    "ci": "green",
    "cifail": 0,
    "links": [
@@ -2042,10 +2042,10 @@
    ],
    "rd": "REVIEW_REQUIRED",
    "milestone": "4.4.0",
-   "size": 47,
+   "size": 72,
    "created": "2026-11-03",
    "updated": "2026-11-15",
-   "ci": "awaiting-approval",
+   "ci": "green",
    "cifail": 0,
    "links": []
   },
@@ -2122,10 +2122,10 @@
    ],
    "rd": "REVIEW_REQUIRED",
    "milestone": "4.4.0",
-   "size": 108,
+   "size": 126,
    "created": "2026-11-07",
    "updated": "2026-11-15",
-   "ci": "green",
+   "ci": "awaiting-approval",
    "cifail": 0,
    "links": [
     {
@@ -2155,8 +2155,8 @@
    "milestone": "4.4.0",
    "size": 69,
    "created": "2026-11-09",
-   "updated": "2026-11-10",
-   "ci": "awaiting-approval",
+   "updated": "2026-11-15",
+   "ci": "green",
    "cifail": 0,
    "links": [
     {
@@ -2195,9 +2195,9 @@
    ],
    "rd": "REVIEW_REQUIRED",
    "milestone": "4.4.0",
-   "size": 166,
+   "size": 170,
    "created": "2026-11-11",
-   "updated": "2026-11-13",
+   "updated": "2026-11-15",
    "ci": "awaiting-approval",
    "cifail": 0,
    "links": [
@@ -2238,10 +2238,14 @@
    "a": "hatemadi15",
    "t": "Infer typing.NamedTuple as a tuple subclass with the namedtuple API",
    "draft": false,
-   "labels": [],
+   "labels": [
+    "Bug 🪳",
+    "Brain 🧠",
+    "T: NamedTuple"
+   ],
    "rd": "REVIEW_REQUIRED",
    "milestone": "4.4.0",
-   "size": 88,
+   "size": 97,
    "created": "2026-11-15",
    "updated": "2026-11-15",
    "ci": "awaiting-approval",

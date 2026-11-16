@@ -1,8 +1,8 @@
 {
- "snapshot": "2026-11-15",
+ "snapshot": "2026-11-16",
  "owner": "Pierre-Sassoulas",
- "open_total": 184,
- "open_own": 23,
+ "open_total": 186,
+ "open_own": 25,
  "prs": [
   {
    "n": 5401,
@@ -633,7 +633,7 @@
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
    "merge": "CONFLICTING",
-   "ci": "awaiting-approval",
+   "ci": "not-run",
    "citot": 2,
    "cifail": 0,
    "nrev": 0,
@@ -2848,7 +2848,7 @@
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "awaiting-approval",
+   "ci": "not-run",
    "citot": 5,
    "cifail": 0,
    "nrev": 0,
@@ -4160,7 +4160,7 @@
    "size": 36,
    "files": 5,
    "created": "2026-10-30",
-   "updated": "2026-11-10",
+   "updated": "2026-11-15",
    "labels": [
     "False Negative 🦋"
    ],
@@ -4192,7 +4192,7 @@
    "size": 36,
    "files": 8,
    "created": "2026-10-30",
-   "updated": "2026-11-08",
+   "updated": "2026-11-15",
    "labels": [
     "False Negative 🦋"
    ],
@@ -4505,7 +4505,7 @@
    "size": 30,
    "files": 4,
    "created": "2026-11-05",
-   "updated": "2026-11-09",
+   "updated": "2026-11-15",
    "labels": [
     "False Negative 🦋"
    ],
@@ -4805,32 +4805,6 @@
    ]
   },
   {
-   "n": 11802,
-   "a": "marksmayo",
-   "t": "Only infer special method return values that are checked",
-   "draft": false,
-   "size": 16,
-   "files": 2,
-   "created": "2026-11-10",
-   "updated": "2026-11-10",
-   "labels": [
-    "performance"
-   ],
-   "milestone": "4.2.0",
-   "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
-   "ci": "green",
-   "citot": 45,
-   "cifail": 0,
-   "nrev": 0,
-   "mrev": [],
-   "links": [],
-   "lastcom": [
-    "codecov",
-    "2026-11-10"
-   ]
-  },
-  {
    "n": 11803,
    "a": "marksmayo",
    "t": "Avoid walking the same subtree more than once in four checks",
@@ -4838,18 +4812,20 @@
    "size": 155,
    "files": 7,
    "created": "2026-11-10",
-   "updated": "2026-11-10",
+   "updated": "2026-11-15",
    "labels": [
     "performance"
    ],
    "milestone": "4.2.0",
-   "rd": "REVIEW_REQUIRED",
+   "rd": "CHANGES_REQUESTED",
    "merge": "MERGEABLE",
    "ci": "green",
    "citot": 45,
    "cifail": 0,
-   "nrev": 0,
-   "mrev": [],
+   "nrev": 1,
+   "mrev": [
+    "Pierre-Sassoulas"
+   ],
    "links": [],
    "lastcom": [
     "github-actions",
@@ -4861,25 +4837,27 @@
    "a": "marksmayo",
    "t": "Put cheap checks before expensive ones in four checks",
    "draft": false,
-   "size": 62,
+   "size": 69,
    "files": 6,
    "created": "2026-11-10",
-   "updated": "2026-11-10",
+   "updated": "2026-11-16",
    "labels": [
     "performance"
    ],
    "milestone": "4.2.0",
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "running",
-   "citot": 45,
+   "ci": "green",
+   "citot": 43,
    "cifail": 0,
-   "nrev": 0,
-   "mrev": [],
+   "nrev": 2,
+   "mrev": [
+    "Pierre-Sassoulas"
+   ],
    "links": [],
    "lastcom": [
-    "codecov",
-    "2026-11-10"
+    "github-actions",
+    "2026-11-16"
    ]
   },
   {
@@ -4917,7 +4895,7 @@
    "size": 77,
    "files": 5,
    "created": "2026-11-10",
-   "updated": "2026-11-12",
+   "updated": "2026-11-15",
    "labels": [
     "performance"
    ],
@@ -4927,8 +4905,10 @@
    "ci": "green",
    "citot": 43,
    "cifail": 0,
-   "nrev": 0,
-   "mrev": [],
+   "nrev": 1,
+   "mrev": [
+    "Pierre-Sassoulas"
+   ],
    "links": [],
    "lastcom": [
     "github-actions",
@@ -4943,7 +4923,7 @@
    "size": 102,
    "files": 6,
    "created": "2026-11-12",
-   "updated": "2026-11-15",
+   "updated": "2026-11-16",
    "labels": [
     "False Negative 🦋"
    ],
@@ -5188,6 +5168,30 @@
    "lastcom": [
     "codecov",
     "2026-11-15"
+   ]
+  },
+  {
+   "n": 11833,
+   "a": "aryankinha",
+   "t": "Fix cell-var-from-loop documentation example output",
+   "draft": false,
+   "size": 19,
+   "files": 4,
+   "created": "2026-11-16",
+   "updated": "2026-11-16",
+   "labels": [],
+   "milestone": "",
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "green",
+   "citot": 25,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [],
+   "lastcom": [
+    "codecov",
+    "2026-11-16"
    ]
   }
  ],

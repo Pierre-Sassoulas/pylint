@@ -77,6 +77,23 @@ CI_WORDS = {
 }
 
 
+def _version(title: str) -> tuple:
+    try:
+        return tuple(int(part) for part in title.split("."))
+    except ValueError:
+        return (999,)
+
+
+# The lowest version milestone set on an open PR: the release that comes next.
+NEXT_MILESTONE = ""
+
+
+def set_next_milestone(prs: list) -> None:
+    global NEXT_MILESTONE
+    titles = {p.get("milestone") for p in prs if p.get("milestone")}
+    NEXT_MILESTONE = min(titles, key=_version, default="")
+
+
 def priority(p: dict) -> tuple:
     """Kind first, then High priority, then reactions on open linked issues, then most recent."""
     names = [name.lower() for name in p["labels"]]
@@ -93,8 +110,10 @@ def priority(p: dict) -> tuple:
     high = any(name.startswith("high priority") for name in names)
     reactions = sum(linked["reactions"] for linked in p["links"] if linked["state"] == "open")
     # A trusted contributor's PR goes first: it costs far less to review.
+    # Then the PRs in the next release's milestone: that release waits on them.
     return (
         p["a"] not in TRUSTED,
+        p.get("milestone") != NEXT_MILESTONE,
         category,
         not high,
         -reactions,
@@ -104,8 +123,8 @@ def priority(p: dict) -> tuple:
 
 def worth(p: dict) -> bool:
     """Worth a maintainer's time now: crash, bug, High priority or two reactions."""
-    _untrusted, category, not_high, minus_reactions, _ = priority(p)
-    return category <= 1 or not not_high or minus_reactions <= -2
+    _untrusted, not_next, category, not_high, minus_reactions, _ = priority(p)
+    return not not_next or category <= 1 or not not_high or minus_reactions <= -2
 
 
 def lane(p: dict) -> str:
@@ -127,8 +146,10 @@ def lane(p: dict) -> str:
 
 
 def why(p: dict) -> str:
-    untrusted, category, not_high, minus_reactions, _ = priority(p)
+    untrusted, not_next, category, not_high, minus_reactions, _ = priority(p)
     parts = [KIND_NAMES[category]]
+    if not not_next:
+        parts.insert(0, f"next release {NEXT_MILESTONE}")
     if not untrusted:
         parts.insert(0, "trusted contributor")
     if not not_high:
@@ -174,6 +195,7 @@ def load_data() -> dict:
         for linked in p["links"]:
             repo, _, number = linked["ref"].partition("#")
             linked["labels"] = proposed_labels.merge(repo.split("/")[1], int(number), linked["labels"])
+    set_next_milestone(data["prs"])
     return data
 
 
