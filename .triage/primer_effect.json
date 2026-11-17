@@ -18578,59 +18578,35 @@
   "commit": "0426ce904"
  },
  "11808": {
-  "date": "2026-11-16",
+  "date": "2026-11-17",
+  "added": 0,
+  "removed": 0,
+  "changed": 1,
+  "projects": {
+   "pandas": {
+    "added": 0,
+    "removed": 0,
+    "changed": 1
+   }
+  },
+  "items": [
+   [
+    "pandas",
+    "changed",
+    "redefined-variable-type",
+    "Moved from `505:16`-`505:47` to `507:16`-`507:43`."
+   ]
+  ],
+  "commit": "5e4f2c0a6"
+ },
+ "11811": {
+  "date": "2026-11-17",
   "added": 0,
   "removed": 0,
   "changed": 0,
   "projects": {},
   "items": [],
-  "commit": "f7f9c6f43"
- },
- "11811": {
-  "date": "2026-11-13",
-  "added": 0,
-  "removed": 5,
-  "changed": 0,
-  "projects": {
-   "django": {
-    "added": 0,
-    "removed": 5,
-    "changed": 0
-   }
-  },
-  "items": [
-   [
-    "django",
-    "removed",
-    "invalid-name",
-    "*Attribute name \"MIGRATION_MODULES\" doesn't conform to snake_case naming style*"
-   ],
-   [
-    "django",
-    "removed",
-    "invalid-name",
-    "*Attribute name \"ALLOWED_HOSTS\" doesn't conform to snake_case naming style*"
-   ],
-   [
-    "django",
-    "removed",
-    "invalid-name",
-    "*Attribute name \"DEBUG\" doesn't conform to snake_case naming style*"
-   ],
-   [
-    "django",
-    "removed",
-    "invalid-name",
-    "*Attribute name \"MAILERS\" doesn't conform to snake_case naming style*"
-   ],
-   [
-    "django",
-    "removed",
-    "invalid-name",
-    "*Attribute name \"EMAIL_BACKEND\" doesn't conform to snake_case naming style*"
-   ]
-  ],
-  "commit": "c13d45eeb"
+  "commit": "fbc4da835"
  },
  "11813": {
   "date": "2026-11-15",
@@ -18943,5 +18919,14 @@
   "projects": {},
   "items": [],
   "commit": "49cf99bb1"
+ },
+ "11835": {
+  "date": "2026-11-17",
+  "added": 0,
+  "removed": 0,
+  "changed": 0,
+  "projects": {},
+  "items": [],
+  "commit": "c35eb6c29"
  }
 }

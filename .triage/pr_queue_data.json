@@ -1,7 +1,7 @@
 {
  "snapshot": "2026-11-17",
  "owner": "Pierre-Sassoulas",
- "open_total": 188,
+ "open_total": 193,
  "open_own": 25,
  "prs": [
   {
@@ -2642,7 +2642,7 @@
    "size": 146,
    "files": 4,
    "created": "2026-10-14",
-   "updated": "2026-11-09",
+   "updated": "2026-11-17",
    "labels": [
     "False Positive 🦟",
     "Assignment expression",
@@ -2664,8 +2664,8 @@
     ]
    ],
    "lastcom": [
-    "github-actions",
-    "2026-11-09"
+    "shan3520",
+    "2026-11-17"
    ]
   },
   {
@@ -4930,8 +4930,8 @@
    "milestone": "4.2.0",
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "awaiting-approval",
-   "citot": 2,
+   "ci": "green",
+   "citot": 43,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -4944,7 +4944,7 @@
    ],
    "lastcom": [
     "github-actions",
-    "2026-11-16"
+    "2026-11-17"
    ]
   },
   {
@@ -4955,7 +4955,7 @@
    "size": 55,
    "files": 5,
    "created": "2026-11-12",
-   "updated": "2026-11-16",
+   "updated": "2026-11-17",
    "labels": [
     "False Positive 🦟",
     "C: invalid-name"
@@ -4963,8 +4963,8 @@
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "awaiting-approval",
-   "citot": 2,
+   "ci": "green",
+   "citot": 39,
    "cifail": 0,
    "nrev": 1,
    "mrev": [],
@@ -4976,8 +4976,8 @@
     ]
    ],
    "lastcom": [
-    "mccalpink",
-    "2026-11-16"
+    "github-actions",
+    "2026-11-17"
    ]
   },
   {
@@ -5204,13 +5204,16 @@
    "size": 490,
    "files": 9,
    "created": "2026-11-16",
-   "updated": "2026-11-16",
-   "labels": [],
+   "updated": "2026-11-17",
+   "labels": [
+    "Enhancement ✨",
+    "pyreverse"
+   ],
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
    "ci": "awaiting-approval",
-   "citot": 3,
+   "citot": 5,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -5234,7 +5237,40 @@
    "size": 99,
    "files": 8,
    "created": "2026-11-16",
-   "updated": "2026-11-16",
+   "updated": "2026-11-17",
+   "labels": [
+    "False Positive 🦟",
+    "dataclasses"
+   ],
+   "milestone": "",
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "green",
+   "citot": 48,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [
+    [
+     5823,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "github-actions",
+    "2026-11-17"
+   ]
+  },
+  {
+   "n": 11838,
+   "a": "cleoanka",
+   "t": "Fix false negatives for ``modified-iterating-*`` on attributes",
+   "draft": false,
+   "size": 88,
+   "files": 4,
+   "created": "2026-11-17",
+   "updated": "2026-11-17",
    "labels": [],
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
@@ -5246,11 +5282,125 @@
    "mrev": [],
    "links": [
     [
-     5823,
+     7391,
      "",
      ""
     ]
    ],
+   "lastcom": [
+    "-",
+    "-"
+   ]
+  },
+  {
+   "n": 11839,
+   "a": "cleoanka",
+   "t": "Add star-arg-unpacking-after-keyword-arg check",
+   "draft": false,
+   "size": 87,
+   "files": 10,
+   "created": "2026-11-17",
+   "updated": "2026-11-17",
+   "labels": [],
+   "milestone": "",
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "awaiting-approval",
+   "citot": 3,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [
+    [
+     4586,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "-",
+    "-"
+   ]
+  },
+  {
+   "n": 11840,
+   "a": "cleoanka",
+   "t": "Fix false positives when a method implements a callable Protocol property",
+   "draft": false,
+   "size": 123,
+   "files": 4,
+   "created": "2026-11-17",
+   "updated": "2026-11-17",
+   "labels": [],
+   "milestone": "",
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "awaiting-approval",
+   "citot": 3,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [
+    [
+     8687,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "-",
+    "-"
+   ]
+  },
+  {
+   "n": 11841,
+   "a": "cleoanka",
+   "t": "Fix used-before-assignment false negative after a use inside an except handler",
+   "draft": false,
+   "size": 198,
+   "files": 6,
+   "created": "2026-11-17",
+   "updated": "2026-11-17",
+   "labels": [],
+   "milestone": "",
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "awaiting-approval",
+   "citot": 3,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [
+    [
+     5780,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "-",
+    "-"
+   ]
+  },
+  {
+   "n": 11842,
+   "a": "cleoanka",
+   "t": "Detect mutable default values in dataclass fields with dangerous-default-value",
+   "draft": false,
+   "size": 117,
+   "files": 7,
+   "created": "2026-11-17",
+   "updated": "2026-11-17",
+   "labels": [],
+   "milestone": "",
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "awaiting-approval",
+   "citot": 3,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [],
    "lastcom": [
     "-",
     "-"
@@ -5472,6 +5622,19 @@
    "title": "False positive no-member for NamedTuple._replace()"
   },
   {
+   "comments": 0,
+   "labels": [
+    "Enhancement ✨",
+    "Checkers",
+    "Needs PR"
+   ],
+   "number": 4586,
+   "reactions": 1,
+   "state": "open",
+   "state_reason": null,
+   "title": "Please consider warning on keyword arguments before positional unpacking arguments"
+  },
+  {
    "comments": 9,
    "labels": [
     "False Positive 🦟",
@@ -5621,6 +5784,19 @@
    "title": "Should  ``pylint`` be equivalent to ``pylint .`` ?"
   },
   {
+   "comments": 2,
+   "labels": [
+    "False Negative 🦋",
+    "C: used-before-assignment",
+    "Needs PR"
+   ],
+   "number": 5780,
+   "reactions": 0,
+   "state": "open",
+   "state_reason": null,
+   "title": "False negative `used-before-assignment` after name defined and used in except"
+  },
+  {
    "comments": 5,
    "labels": [
     "Good first issue",
@@ -5766,6 +5942,18 @@
    "state": "open",
    "state_reason": null,
    "title": "Pyreverse not showing sub-classes with -c flag"
+  },
+  {
+   "comments": 0,
+   "labels": [
+    "Enhancement ✨",
+    "Needs PR"
+   ],
+   "number": 7391,
+   "reactions": 1,
+   "state": "open",
+   "state_reason": null,
+   "title": "Make ``modified-iterating-*`` also check class attributes"
   },
   {
    "comments": 2,
@@ -6056,6 +6244,18 @@
    "state": "open",
    "state_reason": null,
    "title": "missing-parentheses-for-call-in-test not raised as expected"
+  },
+  {
+   "comments": 0,
+   "labels": [
+    "False Positive 🦟",
+    "Needs PR"
+   ],
+   "number": 8687,
+   "reactions": 0,
+   "state": "open",
+   "state_reason": null,
+   "title": "False-positive W0236 (and W0221) when implementing an optional protocol method"
   },
   {
    "comments": 0,

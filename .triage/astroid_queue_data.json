@@ -2269,13 +2269,16 @@
    "a": "mohsinaliwork686-rgb",
    "t": "Infer Annotated[X, ...] as X instead of Annotated",
    "draft": false,
-   "labels": [],
+   "labels": [
+    "Bug 🪳",
+    "Brain 🧠"
+   ],
    "rd": "REVIEW_REQUIRED",
    "milestone": "",
    "size": 97,
    "created": "2026-11-16",
-   "updated": "2026-11-16",
-   "ci": "awaiting-approval",
+   "updated": "2026-11-17",
+   "ci": "green",
    "cifail": 0,
    "links": [
     {
@@ -2297,14 +2300,17 @@
    "a": "nafiurahman00",
    "t": "Don't unpack a list reached through a name in call sites",
    "draft": false,
-   "labels": [],
+   "labels": [
+    "Bug 🪳",
+    "inference"
+   ],
    "rd": "REVIEW_REQUIRED",
    "milestone": "",
    "size": 39,
    "created": "2026-11-16",
-   "updated": "2026-11-16",
-   "ci": "awaiting-approval",
-   "cifail": 0,
+   "updated": "2026-11-17",
+   "ci": "failing",
+   "cifail": 7,
    "links": [
     {
      "ref": "pylint-dev/pylint#4546",
@@ -2331,6 +2337,21 @@
      "pr": false
     }
    ]
+  },
+  {
+   "n": 3480,
+   "a": "cleoanka",
+   "t": "Unpack starred arguments in builtin inference",
+   "draft": false,
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 140,
+   "created": "2026-11-17",
+   "updated": "2026-11-17",
+   "ci": "awaiting-approval",
+   "cifail": 0,
+   "links": []
   }
  ]
 }
