@@ -178,6 +178,28 @@ def _except_statement_is_always_returning(
     )
 
 
+_OPENING_BRACKETS = frozenset("([{")
+_CLOSING_BRACKETS = frozenset(")]}")
+_ASSIGNMENT_OPERATORS = frozenset(
+    (
+        "=",
+        "+=",
+        "-=",
+        "*=",
+        "/=",
+        "//=",
+        "%=",
+        "**=",
+        "@=",
+        "&=",
+        "|=",
+        "^=",
+        "<<=",
+        ">>=",
+    )
+)
+
+
 def _is_trailing_comma(tokens: list[tokenize.TokenInfo], index: int) -> bool:
     """Check if the given token is a trailing comma.
 
@@ -202,17 +224,33 @@ def _is_trailing_comma(tokens: list[tokenize.TokenInfo], index: int) -> bool:
         or tokens[next_index].start[0] != token.start[0]
     ):
         return False
-    # Walk back to the start of the logical line, looking for an assignment,
-    # a return or a yield. Only one comma per logical line gets here.
+    # Walk back to the start of the statement, looking for what makes the comma
+    # create a tuple by mistake: an assignment, a return or a yield. Only one
+    # comma per logical line gets here. Tokens inside brackets do not count, so
+    # `print(a == b),` or `foo(x=1),` is not reported.
+    depth = 0
     for previous_index in range(index - 1, -1, -1):
         previous_token = tokens[previous_index]
         # See Lib/tokenize.py and Lib/token.py in cpython for more info
         if previous_token.type == tokenize.NEWLINE:
             return False
-        if "=" in previous_token.string or previous_token.string in {
-            "return",
-            "yield",
-        }:
+        string = previous_token.string
+        if previous_token.type == tokenize.OP:
+            if string in _CLOSING_BRACKETS:
+                depth += 1
+            elif string in _OPENING_BRACKETS:
+                depth -= 1
+            elif depth == 0:
+                if string == ";":
+                    # The previous statement on the same line.
+                    return False
+                if string in _ASSIGNMENT_OPERATORS:
+                    return True
+        elif (
+            depth == 0
+            and previous_token.type == tokenize.NAME
+            and string in {"return", "yield"}
+        ):
             return True
     return False
 

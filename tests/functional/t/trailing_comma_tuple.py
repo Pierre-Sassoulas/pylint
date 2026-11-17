@@ -60,3 +60,18 @@ iii = some_func(0,
 fff=['f'], # [trailing-comma-tuple]
 # A comma inside an f-string is not a trailing comma, even on its own
 print(f"{aaa},")
+
+# Only an assignment, a return or a yield creates a tuple by mistake.
+# An `=` inside brackets or in a comment does not count (see #8201).
+# pylint: disable=expression-not-assigned, multiple-statements
+print(aaa == bbb),
+test(widget=1),
+print(aaa),
+aaa += 1, # [trailing-comma-tuple]
+kkk: tuple = 1, # [trailing-comma-tuple]
+print(aaa); kkk = 1, # [trailing-comma-tuple]
+kkk = 1; print(aaa),
+
+
+def generator():
+    print((yield)),

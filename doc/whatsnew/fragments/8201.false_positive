@@ -1,0 +1,5 @@
+``trailing-comma-tuple`` is no longer raised when a statement does not assign, return or
+yield anything, such as ``print(apple == banana),``. An ``=`` inside brackets, in a comment
+above the line, or in an earlier statement on the same line was enough to raise it.
+
+Refs #8201
