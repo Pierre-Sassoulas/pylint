@@ -271,6 +271,20 @@ V = {
         'New (16 November), docs only by aryankinha (refs issue 7100): the <code>cell-var-from-loop</code> bad example printed five <code>Hello, Michael!</code> for six alpha names (wrong count) while its comment talks about <code>Not-A-Name</code>. Now the input ends with <code>Not-A-Name</code>, which the <code>isalpha()</code> filter drops, so the five greetings print <code>Hello, Not-A-Name!</code>, matching the comment (checked by hand). Same input in both good examples, duplicate <code>Terry</code> removed; <code>other</code> fragment. CI not held. Diff read: docs only, ASCII.',
         'Review and merge: correct, one-minute read.',
     ),
+    11834: (
+        'approve',
+        'held',
+        'confirmed',
+        'New (16 November), 470 lines by MohamedIlzam (first PR) for issue 7361 (enhancement, Help wanted, open since 2022; no other PR): pyreverse <code>--all-derived</code> / <code>-D</code> adds every direct and indirect subclass of the classes selected with <code>-c</code>. Builds a reverse-inheritance index over the analysed project (<code>_build_derived_index</code>, skips <code>InferenceError</code> and non-class bases), walks only descendants of the selected classes (no siblings), dedups diamond inheritance; docs, fragment and tests (unit plus CLI). Diff read 17 November: no CI or config files, no risky calls, ASCII only. New option with a one-letter short flag: <code>-D</code> must not clash with existing pyreverse shorts. Runs held (3 checks).',
+        'Approve the runs at 901de4359, then review: new option, check the <code>-D</code> short flag and the index cost on big projects.',
+    ),
+    11835: (
+        'approve',
+        'held',
+        'confirmed',
+        'New (16 November), 80 lines by unaltolga (first PR) for issue 5823 (FP, dataclasses, open since 2022; no other PR): <code>super-with-arguments</code> is no longer emitted in a <code>@dataclass(slots=True)</code> class when <code>py-version</code> is below 3.14, because before 3.14 the class that decorator returns is a new class and argument-less <code>super()</code> breaks there (fixed in CPython 3.14). Helper <code>_is_slots_dataclass</code> (Call decorator with <code>slots</code> keyword whose <code>bool_value()</code> is True) and a <code>_py314_plus</code> flag in <code>open()</code>; two functional tests (py-version 3.13 and 3.14). Diff read 17 November: no CI or config files, no risky calls, ASCII only. Runs held (3 checks).',
+        'Approve the runs at c35eb6c29, then review: correct and small.',
+    ),
     # ---- approve the workflow run ----------------------------------------
     11824: (
         'review',
@@ -308,18 +322,18 @@ V = {
         'Review: open the four pandas hits first; if the overrides only add a docstring/decorator, ask for that guard (the super() form already skips documented overrides?).',
     ),
     11811: (
-        'review',
-        'green',
+        'merge',
+        'approved',
         'confirmed',
-        'New (12 November), 50 lines by mccalpink (first PR) for issue 11809 (FP, opened the same day by e-gebes): in a class body, <code>X: TypeAlias = ...</code> and <code>X = TypeVar/ParamSpec/TypeVarTuple(...)</code> were checked against <code>class-attribute-naming-style</code>. Now the <code>ClassDef</code> branch of <code>visit_assignname</code> checks them against their own styles first, reusing <code>_assigns_typealias</code>/<code>_assigns_typevar</code>, same as module and function scope (#8536). Unannotated <code>Alias = Union[...]</code> unchanged. Functional test with a <code>snake_case</code> rc. Diff read 13 November: no CI or config files, no risky calls, ASCII only. 13 November CI: green. Primer removes five django <code>invalid-name</code> messages on cross-module <code>settings.X = ...</code> attributes, which this class-body change cannot cause: the order-dependent cross-module naming of issue 11767, i.e. noise.',
-        'Review: small, mirrors the module-scope logic; ignore the django primer lines.',
+        'New (12 November), 50 lines by mccalpink (first PR) for issue 11809 (FP, opened the same day by e-gebes): in a class body, <code>X: TypeAlias = ...</code> and <code>X = TypeVar/ParamSpec/TypeVarTuple(...)</code> were checked against <code>class-attribute-naming-style</code>. Now the <code>ClassDef</code> branch of <code>visit_assignname</code> checks them against their own styles first, reusing <code>_assigns_typealias</code>/<code>_assigns_typevar</code>, same as module and function scope (#8536). Unannotated <code>Alias = Union[...]</code> unchanged. Functional test with a <code>snake_case</code> rc. Diff read 13 November: no CI or config files, no risky calls, ASCII only. 13 November CI: green. Primer removes five django <code>invalid-name</code> messages on cross-module <code>settings.X = ...</code> attributes, which this class-body change cannot cause: the order-dependent cross-module naming of issue 11767, i.e. noise. 16 November: chrikrah (contributor, not a maintainer) approved after running the tests, including a default-config run; mccalpink then added a paragraph to the fragment (fbc4da835): <code>class-attribute-naming-style</code> defaults to <code>any</code>, so with the default config the change only shows when that style is set. Runs at fbc4da835 not yet run (2 checks).',
+        'Approve the runs at fbc4da835, then merge: second review done by chrikrah.',
     ),
     11808: (
         'approve',
         'held',
         'confirmed',
-        'New (12 November), 102 lines by ViktorBystrov72 (first PR) for issue 6444 (false negative, open since 2022): <code>implicit-str-concat</code> only looked at the first pair of literals in a constant, so <code>"first"\\n"second" "third"</code> was never reported. Now walks every adjacent string token pair inside the constant and reports the first same-line pair, on that pair\'s line. Keeps the raw/non-raw exemption and the parenthesized-multiline exemption; seven new functional cases. Says OpenAI Codex assisted, no human review claimed. Diff read 12 November: no CI or config files, no risky calls; the only non-ASCII character is an <code>é</code> in a test string. Watch for: the reported line moves from the start of the constant to the offending pair. 12 November CI: all green, codecov 100%, primer no effect (so no moved lines on real code). 14 November: force-pushed 0a859f5ac at 05:44 UTC, a rebase only (same strings.py blob 357dcc561c0 as the reviewed diff); 6 runs held again. 15 November: runs approved, then rebased again at 7ac2dab78 (11:16 UTC), diff identical to the reviewed one; 6 runs held again. 16 November: rebased a third time at f7f9c6f43 (08:15 UTC), diff identical again; 6 runs held again.',
-        'Approve the runs at f7f9c6f43 and merge when green; ask the author to stop rebasing (each push re-holds CI).',
+        'New (12 November), 102 lines by ViktorBystrov72 (first PR) for issue 6444 (false negative, open since 2022): <code>implicit-str-concat</code> only looked at the first pair of literals in a constant, so <code>"first"\\n"second" "third"</code> was never reported. Now walks every adjacent string token pair inside the constant and reports the first same-line pair, on that pair\'s line. Keeps the raw/non-raw exemption and the parenthesized-multiline exemption; seven new functional cases. Says OpenAI Codex assisted, no human review claimed. Diff read 12 November: no CI or config files, no risky calls; the only non-ASCII character is an <code>é</code> in a test string. Watch for: the reported line moves from the start of the constant to the offending pair. 12 November CI: all green, codecov 100%, primer no effect (so no moved lines on real code). 14 November: force-pushed 0a859f5ac at 05:44 UTC, a rebase only (same strings.py blob 357dcc561c0 as the reviewed diff); 6 runs held again. 15 November: runs approved, then rebased again at 7ac2dab78 (11:16 UTC), diff identical to the reviewed one; 6 runs held again. 16 November: rebased a third time at f7f9c6f43 (08:15 UTC), diff identical again; 6 runs held again. 17 November: rebased a fourth time at 5e4f2c0a6 (07:27 UTC), diff identical again; runs held again.',
+        'Approve the runs at 5e4f2c0a6 and merge when green; ask the author to stop rebasing (each push re-holds CI).',
     ),
     11803: (
         'author',
@@ -428,11 +442,11 @@ V = {
     ),
 
     11780: (
-        'review',
-        'ready',
+        'merge',
+        'approved',
         'confirmed',
-        'New, 12 lines by udsy19 (no issue, FP): <code>consider-using-augmented-assign</code> on <code>x = y = x + 1</code>; an augmented assignment takes one target, and <code>x += 1</code> drops the assignment to <code>y</code>. Skips chained assignments (also fixes the order dependence: <code>y = x = x + 1</code> was not flagged). Green.',
-        'Review and merge (small).',
+        'New, 12 lines by udsy19 (no issue, FP): <code>consider-using-augmented-assign</code> on <code>x = y = x + 1</code>; an augmented assignment takes one target, and <code>x += 1</code> drops the assignment to <code>y</code>. Skips chained assignments (also fixes the order dependence: <code>y = x = x + 1</code> was not flagged). Green. 16 November: chrikrah approved (re-ran the tests at f2c7ed3f6), noting the guard stays out of <code>is_augmented_assign</code> so <code>typecheck.py</code> is untouched.',
+        'Merge: small, green, second review by chrikrah.',
     ),
 
     11779: (

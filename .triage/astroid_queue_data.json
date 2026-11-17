@@ -1,5 +1,5 @@
 {
- "snapshot": "2026-11-16",
+ "snapshot": "2026-11-17",
  "prs": [
   {
    "n": 2965,
@@ -844,7 +844,7 @@
    "milestone": "",
    "size": 151,
    "created": "2026-10-01",
-   "updated": "2026-10-18",
+   "updated": "2026-11-16",
    "ci": "failing",
    "cifail": 8,
    "links": [
@@ -1032,7 +1032,7 @@
    "size": 48,
    "created": "2026-10-09",
    "updated": "2026-11-16",
-   "ci": "awaiting-approval",
+   "ci": "green",
    "cifail": 0,
    "links": [
     {
@@ -1146,7 +1146,7 @@
    "size": 156,
    "created": "2026-10-12",
    "updated": "2026-11-16",
-   "ci": "awaiting-approval",
+   "ci": "green",
    "cifail": 0,
    "links": [
     {
@@ -2124,8 +2124,8 @@
    "milestone": "4.4.0",
    "size": 126,
    "created": "2026-11-07",
-   "updated": "2026-11-15",
-   "ci": "awaiting-approval",
+   "updated": "2026-11-16",
+   "ci": "green",
    "cifail": 0,
    "links": [
     {
@@ -2197,8 +2197,8 @@
    "milestone": "4.4.0",
    "size": 170,
    "created": "2026-11-11",
-   "updated": "2026-11-15",
-   "ci": "awaiting-approval",
+   "updated": "2026-11-16",
+   "ci": "green",
    "cifail": 0,
    "links": [
     {
@@ -2247,8 +2247,8 @@
    "milestone": "4.4.0",
    "size": 97,
    "created": "2026-11-15",
-   "updated": "2026-11-15",
-   "ci": "awaiting-approval",
+   "updated": "2026-11-16",
+   "ci": "green",
    "cifail": 0,
    "links": [
     {
@@ -2260,6 +2260,74 @@
       "Needs PR"
      ],
      "reactions": 6,
+     "pr": false
+    }
+   ]
+  },
+  {
+   "n": 3477,
+   "a": "mohsinaliwork686-rgb",
+   "t": "Infer Annotated[X, ...] as X instead of Annotated",
+   "draft": false,
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 97,
+   "created": "2026-11-16",
+   "updated": "2026-11-16",
+   "ci": "awaiting-approval",
+   "cifail": 0,
+   "links": [
+    {
+     "ref": "pylint-dev/pylint#9151",
+     "title": "False positive no-member when calling class method on Annotated type",
+     "state": "open",
+     "labels": [
+      "Bug :beetle:",
+      "typing",
+      "False Positive 🦟"
+     ],
+     "reactions": 1,
+     "pr": false
+    }
+   ]
+  },
+  {
+   "n": 3478,
+   "a": "nafiurahman00",
+   "t": "Don't unpack a list reached through a name in call sites",
+   "draft": false,
+   "labels": [],
+   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "size": 39,
+   "created": "2026-11-16",
+   "updated": "2026-11-16",
+   "ci": "awaiting-approval",
+   "cifail": 0,
+   "links": [
+    {
+     "ref": "pylint-dev/pylint#4546",
+     "title": "False-positive no-value-for-parameter for some unpacked values of list-builtins ",
+     "state": "open",
+     "labels": [
+      "False Positive 🦟",
+      "Needs PR"
+     ],
+     "reactions": 0,
+     "pr": false
+    },
+    {
+     "ref": "pylint-dev/pylint#4554",
+     "title": "False positive no-value-for-parameter when unpacking a modified list",
+     "state": "closed",
+     "labels": [
+      "Help wanted 🙏",
+      "False Positive 🦟",
+      "Hacktoberfest",
+      "Needs PR"
+     ],
+     "reactions": 0,
      "pr": false
     }
    ]

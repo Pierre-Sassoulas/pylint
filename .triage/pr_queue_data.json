@@ -1,7 +1,7 @@
 {
- "snapshot": "2026-11-16",
+ "snapshot": "2026-11-17",
  "owner": "Pierre-Sassoulas",
- "open_total": 186,
+ "open_total": 188,
  "open_own": 25,
  "prs": [
   {
@@ -4479,7 +4479,7 @@
    "size": 12,
    "files": 3,
    "created": "2026-11-03",
-   "updated": "2026-11-05",
+   "updated": "2026-11-16",
    "labels": [
     "False Positive 🦟"
    ],
@@ -4489,7 +4489,7 @@
    "ci": "green",
    "citot": 45,
    "cifail": 0,
-   "nrev": 0,
+   "nrev": 1,
    "mrev": [],
    "links": [],
    "lastcom": [
@@ -4923,7 +4923,7 @@
    "size": 102,
    "files": 6,
    "created": "2026-11-12",
-   "updated": "2026-11-16",
+   "updated": "2026-11-17",
    "labels": [
     "False Negative 🦋"
    ],
@@ -4944,7 +4944,7 @@
    ],
    "lastcom": [
     "github-actions",
-    "2026-11-15"
+    "2026-11-16"
    ]
   },
   {
@@ -4952,10 +4952,10 @@
    "a": "mccalpink",
    "t": "Check TypeAlias/TypeVar in class bodies against their own naming styles",
    "draft": false,
-   "size": 51,
+   "size": 55,
    "files": 5,
    "created": "2026-11-12",
-   "updated": "2026-11-13",
+   "updated": "2026-11-16",
    "labels": [
     "False Positive 🦟",
     "C: invalid-name"
@@ -4963,10 +4963,10 @@
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "green",
-   "citot": 46,
+   "ci": "awaiting-approval",
+   "citot": 2,
    "cifail": 0,
-   "nrev": 0,
+   "nrev": 1,
    "mrev": [],
    "links": [
     [
@@ -4976,8 +4976,8 @@
     ]
    ],
    "lastcom": [
-    "github-actions",
-    "2026-11-13"
+    "mccalpink",
+    "2026-11-16"
    ]
   },
   {
@@ -5179,12 +5179,14 @@
    "files": 4,
    "created": "2026-11-16",
    "updated": "2026-11-16",
-   "labels": [],
+   "labels": [
+    "Documentation :green_book:"
+   ],
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
    "ci": "green",
-   "citot": 25,
+   "citot": 27,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -5192,6 +5194,66 @@
    "lastcom": [
     "codecov",
     "2026-11-16"
+   ]
+  },
+  {
+   "n": 11834,
+   "a": "MohamedIlzam",
+   "t": "Add --all-derived option to Pyreverse class diagrams",
+   "draft": false,
+   "size": 490,
+   "files": 9,
+   "created": "2026-11-16",
+   "updated": "2026-11-16",
+   "labels": [],
+   "milestone": "",
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "awaiting-approval",
+   "citot": 3,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [
+    [
+     7361,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "-",
+    "-"
+   ]
+  },
+  {
+   "n": 11835,
+   "a": "unaltolga",
+   "t": "Don't emit super-with-arguments in a slots dataclass before Python 3.14",
+   "draft": false,
+   "size": 99,
+   "files": 8,
+   "created": "2026-11-16",
+   "updated": "2026-11-16",
+   "labels": [],
+   "milestone": "",
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "awaiting-approval",
+   "citot": 3,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [
+    [
+     5823,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "-",
+    "-"
    ]
   }
  ],
@@ -5574,6 +5636,19 @@
   {
    "comments": 0,
    "labels": [
+    "False Positive 🦟",
+    "python 3.10",
+    "dataclasses"
+   ],
+   "number": 5823,
+   "reactions": 2,
+   "state": "open",
+   "state_reason": null,
+   "title": "super-with-arguments should not be shown for dataclasses with slots"
+  },
+  {
+   "comments": 0,
+   "labels": [
     "Astroid",
     "Control flow",
     "inference",
@@ -5676,6 +5751,21 @@
    "state": "open",
    "state_reason": null,
    "title": "False positive C2801 (unnecessary-dunder-call) with unittest.mock.call"
+  },
+  {
+   "comments": 4,
+   "labels": [
+    "Enhancement ✨",
+    "Help wanted 🙏",
+    "pyreverse",
+    "Hacktoberfest",
+    "Needs PR"
+   ],
+   "number": 7361,
+   "reactions": 0,
+   "state": "open",
+   "state_reason": null,
+   "title": "Pyreverse not showing sub-classes with -c flag"
   },
   {
    "comments": 2,

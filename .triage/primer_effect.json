@@ -18578,26 +18578,13 @@
   "commit": "0426ce904"
  },
  "11808": {
-  "date": "2026-11-15",
+  "date": "2026-11-16",
   "added": 0,
-  "removed": 1,
+  "removed": 0,
   "changed": 0,
-  "projects": {
-   "astropy": {
-    "added": 0,
-    "removed": 1,
-    "changed": 0
-   }
-  },
-  "items": [
-   [
-    "astropy",
-    "removed",
-    "no-member",
-    "*Instance of 'ndarray' has no 'mask' member*"
-   ]
-  ],
-  "commit": "7ac2dab78"
+  "projects": {},
+  "items": [],
+  "commit": "f7f9c6f43"
  },
  "11811": {
   "date": "2026-11-13",
