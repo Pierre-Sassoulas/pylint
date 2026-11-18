@@ -14993,63 +14993,6 @@
   "items": [],
   "commit": "7bf824188"
  },
- "11682": {
-  "date": "2026-10-27",
-  "added": 5,
-  "removed": 0,
-  "changed": 1,
-  "projects": {
-   "django": {
-    "added": 5,
-    "removed": 0,
-    "changed": 0
-   },
-   "pandas": {
-    "added": 0,
-    "removed": 0,
-    "changed": 1
-   }
-  },
-  "items": [
-   [
-    "django",
-    "added",
-    "invalid-name",
-    "*Attribute name \"MIGRATION_MODULES\" doesn't conform to snake_case naming style*"
-   ],
-   [
-    "django",
-    "added",
-    "invalid-name",
-    "*Attribute name \"ALLOWED_HOSTS\" doesn't conform to snake_case naming style*"
-   ],
-   [
-    "django",
-    "added",
-    "invalid-name",
-    "*Attribute name \"DEBUG\" doesn't conform to snake_case naming style*"
-   ],
-   [
-    "django",
-    "added",
-    "invalid-name",
-    "*Attribute name \"MAILERS\" doesn't conform to snake_case naming style*"
-   ],
-   [
-    "django",
-    "added",
-    "invalid-name",
-    "*Attribute name \"EMAIL_BACKEND\" doesn't conform to snake_case naming style*"
-   ],
-   [
-    "pandas",
-    "changed",
-    "redefined-variable-type",
-    "Moved from `505:16`-`505:47` to `507:16`-`507:43`."
-   ]
-  ],
-  "commit": "0b7e2ef31"
- },
  "11683": {
   "date": "2026-10-18",
   "added": 1,
@@ -16731,13 +16674,26 @@
   "commit": "52fa61a6f"
  },
  "11690": {
-  "date": "2026-10-18",
-  "added": 0,
+  "date": "2026-11-18",
+  "added": 1,
   "removed": 0,
   "changed": 0,
-  "projects": {},
-  "items": [],
-  "commit": "dc2f111fa"
+  "projects": {
+   "astropy": {
+    "added": 1,
+    "removed": 0,
+    "changed": 0
+   }
+  },
+  "items": [
+   [
+    "astropy",
+    "added",
+    "no-member",
+    "*Instance of 'ndarray' has no 'mask' member*"
+   ]
+  ],
+  "commit": "4b4bb4950"
  },
  "11694": {
   "date": "2026-10-19",
@@ -17214,115 +17170,6 @@
   "items": [],
   "commit": "30341a070"
  },
- "11746": {
-  "date": "2026-11-08",
-  "added": 6,
-  "removed": 3,
-  "changed": 4,
-  "projects": {
-   "ansible": {
-    "added": 0,
-    "removed": 0,
-    "changed": 0
-   },
-   "astropy": {
-    "added": 0,
-    "removed": 2,
-    "changed": 4
-   },
-   "django": {
-    "added": 5,
-    "removed": 0,
-    "changed": 0
-   },
-   "music21": {
-    "added": 1,
-    "removed": 1,
-    "changed": 0
-   }
-  },
-  "items": [
-   [
-    "astropy",
-    "changed",
-    "too-many-ancestors",
-    "message: `Too many ancestors (22/7)` → `Too many ancestors (23/7)`"
-   ],
-   [
-    "astropy",
-    "changed",
-    "too-many-ancestors",
-    "message: `Too many ancestors (27/7)` → `Too many ancestors (28/7)`"
-   ],
-   [
-    "astropy",
-    "changed",
-    "too-many-ancestors",
-    "message: `Too many ancestors (23/7)` → `Too many ancestors (22/7)`"
-   ],
-   [
-    "astropy",
-    "changed",
-    "too-many-ancestors",
-    "message: `Too many ancestors (28/7)` → `Too many ancestors (27/7)`"
-   ],
-   [
-    "astropy",
-    "removed",
-    "attribute-defined-outside-init",
-    "*Attribute 'lineno' defined outside __init__*"
-   ],
-   [
-    "astropy",
-    "removed",
-    "attribute-defined-outside-init",
-    "*Attribute 'lexpos' defined outside __init__*"
-   ],
-   [
-    "django",
-    "added",
-    "invalid-name",
-    "*Attribute name \"MIGRATION_MODULES\" doesn't conform to snake_case naming style*"
-   ],
-   [
-    "django",
-    "added",
-    "invalid-name",
-    "*Attribute name \"ALLOWED_HOSTS\" doesn't conform to snake_case naming style*"
-   ],
-   [
-    "django",
-    "added",
-    "invalid-name",
-    "*Attribute name \"DEBUG\" doesn't conform to snake_case naming style*"
-   ],
-   [
-    "django",
-    "added",
-    "invalid-name",
-    "*Attribute name \"MAILERS\" doesn't conform to snake_case naming style*"
-   ],
-   [
-    "django",
-    "added",
-    "invalid-name",
-    "*Attribute name \"EMAIL_BACKEND\" doesn't conform to snake_case naming style*"
-   ],
-   [
-    "music21",
-    "added",
-    "invalid-name",
-    "*Attribute name \"id\" doesn't conform to '[a-z_][A-Za-z0-9_]{2,30}$' pattern*"
-   ],
-   [
-    "music21",
-    "removed",
-    "invalid-name",
-    "*Attribute name \"id\" doesn't conform to '[a-z_][A-Za-z0-9_]{2,30}$' pattern*"
-   ]
-  ],
-  "commit": "c7206cc28"
- },
  "11751": {
   "date": "2026-10-28",
   "added": 6,
@@ -17674,110 +17521,6 @@
    ]
   ],
   "commit": "f7fb8ce51"
- },
- "11764": {
-  "date": "2026-11-08",
-  "added": 6,
-  "removed": 3,
-  "changed": 4,
-  "projects": {
-   "astropy": {
-    "added": 0,
-    "removed": 2,
-    "changed": 4
-   },
-   "django": {
-    "added": 5,
-    "removed": 0,
-    "changed": 0
-   },
-   "music21": {
-    "added": 1,
-    "removed": 1,
-    "changed": 0
-   }
-  },
-  "items": [
-   [
-    "astropy",
-    "changed",
-    "too-many-ancestors",
-    "message: `Too many ancestors (22/7)` → `Too many ancestors (23/7)`"
-   ],
-   [
-    "astropy",
-    "changed",
-    "too-many-ancestors",
-    "message: `Too many ancestors (27/7)` → `Too many ancestors (28/7)`"
-   ],
-   [
-    "astropy",
-    "changed",
-    "too-many-ancestors",
-    "message: `Too many ancestors (23/7)` → `Too many ancestors (22/7)`"
-   ],
-   [
-    "astropy",
-    "changed",
-    "too-many-ancestors",
-    "message: `Too many ancestors (28/7)` → `Too many ancestors (27/7)`"
-   ],
-   [
-    "astropy",
-    "removed",
-    "attribute-defined-outside-init",
-    "*Attribute 'lineno' defined outside __init__*"
-   ],
-   [
-    "astropy",
-    "removed",
-    "attribute-defined-outside-init",
-    "*Attribute 'lexpos' defined outside __init__*"
-   ],
-   [
-    "django",
-    "added",
-    "invalid-name",
-    "*Attribute name \"MIGRATION_MODULES\" doesn't conform to snake_case naming style*"
-   ],
-   [
-    "django",
-    "added",
-    "invalid-name",
-    "*Attribute name \"ALLOWED_HOSTS\" doesn't conform to snake_case naming style*"
-   ],
-   [
-    "django",
-    "added",
-    "invalid-name",
-    "*Attribute name \"DEBUG\" doesn't conform to snake_case naming style*"
-   ],
-   [
-    "django",
-    "added",
-    "invalid-name",
-    "*Attribute name \"MAILERS\" doesn't conform to snake_case naming style*"
-   ],
-   [
-    "django",
-    "added",
-    "invalid-name",
-    "*Attribute name \"EMAIL_BACKEND\" doesn't conform to snake_case naming style*"
-   ],
-   [
-    "music21",
-    "added",
-    "invalid-name",
-    "*Attribute name \"id\" doesn't conform to '[a-z_][A-Za-z0-9_]{2,30}$' pattern*"
-   ],
-   [
-    "music21",
-    "removed",
-    "invalid-name",
-    "*Attribute name \"id\" doesn't conform to '[a-z_][A-Za-z0-9_]{2,30}$' pattern*"
-   ]
-  ],
-  "commit": "729831091"
  },
  "11766": {
   "date": "2026-11-08",
@@ -18273,108 +18016,6 @@
   "items": [],
   "commit": "04e22ddc9"
  },
- "11780": {
-  "date": "2026-11-03",
-  "added": 0,
-  "removed": 1,
-  "changed": 0,
-  "projects": {
-   "music21": {
-    "added": 0,
-    "removed": 1,
-    "changed": 0
-   }
-  },
-  "items": [
-   [
-    "music21",
-    "removed",
-    "consider-using-augmented-assign",
-    "*Use '+=' to do an augmented assign directly*"
-   ]
-  ],
-  "commit": "f2c7ed3f6"
- },
- "11782": {
-  "date": "2026-11-08",
-  "added": 9,
-  "removed": 0,
-  "changed": 0,
-  "projects": {
-   "ansible": {
-    "added": 2,
-    "removed": 0,
-    "changed": 0
-   },
-   "astropy": {
-    "added": 1,
-    "removed": 0,
-    "changed": 0
-   },
-   "django": {
-    "added": 6,
-    "removed": 0,
-    "changed": 0
-   }
-  },
-  "items": [
-   [
-    "ansible",
-    "added",
-    "no-member",
-    "*Module 'ansible.constants' has no 'YAML_FILENAME_EXTENSIONS' member*"
-   ],
-   [
-    "ansible",
-    "added",
-    "no-member",
-    "*Module 'ansible.constants' has no 'YAML_FILENAME_EXTENSIONS' member*"
-   ],
-   [
-    "astropy",
-    "added",
-    "no-member",
-    "*Module 'astropy.units' has no 'adu' member*"
-   ],
-   [
-    "django",
-    "added",
-    "no-member",
-    "*Instance of 'Style' has no 'WARNING' member*"
-   ],
-   [
-    "django",
-    "added",
-    "no-member",
-    "*Instance of 'Style' has no 'MIGRATE_HEADING' member*"
-   ],
-   [
-    "django",
-    "added",
-    "no-member",
-    "*Instance of 'Style' has no 'WARNING' member*"
-   ],
-   [
-    "django",
-    "added",
-    "no-member",
-    "*Instance of 'Style' has no 'MIGRATE_HEADING' member*"
-   ],
-   [
-    "django",
-    "added",
-    "no-member",
-    "*Instance of 'Style' has no 'WARNING' member*"
-   ],
-   [
-    "django",
-    "added",
-    "no-member",
-    "*Instance of 'Style' has no 'WARNING' member*"
-   ]
-  ],
-  "commit": "d5a269620"
- },
  "11784": {
   "date": "2026-11-10",
   "added": 0,
@@ -18537,15 +18178,6 @@
   ],
   "commit": "dfc0f42e4"
  },
- "11804": {
-  "date": "2026-11-16",
-  "added": 0,
-  "removed": 0,
-  "changed": 0,
-  "projects": {},
-  "items": [],
-  "commit": "92b337879"
- },
  "11805": {
   "date": "2026-11-10",
   "added": 0,
@@ -18576,37 +18208,6 @@
   "projects": {},
   "items": [],
   "commit": "0426ce904"
- },
- "11808": {
-  "date": "2026-11-17",
-  "added": 0,
-  "removed": 0,
-  "changed": 1,
-  "projects": {
-   "pandas": {
-    "added": 0,
-    "removed": 0,
-    "changed": 1
-   }
-  },
-  "items": [
-   [
-    "pandas",
-    "changed",
-    "redefined-variable-type",
-    "Moved from `505:16`-`505:47` to `507:16`-`507:43`."
-   ]
-  ],
-  "commit": "5e4f2c0a6"
- },
- "11811": {
-  "date": "2026-11-17",
-  "added": 0,
-  "removed": 0,
-  "changed": 0,
-  "projects": {},
-  "items": [],
-  "commit": "fbc4da835"
  },
  "11813": {
   "date": "2026-11-15",
@@ -18902,15 +18503,6 @@
   ],
   "commit": "ab8b9a957"
  },
- "11831": {
-  "date": "2026-11-15",
-  "added": 0,
-  "removed": 0,
-  "changed": 0,
-  "projects": {},
-  "items": [],
-  "commit": "e467a1527"
- },
  "11832": {
   "date": "2026-11-16",
   "added": 0,
@@ -18928,5 +18520,127 @@
   "projects": {},
   "items": [],
   "commit": "c35eb6c29"
+ },
+ "11838": {
+  "date": "2026-11-17",
+  "added": 5,
+  "removed": 0,
+  "changed": 1,
+  "projects": {
+   "ansible": {
+    "added": 2,
+    "removed": 0,
+    "changed": 0
+   },
+   "music21": {
+    "added": 3,
+    "removed": 0,
+    "changed": 0
+   },
+   "pandas": {
+    "added": 0,
+    "removed": 0,
+    "changed": 1
+   }
+  },
+  "items": [
+   [
+    "ansible",
+    "added",
+    "modified-iterating-list",
+    "*Iterated list 'meta_path' is being modified inside for loop body, consider iterating through a copy of it instead.*"
+   ],
+   [
+    "ansible",
+    "added",
+    "modified-iterating-list",
+    "*Iterated list 'path_hooks' is being modified inside for loop body, consider iterating through a copy of it instead.*"
+   ],
+   [
+    "music21",
+    "added",
+    "modified-iterating-list",
+    "*Iterated list '_notes' is being modified inside for loop body, consider iterating through a copy of it instead.*"
+   ],
+   [
+    "music21",
+    "added",
+    "modified-iterating-list",
+    "*Iterated list '_notes' is being modified inside for loop body, consider iterating through a copy of it instead.*"
+   ],
+   [
+    "music21",
+    "added",
+    "modified-iterating-list",
+    "*Iterated list 'spines' is being modified inside for loop body, consider iterating through a copy of it instead.*"
+   ],
+   [
+    "pandas",
+    "changed",
+    "redefined-variable-type",
+    "Moved from `505:16`-`505:47` to `507:16`-`507:43`."
+   ]
+  ],
+  "commit": "53d7191a6"
+ },
+ "11840": {
+  "date": "2026-11-17",
+  "added": 0,
+  "removed": 0,
+  "changed": 0,
+  "projects": {},
+  "items": [],
+  "commit": "ebda6bef8"
+ },
+ "11841": {
+  "date": "2026-11-17",
+  "added": 2,
+  "removed": 0,
+  "changed": 0,
+  "projects": {
+   "django": {
+    "added": 1,
+    "removed": 0,
+    "changed": 0
+   },
+   "home-assistant": {
+    "added": 1,
+    "removed": 0,
+    "changed": 0
+   }
+  },
+  "items": [
+   [
+    "django",
+    "added",
+    "used-before-assignment",
+    "*Using variable 'path' before assignment*"
+   ],
+   [
+    "home-assistant",
+    "added",
+    "possibly-used-before-assignment",
+    "*Possibly using variable 'new_schema_status' before assignment*"
+   ]
+  ],
+  "commit": "e0ff75134"
+ },
+ "11842": {
+  "date": "2026-11-17",
+  "added": 0,
+  "removed": 0,
+  "changed": 0,
+  "projects": {},
+  "items": [],
+  "commit": "52224ce9c"
+ },
+ "11846": {
+  "date": "2026-11-18",
+  "added": 0,
+  "removed": 0,
+  "changed": 0,
+  "projects": {},
+  "items": [],
+  "commit": "4ec2af8ab"
  }
 }

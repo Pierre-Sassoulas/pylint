@@ -1,5 +1,5 @@
 {
- "snapshot": "2026-11-17",
+ "snapshot": "2026-11-18",
  "prs": [
   {
    "n": 2965,
@@ -1425,7 +1425,7 @@
    "size": 45,
    "created": "2026-10-19",
    "updated": "2026-10-23",
-   "ci": "awaiting-approval",
+   "ci": "green",
    "cifail": 0,
    "links": [
     {
@@ -2032,24 +2032,6 @@
    ]
   },
   {
-   "n": 3461,
-   "a": "mmporong",
-   "t": "Apply !s, !r and !a conversions when inferring f-strings",
-   "draft": false,
-   "labels": [
-    "Bug 🪳",
-    "inference"
-   ],
-   "rd": "REVIEW_REQUIRED",
-   "milestone": "4.4.0",
-   "size": 72,
-   "created": "2026-11-03",
-   "updated": "2026-11-15",
-   "ci": "green",
-   "cifail": 0,
-   "links": []
-  },
-  {
    "n": 3462,
    "a": "PDGGK",
    "t": "Infer ``cls`` as Uninferable in a classmethod defined outside a class",
@@ -2110,37 +2092,6 @@
    "ci": "green",
    "cifail": 0,
    "links": []
-  },
-  {
-   "n": 3466,
-   "a": "RClaudiuM",
-   "t": "Treat names imported in an enum class body as members",
-   "draft": false,
-   "labels": [
-    "Bug 🪳",
-    "Brain 🧠"
-   ],
-   "rd": "REVIEW_REQUIRED",
-   "milestone": "4.4.0",
-   "size": 126,
-   "created": "2026-11-07",
-   "updated": "2026-11-16",
-   "ci": "green",
-   "cifail": 0,
-   "links": [
-    {
-     "ref": "pylint-dev/pylint#10951",
-     "title": "pylint does not recognise `from ... import` inside an `IntEnum` class body as producing enum members. It infers the members as `int` instead of `LogLevel`, causing a spurious `E1101: Instance of 'int' has no 'value' member (no-member)` error.",
-     "state": "open",
-     "labels": [
-      "Astroid",
-      "False Positive 🦟",
-      "enum"
-     ],
-     "reactions": 1,
-     "pr": false
-    }
-   ]
   },
   {
    "n": 3468,
@@ -2343,13 +2294,16 @@
    "a": "cleoanka",
    "t": "Unpack starred arguments in builtin inference",
    "draft": false,
-   "labels": [],
+   "labels": [
+    "Bug 🪳",
+    "Brain 🧠"
+   ],
    "rd": "REVIEW_REQUIRED",
    "milestone": "",
    "size": 140,
    "created": "2026-11-17",
    "updated": "2026-11-17",
-   "ci": "awaiting-approval",
+   "ci": "green",
    "cifail": 0,
    "links": []
   }

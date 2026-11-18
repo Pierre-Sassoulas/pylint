@@ -1,7 +1,7 @@
 {
- "snapshot": "2026-11-17",
+ "snapshot": "2026-11-18",
  "owner": "Pierre-Sassoulas",
- "open_total": 193,
+ "open_total": 187,
  "open_own": 25,
  "prs": [
   {
@@ -2985,7 +2985,7 @@
    ],
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "CONFLICTING",
    "ci": "failing",
    "citot": 43,
    "cifail": 1,
@@ -3001,41 +3001,6 @@
    "lastcom": [
     "github-actions",
     "2026-11-02"
-   ]
-  },
-  {
-   "n": 11682,
-   "a": "soodoku",
-   "t": "Keep ``#`` inside strings when duplicate-code ignores comments",
-   "draft": false,
-   "size": 72,
-   "files": 3,
-   "created": "2026-10-18",
-   "updated": "2026-11-02",
-   "labels": [
-    "Bug :beetle:",
-    "duplicate-code"
-   ],
-   "milestone": "4.2.1",
-   "rd": "CHANGES_REQUESTED",
-   "merge": "MERGEABLE",
-   "ci": "green",
-   "citot": 43,
-   "cifail": 0,
-   "nrev": 1,
-   "mrev": [
-    "Pierre-Sassoulas"
-   ],
-   "links": [
-    [
-     11681,
-     "",
-     ""
-    ]
-   ],
-   "lastcom": [
-    "soodoku",
-    "2026-10-27"
    ]
   },
   {
@@ -3084,8 +3049,8 @@
    ],
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
-   "ci": "awaiting-approval",
+   "merge": "CONFLICTING",
+   "ci": "not-run",
    "citot": 4,
    "cifail": 0,
    "nrev": 0,
@@ -3107,24 +3072,26 @@
    "a": "agustin18",
    "t": "Fix false positive unbalanced-dict-unpacking for dicts defined in another scope (#9986)",
    "draft": false,
-   "size": 24,
-   "files": 3,
+   "size": 84,
+   "files": 5,
    "created": "2026-10-18",
-   "updated": "2026-11-02",
+   "updated": "2026-11-18",
    "labels": [
     "Control flow",
     "Regression",
     "False Positive 🦟",
     "backport maintenance/4.1.x"
    ],
-   "milestone": "4.2.1",
-   "rd": "REVIEW_REQUIRED",
+   "milestone": "",
+   "rd": "CHANGES_REQUESTED",
    "merge": "MERGEABLE",
-   "ci": "green",
-   "citot": 51,
-   "cifail": 0,
-   "nrev": 0,
-   "mrev": [],
+   "ci": "failing",
+   "citot": 37,
+   "cifail": 7,
+   "nrev": 1,
+   "mrev": [
+    "Pierre-Sassoulas"
+   ],
    "links": [
     [
      9986,
@@ -3134,7 +3101,7 @@
    ],
    "lastcom": [
     "github-actions",
-    "2026-10-18"
+    "2026-11-18"
    ]
   },
   {
@@ -3153,7 +3120,7 @@
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "awaiting-approval",
+   "ci": "not-run",
    "citot": 5,
    "cifail": 0,
    "nrev": 0,
@@ -3187,7 +3154,7 @@
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "awaiting-approval",
+   "ci": "not-run",
    "citot": 5,
    "cifail": 0,
    "nrev": 0,
@@ -3879,38 +3846,6 @@
    ]
   },
   {
-   "n": 11746,
-   "a": "InnoxCodes",
-   "t": "Fix unused-import for names used in a union inside a string annotation",
-   "draft": false,
-   "size": 15,
-   "files": 3,
-   "created": "2026-10-27",
-   "updated": "2026-11-08",
-   "labels": [
-    "False Positive 🦟"
-   ],
-   "milestone": "",
-   "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
-   "ci": "green",
-   "citot": 46,
-   "cifail": 0,
-   "nrev": 1,
-   "mrev": [],
-   "links": [
-    [
-     8831,
-     "",
-     ""
-    ]
-   ],
-   "lastcom": [
-    "github-actions",
-    "2026-11-08"
-   ]
-  },
-  {
    "n": 11747,
    "a": "InnoxCodes",
    "t": "Resolve class decorators in the scope enclosing the class",
@@ -4150,38 +4085,6 @@
    "lastcom": [
     "-",
     "-"
-   ]
-  },
-  {
-   "n": 11764,
-   "a": "YashG1836",
-   "t": "Fix deprecated-class losing classes of modules listed for several versions",
-   "draft": false,
-   "size": 36,
-   "files": 5,
-   "created": "2026-10-30",
-   "updated": "2026-11-15",
-   "labels": [
-    "False Negative 🦋"
-   ],
-   "milestone": "4.2.0",
-   "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
-   "ci": "green",
-   "citot": 46,
-   "cifail": 0,
-   "nrev": 1,
-   "mrev": [],
-   "links": [
-    [
-     11763,
-     "",
-     ""
-    ]
-   ],
-   "lastcom": [
-    "github-actions",
-    "2026-11-08"
    ]
   },
   {
@@ -4468,58 +4371,6 @@
    ],
    "lastcom": [
     "codecov",
-    "2026-11-08"
-   ]
-  },
-  {
-   "n": 11780,
-   "a": "udsy19",
-   "t": "Fix consider-using-augmented-assign false positive on chained assignments",
-   "draft": false,
-   "size": 12,
-   "files": 3,
-   "created": "2026-11-03",
-   "updated": "2026-11-16",
-   "labels": [
-    "False Positive 🦟"
-   ],
-   "milestone": "",
-   "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
-   "ci": "green",
-   "citot": 45,
-   "cifail": 0,
-   "nrev": 1,
-   "mrev": [],
-   "links": [],
-   "lastcom": [
-    "github-actions",
-    "2026-11-03"
-   ]
-  },
-  {
-   "n": 11782,
-   "a": "unaltolga",
-   "t": "Report no-member behind an if whose test can be false or true",
-   "draft": false,
-   "size": 30,
-   "files": 4,
-   "created": "2026-11-05",
-   "updated": "2026-11-15",
-   "labels": [
-    "False Negative 🦋"
-   ],
-   "milestone": "4.2.0",
-   "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
-   "ci": "green",
-   "citot": 43,
-   "cifail": 0,
-   "nrev": 2,
-   "mrev": [],
-   "links": [],
-   "lastcom": [
-    "github-actions",
     "2026-11-08"
    ]
   },
@@ -4833,34 +4684,6 @@
    ]
   },
   {
-   "n": 11804,
-   "a": "marksmayo",
-   "t": "Put cheap checks before expensive ones in four checks",
-   "draft": false,
-   "size": 69,
-   "files": 6,
-   "created": "2026-11-10",
-   "updated": "2026-11-16",
-   "labels": [
-    "performance"
-   ],
-   "milestone": "4.2.0",
-   "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
-   "ci": "green",
-   "citot": 43,
-   "cifail": 0,
-   "nrev": 2,
-   "mrev": [
-    "Pierre-Sassoulas"
-   ],
-   "links": [],
-   "lastcom": [
-    "github-actions",
-    "2026-11-16"
-   ]
-  },
-  {
    "n": 11805,
    "a": "marksmayo",
    "t": "Only treat a nested break as permissive in if-node inference",
@@ -4913,71 +4736,6 @@
    "lastcom": [
     "github-actions",
     "2026-11-12"
-   ]
-  },
-  {
-   "n": 11808,
-   "a": "ViktorBystrov72",
-   "t": "Fix implicit string concatenation detection on later lines",
-   "draft": false,
-   "size": 102,
-   "files": 6,
-   "created": "2026-11-12",
-   "updated": "2026-11-17",
-   "labels": [
-    "False Negative 🦋"
-   ],
-   "milestone": "4.2.0",
-   "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
-   "ci": "green",
-   "citot": 43,
-   "cifail": 0,
-   "nrev": 0,
-   "mrev": [],
-   "links": [
-    [
-     6444,
-     "",
-     ""
-    ]
-   ],
-   "lastcom": [
-    "github-actions",
-    "2026-11-17"
-   ]
-  },
-  {
-   "n": 11811,
-   "a": "mccalpink",
-   "t": "Check TypeAlias/TypeVar in class bodies against their own naming styles",
-   "draft": false,
-   "size": 55,
-   "files": 5,
-   "created": "2026-11-12",
-   "updated": "2026-11-17",
-   "labels": [
-    "False Positive 🦟",
-    "C: invalid-name"
-   ],
-   "milestone": "",
-   "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
-   "ci": "green",
-   "citot": 39,
-   "cifail": 0,
-   "nrev": 1,
-   "mrev": [],
-   "links": [
-    [
-     11809,
-     "",
-     ""
-    ]
-   ],
-   "lastcom": [
-    "github-actions",
-    "2026-11-17"
    ]
   },
   {
@@ -5271,12 +5029,14 @@
    "files": 4,
    "created": "2026-11-17",
    "updated": "2026-11-17",
-   "labels": [],
+   "labels": [
+    "False Negative 🦋"
+   ],
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "awaiting-approval",
-   "citot": 3,
+   "ci": "green",
+   "citot": 46,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -5288,8 +5048,8 @@
     ]
    ],
    "lastcom": [
-    "-",
-    "-"
+    "github-actions",
+    "2026-11-17"
    ]
   },
   {
@@ -5301,12 +5061,15 @@
    "files": 10,
    "created": "2026-11-17",
    "updated": "2026-11-17",
-   "labels": [],
+   "labels": [
+    "Enhancement ✨",
+    "Checkers"
+   ],
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
    "ci": "awaiting-approval",
-   "citot": 3,
+   "citot": 5,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -5331,12 +5094,16 @@
    "files": 4,
    "created": "2026-11-17",
    "updated": "2026-11-17",
-   "labels": [],
+   "labels": [
+    "typing",
+    "False Positive 🦟",
+    "C: arguments-differ"
+   ],
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "awaiting-approval",
-   "citot": 3,
+   "ci": "green",
+   "citot": 50,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -5348,8 +5115,8 @@
     ]
    ],
    "lastcom": [
-    "-",
-    "-"
+    "github-actions",
+    "2026-11-17"
    ]
   },
   {
@@ -5361,12 +5128,15 @@
    "files": 6,
    "created": "2026-11-17",
    "updated": "2026-11-17",
-   "labels": [],
+   "labels": [
+    "False Negative 🦋",
+    "C: used-before-assignment"
+   ],
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "awaiting-approval",
-   "citot": 3,
+   "ci": "green",
+   "citot": 32,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -5378,8 +5148,8 @@
     ]
    ],
    "lastcom": [
-    "-",
-    "-"
+    "github-actions",
+    "2026-11-17"
    ]
   },
   {
@@ -5391,16 +5161,73 @@
    "files": 7,
    "created": "2026-11-17",
    "updated": "2026-11-17",
+   "labels": [
+    "False Negative 🦋",
+    "dataclasses"
+   ],
+   "milestone": "",
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "green",
+   "citot": 48,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [],
+   "lastcom": [
+    "github-actions",
+    "2026-11-17"
+   ]
+  },
+  {
+   "n": 11844,
+   "a": "farisbasha",
+   "t": "[doc] Fix dead warnings.py link in the transform plugins guide",
+   "draft": false,
+   "size": 2,
+   "files": 1,
+   "created": "2026-11-17",
+   "updated": "2026-11-17",
    "labels": [],
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "awaiting-approval",
+   "ci": "running",
    "citot": 3,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
    "links": [],
+   "lastcom": [
+    "-",
+    "-"
+   ]
+  },
+  {
+   "n": 11845,
+   "a": "mmporong",
+   "t": "Fix missing-type-doc false positive with positional-only parameters",
+   "draft": false,
+   "size": 108,
+   "files": 4,
+   "created": "2026-11-18",
+   "updated": "2026-11-18",
+   "labels": [],
+   "milestone": "",
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "running",
+   "citot": 3,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [
+    [
+     11843,
+     "",
+     ""
+    ]
+   ],
    "lastcom": [
     "-",
     "-"
@@ -5868,19 +5695,6 @@
   {
    "comments": 0,
    "labels": [
-    "High effort 🏋",
-    "False Negative 🦋",
-    "Needs PR"
-   ],
-   "number": 6444,
-   "reactions": 0,
-   "state": "open",
-   "state_reason": null,
-   "title": "False negative for ``implicit-str-concat`` when it happens on a single line inside a multiline string with ``check-str-concat-over-line-jumps=no``"
-  },
-  {
-   "comments": 0,
-   "labels": [
     "False Negative 🦋",
     "Needs PR"
    ],
@@ -6269,18 +6083,6 @@
    "state": "closed",
    "state_reason": "completed",
    "title": "Recursive defining a function with classmethod decorator triggers crashing"
-  },
-  {
-   "comments": 6,
-   "labels": [
-    "False Positive 🦟",
-    "Needs PR"
-   ],
-   "number": 8831,
-   "reactions": 0,
-   "state": "open",
-   "state_reason": null,
-   "title": "unused-import false positive when using type union in annotations"
   },
   {
    "comments": 1,
@@ -7256,18 +7058,6 @@
    "title": "Option for duplicate-code to match blocks that differ only in local variable names"
   },
   {
-   "comments": 2,
-   "labels": [
-    "Bug :beetle:",
-    "duplicate-code"
-   ],
-   "number": 11681,
-   "reactions": 0,
-   "state": "open",
-   "state_reason": null,
-   "title": "duplicate-code's ignore-comments truncates strings that contain #"
-  },
-  {
    "comments": 0,
    "labels": [
     "Enhancement ✨"
@@ -7331,17 +7121,6 @@
    "labels": [
     "False Negative 🦋"
    ],
-   "number": 11763,
-   "reactions": 0,
-   "state": "open",
-   "state_reason": null,
-   "title": "deprecated-class misses classes when a module is listed for more than one Python version"
-  },
-  {
-   "comments": 0,
-   "labels": [
-    "False Negative 🦋"
-   ],
    "number": 11765,
    "reactions": 0,
    "state": "open",
@@ -7384,16 +7163,17 @@
    "title": "Option max-statements counts statements as one too many."
   },
   {
-   "comments": 1,
+   "comments": 0,
    "labels": [
+    "Bug :beetle:",
     "False Positive 🦟",
-    "C: invalid-name"
+    "Optional Checkers"
    ],
-   "number": 11809,
+   "number": 11843,
    "reactions": 0,
    "state": "open",
    "state_reason": null,
-   "title": "TypeAlias defined in class scope doesn't respect the typealias naming style"
+   "title": "Wrong error hint and false-positive of W9016 `missing-type-doc` (docparams checker) related to positional-only parameters"
   }
  ]
 }
