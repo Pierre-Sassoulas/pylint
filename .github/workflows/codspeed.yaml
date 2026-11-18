@@ -58,6 +58,10 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install --requirement requirements_test_min.txt
+      # CodSpeed compares with a run on another runner: when every walltime
+      # benchmark moved at once, compare the CPU of both runs.
+      - name: Show the CPU of the runner
+        run: lscpu
       - name: Run benchmarks
         uses: CodSpeedHQ/action@af75f77f17a054769abefaa42fe8dc2975469b5f # v5.6.3
         with:

@@ -10,15 +10,22 @@ the runner, and it records a call graph to show which function got slower.
 
 Simulation cannot see work done in other processes: benchmarks using
 ``--jobs`` or a new interpreter are marked ``wall_clock`` and measured in
-``walltime`` mode instead. Wall time on a shared runner is noisier: raise a
-benchmark's threshold on the CodSpeed dashboard if it reports false
-regressions.
+``walltime`` mode instead. Wall time depends on the machine: a runner with a
+slower CPU makes every benchmark slower at once. Two kinds of benchmark make
+that visible in the report:
+
+- each benchmark with workers has a ``--jobs=1`` twin measured in the same run,
+  on the same machine, so the two can be compared even when the machine
+  changed;
+- ``test_bench_calibration`` runs no pylint code: when it got slower too, the
+  machine changed, not pylint.
 """
 
 from __future__ import annotations
 
 import subprocess
 import sys
+import tokenize
 from typing import TYPE_CHECKING
 
 import pytest
@@ -63,6 +70,13 @@ def _lint(args: list[str]) -> Run:
     """
     MANAGER.clear_cache()
     return Run(args, reporter=GenericTestReporter(), exit=False)
+
+
+def _compile_stdlib_module(source: str) -> None:
+    # Compiling a big module uses the parser and the bytecode compiler of the
+    # interpreter, like pylint does, without running any pylint code.
+    for _ in range(20):
+        compile(source, "<calibration>", "exec")
 
 
 def _lint_in_new_interpreter(path: Path) -> None:
@@ -123,6 +137,33 @@ def test_bench_cold_start(benchmark: BenchmarkFixture, minimal_file: Path) -> No
 
 
 @pytest.mark.wall_clock
+def test_bench_calibration(benchmark: BenchmarkFixture) -> None:
+    """Compile a module of the standard library, without any pylint code.
+
+    No change in pylint can make it slower: when it moved with the other
+    wall time benchmarks, the runner was a different machine.
+    """
+    with tokenize.open(subprocess.__file__) as file:
+        source = file.read()
+    benchmark(_compile_stdlib_module, source)
+
+
+@pytest.mark.wall_clock
+def test_bench_framework_only_many_files_j1(
+    benchmark: BenchmarkFixture, many_files: list[str]
+) -> None:
+    """Like ``test_bench_framework_only_many_files``, measured in wall time.
+
+    The ``--jobs=1`` reference for ``test_bench_framework_only_many_files_j2``,
+    measured on the same machine.
+    """
+    linter = _framework_only_linter(jobs=1)
+    benchmark(linter.check, many_files)
+    assert linter.msg_status == 0, linter.reporter.messages
+    assert len(linter.stats.by_module) == len(many_files)
+
+
+@pytest.mark.wall_clock
 @pytest.mark.needs_two_cores
 def test_bench_framework_only_many_files_j2(
     benchmark: BenchmarkFixture, many_files: list[str]
@@ -135,6 +176,19 @@ def test_bench_framework_only_many_files_j2(
     benchmark(linter.check, many_files)
     assert linter.msg_status == 0, linter.reporter.messages
     assert len(linter.stats.by_module) == len(many_files)
+
+
+@pytest.mark.wall_clock
+def test_bench_default_config_flask_j1(
+    benchmark: BenchmarkFixture, flask: PackageToLint
+) -> None:
+    """Lint flask in a single process.
+
+    The ``--jobs=1`` reference for ``test_bench_default_config_flask_j2``,
+    measured on the same machine.
+    """
+    runner = benchmark(_lint, [*flask.paths_to_lint, "--jobs=1"])
+    assert runner.linter.stats.statement > 0
 
 
 @pytest.mark.wall_clock
