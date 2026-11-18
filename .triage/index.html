@@ -18,7 +18,7 @@
     <p class="standfirst">What is open on pylint and astroid right now, and what can be done with it. Every verdict comes from rebuilding the reporter's snippet and running it, not from reading the issue.</p>
   </header>
   <div class="cards">
-<a href="pylint-issues.html" style="--stripe: var(--warn)"><h2>Pylint issues</h2><p>108 open issues, by what each one does against main today rather than by which label it happens to carry. 44 reproduce, 40 are blocked on their reporter.</p><span class="meta">44 reproduce · 21 enhancements</span></a>
+<a href="pylint-issues.html" style="--stripe: var(--warn)"><h2>Pylint issues</h2><p>All 879 open issues by type label: 20 crashes, 128 bugs, 247 false positives, 79 false negatives, 235 enhancements.</p><span class="meta">596 with a snippet to re-run · 379 need a PR</span></a>
 <a href="astroid.html" style="--stripe: var(--dup)"><h2>Astroid queue</h2><p>Most of what fixes a pylint false positive lands in astroid. 41 open pull requests bucketed by what is actually blocking them, and the astroid issues that back an open pylint issue.</p><span class="meta">41 PRs · 18 ready to review</span></a>
 <a href="pr-queue.html" style="--stripe: var(--info)"><h2>Pull request queue</h2><p>The pylint pull request queue, maintainer's own excluded.</p><span class="meta">pylint-dev/pylint · 66 open</span></a>
 <a href="method.html" style="--stripe: var(--accent)"><h2>Method</h2><p>How a verdict was produced, how to redo a bisect without being lied to, and the cheap way to refresh these pages.</p><span class="meta">reproduce it yourself</span></a>
@@ -54,8 +54,8 @@
       <li>Two gaps have <a href="astroid.html">no astroid issue at all</a>, and both block a pylint issue already marked
       <code>Needs PR</code>: torch's <code>_add_docstr</code> inference, and whether a truncated candidate list should
       raise <code>unsubscriptable-object</code>.</li>
-      <li>40 of the 108 pylint issues are <a href="pylint-issues.html">blocked on their reporter</a>. Closing or pinging
-      those is the fastest way to shrink the queue.</li>
+      <li><a href="pylint-issues.html">Pylint issues</a> lists every open issue with the snippet to re-run;
+      <code>snippet_sweep.py run</code> then <code>diff</code> against the baseline finds the ones fixed on main.</li>
     </ul>
   </div>
 

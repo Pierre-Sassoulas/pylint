@@ -1,0 +1,2 @@
+x = "master"
+dictionary["slave"]

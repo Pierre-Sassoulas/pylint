@@ -1,0 +1,3 @@
+# ./tests/sandpit/bar.py
+
+def abc(): ...

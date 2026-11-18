@@ -5,9 +5,9 @@ fixes (or breaks). Snippets come from two folders:
 
 - ``.triage/snippets/``: hand-made reproductions, verified during triage.
   A helper module of ``iNNNN.py`` is ``iNNNN_<name>.py`` in the same folder.
-- ``.triage/snippets_auto/``: code blocks extracted by ``extract`` from the open
-  issues labeled "False Positive" or "False Negative" that have no hand-made
-  snippet. Not verified: some are pylint output or partial code.
+- ``.triage/snippets_auto/``: code blocks extracted by ``extract`` from every
+  open issue that has no hand-made snippet. Not verified: some are pylint
+  output, tracebacks or partial code. ``pr_queue_fetch.sh`` refreshes them.
 
 Typical use, comparing astroid 4.3.3 with 4.3.4 on one pylint checkout::
 
@@ -44,8 +44,6 @@ SNIPPETS = TRIAGE / "snippets"
 SNIPPETS_AUTO = TRIAGE / "snippets_auto"
 OPEN_ISSUES = TRIAGE / "sweep_open_issues.json"
 BASELINE = TRIAGE / "snippet_baseline.json"
-
-LABELS = ("False Positive 🦟", "False Negative 🦋")
 
 # Libraries imported by the snippets; installed for the baseline.
 LIBRARIES = (
@@ -87,19 +85,23 @@ def fetch(_args: argparse.Namespace) -> None:
     out = subprocess.run(
         [
             "gh", "issue", "list", "--repo", "pylint-dev/pylint", "--state", "open",
-            "--limit", "5000", "--json", "number,title,labels,body",
+            "--limit", "5000", "--json",
+            "number,title,labels,body,createdAt,updatedAt,milestone,reactionGroups,author",
         ],
         check=True, capture_output=True, text=True,
     ).stdout
     issues = sorted(json.loads(out), key=lambda issue: issue["number"])
     for issue in issues:
         issue["labels"] = sorted(label["name"] for label in issue["labels"])
+        issue["milestone"] = (issue["milestone"] or {}).get("title", "")
+        issue["author"] = (issue["author"] or {}).get("login", "")
+        issue["reactions"] = sum(group["users"]["totalCount"] for group in issue.pop("reactionGroups"))
     OPEN_ISSUES.write_text(json.dumps(issues, indent=1, ensure_ascii=False) + "\n")
     print(f"{len(issues)} open issues in {OPEN_ISSUES}")
 
 
 def extract(_args: argparse.Namespace) -> None:
-    """Write the code blocks of labeled issues without a hand-made snippet."""
+    """Write the code blocks of open issues without a hand-made snippet."""
     issues = json.loads(OPEN_ISSUES.read_text())
     hand_made = {int(m.group(1)) for p in SNIPPETS.iterdir() if (m := HAND_MADE.match(p.name))}
     SNIPPETS_AUTO.mkdir(exist_ok=True)
@@ -107,7 +109,7 @@ def extract(_args: argparse.Namespace) -> None:
         old.unlink()
     written = 0
     for issue in issues:
-        if issue["number"] in hand_made or not set(issue["labels"]) & set(LABELS):
+        if issue["number"] in hand_made:
             continue
         body = (issue["body"] or "").replace("\r\n", "\n")
         blocks = [b for b in CODE_BLOCK.findall(body) if LOOKS_LIKE_CODE.search(b)]

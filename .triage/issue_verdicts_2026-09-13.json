@@ -1,0 +1,542 @@
+{
+  "10082": {
+    "finding": "Reproduces on pandas 3.0.5, all three messages. Matches the reporter's own follow-up: a local variable is fine, a class attribute is not — the csvdata = None class-level default wins the inference.",
+    "group": "live",
+    "verdict": "reproduces"
+  },
+  "10140": {
+    "finding": "Never reproduced. At v3.3.2, -j1 and -j2 agree, both reporting the cyclic import.",
+    "group": "stuck",
+    "verdict": "never repro'd"
+  },
+  "10326": {
+    "finding": "Not re-run: needs the reporter's app package; the sympy/minio half of the trace is not enough on its own.",
+    "group": "stuck",
+    "verdict": "needs repro"
+  },
+  "10345": {
+    "finding": "Not re-run: the traceback comes from the reporter's own ft_core package on top of django.",
+    "group": "stuck",
+    "verdict": "needs repro"
+  },
+  "10440": {
+    "finding": "Reproduces on numpy 2.5.1: left side has 2 labels, right side has 1 value. The return is inferred as a single value rather than a tuple sized by shape.",
+    "group": "live",
+    "verdict": "reproduces"
+  },
+  "10474": {
+    "finding": "Not re-run: win32more is Windows-only and the report has no snippet that runs elsewhere.",
+    "group": "stuck",
+    "verdict": "needs repro"
+  },
+  "10602": {
+    "finding": "Reproduces on pydantic 2.13.5 — ChildModel(GenericModel[int]) is flagged, while the same class inheriting BaseModel directly is not. Subscripting the generic base loses the pydantic ancestry.",
+    "group": "live",
+    "verdict": "reproduces"
+  },
+  "10761": {
+    "finding": "Reproduces on current pyglet: a pyglet.gl call makes the following line look unreachable.",
+    "group": "live",
+    "verdict": "reproduces"
+  },
+  "10796": {
+    "finding": "Reproduces on current pandas.",
+    "group": "live",
+    "verdict": "reproduces"
+  },
+  "10831": {
+    "finding": "Reproduces on scipy 1.18.1. The source is def entropy(pk, qk=None, base=None, axis=0) — nan_policy and keepdims are injected at runtime by the @_axis_nan_policy_factory(…) decorator that scipy 1.17 added to this function.",
+    "group": "live",
+    "verdict": "reproduces"
+  },
+  "10916": {
+    "finding": "Reproduces on PySide6 6.11.2 — two E1136 on valueChanged[int] and currentIndexChanged[int]. Adding --load-plugins=pylint_qt takes the same file to 10.00/10.",
+    "group": "live",
+    "verdict": "reproduces"
+  },
+  "11118": {
+    "finding": "Nothing to reproduce — a proposal for a refactor-level check when a comprehension's if clause calls a function that iterates the comprehension's own source list.",
+    "group": "wanted",
+    "verdict": "enhancement"
+  },
+  "11202": {
+    "finding": "Reproduces: W1514 fires for Path('/tmp').read_text() and for .parents[0], and is silent for (Path('/') / 'tmp').read_text(). astroid's brain_pathlib tips parents[N] only; __truediv__ falls through to with_segments and comes back Uninferable.",
+    "group": "live",
+    "verdict": "reproduces"
+  },
+  "11338": {
+    "finding": "Confirmed gap: 10.00/10 even with --enable=all. The nearest existing check, access-member-before-definition (E0203), only fires when the read and the assignment sit in the same method — it does not follow self.add_with_const() out of __init__.",
+    "group": "wanted",
+    "verdict": "enhancement"
+  },
+  "11353": {
+    "finding": "Reproduces exactly. _get_first_import() ignores node.level, so from . import json as my_json is compared as bare json and matches the earlier import json.",
+    "group": "live",
+    "verdict": "reproduces"
+  },
+  "11361": {
+    "finding": "Reproduces as a fatal error. ancestor.lookup('help') walks out to Module.builtins, which has no parent, so filtering its statements raises StatementMissing.",
+    "group": "live",
+    "verdict": "crash"
+  },
+  "11412": {
+    "finding": "Reproduces: Instance of 'TextIOWrapper' has no 'getvalue' member. Narrowed it — a @contextmanager that yields a plain local StringIO is clean, and reassigning sys.stderr outside a contextmanager is clean too. Only the combination loses the assignment and falls back to typeshed's sys.stderr.",
+    "group": "live",
+    "verdict": "reproduces"
+  },
+  "1428": {
+    "finding": "Never reproduced. Filed against pylint 1.6.5, which cannot be installed on any Python here; checked at 2.6.0 on CPython 3.10 with the a/src + b/src/test tree rebuilt - clean.",
+    "group": "stuck",
+    "verdict": "never repro'd"
+  },
+  "2095": {
+    "finding": "Asks for a way to disable module caching per file. Nineteen comments, high effort.",
+    "group": "wanted",
+    "verdict": "enhancement"
+  },
+  "2124": {
+    "finding": "Tracking issue from 2018: learn from RuboCop/ESLint. Nothing to reproduce; either convert to a discussion or close.",
+    "group": "wanted",
+    "verdict": "tracking"
+  },
+  "2127": {
+    "finding": "Tracking issue from 2018: learn from jedi.",
+    "group": "wanted",
+    "verdict": "tracking"
+  },
+  "2148": {
+    "finding": "Tracking issue from 2018: learn from python-taint.",
+    "group": "wanted",
+    "verdict": "tracking"
+  },
+  "2156": {
+    "finding": "Tracking issue from 2018: learn from pytype.",
+    "group": "wanted",
+    "verdict": "tracking"
+  },
+  "2188": {
+    "finding": "A crash with fifteen comments and no reduced case; labelled high effort.",
+    "group": "stuck",
+    "verdict": "not re-run"
+  },
+  "2249": {
+    "finding": "Open question from 2018 about why spell-checking is slow. Still worth measuring, but it is a task, not a bug report.",
+    "group": "wanted",
+    "verdict": "tracking"
+  },
+  "2392": {
+    "finding": "Built the reporter's two-file package. from mymodule import foobar binds the module-level FooBar() instance rather than the submodule, so foobar.FooBar() gives 'Instance of FooBar has no FooBar member'. __all__ is not consulted.",
+    "group": "live",
+    "verdict": "reproduces"
+  },
+  "2474": {
+    "finding": "Reproduces: a package whose __init__ appends a subdirectory to __path__ still gives 'Unable to import module.myClass' and 'No name myClass in module module'. Runtime resolves it fine.",
+    "group": "live",
+    "verdict": "reproduces"
+  },
+  "2483": {
+    "finding": "missing-type-doc without missing-param-doc on Google-style docstrings. Testable, but the body does not carry the docstring that triggered it.",
+    "group": "stuck",
+    "verdict": "not re-run"
+  },
+  "2555": {
+    "finding": "Not re-run as filed: the report is about pylint failing to flag a missing PyQt5 attribute, and the snippet stops mid-function.",
+    "group": "stuck",
+    "verdict": "needs repro"
+  },
+  "2559": {
+    "finding": "Reproduces on an abc.ABCMeta class: a plain method returning None, meant to be overridden, makes every self.lock_name() assignment an assignment-from-none. No-self-use (R0201) is gone from pylint, so only the E1128 half of the report is still live.",
+    "group": "live",
+    "verdict": "reproduces"
+  },
+  "2724": {
+    "finding": "Pylint slow on a gi script. Needs a GTK-enabled environment to time honestly.",
+    "group": "stuck",
+    "verdict": "not re-run"
+  },
+  "2879": {
+    "finding": "Not re-run: imports a venus module that is not on PyPI.",
+    "group": "stuck",
+    "verdict": "needs repro"
+  },
+  "2977": {
+    "finding": "unsupported-assignment-operation false positive, inference-related, no snippet.",
+    "group": "stuck",
+    "verdict": "not re-run"
+  },
+  "3068": {
+    "finding": "macOS-only divergence, no snippet.",
+    "group": "stuck",
+    "verdict": "other platform"
+  },
+  "3298": {
+    "finding": "undefined-variable false positive tied to the import system; the thread has eleven comments and no minimal case.",
+    "group": "stuck",
+    "verdict": "not re-run"
+  },
+  "3531": {
+    "finding": "Never reproduced. pylint 2.5.0 will not build on any Python available here, so this was checked at 2.6.0 on CPython 3.10 with WTForms - clean. Reconstructed from the description, since the issue carries no runnable snippet.",
+    "group": "stuck",
+    "verdict": "never repro'd"
+  },
+  "3620": {
+    "finding": "Not re-run: the snippet is a fragment of a flask + pyserial app.",
+    "group": "stuck",
+    "verdict": "needs repro"
+  },
+  "3628": {
+    "finding": "Obsolete: pylint.epylint no longer exists - the module was removed, so the docstring example the issue is about is gone with it.",
+    "group": "upstream",
+    "verdict": "obsolete"
+  },
+  "3756": {
+    "finding": "Reproduces: with the loop variable referenced once before the lambda, a disable comment on the continuation line of a backslash-split lambda is ignored. Pylint 2.4.4 accepted it, per the reporter.",
+    "group": "live",
+    "verdict": "reproduces"
+  },
+  "3758": {
+    "finding": "Reproduces with --signature-mutators=unittest.mock.patch.object exactly as filed: the option is accepted and then has no effect on the decorated function's call site.",
+    "group": "live",
+    "verdict": "reproduces"
+  },
+  "3843": {
+    "finding": "Claims the similar checker appends the same stream twice. Same area as #9937.",
+    "group": "stuck",
+    "verdict": "not re-run"
+  },
+  "3944": {
+    "finding": "Reproduces: a directory without __init__.py inside a regular package is skipped entirely by --recursive=y - exit 0, no output. Add __init__.py and the undefined-variable in that file is reported at once.",
+    "group": "live",
+    "verdict": "reproduces"
+  },
+  "4018": {
+    "finding": "Reproduces: the message is anchored to the call's opening line, so a disable comment on the offending argument line never covers it. The reporter's workaround - pragma on the myfun( line - still works.",
+    "group": "live",
+    "verdict": "reproduces"
+  },
+  "4137": {
+    "finding": "Snippet is a fragment - the extracted code only shows a global statement. Needs the reporter's kazoo call site.",
+    "group": "stuck",
+    "verdict": "needs repro"
+  },
+  "4577": {
+    "finding": "Not fixed — the body snippet was only half the issue. That one traces cleanly: buggy at v2.9.6 on CPython 3.10 with pandas 1.5.3, fixed at 11807f0ae (Update astroid requirement to 2.11.0) → astroid 74710868d (Fix crash on Super.getattr for previously uninferable attributes (#1370)). But the thread carries five more snippets, and @FredStober's still fires on main: E1136: Value 'dataframe' is unsubscriptable for DataFrame(...).fillna(0) under pandas 1.5.3 and 2.0.3. It is silent on 2.2.3 and 3.0.5 — the message tracks the pandas version, not any pylint change. And the mis-inference the reporters actually named is untouched: pd.read_csv(…) still infers to [NoneType ×4, TextFileReader, Uninferable] on astroid 4.3.0 — never DataFrame. The message stops only because pylint declines to judge a candidate list containing Uninferable. @anders-kiaer's max_inferred analysis still holds too: lower it to 20 and even TextFileReader drops out.",
+    "group": "live",
+    "verdict": "reproduces"
+  },
+  "4690": {
+    "finding": "Could not reproduce from a reconstructed Pony entity and query. The reporter's case was one line inside a large project, and the issue carries no self-contained snippet - needs their code to go further.",
+    "group": "stuck",
+    "verdict": "needs repro"
+  },
+  "4912": {
+    "finding": "Still applicable. The local gets W0641 possibly-unused-variable, but both arguments get the flat W0613 unused-argument - there is no possibly-unused-argument counterpart for a function that returns locals().",
+    "group": "wanted",
+    "verdict": "enhancement"
+  },
+  "5168": {
+    "finding": "Another cyclic-import false positive, no snippet. Worth merging with #9175 if they turn out to be the same shape.",
+    "group": "stuck",
+    "verdict": "not re-run"
+  },
+  "5226": {
+    "finding": "Asks for an option to disable pylint's sys.path patching.",
+    "group": "wanted",
+    "verdict": "enhancement"
+  },
+  "5251": {
+    "finding": "Needs a GTK display environment; the warning comes from the library, not pylint.",
+    "group": "stuck",
+    "verdict": "other platform"
+  },
+  "5347": {
+    "finding": "macOS CI runner could not create ~/Library/Caches/pylint.",
+    "group": "stuck",
+    "verdict": "other platform"
+  },
+  "5361": {
+    "finding": "Confirmed the gap: if ((X)): draws one superfluous-parens, print((X)) draws none. C0325 only looks after keywords, so doubled parens elsewhere are invisible. A scope decision, not a bug.",
+    "group": "wanted",
+    "verdict": "enhancement"
+  },
+  "5471": {
+    "finding": "Warn when module dunders sit below imports. Good first issue, still unimplemented.",
+    "group": "wanted",
+    "verdict": "enhancement"
+  },
+  "5761": {
+    "finding": "Reproduces: an async generator overriding a Protocol method annotated AsyncIterable[str] draws 'expected non-async, found async'. The reporter's point stands - an async generator is not a coroutine, so the override is correct.",
+    "group": "live",
+    "verdict": "reproduces"
+  },
+  "5763": {
+    "finding": "Suggests flagging is between values of different types. Needs a decision on scope.",
+    "group": "wanted",
+    "verdict": "enhancement"
+  },
+  "5835": {
+    "finding": "Reproduces, and the reporter's workaround no longer works: @dataclass with a DataFrame annotation takes 6.67 s against 0.89 s for the same dataclass with an int. Optional[DataFrame], which they found brought it under 2 s, now costs 6.71 s - the same as the plain annotation.",
+    "group": "live",
+    "verdict": "reproduces"
+  },
+  "6042": {
+    "finding": "Not re-run: the reproducer lives in an external repository (kfsone/pylint-spurious-w0622) and the reporter only saw it on Linux CI workers.",
+    "group": "stuck",
+    "verdict": "needs repro"
+  },
+  "7238": {
+    "finding": "Not re-run: tensorflow is a multi-gigabyte install; worth batching with any other tensorflow issue.",
+    "group": "stuck",
+    "verdict": "needs repro"
+  },
+  "7263": {
+    "finding": "A long question thread about plugin parallelization, labelled Question and Documentation. Reads as a docs task now.",
+    "group": "wanted",
+    "verdict": "tracking"
+  },
+  "7269": {
+    "finding": "Reproduces as a false negative: from time import time then time.sleep(1) scores 10.00/10. The name is the function, not the module, so no-member should fire and does not.",
+    "group": "live",
+    "verdict": "reproduces"
+  },
+  "7317": {
+    "finding": "Asks for a mypy-style incremental cache usable in CI.",
+    "group": "wanted",
+    "verdict": "enhancement"
+  },
+  "7424": {
+    "finding": "Reproduces verbatim: unpacking a 4-tuple out of a list of 4 identical tuples, then indexing the dict element, raises E1126. The reporter's own observation holds - shrink the list to 3 entries and it goes away, so the length of the outer list is what steers the (wrong) inference.",
+    "group": "live",
+    "verdict": "reproduces"
+  },
+  "7438": {
+    "finding": "The pylint-autofix discussion. Needs design, not investigation.",
+    "group": "wanted",
+    "verdict": "enhancement"
+  },
+  "7449": {
+    "finding": "A message name the reporter considers wrong. A rename is a breaking change, so it needs a decision rather than a repro.",
+    "group": "wanted",
+    "verdict": "decision"
+  },
+  "7519": {
+    "finding": "Not re-run: needs PySide6's __feature__ switch, which changes the generated API shape at import time.",
+    "group": "stuck",
+    "verdict": "needs repro"
+  },
+  "7527": {
+    "finding": "PyPy-only by the reporter's own statement - clean on CPython, which is all this machine runs.",
+    "group": "stuck",
+    "verdict": "other platform"
+  },
+  "7538": {
+    "finding": "Reproduces exactly as filed: the two walrus expressions inside a string concatenation draw used-before-assignment, the identical expression without the + does not.",
+    "group": "live",
+    "verdict": "reproduces"
+  },
+  "7625": {
+    "finding": "'Pylint disable working incorrectly' - five comments, no minimal case in the body.",
+    "group": "stuck",
+    "verdict": "not re-run"
+  },
+  "7641": {
+    "finding": "Reproduces: pyreverse -c Foo on a class whose __init__ assigns a pandas DataFrame produced no output and was killed at the 180 s mark.",
+    "group": "live",
+    "verdict": "reproduces"
+  },
+  "7654": {
+    "finding": "Never reproduced. At v2.15.4, --generate-toml-config round-trips into a working --rcfile.",
+    "group": "stuck",
+    "verdict": "never repro'd"
+  },
+  "7735": {
+    "finding": "Not re-run: the snippet imports the reporter's app and something_else modules.",
+    "group": "stuck",
+    "verdict": "needs repro"
+  },
+  "7892": {
+    "finding": "The issue body is pylint's own test code rather than a user scenario. Needs a real plugin layout before it can be judged.",
+    "group": "stuck",
+    "verdict": "needs repro"
+  },
+  "8024": {
+    "finding": "The only one where pylint never changed: cython.declare(cython.int, 0) still raises E1101 on main with Cython 0.29.33 through 3.2.9, and is clean from Cython 3.3.0. So the bisect ran on Cython's history instead.floor cython/cython@6e31b41f6Merge Shadow.pyi type annotation files (#7376)",
+    "group": "upstream",
+    "verdict": "fixed upstream"
+  },
+  "8049": {
+    "finding": "Not re-run: the reporter says themselves they could not reduce it, and that linting the file alone does not crash.",
+    "group": "stuck",
+    "verdict": "needs repro"
+  },
+  "8050": {
+    "finding": "Reproduces: pylint something/something (file named exactly like its directory) prints nothing at all and exits, while renaming the file, adding __init__.py, or cd-ing into the directory all make it work.",
+    "group": "live",
+    "verdict": "reproduces"
+  },
+  "829": {
+    "finding": "Reproduces, nine years on. A disable on the module docstring line silences the whole file; the same pragma one line lower is line-scoped. Verified both directions plus a no-pragma control that flags both lines.",
+    "group": "live",
+    "verdict": "reproduces"
+  },
+  "8303": {
+    "finding": "Reproduces on current alpha_vantage: the decorator is not followed, so the decorated method's return is mis-inferred.",
+    "group": "live",
+    "verdict": "reproduces"
+  },
+  "8497": {
+    "finding": "Reproduces on current pyroute2, though the message has moved: the reported E1121/E1136 are gone and 'Instance of IPRoute has no link_lookup member' takes their place. Same dynamic-attribute root cause, different symptom - worth re-titling.",
+    "group": "live",
+    "verdict": "reproduces"
+  },
+  "8654": {
+    "finding": "Proposal for a RuffChecker plugin base. High effort, needs a design decision before any code.",
+    "group": "wanted",
+    "verdict": "enhancement"
+  },
+  "8845": {
+    "finding": "Two systems, different results, no reproducer. Same family as #9168 and #3068.",
+    "group": "stuck",
+    "verdict": "other platform"
+  },
+  "8894": {
+    "finding": "Reproduces on pydantic 2.13.5 - the original 2.0 report is still live three years on.",
+    "group": "live",
+    "verdict": "reproduces"
+  },
+  "8986": {
+    "finding": "Reproduces as a false negative: a derived __init__ renaming config to c draws neither invalid-name nor arguments-renamed. Worth deciding whether __init__ is deliberately exempt from arguments-renamed before treating it as a bug.",
+    "group": "live",
+    "verdict": "reproduces"
+  },
+  "9013": {
+    "finding": "Reproduces — and wider than reported. Both @attrs.define subclasses raise E0110, including the plain my_prop: int one the reporter said was clean. Running the file works: it prints conc:35 fp:99.",
+    "group": "live",
+    "verdict": "reproduces"
+  },
+  "9018": {
+    "finding": "Use __isabstractmethod__ rather than looking for the abstractmethod decorator.",
+    "group": "wanted",
+    "verdict": "enhancement"
+  },
+  "9090": {
+    "finding": "Reproduces on pydantic 2.13.5: Unexpected keyword argument 'n' in constructor call. Confirmed the reporter's asymmetry — the same alias on a BaseModel subclass is accepted.",
+    "group": "live",
+    "verdict": "reproduces"
+  },
+  "9168": {
+    "finding": "macOS-only circular-import behaviour; sibling of #8845 and #3068.",
+    "group": "stuck",
+    "verdict": "other platform"
+  },
+  "9169": {
+    "finding": "The reporter's framing was off but the bug is real: a file indented with TABS gets 'Bad indentation. Found 1 spaces, expected 4'. The count is the tab count and the word is wrong. Cosmetic, contained, good first issue.",
+    "group": "live",
+    "verdict": "reproduces"
+  },
+  "9170": {
+    "finding": "Still unimplemented: pyproject.toml pins colorama>=0.4.5 only under sys_platform=='win32'. The request to enforce it everywhere is a one-line change plus a decision about adding a dependency for all platforms.",
+    "group": "wanted",
+    "verdict": "enhancement"
+  },
+  "9175": {
+    "finding": "Circular-dependency false positive with no snippet in the body.",
+    "group": "stuck",
+    "verdict": "not re-run"
+  },
+  "9188": {
+    "finding": "Never reproduced. At v3.0.2, the version filed against, the dataset/ and train/ layouts give byte-identical output.",
+    "group": "stuck",
+    "verdict": "never repro'd"
+  },
+  "9218": {
+    "finding": "Reproduces on torch 2.14.0+cpu. Root cause proved: qr = _add_docstr(…), and astroid infers any _add_docstr(…) call as Const(None) — which is why torch.linalg.qr and torch.nn.functional.one_hot both look uncallable.",
+    "group": "live",
+    "verdict": "reproduces"
+  },
+  "9223": {
+    "finding": "Reproduces: an import used only inside a quoted forward reference (a TypeAlias holding a string annotation) is still reported unused.",
+    "group": "live",
+    "verdict": "reproduces"
+  },
+  "9238": {
+    "finding": "Reproduces on CPython 3.13, where distutils is no longer in the stdlib: the runtime import works (setuptools ships the shim) while pylint reports import-error. Pylint also, correctly, adds deprecated-module now.",
+    "group": "live",
+    "verdict": "reproduces"
+  },
+  "9277": {
+    "finding": "Windows-only: a UnicodeEncodeError from the cp1252 console encoding.",
+    "group": "stuck",
+    "verdict": "other platform"
+  },
+  "9311": {
+    "finding": "Reproduces at v3.0.3 with torch 2.1.0+cpu on CPython 3.10, exactly as filed — and still reproduces on pylint main with that torch, under astroid 4.2.0b5 and 4.3.0 alike. Walking torch forward instead: 2.4.0 and 2.7.0 still raise E1136, 2.8.0 onward is clean. Under torch 2.7 astroid infers Parameter(…).repeat(1, 1) as Const(None) — the C-descriptor gap, same shape as #9218. Under 2.8 the same expression raises InferenceError: astroid stops guessing rather than starts understanding, and the false positive goes with it.floor pytorch/pytorch 2.8.0torch 2.8.0 — the release boundary, 2.7.0 still fails",
+    "group": "upstream",
+    "verdict": "fixed upstream"
+  },
+  "9317": {
+    "finding": "The unnecessary-lambda documentation recommends a rewrite the reporter says is wrong. Labelled good first issue - a doc fix, once someone confirms the wording.",
+    "group": "stuck",
+    "verdict": "not re-run"
+  },
+  "9332": {
+    "finding": "Reproduces on Linux, and wider than filed: with opencv-python-headless both cv2.imread and cv2.error are unknown, with or without --extension-pkg-allow-list=cv2. The macOS/Linux split in the title is a symptom of the same dynamic __init__ shim.",
+    "group": "live",
+    "verdict": "reproduces"
+  },
+  "9340": {
+    "finding": "Reproduces: after items = random.sample(results, 5) the loop variable is judged unsubscriptable, despite the list[dict[str, str]] annotation on the assignment. Wrapping in list() silences it, as reported.",
+    "group": "live",
+    "verdict": "reproduces"
+  },
+  "9407": {
+    "finding": "Feature request: draw class-level data members alongside instance ones, behind an option.",
+    "group": "wanted",
+    "verdict": "enhancement"
+  },
+  "9421": {
+    "finding": "Reproduces both messages: a dict literal mutated by update()/pop() before target(**data) is still matched against the original literal keys, so pylint sees the removed key and misses the added one.",
+    "group": "live",
+    "verdict": "reproduces"
+  },
+  "9426": {
+    "finding": "Never reproduced. Clean at pylint 3.0.3 / astroid 3.0.3 on CPython 3.12 — the exact stack filed — with python-docx 0.8.11, 1.0.1 and 1.1.0 in turn.",
+    "group": "stuck",
+    "verdict": "needs repro"
+  },
+  "9479": {
+    "finding": "Not re-run: the snippet imports the reporter's tables and utils modules.",
+    "group": "stuck",
+    "verdict": "needs repro"
+  },
+  "9549": {
+    "finding": "Reproduces once the reporter's implied Base and RoleGroup are supplied: every Mapped[...] annotation in the class draws 'Value Mapped is unsubscriptable', triggered by the self-referencing relationship line. Removing that line clears them all, exactly as reported.",
+    "group": "live",
+    "verdict": "reproduces"
+  },
+  "9762": {
+    "finding": "Reproduces on orjson 3.12.0. orjson ships a compiled .so alongside an __init__.py, so pylint reads the Python file and never loads the extension. @brycepg's --extension-pkg-allow-list orjson workaround still works.",
+    "group": "live",
+    "verdict": "reproduces"
+  },
+  "9874": {
+    "finding": "Reproduces. The reporter guessed typing.Protocol was the duplicated base, but a minimal class P(Protocol, Generic[T]) / class Impl(P[int]) is clean here — so the duplication comes from further up advanced-alchemy's own hierarchy.",
+    "group": "live",
+    "verdict": "reproduces"
+  },
+  "9937": {
+    "finding": "Similar-checker output order varies. Needs a seeded multi-run harness to pin down; related to #3843.",
+    "group": "stuck",
+    "verdict": "not re-run"
+  },
+  "9956": {
+    "finding": "Reproduces on numpy 2.5.1. numpy.dtypes builds its members at import time, so nothing in the module body names StringDType.",
+    "group": "live",
+    "verdict": "reproduces"
+  },
+  "9993": {
+    "finding": "Never reproduced. Clean at v3.2.7, the version filed against, with the src/foo + unittests layout rebuilt from the description.",
+    "group": "stuck",
+    "verdict": "never repro'd"
+  }
+}

@@ -1,0 +1,1 @@
+  pixObj = pygame.PixelArray(DISPLAYSURF)

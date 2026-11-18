@@ -138,5 +138,9 @@ PY
 python3 "$HERE/proposed_labels.py" --prune >/dev/null
 # When each author last acted, for the take-over rule (takeover.py).
 python3 "$HERE/author_activity_fetch.py"
+# Every open issue, its saved snippets and pylint-issues.html (issues_page.py).
+python3 "$HERE/snippet_sweep.py" fetch
+python3 "$HERE/snippet_sweep.py" extract
+python3 "$HERE/issues_page.py"
 
 echo "now run: python3 $HERE/pr_queue.py"

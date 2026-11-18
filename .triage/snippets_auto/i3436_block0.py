@@ -1,0 +1,3 @@
+[MASTER]
+disable=C,
+        W
