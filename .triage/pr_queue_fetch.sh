@@ -136,5 +136,7 @@ PY
 
 # Drop label proposals already applied on GitHub (read-only gh calls).
 python3 "$HERE/proposed_labels.py" --prune >/dev/null
+# When each author last acted, for the take-over rule (takeover.py).
+python3 "$HERE/author_activity_fetch.py"
 
 echo "now run: python3 $HERE/pr_queue.py"

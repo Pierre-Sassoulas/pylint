@@ -2179,8 +2179,8 @@
    "milestone": "4.4.0",
    "size": 51,
    "created": "2026-11-14",
-   "updated": "2026-11-15",
-   "ci": "green",
+   "updated": "2026-11-18",
+   "ci": "awaiting-approval",
    "cifail": 0,
    "links": []
   },

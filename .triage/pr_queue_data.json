@@ -1,7 +1,7 @@
 {
  "snapshot": "2026-11-18",
  "owner": "Pierre-Sassoulas",
- "open_total": 187,
+ "open_total": 190,
  "open_own": 25,
  "prs": [
   {
@@ -764,7 +764,7 @@
    ],
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "CONFLICTING",
    "ci": "failing",
    "citot": 53,
    "cifail": 1,
@@ -2951,7 +2951,7 @@
    "rd": "CHANGES_REQUESTED",
    "merge": "MERGEABLE",
    "ci": "green",
-   "citot": 48,
+   "citot": 52,
    "cifail": 0,
    "nrev": 1,
    "mrev": [
@@ -4811,19 +4811,21 @@
    "size": 6,
    "files": 4,
    "created": "2026-11-13",
-   "updated": "2026-11-15",
+   "updated": "2026-11-18",
    "labels": [
     "Documentation :green_book:",
     "Skip news :mute:"
    ],
    "milestone": "",
-   "rd": "REVIEW_REQUIRED",
+   "rd": "APPROVED",
    "merge": "MERGEABLE",
    "ci": "failing",
    "citot": 30,
    "cifail": 1,
-   "nrev": 0,
-   "mrev": [],
+   "nrev": 1,
+   "mrev": [
+    "Pierre-Sassoulas"
+   ],
    "links": [
     [
      9317,
@@ -4832,8 +4834,8 @@
     ]
    ],
    "lastcom": [
-    "codecov",
-    "2026-11-15"
+    "OmkarGowda990",
+    "2026-11-18"
    ]
   },
   {
@@ -5187,20 +5189,23 @@
    "size": 2,
    "files": 1,
    "created": "2026-11-17",
-   "updated": "2026-11-17",
-   "labels": [],
+   "updated": "2026-11-18",
+   "labels": [
+    "Documentation :green_book:",
+    "Skip news :mute:"
+   ],
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "running",
-   "citot": 3,
-   "cifail": 0,
+   "ci": "failing",
+   "citot": 30,
+   "cifail": 1,
    "nrev": 0,
    "mrev": [],
    "links": [],
    "lastcom": [
-    "-",
-    "-"
+    "codecov",
+    "2026-11-18"
    ]
   },
   {
@@ -5212,18 +5217,111 @@
    "files": 4,
    "created": "2026-11-18",
    "updated": "2026-11-18",
-   "labels": [],
+   "labels": [
+    "False Positive 🦟",
+    "Optional Checkers"
+   ],
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
    "merge": "MERGEABLE",
-   "ci": "running",
-   "citot": 3,
+   "ci": "green",
+   "citot": 48,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
    "links": [
     [
      11843,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "github-actions",
+    "2026-11-18"
+   ]
+  },
+  {
+   "n": 11847,
+   "a": "unaltolga",
+   "t": "Don't emit assignment-from-no-return for a method of a Protocol",
+   "draft": false,
+   "size": 53,
+   "files": 4,
+   "created": "2026-11-18",
+   "updated": "2026-11-18",
+   "labels": [],
+   "milestone": "",
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "green",
+   "citot": 46,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [
+    [
+     9080,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "codspeed",
+    "2026-11-18"
+   ]
+  },
+  {
+   "n": 11848,
+   "a": "VanshajPoonia",
+   "t": "Document how to give a reporter plugin its own options",
+   "draft": false,
+   "size": 76,
+   "files": 2,
+   "created": "2026-11-18",
+   "updated": "2026-11-18",
+   "labels": [],
+   "milestone": "",
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "awaiting-approval",
+   "citot": 3,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [
+    [
+     5829,
+     "",
+     ""
+    ]
+   ],
+   "lastcom": [
+    "-",
+    "-"
+   ]
+  },
+  {
+   "n": 11849,
+   "a": "DeviousCardi",
+   "t": "Emit too-few-format-args for str.format strings with explicit position gaps",
+   "draft": false,
+   "size": 134,
+   "files": 7,
+   "created": "2026-11-18",
+   "updated": "2026-11-18",
+   "labels": [],
+   "milestone": "",
+   "rd": "REVIEW_REQUIRED",
+   "merge": "MERGEABLE",
+   "ci": "awaiting-approval",
+   "citot": 3,
+   "cifail": 0,
+   "nrev": 0,
+   "mrev": [],
+   "links": [
+    [
+     8012,
      "",
      ""
     ]
@@ -5650,6 +5748,19 @@
    "title": "super-with-arguments should not be shown for dataclasses with slots"
   },
   {
+   "comments": 5,
+   "labels": [
+    "Configuration",
+    "Documentation :green_book:",
+    "Needs PR"
+   ],
+   "number": 5829,
+   "reactions": 0,
+   "state": "open",
+   "state_reason": null,
+   "title": "Document how to register options for Reporter plugins (by creating a bare checker)"
+  },
+  {
    "comments": 0,
    "labels": [
     "Astroid",
@@ -5889,6 +6000,18 @@
    "state": "open",
    "state_reason": "reopened",
    "title": "Incorrect unsupported-membership-test error on TypedDict"
+  },
+  {
+   "comments": 1,
+   "labels": [
+    "False Negative 🦋",
+    "Needs specification :closed_lock_with_key:"
+   ],
+   "number": 8012,
+   "reactions": 0,
+   "state": "open",
+   "state_reason": null,
+   "title": "False negative `too-few-format-args`"
   },
   {
    "comments": 4,
@@ -6170,6 +6293,18 @@
    "state": "open",
    "state_reason": null,
    "title": "Add randomization to test suite to find test isolation problems"
+  },
+  {
+   "comments": 0,
+   "labels": [
+    "typing",
+    "False Positive 🦟"
+   ],
+   "number": 9080,
+   "reactions": 0,
+   "state": "open",
+   "state_reason": null,
+   "title": "Ellipsis in Protocol methods not recognized in 'assignment-from-no-return' on methods of dataclass members"
   },
   {
    "comments": 0,

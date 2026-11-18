@@ -18504,13 +18504,26 @@
   "commit": "ab8b9a957"
  },
  "11832": {
-  "date": "2026-11-16",
+  "date": "2026-11-18",
   "added": 0,
   "removed": 0,
-  "changed": 0,
-  "projects": {},
-  "items": [],
-  "commit": "49cf99bb1"
+  "changed": 1,
+  "projects": {
+   "pandas": {
+    "added": 0,
+    "removed": 0,
+    "changed": 1
+   }
+  },
+  "items": [
+   [
+    "pandas",
+    "changed",
+    "redefined-variable-type",
+    "Moved from `505:16`-`505:47` to `507:16`-`507:43`."
+   ]
+  ],
+  "commit": "75002dfe4"
  },
  "11835": {
   "date": "2026-11-17",
@@ -18634,6 +18647,28 @@
   "items": [],
   "commit": "52224ce9c"
  },
+ "11845": {
+  "date": "2026-11-18",
+  "added": 0,
+  "removed": 1,
+  "changed": 0,
+  "projects": {
+   "flask": {
+    "added": 0,
+    "removed": 1,
+    "changed": 0
+   }
+  },
+  "items": [
+   [
+    "flask",
+    "removed",
+    "missing-type-doc",
+    "*\"endpoint\" missing in parameter type documentation*"
+   ]
+  ],
+  "commit": "9b56072f8"
+ },
  "11846": {
   "date": "2026-11-18",
   "added": 0,
@@ -18641,6 +18676,28 @@
   "changed": 0,
   "projects": {},
   "items": [],
-  "commit": "4ec2af8ab"
+  "commit": "0dab856c8"
+ },
+ "11847": {
+  "date": "2026-11-18",
+  "added": 0,
+  "removed": 1,
+  "changed": 0,
+  "projects": {
+   "ansible": {
+    "added": 0,
+    "removed": 1,
+    "changed": 0
+   }
+  },
+  "items": [
+   [
+    "ansible",
+    "removed",
+    "assignment-from-no-return",
+    "*Assigning result of a function call, but 'get_option' returns None*"
+   ]
+  ],
+  "commit": "cfb3b48e7"
  }
 }

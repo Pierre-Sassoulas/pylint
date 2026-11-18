@@ -12,6 +12,7 @@ import html
 import json
 
 import proposed_labels
+import takeover
 import pathlib
 
 HERE = pathlib.Path(__file__).resolve().parent
@@ -127,12 +128,19 @@ def worth(p: dict) -> bool:
     return not not_next or category <= 1 or not not_high or minus_reactions <= -2
 
 
+# Waiting on the author although GitHub shows no requested changes: a
+# maintainer asked something in a comment. number -> since when (for the record).
+ASKED_IN_A_COMMENT = {
+    3439: "2026-11-15",  # Pierre asked emmanuel-ferdman about the stub cache invalidation
+}
+
+
 def lane(p: dict) -> str:
     if p["a"] == "app/pylint-backport":
         return "backport"
     if p["draft"]:
         return "draft"
-    if p["rd"] == "CHANGES_REQUESTED":
+    if p["rd"] == "CHANGES_REQUESTED" or p["n"] in ASKED_IN_A_COMMENT:
         return "author"
     if p["a"] == OWNER:
         return "ping"
@@ -143,6 +151,15 @@ def lane(p: dict) -> str:
     if p["rd"] == "APPROVED":
         return "merge"
     return "review"
+
+
+# The lanes where the next move is the author's.
+AUTHOR_LANES = ("author", "red")
+
+
+def needs_takeover(p: dict) -> bool:
+    """Waiting on its author, who has been silent long enough for a take-over."""
+    return lane(p) in AUTHOR_LANES and takeover.needs_takeover("astroid", p["n"], p["labels"])
 
 
 def why(p: dict) -> str:
@@ -169,6 +186,8 @@ def why(p: dict) -> str:
     if p["milestone"]:
         parts.append(f"milestone {p['milestone']}")
     parts.append(f"{p['size']} lines")
+    if lane(p) in AUTHOR_LANES:
+        parts.append(takeover.describe("astroid", p["n"], p["labels"]))
     return " · ".join(parts)
 
 

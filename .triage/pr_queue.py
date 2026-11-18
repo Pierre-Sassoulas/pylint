@@ -16,6 +16,7 @@ import pathlib
 import re
 
 import proposed_labels
+import takeover
 
 HERE = pathlib.Path(__file__).resolve().parent
 DATA = json.loads((HERE / "pr_queue_data.json").read_text())
@@ -305,11 +306,11 @@ V = {
         'Review and merge: narrow FP fix, green, no primer effect.',
     ),
     11841: (
-        'author',
+        'review',
         'changes',
         'confirmed',
-        'New (17 November), 251 lines by cleoanka (first PR) for issue 5780 (FN, used-before-assignment, 2022): a name defined in an <code>except</code> handler and also used inside it was consumed there, so a later use after the <code>try</code> was never checked. New <code>get_uncertain_except_definitions</code> on the consumer re-checks an already-consumed name when all its definitions are in except blocks that may not have run; keeps <code>possibly-used-before-assignment</code> and the confidence for if-guarded definitions (second commit). Touches the used-before-assignment core, the most fragile checker: needs the primer. cleoanka opened five pylint PRs and one astroid PR between 10:46 and 15:53 UTC on 17 November, plus analysis comments on old issues; same style throughout (likely tool-assisted). Each is small with tests. Diff read 17 November: no CI or config files, no risky calls, ASCII only (an en dash in a doc link). Runs held (3 checks). 17 November CI: green, but the primer adds two false positives. django <code>utils/encoding.py</code> L230: <code>path</code> is a parameter, reassigned in the <code>except</code> handler and read in <code>else</code>: always defined. home-assistant <code>recorder/core.py</code> L1002: <code>new_schema_status</code> is assigned in the <code>try</code> body and read in <code>else</code>, which only runs when the try body completed. The new re-check ignores definitions outside the except handlers (parameters, the try body) and the <code>else</code> clause.',
-        'Request changes: both primer hits are false positives (parameter and try-body definitions, else clause); add them as functional tests.',
+        'New (17 November), 251 lines by cleoanka (first PR) for issue 5780 (FN, used-before-assignment, 2022): a name defined in an <code>except</code> handler and also used inside it was consumed there, so a later use after the <code>try</code> was never checked. New <code>get_uncertain_except_definitions</code> on the consumer re-checks an already-consumed name when all its definitions are in except blocks that may not have run; keeps <code>possibly-used-before-assignment</code> and the confidence for if-guarded definitions (second commit). Touches the used-before-assignment core, the most fragile checker: needs the primer. cleoanka opened five pylint PRs and one astroid PR between 10:46 and 15:53 UTC on 17 November, plus analysis comments on old issues; same style throughout (likely tool-assisted). Each is small with tests. Diff read 17 November: no CI or config files, no risky calls, ASCII only (an en dash in a doc link). Runs held (3 checks). 17 November CI: green, but the primer adds two false positives. django <code>utils/encoding.py</code> L230: <code>path</code> is a parameter, reassigned in the <code>except</code> handler and read in <code>else</code>: always defined. home-assistant <code>recorder/core.py</code> L1002: <code>new_schema_status</code> is assigned in the <code>try</code> body and read in <code>else</code>, which only runs when the try body completed. The new re-check ignores definitions outside the except handlers (parameters, the try body) and the <code>else</code> clause. 18 November: no review posted yet, so the author does not know: it is your move.',
+        'Request changes: both primer hits are false positives (a parameter, and a try-body definition read in else); ask for them as functional tests.',
     ),
     11842: (
         'review',
@@ -329,8 +330,29 @@ V = {
         'review',
         'running',
         'confirmed',
-        "New (18 November), 90 lines by mmporong for issue 11843 (FP, filed by e-gebes the day before; no other PR): with positional-only parameters, <code>missing-type-doc</code> paired annotations with the wrong parameters, because <code>args_with_annotation</code> took the positional-only annotations out of the type-comment list. Now <code>_annotations_list</code> puts <code>posonlyargs_annotations</code> first so every list is aligned, and the posonly loop reads from that list. Six functional cases cover all of e-gebes's examples plus a type comment. mmporong also had astroid 3461 merged. Diff read 18 November: no CI or config files, no risky calls, ASCII only. Runs held (3 checks). 18 November: labelled (False Positive, Optional Checkers) and 8 runs approved; 32 checks green, 4 still running (primer pending).",
-        'When the primer comment lands, check it for missing-type-doc changes, then review and merge.',
+        "New (18 November), 90 lines by mmporong for issue 11843 (FP, filed by e-gebes the day before; no other PR): with positional-only parameters, <code>missing-type-doc</code> paired annotations with the wrong parameters, because <code>args_with_annotation</code> took the positional-only annotations out of the type-comment list. Now <code>_annotations_list</code> puts <code>posonlyargs_annotations</code> first so every list is aligned, and the posonly loop reads from that list. Six functional cases cover all of e-gebes's examples plus a type comment. mmporong also had astroid 3461 merged. Diff read 18 November: no CI or config files, no risky calls, ASCII only. Runs held (3 checks). 18 November: labelled (False Positive, Optional Checkers) and 8 runs approved; 32 checks green, 4 still running (primer pending). 18 November CI: green. Primer removes one flask <code>missing-type-doc</code> on <code>url_for(self, /, endpoint: str, ...)</code>: <code>endpoint</code> is annotated, so a fixed false positive.",
+        'Review and merge: green, primer shows the fixed FP.',
+    ),
+    11847: (
+        'review',
+        'green',
+        'confirmed',
+        'New (18 November), 40 lines by unaltolga for issue 9080 (FP): <code>assignment-from-no-return</code> is no longer emitted for a call to a method of a <code>Protocol</code> class (added to <code>_is_ignored_function</code>). Primer removes one ansible hit: <code>self.get_option(...)</code> where <code>get_option</code> is a <code>...</code> stub on the <code>_ConfigurablePlugin</code> protocol: a real false positive. Watch: a protocol method with a concrete default body that really returns None is now skipped too (rare). Diff read 18 November: no CI or config files, no risky calls, ASCII only. CI ran without approval: green.',
+        'Review and merge: one-line guard, primer shows the fixed FP.',
+    ),
+    11848: (
+        'approve',
+        'held',
+        'confirmed',
+        'New (18 November), docs only by VanshajPoonia: new section in the plugins how-to on giving a reporter plugin options (register an option-only checker, read <code>self.linter.config</code>), linked from the output docs. Diff read 18 November: no CI or config files, no risky calls, ASCII only. Runs held (3 checks).',
+        'Approve the runs at 957ad9963, then review the example (it should run as written).',
+    ),
+    11849: (
+        'approve',
+        'held',
+        'confirmed',
+        'New (18 November), 120 lines by DeviousCardi for issue 8012 (FN): <code>"{1}".format(20)</code> needs two arguments but was not reported; now the number of positional arguments needed is the highest explicit position plus one. Also stops <code>too-many-format-args</code> on <code>"{1}".format(20, 21)</code> and <code>"{2} {0}".format(1, 2, 3)</code>. New <code>parse_format_method_string_positions</code> in <code>checkers/utils.py</code>, the old function kept as a wrapper (public helper, signature unchanged). Diff read 18 November: no CI or config files, no risky calls, ASCII only. Runs held (3 checks).',
+        'Approve the runs at 20ae7b8a9, then review.',
     ),
     # ---- approve the workflow run ----------------------------------------
     11824: (
@@ -348,11 +370,11 @@ V = {
         'Review: primer clean, so the restore-for-recheck does not double-report on real code; read the consumer change.',
     ),
     11815: (
-        'review',
-        'green',
+        'merge',
+        'approved',
         'confirmed',
-        'New (14 November), 4 files by OmkarGowda990 for issue 9317 (docs), replacing the deleted #11755 as Pierre asked ("replace by a clearer one"): drops the <code>unnecessary-lambda</code> pandas example (<code>df.apply(lambda x: str(x))</code>, undefined <code>df</code>, and <code>df.apply(str)</code> stringifies whole columns) for a self-contained <code>list(map(lambda x: str(x), numbers))</code> bad/good pair. No changelog fragment, needs Skip news. Diff read 14 November: doc examples only, ASCII. 15 November: tests green; the red Changelog Entry Check is the stale run from before the Skip news label (reruns replay the old payload), ignore it. No primer (docs only).',
-        'Review and merge: two tiny doc files, red changelog check is stale noise.',
+        'New (14 November), 4 files by OmkarGowda990 for issue 9317 (docs), replacing the deleted #11755 as Pierre asked ("replace by a clearer one"): drops the <code>unnecessary-lambda</code> pandas example (<code>df.apply(lambda x: str(x))</code>, undefined <code>df</code>, and <code>df.apply(str)</code> stringifies whole columns) for a self-contained <code>list(map(lambda x: str(x), numbers))</code> bad/good pair. No changelog fragment, needs Skip news. Diff read 14 November: doc examples only, ASCII. 15 November: tests green; the red Changelog Entry Check is the stale run from before the Skip news label (reruns replay the old payload), ignore it. No primer (docs only). 18 November: Pierre approved. Only the Changelog Entry Check is red, from the run held before the Skip news label (the author asked about it).',
+        'Re-run the stale Changelog check, then merge.',
     ),
     11814: (
         'decide',
@@ -1724,6 +1746,56 @@ todo_approve = [
     for n in lane_members("approve")
     if rows[n]["ci"] == "awaiting-approval" and worth_a_run(n)
 ][:TODO_APPROVE]
+
+
+TAKEOVER_ACTION = "Take over: push the missing change to the branch, or close it."
+
+
+def waiting_on_author(n: int) -> bool:
+    """The next move is the author's: requested changes, red CI, or gone."""
+    return lane_of(n) in ("author", "stale")
+
+
+def needs_takeover(n: int) -> bool:
+    return waiting_on_author(n) and takeover.needs_takeover("pylint", n, rows[n]["labels"])
+
+
+# Waiting on the author: left out of the to-do list, since there is nothing to
+# do, until the author has been silent long enough for a take-over. Then it
+# comes back right after the merges, when it is worth the time (crash or bug,
+# High priority, two reactions, or a milestone).
+todo_takeover = sorted(
+    (
+        n
+        for n in rows
+        if n in V and needs_takeover(n) and (worth_a_run(n) or rows[n].get("milestone"))
+    ),
+    key=priority,
+)[:TODO_REVIEW]
+
+
+def takeover_item(n: int) -> str:
+    r = rows[n]
+    _untrusted, category, not_high, _score, minus_reactions, _ = priority(n)
+    refs = [
+        f"#{number}"
+        for number, _s, _l in r["links"]
+        if issues.get(number, {}).get("state") == "open"
+        and issues.get(number, {}).get("reactions")
+    ]
+    extra = [takeover.describe("pylint", n, r["labels"])]
+    if r.get("milestone"):
+        extra.append(f"milestone {r['milestone']}")
+    return (
+        f'<li><a href="https://github.com/pylint-dev/pylint/pull/{n}">#{n}</a> '
+        f'<span class="k">{E(category_name(n))}</span>{E(r["t"])} '
+        f'<span class="do">— {TAKEOVER_ACTION}</span>'
+        f'<span class="do">Last verdict: {V[n][4]}</span>'
+        f'<span class="why">Why here: {why(category, not not_high, -minus_reactions, refs, r["ci"], extra)}</span>'
+        "</li>"
+    )
+
+
 todo = [
     '<section class="todo"><h2>To do now</h2>'
     '<p class="rubric">Ordered by what unblocks a release or a user first: merges cost one click and ship '
@@ -1733,7 +1805,10 @@ todo = [
     "the net messages the primer says a fix removes from real projects (adds, for a false negative), "
     "one point each, leaving out items that show up in three or more pull requests' primer comments, which "
     "are noise. "
-    "A held run is only listed for a crash, a bug, High priority or two reactions.</p>"
+    "A held run is only listed for a crash, a bug, High priority or two reactions. "
+    f"Pull requests waiting on their author are left out until the author has been silent for "
+    f"{takeover.TAKEOVER_DAYS} days (or the PR is labelled Needs take over): then they need you again "
+    "and come back right after the merges.</p>"
 ]
 # Step 0: the labels this pass proposes. They already count in the ranking
 # below, so one run both categorizes and prioritizes.
@@ -1782,12 +1857,22 @@ patch_milestones = sorted(
 if patch_milestones:
     release = patch_milestones[0]
     todo.append(f"<h3>0. Last items of {E(release)}</h3><ol>")
+    todo_takeover[:] = [n for n in todo_takeover if rows[n].get("milestone") != release]
     todo.extend(
-        todo_item(n) for n in sorted((n for n, r in rows.items() if r.get("milestone") == release and n in V), key=priority)
+        (takeover_item if needs_takeover(n) else todo_item)(n)
+        for n in sorted(
+            (
+                n
+                for n, r in rows.items()
+                if r.get("milestone") == release and n in V and (not waiting_on_author(n) or needs_takeover(n))
+            ),
+            key=priority,
+        )
     )
     todo.append("</ol>")
 for title, items in (
     ("1. Merge", lane_members("merge")),
+    ("1b. Take over (author silent)", todo_takeover),
     ("2. Review", lane_members("review")[:TODO_REVIEW]),
     ("3. Approve the run", todo_approve),
     ("4. Decide (crash or bug)", [n for n in lane_members("decide") if priority(n)[1] <= 1]),
@@ -1801,7 +1886,7 @@ for title, items in (
             )
         continue
     todo.append(f"<h3>{title}</h3><ol>")
-    todo.extend(todo_item(n) for n in items)
+    todo.extend((takeover_item if items is todo_takeover else todo_item)(n) for n in items)
     todo.append("</ol>")
     if items is todo_approve:
         todo.append(f"<pre>{APPROVE_LOOP.format(numbers=' '.join(map(str, items)))}</pre>")
@@ -1821,7 +1906,7 @@ if ASTROID_FILE.exists():
         return (
             f'<li><a href="https://github.com/pylint-dev/astroid/pull/{p["n"]}">astroid #{p["n"]}</a> '
             f'<span class="k">{E(KIND_NAMES[category])}</span>{E(p["t"])} '
-            f'<span class="do">— {astroid_queue.LANES[astroid_queue.lane(p)][3]}</span>'
+            f'<span class="do">— {TAKEOVER_ACTION if astroid_queue.needs_takeover(p) else astroid_queue.LANES[astroid_queue.lane(p)][3]}</span>'
             f'<span class="why">Why here: {E(astroid_queue.why(p))}</span>'
             "</li>"
         )
@@ -1840,8 +1925,12 @@ if ASTROID_FILE.exists():
         ("review", "Review (contributors, green)", 8, astroid_queue.worth),
         ("approve", "Approve the run", 8, astroid_queue.worth),
         ("ping", "Yours, waiting on a reviewer", 10, lambda p: astroid_queue.worth(p) or bool(p["milestone"])),
+        ("takeover", "Take over (author silent)", 8, astroid_queue.worth),
     ):
-        items = [p for p in prs if astroid_queue.lane(p) == key and keep(p)][:limit]
+        if key == "takeover":
+            items = [p for p in prs if astroid_queue.needs_takeover(p) and keep(p)][:limit]
+        else:
+            items = [p for p in prs if astroid_queue.lane(p) == key and keep(p)][:limit]
         if not items:
             continue
         todo.append(f"<h4>{title}</h4><ol>")
