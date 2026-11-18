@@ -11,11 +11,11 @@ before and after the change. Four steps, all writing in ``.issue_snippets/``
     python script/issue_snippets.py fetch
     python script/issue_snippets.py extract
     python script/issue_snippets.py run --out before.json
-    # change pylint or astroid, or pass --pythonpath with another astroid
+    # change pylint or astroid here
     python script/issue_snippets.py run --out after.json
     python script/issue_snippets.py diff before.json after.json
 
-``fetch`` needs the GitHub CLI (``gh``). ``extract`` writes each Python code
+``fetch`` needs ``gh``, the GitHub CLI. ``extract`` writes each Python code
 block of each issue body as ``i<issue>_block<n>.py``. These are not verified:
 some are error messages, pylint output or partial code. A snippet that imports a
 library gives ``import-error`` until that library is installed.
