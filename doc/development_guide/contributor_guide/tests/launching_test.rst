@@ -143,7 +143,7 @@ Then run pylint on every snippet before and after your change, and compare::
 
 ``diff`` lists each issue whose messages changed, with a link to it.
 Pylint only reads the snippets, it never runs them. They are not checked by
-hand: some are tracebacks or partial code. A snippet that imports a library
+hand: some are error messages or partial code. A snippet that imports a library
 gives ``import-error`` until you install that library.
 The files live in the ``.issue_snippets`` directory.
 

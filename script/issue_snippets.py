@@ -17,7 +17,7 @@ before and after the change. Four steps, all writing in ``.issue_snippets/``
 
 ``fetch`` needs the GitHub CLI (``gh``). ``extract`` writes each Python code
 block of each issue body as ``i<issue>_block<n>.py``. These are not verified:
-some are tracebacks, pylint output or partial code. A snippet that imports a
+some are error messages, pylint output or partial code. A snippet that imports a
 library gives ``import-error`` until that library is installed.
 
 Pylint reads the snippets and never runs them.
@@ -107,7 +107,7 @@ def normalize(output: str, folder: Path) -> list[str]:
     lines = []
     for line in output.splitlines():
         if not MESSAGE.match(line):
-            continue  # module headers and tracebacks
+            continue  # module headers and crash reports
         line = line.replace(f"{folder}{os.sep}", "").replace(str(folder), "")
         line = re.sub(r"pylint-crash-[\d-]+\.txt", "pylint-crash.txt", line)
         lines.append(re.sub(r" at 0x[0-9a-f]+", "", line))
