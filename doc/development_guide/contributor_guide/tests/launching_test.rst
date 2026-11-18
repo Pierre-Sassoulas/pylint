@@ -121,5 +121,31 @@ To fully simulate the process on Continuous Integration, checkout ``main`` and r
 
 The output files live in the ``tests/.pyreverse_primer_tests`` directory.
 
+Open issues
+-----------
+
+The primer checks real projects. ``script/issue_snippets.py`` checks the code people
+put in open issues instead. It shows which issues a change fixes, or makes worse.
+
+Download the open issues and write their code blocks to files (you need the GitHub
+command line tool, ``gh``)::
+
+    python script/issue_snippets.py fetch
+    python script/issue_snippets.py extract
+
+``extract --label "Crash 💥"`` keeps only the issues with this label.
+Then run pylint on every snippet before and after your change, and compare::
+
+    python script/issue_snippets.py run --out before.json
+    # make your change, or pass --pythonpath with another astroid
+    python script/issue_snippets.py run --out after.json
+    python script/issue_snippets.py diff before.json after.json
+
+``diff`` lists each issue whose messages changed, with a link to it.
+Pylint only reads the snippets, it never runs them. They are not checked by
+hand: some are tracebacks or partial code. A snippet that imports a library
+gives ``import-error`` until you install that library.
+The files live in the ``.issue_snippets`` directory.
+
 .. _pytest-cov: https://pypi.org/project/pytest-cov/
 .. _astroid: https://github.com/pylint-dev/astroid

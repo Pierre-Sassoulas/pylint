@@ -19,6 +19,7 @@ doc/user_guide/messages/refactor/
 doc/user_guide/messages/warning/
 tests/.pylint_primer_tests/
 tests/.pyreverse_primer_tests/
+.issue_snippets/
 pyve
 build-stamp
 .coverage
