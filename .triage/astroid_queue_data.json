@@ -327,7 +327,7 @@
     {
      "ref": "pylint-dev/pylint#8739",
      "title": "Unfound astroid.exceptions.InferenceError causes a crash",
-     "state": "open",
+     "state": "closed",
      "labels": [
       "Astroid",
       "Crash 💥",
@@ -1031,7 +1031,7 @@
    "milestone": "",
    "size": 48,
    "created": "2026-10-09",
-   "updated": "2026-11-16",
+   "updated": "2026-11-18",
    "ci": "green",
    "cifail": 0,
    "links": [

@@ -341,18 +341,18 @@ V = {
         'Review and merge: one-line guard, primer shows the fixed FP.',
     ),
     11848: (
-        'approve',
-        'held',
+        'review',
+        'running',
         'confirmed',
-        'New (18 November), docs only by VanshajPoonia: new section in the plugins how-to on giving a reporter plugin options (register an option-only checker, read <code>self.linter.config</code>), linked from the output docs. Diff read 18 November: no CI or config files, no risky calls, ASCII only. Runs held (3 checks).',
-        'Approve the runs at 957ad9963, then review the example (it should run as written).',
+        'New (18 November), docs only by VanshajPoonia: new section in the plugins how-to on giving a reporter plugin options (register an option-only checker, read <code>self.linter.config</code>), linked from the output docs. Diff read 18 November: no CI or config files, no risky calls, ASCII only. Runs held (3 checks).  19 November: runs approved at 957ad9963 (6), CI running.',
+        'Review once CI is green; check the example runs as written.',
     ),
     11849: (
-        'approve',
-        'held',
+        'review',
+        'running',
         'confirmed',
-        'New (18 November), 120 lines by DeviousCardi for issue 8012 (FN): <code>"{1}".format(20)</code> needs two arguments but was not reported; now the number of positional arguments needed is the highest explicit position plus one. Also stops <code>too-many-format-args</code> on <code>"{1}".format(20, 21)</code> and <code>"{2} {0}".format(1, 2, 3)</code>. New <code>parse_format_method_string_positions</code> in <code>checkers/utils.py</code>, the old function kept as a wrapper (public helper, signature unchanged). Diff read 18 November: no CI or config files, no risky calls, ASCII only. Runs held (3 checks).',
-        'Approve the runs at 20ae7b8a9, then review.',
+        'New (18 November), 120 lines by DeviousCardi for issue 8012 (FN): <code>"{1}".format(20)</code> needs two arguments but was not reported; now the number of positional arguments needed is the highest explicit position plus one. Also stops <code>too-many-format-args</code> on <code>"{1}".format(20, 21)</code> and <code>"{2} {0}".format(1, 2, 3)</code>. New <code>parse_format_method_string_positions</code> in <code>checkers/utils.py</code>, the old function kept as a wrapper (public helper, signature unchanged). Diff read 18 November: no CI or config files, no risky calls, ASCII only. Runs held (3 checks).  19 November: runs approved at 20ae7b8a9 (8), CI running.',
+        'Review once CI is green.',
     ),
     # ---- approve the workflow run ----------------------------------------
     11824: (
@@ -1154,16 +1154,6 @@ V = {
         "You requested changes on 10 October. Docs for issue 8196 (<code>too-many-locals</code> "
         "rationale).",
         "Waiting on the author.",
-    ),
-    11409: (
-        "author",
-        "astroid",
-        "confirmed",
-        "The author opened astroid #3371 on 9 October as you asked (bind the class to a metaclass "
-        "method; the typing brain rebuilt its <code>Meta</code> template on every inference, which "
-        "broke an identity check). This PR waits for that. Issue 10042 (<code>not-callable</code> when "
-        "inheriting from <code>typing.IO</code>).",
-        "Review astroid #3371; this PR becomes a test or closes.",
     ),
     11432: (
         "author",
