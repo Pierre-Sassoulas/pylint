@@ -18148,26 +18148,13 @@
   "commit": "28ca15ec4"
  },
  "11803": {
-  "date": "2026-11-10",
+  "date": "2026-11-19",
   "added": 0,
   "removed": 0,
-  "changed": 1,
-  "projects": {
-   "pandas": {
-    "added": 0,
-    "removed": 0,
-    "changed": 1
-   }
-  },
-  "items": [
-   [
-    "pandas",
-    "changed",
-    "redefined-variable-type",
-    "Moved from `507:16`-`507:43` to `505:16`-`505:47`."
-   ]
-  ],
-  "commit": "dfc0f42e4"
+  "changed": 0,
+  "projects": {},
+  "items": [],
+  "commit": "685d72916"
  },
  "11805": {
   "date": "2026-11-10",
@@ -18498,23 +18485,10 @@
   "date": "2026-11-18",
   "added": 0,
   "removed": 0,
-  "changed": 1,
-  "projects": {
-   "pandas": {
-    "added": 0,
-    "removed": 0,
-    "changed": 1
-   }
-  },
-  "items": [
-   [
-    "pandas",
-    "changed",
-    "redefined-variable-type",
-    "Moved from `505:16`-`505:47` to `507:16`-`507:43`."
-   ]
-  ],
-  "commit": "75002dfe4"
+  "changed": 0,
+  "projects": {},
+  "items": [],
+  "commit": "8fdbc8daa"
  },
  "11835": {
   "date": "2026-11-17",
@@ -18681,5 +18655,14 @@
    ]
   ],
   "commit": "cfb3b48e7"
+ },
+ "11849": {
+  "date": "2026-11-18",
+  "added": 0,
+  "removed": 0,
+  "changed": 0,
+  "projects": {},
+  "items": [],
+  "commit": "20ae7b8a9"
  }
 }

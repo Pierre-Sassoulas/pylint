@@ -342,17 +342,31 @@ V = {
     ),
     11848: (
         'review',
-        'running',
+        'green',
         'confirmed',
-        'New (18 November), docs only by VanshajPoonia: new section in the plugins how-to on giving a reporter plugin options (register an option-only checker, read <code>self.linter.config</code>), linked from the output docs. Diff read 18 November: no CI or config files, no risky calls, ASCII only. Runs held (3 checks).  19 November: runs approved at 957ad9963 (6), CI running.',
-        'Review once CI is green; check the example runs as written.',
+        'New (18 November), docs only by VanshajPoonia: new section in the plugins how-to on giving a reporter plugin options (register an option-only checker, read <code>self.linter.config</code>), linked from the output docs. Diff read 18 November: no CI or config files, no risky calls, ASCII only. Runs held (3 checks).  19 November: runs approved at 957ad9963 (6), CI running. 19 November: all green except Changelog Entry Check: the approved run carries the opened-event payload, before Skip news was added. Docs only.',
+        'Review the docs; re-run or ignore the changelog check (Skip news is set).',
     ),
     11849: (
         'review',
-        'running',
+        'green',
         'confirmed',
-        'New (18 November), 120 lines by DeviousCardi for issue 8012 (FN): <code>"{1}".format(20)</code> needs two arguments but was not reported; now the number of positional arguments needed is the highest explicit position plus one. Also stops <code>too-many-format-args</code> on <code>"{1}".format(20, 21)</code> and <code>"{2} {0}".format(1, 2, 3)</code>. New <code>parse_format_method_string_positions</code> in <code>checkers/utils.py</code>, the old function kept as a wrapper (public helper, signature unchanged). Diff read 18 November: no CI or config files, no risky calls, ASCII only. Runs held (3 checks).  19 November: runs approved at 20ae7b8a9 (8), CI running.',
-        'Review once CI is green.',
+        'New (18 November), 120 lines by DeviousCardi for issue 8012 (FN): <code>"{1}".format(20)</code> needs two arguments but was not reported; now the number of positional arguments needed is the highest explicit position plus one. Also stops <code>too-many-format-args</code> on <code>"{1}".format(20, 21)</code> and <code>"{2} {0}".format(1, 2, 3)</code>. New <code>parse_format_method_string_positions</code> in <code>checkers/utils.py</code>, the old function kept as a wrapper (public helper, signature unchanged). Diff read 18 November: no CI or config files, no risky calls, ASCII only. Runs held (3 checks).  19 November: runs approved at 20ae7b8a9 (8), CI running. 19 November: CI green at 20ae7b8a9 (45 pass).',
+        'Review: CI green, explicit-position counting in the new format-string parser.',
+    ),
+    11852: (
+        'approve',
+        'held',
+        'confirmed',
+        "New (19 November), 74 lines by SnakeO (first PR) for issue 3502 (Bug, Needs PR, open since 2020; no other PR): <code>attribute-defined-outside-init</code> is skipped for a class when a base, or an ancestor's base, cannot be inferred (<code>_has_uninferable_base</code>, uses <code>infer_all</code>). Avoids <code>has_known_bases</code> on purpose, since every <code>Enum</code> subclass fails it; tested with an <code>Enum</code> case that still warns. Diff read 19 November: no CI or config files, no risky calls, ASCII only. The helper is called inside the per-attribute loop (could be hoisted). Runs held (7).",
+        'Approve the runs at b2a8d21c8, then review: primer will show how many hits go away (common FP with uninstalled bases).',
+    ),
+    11851: (
+        'approve',
+        'held',
+        'confirmed',
+        'New (18 November), 70 lines by 60507 (first PR) for issue 9315 (FN; no other PR): <code>modified-iterating-list/dict/set</code> now also fire on inferred <code>Instance</code>s of list/dict/set subclasses (e.g. <code>glob.glob()</code>), via three near-identical <code>_is_list/_is_dict/_is_set</code> helpers (<code>is_subtype_of</code>). Diff read 19 November: no CI or config files, no risky calls, ASCII only. Two <code>assert infer_val is not None</code> in checker code; the three helpers could be one. Runs held (7).',
+        'Approve the runs at 3424bc826, then review: primer decides (new hits on inferred lists can be noisy).',
     ),
     # ---- approve the workflow run ----------------------------------------
     11824: (
@@ -394,8 +408,8 @@ V = {
         'author',
         'changes',
         'confirmed',
-        'New, 155 lines by marksmayo (performance): four checks walked the same subtree several times (<code>visit_assignname</code> reassigned-before/after, <code>leave_functiondef</code> global/nonlocal/comprehension, unused private members per member, <code>BasicErrorChecker</code> global/nonlocal). Each now walks once, same order. 3.7-4.1% faster on astroid, identical messages. New helper <code>is_reassigned_before_or_after_current</code> with unit tests. Not run locally. 10 November CI: all green, primer only the known pandas <code>series.py</code> L505 redefined-variable-type move (noise, seen on unrelated PRs). 15 November: Pierre requested changes: the constant-naming check still walks the module once per module-level name (quadratic, halved), collect line numbers once per scope; the private-member checks still compare every private member against every name; plus a fragment wording suggestion.',
-        'Wait for marksmayo to address the two quadratic leftovers.',
+        'New, 155 lines by marksmayo (performance): four checks walked the same subtree several times (<code>visit_assignname</code> reassigned-before/after, <code>leave_functiondef</code> global/nonlocal/comprehension, unused private members per member, <code>BasicErrorChecker</code> global/nonlocal). Each now walks once, same order. 3.7-4.1% faster on astroid, identical messages. New helper <code>is_reassigned_before_or_after_current</code> with unit tests. Not run locally. 10 November CI: all green, primer only the known pandas <code>series.py</code> L505 redefined-variable-type move (noise, seen on unrelated PRs). 15 November: Pierre requested changes: the constant-naming check still walks the module once per module-level name (quadratic, halved), collect line numbers once per scope; the private-member checks still compare every private member against every name; plus a fragment wording suggestion. 19 November: Pierre rebased for CodSpeed (0cf9bf9bf) and rewrote the fragment (685d72916). CodSpeed reports +61.6%, primer no effect, CI green. The constant-naming quadratic leftover from the 15 November review is still unaddressed (4 days).',
+        'Either wait for the leftover, or dismiss the change request and merge now (green, +61.6% CodSpeed) with the leftover as a follow-up.',
     ),
     11806: (
         'review',
