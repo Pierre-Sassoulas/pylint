@@ -2312,12 +2312,15 @@
    "a": "grayjk",
    "t": "fix misspellings found by codespell",
    "draft": false,
-   "labels": [],
+   "labels": [
+    "Maintenance",
+    "Skip news :mute:"
+   ],
    "rd": "CHANGES_REQUESTED",
    "milestone": "",
    "size": 97,
    "created": "2026-11-19",
-   "updated": "2026-11-19",
+   "updated": "2026-11-20",
    "ci": "failing",
    "cifail": 2,
    "links": []

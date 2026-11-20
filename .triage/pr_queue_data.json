@@ -5340,7 +5340,11 @@
    "files": 3,
    "created": "2026-11-20",
    "updated": "2026-11-20",
-   "labels": [],
+   "labels": [
+    "Duplicate 🐫",
+    "False Positive 🦟",
+    "Optional Checkers"
+   ],
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
    "merge": "UNKNOWN",
