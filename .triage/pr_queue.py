@@ -79,10 +79,10 @@ LANES = {
 V = {
     # ---- merge lane -------------------------------------------------------
     11640: (
-        'author',
-        'changes',
-        'confirmed',
-        'Issue 9237 (pyreverse bug): an empty module still wrote a <code>classes</code> diagram holding only the header. You approved on 11 October and asked DudeNr33 to confirm. 53 green, one cancelled job. Waiting on DudeNr33, not on you. 8 November: DudeNr33 requested changes: test <code>diagram.objects</code> instead, since <code>pyreverse --max-depth 0 a.py b.py</code> on two empty files writes an empty <code>packages.mmd</code> too.',
+        "author",
+        "changes",
+        "confirmed",
+        "Issue 9237 (pyreverse bug): an empty module still wrote a <code>classes</code> diagram holding only the header. You approved on 11 October and asked DudeNr33 to confirm. 53 green, one cancelled job. Waiting on DudeNr33, not on you. 8 November: DudeNr33 requested changes: test <code>diagram.objects</code> instead, since <code>pyreverse --max-depth 0 a.py b.py</code> on two empty files writes an empty <code>packages.mmd</code> too.",
         "Wait for the author to apply DudeNr33's suggestion.",
     ),
     # ---- review now -------------------------------------------------------
@@ -98,18 +98,18 @@ V = {
         "Review astroid #3442 first; this PR then shrinks to tests or closes.",
     ),
     11615: (
-        'review',
-        'green',
-        'confirmed',
+        "review",
+        "green",
+        "confirmed",
         "Issue 10137 (bug, 3 reactions, now milestone 4.1.5): <code>__Init__.py</code> with different capitalization is linted as a module on Windows. The 2 November run was 40/41, only <code>pylint</code> spelling red on three words in a new docstring. summeriver13's fix (ningkexin96/pylint#2) was merged into the branch on 5 November as 2ddc28a: docstring only, logic unchanged. Its six runs are held again. 8 November: the approved run finished 43/43 green, primer no effect.",
-        'Review and backport (4.1.5).',
+        "Review and backport (4.1.5).",
     ),
     11690: (
-        'author',
-        'changes',
-        'confirmed',
-        'New, 24 lines by agustin18 for issue 9986 (Regression FP): <code>unbalanced-dict-unpacking</code> on <code>.items()</code> of a dict held in an instance attribute or defined in another scope. Green, full coverage, primer clean. 18 November: Pierre requested changes (adds both false positives and false negatives), pushed functional test cases on the branch (CI now red on purpose), asked whether astroid 3392 (len constraints, Pierre) is the right fix, and will merge #11846 first so the branch must rebase.',
-        'Wait for agustin18 to rebase on #11846 and make the pushed tests pass, or move to astroid 3392.',
+        "author",
+        "changes",
+        "confirmed",
+        "New, 24 lines by agustin18 for issue 9986 (Regression FP): <code>unbalanced-dict-unpacking</code> on <code>.items()</code> of a dict held in an instance attribute or defined in another scope. Green, full coverage, primer clean. 18 November: Pierre requested changes (adds both false positives and false negatives), pushed functional test cases on the branch (CI now red on purpose), asked whether astroid 3392 (len constraints, Pierre) is the right fix, and will merge #11846 first so the branch must rebase.",
+        "Wait for agustin18 to rebase on #11846 and make the pushed tests pass, or move to astroid 3392.",
     ),
     11683: (
         "review",
@@ -138,7 +138,7 @@ V = {
         "New, 30 lines by agustin18 for issue 4993 (FP, 2 reactions): <code>unused-import</code> on "
         "<code>import gettext</code> used in a method annotation when the class later defines a "
         "<code>gettext</code> property. Green, primer only astropy noise. Uses "
-        "<code>getattr(n, \"fromlineno\")</code> (AGENTS.md) and a module-wide <code>lookup</code> "
+        '<code>getattr(n, "fromlineno")</code> (AGENTS.md) and a module-wide <code>lookup</code> '
         "heuristic.",
         "Review; ask for isinstance and a narrower condition.",
     ),
@@ -161,18 +161,18 @@ V = {
         "Review.",
     ),
     11661: (
-        'review',
-        'green',
-        'confirmed',
-        '85 lines by shan3520 for issue 7538 (FP): <code>used-before-assignment</code> when a branch of a nested conditional expression uses a name its test binds with a walrus. 43/43 green. 9 November: new commit merging the walrus branches (complexity limit); 43/43 green. 17 November: shan3520 pinged you: since the PR opened, a walrus that an <code>and</code>/<code>or</code> may skip no longer counts as always assigned, and the statement-limit fix. Green.',
-        'Review: shan3520 pinged you 17 November.',
+        "review",
+        "green",
+        "confirmed",
+        "85 lines by shan3520 for issue 7538 (FP): <code>used-before-assignment</code> when a branch of a nested conditional expression uses a name its test binds with a walrus. 43/43 green. 9 November: new commit merging the walrus branches (complexity limit); 43/43 green. 17 November: shan3520 pinged you: since the PR opened, a walrus that an <code>and</code>/<code>or</code> may skip no longer counts as always assigned, and the statement-limit fix. Green.",
+        "Review: shan3520 pinged you 17 November.",
     ),
     11205: (
-        'approve',
-        'held',
-        'confirmed',
-        'Issue 7572 (enhancement, Good first issue): pyreverse <code>--theme</code> option for dark-mode diagrams, 971 lines. The author fixed the R0801 duplicate-code on 13 October and pinged you and DudeNr33 on 27 October: all green. Last changes requested by you on 7 October. 3 November: the author merged main; that run is held, so the old green no longer counts.',
-        'Approve the run, then re-review (large; DudeNr33 also requested changes before).',
+        "approve",
+        "held",
+        "confirmed",
+        "Issue 7572 (enhancement, Good first issue): pyreverse <code>--theme</code> option for dark-mode diagrams, 971 lines. The author fixed the R0801 duplicate-code on 13 October and pinged you and DudeNr33 on 27 October: all green. Last changes requested by you on 7 October. 3 November: the author merged main; that run is held, so the old green no longer counts.",
+        "Approve the run, then re-review (large; DudeNr33 also requested changes before).",
     ),
     11621: (
         "review",
@@ -192,11 +192,11 @@ V = {
         "Review.",
     ),
     11645: (
-        'review',
-        'green',
-        'confirmed',
-        'Issue 9641 (FP): <code>used-before-assignment</code> for a walrus bound in one decorator and used in a later stacked decorator. 7 November: a commit covering the decorator fallback branches and a merge of main. Now all green including <code>codecov/patch</code>; primer no effect. 10 November: agustin18 asked you directly for another look (tests in, main merged, 43 checks green).',
-        'Re-review now: the author asked you by name and everything is green.',
+        "review",
+        "green",
+        "confirmed",
+        "Issue 9641 (FP): <code>used-before-assignment</code> for a walrus bound in one decorator and used in a later stacked decorator. 7 November: a commit covering the decorator fallback branches and a merge of main. Now all green including <code>codecov/patch</code>; primer no effect. 10 November: agustin18 asked you directly for another look (tests in, main merged, 43 checks green).",
+        "Re-review now: the author asked you by name and everything is green.",
     ),
     11624: (
         "review",
@@ -250,320 +250,307 @@ V = {
         "Review. Clean primer, confirmed issue.",
     ),
     11664: (
-        'author',
-        'changes',
-        'feature',
-        'New, 426 lines by Julfried: directory-based pyreverse functional tests (regular and namespace packages), sharing the config parsing with the single-file tests. Only the changelog check is red. 8 November: DudeNr33 requested changes (split a test with/without config, reword the <code>.rc</code> paragraph, explain <code>packages</code> vs <code>package_diagrams</code> dirs). Pyreverse primer no effect.',
-        'Wait for Julfried; #11789 follows it.',
+        "author",
+        "changes",
+        "feature",
+        "New, 426 lines by Julfried: directory-based pyreverse functional tests (regular and namespace packages), sharing the config parsing with the single-file tests. Only the changelog check is red. 8 November: DudeNr33 requested changes (split a test with/without config, reword the <code>.rc</code> paragraph, explain <code>packages</code> vs <code>package_diagrams</code> dirs). Pyreverse primer no effect.",
+        "Wait for Julfried; #11789 follows it.",
     ),
     11826: (
-        'review',
-        'green',
-        'confirmed',
+        "review",
+        "green",
+        "confirmed",
         'New (14 November), 44 lines by umrndem (first PR) for issue 10143 (question/docs, "List of rules requiring file traversal"): new <code>checks-across-modules</code> section in <code>usage/run.rst</code> listing <code>cyclic-import</code> and <code>duplicate-code</code>, how to run them on the whole package, and how to skip them for changed-file runs, with a clear warning that the list is not exhaustive (inference reads other modules too). Linked from the FAQ and the generated features page (via <code>doc/exts/pylint_features.py</code>). Has an <code>other</code> fragment with Refs. Diff read 14 November: docs only, ASCII. Check: the CI already builds the docs; whether the features-page sentence belongs at the top of every generated page. 15 November CI at 24de45fc8: green, docs build passes.',
-        'Review: docs only, answers a recurring question.',
+        "Review: docs only, answers a recurring question.",
     ),
     11833: (
-        'review',
-        'docs',
-        'confirmed',
-        'New (16 November), docs only by aryankinha (refs issue 7100): the <code>cell-var-from-loop</code> bad example printed five <code>Hello, Michael!</code> for six alpha names (wrong count) while its comment talks about <code>Not-A-Name</code>. Now the input ends with <code>Not-A-Name</code>, which the <code>isalpha()</code> filter drops, so the five greetings print <code>Hello, Not-A-Name!</code>, matching the comment (checked by hand). Same input in both good examples, duplicate <code>Terry</code> removed; <code>other</code> fragment. CI not held. Diff read: docs only, ASCII.',
-        'Review and merge: correct, one-minute read.',
+        "review",
+        "docs",
+        "confirmed",
+        "New (16 November), docs only by aryankinha (refs issue 7100): the <code>cell-var-from-loop</code> bad example printed five <code>Hello, Michael!</code> for six alpha names (wrong count) while its comment talks about <code>Not-A-Name</code>. Now the input ends with <code>Not-A-Name</code>, which the <code>isalpha()</code> filter drops, so the five greetings print <code>Hello, Not-A-Name!</code>, matching the comment (checked by hand). Same input in both good examples, duplicate <code>Terry</code> removed; <code>other</code> fragment. CI not held. Diff read: docs only, ASCII.",
+        "Review and merge: correct, one-minute read.",
     ),
     11834: (
-        'approve',
-        'held',
-        'confirmed',
-        'New (16 November), 470 lines by MohamedIlzam (first PR) for issue 7361 (enhancement, Help wanted, open since 2022; no other PR): pyreverse <code>--all-derived</code> / <code>-D</code> adds every direct and indirect subclass of the classes selected with <code>-c</code>. Builds a reverse-inheritance index over the analysed project (<code>_build_derived_index</code>, skips <code>InferenceError</code> and non-class bases), walks only descendants of the selected classes (no siblings), dedups diamond inheritance; docs, fragment and tests (unit plus CLI). Diff read 17 November: no CI or config files, no risky calls, ASCII only. New option with a one-letter short flag: <code>-D</code> must not clash with existing pyreverse shorts. Runs held (3 checks).',
-        'Approve the runs at 901de4359, then review: new option, check the <code>-D</code> short flag and the index cost on big projects.',
+        "approve",
+        "held",
+        "confirmed",
+        "New (16 November), 470 lines by MohamedIlzam (first PR) for issue 7361 (enhancement, Help wanted, open since 2022; no other PR): pyreverse <code>--all-derived</code> / <code>-D</code> adds every direct and indirect subclass of the classes selected with <code>-c</code>. Builds a reverse-inheritance index over the analysed project (<code>_build_derived_index</code>, skips <code>InferenceError</code> and non-class bases), walks only descendants of the selected classes (no siblings), dedups diamond inheritance; docs, fragment and tests (unit plus CLI). Diff read 17 November: no CI or config files, no risky calls, ASCII only. New option with a one-letter short flag: <code>-D</code> must not clash with existing pyreverse shorts. Runs held (3 checks).",
+        "Approve the runs at 901de4359, then review: new option, check the <code>-D</code> short flag and the index cost on big projects.",
     ),
     11835: (
-        'review',
-        'green',
-        'confirmed',
-        'New (16 November), 80 lines by unaltolga (first PR) for issue 5823 (FP, dataclasses, open since 2022; no other PR): <code>super-with-arguments</code> is no longer emitted in a <code>@dataclass(slots=True)</code> class when <code>py-version</code> is below 3.14, because before 3.14 the class that decorator returns is a new class and argument-less <code>super()</code> breaks there (fixed in CPython 3.14). Helper <code>_is_slots_dataclass</code> (Call decorator with <code>slots</code> keyword whose <code>bool_value()</code> is True) and a <code>_py314_plus</code> flag in <code>open()</code>; two functional tests (py-version 3.13 and 3.14). Diff read 17 November: no CI or config files, no risky calls, ASCII only. Runs held (3 checks). 17 November: runs approved; CI green, codecov ok, primer no effect.',
-        'Review and merge: correct and small, green.',
+        "review",
+        "green",
+        "confirmed",
+        "New (16 November), 80 lines by unaltolga (first PR) for issue 5823 (FP, dataclasses, open since 2022; no other PR): <code>super-with-arguments</code> is no longer emitted in a <code>@dataclass(slots=True)</code> class when <code>py-version</code> is below 3.14, because before 3.14 the class that decorator returns is a new class and argument-less <code>super()</code> breaks there (fixed in CPython 3.14). Helper <code>_is_slots_dataclass</code> (Call decorator with <code>slots</code> keyword whose <code>bool_value()</code> is True) and a <code>_py314_plus</code> flag in <code>open()</code>; two functional tests (py-version 3.13 and 3.14). Diff read 17 November: no CI or config files, no risky calls, ASCII only. Runs held (3 checks). 17 November: runs approved; CI green, codecov ok, primer no effect.",
+        "Review and merge: correct and small, green.",
     ),
     11838: (
-        'review',
-        'green',
-        'confirmed',
-        'New (17 November), 150 lines by cleoanka (first PR) for issue 7391 (labelled enhancement, fragment says false negative): <code>modified-iterating-list/set/dict</code> now also fire when the iterated object is an attribute like <code>self.items</code> and the loop modifies that same attribute; compares <code>as_string()</code> of the two expressions. Only one attribute level (<code>a.b</code>, not <code>a.b.c</code>). cleoanka opened five pylint PRs and one astroid PR between 10:46 and 15:53 UTC on 17 November, plus analysis comments on old issues; same style throughout (likely tool-assisted). Each is small with tests. Diff read 17 November: no CI or config files, no risky calls, ASCII only (an en dash in a doc link). Runs held (3 checks). 17 November CI: green. Primer adds 5 <code>modified-iterating-list</code>: ansible <code>sys.meta_path.remove</code>/<code>sys.path_hooks.remove</code> while iterating them (true positives: skips the next hook); music21 <code>self._notes.remove(n)</code> followed by <code>return</code> (2, harmless: loop ends right away; plain names already get the same message, so consistent) and <code>spines</code> in spineParser (check); pandas L505 noise.',
-        'Review: ansible hits are real bugs; the remove-then-return hits are the existing behaviour, not new.',
+        "review",
+        "green",
+        "confirmed",
+        "New (17 November), 150 lines by cleoanka (first PR) for issue 7391 (labelled enhancement, fragment says false negative): <code>modified-iterating-list/set/dict</code> now also fire when the iterated object is an attribute like <code>self.items</code> and the loop modifies that same attribute; compares <code>as_string()</code> of the two expressions. Only one attribute level (<code>a.b</code>, not <code>a.b.c</code>). cleoanka opened five pylint PRs and one astroid PR between 10:46 and 15:53 UTC on 17 November, plus analysis comments on old issues; same style throughout (likely tool-assisted). Each is small with tests. Diff read 17 November: no CI or config files, no risky calls, ASCII only (an en dash in a doc link). Runs held (3 checks). 17 November CI: green. Primer adds 5 <code>modified-iterating-list</code>: ansible <code>sys.meta_path.remove</code>/<code>sys.path_hooks.remove</code> while iterating them (true positives: skips the next hook); music21 <code>self._notes.remove(n)</code> followed by <code>return</code> (2, harmless: loop ends right away; plain names already get the same message, so consistent) and <code>spines</code> in spineParser (check); pandas L505 noise.",
+        "Review: ansible hits are real bugs; the remove-then-return hits are the existing behaviour, not new.",
     ),
     11839: (
-        'approve',
-        'held',
-        'confirmed',
-        'New (17 November), 178 lines by cleoanka (first PR) for issue 4586 (enhancement, 2021): new check <code>star-arg-unpacking-after-keyword-arg</code> (W1118, HIGH confidence) for <code>f(y=2, *args)</code>, where the unpacked values bind positionally before the keyword; compares positions of the first keyword and each <code>Starred</code> arg in <code>visit_call</code>. Docs with fruit example. New message: needs a maintainer yes on name, id and default-on (W, in the typecheck checker). cleoanka opened five pylint PRs and one astroid PR between 10:46 and 15:53 UTC on 17 November, plus analysis comments on old issues; same style throughout (likely tool-assisted). Each is small with tests. Diff read 17 November: no CI or config files, no risky calls, ASCII only (an en dash in a doc link). Runs held (3 checks).',
-        'Approve the runs at 49e5e829d, then decide: new default-on warning; name and W1118 ok?',
+        "approve",
+        "held",
+        "confirmed",
+        "New (17 November), 178 lines by cleoanka (first PR) for issue 4586 (enhancement, 2021): new check <code>star-arg-unpacking-after-keyword-arg</code> (W1118, HIGH confidence) for <code>f(y=2, *args)</code>, where the unpacked values bind positionally before the keyword; compares positions of the first keyword and each <code>Starred</code> arg in <code>visit_call</code>. Docs with fruit example. New message: needs a maintainer yes on name, id and default-on (W, in the typecheck checker). cleoanka opened five pylint PRs and one astroid PR between 10:46 and 15:53 UTC on 17 November, plus analysis comments on old issues; same style throughout (likely tool-assisted). Each is small with tests. Diff read 17 November: no CI or config files, no risky calls, ASCII only (an en dash in a doc link). Runs held (3 checks).",
+        "Approve the runs at 49e5e829d, then decide: new default-on warning; name and W1118 ok?",
     ),
     11840: (
-        'review',
-        'green',
-        'confirmed',
-        'New (17 November), 170 lines by cleoanka (first PR) for issue 8687 (FP): <code>arguments-differ</code> and <code>invalid-overridden-method</code> no longer fire when a plain method implements a <code>Protocol</code> property annotated to return <code>Callable</code> (also inside <code>Optional</code>/<code>Union</code>/<code>|</code>). Matches the annotation by name (<code>Callable</code>), not by inference, so an alias of Callable is missed (safe direction). cleoanka opened five pylint PRs and one astroid PR between 10:46 and 15:53 UTC on 17 November, plus analysis comments on old issues; same style throughout (likely tool-assisted). Each is small with tests. Diff read 17 November: no CI or config files, no risky calls, ASCII only (an en dash in a doc link). Runs held (3 checks). 17 November CI: green, primer no effect.',
-        'Review and merge: narrow FP fix, green, no primer effect.',
+        "review",
+        "green",
+        "confirmed",
+        "New (17 November), 170 lines by cleoanka (first PR) for issue 8687 (FP): <code>arguments-differ</code> and <code>invalid-overridden-method</code> no longer fire when a plain method implements a <code>Protocol</code> property annotated to return <code>Callable</code> (also inside <code>Optional</code>/<code>Union</code>/<code>|</code>). Matches the annotation by name (<code>Callable</code>), not by inference, so an alias of Callable is missed (safe direction). cleoanka opened five pylint PRs and one astroid PR between 10:46 and 15:53 UTC on 17 November, plus analysis comments on old issues; same style throughout (likely tool-assisted). Each is small with tests. Diff read 17 November: no CI or config files, no risky calls, ASCII only (an en dash in a doc link). Runs held (3 checks). 17 November CI: green, primer no effect.",
+        "Review and merge: narrow FP fix, green, no primer effect.",
     ),
     11841: (
-        'review',
-        'changes',
-        'confirmed',
-        'New (17 November), 251 lines by cleoanka (first PR) for issue 5780 (FN, used-before-assignment, 2022): a name defined in an <code>except</code> handler and also used inside it was consumed there, so a later use after the <code>try</code> was never checked. New <code>get_uncertain_except_definitions</code> on the consumer re-checks an already-consumed name when all its definitions are in except blocks that may not have run; keeps <code>possibly-used-before-assignment</code> and the confidence for if-guarded definitions (second commit). Touches the used-before-assignment core, the most fragile checker: needs the primer. cleoanka opened five pylint PRs and one astroid PR between 10:46 and 15:53 UTC on 17 November, plus analysis comments on old issues; same style throughout (likely tool-assisted). Each is small with tests. Diff read 17 November: no CI or config files, no risky calls, ASCII only (an en dash in a doc link). Runs held (3 checks). 17 November CI: green, but the primer adds two false positives. django <code>utils/encoding.py</code> L230: <code>path</code> is a parameter, reassigned in the <code>except</code> handler and read in <code>else</code>: always defined. home-assistant <code>recorder/core.py</code> L1002: <code>new_schema_status</code> is assigned in the <code>try</code> body and read in <code>else</code>, which only runs when the try body completed. The new re-check ignores definitions outside the except handlers (parameters, the try body) and the <code>else</code> clause. 18 November: no review posted yet, so the author does not know: it is your move.',
-        'Request changes: both primer hits are false positives (a parameter, and a try-body definition read in else); ask for them as functional tests.',
+        "review",
+        "changes",
+        "confirmed",
+        "New (17 November), 251 lines by cleoanka (first PR) for issue 5780 (FN, used-before-assignment, 2022): a name defined in an <code>except</code> handler and also used inside it was consumed there, so a later use after the <code>try</code> was never checked. New <code>get_uncertain_except_definitions</code> on the consumer re-checks an already-consumed name when all its definitions are in except blocks that may not have run; keeps <code>possibly-used-before-assignment</code> and the confidence for if-guarded definitions (second commit). Touches the used-before-assignment core, the most fragile checker: needs the primer. cleoanka opened five pylint PRs and one astroid PR between 10:46 and 15:53 UTC on 17 November, plus analysis comments on old issues; same style throughout (likely tool-assisted). Each is small with tests. Diff read 17 November: no CI or config files, no risky calls, ASCII only (an en dash in a doc link). Runs held (3 checks). 17 November CI: green, but the primer adds two false positives. django <code>utils/encoding.py</code> L230: <code>path</code> is a parameter, reassigned in the <code>except</code> handler and read in <code>else</code>: always defined. home-assistant <code>recorder/core.py</code> L1002: <code>new_schema_status</code> is assigned in the <code>try</code> body and read in <code>else</code>, which only runs when the try body completed. The new re-check ignores definitions outside the except handlers (parameters, the try body) and the <code>else</code> clause. 18 November: no review posted yet, so the author does not know: it is your move.",
+        "Request changes: both primer hits are false positives (a parameter, and a try-body definition read in else); ask for them as functional tests.",
     ),
     11842: (
-        'review',
-        'green',
-        'confirmed',
-        'New (17 November), 182 lines by cleoanka (first PR), refs issue 5159 (dataclass tests, Help wanted): <code>dangerous-default-value</code> now checks dataclass fields, including <code>field(default=...)</code> (field inferred from <code>dataclasses</code>/pydantic modules via astroid <code>DATACLASS_MODULES</code>), skipping <code>ClassVar</code> and <code>default_factory</code>. For a stdlib dataclass a list/dict/set default already raises <code>ValueError</code> at class creation, so this mostly catches a crash early; pydantic/attrs-style classes copy defaults, so a hit there could be a false positive. Imports from <code>astroid.brain</code> internals. cleoanka opened five pylint PRs and one astroid PR between 10:46 and 15:53 UTC on 17 November, plus analysis comments on old issues; same style throughout (likely tool-assisted). Each is small with tests. Diff read 17 November: no CI or config files, no risky calls, ASCII only (an en dash in a doc link). Runs held (3 checks). 17 November CI: green, primer no effect (so no pydantic hits in the primer).',
-        'Review: FN, green, no primer effect.',
+        "review",
+        "green",
+        "confirmed",
+        "New (17 November), 182 lines by cleoanka (first PR), refs issue 5159 (dataclass tests, Help wanted): <code>dangerous-default-value</code> now checks dataclass fields, including <code>field(default=...)</code> (field inferred from <code>dataclasses</code>/pydantic modules via astroid <code>DATACLASS_MODULES</code>), skipping <code>ClassVar</code> and <code>default_factory</code>. For a stdlib dataclass a list/dict/set default already raises <code>ValueError</code> at class creation, so this mostly catches a crash early; pydantic/attrs-style classes copy defaults, so a hit there could be a false positive. Imports from <code>astroid.brain</code> internals. cleoanka opened five pylint PRs and one astroid PR between 10:46 and 15:53 UTC on 17 November, plus analysis comments on old issues; same style throughout (likely tool-assisted). Each is small with tests. Diff read 17 November: no CI or config files, no risky calls, ASCII only (an en dash in a doc link). Runs held (3 checks). 17 November CI: green, primer no effect (so no pydantic hits in the primer).",
+        "Review: FN, green, no primer effect.",
     ),
     11844: (
-        'review',
-        'running',
-        'confirmed',
-        'New (17 November), 1-line docs fix by farisbasha (first PR): the transform plugins guide linked <code>warnings.py</code> on the dead hg.python.org; now the GitHub 2.7 branch. Diff read 18 November: no CI or config files, no risky calls, ASCII only. Runs held (3 checks). 18 November: labelled (Documentation, Skip news) and 14 runs approved. The Changelog Entry Check failed because that run was held from before the Skip news label: stale, re-run it. Tests still running.',
-        'Re-run the stale Changelog check, then merge when green.',
+        "review",
+        "running",
+        "confirmed",
+        "New (17 November), 1-line docs fix by farisbasha (first PR): the transform plugins guide linked <code>warnings.py</code> on the dead hg.python.org; now the GitHub 2.7 branch. Diff read 18 November: no CI or config files, no risky calls, ASCII only. Runs held (3 checks). 18 November: labelled (Documentation, Skip news) and 14 runs approved. The Changelog Entry Check failed because that run was held from before the Skip news label: stale, re-run it. Tests still running.",
+        "Re-run the stale Changelog check, then merge when green.",
     ),
     11845: (
-        'review',
-        'running',
-        'confirmed',
+        "review",
+        "running",
+        "confirmed",
         "New (18 November), 90 lines by mmporong for issue 11843 (FP, filed by e-gebes the day before; no other PR): with positional-only parameters, <code>missing-type-doc</code> paired annotations with the wrong parameters, because <code>args_with_annotation</code> took the positional-only annotations out of the type-comment list. Now <code>_annotations_list</code> puts <code>posonlyargs_annotations</code> first so every list is aligned, and the posonly loop reads from that list. Six functional cases cover all of e-gebes's examples plus a type comment. mmporong also had astroid 3461 merged. Diff read 18 November: no CI or config files, no risky calls, ASCII only. Runs held (3 checks). 18 November: labelled (False Positive, Optional Checkers) and 8 runs approved; 32 checks green, 4 still running (primer pending). 18 November CI: green. Primer removes one flask <code>missing-type-doc</code> on <code>url_for(self, /, endpoint: str, ...)</code>: <code>endpoint</code> is annotated, so a fixed false positive.",
-        'Review and merge: green, primer shows the fixed FP.',
+        "Review and merge: green, primer shows the fixed FP.",
     ),
     11847: (
-        'review',
-        'green',
-        'confirmed',
-        'New (18 November), 40 lines by unaltolga for issue 9080 (FP): <code>assignment-from-no-return</code> is no longer emitted for a call to a method of a <code>Protocol</code> class (added to <code>_is_ignored_function</code>). Primer removes one ansible hit: <code>self.get_option(...)</code> where <code>get_option</code> is a <code>...</code> stub on the <code>_ConfigurablePlugin</code> protocol: a real false positive. Watch: a protocol method with a concrete default body that really returns None is now skipped too (rare). Diff read 18 November: no CI or config files, no risky calls, ASCII only. CI ran without approval: green.',
-        'Review and merge: one-line guard, primer shows the fixed FP.',
+        "review",
+        "green",
+        "confirmed",
+        "New (18 November), 40 lines by unaltolga for issue 9080 (FP): <code>assignment-from-no-return</code> is no longer emitted for a call to a method of a <code>Protocol</code> class (added to <code>_is_ignored_function</code>). Primer removes one ansible hit: <code>self.get_option(...)</code> where <code>get_option</code> is a <code>...</code> stub on the <code>_ConfigurablePlugin</code> protocol: a real false positive. Watch: a protocol method with a concrete default body that really returns None is now skipped too (rare). Diff read 18 November: no CI or config files, no risky calls, ASCII only. CI ran without approval: green.",
+        "Review and merge: one-line guard, primer shows the fixed FP.",
     ),
     11848: (
-        'review',
-        'green',
-        'confirmed',
-        'New (18 November), docs only by VanshajPoonia: new section in the plugins how-to on giving a reporter plugin options (register an option-only checker, read <code>self.linter.config</code>), linked from the output docs. Diff read 18 November: no CI or config files, no risky calls, ASCII only. Runs held (3 checks).  19 November: runs approved at 957ad9963 (6), CI running. 19 November: all green except Changelog Entry Check: the approved run carries the opened-event payload, before Skip news was added. Docs only.',
-        'Review the docs; re-run or ignore the changelog check (Skip news is set).',
+        "review",
+        "green",
+        "confirmed",
+        "New (18 November), docs only by VanshajPoonia: new section in the plugins how-to on giving a reporter plugin options (register an option-only checker, read <code>self.linter.config</code>), linked from the output docs. Diff read 18 November: no CI or config files, no risky calls, ASCII only. Runs held (3 checks).  19 November: runs approved at 957ad9963 (6), CI running. 19 November: all green except Changelog Entry Check: the approved run carries the opened-event payload, before Skip news was added. Docs only.",
+        "Review the docs; re-run or ignore the changelog check (Skip news is set).",
     ),
     11849: (
-        'review',
-        'green',
-        'confirmed',
+        "review",
+        "green",
+        "confirmed",
         'New (18 November), 120 lines by DeviousCardi for issue 8012 (FN): <code>"{1}".format(20)</code> needs two arguments but was not reported; now the number of positional arguments needed is the highest explicit position plus one. Also stops <code>too-many-format-args</code> on <code>"{1}".format(20, 21)</code> and <code>"{2} {0}".format(1, 2, 3)</code>. New <code>parse_format_method_string_positions</code> in <code>checkers/utils.py</code>, the old function kept as a wrapper (public helper, signature unchanged). Diff read 18 November: no CI or config files, no risky calls, ASCII only. Runs held (3 checks).  19 November: runs approved at 20ae7b8a9 (8), CI running. 19 November: CI green at 20ae7b8a9 (45 pass).',
-        'Review: CI green, explicit-position counting in the new format-string parser.',
+        "Review: CI green, explicit-position counting in the new format-string parser.",
     ),
     11852: (
-        'approve',
-        'held',
-        'confirmed',
+        "approve",
+        "held",
+        "confirmed",
         "New (19 November), 74 lines by SnakeO (first PR) for issue 3502 (Bug, Needs PR, open since 2020; no other PR): <code>attribute-defined-outside-init</code> is skipped for a class when a base, or an ancestor's base, cannot be inferred (<code>_has_uninferable_base</code>, uses <code>infer_all</code>). Avoids <code>has_known_bases</code> on purpose, since every <code>Enum</code> subclass fails it; tested with an <code>Enum</code> case that still warns. Diff read 19 November: no CI or config files, no risky calls, ASCII only. The helper is called inside the per-attribute loop (could be hoisted). Runs held (7).",
-        'Approve the runs at b2a8d21c8, then review: primer will show how many hits go away (common FP with uninstalled bases).',
+        "Approve the runs at b2a8d21c8, then review: primer will show how many hits go away (common FP with uninstalled bases).",
     ),
     11851: (
-        'approve',
-        'held',
-        'confirmed',
-        'New (18 November), 70 lines by 60507 (first PR) for issue 9315 (FN; no other PR): <code>modified-iterating-list/dict/set</code> now also fire on inferred <code>Instance</code>s of list/dict/set subclasses (e.g. <code>glob.glob()</code>), via three near-identical <code>_is_list/_is_dict/_is_set</code> helpers (<code>is_subtype_of</code>). Diff read 19 November: no CI or config files, no risky calls, ASCII only. Two <code>assert infer_val is not None</code> in checker code; the three helpers could be one. Runs held (7).',
-        'Approve the runs at 3424bc826, then review: primer decides (new hits on inferred lists can be noisy).',
+        "approve",
+        "held",
+        "confirmed",
+        "New (18 November), 70 lines by 60507 (first PR) for issue 9315 (FN; no other PR): <code>modified-iterating-list/dict/set</code> now also fire on inferred <code>Instance</code>s of list/dict/set subclasses (e.g. <code>glob.glob()</code>), via three near-identical <code>_is_list/_is_dict/_is_set</code> helpers (<code>is_subtype_of</code>). Diff read 19 November: no CI or config files, no risky calls, ASCII only. Two <code>assert infer_val is not None</code> in checker code; the three helpers could be one. Runs held (7).",
+        "Approve the runs at 3424bc826, then review: primer decides (new hits on inferred lists can be noisy).",
     ),
     # ---- approve the workflow run ----------------------------------------
     11824: (
-        'review',
-        'green',
-        'confirmed',
-        'New (14 November), 160 lines by Dio77799 for issue 8501 (false positive): <code>import pkg.sub</code> reported unused when the submodule is only reached through another binding of the package (<code>import pkg as alias; alias.sub</code>, <code>from pkg import mid</code>). Before reporting a dotted import, walks every <code>Name</code> in the scope (the module for top-level imports), follows its attribute chain and checks whether a binding of that name is an import of a parent package. Diff read 14 November: only variables.py and tests, no risky calls, ASCII only. Watch: <code>scope.nodes_of_class(nodes.Name)</code> per unused dotted import is a full-module walk with a <code>lookup</code> per matching name, so cost grows with module size times unused dotted imports; check the benchmark/primer timing. 15 November CI at ab8b9a957: green. Primer removes astropy <code>Unused import pyarrow.csv</code> (the fix, true) and an astropy <code>no-member</code> on <code>ndarray.mask</code> that the change cannot touch (noise); pandas L505 noise.',
-        'Review: check the cost of the module walk per dotted import (benchmark job), otherwise small and correct on the primer.',
+        "review",
+        "green",
+        "confirmed",
+        "New (14 November), 160 lines by Dio77799 for issue 8501 (false positive): <code>import pkg.sub</code> reported unused when the submodule is only reached through another binding of the package (<code>import pkg as alias; alias.sub</code>, <code>from pkg import mid</code>). Before reporting a dotted import, walks every <code>Name</code> in the scope (the module for top-level imports), follows its attribute chain and checks whether a binding of that name is an import of a parent package. Diff read 14 November: only variables.py and tests, no risky calls, ASCII only. Watch: <code>scope.nodes_of_class(nodes.Name)</code> per unused dotted import is a full-module walk with a <code>lookup</code> per matching name, so cost grows with module size times unused dotted imports; check the benchmark/primer timing. 15 November CI at ab8b9a957: green. Primer removes astropy <code>Unused import pyarrow.csv</code> (the fix, true) and an astropy <code>no-member</code> on <code>ndarray.mask</code> that the change cannot touch (noise); pandas L505 noise.",
+        "Review: check the cost of the module walk per dotted import (benchmark job), otherwise small and correct on the primer.",
     ),
     11816: (
-        'review',
-        'green',
-        'confirmed',
-        'New (14 November), 115 lines by ychampion for issue 9379 (false negative): a name assigned only in an <code>except</code> whose sibling <code>else</code> does <code>continue</code> is exempt from <code>used-before-assignment</code> inside the loop, but the first in-loop use consumed the name so later uses after the loop were never checked. Now <code>NamesConsumer</code> records the exempting scope and, for a use outside it, restores the name to <code>to_consume</code> for a recheck. Turns the existing <code># https://github.com/pylint-dev/pylint/issues/9379</code> placeholder into an expected message, plus for/while/nested cases. Diff read 14 November: only variables.py and tests, no risky calls, ASCII only. Watch: the restore re-copies <code>node.locals[name]</code>, which could double-report or leak state in other consumers; primer will tell. 15 November CI at 0766cc7e2: green, primer no effect at all.',
-        'Review: primer clean, so the restore-for-recheck does not double-report on real code; read the consumer change.',
+        "review",
+        "green",
+        "confirmed",
+        "New (14 November), 115 lines by ychampion for issue 9379 (false negative): a name assigned only in an <code>except</code> whose sibling <code>else</code> does <code>continue</code> is exempt from <code>used-before-assignment</code> inside the loop, but the first in-loop use consumed the name so later uses after the loop were never checked. Now <code>NamesConsumer</code> records the exempting scope and, for a use outside it, restores the name to <code>to_consume</code> for a recheck. Turns the existing <code># https://github.com/pylint-dev/pylint/issues/9379</code> placeholder into an expected message, plus for/while/nested cases. Diff read 14 November: only variables.py and tests, no risky calls, ASCII only. Watch: the restore re-copies <code>node.locals[name]</code>, which could double-report or leak state in other consumers; primer will tell. 15 November CI at 0766cc7e2: green, primer no effect at all.",
+        "Review: primer clean, so the restore-for-recheck does not double-report on real code; read the consumer change.",
     ),
     11814: (
-        'decide',
-        'design',
-        'confirmed',
+        "decide",
+        "design",
+        "confirmed",
         "New (13 November), 170 lines by moelomda (first PR) for issue 8305 (bug): a relative <code>spelling-private-dict-file</code> in a config file followed the working directory, so running from a subdirectory missed the dictionary or created an empty one there. Now <code>_config_initialization</code> resolves it against the config file's directory before CLI options apply; CLI paths stay relative to the working directory. 151-line test file (ini/toml, <code>~</code>, <code>$VAR</code>, empty, CLI override, real Enchant). Diff read 13 November: no CI or config files, no risky calls; tests only set <code>HOME</code>/env in <code>monkeypatch</code>. Design question: special-cases one option; other path options (<code>ignore-paths</code>, <code>source-roots</code>...) have the same cwd problem, and it changes behaviour for configs that relied on the cwd. 14 November: still held (the pasted loops broke on line wrapping), head unchanged. 15 November CI at 943a55857: green; primer only known noise.",
-        'Decide: accept the one-option fix, or ask for a generic resolution of path options from config files.',
+        "Decide: accept the one-option fix, or ask for a generic resolution of path options from config files.",
     ),
     11813: (
-        'review',
-        'green',
-        'confirmed',
+        "review",
+        "green",
+        "confirmed",
         "New (13 November), 251 lines by raghupathi321 (first PR) for issue 5083 (false negative from 2021; earlier PR #5137 closed stale, the 2022 claim expired): <code>useless-parent-delegation</code> now also reports <code>Parent.method(self, ...)</code> when it only forwards to the parent by name. Guards: the first argument must be the method's own receiver, the named parent must be the class the MRO would pick anyway (so a call that deliberately skips an override stays quiet), and bases must be known. Existing tests gain 7 new expected messages (<code>AAAA.__init__(self)</code>-style overrides). Side change: <code>_signature_from_arguments</code> now drops the first argument by position instead of by the name <code>self</code>. Diff read 13 November: no CI or config files, no risky calls, ASCII only. Expect many primer hits: the explicit-parent style is common in older code. 14 November: still held (the pasted loops broke on line wrapping), head unchanged. 15 November CI at a9e18cca9: green. Primer adds 5 <code>useless-parent-delegation</code>: astropy one <code>__init__</code>, pandas <code>cummin</code>/<code>cummax</code>/<code>cumsum</code>/<code>cumprod</code> (explicit <code>NDFrame.cumX(self, ...)</code> overrides; check whether they exist only to carry a <code>@doc</code> decorator or docstring, which would make them false positives). Rest is known noise (astropy ancestors count, django settings names).",
-        'Review: open the four pandas hits first; if the overrides only add a docstring/decorator, ask for that guard (the super() form already skips documented overrides?).',
+        "Review: open the four pandas hits first; if the overrides only add a docstring/decorator, ask for that guard (the super() form already skips documented overrides?).",
     ),
     11803: (
-        'review',
-        'answered',
-        'confirmed',
-        'New, 155 lines by marksmayo (performance): four checks walked the same subtree several times (<code>visit_assignname</code> reassigned-before/after, <code>leave_functiondef</code> global/nonlocal/comprehension, unused private members per member, <code>BasicErrorChecker</code> global/nonlocal). Each now walks once, same order. 3.7-4.1% faster on astroid, identical messages. New helper <code>is_reassigned_before_or_after_current</code> with unit tests. Not run locally. 10 November CI: all green, primer only the known pandas <code>series.py</code> L505 redefined-variable-type move (noise, seen on unrelated PRs). 15 November: Pierre requested changes: the constant-naming check still walks the module once per module-level name (quadratic, halved), collect line numbers once per scope; the private-member checks still compare every private member against every name; plus a fragment wording suggestion. 19 November: Pierre rebased for CodSpeed (0cf9bf9bf) and rewrote the fragment (685d72916). CodSpeed reports +61.6%, primer no effect, CI green. The constant-naming quadratic leftover from the 15 November review is still unaddressed (4 days). 19 November: marksmayo pushed both asks (assignment line numbers indexed once per scope via an <code>lru_cache</code> cleared in <code>clear_lru_caches()</code>; class names/attributes indexed once for unused-private-member). Primer no effect. CodSpeed: CPU simulation black +4.35%; the red check is walltime cold_start -7.9% / flask_j2 -5.5% (walltime noise).',
-        'Re-review the two new commits; dismiss your change request and merge if they hold.',
+        "review",
+        "answered",
+        "confirmed",
+        "New, 155 lines by marksmayo (performance): four checks walked the same subtree several times (<code>visit_assignname</code> reassigned-before/after, <code>leave_functiondef</code> global/nonlocal/comprehension, unused private members per member, <code>BasicErrorChecker</code> global/nonlocal). Each now walks once, same order. 3.7-4.1% faster on astroid, identical messages. New helper <code>is_reassigned_before_or_after_current</code> with unit tests. Not run locally. 10 November CI: all green, primer only the known pandas <code>series.py</code> L505 redefined-variable-type move (noise, seen on unrelated PRs). 15 November: Pierre requested changes: the constant-naming check still walks the module once per module-level name (quadratic, halved), collect line numbers once per scope; the private-member checks still compare every private member against every name; plus a fragment wording suggestion. 19 November: Pierre rebased for CodSpeed (0cf9bf9bf) and rewrote the fragment (685d72916). CodSpeed reports +61.6%, primer no effect, CI green. The constant-naming quadratic leftover from the 15 November review is still unaddressed (4 days). 19 November: marksmayo pushed both asks (assignment line numbers indexed once per scope via an <code>lru_cache</code> cleared in <code>clear_lru_caches()</code>; class names/attributes indexed once for unused-private-member). Primer no effect. CodSpeed: CPU simulation black +4.35%; the red check is walltime cold_start -7.9% / flask_j2 -5.5% (walltime noise).",
+        "Re-review the two new commits; dismiss your change request and merge if they hold.",
     ),
     11806: (
-        'review',
-        'pending',
-        'confirmed',
-        'New, 77 lines by marksmayo (performance): three caches: <code>get_module_part</code> in the imports checker (reset in <code>open()</code>; this is the cache that never landed in the cyclic-import perf work, about -25% on ansible then), a per-scope <code>frozenset</code> of assigned names for <code>used-before-assignment</code> (<code>lru_cache</code>, cleared with the others), and callbacks per node class in <code>ASTWalker.walk</code>. 1.5-2.5% on astroid; the imports cache should matter more on big import graphs. Caches are where behaviour hides: check the reset points. Not run locally. 10 November CI: only the self-lint job is red, spelling hook on <code>pylint/utils/ast_walker.py</code> comment word <code>lowercased</code>; primer only the pandas L505 noise. 10 November evening: the author pushed <code>0426ce904</code>, which only rewords the comment (diff read 12 November); the new runs are held. 12 November CI: all green, primer no effect. 16 November: Pierre has an unsubmitted (PENDING) review on it. 19 November: rebased and force-pushed (c78fa81e0), speedup estimate dropped from the fragment. Primer no effect; CodSpeed red only on walltime cold_start -4.5% (noise).',
-        'Submit your pending review (or redo it on the rebased head).',
+        "review",
+        "pending",
+        "confirmed",
+        "New, 77 lines by marksmayo (performance): three caches: <code>get_module_part</code> in the imports checker (reset in <code>open()</code>; this is the cache that never landed in the cyclic-import perf work, about -25% on ansible then), a per-scope <code>frozenset</code> of assigned names for <code>used-before-assignment</code> (<code>lru_cache</code>, cleared with the others), and callbacks per node class in <code>ASTWalker.walk</code>. 1.5-2.5% on astroid; the imports cache should matter more on big import graphs. Caches are where behaviour hides: check the reset points. Not run locally. 10 November CI: only the self-lint job is red, spelling hook on <code>pylint/utils/ast_walker.py</code> comment word <code>lowercased</code>; primer only the pandas L505 noise. 10 November evening: the author pushed <code>0426ce904</code>, which only rewords the comment (diff read 12 November); the new runs are held. 12 November CI: all green, primer no effect. 16 November: Pierre has an unsubmitted (PENDING) review on it. 19 November: rebased and force-pushed (c78fa81e0), speedup estimate dropped from the fragment. Primer no effect; CodSpeed red only on walltime cold_start -4.5% (noise).",
+        "Submit your pending review (or redo it on the rebased head).",
     ),
     11805: (
-        'review',
-        'green',
-        'feature',
-        'New, 40 lines by marksmayo (no issue, maintenance): <code>nodes_of_class(nodes.Break, nodes.Continue)</code> in <code>_inferred_to_define_name_raise_or_return_for_if_node</code> passes <code>Continue</code> as <code>skip_klass</code>, so only <code>break</code> was ever permissive. The PR keeps that behaviour on purpose (making <code>continue</code> permissive would hide real <code>possibly-used-before-assignment</code>), writes <code>nodes_of_class(nodes.Break)</code> with a comment, and adds tests pinning it. No output change. 10 November CI: everything green except the changelog check, which ran before the <code>Skip news</code> label was added; rerun that one job. 12 November: the rerun failed again because a rerun replays the original <code>opened</code> event, whose label list had no <code>Skip news</code>; the <code>labeled</code> run already skipped the job. The red check is stale, not a real failure. 19 November: rebased and force-pushed; now fully green (changelog check passes), primer no effect.',
-        'Quick review and merge.',
+        "review",
+        "green",
+        "feature",
+        "New, 40 lines by marksmayo (no issue, maintenance): <code>nodes_of_class(nodes.Break, nodes.Continue)</code> in <code>_inferred_to_define_name_raise_or_return_for_if_node</code> passes <code>Continue</code> as <code>skip_klass</code>, so only <code>break</code> was ever permissive. The PR keeps that behaviour on purpose (making <code>continue</code> permissive would hide real <code>possibly-used-before-assignment</code>), writes <code>nodes_of_class(nodes.Break)</code> with a comment, and adds tests pinning it. No output change. 10 November CI: everything green except the changelog check, which ran before the <code>Skip news</code> label was added; rerun that one job. 12 November: the rerun failed again because a rerun replays the original <code>opened</code> event, whose label list had no <code>Skip news</code>; the <code>labeled</code> run already skipped the job. The red check is stale, not a real failure. 19 November: rebased and force-pushed; now fully green (changelog check passes), primer no effect.",
+        "Quick review and merge.",
     ),
     11800: (
-        'review',
-        'green*',
-        'confirmed',
-        'New, 60 lines by chrikrah (active reviewer here) as a follow-up to your unreleased b58ab46 (async dunders in <code>bad-dunder-name</code>): adds six dunders that fail when <code>async</code> (<code>__getstate__</code>, <code>__reduce_ex__</code>, <code>__getnewargs__</code> ...) to <code>ASYNC_INCOMPATIBLE_DUNDER_METHODS</code> and removes <code>__reversed__</code>, which <code>reversed()</code> returns unchanged. Each claim backed by a runtime probe on 3.12/3.13. Unreleased code, so no changelog needed. 10 November CI: everything green except the changelog check, which ran before the <code>Skip news</code> label was added; rerun that one job. 12 November: the rerun failed again because a rerun replays the original <code>opened</code> event, whose label list had no <code>Skip news</code>; the <code>labeled</code> run already skipped the job. The red check is stale, not a real failure.',
-        'Review (your own code, quick); ignore the stale changelog check.',
+        "review",
+        "green*",
+        "confirmed",
+        "New, 60 lines by chrikrah (active reviewer here) as a follow-up to your unreleased b58ab46 (async dunders in <code>bad-dunder-name</code>): adds six dunders that fail when <code>async</code> (<code>__getstate__</code>, <code>__reduce_ex__</code>, <code>__getnewargs__</code> ...) to <code>ASYNC_INCOMPATIBLE_DUNDER_METHODS</code> and removes <code>__reversed__</code>, which <code>reversed()</code> returns unchanged. Each claim backed by a runtime probe on 3.12/3.13. Unreleased code, so no changelog needed. 10 November CI: everything green except the changelog check, which ran before the <code>Skip news</code> label was added; rerun that one job. 12 November: the rerun failed again because a rerun replays the original <code>opened</code> event, whose label list had no <code>Skip news</code>; the <code>labeled</code> run already skipped the job. The red check is stale, not a real failure.",
+        "Review (your own code, quick); ignore the stale changelog check.",
     ),
     11797: (
-        'approve',
-        'held',
-        'confirmed',
-        'New, 19 lines by PDGGK (no issue): <code>undefined-all-variable</code> on names in <code>__all__</code> served by a module-level PEP 562 <code>__getattr__</code> (lazy re-exports, deprecation shims). Skips the check when the module defines <code>__getattr__</code>. Related to issue 4300 (the same PEP 562 gap for <code>no-name-in-module</code>). Not run locally.',
-        'Approve the run; review (decide whether any <code>__getattr__</code> silences every name, the simple choice).',
+        "approve",
+        "held",
+        "confirmed",
+        "New, 19 lines by PDGGK (no issue): <code>undefined-all-variable</code> on names in <code>__all__</code> served by a module-level PEP 562 <code>__getattr__</code> (lazy re-exports, deprecation shims). Skips the check when the module defines <code>__getattr__</code>. Related to issue 4300 (the same PEP 562 gap for <code>no-name-in-module</code>). Not run locally.",
+        "Approve the run; review (decide whether any <code>__getattr__</code> silences every name, the simple choice).",
     ),
     11796: (
-        'approve',
-        'held',
-        'confirmed',
-        'New, 56 lines by yxshee for issue 8250 (FP, Minor): docparams reports <code>missing-return-doc</code> / <code>missing-return-type-doc</code> (and the yield pair) once per <code>return</code>, all on the <code>def</code> line; now once per function. #11792 for the same issue was closed by its author on 8 November. Not run locally.',
-        'Approve the run; review.',
+        "approve",
+        "held",
+        "confirmed",
+        "New, 56 lines by yxshee for issue 8250 (FP, Minor): docparams reports <code>missing-return-doc</code> / <code>missing-return-type-doc</code> (and the yield pair) once per <code>return</code>, all on the <code>def</code> line; now once per function. #11792 for the same issue was closed by its author on 8 November. Not run locally.",
+        "Approve the run; review.",
     ),
     11794: (
-        'approve',
-        'held',
-        'confirmed',
-        'New, 65 lines by lyn1dev for issue 5361 (FN, enhancement): <code>superfluous-parens</code> missed <code>for ((x)) in items:</code>; now checks the outer pair, still allows tuples and precedence parens. Says AI wrote it. 0 reactions. Not run locally.',
-        'Leave held; approve when the queue is short.',
+        "approve",
+        "held",
+        "confirmed",
+        "New, 65 lines by lyn1dev for issue 5361 (FN, enhancement): <code>superfluous-parens</code> missed <code>for ((x)) in items:</code>; now checks the outer pair, still allows tuples and precedence parens. Says AI wrote it. 0 reactions. Not run locally.",
+        "Leave held; approve when the queue is short.",
     ),
     11801: (
-        'author',
-        'fixes',
-        'feature',
-        'New, 107 lines by zheng-guannan577 for issue 9507 (docs, Needs PR): how to set <code>sys.path</code> / <code>PYTHONPATH</code> so pylint lints the checkout, not an installed copy (editable install, <code>init-hook</code>, pipx/pre-commit caveats). Doc build checked by the author. 13 November read: references all resolve, but (1) it says pylint imports the code it analyses, which is wrong (astroid parses it); (2) it pushes <code>init-hook</code> hard, including a venv <code>site-packages</code> glob one-liner, which runs code from the config file and goes against the config-trust work; (3) it links open PR #9721 from the user guide, which will go stale.',
-        'Ask for the three fixes (no import, prefer <code>source-roots</code>/<code>PYTHONPATH</code> over <code>init-hook</code>, drop the #9721 link); then merge.',
+        "author",
+        "fixes",
+        "feature",
+        "New, 107 lines by zheng-guannan577 for issue 9507 (docs, Needs PR): how to set <code>sys.path</code> / <code>PYTHONPATH</code> so pylint lints the checkout, not an installed copy (editable install, <code>init-hook</code>, pipx/pre-commit caveats). Doc build checked by the author. 13 November read: references all resolve, but (1) it says pylint imports the code it analyses, which is wrong (astroid parses it); (2) it pushes <code>init-hook</code> hard, including a venv <code>site-packages</code> glob one-liner, which runs code from the config file and goes against the config-trust work; (3) it links open PR #9721 from the user guide, which will go stale.",
+        "Ask for the three fixes (no import, prefer <code>source-roots</code>/<code>PYTHONPATH</code> over <code>init-hook</code>, drop the #9721 link); then merge.",
     ),
     11790: (
-        'review',
-        'green',
-        'confirmed',
+        "review",
+        "green",
+        "confirmed",
         "New, 42 lines by vidigoat for issue 8129 (FP, <em>Needs PR</em>): <code>expression-not-assigned</code> on <code>f1() if test else f2()</code> as a statement. New <code>_is_call_await_or_yield()</code> accepts an <code>IfExp</code> whose every branch is a call, an <code>await</code> or a <code>yield</code>. Small, matches the issue discussion. Only PR. Not run locally. 8 November: 46 green; primer removes the one sentry <code>expression-not-assigned</code> on <code>a.append(x) if c else a.append(y)</code>, the issue's exact case.",
-        'Review.',
+        "Review.",
     ),
     11789: (
-        'review',
-        'green',
-        'confirmed',
+        "review",
+        "green",
+        "confirmed",
         "New, 485 lines by Julfried (19 merged pyreverse PRs since 2024) for issue 7686 (bug, <em>Needs PR</em>): pyreverse drops inheritance links in a flat folder with bare imports. Stacked on Julfried's #11664 (directory-based pyreverse tests) and carries its commits until that merges; the fix itself is in <code>diadefslib.py</code> / <code>diagrams.py</code>. Green. The 2024 test-only PR #9693 shows the same case.",
-        'Review #11664 first, then this after its rebase (with DudeNr33).',
+        "Review #11664 first, then this after its rebase (with DudeNr33).",
     ),
     11788: (
-        'review',
-        'green',
-        'confirmed',
+        "review",
+        "green",
+        "confirmed",
         "New, 81 lines by kennywu411-dev for issue 10195 (FP, regression since 3.2 per SpecLad's bisect to the commit that added E0606; labelled <em>Needs design proposal</em>): <code>if c: v = 1</code> then <code>print(v)</code> then <code>v = n</code> gives a definite <code>used-before-assignment</code> because the later assignment hides the earlier conditional one. Now reports <code>possibly-used-before-assignment</code> when an uncertain definition comes before the use (compared by line and column). Only PR for the issue. Not run locally. chrikrah approved again on 8 November after 7819617, which restores E0601 for a shadowed builtin read before any binding; only the issue's conditional case moves to E0606. 8 November: 49 green. Primer: E0601 → E0606 on ansible <code>rpm_key.py</code> (<code>keyid</code> set in an if/elif chain, then normalised and reassigned), astropy, home-assistant and pandas: all the issue's shape, no new message.",
-        'Review; check the position comparison holds for loops.',
+        "Review; check the position comparison holds for loops.",
     ),
     11784: (
-        'decide',
-        'design',
-        'feature',
-        'New, 43 lines by inchang-ing for issue 11783 (filed 5 November, <em>Needs triage</em>): <code>def f(): pass</code> gives <code>too-many-statements (2/1)</code>. By design the counter starts at 1 for the <code>def</code> itself, so every function is one over its body. The PR only special-cases a body that is a sole <code>pass</code> (seed 0), so <code>def f(): pass</code> counts 1 but <code>def f(): return 1</code> still counts 2: inconsistent. Green. 10 November: saruk-vedant reviewed (sole <code>...</code> is the same placeholder as <code>pass</code>); inchang-ing addressed it in <code>0fc0729</code>, green, primer no effect.',
-        'Decide: close the issue as working as intended (the def counts, document it), or stop counting the def everywhere (shifts every count by one, primer + changelog). Either way the sole-pass special case should not land.',
+        "decide",
+        "design",
+        "feature",
+        "New, 43 lines by inchang-ing for issue 11783 (filed 5 November, <em>Needs triage</em>): <code>def f(): pass</code> gives <code>too-many-statements (2/1)</code>. By design the counter starts at 1 for the <code>def</code> itself, so every function is one over its body. The PR only special-cases a body that is a sole <code>pass</code> (seed 0), so <code>def f(): pass</code> counts 1 but <code>def f(): return 1</code> still counts 2: inconsistent. Green. 10 November: saruk-vedant reviewed (sole <code>...</code> is the same placeholder as <code>pass</code>); inchang-ing addressed it in <code>0fc0729</code>, green, primer no effect.",
+        "Decide: close the issue as working as intended (the def counts, document it), or stop counting the def everywhere (shifts every count by one, primer + changelog). Either way the sole-pass special case should not land.",
     ),
     11776: (
-        'decide',
-        'design',
-        'feature',
-        'New, 36 lines by Sachit23 (first PR) for issue 9923 (Enhancement + Documentation): <code>nested-min-max</code> suggests <code>min(lo, hi, elements)</code> for <code>min(lo, hi, min(elements))</code>, which compares a list with ints. Suppresses the message when the inner call has one argument that cannot be safely splatted. You wrote on the issue (October 2025) that it needs a better suggestion such as <code>min(lo, hi, *elements)</code>; zackw answered that splatting a huge generator is bad. This PR takes the suppress route, and turns <code>max(3, max(max(MATRIX)))</code> silent. Marked ready for review on 8 November.',
-        'Decide: suppress (this PR) or suggest the splat for known-small iterables; then review.',
+        "decide",
+        "design",
+        "feature",
+        "New, 36 lines by Sachit23 (first PR) for issue 9923 (Enhancement + Documentation): <code>nested-min-max</code> suggests <code>min(lo, hi, elements)</code> for <code>min(lo, hi, min(elements))</code>, which compares a list with ints. Suppresses the message when the inner call has one argument that cannot be safely splatted. You wrote on the issue (October 2025) that it needs a better suggestion such as <code>min(lo, hi, *elements)</code>; zackw answered that splatting a huge generator is bad. This PR takes the suppress route, and turns <code>max(3, max(max(MATRIX)))</code> silent. Marked ready for review on 8 November.",
+        "Decide: suppress (this PR) or suggest the splat for known-small iterables; then review.",
     ),
-
-
     11779: (
-        'review',
-        'green',
-        'confirmed',
+        "review",
+        "green",
+        "confirmed",
         'New, 37 lines by Parsiffall1 for issue 9239 (FP): <code>too-many-function-args</code> on <code>self.handlers["handle"](self, 1)</code>, a function taken from a class-level dict and called with explicit <code>self</code>. A bare <code>FunctionDef</code> is never bound, so <code>_determine_callable</code> now counts no implicit <code>self</code>; that replaces the old special case for calls inside the class body (removed). The whole functional suite will tell whether the removal is safe. Not run locally. 8 November: 46 green, full suite passes with the old special case removed, primer no effect.',
-        'Review.',
+        "Review.",
     ),
-
     11778: (
-        'retrigger',
-        'rerun',
-        'confirmed',
-        'New, 27 lines by denysherych3 (first PR) for issue 11353 (FP): <code>reimported</code> for <code>from . import json as my_json</code> next to <code>import json</code>, because the empty relative base made the name a bare <code>json</code>. Resolves the relative base to its absolute name with <code>get_import_name</code>. Second PR for this issue: #11377 (rzaman8677, 15 lines, CI never ran) skips every relative import instead, which would also hide a real reimport (<code>import pkg.mod</code> then <code>from . import mod</code> inside <code>pkg</code>). This one is the more precise. Not run locally. 8 November: 42 green; only CodeQL <code>Analyze (python)</code> red (bundle download HTTP 504, infra). Primer removes 3 flask <code>reimported</code> on <code>import typing as t</code> next to <code>from . import typing as ft</code> (flask\'s own <code>flask/typing.py</code>): true FPs, the issue\'s exact case.',
-        'Rerun CodeQL, review; close #11377 in its favour.',
+        "retrigger",
+        "rerun",
+        "confirmed",
+        "New, 27 lines by denysherych3 (first PR) for issue 11353 (FP): <code>reimported</code> for <code>from . import json as my_json</code> next to <code>import json</code>, because the empty relative base made the name a bare <code>json</code>. Resolves the relative base to its absolute name with <code>get_import_name</code>. Second PR for this issue: #11377 (rzaman8677, 15 lines, CI never ran) skips every relative import instead, which would also hide a real reimport (<code>import pkg.mod</code> then <code>from . import mod</code> inside <code>pkg</code>). This one is the more precise. Not run locally. 8 November: 42 green; only CodeQL <code>Analyze (python)</code> red (bundle download HTTP 504, infra). Primer removes 3 flask <code>reimported</code> on <code>import typing as t</code> next to <code>from . import typing as ft</code> (flask's own <code>flask/typing.py</code>): true FPs, the issue's exact case.",
+        "Rerun CodeQL, review; close #11377 in its favour.",
     ),
-
     11775: (
-        'author',
-        'split',
-        'confirmed',
+        "author",
+        "split",
+        "confirmed",
         'New, 282 lines by TohruSu (first PR) for issue 9633 (FP, Needs PR): <code>undefined-variable</code> / <code>used-before-assignment</code> after <code>if "name" not in globals(): name = ...</code>, which binds <code>name</code> on every path. Part 1 (recognise that guard, at module level or with <code>global</code>, no <code>del</code>) fits the issue. Part 2 changes which message a name assigned in one <code>if</code> branch gets (<code>possibly-used-before-assignment</code> instead of <code>undefined-variable</code>): a separate behaviour change that should be its own PR. Not run locally. 8 November: new commit 6094235 counts a one-branch definition only when it comes before the use (same position check as #11788), after chrikrah\'s two counter-examples; both now report what main reports. 8 November: 43 green. Primer: ansible/astropy <code>undefined-variable</code> → <code>possibly-used-before-assignment</code> plus E0601 → E0606 moves, all from part 2, none from the <code>globals()</code> guard.',
-        'Ask to split part 2 (message change) out; part 1 alone then reviews quickly.',
+        "Ask to split part 2 (message change) out; part 1 alone then reviews quickly.",
     ),
-
     11773: (
-        'review',
-        'green',
-        'confirmed',
-        'New, 195 lines by Thanatos9404 (first PR) for issue 7790 (FN, Needs PR): <code>self.x = 1</code> in <code>__init__</code> of a <code>@dataclass(slots=True)</code> class raises <code>AttributeError</code> at runtime and pylint says nothing. Emits <code>assigning-non-slot</code>, taking the fields (minus <code>ClassVar</code>) as slots and giving up when an ancestor has no slots. Only <code>dataclass(...)</code> by name, so <code>pydantic.dataclasses</code> and similar stay silent. Not run locally. 8 November: 48 green, primer only the pandas position noise.',
-        'Review.',
+        "review",
+        "green",
+        "confirmed",
+        "New, 195 lines by Thanatos9404 (first PR) for issue 7790 (FN, Needs PR): <code>self.x = 1</code> in <code>__init__</code> of a <code>@dataclass(slots=True)</code> class raises <code>AttributeError</code> at runtime and pylint says nothing. Emits <code>assigning-non-slot</code>, taking the fields (minus <code>ClassVar</code>) as slots and giving up when an ancestor has no slots. Only <code>dataclass(...)</code> by name, so <code>pydantic.dataclasses</code> and similar stay silent. Not run locally. 8 November: 48 green, primer only the pandas position noise.",
+        "Review.",
     ),
-
-
     11771: (
-        'review',
-        'ready',
-        'confirmed',
-        'New, 15 lines by udsy19 (no issue, FP): <code>nested-min-max</code> suggests <code>max(0, -5, 1, key=abs)</code> for <code>max(0, max(-5, 1), key=abs)</code>, which returns -5 instead of 1: the outer <code>key=</code> would also apply to the lifted arguments. Skips any outer keyword (covers <code>**kwargs</code>; <code>default=</code> is already a TypeError with several positionals). Reverses the guard line #11131 added on purpose, rightly. Green.',
-        'Review and merge (small, provably correct).',
+        "review",
+        "ready",
+        "confirmed",
+        "New, 15 lines by udsy19 (no issue, FP): <code>nested-min-max</code> suggests <code>max(0, -5, 1, key=abs)</code> for <code>max(0, max(-5, 1), key=abs)</code>, which returns -5 instead of 1: the outer <code>key=</code> would also apply to the lifted arguments. Skips any outer keyword (covers <code>**kwargs</code>; <code>default=</code> is already a TypeError with several positionals). Reverses the guard line #11131 added on purpose, rightly. Green.",
+        "Review and merge (small, provably correct).",
     ),
-
     11770: (
-        'review',
-        'green',
-        'confirmed',
-        '69 → 150 lines by inchang-ing for issue 11769 (FP, filed by cdce8p): <code>used-before-assignment</code> on <code>str(var) if (var := 2) else None</code> nested in a dict value inside another dict. The 5 November rewrite answers the coverage and shape worries: <code>_value_may_use_and_assign()</code> now only accepts an <code>IfExp</code> whose test is a walrus on the same name in the same scope, reached through literal containers only (no lambda, call or short-circuit). Seven new negative tests (unrelated conditional, other name, lambda, <code>or</code>, read in the test, conditional binding). CI green incl. codecov, primer no effect.',
-        'Review: the rule is now narrow and well-tested; merge if the helper reads clearly enough.',
+        "review",
+        "green",
+        "confirmed",
+        "69 → 150 lines by inchang-ing for issue 11769 (FP, filed by cdce8p): <code>used-before-assignment</code> on <code>str(var) if (var := 2) else None</code> nested in a dict value inside another dict. The 5 November rewrite answers the coverage and shape worries: <code>_value_may_use_and_assign()</code> now only accepts an <code>IfExp</code> whose test is a walrus on the same name in the same scope, reached through literal containers only (no lambda, call or short-circuit). Seven new negative tests (unrelated conditional, other name, lambda, <code>or</code>, read in the test, conditional binding). CI green incl. codecov, primer no effect.",
+        "Review: the rule is now narrow and well-tested; merge if the helper reads clearly enough.",
     ),
-
     11768: (
-        'decide',
-        'dup',
-        'duplicate',
+        "decide",
+        "dup",
+        "duplicate",
         'Trusted (Redoubts, first merged PR 2021). 126 lines for their issue 11767 (FP): <code>invalid-name</code> on <code>record.FieldName = ...</code> in <code>consumer.py</code> when <code>model.py</code> is in the same <code>-j1</code> run, inline <code>disable</code> ignored. Green, codecov 100%, primer removes real cross-module names (django <code>SQL_KEYWORD</code>, astropy <code>standardID</code>, music21 <code>ps</code>). Same fix as #11691 (b84330808, issue 9666, opened earlier, run still held): both keep only <code>instance_attrs</code> nodes whose <code>root()</code> is the class\'s module; #11691 also covers <code>non-ascii-name</code>. Issue 11767 = 9666. chrikrah approved on 5 November after checking the new tests fail on the base checker. 10 November: Redoubts pushed <code>210f99ec9</code> ("chrikrah rc"), only a changelog sentence saying names assigned outside the defining module are no longer checked; runs held. Runs approved 12 November. 12 November CI at 210f99ec9: green; primer adds two astropy <code>too-many-ancestors</code> count changes (23 to 22, 28 to 27) that this naming change cannot cause (astropy file-order noise) plus the expected removed cross-module names.',
         "Pick one: merge this (trusted, green) and ask it to add non-ascii-name, crediting #11691; or approve #11691's run and close this. Close 11767 as a duplicate of 9666 either way. The new commit's runs are held (changelog-only change, read).",
     ),
-
     11766: (
-        'review',
-        'green',
-        'confirmed',
-        'New, 36 lines by YashG1836 for issue 11765 (FN): <code>glob.glob0</code> / <code>glob.glob1</code> sat in <code>DEPRECATED_CLASSES</code> with a module prefix, and <code>typing._UnionGenericAlias</code> had a stray leading dot, so none could ever match. Moves the glob pair to <code>DEPRECATED_METHODS</code> 3.13 and drops the dot. Confirmed in the source. Not run locally. chrikrah approved on 5 November: both new tests fail on the base table, and it merges cleanly with #11764 in either order. 8 November: 46 green, primer only astropy noise.',
-        'Review with #11764 (same table).',
+        "review",
+        "green",
+        "confirmed",
+        "New, 36 lines by YashG1836 for issue 11765 (FN): <code>glob.glob0</code> / <code>glob.glob1</code> sat in <code>DEPRECATED_CLASSES</code> with a module prefix, and <code>typing._UnionGenericAlias</code> had a stray leading dot, so none could ever match. Moves the glob pair to <code>DEPRECATED_METHODS</code> 3.13 and drops the dot. Confirmed in the source. Not run locally. chrikrah approved on 5 November: both new tests fail on the base table, and it merges cleanly with #11764 in either order. 8 November: 46 green, primer only astropy noise.",
+        "Review with #11764 (same table).",
     ),
-
-
     11736: (
-        'decide',
-        'dup',
-        'duplicate',
+        "decide",
+        "dup",
+        "duplicate",
         "49 lines by summeriver13 for issue 11734 (FP): <code>undefined-variable</code> on <code>def clone(self) -&gt; Local</code> in a class local to a function, with deferred annotations. Back after the account deletion. Same bug as 8145: #11694 (agustin18, green, in your review) fixes it in the guard this PR names as the root cause, and passes this PR's whole test file. #11759 is a third copy.",
-        'Merge #11694, then close this and #11759 as duplicates.',
+        "Merge #11694, then close this and #11759 as duplicates.",
     ),
-
     11735: (
         "review",
         "ready",
@@ -575,23 +562,20 @@ V = {
         "Force-pushed 25 October: full CI and codecov green, primer no effect.",
         "Review.",
     ),
-
     11667: (
         "review",
         "ready",
         "confirmed",
-        'New, 142 lines by summeriver13 for issue 7470 (FP, 1 reaction, re-confirmed by a user on 14 October): <code>function-redefined</code> for a function defined in two <code>case</code> branches of one <code>match</code>. Run released 22 October: green, primer clean.',
-        'Review.',
+        "New, 142 lines by summeriver13 for issue 7470 (FP, 1 reaction, re-confirmed by a user on 14 October): <code>function-redefined</code> for a function defined in two <code>case</code> branches of one <code>match</code>. Run released 22 October: green, primer clean.",
+        "Review.",
     ),
-
     11666: (
-        'review',
-        'green',
-        'confirmed',
+        "review",
+        "green",
+        "confirmed",
         "54 lines by summeriver13 for issue 10827 (FP): <code>unused-wildcard-import</code> for names the module's <code>__all__</code> excludes, and <code>from . import *</code> reported as an unused <code>*</code>. The account is back (30 October), so this PR is open again, now beside #11753 (20 lines, same issue, opened while this one 404ed). This one came first and also covers <code>from . import *</code>. 8 November: 48 green, primer only astropy noise. 9 November: the author pinged for a review.",
         "Review; check chrikrah's case from #11753 (unused <code>import os</code> after <code>from os.path import *</code> still reported).",
     ),
-
     11759: (
         "decide",
         "dup",
@@ -627,7 +611,7 @@ V = {
         "author",
         "red",
         "confirmed",
-        "50 lines by chrikrah, no issue (FN): <code>bad-open-mode</code> accepts <code>open(path, \"rU\")</code>, "
+        '50 lines by chrikrah, no issue (FN): <code>bad-open-mode</code> accepts <code>open(path, "rU")</code>, '
         "which raises <code>ValueError</code> since Python 3.11; <code>U</code> now allowed only when "
         "<code>py-version</code> is below 3.11. Only the documentation job is red: the message help changed, "
         "so <code>doc/user_guide/checkers/features.rst</code> needs regenerating (<code>tox -e docs</code>). "
@@ -661,7 +645,7 @@ V = {
         "confirmed",
         "New, 38 lines by InnoxCodes for issue 9223 (FP, <em>Needs investigation</em>): "
         "<code>unused-import</code> when the only use is in the string value of "
-        "<code>Alias: TypeAlias = \"Foo | None\"</code>. Adds "
+        '<code>Alias: TypeAlias = "Foo | None"</code>. Adds '
         "<code>is_node_in_explicit_type_alias_value</code> next to the annotation-context check. Not run "
         "locally.",
         "Approve the run, then review.",
@@ -789,24 +773,24 @@ V = {
         "Approve with the next batch.",
     ),
     11723: (
-        'review',
-        'green',
-        'confirmed',
-        'New, 9 lines by Pushkar-Shahi for issue 11702 (docs): follow-up to the merged #11710, says in the <code>logging-format-style</code> help that stdlib <code>logging</code> only formats with <code>%</code>, so <code>new</code> is for third-party loggers. That is the gap the 22 October triage of 11702 named. 8 November: 46 green.',
-        'Read the 9 lines and merge; closes 11702.',
+        "review",
+        "green",
+        "confirmed",
+        "New, 9 lines by Pushkar-Shahi for issue 11702 (docs): follow-up to the merged #11710, says in the <code>logging-format-style</code> help that stdlib <code>logging</code> only formats with <code>%</code>, so <code>new</code> is for third-party loggers. That is the gap the 22 October triage of 11702 named. 8 November: 46 green.",
+        "Read the 9 lines and merge; closes 11702.",
     ),
     11714: (
         "approve",
         "held",
         "confirmed",
         'New, 23 lines by nk-batman21 for their issue 11713 (FP, reproduced on 4.1.3): <code>bad-string-format-type</code> on <code>"%-*s %d" % (width, name, count)</code>: a <code>*</code> width takes its own argument, so every later argument was checked against the wrong type. Also catches the real mismatches it used to miss. On 25 October added the <code>"%*.*f"</code> case agustin18 asked for, which re-held the run. Primer only noise.',
-        'Approve the run, then review.',
+        "Approve the run, then review.",
     ),
     11717: (
         "approve",
         "held",
         "feature",
-        "New, 224 lines by anyingiit (AI-generated, \"requested by winshyon\") for issue 7534 "
+        'New, 224 lines by anyingiit (AI-generated, "requested by winshyon") for issue 7534 '
         "(enhancement, Help wanted, 0 reactions): optional extension "
         "<code>non-standard-exit-argument-names</code> (C3801) for <code>__exit__</code> / "
         "<code>__aexit__</code> parameters not named <code>exc_type, exc_value, traceback</code>.",
@@ -835,8 +819,8 @@ V = {
         "ready",
         "confirmed",
         "53 lines by mehdimirzafaruk for issue 6856 (FN, 0 reactions): "
-        "<code>repeated-keyword</code> skipped built-ins like <code>print(end=\"!\", "
-        "**{\"end\": \"?\"})</code>, because the check came after the early return for callees "
+        '<code>repeated-keyword</code> skipped built-ins like <code>print(end="!", '
+        '**{"end": "?"})</code>, because the check came after the early return for callees '
         "without argument information. Moves the check up; on 27 October also reports a key repeated "
         "inside one <code>**{...}</code> mapping. Run approved: CI green, primer no effect. chrikrah approved on 6 November after checking the tests fail on the base checker.",
         "Review (low priority).",
@@ -851,11 +835,11 @@ V = {
         "Approve the run, then review.",
     ),
     11691: (
-        'decide',
-        'dup',
-        'duplicate',
-        '49 lines by b84330808 for issue 9666 (FP): <code>invalid-name</code> ignores a module-level disable when <code>self._srv_status.field = ...</code> is assigned on a ctypes <code>Structure</code> defined in another module. Same fix as #11768 (trusted, green, issue 11767 = this bug), opened first, and also filters <code>non-ascii-name</code>. Run never approved.',
-        'Decide together with #11768 (see there).',
+        "decide",
+        "dup",
+        "duplicate",
+        "49 lines by b84330808 for issue 9666 (FP): <code>invalid-name</code> ignores a module-level disable when <code>self._srv_status.field = ...</code> is assigned on a ctypes <code>Structure</code> defined in another module. Same fix as #11768 (trusted, green, issue 11767 = this bug), opened first, and also filters <code>non-ascii-name</code>. Run never approved.",
+        "Decide together with #11768 (see there).",
     ),
     11692: (
         "approve",
@@ -868,10 +852,10 @@ V = {
         "Approve the run, then review.",
     ),
     11673: (
-        'review',
-        'green',
-        'confirmed',
-        '59 lines by mehdimirzafaruk for issue 8680 (FN, 1 reaction): <code>missing-parentheses-for-call-in-test</code> missed methods, as in <code>if self.is_on:</code>. The author asked on 31 October whether the approach still fits; the run was never approved. 8 November: 46 green, primer only astropy noise.',
+        "review",
+        "green",
+        "confirmed",
+        "59 lines by mehdimirzafaruk for issue 8680 (FN, 1 reaction): <code>missing-parentheses-for-call-in-test</code> missed methods, as in <code>if self.is_on:</code>. The author asked on 31 October whether the approach still fits; the run was never approved. 8 November: 46 green, primer only astropy noise.",
         "Review and answer the author's 31 October question.",
     ),
     11687: (
@@ -895,8 +879,8 @@ V = {
         "review",
         "ready",
         "confirmed",
-        'New, 26 lines by adityasinha-ghub for issue 11656 (FP): <code>useless-suppression</code> on disabled <code>deprecated-*</code> messages, because the exemption list still holds their pre-#6693 ids (W0402, W1505, W1511-W1513) instead of W4901-W4905. Run waits for approval. Run released 22 October: green; primer removes 20 astropy useless-suppression hits on deprecated-* disables, the intended fix.',
-        'Review.',
+        "New, 26 lines by adityasinha-ghub for issue 11656 (FP): <code>useless-suppression</code> on disabled <code>deprecated-*</code> messages, because the exemption list still holds their pre-#6693 ids (W0402, W1505, W1511-W1513) instead of W4901-W4905. Run waits for approval. Run released 22 October: green; primer removes 20 astropy useless-suppression hits on deprecated-* disables, the intended fix.",
+        "Review.",
     ),
     11659: (
         "approve",
@@ -912,8 +896,8 @@ V = {
         "review",
         "ready",
         "confirmed",
-        'New, 44 lines by Cherith1222 for issue 9624 (FP, 1 reaction): <code>unsupported-binary-operation</code> on PEP 604 unions like <code>int | None</code> in <code>.pyi</code> stubs, which never run. Run released 22 October: green, primer only noise.',
-        'Review.',
+        "New, 44 lines by Cherith1222 for issue 9624 (FP, 1 reaction): <code>unsupported-binary-operation</code> on PEP 604 unions like <code>int | None</code> in <code>.pyi</code> stubs, which never run. Run released 22 October: green, primer only noise.",
+        "Review.",
     ),
     11646: (
         "approve",
@@ -937,8 +921,8 @@ V = {
         "review",
         "ready",
         "confirmed",
-        'New, 38 lines by DariusHQ for issue 7351 (FP, 1 reaction): <code>unnecessary-dunder-call</code> on <code>mock.call.method.__setitem__(1, 2)</code>, which describes an expected mock call. Walks the attribute/call chain looking for <code>unittest.mock._Call</code>. Run released 22 October: green, primer clean.',
-        'Review.',
+        "New, 38 lines by DariusHQ for issue 7351 (FP, 1 reaction): <code>unnecessary-dunder-call</code> on <code>mock.call.method.__setitem__(1, 2)</code>, which describes an expected mock call. Walks the attribute/call chain looking for <code>unittest.mock._Call</code>. Run released 22 October: green, primer clean.",
+        "Review.",
     ),
     11629: (
         "approve",
@@ -946,7 +930,7 @@ V = {
         "confirmed",
         "New, 56 lines by DariusHQ (one of 3 PRs opened within 8 minutes) for issue 7548 (FP, 0 "
         "reactions): <code>unused-import</code> on names used only in the string type argument of "
-        "<code>typing.cast(\"set[Path]\", x)</code>. Treats the first argument (or <code>typ=</code>) "
+        '<code>typing.cast("set[Path]", x)</code>. Treats the first argument (or <code>typ=</code>) '
         "of <code>cast</code> as an annotation.",
         "Approve the run, then review.",
     ),
@@ -1014,11 +998,11 @@ V = {
         "Re-run the failed primer jobs, then review.",
     ),
     11377: (
-        'decide',
-        'dup',
-        'duplicate',
-        '15 lines by rzaman8677 for issue 11353 (FP, <code>reimported</code> on <code>from . import json</code> next to <code>import json</code>), CI never ran since 3 September. Skips the comparison for any relative import, so it would also hide a real reimport through a relative path. #11778 (2 November) resolves the absolute name instead.',
-        'Close in favour of #11778 once that is green, with thanks.',
+        "decide",
+        "dup",
+        "duplicate",
+        "15 lines by rzaman8677 for issue 11353 (FP, <code>reimported</code> on <code>from . import json</code> next to <code>import json</code>), CI never ran since 3 September. Skips the comparison for any relative import, so it would also hide a real reimport through a relative path. #11778 (2 November) resolves the absolute name instead.",
+        "Close in favour of #11778 once that is green, with thanks.",
     ),
     11376: (
         "retrigger",
@@ -1084,11 +1068,11 @@ V = {
     ),
     # ---- author's move ----------------------------------------------------
     11672: (
-        'review',
-        'yours',
-        'crash',
+        "review",
+        "yours",
+        "crash",
         "Crash 9277 (2 reactions): <code>UnicodeEncodeError</code> when stdout cannot encode a message. Green, chrikrah approved, but you requested changes on 22 October: the 9277 traceback goes through colorama's <code>AnsiToWin32</code> wrapper in <code>ColorizedTextReporter</code>, which this PR may not fix; plus a fragment rewording. 20 November: you took it over and pushed 2f3501bce (sanitize with the stream encoding before the first write, <code>AnsiToWin32.stream.encoding</code> read, tests with a chunked writer and real colorama) plus a fragment edit. 45 checks: all green except CodSpeed walltime (cold_start -7.8%, flask_j2 -8.9%), walltime noise on an output-path change. Your 22 October change request still blocks; chrikrah approved earlier. Milestone 4.2.0, backport label still on.",
-        'Dismiss your own change request, approve, merge; backport.',
+        "Dismiss your own change request, approve, merge; backport.",
     ),
     11715: (
         "review",
@@ -1102,18 +1086,18 @@ V = {
         "Review.",
     ),
     11675: (
-        'merge',
-        'approved',
-        'crash',
-        'Crash 11674: <code>--jobs</code> above 1 crashes with <code>PermissionError</code> when <code>ProcessPoolExecutor</code> cannot be created (sandbox). Green. You requested changes on 22 October: check more before trying the pool so a one-CPU machine does not create an executor for nothing (+15 to +40 ms). 20 November: you took it over (author silent since your 22 October request; elupus thanked you the same day): <code>--jobs=0</code> resolved first, the executor probed only when <code>jobs &gt; 1</code> and not stdin, new test. You approved; 45/45 green at 722a50315, primer clean, milestone moved to 4.2.0 and backport label removed. CodSpeed walltime +60-68% on the <code>_j2</code> benchmarks is too good for this change: confirm they still run two processes before trusting it.',
-        'Merge (you approved; your commits on top, so a second maintainer is optional).',
+        "merge",
+        "approved",
+        "crash",
+        "Crash 11674: <code>--jobs</code> above 1 crashes with <code>PermissionError</code> when <code>ProcessPoolExecutor</code> cannot be created (sandbox). Green. You requested changes on 22 October: check more before trying the pool so a one-CPU machine does not create an executor for nothing (+15 to +40 ms). 20 November: you took it over (author silent since your 22 October request; elupus thanked you the same day): <code>--jobs=0</code> resolved first, the executor probed only when <code>jobs &gt; 1</code> and not stdin, new test. You approved; 45/45 green at 722a50315, primer clean, milestone moved to 4.2.0 and backport label removed. CodSpeed walltime +60-68% on the <code>_j2</code> benchmarks is too good for this change: confirm they still run two processes before trusting it.",
+        "Merge (you approved; your commits on top, so a second maintainer is optional).",
     ),
     11641: (
-        'author',
-        'spelling',
-        'confirmed',
-        'Issue 10025 (FP): <code>import-self</code> when an extensionless script has the same basename as an importable module. New commit 1 November answers your changes requested: the unit test is now functional tests. The previous red was the spelling check on <code>extensionless</code>; the word is still in the diff, so check whether it moved out of the docstring. Primer only noise. 8 November: 42/43, only <code>pylint</code> red: spelling of <code>extensionless</code> in the new <code>test_functional</code> docstring.',
-        'Ask for the spelling fix (or add the word to the custom dict on main).',
+        "author",
+        "spelling",
+        "confirmed",
+        "Issue 10025 (FP): <code>import-self</code> when an extensionless script has the same basename as an importable module. New commit 1 November answers your changes requested: the unit test is now functional tests. The previous red was the spelling check on <code>extensionless</code>; the word is still in the diff, so check whether it moved out of the docstring. Primer only noise. 8 November: 42/43, only <code>pylint</code> red: spelling of <code>extensionless</code> in the new <code>test_functional</code> docstring.",
+        "Ask for the spelling fix (or add the word to the custom dict on main).",
     ),
     11579: (
         "decide",
@@ -1196,11 +1180,11 @@ V = {
         "Waiting on the author.",
     ),
     11132: (
-        "author",
-        "waiting",
-        "confirmed",
-        "<em>Waiting on author</em> since July, backport label set, no CI.",
-        "Waiting on the author.",
+        "review",
+        "yours",
+        "crash",
+        'Bug 5793: <code>arguments-differ</code> says "number of parameters was 2 ... and is now 2" when the totals match but the kinds differ. Author silent since July; 20 November you took it over and force-pushed d1d6cef1c (message names the real difference: keyword-only, positional-only, renamed next to <code>*args</code>). Milestone 4.2.0. CI running at d1d6cef1c, 33 green so far. Your own earlier change request still blocks.',
+        "When green: dismiss your change request, approve, merge.",
     ),
     11177: (
         "author",
@@ -1264,18 +1248,18 @@ V = {
     ),
     # ---- decide first -----------------------------------------------------
     11854: (
-        'decide',
-        'dup',
-        'duplicate',
-        'New (20 November), 160 lines by ghanashyam03 for issue 11843 (FP, <code>missing-type-doc</code> with positional-only parameters). #11845 by mmporong fixes the same issue since 18 November, is green and its primer removes the flask false positive. This one rewrites <code>args_with_annotation</code> loop by loop with <code>zip_longest</code>; larger and later. Not read for CI abuse (no run to approve). Proposed labels: False Positive, Optional Checkers, Duplicate.',
-        'Close in favour of #11845 (AGENTS.md rule: one open PR per issue).',
+        "decide",
+        "dup",
+        "duplicate",
+        "New (20 November), 160 lines by ghanashyam03 for issue 11843 (FP, <code>missing-type-doc</code> with positional-only parameters). #11845 by mmporong fixes the same issue since 18 November, is green and its primer removes the flask false positive. This one rewrites <code>args_with_annotation</code> loop by loop with <code>zip_longest</code>; larger and later. Not read for CI abuse (no run to approve). Proposed labels: False Positive, Optional Checkers, Duplicate.",
+        "Close in favour of #11845 (AGENTS.md rule: one open PR per issue).",
     ),
     11678: (
-        'decide',
-        'design',
-        'feature',
-        '513 lines by soodoku for issue 11677 (filed the same minute): an <code>ignore-local-names</code> option so <code>duplicate-code</code> matches blocks that differ only by renamed locals. One of 3 issue+PR pairs this account opened within 9 minutes on 18 October. Pushed 2 November: primer no effect, <code>codecov/patch</code> red (5 lines), and it now conflicts with main (#11680/#11682 touched symilar).',
-        'Decide whether the option is wanted before reading 513 lines.',
+        "decide",
+        "design",
+        "feature",
+        "513 lines by soodoku for issue 11677 (filed the same minute): an <code>ignore-local-names</code> option so <code>duplicate-code</code> matches blocks that differ only by renamed locals. One of 3 issue+PR pairs this account opened within 9 minutes on 18 October. Pushed 2 November: primer no effect, <code>codecov/patch</code> red (5 lines), and it now conflicts with main (#11680/#11682 touched symilar).",
+        "Decide whether the option is wanted before reading 513 lines.",
     ),
     11601: (
         "decide",
@@ -1507,7 +1491,14 @@ def issue_cell(links: list) -> str:
 # Category first, then High priority, then reactions on the open linked
 # issues, then the most recently updated. Read from the PR labels, falling
 # back to the labels of its linked issues.
-CATEGORIES = ("Crash", "performance", "Bug", "False Positive", "False Negative", "Enhancement")
+CATEGORIES = (
+    "Crash",
+    "performance",
+    "Bug",
+    "False Positive",
+    "False Negative",
+    "Enhancement",
+)
 
 
 # Impact measured by the primer (primer_effect_fetch.py): messages the PR
@@ -1518,7 +1509,11 @@ NOISE_PRS = 3
 PRIMER_FILE = HERE / "primer_effect.json"
 # Authors with a PR merged before LLM-written code was common (trusted_fetch.py).
 TRUSTED_FILE = HERE / "trusted.json"
-TRUSTED = {login for login, date in json.loads(TRUSTED_FILE.read_text()).items() if date} if TRUSTED_FILE.exists() else set()
+TRUSTED = (
+    {login for login, date in json.loads(TRUSTED_FILE.read_text()).items() if date}
+    if TRUSTED_FILE.exists()
+    else set()
+)
 PRIMER = json.loads(PRIMER_FILE.read_text()) if PRIMER_FILE.exists() else {}
 _seen: dict = {}
 for _effect in PRIMER.values():
@@ -1562,7 +1557,9 @@ def primer_words(n: int) -> str:
     for kind, sign in (("removed", "−"), ("added", "+")):
         if effect[kind]:
             total = sum(effect[kind].values())
-            where = ", ".join(f"{p} {c}" for p, c in sorted(effect[kind].items(), key=lambda x: -x[1]))
+            where = ", ".join(
+                f"{p} {c}" for p, c in sorted(effect[kind].items(), key=lambda x: -x[1])
+            )
             parts.append(f"{sign}{total} ({where})")
     return f"primer: {' '.join(parts)} ({effect['date']})"
 
@@ -1603,9 +1600,36 @@ def priority(n: int) -> tuple:
 TESTED = {
     n: "2026-10-22"
     for n in (
-        11648, 11654, 11655, 11657, 11659, 11660, 11661, 11666, 11667, 11670,
-        11672, 11673, 11675, 11676, 11678, 11680, 11682, 11683, 11687, 11690,
-        11691, 11692, 11693, 11694, 11695, 11697, 11698, 11703, 11704, 11708,
+        11648,
+        11654,
+        11655,
+        11657,
+        11659,
+        11660,
+        11661,
+        11666,
+        11667,
+        11670,
+        11672,
+        11673,
+        11675,
+        11676,
+        11678,
+        11680,
+        11682,
+        11683,
+        11687,
+        11690,
+        11691,
+        11692,
+        11693,
+        11694,
+        11695,
+        11697,
+        11698,
+        11703,
+        11704,
+        11708,
     )
 }
 TESTED.update({n: "2026-10-24" for n in (11726, 11727, 11728)})
@@ -1616,7 +1640,14 @@ TESTED.update({n: "2026-10-26" for n in (11711, 11715)})
 
 def category_name(n: int) -> str:
     rank = priority(n)[1]
-    return ("crash / perf", "bug", "false positive", "false negative", "enhancement", "other")[rank]
+    return (
+        "crash / perf",
+        "bug",
+        "false positive",
+        "false negative",
+        "enhancement",
+        "other",
+    )[rank]
 
 
 CI_WORDS = {
@@ -1667,7 +1698,11 @@ for lane in LANE_ORDER:
             f'<span class="lab">{E(category_name(n))}</span></td>'
             f'<td class="verdict"><span class="chip {chip_cls}">{E(chip)}</span>'
             f"{tested}"
-            + (f'<span class="repro na">{E(primer_words(n))}</span>' if primer_words(n) else "")
+            + (
+                f'<span class="repro na">{E(primer_words(n))}</span>'
+                if primer_words(n)
+                else ""
+            )
             + f'<span class="repro {ci_dot}">CI {ci_word}{fails}</span>'
             f'<span class="repro na">reviewed by {E(reviewers)}</span>'
             f'{issue_cell(r["links"])}</td>'
@@ -1684,7 +1719,7 @@ TODO_REVIEW = 8
 TODO_APPROVE = 8
 APPROVE_LOOP = (
     'for pr in {numbers}; do sha=$(gh pr view "$pr" --repo pylint-dev/pylint --json headRefOid '
-    "--jq .headRefOid); gh api \"repos/pylint-dev/pylint/actions/runs?head_sha=$sha&amp;"
+    '--jq .headRefOid); gh api "repos/pylint-dev/pylint/actions/runs?head_sha=$sha&amp;'
     "status=action_required\" --jq '.workflow_runs[].id' | xargs -I{{}} gh api -X POST "
     '"repos/pylint-dev/pylint/actions/runs/{{}}/approve"; done'
 )
@@ -1699,16 +1734,27 @@ def worth_a_run(n: int) -> bool:
     return category <= 1 or not not_high or minus_reactions <= -2
 
 
-KIND_NAMES = ("crash / perf", "bug", "false positive", "false negative", "enhancement", "other")
+KIND_NAMES = (
+    "crash / perf",
+    "bug",
+    "false positive",
+    "false negative",
+    "enhancement",
+    "other",
+)
 
 
-def why(category: int, high: bool, reactions: int, refs: list, ci: str, extra: list) -> str:
+def why(
+    category: int, high: bool, reactions: int, refs: list, ci: str, extra: list
+) -> str:
     """The reasons behind an item's place, in the order the ranking uses them."""
     parts = [KIND_NAMES[category]]
     if high:
         parts.append("High priority")
     if reactions:
-        parts.append(f"{reactions} reaction{'s' * (reactions > 1)} on {', '.join(refs)}")
+        parts.append(
+            f"{reactions} reaction{'s' * (reactions > 1)} on {', '.join(refs)}"
+        )
     parts.append(f"CI {CI_WORDS[ci][0]}")
     parts.extend(extra)
     return " · ".join(parts)
@@ -1755,7 +1801,9 @@ def waiting_on_author(n: int) -> bool:
 
 
 def needs_takeover(n: int) -> bool:
-    return waiting_on_author(n) and takeover.needs_takeover("pylint", n, rows[n]["labels"])
+    return waiting_on_author(n) and takeover.needs_takeover(
+        "pylint", n, rows[n]["labels"]
+    )
 
 
 # Waiting on the author: left out of the to-do list, since there is nothing to
@@ -1813,7 +1861,8 @@ todo = [
 _astroid_known = {}
 if (HERE / "astroid_queue_data.json").exists():
     _astroid_known = {
-        p["n"]: p["labels"] for p in json.loads((HERE / "astroid_queue_data.json").read_text())["prs"]
+        p["n"]: p["labels"]
+        for p in json.loads((HERE / "astroid_queue_data.json").read_text())["prs"]
     }
 _label_cmds = [
     proposed_labels.command(repo, number, kind, labels)
@@ -1822,10 +1871,194 @@ _label_cmds = [
 ]
 if _label_cmds:
     todo.append(
-        "<h3>0. Labels to apply</h3><p class=\"rubric\">Proposed in this pass and already counted in "
+        '<h3>0. Labels to apply</h3><p class="rubric">Proposed in this pass and already counted in '
         "the ranking below. Run once; the next refresh drops them from this list.</p>"
         f"<pre>{E(chr(10).join(_label_cmds))}</pre>"
     )
+# Release focus: the minor release being driven now. Its date is set by one
+# gate (an astroid PR waiting on another maintainer's review); everything else
+# rides along if it is merged before the gate opens, and moves to the next
+# patch milestone otherwise. None of the ride-along items may hold the release.
+RELEASE = {
+    "pylint": "4.2.0",
+    "astroid": "4.4.0",
+    "gate": [
+        (
+            "https://github.com/pylint-dev/astroid/pull/3120",
+            "astroid #3120",
+            "gate",
+            "Add inference for t-strings (python 3.14, astroid#2789, 2 reactions)",
+            'Get a review, or merge it yourself on the "strictly makes astroid better" basis '
+            "you announced: set a date and say so on the PR.",
+            "the only blocker of astroid 4.4.0, so of pylint 4.2.0. Green, mergeable, yours. "
+            "Review requested from DanielNoord; cdce8p asked on 14 November, no answer in 6 days.",
+        ),
+        (
+            "https://github.com/pylint-dev/astroid/milestone/129",
+            "astroid 4.4.0",
+            "release",
+            "Release astroid 4.4.0",
+            "Right after the gate: open PRs of the 4.4.0 milestone not merged by then move to 4.4.1.",
+            "pylint's bump pins <code>astroid==4.4</code> and its CI stays red until it is on PyPI.",
+        ),
+        (
+            "https://github.com/pylint-dev/pylint/pull/11817",
+            "#11817",
+            "bump",
+            "Upgrade astroid 4.4.0, add regression tests for closed issues",
+            "Once 4.4.0 is on PyPI: rebase, add a regression test for each astroid fix merged "
+            "since 18 November (astroid #3476 closes 7891), green CI, merge, release pylint 4.2.0.",
+            "22 regression tests already on the branch (tip f4b1ec89c, 18 commits behind main); "
+            "red now only because astroid 4.4.0 is not on PyPI.",
+        ),
+    ],
+    # Astroid milestone PRs whose state the data does not show: n -> action.
+    "astroid_notes": {
+        3454: "Run released 20 November: all green except pypy3.11, cancelled at the 20-minute "
+        "timeout (7 minutes on main). Re-run that job once; if it times out again the change "
+        "loops on pypy: ask the author.",
+    },
+    # Your own PRs in the milestone that are not the gate: n -> (title, action, why).
+    "own": {
+        11689: (
+            "Default py-version to the project's requires-python",
+            "Ride along: merge if another maintainer approves before the gate, else move to 4.3.0.",
+            "yours, review requested since 18 October; only codecov/patch red. Must not hold the release.",
+        ),
+    },
+}
+RELEASE_RIDE_ALONG = 10
+release_shown: set = set()
+release_astroid_shown: set = set()
+
+
+def _gate_item(
+    url: str, ref: str, kind: str, title: str, action: str, why_text: str
+) -> str:
+    return (
+        f'<li><a href="{url}">{E(ref)}</a> <span class="k">{E(kind)}</span>{E(title)} '
+        f'<span class="do">— {action}</span><span class="why">Why here: {why_text}</span></li>'
+    )
+
+
+if RELEASE:
+    import astroid_queue
+
+    _astroid_prs = sorted(astroid_queue.load_data()["prs"], key=astroid_queue.priority)
+    pylint_v, astroid_v = RELEASE["pylint"], RELEASE["astroid"]
+    todo.append(
+        f"<h3>0. Release pylint {E(pylint_v)} with astroid {E(astroid_v)}</h3>"
+        '<p class="rubric">The release date is set by the gate below, nothing else. Until it opens, '
+        "merge as many fixes as possible: the milestone items first, then the best-ranked ready "
+        "pull requests (all fixes merged before the cut ship in "
+        f"{E(pylint_v)}, as there is no more 4.1.x). When the gate opens, release at once: whatever "
+        "is not merged moves to the next patch milestone, it never holds the release.</p>"
+        "<h4>Gate (in order)</h4><ol>"
+        + "".join(_gate_item(*g) for g in RELEASE["gate"])
+        + "</ol>"
+    )
+
+    # Astroid fixes ride along in astroid's own release: the ones in its milestone.
+    in_astroid = [
+        p
+        for p in _astroid_prs
+        if p.get("milestone") == astroid_v and p["a"] != DATA["owner"]
+    ]
+    ready = sorted(
+        (
+            p
+            for p in in_astroid
+            if astroid_queue.lane(p) not in astroid_queue.AUTHOR_LANES
+            or astroid_queue.needs_takeover(p)
+        ),
+        # One-click merges first, then reviews, then runs to release.
+        key=lambda p: (
+            (
+                ["merge", "review", "approve"].index(astroid_queue.lane(p))
+                if astroid_queue.lane(p) in ("merge", "review", "approve")
+                else 3
+            ),
+            astroid_queue.priority(p),
+        ),
+    )
+    waiting = [p for p in in_astroid if p not in ready]
+    if ready:
+        todo.append(f"<h4>Into astroid {E(astroid_v)} before the gate</h4><ol>")
+        for p in ready:
+            release_astroid_shown.add(p["n"])
+            category = astroid_queue.priority(p)[2]
+            action = RELEASE["astroid_notes"].get(p["n"]) or (
+                TAKEOVER_ACTION
+                if astroid_queue.needs_takeover(p)
+                else astroid_queue.LANES[astroid_queue.lane(p)][3]
+            )
+            todo.append(
+                f'<li><a href="https://github.com/pylint-dev/astroid/pull/{p["n"]}">astroid #{p["n"]}</a> '
+                f'<span class="k">{E(KIND_NAMES[category])}</span>{E(p["t"])} '
+                f'<span class="do">— {E(action)}</span>'
+                f'<span class="why">Why here: {E(astroid_queue.why(p))}</span></li>'
+            )
+        todo.append("</ol>")
+    if waiting:
+        todo.append(
+            '<p class="rubric">Waiting on their author, move to the next astroid patch milestone at the cut '
+            "unless they come back: "
+            + ", ".join(
+                f'<a href="https://github.com/pylint-dev/astroid/pull/{p["n"]}">#{p["n"]}</a> {E(p["t"])}'
+                for p in waiting
+            )
+            + ".</p>"
+        )
+        release_astroid_shown.update(p["n"] for p in waiting)
+
+    in_pylint = [
+        n for n, r in rows.items() if r.get("milestone") == pylint_v and n in V
+    ]
+    ready_pylint = sorted(
+        (n for n in in_pylint if not waiting_on_author(n) or needs_takeover(n)),
+        key=priority,
+    )
+    waiting_pylint = sorted(
+        (n for n in in_pylint if n not in ready_pylint), key=priority
+    )
+    todo.append(f"<h4>pylint {E(pylint_v)} milestone</h4><ol>")
+    todo.extend(
+        (takeover_item if needs_takeover(n) else todo_item)(n) for n in ready_pylint
+    )
+    todo.extend(
+        _gate_item(
+            f"https://github.com/pylint-dev/pylint/pull/{n}", f"#{n}", "yours", *fields
+        )
+        for n, fields in RELEASE["own"].items()
+    )
+    todo.append("</ol>")
+    if waiting_pylint:
+        todo.append(
+            '<p class="rubric">Waiting on their author, move to the next patch milestone at the cut: '
+            + ", ".join(
+                f'<a href="https://github.com/pylint-dev/pylint/pull/{n}">#{n}</a> {E(rows[n]["t"])}'
+                for n in waiting_pylint
+            )
+            + ".</p>"
+        )
+    release_shown.update(in_pylint)
+
+    # Ride along: the best-ranked ready PRs outside the milestone. Set the
+    # milestone when merging so the release notes find them.
+    ride = [
+        n
+        for n in lane_members("merge") + lane_members("review")
+        if n not in release_shown
+    ][:RELEASE_RIDE_ALONG]
+    if ride:
+        todo.append(
+            f'<h4>Ride along if reviewed before the gate</h4><p class="rubric">Green and waiting on '
+            f"you, best-ranked first. Set milestone {E(pylint_v)} when merging.</p><ol>"
+        )
+        todo.extend(todo_item(n) for n in ride)
+        todo.append("</ol>")
+        release_shown.update(ride)
+
 # Backports come first: the fix is already reviewed on main, and the patch
 # release only ships what got merged on the maintenance branch. The bot's PRs
 # have no verdict and are not in any lane, so they are listed from the data.
@@ -1849,9 +2082,20 @@ if backports:
 # The open pull requests of the next patch milestone come next: the release
 # waits on them, whatever their lane or category.
 patch_milestones = sorted(
-    {r.get("milestone", "") for r in rows.values() if re.fullmatch(r"\d+\.\d+\.[1-9]\d*", r.get("milestone", ""))},
+    {
+        r.get("milestone", "")
+        for r in rows.values()
+        if re.fullmatch(r"\d+\.\d+\.[1-9]\d*", r.get("milestone", ""))
+    },
     key=lambda title: tuple(map(int, title.split("."))),
 )
+if RELEASE:
+    # A patch of the minor being released waits for it: its items ride along above.
+    patch_milestones = [
+        m
+        for m in patch_milestones
+        if not m.startswith(RELEASE["pylint"].rsplit(".", 1)[0] + ".")
+    ]
 if patch_milestones:
     release = patch_milestones[0]
     todo.append(f"<h3>0. Last items of {E(release)}</h3><ol>")
@@ -1862,32 +2106,45 @@ if patch_milestones:
             (
                 n
                 for n, r in rows.items()
-                if r.get("milestone") == release and n in V and (not waiting_on_author(n) or needs_takeover(n))
+                if r.get("milestone") == release
+                and n in V
+                and (not waiting_on_author(n) or needs_takeover(n))
             ),
             key=priority,
         )
     )
     todo.append("</ol>")
+todo_takeover[:] = [n for n in todo_takeover if n not in release_shown]
 for title, items in (
-    ("1. Merge", lane_members("merge")),
+    ("1. Merge", [n for n in lane_members("merge") if n not in release_shown]),
     ("1b. Take over (author silent)", todo_takeover),
-    ("2. Review", lane_members("review")[:TODO_REVIEW]),
+    (
+        "2. Review",
+        [n for n in lane_members("review") if n not in release_shown][:TODO_REVIEW],
+    ),
     ("3. Approve the run", todo_approve),
-    ("4. Decide (crash or bug)", [n for n in lane_members("decide") if priority(n)[1] <= 1]),
+    (
+        "4. Decide (crash or bug)",
+        [n for n in lane_members("decide") if priority(n)[1] <= 1],
+    ),
 ):
     if not items:
         if items is todo_approve:
             todo.append(
-                f"<h3>{title}</h3><p class=\"rubric\">Nothing worth a run today: every held pull "
+                f'<h3>{title}</h3><p class="rubric">Nothing worth a run today: every held pull '
                 "request is a false positive, false negative or enhancement with fewer than two "
                 "reactions.</p>"
             )
         continue
     todo.append(f"<h3>{title}</h3><ol>")
-    todo.extend((takeover_item if items is todo_takeover else todo_item)(n) for n in items)
+    todo.extend(
+        (takeover_item if items is todo_takeover else todo_item)(n) for n in items
+    )
     todo.append("</ol>")
     if items is todo_approve:
-        todo.append(f"<pre>{APPROVE_LOOP.format(numbers=' '.join(map(str, items)))}</pre>")
+        todo.append(
+            f"<pre>{APPROVE_LOOP.format(numbers=' '.join(map(str, items)))}</pre>"
+        )
 
 # Astroid: the ranking and lanes of astroid_queue.py (which also renders
 # astroid.html), so both pages always agree. Only the lanes needing you now
@@ -1925,15 +2182,29 @@ if ASTROID_FILE.exists():
             "approve",
             "Approve the run",
             8,
-            lambda p: astroid_queue.worth(p) and p["n"] not in astroid_queue.DO_NOT_APPROVE,
+            lambda p: astroid_queue.worth(p)
+            and p["n"] not in astroid_queue.DO_NOT_APPROVE,
         ),
-        ("ping", "Yours, waiting on a reviewer", 10, lambda p: astroid_queue.worth(p) or bool(p["milestone"])),
+        (
+            "ping",
+            "Yours, waiting on a reviewer",
+            10,
+            lambda p: astroid_queue.worth(p) or bool(p["milestone"]),
+        ),
         ("takeover", "Take over (author silent)", 8, astroid_queue.worth),
     ):
         if key == "takeover":
-            items = [p for p in prs if astroid_queue.needs_takeover(p) and keep(p)][:limit]
+            items = [p for p in prs if astroid_queue.needs_takeover(p) and keep(p)][
+                :limit
+            ]
         else:
-            items = [p for p in prs if astroid_queue.lane(p) == key and keep(p)][:limit]
+            items = [
+                p
+                for p in prs
+                if astroid_queue.lane(p) == key
+                and keep(p)
+                and p["n"] not in release_astroid_shown
+            ][:limit]
         if not items:
             continue
         todo.append(f"<h4>{title}</h4><ol>")
@@ -1943,7 +2214,9 @@ if ASTROID_FILE.exists():
             numbers = " ".join(str(p["n"]) for p in items)
             todo.append(
                 "<pre>"
-                + APPROVE_LOOP.format(numbers=numbers).replace("pylint-dev/pylint", "pylint-dev/astroid")
+                + APPROVE_LOOP.format(numbers=numbers).replace(
+                    "pylint-dev/pylint", "pylint-dev/astroid"
+                )
                 + "</pre>"
             )
 todo.append("</section>")
@@ -1951,9 +2224,7 @@ todo.append("</section>")
 n_open = DATA["open_total"]
 n_own = DATA["open_own"]
 n_bot = sum(1 for r in rows.values() if r["a"].startswith("app/"))
-counts = {
-    lane: sum(1 for n in rows if lane_of(n) == lane) for lane in LANE_ORDER
-}
+counts = {lane: sum(1 for n in rows if lane_of(n) == lane) for lane in LANE_ORDER}
 n_silent = sum(1 for n, r in rows.items() if n in V and r["lastcom"][0] == "-")
 n_conflict = sum(1 for n, r in rows.items() if n in V and r["merge"] == "CONFLICTING")
 total = sum(counts.values())
@@ -1972,7 +2243,9 @@ page = (
         n_silent=n_silent,
         n_conflict=n_conflict,
         snapshot=DATA["snapshot"],
-        snapshot_long=__import__("datetime").date.fromisoformat(DATA["snapshot"]).strftime("%-d %B %Y"),
+        snapshot_long=__import__("datetime")
+        .date.fromisoformat(DATA["snapshot"])
+        .strftime("%-d %B %Y"),
         todo="".join(todo),
         body="".join(body),
     )
