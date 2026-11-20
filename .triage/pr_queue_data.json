@@ -1,7 +1,7 @@
 {
  "snapshot": "2026-11-20",
  "owner": "Pierre-Sassoulas",
- "open_total": 189,
+ "open_total": 187,
  "open_own": 23,
  "prs": [
   {
@@ -118,7 +118,7 @@
    ],
    "milestone": "",
    "rd": "CHANGES_REQUESTED",
-   "merge": "UNKNOWN",
+   "merge": "CONFLICTING",
    "ci": "not-run",
    "citot": 0,
    "cifail": 0,
@@ -388,9 +388,9 @@
    "milestone": "5.0.0",
    "rd": "REVIEW_REQUIRED",
    "merge": "UNKNOWN",
-   "ci": "failing",
-   "citot": 6,
-   "cifail": 2,
+   "ci": "not-run",
+   "citot": 4,
+   "cifail": 0,
    "nrev": 6,
    "mrev": [
     "DanielNoord",
@@ -658,7 +658,7 @@
    ],
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "failing",
    "citot": 40,
    "cifail": 11,
@@ -679,60 +679,25 @@
    ]
   },
   {
-   "n": 11132,
-   "a": "koteshyelamati",
-   "t": "Improve arguments-differ message when parameter totals match",
-   "draft": false,
-   "size": 127,
-   "files": 6,
-   "created": "2026-07-04",
-   "updated": "2026-11-14",
-   "labels": [
-    "Bug :beetle:",
-    "Waiting on author",
-    "backport maintenance/4.1.x"
-   ],
-   "milestone": "4.2.0",
-   "rd": "CHANGES_REQUESTED",
-   "merge": "UNKNOWN",
-   "ci": "running",
-   "citot": 2,
-   "cifail": 0,
-   "nrev": 2,
-   "mrev": [
-    "Pierre-Sassoulas"
-   ],
-   "links": [
-    [
-     5793,
-     "",
-     ""
-    ]
-   ],
-   "lastcom": [
-    "koteshyelamati",
-    "2026-07-20"
-   ]
-  },
-  {
    "n": 11171,
    "a": "Synvoya",
    "t": "Fix typing.NamedTuple generated member inference",
    "draft": false,
-   "size": 50,
-   "files": 4,
+   "size": 31,
+   "files": 3,
    "created": "2026-07-16",
-   "updated": "2026-09-23",
+   "updated": "2026-11-20",
    "labels": [
+    "Blocked 🚧",
     "False Positive 🦟",
-    "backport maintenance/4.1.x"
+    "Needs astroid update"
    ],
-   "milestone": "",
+   "milestone": "4.2.0",
    "rd": "CHANGES_REQUESTED",
    "merge": "UNKNOWN",
-   "ci": "green",
-   "citot": 49,
-   "cifail": 0,
+   "ci": "failing",
+   "citot": 23,
+   "cifail": 7,
    "nrev": 1,
    "mrev": [
     "Pierre-Sassoulas"
@@ -745,8 +710,8 @@
     ]
    ],
    "lastcom": [
-    "github-actions",
-    "2026-07-16"
+    "Pierre-Sassoulas",
+    "2026-11-20"
    ]
   },
   {
@@ -1256,7 +1221,7 @@
    ],
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "failing",
    "citot": 50,
    "cifail": 1,
@@ -1585,7 +1550,7 @@
    ],
    "milestone": "4.3.0",
    "rd": "CHANGES_REQUESTED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "failing",
    "citot": 51,
    "cifail": 2,
@@ -1938,7 +1903,7 @@
    ],
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "not-run",
    "citot": 4,
    "cifail": 0,
@@ -2012,37 +1977,6 @@
    "lastcom": [
     "-",
     "-"
-   ]
-  },
-  {
-   "n": 11615,
-   "a": "ningkexin96",
-   "t": "Fix Windows initializer path classification",
-   "draft": false,
-   "size": 275,
-   "files": 4,
-   "created": "2026-10-09",
-   "updated": "2026-11-08",
-   "labels": [
-    "Bug :beetle:",
-    "Needs reproduction :mag:",
-    "Windows 🪟",
-    "backport maintenance/4.1.x"
-   ],
-   "milestone": "4.2.1",
-   "rd": "CHANGES_REQUESTED",
-   "merge": "UNKNOWN",
-   "ci": "green",
-   "citot": 43,
-   "cifail": 0,
-   "nrev": 1,
-   "mrev": [
-    "Pierre-Sassoulas"
-   ],
-   "links": [],
-   "lastcom": [
-    "github-actions",
-    "2026-11-08"
    ]
   },
   {
@@ -2159,7 +2093,7 @@
    ],
    "milestone": "4.2.0",
    "rd": "CHANGES_REQUESTED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "green",
    "citot": 43,
    "cifail": 0,
@@ -2845,7 +2779,7 @@
    ],
    "milestone": "4.2.0",
    "rd": "CHANGES_REQUESTED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "green",
    "citot": 45,
    "cifail": 0,
@@ -2913,7 +2847,7 @@
    ],
    "milestone": "4.2.0",
    "rd": "APPROVED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "green",
    "citot": 45,
    "cifail": 0,
@@ -3538,7 +3472,7 @@
    ],
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "green",
    "citot": 46,
    "cifail": 0,
@@ -3570,7 +3504,7 @@
    ],
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "awaiting-approval",
    "citot": 3,
    "cifail": 0,
@@ -3726,7 +3660,7 @@
    ],
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "awaiting-approval",
    "citot": 4,
    "cifail": 0,
@@ -3823,7 +3757,7 @@
    ],
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "awaiting-approval",
    "citot": 4,
    "cifail": 0,
@@ -3855,7 +3789,7 @@
    ],
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "awaiting-approval",
    "citot": 4,
    "cifail": 0,
@@ -3887,7 +3821,7 @@
    ],
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "awaiting-approval",
    "citot": 4,
    "cifail": 0,
@@ -4000,10 +3934,10 @@
    "a": "HoBoIs",
    "t": "New checker for decompression bomb detection",
    "draft": false,
-   "size": 413,
+   "size": 439,
    "files": 7,
    "created": "2026-10-29",
-   "updated": "2026-10-29",
+   "updated": "2026-11-20",
    "labels": [
     "Enhancement ✨",
     "Needs decision :lock:"
@@ -4011,9 +3945,9 @@
    "milestone": "",
    "rd": "CHANGES_REQUESTED",
    "merge": "UNKNOWN",
-   "ci": "failing",
-   "citot": 41,
-   "cifail": 12,
+   "ci": "awaiting-approval",
+   "citot": 2,
+   "cifail": 0,
    "nrev": 1,
    "mrev": [
     "Pierre-Sassoulas"
@@ -4387,7 +4321,7 @@
    ],
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "green",
    "citot": 49,
    "cifail": 0,
@@ -4484,7 +4418,7 @@
    ],
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
-   "merge": "UNKNOWN",
+   "merge": "MERGEABLE",
    "ci": "awaiting-approval",
    "citot": 4,
    "cifail": 0,
@@ -4627,7 +4561,7 @@
    "size": 325,
    "files": 10,
    "created": "2026-11-10",
-   "updated": "2026-11-19",
+   "updated": "2026-11-20",
    "labels": [
     "performance"
    ],
@@ -4643,8 +4577,8 @@
    ],
    "links": [],
    "lastcom": [
-    "github-actions",
-    "2026-11-19"
+    "Pierre-Sassoulas",
+    "2026-11-20"
    ]
   },
   {
@@ -4688,7 +4622,7 @@
    ],
    "milestone": "4.2.0",
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "green",
    "citot": 45,
    "cifail": 0,
@@ -4749,7 +4683,7 @@
    ],
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "green",
    "citot": 48,
    "cifail": 0,
@@ -4783,7 +4717,7 @@
    ],
    "milestone": "4.2.0",
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "green",
    "citot": 50,
    "cifail": 0,
@@ -4815,7 +4749,7 @@
    ],
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "green",
    "citot": 46,
    "cifail": 0,
@@ -4847,7 +4781,7 @@
    ],
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "green",
    "citot": 28,
    "cifail": 0,
@@ -4873,7 +4807,7 @@
    ],
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "green",
    "citot": 27,
    "cifail": 0,
@@ -4900,7 +4834,7 @@
    ],
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "awaiting-approval",
    "citot": 5,
    "cifail": 0,
@@ -4933,7 +4867,7 @@
    ],
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "green",
    "citot": 48,
    "cifail": 0,
@@ -5152,7 +5086,7 @@
    ],
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "green",
    "citot": 48,
    "cifail": 0,
@@ -5184,7 +5118,7 @@
    ],
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "green",
    "citot": 48,
    "cifail": 0,
@@ -5217,7 +5151,7 @@
    ],
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "failing",
    "citot": 29,
    "cifail": 1,
@@ -5249,7 +5183,7 @@
    ],
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "green",
    "citot": 48,
    "cifail": 0,
@@ -5281,7 +5215,7 @@
    ],
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
+   "merge": "UNKNOWN",
    "ci": "awaiting-approval",
    "citot": 4,
    "cifail": 0,
@@ -5307,15 +5241,15 @@
    "size": 83,
    "files": 4,
    "created": "2026-11-19",
-   "updated": "2026-11-19",
+   "updated": "2026-11-20",
    "labels": [
     "False Positive 🦟"
    ],
    "milestone": "",
    "rd": "REVIEW_REQUIRED",
-   "merge": "MERGEABLE",
-   "ci": "awaiting-approval",
-   "citot": 4,
+   "merge": "UNKNOWN",
+   "ci": "green",
+   "citot": 48,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -5327,8 +5261,8 @@
     ]
    ],
    "lastcom": [
-    "-",
-    "-"
+    "codspeed",
+    "2026-11-20"
    ]
   },
   {
@@ -5349,7 +5283,7 @@
    "rd": "REVIEW_REQUIRED",
    "merge": "UNKNOWN",
    "ci": "awaiting-approval",
-   "citot": 2,
+   "citot": 5,
    "cifail": 0,
    "nrev": 0,
    "mrev": [],
@@ -5801,19 +5735,6 @@
    "title": "False negative `used-before-assignment` after name defined and used in except"
   },
   {
-   "comments": 5,
-   "labels": [
-    "Good first issue",
-    "Documentation :green_book:",
-    "C: arguments-differ"
-   ],
-   "number": 5793,
-   "reactions": 9,
-   "state": "open",
-   "state_reason": null,
-   "title": "arguments-differ: number of parameters was some number ... and is now the same number in overridden ..."
-  },
-  {
    "comments": 0,
    "labels": [
     "False Positive 🦟",
@@ -5933,7 +5854,7 @@
    "title": "False positive C2801 (unnecessary-dunder-call) with unittest.mock.call"
   },
   {
-   "comments": 4,
+   "comments": 5,
    "labels": [
     "Enhancement ✨",
     "Help wanted 🙏",
@@ -6065,6 +5986,18 @@
    "state": "open",
    "state_reason": null,
    "title": "False negative ``no-member`` for ``@dataclass(slots=...)``"
+  },
+  {
+   "comments": 3,
+   "labels": [
+    "False Positive 🦟",
+    "Needs PR"
+   ],
+   "number": 7891,
+   "reactions": 6,
+   "state": "open",
+   "state_reason": null,
+   "title": "False positive `no-member` when attempting to access `_asdict`, which is a valid `NamedTuple` method, in a subclass of `NamedTuple`"
   },
   {
    "comments": 3,
@@ -7129,6 +7062,19 @@
    "state": "open",
    "state_reason": null,
    "title": "test_functional.py --update-functional-output deletes files for other Python versions"
+  },
+  {
+   "comments": 0,
+   "labels": [
+    "Astroid",
+    "False Positive 🦟",
+    "enum"
+   ],
+   "number": 10951,
+   "reactions": 1,
+   "state": "closed",
+   "state_reason": "completed",
+   "title": "pylint does not recognise `from ... import` inside an `IntEnum` class body as producing enum members. It infers the members as `int` instead of `LogLevel`, causing a spurious `E1101: Instance of 'int' has no 'value' member (no-member)` error."
   },
   {
    "comments": 1,

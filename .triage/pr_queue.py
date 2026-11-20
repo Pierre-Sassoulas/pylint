@@ -97,13 +97,6 @@ V = {
         "this PR now waits on that one and on an astroid release.",
         "Review astroid #3442 first; this PR then shrinks to tests or closes.",
     ),
-    11615: (
-        "review",
-        "green",
-        "confirmed",
-        "Issue 10137 (bug, 3 reactions, now milestone 4.1.5): <code>__Init__.py</code> with different capitalization is linted as a module on Windows. The 2 November run was 40/41, only <code>pylint</code> spelling red on three words in a new docstring. summeriver13's fix (ningkexin96/pylint#2) was merged into the branch on 5 November as 2ddc28a: docstring only, logic unchanged. Its six runs are held again. 8 November: the approved run finished 43/43 green, primer no effect.",
-        "Review and backport (4.1.5).",
-    ),
     11690: (
         "author",
         "changes",
@@ -355,11 +348,11 @@ V = {
         "Review: CI green, explicit-position counting in the new format-string parser.",
     ),
     11852: (
-        "approve",
-        "held",
+        "review",
+        "green",
         "confirmed",
-        "New (19 November), 74 lines by SnakeO (first PR) for issue 3502 (Bug, Needs PR, open since 2020; no other PR): <code>attribute-defined-outside-init</code> is skipped for a class when a base, or an ancestor's base, cannot be inferred (<code>_has_uninferable_base</code>, uses <code>infer_all</code>). Avoids <code>has_known_bases</code> on purpose, since every <code>Enum</code> subclass fails it; tested with an <code>Enum</code> case that still warns. Diff read 19 November: no CI or config files, no risky calls, ASCII only. The helper is called inside the per-attribute loop (could be hoisted). Runs held (7).",
-        "Approve the runs at b2a8d21c8, then review: primer will show how many hits go away (common FP with uninstalled bases).",
+        "New (19 November), 74 lines by SnakeO (first PR) for issue 3502 (Bug, Needs PR, open since 2020; no other PR): <code>attribute-defined-outside-init</code> is skipped for a class when a base, or an ancestor's base, cannot be inferred (<code>_has_uninferable_base</code>, uses <code>infer_all</code>). Avoids <code>has_known_bases</code> on purpose, since every <code>Enum</code> subclass fails it; tested with an <code>Enum</code> case that still warns. Diff read 19 November: no CI or config files, no risky calls, ASCII only. The helper is called inside the per-attribute loop (could be hoisted). 20 November: runs released, all green; primer removes <code>attribute-defined-outside-init</code> on astropy; CodSpeed +76% is walltime noise.",
+        "Review; hoisting the helper out of the per-attribute loop is optional.",
     ),
     11851: (
         "approve",
@@ -399,10 +392,10 @@ V = {
     ),
     11803: (
         "review",
-        "answered",
-        "confirmed",
-        "New, 155 lines by marksmayo (performance): four checks walked the same subtree several times (<code>visit_assignname</code> reassigned-before/after, <code>leave_functiondef</code> global/nonlocal/comprehension, unused private members per member, <code>BasicErrorChecker</code> global/nonlocal). Each now walks once, same order. 3.7-4.1% faster on astroid, identical messages. New helper <code>is_reassigned_before_or_after_current</code> with unit tests. Not run locally. 10 November CI: all green, primer only the known pandas <code>series.py</code> L505 redefined-variable-type move (noise, seen on unrelated PRs). 15 November: Pierre requested changes: the constant-naming check still walks the module once per module-level name (quadratic, halved), collect line numbers once per scope; the private-member checks still compare every private member against every name; plus a fragment wording suggestion. 19 November: Pierre rebased for CodSpeed (0cf9bf9bf) and rewrote the fragment (685d72916). CodSpeed reports +61.6%, primer no effect, CI green. The constant-naming quadratic leftover from the 15 November review is still unaddressed (4 days). 19 November: marksmayo pushed both asks (assignment line numbers indexed once per scope via an <code>lru_cache</code> cleared in <code>clear_lru_caches()</code>; class names/attributes indexed once for unused-private-member). Primer no effect. CodSpeed: CPU simulation black +4.35%; the red check is walltime cold_start -7.9% / flask_j2 -5.5% (walltime noise).",
-        "Re-review the two new commits; dismiss your change request and merge if they hold.",
+        "yours",
+        "crash",
+        "New, 155 lines by marksmayo (performance): four checks walked the same subtree several times (<code>visit_assignname</code> reassigned-before/after, <code>leave_functiondef</code> global/nonlocal/comprehension, unused private members per member, <code>BasicErrorChecker</code> global/nonlocal). Each now walks once, same order. 3.7-4.1% faster on astroid, identical messages. New helper <code>is_reassigned_before_or_after_current</code> with unit tests. Not run locally. 10 November CI: all green, primer only the known pandas <code>series.py</code> L505 redefined-variable-type move (noise, seen on unrelated PRs). 15 November: Pierre requested changes: the constant-naming check still walks the module once per module-level name (quadratic, halved), collect line numbers once per scope; the private-member checks still compare every private member against every name; plus a fragment wording suggestion. 19 November: Pierre rebased for CodSpeed (0cf9bf9bf) and rewrote the fragment (685d72916). CodSpeed reports +61.6%, primer no effect, CI green. The constant-naming quadratic leftover from the 15 November review is still unaddressed (4 days). 19 November: marksmayo pushed both asks (assignment line numbers indexed once per scope via an <code>lru_cache</code> cleared in <code>clear_lru_caches()</code>; class names/attributes indexed once for unused-private-member). Primer no effect. CodSpeed: CPU simulation black +4.35%; the red check is walltime cold_start -7.9% / flask_j2 -5.5% (walltime noise). 20 November: you commented that CodSpeed swings wildly on neutral PRs too and you will benchmark locally.",
+        "Benchmark base vs head locally (interleaved runs); dismiss your change request and merge if the CPU gain holds.",
     ),
     11806: (
         "review",
@@ -542,7 +535,7 @@ V = {
         "green",
         "confirmed",
         "New, 36 lines by YashG1836 for issue 11765 (FN): <code>glob.glob0</code> / <code>glob.glob1</code> sat in <code>DEPRECATED_CLASSES</code> with a module prefix, and <code>typing._UnionGenericAlias</code> had a stray leading dot, so none could ever match. Moves the glob pair to <code>DEPRECATED_METHODS</code> 3.13 and drops the dot. Confirmed in the source. Not run locally. chrikrah approved on 5 November: both new tests fail on the base table, and it merges cleanly with #11764 in either order. 8 November: 46 green, primer only astropy noise.",
-        "Review with #11764 (same table).",
+        "Review: #11764 (same deprecation table) is merged, so only this one is left.",
     ),
     11736: (
         "decide",
@@ -1160,10 +1153,10 @@ V = {
     ),
     11171: (
         "author",
-        "waiting",
+        "blocked",
         "confirmed",
-        "49/49 green but changes requested and untouched since mid-July.",
-        "Ping — green CI with an open request is easy to forget.",
+        "Typing.NamedTuple members on <code>self</code> (pylint 7891 family). You took it over 20 November: the workaround is dropped and the fix relies on astroid #3476, so CI fails until astroid 4.4.0. 11817 now carries a regression test for the namedtuple API on <code>self</code> (9c803354d).",
+        "After astroid 4.4.0: re-run CI and merge, or close it if the 11817 test already covers the case.",
     ),
     11241: (
         "author",
@@ -1178,13 +1171,6 @@ V = {
         "confirmed",
         "Changes requested, no CI run, author's last reply in mid-August.",
         "Waiting on the author.",
-    ),
-    11132: (
-        "review",
-        "yours",
-        "crash",
-        'Bug 5793: <code>arguments-differ</code> says "number of parameters was 2 ... and is now 2" when the totals match but the kinds differ. Author silent since July; 20 November you took it over and force-pushed d1d6cef1c (message names the real difference: keyword-only, positional-only, renamed next to <code>*args</code>). Milestone 4.2.0. CI running at d1d6cef1c, 33 green so far. Your own earlier change request still blocks.',
-        "When green: dismiss your change request, approve, merge.",
     ),
     11177: (
         "author",
@@ -1906,18 +1892,25 @@ RELEASE = {
             "#11817",
             "bump",
             "Upgrade astroid 4.4.0, add regression tests for closed issues",
-            "Once 4.4.0 is on PyPI: rebase, add a regression test for each astroid fix merged "
-            "since 18 November (astroid #3476 closes 7891), green CI, merge, release pylint 4.2.0.",
-            "22 regression tests already on the branch (tip f4b1ec89c, 18 commits behind main); "
-            "red now only because astroid 4.4.0 is not on PyPI.",
+            "Once 4.4.0 is on PyPI: add a test for any astroid fix merged after 20 November, "
+            "green CI, merge, release pylint 4.2.0.",
+            "rebased 20 November (tip 9c803354d, 7 commits, + enum members imported in the class "
+            "body and namedtuple API on self); red now only because astroid 4.4.0 is not on PyPI.",
         ),
     ],
     # Astroid milestone PRs whose state the data does not show: n -> action.
     "astroid_notes": {
-        3454: "Run released 20 November: all green except pypy3.11, cancelled at the 20-minute "
-        "timeout (7 minutes on main). Re-run that job once; if it times out again the change "
-        "loops on pypy: ask the author.",
+        3454: "pypy3.11 cancelled at the 20-minute timeout (7 minutes on main), everything "
+        "else green. Same on 3476 today, so likely the runner: re-run the cancelled job "
+        "(command below); if it times out again, ask the author.",
+        3476: "Merge once the pypy3.11 re-run passes (cancelled at the 20-minute timeout, "
+        "everything else green, you approved).",
     },
+    # Commands for the astroid items above (re-runs of cancelled jobs).
+    "astroid_commands": [
+        "gh run rerun 43758488228 --repo pylint-dev/astroid --failed  # 3476 pypy",
+        "gh run rerun 44739988584 --repo pylint-dev/astroid --failed  # 3454 pypy",
+    ],
     # Your own PRs in the milestone that are not the gate: n -> (title, action, why).
     "own": {
         11689: (
@@ -1999,6 +1992,8 @@ if RELEASE:
                 f'<span class="why">Why here: {E(astroid_queue.why(p))}</span></li>'
             )
         todo.append("</ol>")
+    if RELEASE["astroid_commands"]:
+        todo.append(f"<pre>{E(chr(10).join(RELEASE['astroid_commands']))}</pre>")
     if waiting:
         todo.append(
             '<p class="rubric">Waiting on their author, move to the next astroid patch milestone at the cut '

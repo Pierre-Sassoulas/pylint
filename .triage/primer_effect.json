@@ -3450,56 +3450,6 @@
   "items": [],
   "commit": "a5bc435fd"
  },
- "11132": {
-  "date": "2026-07-04",
-  "added": 0,
-  "removed": 0,
-  "changed": 0,
-  "projects": {
-   "astropy": {
-    "added": 0,
-    "removed": 0,
-    "changed": 0
-   },
-   "music21": {
-    "added": 0,
-    "removed": 0,
-    "changed": 0
-   },
-   "ansible": {
-    "added": 0,
-    "removed": 0,
-    "changed": 0
-   },
-   "django": {
-    "added": 0,
-    "removed": 0,
-    "changed": 0
-   },
-   "pandas": {
-    "added": 0,
-    "removed": 0,
-    "changed": 0
-   },
-   "pytest": {
-    "added": 0,
-    "removed": 0,
-    "changed": 0
-   },
-   "sentry": {
-    "added": 0,
-    "removed": 0,
-    "changed": 0
-   },
-   "home-assistant": {
-    "added": 0,
-    "removed": 0,
-    "changed": 0
-   }
-  },
-  "items": [],
-  "commit": "a8c9e152e"
- },
  "11171": {
   "date": "2026-07-16",
   "added": 0,
@@ -11450,15 +11400,6 @@
   ],
   "commit": "637beb547"
  },
- "11615": {
-  "date": "2026-11-08",
-  "added": 0,
-  "removed": 0,
-  "changed": 0,
-  "projects": {},
-  "items": [],
-  "commit": "2ddc28afa"
- },
  "11618": {
   "date": "2026-10-10",
   "added": 0,
@@ -18584,5 +18525,1221 @@
   "projects": {},
   "items": [],
   "commit": "20ae7b8a9"
+ },
+ "11852": {
+  "date": "2026-11-20",
+  "added": 0,
+  "removed": 195,
+  "changed": 0,
+  "projects": {
+   "astropy": {
+    "added": 0,
+    "removed": 62,
+    "changed": 0
+   },
+   "django": {
+    "added": 0,
+    "removed": 9,
+    "changed": 0
+   },
+   "home-assistant": {
+    "added": 0,
+    "removed": 54,
+    "changed": 0
+   },
+   "pandas": {
+    "added": 0,
+    "removed": 5,
+    "changed": 0
+   },
+   "pygame": {
+    "added": 0,
+    "removed": 3,
+    "changed": 0
+   },
+   "pytest": {
+    "added": 0,
+    "removed": 19,
+    "changed": 0
+   },
+   "sentry": {
+    "added": 0,
+    "removed": 43,
+    "changed": 0
+   }
+  },
+  "items": [
+   [
+    "astropy",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute '_cls_args' defined outside __init__*"
+   ],
+   [
+    "astropy",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'cls_kwargs' defined outside __init__*"
+   ],
+   [
+    "astropy",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'cls' defined outside __init__*"
+   ],
+   [
+    "astropy",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'cls' defined outside __init__*"
+   ],
+   [
+    "astropy",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'cls' defined outside __init__*"
+   ],
+   [
+    "astropy",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'cls' defined outside __init__*"
+   ],
+   [
+    "astropy",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'cls' defined outside __init__*"
+   ],
+   [
+    "astropy",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'cls' defined outside __init__*"
+   ],
+   [
+    "astropy",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'cls' defined outside __init__*"
+   ],
+   [
+    "astropy",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'cls' defined outside __init__*"
+   ],
+   [
+    "astropy",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'cls' defined outside __init__*"
+   ],
+   [
+    "astropy",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'cls' defined outside __init__*"
+   ],
+   [
+    "astropy",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'cls' defined outside __init__*"
+   ],
+   [
+    "astropy",
+    "removed",
+    "no-member",
+    "*Instance of 'ndarray' has no 'mask' member*"
+   ],
+   [
+    "astropy",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute '_col_weakrefs' defined outside __init__*"
+   ],
+   [
+    "astropy",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute '_col_weakrefs' defined outside __init__*"
+   ],
+   [
+    "astropy",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute '_col_weakrefs' defined outside __init__*"
+   ],
+   [
+    "astropy",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute '_col_weakrefs' defined outside __init__*"
+   ],
+   [
+    "astropy",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute '_converted' defined outside __init__*"
+   ],
+   [
+    "astropy",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute '_converted' defined outside __init__*"
+   ],
+   [
+    "astropy",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute '_converted' defined outside __init__*"
+   ],
+   [
+    "astropy",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute '_heapoffset' defined outside __init__*"
+   ],
+   [
+    "astropy",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute '_heapoffset' defined outside __init__*"
+   ],
+   [
+    "astropy",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute '_heapoffset' defined outside __init__*"
+   ],
+   [
+    "astropy",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute '_heapsize' defined outside __init__*"
+   ],
+   [
+    "astropy",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute '_heapsize' defined outside __init__*"
+   ],
+   [
+    "astropy",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute '_heapsize' defined outside __init__*"
+   ],
+   [
+    "astropy",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute '_heapsize' defined outside __init__*"
+   ],
+   [
+    "astropy",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute '_tbsize' defined outside __init__*"
+   ],
+   [
+    "astropy",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute '_tbsize' defined outside __init__*"
+   ],
+   [
+    "astropy",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute '_tbsize' defined outside __init__*"
+   ],
+   [
+    "astropy",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute '_nfields' defined outside __init__*"
+   ],
+   [
+    "astropy",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute '_nfields' defined outside __init__*"
+   ],
+   [
+    "astropy",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute '_nfields' defined outside __init__*"
+   ],
+   [
+    "astropy",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute '_gap' defined outside __init__*"
+   ],
+   [
+    "astropy",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute '_gap' defined outside __init__*"
+   ],
+   [
+    "astropy",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute '_gap' defined outside __init__*"
+   ],
+   [
+    "astropy",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute '_uint' defined outside __init__*"
+   ],
+   [
+    "astropy",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute '_uint' defined outside __init__*"
+   ],
+   [
+    "astropy",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute '_uint' defined outside __init__*"
+   ],
+   [
+    "astropy",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'parnames' defined outside __init__*"
+   ],
+   [
+    "astropy",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'parnames' defined outside __init__*"
+   ],
+   [
+    "astropy",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'x0' defined outside __init__*"
+   ],
+   [
+    "astropy",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'y0' defined outside __init__*"
+   ],
+   [
+    "astropy",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'z0' defined outside __init__*"
+   ],
+   [
+    "astropy",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'indices' defined outside __init__*"
+   ],
+   [
+    "astropy",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute '_groups' defined outside __init__*"
+   ],
+   [
+    "astropy",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute '_unit' defined outside __init__*"
+   ],
+   [
+    "astropy",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'swallow' defined outside __init__*"
+   ],
+   [
+    "astropy",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'swallow' defined outside __init__*"
+   ],
+   [
+    "astropy",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'overlay_coords' defined outside __init__*"
+   ],
+   [
+    "astropy",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'xy' defined outside __init__*"
+   ],
+   [
+    "astropy",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'ha' defined outside __init__*"
+   ],
+   [
+    "astropy",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'va' defined outside __init__*"
+   ],
+   [
+    "astropy",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute '_existing_bboxes' defined outside __init__*"
+   ],
+   [
+    "astropy",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'ticks_locs' defined outside __init__*"
+   ],
+   [
+    "astropy",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'representation_type' defined outside __init__*"
+   ],
+   [
+    "astropy",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'representation_type' defined outside __init__*"
+   ],
+   [
+    "astropy",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'wcs' defined outside __init__*"
+   ],
+   [
+    "astropy",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'wcs' defined outside __init__*"
+   ],
+   [
+    "astropy",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'sip' defined outside __init__*"
+   ],
+   [
+    "astropy",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'sip' defined outside __init__*"
+   ],
+   [
+    "django",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'MinX' defined outside __init__*"
+   ],
+   [
+    "django",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'MinX' defined outside __init__*"
+   ],
+   [
+    "django",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'MinY' defined outside __init__*"
+   ],
+   [
+    "django",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'MinY' defined outside __init__*"
+   ],
+   [
+    "django",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'MaxX' defined outside __init__*"
+   ],
+   [
+    "django",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'MaxX' defined outside __init__*"
+   ],
+   [
+    "django",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'MaxY' defined outside __init__*"
+   ],
+   [
+    "django",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'MaxY' defined outside __init__*"
+   ],
+   [
+    "django",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'tzinfo_factory' defined outside __init__*"
+   ],
+   [
+    "home-assistant",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'update_interval' defined outside __init__*"
+   ],
+   [
+    "home-assistant",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'update_interval' defined outside __init__*"
+   ],
+   [
+    "home-assistant",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'update_interval' defined outside __init__*"
+   ],
+   [
+    "home-assistant",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'update_interval' defined outside __init__*"
+   ],
+   [
+    "home-assistant",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'update_interval' defined outside __init__*"
+   ],
+   [
+    "home-assistant",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'last_update_success' defined outside __init__*"
+   ],
+   [
+    "home-assistant",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'authentication' defined outside __init__*"
+   ],
+   [
+    "home-assistant",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute '_attr_options' defined outside __init__*"
+   ],
+   [
+    "home-assistant",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute '_port_name' defined outside __init__*"
+   ],
+   [
+    "home-assistant",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute '_client_loop' defined outside __init__*"
+   ],
+   [
+    "home-assistant",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute '_session_id' defined outside __init__*"
+   ],
+   [
+    "home-assistant",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute '_session_id_expires' defined outside __init__*"
+   ],
+   [
+    "home-assistant",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute '_session_id_expires' defined outside __init__*"
+   ],
+   [
+    "home-assistant",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'data' defined outside __init__*"
+   ],
+   [
+    "home-assistant",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'update_interval' defined outside __init__*"
+   ],
+   [
+    "home-assistant",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'update_interval' defined outside __init__*"
+   ],
+   [
+    "home-assistant",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'update_interval' defined outside __init__*"
+   ],
+   [
+    "home-assistant",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'data' defined outside __init__*"
+   ],
+   [
+    "home-assistant",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'last_update_success' defined outside __init__*"
+   ],
+   [
+    "home-assistant",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute '_last_service_info' defined outside __init__*"
+   ],
+   [
+    "home-assistant",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'data' defined outside __init__*"
+   ],
+   [
+    "home-assistant",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'last_update_success' defined outside __init__*"
+   ],
+   [
+    "home-assistant",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'update_interval' defined outside __init__*"
+   ],
+   [
+    "home-assistant",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute '_in_callback_mutex' defined outside __init__*"
+   ],
+   [
+    "home-assistant",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute '_callback_mutex' defined outside __init__*"
+   ],
+   [
+    "home-assistant",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute '_msgtime_mutex' defined outside __init__*"
+   ],
+   [
+    "home-assistant",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute '_out_message_mutex' defined outside __init__*"
+   ],
+   [
+    "home-assistant",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute '_in_message_mutex' defined outside __init__*"
+   ],
+   [
+    "home-assistant",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute '_reconnect_delay_mutex' defined outside __init__*"
+   ],
+   [
+    "home-assistant",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute '_mid_generate_mutex' defined outside __init__*"
+   ],
+   [
+    "home-assistant",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'data' defined outside __init__*"
+   ],
+   [
+    "home-assistant",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'update_interval' defined outside __init__*"
+   ],
+   [
+    "home-assistant",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'entity_data' defined outside __init__*"
+   ],
+   [
+    "home-assistant",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'entity_data' defined outside __init__*"
+   ],
+   [
+    "home-assistant",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'entity_data' defined outside __init__*"
+   ],
+   [
+    "home-assistant",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute '_device' defined outside __init__*"
+   ],
+   [
+    "home-assistant",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'data' defined outside __init__*"
+   ],
+   [
+    "home-assistant",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'last_update_success' defined outside __init__*"
+   ],
+   [
+    "home-assistant",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute '_came_online_once' defined outside __init__*"
+   ],
+   [
+    "home-assistant",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'update_interval' defined outside __init__*"
+   ],
+   [
+    "home-assistant",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'last_update_success' defined outside __init__*"
+   ],
+   [
+    "home-assistant",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute '_came_online_once' defined outside __init__*"
+   ],
+   [
+    "home-assistant",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'last_update_success' defined outside __init__*"
+   ],
+   [
+    "home-assistant",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'update_interval' defined outside __init__*"
+   ],
+   [
+    "home-assistant",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'update_interval' defined outside __init__*"
+   ],
+   [
+    "home-assistant",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute '_closing' defined outside __init__*"
+   ],
+   [
+    "home-assistant",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute '_last_valid_update' defined outside __init__*"
+   ],
+   [
+    "home-assistant",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute '_last_valid_update' defined outside __init__*"
+   ],
+   [
+    "home-assistant",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'update_interval' defined outside __init__*"
+   ],
+   [
+    "home-assistant",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'update_interval' defined outside __init__*"
+   ],
+   [
+    "home-assistant",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'last_update_success' defined outside __init__*"
+   ],
+   [
+    "home-assistant",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'last_update_success' defined outside __init__*"
+   ],
+   [
+    "home-assistant",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'authentication' defined outside __init__*"
+   ],
+   [
+    "home-assistant",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'aclose' defined outside __init__*"
+   ],
+   [
+    "pandas",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute '_interleaved_dtype' defined outside __init__*"
+   ],
+   [
+    "pandas",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute '_interleaved_dtype' defined outside __init__*"
+   ],
+   [
+    "pandas",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute '_interleaved_dtype' defined outside __init__*"
+   ],
+   [
+    "pandas",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute '_interleaved_dtype' defined outside __init__*"
+   ],
+   [
+    "pandas",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute '_interleaved_dtype' defined outside __init__*"
+   ],
+   [
+    "pygame",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'antialiased' defined outside __init__*"
+   ],
+   [
+    "pygame",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'antialiased' defined outside __init__*"
+   ],
+   [
+    "pygame",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'underline' defined outside __init__*"
+   ],
+   [
+    "pytest",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'excinfo' defined outside __init__*"
+   ],
+   [
+    "pytest",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute '_fail_reason' defined outside __init__*"
+   ],
+   [
+    "pytest",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute '_fail_reason' defined outside __init__*"
+   ],
+   [
+    "pytest",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute '_fail_reason' defined outside __init__*"
+   ],
+   [
+    "pytest",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute '_fail_reason' defined outside __init__*"
+   ],
+   [
+    "pytest",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute '_fail_reason' defined outside __init__*"
+   ],
+   [
+    "pytest",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute '_fail_reason' defined outside __init__*"
+   ],
+   [
+    "pytest",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute '_fail_reason' defined outside __init__*"
+   ],
+   [
+    "pytest",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute '_fail_reason' defined outside __init__*"
+   ],
+   [
+    "pytest",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute '_fail_reason' defined outside __init__*"
+   ],
+   [
+    "pytest",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute '_fail_reason' defined outside __init__*"
+   ],
+   [
+    "pytest",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute '_fail_reason' defined outside __init__*"
+   ],
+   [
+    "pytest",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute '_fail_reason' defined outside __init__*"
+   ],
+   [
+    "pytest",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute '_fail_reason' defined outside __init__*"
+   ],
+   [
+    "pytest",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute '_fail_reason' defined outside __init__*"
+   ],
+   [
+    "pytest",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute '_fail_reason' defined outside __init__*"
+   ],
+   [
+    "pytest",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute '_fail_reason' defined outside __init__*"
+   ],
+   [
+    "pytest",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute '_fail_reason' defined outside __init__*"
+   ],
+   [
+    "pytest",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute '_fail_reason' defined outside __init__*"
+   ],
+   [
+    "sentry",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'args' defined outside __init__*"
+   ],
+   [
+    "sentry",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'args' defined outside __init__*"
+   ],
+   [
+    "sentry",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'kwargs' defined outside __init__*"
+   ],
+   [
+    "sentry",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'kwargs' defined outside __init__*"
+   ],
+   [
+    "sentry",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'request' defined outside __init__*"
+   ],
+   [
+    "sentry",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'headers' defined outside __init__*"
+   ],
+   [
+    "sentry",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'response' defined outside __init__*"
+   ],
+   [
+    "sentry",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'response' defined outside __init__*"
+   ],
+   [
+    "sentry",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute '_created' defined outside __init__*"
+   ],
+   [
+    "sentry",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'with_adoption_stages' defined outside __init__*"
+   ],
+   [
+    "sentry",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'instance' defined outside __init__*"
+   ],
+   [
+    "sentry",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'pk' defined outside __init__*"
+   ],
+   [
+    "sentry",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute '_for_write' defined outside __init__*"
+   ],
+   [
+    "sentry",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute '_result_cache' defined outside __init__*"
+   ],
+   [
+    "sentry",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'connection' defined outside __init__*"
+   ],
+   [
+    "sentry",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'values' defined outside __init__*"
+   ],
+   [
+    "sentry",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute '__skip_caching' defined outside __init__*"
+   ],
+   [
+    "sentry",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute '__skip_caching' defined outside __init__*"
+   ],
+   [
+    "sentry",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute '__plaintext_token' defined outside __init__*"
+   ],
+   [
+    "sentry",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute '__plaintext_token' defined outside __init__*"
+   ],
+   [
+    "sentry",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute '__plaintext_refresh_token' defined outside __init__*"
+   ],
+   [
+    "sentry",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute '__plaintext_refresh_token' defined outside __init__*"
+   ],
+   [
+    "sentry",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'pk' defined outside __init__*"
+   ],
+   [
+    "sentry",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute '_default_owner' defined outside __init__*"
+   ],
+   [
+    "sentry",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'pk' defined outside __init__*"
+   ],
+   [
+    "sentry",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'expires_at' defined outside __init__*"
+   ],
+   [
+    "sentry",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'pk' defined outside __init__*"
+   ],
+   [
+    "sentry",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'id' defined outside __init__*"
+   ],
+   [
+    "sentry",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute '_for_write' defined outside __init__*"
+   ],
+   [
+    "sentry",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'pk' defined outside __init__*"
+   ],
+   [
+    "sentry",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'instance' defined outside __init__*"
+   ],
+   [
+    "sentry",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'partial' defined outside __init__*"
+   ],
+   [
+    "sentry",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'parent_pipeline' defined outside __init__*"
+   ],
+   [
+    "sentry",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute '_flusher' defined outside __init__*"
+   ],
+   [
+    "sentry",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'mock_post' defined outside __init__*"
+   ],
+   [
+    "sentry",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'event_dict' defined outside __init__*"
+   ],
+   [
+    "sentry",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'organization_slug' defined outside __init__*"
+   ],
+   [
+    "sentry",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'project_id_or_slug' defined outside __init__*"
+   ],
+   [
+    "sentry",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'partial' defined outside __init__*"
+   ],
+   [
+    "sentry",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'instance' defined outside __init__*"
+   ],
+   [
+    "sentry",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'request' defined outside __init__*"
+   ],
+   [
+    "sentry",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'default_context' defined outside __init__*"
+   ],
+   [
+    "sentry",
+    "removed",
+    "attribute-defined-outside-init",
+    "*Attribute 'organization' defined outside __init__*"
+   ]
+  ],
+  "commit": "b2a8d21c8"
  }
 }

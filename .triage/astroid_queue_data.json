@@ -1127,8 +1127,8 @@
    "milestone": "",
    "size": 98,
    "created": "2026-10-12",
-   "updated": "2026-10-23",
-   "ci": "awaiting-approval",
+   "updated": "2026-11-20",
+   "ci": "green",
    "cifail": 0,
    "links": []
   },
@@ -1556,8 +1556,8 @@
    "milestone": "",
    "size": 51,
    "created": "2026-10-22",
-   "updated": "2026-10-23",
-   "ci": "awaiting-approval",
+   "updated": "2026-11-20",
+   "ci": "running",
    "cifail": 0,
    "links": []
   },
@@ -1573,9 +1573,9 @@
    "milestone": "",
    "size": 92,
    "created": "2026-10-22",
-   "updated": "2026-10-23",
-   "ci": "awaiting-approval",
-   "cifail": 0,
+   "updated": "2026-11-20",
+   "ci": "failing",
+   "cifail": 1,
    "links": []
   },
   {
@@ -1591,8 +1591,8 @@
    "milestone": "",
    "size": 69,
    "created": "2026-10-22",
-   "updated": "2026-10-23",
-   "ci": "awaiting-approval",
+   "updated": "2026-11-20",
+   "ci": "green",
    "cifail": 0,
    "links": []
   },
@@ -1627,8 +1627,8 @@
    "milestone": "",
    "size": 30,
    "created": "2026-10-22",
-   "updated": "2026-10-23",
-   "ci": "awaiting-approval",
+   "updated": "2026-11-20",
+   "ci": "green",
    "cifail": 0,
    "links": []
   },
@@ -1661,8 +1661,8 @@
    "milestone": "",
    "size": 91,
    "created": "2026-10-23",
-   "updated": "2026-10-23",
-   "ci": "awaiting-approval",
+   "updated": "2026-11-20",
+   "ci": "green",
    "cifail": 0,
    "links": [
     {
@@ -1751,9 +1751,9 @@
    "milestone": "",
    "size": 59,
    "created": "2026-10-24",
-   "updated": "2026-10-24",
-   "ci": "awaiting-approval",
-   "cifail": 0,
+   "updated": "2026-11-20",
+   "ci": "failing",
+   "cifail": 1,
    "links": []
   },
   {
@@ -1895,7 +1895,7 @@
    "size": 155,
    "created": "2026-10-29",
    "updated": "2026-11-20",
-   "ci": "running",
+   "ci": "green",
    "cifail": 0,
    "links": [
     {
