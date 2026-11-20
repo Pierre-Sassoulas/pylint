@@ -134,6 +134,12 @@ ASKED_IN_A_COMMENT = {
     3439: "2026-11-15",  # Pierre asked emmanuel-ferdman about the stub cache invalidation
 }
 
+# Held runs that must not be released as they are: the diff changes CI files.
+# number -> why. They stay out of the approve loop until the author fixes it.
+DO_NOT_APPROVE = {
+    3443: "its main merges revert dependabot 3451: 7 workflows downgrade action pins; ask for a rebase",
+}
+
 
 def lane(p: dict) -> str:
     if p["a"] == "app/pylint-backport":

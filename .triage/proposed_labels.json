@@ -1,4 +1,21 @@
 {
- "astroid": {},
- "pylint": {}
+ "astroid": {
+  "3481": {
+   "kind": "pr",
+   "labels": [
+    "Maintenance",
+    "Skip news :mute:"
+   ]
+  }
+ },
+ "pylint": {
+  "11854": {
+   "kind": "pr",
+   "labels": [
+    "False Positive 🦟",
+    "Optional Checkers",
+    "Duplicate 🐫"
+   ]
+  }
+ }
 }

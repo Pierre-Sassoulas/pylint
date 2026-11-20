@@ -1,5 +1,5 @@
 {
- "snapshot": "2026-11-19",
+ "snapshot": "2026-11-20",
  "prs": [
   {
    "n": 2965,
@@ -1799,7 +1799,7 @@
    "milestone": "",
    "size": 90,
    "created": "2026-10-27",
-   "updated": "2026-11-14",
+   "updated": "2026-11-19",
    "ci": "green",
    "cifail": 0,
    "links": [
@@ -1892,10 +1892,10 @@
    ],
    "rd": "REVIEW_REQUIRED",
    "milestone": "4.4.0",
-   "size": 119,
+   "size": 155,
    "created": "2026-10-29",
-   "updated": "2026-11-15",
-   "ci": "green",
+   "updated": "2026-11-20",
+   "ci": "awaiting-approval",
    "cifail": 0,
    "links": [
     {
@@ -2146,9 +2146,9 @@
    ],
    "rd": "REVIEW_REQUIRED",
    "milestone": "4.4.0",
-   "size": 170,
+   "size": 171,
    "created": "2026-11-11",
-   "updated": "2026-11-16",
+   "updated": "2026-11-20",
    "ci": "green",
    "cifail": 0,
    "links": [
@@ -2194,11 +2194,11 @@
     "Brain 🧠",
     "T: NamedTuple"
    ],
-   "rd": "REVIEW_REQUIRED",
+   "rd": "APPROVED",
    "milestone": "4.4.0",
    "size": 97,
    "created": "2026-11-15",
-   "updated": "2026-11-16",
+   "updated": "2026-11-20",
    "ci": "green",
    "cifail": 0,
    "links": [
@@ -2305,6 +2305,21 @@
    "updated": "2026-11-17",
    "ci": "green",
    "cifail": 0,
+   "links": []
+  },
+  {
+   "n": 3481,
+   "a": "grayjk",
+   "t": "fix misspellings found by codespell",
+   "draft": false,
+   "labels": [],
+   "rd": "CHANGES_REQUESTED",
+   "milestone": "",
+   "size": 97,
+   "created": "2026-11-19",
+   "updated": "2026-11-19",
+   "ci": "failing",
+   "cifail": 2,
    "links": []
   }
  ]

@@ -383,13 +383,6 @@ V = {
         'New (14 November), 115 lines by ychampion for issue 9379 (false negative): a name assigned only in an <code>except</code> whose sibling <code>else</code> does <code>continue</code> is exempt from <code>used-before-assignment</code> inside the loop, but the first in-loop use consumed the name so later uses after the loop were never checked. Now <code>NamesConsumer</code> records the exempting scope and, for a use outside it, restores the name to <code>to_consume</code> for a recheck. Turns the existing <code># https://github.com/pylint-dev/pylint/issues/9379</code> placeholder into an expected message, plus for/while/nested cases. Diff read 14 November: only variables.py and tests, no risky calls, ASCII only. Watch: the restore re-copies <code>node.locals[name]</code>, which could double-report or leak state in other consumers; primer will tell. 15 November CI at 0766cc7e2: green, primer no effect at all.',
         'Review: primer clean, so the restore-for-recheck does not double-report on real code; read the consumer change.',
     ),
-    11815: (
-        'merge',
-        'approved',
-        'confirmed',
-        'New (14 November), 4 files by OmkarGowda990 for issue 9317 (docs), replacing the deleted #11755 as Pierre asked ("replace by a clearer one"): drops the <code>unnecessary-lambda</code> pandas example (<code>df.apply(lambda x: str(x))</code>, undefined <code>df</code>, and <code>df.apply(str)</code> stringifies whole columns) for a self-contained <code>list(map(lambda x: str(x), numbers))</code> bad/good pair. No changelog fragment, needs Skip news. Diff read 14 November: doc examples only, ASCII. 15 November: tests green; the red Changelog Entry Check is the stale run from before the Skip news label (reruns replay the old payload), ignore it. No primer (docs only). 18 November: Pierre approved. Only the Changelog Entry Check is red, from the run held before the Skip news label (the author asked about it).',
-        'Re-run the stale Changelog check, then merge.',
-    ),
     11814: (
         'decide',
         'design',
@@ -405,25 +398,25 @@ V = {
         'Review: open the four pandas hits first; if the overrides only add a docstring/decorator, ask for that guard (the super() form already skips documented overrides?).',
     ),
     11803: (
-        'author',
-        'changes',
+        'review',
+        'answered',
         'confirmed',
-        'New, 155 lines by marksmayo (performance): four checks walked the same subtree several times (<code>visit_assignname</code> reassigned-before/after, <code>leave_functiondef</code> global/nonlocal/comprehension, unused private members per member, <code>BasicErrorChecker</code> global/nonlocal). Each now walks once, same order. 3.7-4.1% faster on astroid, identical messages. New helper <code>is_reassigned_before_or_after_current</code> with unit tests. Not run locally. 10 November CI: all green, primer only the known pandas <code>series.py</code> L505 redefined-variable-type move (noise, seen on unrelated PRs). 15 November: Pierre requested changes: the constant-naming check still walks the module once per module-level name (quadratic, halved), collect line numbers once per scope; the private-member checks still compare every private member against every name; plus a fragment wording suggestion. 19 November: Pierre rebased for CodSpeed (0cf9bf9bf) and rewrote the fragment (685d72916). CodSpeed reports +61.6%, primer no effect, CI green. The constant-naming quadratic leftover from the 15 November review is still unaddressed (4 days).',
-        'Either wait for the leftover, or dismiss the change request and merge now (green, +61.6% CodSpeed) with the leftover as a follow-up.',
+        'New, 155 lines by marksmayo (performance): four checks walked the same subtree several times (<code>visit_assignname</code> reassigned-before/after, <code>leave_functiondef</code> global/nonlocal/comprehension, unused private members per member, <code>BasicErrorChecker</code> global/nonlocal). Each now walks once, same order. 3.7-4.1% faster on astroid, identical messages. New helper <code>is_reassigned_before_or_after_current</code> with unit tests. Not run locally. 10 November CI: all green, primer only the known pandas <code>series.py</code> L505 redefined-variable-type move (noise, seen on unrelated PRs). 15 November: Pierre requested changes: the constant-naming check still walks the module once per module-level name (quadratic, halved), collect line numbers once per scope; the private-member checks still compare every private member against every name; plus a fragment wording suggestion. 19 November: Pierre rebased for CodSpeed (0cf9bf9bf) and rewrote the fragment (685d72916). CodSpeed reports +61.6%, primer no effect, CI green. The constant-naming quadratic leftover from the 15 November review is still unaddressed (4 days). 19 November: marksmayo pushed both asks (assignment line numbers indexed once per scope via an <code>lru_cache</code> cleared in <code>clear_lru_caches()</code>; class names/attributes indexed once for unused-private-member). Primer no effect. CodSpeed: CPU simulation black +4.35%; the red check is walltime cold_start -7.9% / flask_j2 -5.5% (walltime noise).',
+        'Re-review the two new commits; dismiss your change request and merge if they hold.',
     ),
     11806: (
         'review',
         'pending',
         'confirmed',
-        'New, 77 lines by marksmayo (performance): three caches: <code>get_module_part</code> in the imports checker (reset in <code>open()</code>; this is the cache that never landed in the cyclic-import perf work, about -25% on ansible then), a per-scope <code>frozenset</code> of assigned names for <code>used-before-assignment</code> (<code>lru_cache</code>, cleared with the others), and callbacks per node class in <code>ASTWalker.walk</code>. 1.5-2.5% on astroid; the imports cache should matter more on big import graphs. Caches are where behaviour hides: check the reset points. Not run locally. 10 November CI: only the self-lint job is red, spelling hook on <code>pylint/utils/ast_walker.py</code> comment word <code>lowercased</code>; primer only the pandas L505 noise. 10 November evening: the author pushed <code>0426ce904</code>, which only rewords the comment (diff read 12 November); the new runs are held. 12 November CI: all green, primer no effect. 16 November: Pierre has an unsubmitted (PENDING) review on it.',
-        'Submit your pending review.',
+        'New, 77 lines by marksmayo (performance): three caches: <code>get_module_part</code> in the imports checker (reset in <code>open()</code>; this is the cache that never landed in the cyclic-import perf work, about -25% on ansible then), a per-scope <code>frozenset</code> of assigned names for <code>used-before-assignment</code> (<code>lru_cache</code>, cleared with the others), and callbacks per node class in <code>ASTWalker.walk</code>. 1.5-2.5% on astroid; the imports cache should matter more on big import graphs. Caches are where behaviour hides: check the reset points. Not run locally. 10 November CI: only the self-lint job is red, spelling hook on <code>pylint/utils/ast_walker.py</code> comment word <code>lowercased</code>; primer only the pandas L505 noise. 10 November evening: the author pushed <code>0426ce904</code>, which only rewords the comment (diff read 12 November); the new runs are held. 12 November CI: all green, primer no effect. 16 November: Pierre has an unsubmitted (PENDING) review on it. 19 November: rebased and force-pushed (c78fa81e0), speedup estimate dropped from the fragment. Primer no effect; CodSpeed red only on walltime cold_start -4.5% (noise).',
+        'Submit your pending review (or redo it on the rebased head).',
     ),
     11805: (
         'review',
-        'green*',
+        'green',
         'feature',
-        'New, 40 lines by marksmayo (no issue, maintenance): <code>nodes_of_class(nodes.Break, nodes.Continue)</code> in <code>_inferred_to_define_name_raise_or_return_for_if_node</code> passes <code>Continue</code> as <code>skip_klass</code>, so only <code>break</code> was ever permissive. The PR keeps that behaviour on purpose (making <code>continue</code> permissive would hide real <code>possibly-used-before-assignment</code>), writes <code>nodes_of_class(nodes.Break)</code> with a comment, and adds tests pinning it. No output change. 10 November CI: everything green except the changelog check, which ran before the <code>Skip news</code> label was added; rerun that one job. 12 November: the rerun failed again because a rerun replays the original <code>opened</code> event, whose label list had no <code>Skip news</code>; the <code>labeled</code> run already skipped the job. The red check is stale, not a real failure.',
-        'Quick review; ignore the stale changelog check (or the author pushes once to clear it).',
+        'New, 40 lines by marksmayo (no issue, maintenance): <code>nodes_of_class(nodes.Break, nodes.Continue)</code> in <code>_inferred_to_define_name_raise_or_return_for_if_node</code> passes <code>Continue</code> as <code>skip_klass</code>, so only <code>break</code> was ever permissive. The PR keeps that behaviour on purpose (making <code>continue</code> permissive would hide real <code>possibly-used-before-assignment</code>), writes <code>nodes_of_class(nodes.Break)</code> with a comment, and adds tests pinning it. No output change. 10 November CI: everything green except the changelog check, which ran before the <code>Skip news</code> label was added; rerun that one job. 12 November: the rerun failed again because a rerun replays the original <code>opened</code> event, whose label list had no <code>Skip news</code>; the <code>labeled</code> run already skipped the job. The red check is stale, not a real failure. 19 November: rebased and force-pushed; now fully green (changelog check passes), primer no effect.',
+        'Quick review and merge.',
     ),
     11800: (
         'review',
@@ -1091,14 +1084,11 @@ V = {
     ),
     # ---- author's move ----------------------------------------------------
     11672: (
-        "author",
-        "changes",
-        "crash",
-        "Crash 9277 (2 reactions): <code>UnicodeEncodeError</code> when stdout cannot encode a "
-        "message. Green, chrikrah approved, but you requested changes on 22 October: the 9277 "
-        "traceback goes through colorama's <code>AnsiToWin32</code> wrapper in "
-        "<code>ColorizedTextReporter</code>, which this PR may not fix; plus a fragment rewording.",
-        "Wait for the author's answer on the colorama path.",
+        'review',
+        'yours',
+        'crash',
+        "Crash 9277 (2 reactions): <code>UnicodeEncodeError</code> when stdout cannot encode a message. Green, chrikrah approved, but you requested changes on 22 October: the 9277 traceback goes through colorama's <code>AnsiToWin32</code> wrapper in <code>ColorizedTextReporter</code>, which this PR may not fix; plus a fragment rewording. 20 November: you took it over and pushed 2f3501bce (sanitize with the stream encoding before the first write, <code>AnsiToWin32.stream.encoding</code> read, tests with a chunked writer and real colorama) plus a fragment edit. 45 checks: all green except CodSpeed walltime (cold_start -7.8%, flask_j2 -8.9%), walltime noise on an output-path change. Your 22 October change request still blocks; chrikrah approved earlier. Milestone 4.2.0, backport label still on.",
+        'Dismiss your own change request, approve, merge; backport.',
     ),
     11715: (
         "review",
@@ -1112,14 +1102,11 @@ V = {
         "Review.",
     ),
     11675: (
-        "author",
-        "changes",
-        "crash",
-        "Crash 11674: <code>--jobs</code> above 1 crashes with <code>PermissionError</code> when "
-        "<code>ProcessPoolExecutor</code> cannot be created (sandbox). Green. You requested changes "
-        "on 22 October: check more before trying the pool so a one-CPU machine does not create an "
-        "executor for nothing (+15 to +40 ms).",
-        "Wait for the author.",
+        'merge',
+        'approved',
+        'crash',
+        'Crash 11674: <code>--jobs</code> above 1 crashes with <code>PermissionError</code> when <code>ProcessPoolExecutor</code> cannot be created (sandbox). Green. You requested changes on 22 October: check more before trying the pool so a one-CPU machine does not create an executor for nothing (+15 to +40 ms). 20 November: you took it over (author silent since your 22 October request; elupus thanked you the same day): <code>--jobs=0</code> resolved first, the executor probed only when <code>jobs &gt; 1</code> and not stdin, new test. You approved; 45/45 green at 722a50315, primer clean, milestone moved to 4.2.0 and backport label removed. CodSpeed walltime +60-68% on the <code>_j2</code> benchmarks is too good for this change: confirm they still run two processes before trusting it.',
+        'Merge (you approved; your commits on top, so a second maintainer is optional).',
     ),
     11641: (
         'author',
@@ -1276,6 +1263,13 @@ V = {
         "Ask for a rebase onto #11011, keeping only the package-root fix.",
     ),
     # ---- decide first -----------------------------------------------------
+    11854: (
+        'decide',
+        'dup',
+        'duplicate',
+        'New (20 November), 160 lines by ghanashyam03 for issue 11843 (FP, <code>missing-type-doc</code> with positional-only parameters). #11845 by mmporong fixes the same issue since 18 November, is green and its primer removes the flask false positive. This one rewrites <code>args_with_annotation</code> loop by loop with <code>zip_longest</code>; larger and later. Not read for CI abuse (no run to approve). Proposed labels: False Positive, Optional Checkers, Duplicate.',
+        'Close in favour of #11845 (AGENTS.md rule: one open PR per issue).',
+    ),
     11678: (
         'decide',
         'design',
@@ -1927,7 +1921,12 @@ if ASTROID_FILE.exists():
         ("backport", "Backports", 8, lambda p: True),
         ("merge", "Merge", 8, lambda p: True),
         ("review", "Review (contributors, green)", 8, astroid_queue.worth),
-        ("approve", "Approve the run", 8, astroid_queue.worth),
+        (
+            "approve",
+            "Approve the run",
+            8,
+            lambda p: astroid_queue.worth(p) and p["n"] not in astroid_queue.DO_NOT_APPROVE,
+        ),
         ("ping", "Yours, waiting on a reviewer", 10, lambda p: astroid_queue.worth(p) or bool(p["milestone"])),
         ("takeover", "Take over (author silent)", 8, astroid_queue.worth),
     ):

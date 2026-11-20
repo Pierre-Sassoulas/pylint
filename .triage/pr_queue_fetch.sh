@@ -75,7 +75,15 @@ def ci_state(number):
     runs = checks.get(number) or []
     if base[number]["headRefOid"] in pending:
         return "awaiting-approval", len(runs), 0
-    failed = [r for r in runs if r.get("conclusion") in ("FAILURE", "TIMED_OUT")]
+    # CodSpeed fails its check on any walltime swing past its threshold, and
+    # walltime on shared runners moves by 5-10% between identical runs: its
+    # report is read on the PR, not counted as a red CI.
+    failed = [
+        r
+        for r in runs
+        if r.get("conclusion") in ("FAILURE", "TIMED_OUT")
+        and not (r.get("name") or "").startswith("CodSpeed")
+    ]
     # Fewer than six checks means the test matrix never reported: only the
     # always-on integrations (Read the Docs, pre-commit.ci) are present.
     if len(runs) <= 5:
